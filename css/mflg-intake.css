@@ -827,3 +827,52 @@
     font-size: 23px;
   }
 }
+/* ---------- Error + Success States ---------- */
+
+.mflg-inline-error {
+  width: 100%;
+  margin: 22px 0 0;
+  padding: 14px 16px;
+  border-radius: 15px;
+  border: 1px solid rgba(158, 42, 43, 0.22);
+  background: rgba(158, 42, 43, 0.08);
+  color: #7b1f22;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.mflg-success-message {
+  width: 100%;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mflg-success-message .mflg-form-title {
+  margin-bottom: 0;
+}
+
+.mflg-success-message .mflg-form-subtitle {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-top: 18px;
+  margin-bottom: 0;
+  color: rgba(7, 24, 39, 0.72);
+}
+
+.mflg-success-message .mflg-disclaimer {
+  margin-top: 0;
+}
+
+#mflg-next-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  transform: none;
+}
+
+#mflg-next-btn:disabled:hover {
+  background: var(--mflg-blue);
+  box-shadow: 0 14px 28px rgba(2, 69, 122, 0.24);
+}
