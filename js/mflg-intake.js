@@ -1,11 +1,12 @@
-/* MFLG Intake Final Launch v3.1 — Refined JS
+/* MFLG Intake Final Launch v3.1.1 — Refined JS / Left Rail DOM Removed
    File: js/mflg-intake.js
    Architecture: Webflow external JS → n8n webhook → Google Sheets/Gmail/Vapi routing in n8n.
-   Updates:
-   - Adds real intro block above form header
-   - Adds calendar/date inputs for true date fields
-   - Adds targeted wide class for Issue screen “Not Sure”
-   - Preserves conditional logic, payload, n8n submission, and Vapi routing flags
+
+   In accordance with MP v2:
+   - Full replacement file
+   - Scoped required change only
+   - Removes the left-side <aside> from rendered DOM
+   - Preserves conditional logic, field names, payload, validation, n8n submission, and Vapi routing flags
    - Do not place secrets in this public file
 */
 
@@ -13,7 +14,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.1-final-launch",
+    version: "3.1.1-final-launch",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -334,8 +335,6 @@
     mount.innerHTML = `
       <section class="mflg-intake" data-version="${esc(CONFIG.version)}">
         <div class="mflg-shell">
-          <aside class="mflg-left" aria-hidden="true"></aside>
-
           <div class="mflg-right">
             ${state.step === 6 ? "" : introBlock()}
 
