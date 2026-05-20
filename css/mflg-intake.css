@@ -1,18 +1,18 @@
-/* MFLG Intake Final Launch v3.6.1 — Premium Background Reveal / Blue System / Feather-Safe Layout
+/* MFLG Intake Final Launch v3.6.2 — Scoped Left Image Reveal Repair
    File: css/mflg-intake.css
 
-   Purpose:
-   - Preserve working intake fields, cards, icons, buttons, JS logic, n8n payload, and Vapi routing flags
+   In accordance with MP v2:
+   - CSS-only repair
+   - Preserve JS v3.1, intake logic, fields, payload, n8n webhook, validation, and Vapi routing flags
+   - Do not redesign full intake
+   - Do not change non-intake site sections
+   - Restore the left-side courthouse image visibility while keeping intro text above the form
    - Keep all CSS scoped to #mflg-intake-root
-   - Keep left rail removed
-   - Use courthouse image as a premium full-section background
-   - Improve left-background reveal and remove abrupt visual edge
-   - Add stronger right-side/left-edge feathering around form shell
-   - Preserve intro block styling from JS markup
-   - Preserve brand-blue progress header and selected segmented tabs
-   - Keep Issue screen “Not Sure” full row on desktop
-   - Keep Timing page safe from right-side clipping
-   - Improve tablet/mobile layout safety without disrupting desktop design
+
+   Primary fix:
+   The left side looked gray because multiple cream/gray overlay gradients were sitting over
+   the courthouse image and the right-side shell feather was too heavy. This version removes
+   the excessive washout on the left side while preserving a soft premium transition into the form.
 */
 
 /* ---------- Root Isolation / Full-Bleed Breakout ---------- */
@@ -53,7 +53,7 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Section Background / Premium Left Reveal ---------- */
+/* ---------- Section Background / Left Image Reveal Repair ---------- */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
@@ -64,19 +64,19 @@
   background-image:
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.72) 0%,
-      rgba(6, 16, 26, 0.54) 9%,
-      rgba(6, 16, 26, 0.28) 18%,
-      rgba(247, 242, 232, 0.34) 28%,
-      rgba(247, 242, 232, 0.78) 38%,
-      rgba(247, 242, 232, 0.96) 52%,
-      rgba(247, 242, 232, 0.99) 100%
+      rgba(255, 253, 248, 0.08) 0%,
+      rgba(255, 253, 248, 0.16) 8%,
+      rgba(255, 253, 248, 0.32) 16%,
+      rgba(247, 242, 232, 0.62) 25%,
+      rgba(247, 242, 232, 0.92) 36%,
+      rgba(247, 242, 232, 0.99) 52%,
+      rgba(247, 242, 232, 1) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 253, 248, 0.62) 0%,
-      rgba(247, 242, 232, 0.78) 42%,
-      rgba(243, 235, 221, 0.96) 100%
+      rgba(255, 253, 248, 0.10) 0%,
+      rgba(247, 242, 232, 0.20) 50%,
+      rgba(247, 242, 232, 0.62) 100%
     ),
     url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
   background-size: cover;
@@ -84,7 +84,7 @@
   background-repeat: no-repeat;
 }
 
-/* Global image atmosphere and premium fade layers */
+/* Keep atmosphere subtle. Do not wash out the left image. */
 #mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
@@ -92,32 +92,32 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 4% 42%, rgba(6, 16, 26, 0.34), transparent 25%),
-    radial-gradient(circle at 18% 34%, rgba(6, 16, 26, 0.16), transparent 30%),
-    radial-gradient(circle at 92% 8%, rgba(199, 154, 43, 0.10), transparent 28%),
+    radial-gradient(circle at 7% 44%, rgba(255, 253, 248, 0.05), transparent 30%),
+    radial-gradient(circle at 92% 8%, rgba(199, 154, 43, 0.08), transparent 28%),
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.20) 0%,
-      rgba(247, 242, 232, 0.05) 22%,
-      rgba(247, 242, 232, 0.00) 48%,
+      rgba(6, 16, 26, 0.00) 0%,
+      rgba(247, 242, 232, 0.02) 18%,
+      rgba(247, 242, 232, 0.18) 31%,
+      rgba(247, 242, 232, 0.00) 55%,
       rgba(247, 242, 232, 0.00) 100%
     );
 }
 
-/* Bottom fade so the section does not end harshly */
+/* Bottom fade only. Do not gray the whole left column. */
 #mflg-intake-root .mflg-intake::after {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 170px;
+  height: 150px;
   z-index: 0;
   pointer-events: none;
   background:
     linear-gradient(
       180deg,
       rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.64) 54%,
-      rgba(247, 242, 232, 0.98) 100%
+      rgba(247, 242, 232, 0.58) 62%,
+      rgba(247, 242, 232, 0.96) 100%
     );
 }
 
@@ -140,28 +140,26 @@
   box-shadow: none;
 }
 
-/* Soft transition plane between image reveal and form area */
+/* Soft transition only at the form boundary. This must not cover the entire left image. */
 #mflg-intake-root .mflg-shell::before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  left: clamp(60px, 9vw, 220px);
-  width: clamp(180px, 18vw, 420px);
+  left: clamp(105px, 11vw, 245px);
+  width: clamp(120px, 11vw, 250px);
   z-index: 1;
   pointer-events: none;
   background:
     linear-gradient(
       90deg,
       rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.34) 34%,
-      rgba(247, 242, 232, 0.78) 68%,
-      rgba(247, 242, 232, 0.98) 100%
+      rgba(247, 242, 232, 0.24) 42%,
+      rgba(247, 242, 232, 0.78) 100%
     );
-  filter: blur(0.1px);
 }
 
-/* ---------- Remove Old Left Rail Completely ---------- */
+/* ---------- Keep Old Left Rail Hidden: Image Only On Left ---------- */
 
 #mflg-intake-root .mflg-left,
 #mflg-intake-root .mflg-left::before,
@@ -190,46 +188,45 @@
     radial-gradient(circle at 98% 0%, rgba(199, 154, 43, 0.08), transparent 32%),
     linear-gradient(180deg, rgba(255, 253, 248, 0.975) 0%, rgba(252, 248, 239, 0.995) 100%);
   box-shadow:
-    -68px 0 110px rgba(247, 242, 232, 0.82),
-    -28px 0 54px rgba(247, 242, 232, 0.58),
-    -1px 0 0 rgba(255, 255, 255, 0.42);
+    -34px 0 58px rgba(247, 242, 232, 0.64),
+    -12px 0 26px rgba(247, 242, 232, 0.38),
+    -1px 0 0 rgba(255, 255, 255, 0.34);
 }
 
-/* Extra internal feather so the left edge of the form does not look cut off */
+/* Light form-edge feather only. Prevents hard edge without graying image area. */
 #mflg-intake-root .mflg-right::before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   left: -1px;
-  width: clamp(70px, 7vw, 140px);
+  width: clamp(38px, 4vw, 80px);
   z-index: 0;
   pointer-events: none;
   background:
     linear-gradient(
       90deg,
-      rgba(247, 242, 232, 0.98) 0%,
-      rgba(247, 242, 232, 0.72) 34%,
-      rgba(252, 248, 239, 0.28) 70%,
+      rgba(247, 242, 232, 0.88) 0%,
+      rgba(252, 248, 239, 0.38) 58%,
       rgba(252, 248, 239, 0.00) 100%
     );
 }
 
-/* Subtle right-side polish, prevents the content block from feeling like it ends too abruptly */
+/* Subtle right-side polish */
 #mflg-intake-root .mflg-right::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: clamp(22px, 3vw, 60px);
+  width: clamp(18px, 2.5vw, 48px);
   z-index: 0;
   pointer-events: none;
   background:
     linear-gradient(
       90deg,
       rgba(252, 248, 239, 0.00) 0%,
-      rgba(252, 248, 239, 0.72) 100%
+      rgba(252, 248, 239, 0.62) 100%
     );
 }
 
@@ -241,7 +238,7 @@
   z-index: 1;
 }
 
-/* ---------- Real Intro Block ---------- */
+/* ---------- Intro Block Above Form ---------- */
 
 #mflg-intake-root .mflg-intro {
   width: 100%;
@@ -925,8 +922,8 @@
   }
 
   #mflg-intake-root .mflg-shell::before {
-    left: clamp(110px, 11vw, 260px);
-    width: clamp(260px, 20vw, 500px);
+    left: clamp(175px, 13vw, 330px);
+    width: clamp(130px, 10vw, 270px);
   }
 
   #mflg-intake-root .mflg-intro,
@@ -945,8 +942,8 @@
   }
 
   #mflg-intake-root .mflg-shell::before {
-    left: clamp(32px, 7vw, 120px);
-    width: clamp(160px, 20vw, 320px);
+    left: clamp(62px, 7vw, 130px);
+    width: clamp(95px, 11vw, 210px);
   }
 
   #mflg-intake-root .mflg-intro,
@@ -983,13 +980,13 @@
   }
 
   #mflg-intake-root .mflg-intake {
-    background-position: center;
+    background-position: center top;
     background-image:
       linear-gradient(
         180deg,
-        rgba(6, 16, 26, 0.48) 0%,
-        rgba(247, 242, 232, 0.76) 220px,
-        rgba(247, 242, 232, 0.98) 430px,
+        rgba(255, 253, 248, 0.20) 0%,
+        rgba(247, 242, 232, 0.62) 240px,
+        rgba(247, 242, 232, 0.96) 430px,
         rgba(247, 242, 232, 1) 100%
       ),
       url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
@@ -997,8 +994,8 @@
 
   #mflg-intake-root .mflg-intake::before {
     background:
-      radial-gradient(circle at 50% 0%, rgba(6, 16, 26, 0.20), transparent 36%),
-      linear-gradient(180deg, rgba(6, 16, 26, 0.12), rgba(247, 242, 232, 0.00) 42%);
+      radial-gradient(circle at 50% 0%, rgba(255, 253, 248, 0.10), transparent 36%),
+      linear-gradient(180deg, rgba(247, 242, 232, 0.04), rgba(247, 242, 232, 0.00) 42%);
   }
 
   #mflg-intake-root .mflg-right {
