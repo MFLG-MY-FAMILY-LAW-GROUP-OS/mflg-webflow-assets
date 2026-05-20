@@ -1,15 +1,16 @@
-/* MFLG Intake Final Launch v3.6.5 — Section Background Removed / No Image / No Fade / No Section Gradients
+/* MFLG Intake Final Launch v3.6.7 — Centralized Right-Side Premium Gradient / No Image / No Left Rail
    File: css/mflg-intake.css
 
    In accordance with MP v2:
    - Full replacement file
    - Scoped required changes only
+   - No JS change required
    - Preserve intake layout, logic-supporting classes, fields, payload, validation, n8n, and Vapi routing
-   - Remove section background image
-   - Remove section background gradients
-   - Remove section fade overlays
-   - Remove all section pseudo-overlay effects
+   - No left-side image
    - No left-side hidden rail elements, rows, columns, sections, or divs
+   - Centralize the right-side premium gradient on .mflg-right so it runs full height
+   - Keep form content, cards, inputs, and text readable
+   - Anchor the gradient toward the far-right form area near the “Me & Others” segment
    - Keep all CSS scoped to #mflg-intake-root
 */
 
@@ -66,7 +67,6 @@
   background-repeat: initial;
 }
 
-/* Removed all section overlay/fade layers. */
 #mflg-intake-root .mflg-intake::before,
 #mflg-intake-root .mflg-intake::after {
   display: none;
@@ -92,14 +92,13 @@
   box-shadow: none;
 }
 
-/* Removed shell pseudo-overlay so nothing sits over the section. */
 #mflg-intake-root .mflg-shell::before,
 #mflg-intake-root .mflg-shell::after {
   display: none;
   content: none;
 }
 
-/* ---------- Form Application ---------- */
+/* ---------- Form Application / Full-Height Right-Side Gradient ---------- */
 
 #mflg-intake-root .mflg-right {
   width: 100%;
@@ -110,12 +109,18 @@
   position: relative;
   z-index: 2;
   overflow: hidden;
-  background: var(--mflg-cream-2);
-  background-image: none;
+  background:
+    linear-gradient(
+      90deg,
+      var(--mflg-cream-2) 0%,
+      var(--mflg-cream-2) 74%,
+      rgba(250, 245, 235, 0.98) 84%,
+      rgba(242, 235, 221, 0.90) 93%,
+      rgba(232, 226, 213, 0.78) 100%
+    );
   box-shadow: none;
 }
 
-/* Removed form-edge pseudo-overlays/fades. */
 #mflg-intake-root .mflg-right::before,
 #mflg-intake-root .mflg-right::after {
   display: none;
@@ -135,7 +140,7 @@
 #mflg-intake-root .mflg-intro {
   width: 100%;
   padding: 38px clamp(36px, 6vw, 110px) 30px;
-  background: var(--mflg-cream-3);
+  background: transparent;
   background-image: none;
 }
 
@@ -173,14 +178,20 @@
   line-height: 1.65;
 }
 
-/* ---------- Progress Header: Solid Brand Blue ---------- */
+/* ---------- Progress Header: Navy With Later Right-Side Depth ---------- */
 
 #mflg-intake-root .mflg-head {
   width: 100%;
   padding: 30px clamp(36px, 6vw, 110px) 25px;
   color: #fff;
-  background: var(--mflg-blue);
-  background-image: none;
+  background:
+    linear-gradient(
+      90deg,
+      var(--mflg-blue) 0%,
+      var(--mflg-blue) 76%,
+      var(--mflg-blue-2) 90%,
+      var(--mflg-blue-3) 100%
+    );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 14px 30px rgba(2, 69, 122, 0.14);
@@ -269,7 +280,7 @@
   width: 100%;
   flex: 1;
   padding: 42px clamp(36px, 6vw, 110px) 36px;
-  background: var(--mflg-cream-2);
+  background: transparent;
   background-image: none;
 }
 
@@ -437,7 +448,7 @@
   appearance: none;
   border: 1px solid var(--mflg-line);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   color: var(--mflg-text);
   text-align: left;
   cursor: pointer;
@@ -591,7 +602,7 @@
   padding: 22px;
   border: 1px solid rgba(16, 24, 32, 0.12);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.78);
   box-shadow: 0 12px 32px rgba(16, 24, 32, 0.04);
 }
 
@@ -786,6 +797,8 @@
   font-size: 12px;
   line-height: 1.45;
   text-align: center;
+  background: transparent;
+  background-image: none;
 }
 
 #mflg-intake-root .mflg-foot svg {
@@ -863,13 +876,19 @@
 
   #mflg-intake-root .mflg-right {
     box-shadow: none;
-    background: var(--mflg-cream-2);
-    background-image: none;
+    background:
+      linear-gradient(
+        90deg,
+        var(--mflg-cream-2) 0%,
+        var(--mflg-cream-2) 78%,
+        rgba(250, 245, 235, 0.98) 90%,
+        rgba(242, 235, 221, 0.86) 100%
+      );
   }
 
   #mflg-intake-root .mflg-intro {
     padding: 32px 30px 26px;
-    background: var(--mflg-cream-3);
+    background: transparent;
     background-image: none;
   }
 
@@ -883,15 +902,27 @@
 
   #mflg-intake-root .mflg-head {
     padding: 28px 30px 24px;
+    background:
+      linear-gradient(
+        90deg,
+        var(--mflg-blue) 0%,
+        var(--mflg-blue) 78%,
+        var(--mflg-blue-2) 92%,
+        var(--mflg-blue-3) 100%
+      );
   }
 
   #mflg-intake-root .mflg-body {
     padding: 34px 30px 30px;
+    background: transparent;
+    background-image: none;
   }
 
   #mflg-intake-root .mflg-foot {
     padding-left: 30px;
     padding-right: 30px;
+    background: transparent;
+    background-image: none;
   }
 
   #mflg-intake-root .mflg-cards.two,
