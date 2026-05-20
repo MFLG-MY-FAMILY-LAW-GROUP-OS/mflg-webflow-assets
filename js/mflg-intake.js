@@ -1,14 +1,19 @@
-/* MFLG Intake Final Launch v3.0 — Refined JS
+/* MFLG Intake Final Launch v3.1 — Refined JS
    File: js/mflg-intake.js
    Architecture: Webflow external JS → n8n webhook → Google Sheets/Gmail/Vapi routing in n8n.
-   Do not place secrets in this public file.
+   Updates:
+   - Adds real intro block above form header
+   - Adds calendar/date inputs for true date fields
+   - Adds targeted wide class for Issue screen “Not Sure”
+   - Preserves conditional logic, payload, n8n submission, and Vapi routing flags
+   - Do not place secrets in this public file
 */
 
 (function () {
   "use strict";
 
   const CONFIG = {
-    version: "3.0-final-launch",
+    version: "3.1-final-launch",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -45,20 +50,6 @@
     6: [4, "RECEIVED", "Submitted"]
   };
 
-  const issueOptions = [
-    opt("Divorce / Legal Separation", "Divorce / Separation", "Dissolution, legal separation, annulment, temporary orders, or consent decree.", "courthouse"),
-    opt("Parenting Time / Legal Decision-Making", "Parenting", "Parenting time, legal decision-making, relocation, or parenting plan issues.", "family"),
-    opt("Child Support", "Child Support", "Establish, modify, enforce, calculate, or review child support.", "support"),
-    opt("Spousal Maintenance", "Spousal Maintenance", "Alimony/spousal support requests, responses, modification, or enforcement.", "scales"),
-    opt("Paternity", "Paternity", "Parentage, birth certificate, DNA testing, parenting time, or support.", "person"),
-    opt("Modification of Existing Orders", "Modification", "Change parenting, support, maintenance, or other family-court orders.", "edit"),
-    opt("Enforcement of Existing Orders", "Enforcement", "Orders not being followed, contempt, support arrears, or missed parenting time.", "shield"),
-    opt("Mediation / ADR / Settlement Help", "Mediation / ADR", "Mediation, negotiation, arbitration, collaborative law, or settlement help.", "handshake"),
-    opt("Protective Order Related to Family Law", "Protective Order", "Family-law related safety concern, protective order, or related hearing.", "alert"),
-    opt("Document Preparation / Review", "Documents", "Prepare, review, file, or respond to family-law documents.", "document"),
-    opt("Not Sure", "Not Sure", "Answer broader triage questions so we can identify the next step.", "question")
-  ];
-
   const hardScopeReviewItems = [
     "Adoption",
     "Assisted reproductive technology / surrogacy",
@@ -86,8 +77,20 @@
     "Tax issue"
   ];
 
-  const softScopeReviewItems = [
-    "Not sure"
+  const softScopeReviewItems = ["Not sure"];
+
+  const issueOptions = [
+    opt("Divorce / Legal Separation", "Divorce / Separation", "Dissolution, legal separation, annulment, temporary orders, or consent decree.", "courthouse"),
+    opt("Parenting Time / Legal Decision-Making", "Parenting", "Parenting time, legal decision-making, relocation, or parenting plan issues.", "family"),
+    opt("Child Support", "Child Support", "Establish, modify, enforce, calculate, or review child support.", "support"),
+    opt("Spousal Maintenance", "Spousal Maintenance", "Alimony/spousal support requests, responses, modification, or enforcement.", "scales"),
+    opt("Paternity", "Paternity", "Parentage, birth certificate, DNA testing, parenting time, or support.", "person"),
+    opt("Modification of Existing Orders", "Modification", "Change parenting, support, maintenance, or other family-court orders.", "edit"),
+    opt("Enforcement of Existing Orders", "Enforcement", "Orders not being followed, contempt, support arrears, or missed parenting time.", "shield"),
+    opt("Mediation / ADR / Settlement Help", "Mediation / ADR", "Mediation, negotiation, arbitration, collaborative law, or settlement help.", "handshake"),
+    opt("Protective Order Related to Family Law", "Protective Order", "Family-law related safety concern, protective order, or related hearing.", "alert"),
+    opt("Document Preparation / Review", "Documents", "Prepare, review, file, or respond to family-law documents.", "document"),
+    opt("Not Sure", "Not Sure", "Answer broader triage questions so we can identify the next step.", "question")
   ];
 
   const scopeItems = [
@@ -196,7 +199,7 @@
     "Protective Order Related to Family Law": [
       select("immediateSafetyConcern", "Is there an immediate safety concern?", ["Yes", "No", "Prefer not to say"], true),
       select("protectiveOrderStatus", "Is there a protective order involved?", ["I need one", "One is already in place", "There is a hearing scheduled", "No", "Not sure"], true),
-      input("protectiveOrderHearingDate", "Protective order hearing date, if any", "MM/DD/YYYY"),
+      date("protectiveOrderHearingDate", "Protective order hearing date, if any"),
       select("familyLawRelated", "Is this tied to a family-law matter?", ["Yes", "No", "Not sure"], true),
       select("childrenInvolved", "Are children involved?", ["Yes", "No", "Not sure"], true),
       notice("If you are in immediate danger, call 911 or local emergency services. This intake is not monitored 24/7.")
@@ -205,7 +208,7 @@
     "Document Preparation / Review": [
       checks("documentTypes", "What document or order do you need help with?", ["New filing / petition", "Response", "Consent decree", "Parenting plan", "Child support worksheet", "Modification", "Enforcement", "Mediation agreement", "Temporary orders", "Not sure"]),
       select("representingSelf", "Are you representing yourself or seeking LP assistance?", ["Representing myself and need document help", "Seeking LP assistance within scope", "Not sure"], true),
-      input("filingDeadline", "Is there a filing deadline?", "Date or not sure"),
+      date("filingDeadline", "Filing deadline, if known"),
       textarea("documentSummary", "Briefly describe the document help needed", "What needs to be prepared, reviewed, filed, or corrected?", true)
     ],
 
@@ -227,7 +230,11 @@
   }
 
   function input(key, label, placeholder, required) {
-    return { type: "input", key, label, placeholder: placeholder || "", required: !!required };
+    return { type: "input", key, label, placeholder: placeholder || "", required: !!required, inputType: "text" };
+  }
+
+  function date(key, label, required) {
+    return { type: "input", key, label, placeholder: "", required: !!required, inputType: "date" };
   }
 
   function textarea(key, label, placeholder, required) {
@@ -327,19 +334,11 @@
     mount.innerHTML = `
       <section class="mflg-intake" data-version="${esc(CONFIG.version)}">
         <div class="mflg-shell">
-          <aside class="mflg-left">
-            <div class="mflg-left-content">
-              <p class="mflg-kicker">Arizona Family Law LP Intake</p>
-              <h2 class="mflg-left-title">Answer a few questions. Get a clear next step.</h2>
-              <p class="mflg-left-copy">Scope-appropriate family-law guidance from an Arizona Licensed Legal Paraprofessional, with referral coordination when a matter requires specialized support.</p>
-              <div class="mflg-badges">
-                <div class="mflg-badge">${icon("shield")}<span>Conflict, urgency, and scope review before services are confirmed.</span></div>
-                <div class="mflg-badge">${icon("scales")}<span>Built for divorce, parenting, support, enforcement, ADR, and documents.</span></div>
-              </div>
-            </div>
-          </aside>
+          <aside class="mflg-left" aria-hidden="true"></aside>
 
           <div class="mflg-right">
+            ${state.step === 6 ? "" : introBlock()}
+
             <header class="mflg-head">
               <div class="mflg-headtop">
                 <div class="mflg-count">${stage[1]}</div>
@@ -371,6 +370,18 @@
     updateCounter();
   }
 
+  function introBlock() {
+    return `
+      <section class="mflg-intro">
+        <div class="mflg-intro-inner">
+          <p class="mflg-intro-kicker">Arizona Family Law LP Intake</p>
+          <h2 class="mflg-intro-title">Answer a few questions. Get a clear next step.</h2>
+          <p class="mflg-intro-copy">Scope-appropriate Arizona family-law guidance from a Licensed Legal Paraprofessional. MY FAMILY LAW GROUP will review your submission for conflicts, service scope, urgency, and next-step fit before confirming whether services can be provided.</p>
+        </div>
+      </section>
+    `;
+  }
+
   function footer() {
     return `
       <div class="mflg-foot">
@@ -390,11 +401,11 @@
 
   function issueStep() {
     return `
-      <section class="mflg-screen">
+      <section class="mflg-screen mflg-issue-screen">
         <h3 class="mflg-title">${icon("courthouse")}What type of family-law issue are you facing?</h3>
         <p class="mflg-copy">Choose the closest path. If you are not sure, choose “Not Sure” and we will ask broader triage questions.</p>
 
-        <div class="mflg-cards two">
+        <div class="mflg-cards two mflg-issue-grid">
           ${issueOptions.map((item) => card("issuePathway", item.value, item.title, item.sub, item.icon)).join("")}
         </div>
 
@@ -499,14 +510,16 @@
 
           <div class="mflg-field">
             <label class="mflg-label">Response deadline, if known</label>
-            ${inputEl("urgentDeadline", "Date or not sure")}
+            ${dateEl("urgentDeadline")}
+            <p class="mflg-help">Leave blank if unknown.</p>
           </div>
         </div>
 
         <div class="mflg-grid2">
           <div class="mflg-field">
             <label class="mflg-label">Court/hearing date, if any</label>
-            ${inputEl("courtDate", "Date or not sure")}
+            ${dateEl("courtDate")}
+            <p class="mflg-help">Leave blank if unknown.</p>
           </div>
 
           <div class="mflg-field">
@@ -715,9 +728,10 @@
 
   function card(group, value, title, sub, iconName) {
     const selected = group === "issuePathway" ? state.issuePathway === value : ans(group) === value;
+    const wide = group === "issuePathway" && value === "Not Sure" ? " mflg-card-wide" : "";
 
     return `
-      <button type="button" class="mflg-card ${selected ? "is-selected" : ""}" data-option-group="${group}" data-option-value="${esc(value)}">
+      <button type="button" class="mflg-card${wide} ${selected ? "is-selected" : ""}" data-option-group="${group}" data-option-value="${esc(value)}">
         <span class="mflg-radio"></span>
         <span class="mflg-card-icon">${icon(iconName)}</span>
         <span>
@@ -748,6 +762,12 @@
   function inputEl(key, placeholder, required, type) {
     return `
       <input class="mflg-input" type="${type || "text"}" data-key="${key}" value="${esc(ans(key))}" placeholder="${esc(placeholder || "")}" ${required ? "data-required='true'" : ""}>
+    `;
+  }
+
+  function dateEl(key, required) {
+    return `
+      <input class="mflg-input" type="date" data-key="${key}" value="${esc(ans(key))}" ${required ? "data-required='true'" : ""}>
     `;
   }
 
@@ -790,7 +810,8 @@
       return `
         <div class="mflg-field">
           <label class="mflg-label">${esc(question.label)}</label>
-          ${inputEl(question.key, question.placeholder, question.required)}
+          ${question.inputType === "date" ? dateEl(question.key, question.required) : inputEl(question.key, question.placeholder, question.required)}
+          ${question.inputType === "date" ? `<p class="mflg-help">Leave blank if unknown.</p>` : ""}
         </div>
       `;
     }
@@ -1023,8 +1044,7 @@
 
   function priority(flagState) {
     if (flagState.referralFlag || flagState.safetyFlag || flagState.urgencyFlag) return "RED";
-    if (flagState.hardScopeReviewFlag) return "YELLOW";
-    if (flagState.softScopeReviewFlag) return "YELLOW";
+    if (flagState.hardScopeReviewFlag || flagState.softScopeReviewFlag) return "YELLOW";
     if (
       ["Document review", "Prepare and file documents", "Mediation or settlement preparation"].includes(ans("serviceInterest")) ||
       ans("agreementStatus") === "Yes, mostly agreed"
@@ -1218,6 +1238,8 @@
       courtDate: ans("courtDate"),
       immediateSafetyConcern: ans("immediateSafetyConcern"),
       protectiveOrderStatus: ans("protectiveOrderStatus"),
+      protectiveOrderHearingDate: ans("protectiveOrderHearingDate"),
+      filingDeadline: ans("filingDeadline"),
 
       opposingParty: ans("opposingParty"),
       opposingPartyOtherNames: ans("opposingPartyOtherNames"),
