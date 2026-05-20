@@ -1,12 +1,15 @@
-/* MFLG Intake Final Launch v3.4 — Full-Width Form / Section Background Image
+/* MFLG Intake Final Launch v3.6 — Premium Background Reveal / Blue System / Timing-Safe Width
    File: css/mflg-intake.css
    Purpose:
    - Preserve working intake fields, cards, icons, buttons, and JS logic
-   - Remove the left rail completely
-   - Hide all old left-side text/content
-   - Use courthouse image as full-section background only
-   - Make the form itself full-width within the intake section
-   - Remove side rail / side container conflict
+   - Keep left rail removed
+   - Use courthouse image as a premium full-section background
+   - Show controlled left background reveal
+   - Add real intro-block styling from JS markup
+   - Restore intake header/progress bar to brand blue
+   - Make selected segmented tabs use brand blue
+   - Make Issue screen “Not Sure” span full row
+   - Keep Timing page safe from right-side clipping
    - Keep all CSS scoped to #mflg-intake-root
 */
 
@@ -27,9 +30,9 @@
   overflow-x: clip;
 
   --mflg-navy: #06101A;
-  --mflg-navy-2: #0B1A29;
   --mflg-blue: #02457A;
-  --mflg-blue-2: #01375F;
+  --mflg-blue-2: #013B68;
+  --mflg-blue-3: #062F52;
   --mflg-cream: #F7F2E8;
   --mflg-cream-2: #FCF8EF;
   --mflg-cream-3: #FFFDF8;
@@ -45,35 +48,35 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Full Section Background Image ---------- */
+/* ---------- Section Background / Left Reveal ---------- */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
   width: 100%;
   padding: 0;
   overflow: hidden;
-  background-color: #F7F2E8;
+  background-color: var(--mflg-cream);
   background-image:
     linear-gradient(
       90deg,
-      rgba(247, 242, 232, 0.96) 0%,
-      rgba(247, 242, 232, 0.91) 28%,
-      rgba(247, 242, 232, 0.84) 52%,
-      rgba(247, 242, 232, 0.94) 100%
+      rgba(6, 16, 26, 0.64) 0%,
+      rgba(6, 16, 26, 0.34) 13%,
+      rgba(247, 242, 232, 0.58) 26%,
+      rgba(247, 242, 232, 0.92) 43%,
+      rgba(247, 242, 232, 0.98) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 253, 248, 0.86) 0%,
-      rgba(247, 242, 232, 0.82) 44%,
-      rgba(243, 235, 221, 0.94) 100%
+      rgba(255, 253, 248, 0.68) 0%,
+      rgba(247, 242, 232, 0.82) 46%,
+      rgba(243, 235, 221, 0.96) 100%
     ),
     url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
   background-size: cover;
-  background-position: center;
+  background-position: left center;
   background-repeat: no-repeat;
 }
 
-/* Soft edge/fade treatment across full section */
 #mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
@@ -81,12 +84,13 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 0% 42%, rgba(6, 16, 26, 0.14), transparent 30%),
-    radial-gradient(circle at 88% 8%, rgba(199, 154, 43, 0.10), transparent 30%),
+    radial-gradient(circle at 5% 42%, rgba(6, 16, 26, 0.25), transparent 26%),
+    radial-gradient(circle at 92% 8%, rgba(199, 154, 43, 0.10), transparent 28%),
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.12) 0%,
-      rgba(247, 242, 232, 0.00) 22%,
+      rgba(6, 16, 26, 0.18) 0%,
+      rgba(247, 242, 232, 0.04) 20%,
+      rgba(247, 242, 232, 0.00) 44%,
       rgba(247, 242, 232, 0.00) 100%
     );
 }
@@ -95,17 +99,17 @@
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 120px;
+  height: 150px;
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(
     180deg,
     rgba(247, 242, 232, 0.00) 0%,
-    rgba(247, 242, 232, 0.92) 100%
+    rgba(247, 242, 232, 0.94) 100%
   );
 }
 
-/* ---------- Full-Width Shell ---------- */
+/* ---------- Shell / Form Offset ---------- */
 
 #mflg-intake-root .mflg-shell {
   position: relative;
@@ -114,6 +118,7 @@
   max-width: none;
   min-height: 700px;
   margin: 0;
+  padding-left: clamp(150px, 15vw, 330px);
   display: grid;
   grid-template-columns: 1fr;
   overflow: visible;
@@ -123,7 +128,7 @@
   box-shadow: none;
 }
 
-/* ---------- Remove Left Rail Completely ---------- */
+/* ---------- Remove Old Left Rail Completely ---------- */
 
 #mflg-intake-root .mflg-left,
 #mflg-intake-root .mflg-left::before,
@@ -137,7 +142,7 @@
   display: none !important;
 }
 
-/* ---------- Full-Width Form Application ---------- */
+/* ---------- Form Application ---------- */
 
 #mflg-intake-root .mflg-right {
   width: 100%;
@@ -150,17 +155,73 @@
   overflow: hidden;
   background:
     radial-gradient(circle at 96% 0%, rgba(199, 154, 43, 0.08), transparent 30%),
-    linear-gradient(180deg, rgba(255, 253, 248, 0.96) 0%, rgba(252, 248, 239, 0.98) 100%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.97) 0%, rgba(252, 248, 239, 0.99) 100%);
+  box-shadow:
+    -38px 0 80px rgba(247, 242, 232, 0.62),
+    -1px 0 0 rgba(255, 255, 255, 0.44);
 }
 
-/* ---------- Progress Header ---------- */
+/* ---------- Real Intro Block ---------- */
+
+#mflg-intake-root .mflg-intro {
+  width: 100%;
+  padding: 38px clamp(36px, 6vw, 110px) 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.95) 0%, rgba(255, 253, 248, 0.88) 100%);
+}
+
+#mflg-intake-root .mflg-intro-inner {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
+
+#mflg-intake-root .mflg-intro-kicker {
+  margin: 0 0 12px;
+  color: var(--mflg-gold);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#mflg-intake-root .mflg-intro-title {
+  max-width: 940px;
+  margin: 0 0 12px;
+  color: var(--mflg-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 3.15vw, 58px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+#mflg-intake-root .mflg-intro-copy {
+  max-width: 980px;
+  margin: 0;
+  color: var(--mflg-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ---------- Progress Header: Brand Blue ---------- */
 
 #mflg-intake-root .mflg-head {
   width: 100%;
-  padding: 30px clamp(40px, 7vw, 128px) 25px;
+  padding: 30px clamp(36px, 6vw, 110px) 25px;
   color: #fff;
   background:
-    linear-gradient(90deg, #06101A 0%, #071522 58%, #092033 100%);
+    linear-gradient(90deg, var(--mflg-blue) 0%, var(--mflg-blue-2) 52%, var(--mflg-blue-3) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 30px rgba(2, 69, 122, 0.14);
+}
+
+#mflg-intake-root .mflg-headtop,
+#mflg-intake-root .mflg-track {
+  width: min(1500px, 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #mflg-intake-root .mflg-headtop {
@@ -198,7 +259,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 11px;
   font-weight: 900;
   line-height: 1.2;
@@ -211,7 +272,7 @@
   height: 11px;
   flex: 0 0 11px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.48);
 }
 
 #mflg-intake-root .mflg-progress.is-active,
@@ -225,19 +286,20 @@
   background: var(--mflg-gold);
 }
 
-/* ---------- Body ---------- */
+/* ---------- Body / Timing-Safe Content Width ---------- */
 
 #mflg-intake-root .mflg-body {
   width: 100%;
   flex: 1;
-  padding: 42px clamp(40px, 7vw, 128px) 36px;
+  padding: 42px clamp(36px, 6vw, 110px) 36px;
   background:
     radial-gradient(circle at 96% 4%, rgba(199, 154, 43, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(252, 248, 239, 0.98));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(252, 248, 239, 0.99));
 }
 
 #mflg-intake-root .mflg-screen {
-  width: 100%;
+  width: min(1500px, 100%);
+  margin: 0 auto;
   animation: mflgFade 0.19s ease both;
 }
 
@@ -415,6 +477,10 @@
     0 12px 26px rgba(16, 24, 32, 0.08);
 }
 
+#mflg-intake-root .mflg-card-wide {
+  grid-column: 1 / -1;
+}
+
 #mflg-intake-root .mflg-radio {
   width: 20px;
   height: 20px;
@@ -496,9 +562,11 @@
 }
 
 #mflg-intake-root .mflg-seg.is-selected {
-  background: var(--mflg-navy);
+  background: linear-gradient(90deg, var(--mflg-blue) 0%, var(--mflg-blue-2) 100%);
   color: #fff;
-  box-shadow: inset 0 0 0 2px rgba(199, 154, 43, 0.18);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 0 rgba(199, 154, 43, 0.35);
 }
 
 /* ---------- Dividers / Panels ---------- */
@@ -707,9 +775,9 @@
 }
 
 #mflg-intake-root .mflg-foot {
-  max-width: none;
-  margin: 0;
-  padding: 0 clamp(40px, 7vw, 128px) 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 clamp(36px, 6vw, 110px) 30px;
   display: flex;
   justify-content: center;
   gap: 9px;
@@ -738,35 +806,28 @@
 /* ---------- Large Desktop ---------- */
 
 @media (min-width: 1500px) {
-  #mflg-intake-root .mflg-head {
-    padding-left: clamp(56px, 7.5vw, 150px);
-    padding-right: clamp(56px, 7.5vw, 150px);
+  #mflg-intake-root .mflg-shell {
+    padding-left: clamp(230px, 17vw, 420px);
   }
 
+  #mflg-intake-root .mflg-intro,
+  #mflg-intake-root .mflg-head,
   #mflg-intake-root .mflg-body {
-    padding-left: clamp(56px, 7.5vw, 150px);
-    padding-right: clamp(56px, 7.5vw, 150px);
-  }
-
-  #mflg-intake-root .mflg-foot {
-    padding-left: clamp(56px, 7.5vw, 150px);
-    padding-right: clamp(56px, 7.5vw, 150px);
+    padding-left: clamp(48px, 6vw, 120px);
+    padding-right: clamp(48px, 6vw, 120px);
   }
 }
 
 /* ---------- Laptop / Smaller Desktop ---------- */
 
 @media (max-width: 1280px) {
-  #mflg-intake-root .mflg-head {
-    padding-left: 42px;
-    padding-right: 42px;
+  #mflg-intake-root .mflg-shell {
+    padding-left: clamp(90px, 10vw, 180px);
   }
 
-  #mflg-intake-root .mflg-body {
-    padding-left: 42px;
-    padding-right: 42px;
-  }
-
+  #mflg-intake-root .mflg-intro,
+  #mflg-intake-root .mflg-head,
+  #mflg-intake-root .mflg-body,
   #mflg-intake-root .mflg-foot {
     padding-left: 42px;
     padding-right: 42px;
@@ -781,6 +842,26 @@
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  #mflg-intake-root .mflg-shell {
+    padding-left: 0;
+  }
+
+  #mflg-intake-root .mflg-intake {
+    background-position: center;
+  }
+
+  #mflg-intake-root .mflg-intro {
+    padding: 32px 30px 26px;
+  }
+
+  #mflg-intake-root .mflg-intro-title {
+    font-size: clamp(30px, 6vw, 44px);
+  }
+
+  #mflg-intake-root .mflg-intro-copy {
+    font-size: 14px;
   }
 
   #mflg-intake-root .mflg-head {
@@ -804,6 +885,10 @@
     grid-template-columns: 1fr;
   }
 
+  #mflg-intake-root .mflg-card-wide {
+    grid-column: auto;
+  }
+
   #mflg-intake-root .mflg-segments {
     grid-template-columns: 1fr;
   }
@@ -821,6 +906,18 @@
 /* ---------- Mobile ---------- */
 
 @media (max-width: 767px) {
+  #mflg-intake-root .mflg-intro {
+    padding: 28px 20px 24px;
+  }
+
+  #mflg-intake-root .mflg-intro-title {
+    font-size: 32px;
+  }
+
+  #mflg-intake-root .mflg-intro-copy {
+    font-size: 13px;
+  }
+
   #mflg-intake-root .mflg-head {
     padding: 24px 20px 20px;
   }
