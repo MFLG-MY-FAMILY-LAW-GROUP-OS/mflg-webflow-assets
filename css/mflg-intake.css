@@ -1,12 +1,15 @@
-/* MFLG Intake Final Launch v3.6.3 — Left Rail DOM Removal / Image-Only Background
+/* MFLG Intake Final Launch v3.6.5 — Section Background Removed / No Image / No Fade / No Section Gradients
    File: css/mflg-intake.css
 
    In accordance with MP v2:
    - Full replacement file
    - Scoped required changes only
    - Preserve intake layout, logic-supporting classes, fields, payload, validation, n8n, and Vapi routing
+   - Remove section background image
+   - Remove section background gradients
+   - Remove section fade overlays
+   - Remove all section pseudo-overlay effects
    - No left-side hidden rail elements, rows, columns, sections, or divs
-   - Left side is image-only through the section background
    - Keep all CSS scoped to #mflg-intake-root
 */
 
@@ -48,72 +51,26 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Section Background / Image-Only Left Side ---------- */
+/* ---------- Section Background Removed ---------- */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
   width: 100%;
   padding: 0;
   overflow: hidden;
-  background-color: var(--mflg-cream);
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(255, 253, 248, 0.06) 0%,
-      rgba(255, 253, 248, 0.12) 8%,
-      rgba(255, 253, 248, 0.26) 16%,
-      rgba(247, 242, 232, 0.54) 25%,
-      rgba(247, 242, 232, 0.90) 36%,
-      rgba(247, 242, 232, 0.99) 52%,
-      rgba(247, 242, 232, 1) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255, 253, 248, 0.06) 0%,
-      rgba(247, 242, 232, 0.16) 50%,
-      rgba(247, 242, 232, 0.58) 100%
-    ),
-    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
-  background-size: cover;
-  background-position: left center;
-  background-repeat: no-repeat;
+  background: transparent;
+  background-image: none;
+  background-color: transparent;
+  background-size: auto;
+  background-position: initial;
+  background-repeat: initial;
 }
 
-/* Subtle atmosphere only. Do not create a hidden left rail or wash out the image. */
-#mflg-intake-root .mflg-intake::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 7% 44%, rgba(255, 253, 248, 0.04), transparent 30%),
-    radial-gradient(circle at 92% 8%, rgba(199, 154, 43, 0.08), transparent 28%),
-    linear-gradient(
-      90deg,
-      rgba(6, 16, 26, 0.00) 0%,
-      rgba(247, 242, 232, 0.01) 18%,
-      rgba(247, 242, 232, 0.14) 31%,
-      rgba(247, 242, 232, 0.00) 55%,
-      rgba(247, 242, 232, 0.00) 100%
-    );
-}
-
-/* Bottom fade only. */
+/* Removed all section overlay/fade layers. */
+#mflg-intake-root .mflg-intake::before,
 #mflg-intake-root .mflg-intake::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 150px;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.56) 62%,
-      rgba(247, 242, 232, 0.96) 100%
-    );
+  display: none;
+  content: none;
 }
 
 /* ---------- Shell / Form Offset ---------- */
@@ -135,23 +92,11 @@
   box-shadow: none;
 }
 
-/* Soft transition at the form boundary only. */
-#mflg-intake-root .mflg-shell::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: clamp(105px, 11vw, 245px);
-  width: clamp(120px, 11vw, 250px);
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.22) 42%,
-      rgba(247, 242, 232, 0.74) 100%
-    );
+/* Removed shell pseudo-overlay so nothing sits over the section. */
+#mflg-intake-root .mflg-shell::before,
+#mflg-intake-root .mflg-shell::after {
+  display: none;
+  content: none;
 }
 
 /* ---------- Form Application ---------- */
@@ -165,50 +110,16 @@
   position: relative;
   z-index: 2;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 98% 0%, rgba(199, 154, 43, 0.08), transparent 32%),
-    linear-gradient(180deg, rgba(255, 253, 248, 0.975) 0%, rgba(252, 248, 239, 0.995) 100%);
-  box-shadow:
-    -34px 0 58px rgba(247, 242, 232, 0.64),
-    -12px 0 26px rgba(247, 242, 232, 0.38),
-    -1px 0 0 rgba(255, 255, 255, 0.34);
+  background: var(--mflg-cream-2);
+  background-image: none;
+  box-shadow: none;
 }
 
-/* Light form-edge feather only. */
-#mflg-intake-root .mflg-right::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -1px;
-  width: clamp(38px, 4vw, 80px);
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(247, 242, 232, 0.86) 0%,
-      rgba(252, 248, 239, 0.34) 58%,
-      rgba(252, 248, 239, 0.00) 100%
-    );
-}
-
-/* Subtle right-side polish */
+/* Removed form-edge pseudo-overlays/fades. */
+#mflg-intake-root .mflg-right::before,
 #mflg-intake-root .mflg-right::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: clamp(18px, 2.5vw, 48px);
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(252, 248, 239, 0.00) 0%,
-      rgba(252, 248, 239, 0.62) 100%
-    );
+  display: none;
+  content: none;
 }
 
 #mflg-intake-root .mflg-intro,
@@ -224,8 +135,8 @@
 #mflg-intake-root .mflg-intro {
   width: 100%;
   padding: 38px clamp(36px, 6vw, 110px) 30px;
-  background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.95) 0%, rgba(255, 253, 248, 0.88) 100%);
+  background: var(--mflg-cream-3);
+  background-image: none;
 }
 
 #mflg-intake-root .mflg-intro-inner {
@@ -262,15 +173,14 @@
   line-height: 1.65;
 }
 
-/* ---------- Progress Header: Brand Blue ---------- */
+/* ---------- Progress Header: Solid Brand Blue ---------- */
 
 #mflg-intake-root .mflg-head {
   width: 100%;
   padding: 30px clamp(36px, 6vw, 110px) 25px;
   color: #fff;
-  background:
-    radial-gradient(circle at 96% 0%, rgba(199, 154, 43, 0.16), transparent 28%),
-    linear-gradient(90deg, var(--mflg-blue) 0%, var(--mflg-blue-2) 52%, var(--mflg-blue-3) 100%);
+  background: var(--mflg-blue);
+  background-image: none;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 14px 30px rgba(2, 69, 122, 0.14);
@@ -359,9 +269,8 @@
   width: 100%;
   flex: 1;
   padding: 42px clamp(36px, 6vw, 110px) 36px;
-  background:
-    radial-gradient(circle at 96% 4%, rgba(199, 154, 43, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(252, 248, 239, 0.99));
+  background: var(--mflg-cream-2);
+  background-image: none;
 }
 
 #mflg-intake-root .mflg-screen {
@@ -646,7 +555,7 @@
 }
 
 #mflg-intake-root .mflg-seg.is-selected {
-  background: linear-gradient(90deg, var(--mflg-blue) 0%, var(--mflg-blue-2) 100%);
+  background: var(--mflg-blue);
   color: #fff;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
@@ -902,11 +811,6 @@
     padding-left: clamp(230px, 17vw, 420px);
   }
 
-  #mflg-intake-root .mflg-shell::before {
-    left: clamp(175px, 13vw, 330px);
-    width: clamp(130px, 10vw, 270px);
-  }
-
   #mflg-intake-root .mflg-intro,
   #mflg-intake-root .mflg-head,
   #mflg-intake-root .mflg-body {
@@ -920,11 +824,6 @@
 @media (max-width: 1280px) {
   #mflg-intake-root .mflg-shell {
     padding-left: clamp(90px, 10vw, 180px);
-  }
-
-  #mflg-intake-root .mflg-shell::before {
-    left: clamp(62px, 7vw, 130px);
-    width: clamp(95px, 11vw, 210px);
   }
 
   #mflg-intake-root .mflg-intro,
@@ -956,44 +855,22 @@
     padding-left: 0;
   }
 
-  #mflg-intake-root .mflg-shell::before {
-    display: none;
-  }
-
   #mflg-intake-root .mflg-intake {
-    background-position: center top;
-    background-image:
-      linear-gradient(
-        180deg,
-        rgba(255, 253, 248, 0.20) 0%,
-        rgba(247, 242, 232, 0.62) 240px,
-        rgba(247, 242, 232, 0.96) 430px,
-        rgba(247, 242, 232, 1) 100%
-      ),
-      url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
-  }
-
-  #mflg-intake-root .mflg-intake::before {
-    background:
-      radial-gradient(circle at 50% 0%, rgba(255, 253, 248, 0.10), transparent 36%),
-      linear-gradient(180deg, rgba(247, 242, 232, 0.04), rgba(247, 242, 232, 0.00) 42%);
+    background: transparent;
+    background-image: none;
+    background-color: transparent;
   }
 
   #mflg-intake-root .mflg-right {
     box-shadow: none;
-    background:
-      linear-gradient(180deg, rgba(255, 253, 248, 0.96) 0%, rgba(252, 248, 239, 0.995) 100%);
-  }
-
-  #mflg-intake-root .mflg-right::before,
-  #mflg-intake-root .mflg-right::after {
-    display: none;
+    background: var(--mflg-cream-2);
+    background-image: none;
   }
 
   #mflg-intake-root .mflg-intro {
     padding: 32px 30px 26px;
-    background:
-      linear-gradient(180deg, rgba(255, 253, 248, 0.91) 0%, rgba(255, 253, 248, 0.96) 100%);
+    background: var(--mflg-cream-3);
+    background-image: none;
   }
 
   #mflg-intake-root .mflg-intro-title {
@@ -1046,11 +923,6 @@
 /* ---------- Mobile ---------- */
 
 @media (max-width: 767px) {
-  #mflg-intake-root .mflg-intake {
-    background-size: cover;
-    background-position: center top;
-  }
-
   #mflg-intake-root .mflg-intro {
     padding: 28px 20px 24px;
   }
