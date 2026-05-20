@@ -1,16 +1,16 @@
-/* MFLG Intake Final Launch v3.2 — Full-Width Integrated Shell
+/* MFLG Intake Final Launch v3.3 — Full-Bleed 18/82 Image Rail Layout
    File: css/mflg-intake.css
    Purpose:
    - Preserve working intake fields, cards, icons, buttons, and JS logic
-   - Remove dominant dark navy page background
-   - Make intake shell feel integrated and full-width
-   - Lighten courthouse image
-   - Feather image edge smoothly into cream form area
-   - Give tall intake more horizontal room
-   - Use fixed left rail + flexible right form to avoid overflow/compression
+   - Break the intake out of any Webflow container constraint
+   - Remove left/right side gutters created by section padding, shell max-width, or margin auto
+   - Make the form fill the available page width
+   - Convert the old text-heavy left rail into a narrow visual image rail
+   - Keep the courthouse image/fade as a premium accent only
+   - Keep all CSS scoped to #mflg-intake-root so the rest of the site is not affected
 */
 
-/* ---------- Root Isolation ---------- */
+/* ---------- Root Isolation / Full-Bleed Breakout ---------- */
 
 #mflg-intake-root,
 #mflg-intake-root * {
@@ -18,10 +18,13 @@
 }
 
 #mflg-intake-root {
-  width: 100%;
-  max-width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   isolation: isolate;
   position: relative;
+  overflow-x: clip;
 
   --mflg-navy: #06101A;
   --mflg-navy-2: #0B1A29;
@@ -42,57 +45,54 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Main Section: Soft Integrated Background ---------- */
+/* ---------- Main Section: No Side Gutters ---------- */
 
 #mflg-intake-root .mflg-intake {
   width: 100%;
-  padding: 46px 24px 72px;
+  padding: 0;
+  overflow-x: clip;
   background:
-    radial-gradient(circle at 4% 12%, rgba(2, 69, 122, 0.10), transparent 32%),
-    radial-gradient(circle at 92% 18%, rgba(199, 154, 43, 0.12), transparent 30%),
     linear-gradient(180deg, #F9F5EC 0%, #F3EBDD 100%);
 }
 
-/* ---------- Full-Width Integrated Shell ---------- */
+/* ---------- Full-Bleed Shell ---------- */
 
 #mflg-intake-root .mflg-shell {
-  width: min(1760px, calc(100vw - 48px));
+  width: 100%;
+  max-width: none;
   min-height: 700px;
-  margin: 0 auto;
+  margin: 0;
   display: grid;
-  grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
+  grid-template-columns: clamp(180px, 18vw, 320px) minmax(0, 1fr);
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 0;
   background: var(--mflg-cream);
-  border: 1px solid rgba(16, 24, 32, 0.10);
-  box-shadow:
-    0 28px 90px rgba(16, 24, 32, 0.16),
-    0 2px 0 rgba(255, 255, 255, 0.78) inset;
+  border: 0;
+  box-shadow: none;
 }
 
-/* ---------- Left Visual Panel: Lighter Image + Feather ---------- */
+/* ---------- Narrow Left Visual Rail ---------- */
 
 #mflg-intake-root .mflg-left {
   position: relative;
   min-height: 700px;
-  padding: 48px 34px;
-  display: flex;
-  align-items: flex-end;
+  padding: 0;
+  display: block;
   overflow: hidden;
   background-color: #E9E0D2;
   background-image:
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.54) 0%,
-      rgba(6, 16, 26, 0.40) 42%,
-      rgba(247, 242, 232, 0.26) 74%,
+      rgba(6, 16, 26, 0.38) 0%,
+      rgba(6, 16, 26, 0.22) 38%,
+      rgba(247, 242, 232, 0.20) 72%,
       rgba(247, 242, 232, 0.92) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(6, 16, 26, 0.62) 0%,
-      rgba(6, 16, 26, 0.18) 48%,
-      rgba(6, 16, 26, 0.22) 100%
+      rgba(6, 16, 26, 0.42) 0%,
+      rgba(6, 16, 26, 0.06) 50%,
+      rgba(6, 16, 26, 0.16) 100%
     ),
     url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
   background-size: cover;
@@ -100,24 +100,24 @@
   background-repeat: no-repeat;
 }
 
+/* Extra feather that overlaps visually toward the form side */
 #mflg-intake-root .mflg-left::before {
   content: "";
   position: absolute;
   top: 0;
-  right: -84px;
-  width: 170px;
+  right: -72px;
+  width: 150px;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
   background:
     linear-gradient(
       90deg,
       rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.38) 34%,
-      rgba(247, 242, 232, 0.78) 68%,
+      rgba(247, 242, 232, 0.30) 28%,
+      rgba(247, 242, 232, 0.74) 66%,
       rgba(247, 242, 232, 1.00) 100%
     );
-  filter: blur(0.2px);
 }
 
 #mflg-intake-root .mflg-left::after {
@@ -127,90 +127,47 @@
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 34% 88%, rgba(199, 154, 43, 0.16), transparent 36%),
+    radial-gradient(circle at 44% 86%, rgba(199, 154, 43, 0.13), transparent 34%),
     linear-gradient(
       90deg,
       rgba(6, 16, 26, 0.00) 0%,
-      rgba(6, 16, 26, 0.00) 58%,
-      rgba(247, 242, 232, 0.22) 82%,
-      rgba(247, 242, 232, 0.66) 100%
+      rgba(6, 16, 26, 0.00) 52%,
+      rgba(247, 242, 232, 0.18) 78%,
+      rgba(247, 242, 232, 0.72) 100%
     );
 }
 
+/* Hide the old left text rail on desktop.
+   The form itself now becomes the main full-width intake experience. */
 #mflg-intake-root .mflg-left-content {
-  position: relative;
-  z-index: 3;
-  max-width: 390px;
-  padding-bottom: 8px;
+  display: none;
 }
 
-#mflg-intake-root .mflg-kicker {
-  margin: 0 0 16px;
-  color: var(--mflg-gold);
-  font-size: 12px;
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-#mflg-intake-root .mflg-left-title {
-  max-width: 365px;
-  margin: 0 0 18px;
-  color: #fff;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(36px, 2.65vw, 52px);
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
-}
-
-#mflg-intake-root .mflg-left-copy {
-  max-width: 350px;
-  margin: 0 0 26px;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 15px;
-  line-height: 1.65;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.22);
-}
-
-#mflg-intake-root .mflg-badges {
-  display: grid;
-  gap: 11px;
-}
-
+#mflg-intake-root .mflg-kicker,
+#mflg-intake-root .mflg-left-title,
+#mflg-intake-root .mflg-left-copy,
+#mflg-intake-root .mflg-badges,
 #mflg-intake-root .mflg-badge {
-  display: flex;
-  gap: 10px;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 13px;
-  line-height: 1.45;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.24);
+  display: none;
 }
 
-#mflg-intake-root .mflg-badge svg {
-  width: 17px;
-  height: 17px;
-  flex: 0 0 17px;
-  margin-top: 1px;
-  color: var(--mflg-gold);
-}
-
-/* ---------- Right Form Shell ---------- */
+/* ---------- Right Form Application ---------- */
 
 #mflg-intake-root .mflg-right {
   min-width: 0;
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   background:
     radial-gradient(circle at 96% 0%, rgba(199, 154, 43, 0.08), transparent 30%),
     linear-gradient(180deg, #FFFDF8 0%, var(--mflg-cream-2) 100%);
 }
 
+/* ---------- Progress Header ---------- */
+
 #mflg-intake-root .mflg-head {
-  padding: 30px 64px 25px;
+  padding: 30px clamp(34px, 5.2vw, 86px) 25px;
   color: #fff;
   background:
     linear-gradient(90deg, #06101A 0%, #071522 58%, #092033 100%);
@@ -282,7 +239,7 @@
 
 #mflg-intake-root .mflg-body {
   flex: 1;
-  padding: 42px 64px 34px;
+  padding: 42px clamp(34px, 5.2vw, 86px) 36px;
   background:
     radial-gradient(circle at 96% 4%, rgba(199, 154, 43, 0.08), transparent 26%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.78), var(--mflg-cream-2));
@@ -728,9 +685,9 @@
 
 #mflg-intake-root .mflg-primary {
   flex: 1;
-  max-width: 820px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
   background: var(--mflg-blue);
   color: #fff;
 }
@@ -758,9 +715,9 @@
 }
 
 #mflg-intake-root .mflg-foot {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 48px 30px;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(34px, 5.2vw, 86px) 30px;
   display: flex;
   justify-content: center;
   gap: 9px;
@@ -786,35 +743,34 @@
   box-shadow: 0 0 0 2px rgba(184, 74, 74, 0.12);
 }
 
-/* ---------- Large Desktop Enhancement ---------- */
+/* ---------- Large Desktop: 15/85 Feel ---------- */
 
 @media (min-width: 1500px) {
   #mflg-intake-root .mflg-shell {
-    width: min(1840px, calc(100vw - 56px));
-    grid-template-columns: minmax(380px, 430px) minmax(0, 1fr);
+    grid-template-columns: clamp(180px, 15vw, 300px) minmax(0, 1fr);
   }
 
   #mflg-intake-root .mflg-head {
-    padding-left: 72px;
-    padding-right: 72px;
+    padding-left: clamp(44px, 5.6vw, 96px);
+    padding-right: clamp(44px, 5.6vw, 96px);
   }
 
   #mflg-intake-root .mflg-body {
-    padding-left: 72px;
-    padding-right: 72px;
+    padding-left: clamp(44px, 5.6vw, 96px);
+    padding-right: clamp(44px, 5.6vw, 96px);
+  }
+
+  #mflg-intake-root .mflg-foot {
+    padding-left: clamp(44px, 5.6vw, 96px);
+    padding-right: clamp(44px, 5.6vw, 96px);
   }
 }
 
 /* ---------- Laptop / Smaller Desktop ---------- */
 
 @media (max-width: 1280px) {
-  #mflg-intake-root .mflg-intake {
-    padding: 44px 18px 66px;
-  }
-
   #mflg-intake-root .mflg-shell {
-    width: min(1240px, calc(100vw - 36px));
-    grid-template-columns: minmax(310px, 360px) minmax(0, 1fr);
+    grid-template-columns: clamp(150px, 15vw, 240px) minmax(0, 1fr);
   }
 
   #mflg-intake-root .mflg-head {
@@ -827,29 +783,29 @@
     padding-right: 42px;
   }
 
-  #mflg-intake-root .mflg-left {
-    padding-left: 30px;
-    padding-right: 30px;
+  #mflg-intake-root .mflg-foot {
+    padding-left: 42px;
+    padding-right: 42px;
   }
 }
 
-/* ---------- Tablet: Stack Brand Panel on Top ---------- */
+/* ---------- Tablet: Image Rail Becomes Short Top Accent ---------- */
 
 @media (max-width: 991px) {
-  #mflg-intake-root .mflg-intake {
-    padding: 36px 16px 58px;
+  #mflg-intake-root {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   #mflg-intake-root .mflg-shell {
-    width: min(860px, 100%);
+    width: 100%;
     grid-template-columns: 1fr;
-    border-radius: 24px;
   }
 
   #mflg-intake-root .mflg-left {
-    min-height: 350px;
-    padding: 38px 34px;
-    align-items: flex-end;
+    min-height: 160px;
     background-position: center 42%;
   }
 
@@ -862,23 +818,10 @@
       linear-gradient(
         0deg,
         rgba(247, 242, 232, 0.96) 0%,
-        rgba(247, 242, 232, 0.42) 18%,
-        rgba(6, 16, 26, 0.00) 44%
+        rgba(247, 242, 232, 0.42) 22%,
+        rgba(6, 16, 26, 0.00) 54%
       ),
-      radial-gradient(circle at 45% 92%, rgba(199, 154, 43, 0.14), transparent 38%);
-  }
-
-  #mflg-intake-root .mflg-left-content {
-    max-width: 660px;
-  }
-
-  #mflg-intake-root .mflg-left-title {
-    max-width: 620px;
-    font-size: clamp(34px, 6vw, 48px);
-  }
-
-  #mflg-intake-root .mflg-left-copy {
-    max-width: 620px;
+      radial-gradient(circle at 50% 90%, rgba(199, 154, 43, 0.14), transparent 38%);
   }
 
   #mflg-intake-root .mflg-head {
@@ -887,6 +830,11 @@
 
   #mflg-intake-root .mflg-body {
     padding: 34px 30px 30px;
+  }
+
+  #mflg-intake-root .mflg-foot {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   #mflg-intake-root .mflg-cards.two,
@@ -909,42 +857,14 @@
   #mflg-intake-root .mflg-seg:first-child {
     border-top: 0;
   }
-
-  #mflg-intake-root .mflg-primary {
-    max-width: none;
-  }
 }
 
-/* ---------- Mobile: Compact Premium Banner ---------- */
+/* ---------- Mobile: Compact Top Image Accent ---------- */
 
 @media (max-width: 767px) {
-  #mflg-intake-root .mflg-intake {
-    padding: 26px 10px 44px;
-  }
-
-  #mflg-intake-root .mflg-shell {
-    width: 100%;
-    border-radius: 20px;
-  }
-
   #mflg-intake-root .mflg-left {
-    min-height: 292px;
-    padding: 32px 22px;
+    min-height: 118px;
     background-position: center;
-  }
-
-  #mflg-intake-root .mflg-left-title {
-    max-width: 360px;
-    font-size: 35px;
-  }
-
-  #mflg-intake-root .mflg-left-copy {
-    font-size: 14px;
-    line-height: 1.58;
-  }
-
-  #mflg-intake-root .mflg-badges {
-    gap: 9px;
   }
 
   #mflg-intake-root .mflg-head {
