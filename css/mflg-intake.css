@@ -1,16 +1,18 @@
-/* MFLG Intake Final Launch v3.6 — Premium Background Reveal / Blue System / Timing-Safe Width
+/* MFLG Intake Final Launch v3.6.1 — Premium Background Reveal / Blue System / Feather-Safe Layout
    File: css/mflg-intake.css
+
    Purpose:
-   - Preserve working intake fields, cards, icons, buttons, and JS logic
+   - Preserve working intake fields, cards, icons, buttons, JS logic, n8n payload, and Vapi routing flags
+   - Keep all CSS scoped to #mflg-intake-root
    - Keep left rail removed
    - Use courthouse image as a premium full-section background
-   - Show controlled left background reveal
-   - Add real intro-block styling from JS markup
-   - Restore intake header/progress bar to brand blue
-   - Make selected segmented tabs use brand blue
-   - Make Issue screen “Not Sure” span full row
+   - Improve left-background reveal and remove abrupt visual edge
+   - Add stronger right-side/left-edge feathering around form shell
+   - Preserve intro block styling from JS markup
+   - Preserve brand-blue progress header and selected segmented tabs
+   - Keep Issue screen “Not Sure” full row on desktop
    - Keep Timing page safe from right-side clipping
-   - Keep all CSS scoped to #mflg-intake-root
+   - Improve tablet/mobile layout safety without disrupting desktop design
 */
 
 /* ---------- Root Isolation / Full-Bleed Breakout ---------- */
@@ -30,6 +32,7 @@
   overflow-x: clip;
 
   --mflg-navy: #06101A;
+  --mflg-navy-2: #0A1724;
   --mflg-blue: #02457A;
   --mflg-blue-2: #013B68;
   --mflg-blue-3: #062F52;
@@ -37,8 +40,10 @@
   --mflg-cream-2: #FCF8EF;
   --mflg-cream-3: #FFFDF8;
   --mflg-gold: #C79A2B;
+  --mflg-gold-2: #B88A1F;
   --mflg-gold-soft: rgba(199, 154, 43, 0.15);
   --mflg-line: rgba(16, 24, 32, 0.16);
+  --mflg-line-soft: rgba(16, 24, 32, 0.10);
   --mflg-text: #101820;
   --mflg-muted: #5F6A75;
   --mflg-error: #B84A4A;
@@ -48,7 +53,7 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Section Background / Left Reveal ---------- */
+/* ---------- Section Background / Premium Left Reveal ---------- */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
@@ -59,16 +64,18 @@
   background-image:
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.64) 0%,
-      rgba(6, 16, 26, 0.34) 13%,
-      rgba(247, 242, 232, 0.58) 26%,
-      rgba(247, 242, 232, 0.92) 43%,
-      rgba(247, 242, 232, 0.98) 100%
+      rgba(6, 16, 26, 0.72) 0%,
+      rgba(6, 16, 26, 0.54) 9%,
+      rgba(6, 16, 26, 0.28) 18%,
+      rgba(247, 242, 232, 0.34) 28%,
+      rgba(247, 242, 232, 0.78) 38%,
+      rgba(247, 242, 232, 0.96) 52%,
+      rgba(247, 242, 232, 0.99) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 253, 248, 0.68) 0%,
-      rgba(247, 242, 232, 0.82) 46%,
+      rgba(255, 253, 248, 0.62) 0%,
+      rgba(247, 242, 232, 0.78) 42%,
       rgba(243, 235, 221, 0.96) 100%
     ),
     url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
@@ -77,6 +84,7 @@
   background-repeat: no-repeat;
 }
 
+/* Global image atmosphere and premium fade layers */
 #mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
@@ -84,29 +92,33 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 5% 42%, rgba(6, 16, 26, 0.25), transparent 26%),
+    radial-gradient(circle at 4% 42%, rgba(6, 16, 26, 0.34), transparent 25%),
+    radial-gradient(circle at 18% 34%, rgba(6, 16, 26, 0.16), transparent 30%),
     radial-gradient(circle at 92% 8%, rgba(199, 154, 43, 0.10), transparent 28%),
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.18) 0%,
-      rgba(247, 242, 232, 0.04) 20%,
-      rgba(247, 242, 232, 0.00) 44%,
+      rgba(6, 16, 26, 0.20) 0%,
+      rgba(247, 242, 232, 0.05) 22%,
+      rgba(247, 242, 232, 0.00) 48%,
       rgba(247, 242, 232, 0.00) 100%
     );
 }
 
+/* Bottom fade so the section does not end harshly */
 #mflg-intake-root .mflg-intake::after {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 150px;
+  height: 170px;
   z-index: 0;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(247, 242, 232, 0.00) 0%,
-    rgba(247, 242, 232, 0.94) 100%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(247, 242, 232, 0.00) 0%,
+      rgba(247, 242, 232, 0.64) 54%,
+      rgba(247, 242, 232, 0.98) 100%
+    );
 }
 
 /* ---------- Shell / Form Offset ---------- */
@@ -126,6 +138,27 @@
   background: transparent;
   border: 0;
   box-shadow: none;
+}
+
+/* Soft transition plane between image reveal and form area */
+#mflg-intake-root .mflg-shell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(60px, 9vw, 220px);
+  width: clamp(180px, 18vw, 420px);
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247, 242, 232, 0.00) 0%,
+      rgba(247, 242, 232, 0.34) 34%,
+      rgba(247, 242, 232, 0.78) 68%,
+      rgba(247, 242, 232, 0.98) 100%
+    );
+  filter: blur(0.1px);
 }
 
 /* ---------- Remove Old Left Rail Completely ---------- */
@@ -154,11 +187,58 @@
   z-index: 2;
   overflow: hidden;
   background:
-    radial-gradient(circle at 96% 0%, rgba(199, 154, 43, 0.08), transparent 30%),
-    linear-gradient(180deg, rgba(255, 253, 248, 0.97) 0%, rgba(252, 248, 239, 0.99) 100%);
+    radial-gradient(circle at 98% 0%, rgba(199, 154, 43, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.975) 0%, rgba(252, 248, 239, 0.995) 100%);
   box-shadow:
-    -38px 0 80px rgba(247, 242, 232, 0.62),
-    -1px 0 0 rgba(255, 255, 255, 0.44);
+    -68px 0 110px rgba(247, 242, 232, 0.82),
+    -28px 0 54px rgba(247, 242, 232, 0.58),
+    -1px 0 0 rgba(255, 255, 255, 0.42);
+}
+
+/* Extra internal feather so the left edge of the form does not look cut off */
+#mflg-intake-root .mflg-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  width: clamp(70px, 7vw, 140px);
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247, 242, 232, 0.98) 0%,
+      rgba(247, 242, 232, 0.72) 34%,
+      rgba(252, 248, 239, 0.28) 70%,
+      rgba(252, 248, 239, 0.00) 100%
+    );
+}
+
+/* Subtle right-side polish, prevents the content block from feeling like it ends too abruptly */
+#mflg-intake-root .mflg-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(22px, 3vw, 60px);
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(252, 248, 239, 0.00) 0%,
+      rgba(252, 248, 239, 0.72) 100%
+    );
+}
+
+#mflg-intake-root .mflg-intro,
+#mflg-intake-root .mflg-head,
+#mflg-intake-root .mflg-body,
+#mflg-intake-root .mflg-foot {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- Real Intro Block ---------- */
@@ -211,6 +291,7 @@
   padding: 30px clamp(36px, 6vw, 110px) 25px;
   color: #fff;
   background:
+    radial-gradient(circle at 96% 0%, rgba(199, 154, 43, 0.16), transparent 28%),
     linear-gradient(90deg, var(--mflg-blue) 0%, var(--mflg-blue-2) 52%, var(--mflg-blue-3) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -251,11 +332,12 @@
 
 #mflg-intake-root .mflg-track {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
 #mflg-intake-root .mflg-progress {
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -265,6 +347,13 @@
   line-height: 1.2;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+#mflg-intake-root .mflg-progress span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #mflg-intake-root .mflg-dot {
@@ -334,6 +423,7 @@
 }
 
 #mflg-intake-root .mflg-copy {
+  max-width: 960px;
   margin: 0 0 22px;
   color: var(--mflg-muted);
   font-size: 14px;
@@ -341,6 +431,7 @@
 }
 
 #mflg-intake-root .mflg-field {
+  min-width: 0;
   margin-bottom: 20px;
 }
 
@@ -352,7 +443,7 @@
 
 #mflg-intake-root .mflg-grid3 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -380,6 +471,7 @@
 #mflg-intake-root .mflg-select,
 #mflg-intake-root .mflg-textarea {
   width: 100%;
+  min-width: 0;
   min-height: 52px;
   padding: 13px 15px;
   border: 1px solid var(--mflg-line);
@@ -389,11 +481,21 @@
   color: var(--mflg-text);
   font-size: 14px;
   line-height: 1.4;
+  box-shadow: 0 1px 0 rgba(16, 24, 32, 0.02);
+}
+
+#mflg-intake-root .mflg-select {
+  appearance: auto;
 }
 
 #mflg-intake-root .mflg-textarea {
   min-height: 118px;
   resize: vertical;
+}
+
+#mflg-intake-root .mflg-input::placeholder,
+#mflg-intake-root .mflg-textarea::placeholder {
+  color: rgba(95, 106, 117, 0.72);
 }
 
 #mflg-intake-root .mflg-input:focus,
@@ -439,6 +541,7 @@
 
 #mflg-intake-root .mflg-card {
   width: 100%;
+  min-width: 0;
   min-height: 96px;
   padding: 16px 18px;
   display: flex;
@@ -451,6 +554,7 @@
   color: var(--mflg-text);
   text-align: left;
   cursor: pointer;
+  box-shadow: 0 1px 0 rgba(16, 24, 32, 0.02);
   transition:
     transform 0.16s ease,
     border-color 0.16s ease,
@@ -462,6 +566,7 @@
   transform: translateY(-1px);
   border-color: rgba(199, 154, 43, 0.7);
   background: var(--mflg-cream-3);
+  box-shadow: 0 10px 22px rgba(16, 24, 32, 0.055);
 }
 
 #mflg-intake-root .mflg-card:focus-visible {
@@ -525,7 +630,7 @@
 
 #mflg-intake-root .mflg-segments {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   overflow: hidden;
   border: 1px solid var(--mflg-line);
   border-radius: 9px;
@@ -533,6 +638,7 @@
 }
 
 #mflg-intake-root .mflg-seg {
+  min-width: 0;
   min-height: 74px;
   padding: 14px;
   appearance: none;
@@ -598,7 +704,8 @@
   padding: 22px;
   border: 1px solid rgba(16, 24, 32, 0.12);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.64);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 12px 32px rgba(16, 24, 32, 0.04);
 }
 
 #mflg-intake-root .mflg-panel-title {
@@ -611,11 +718,12 @@
 
 #mflg-intake-root .mflg-checkgrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
 #mflg-intake-root .mflg-check {
+  min-width: 0;
   min-height: 44px;
   padding: 11px 12px;
   display: flex;
@@ -637,7 +745,12 @@
 
 #mflg-intake-root .mflg-check input {
   margin-top: 2px;
+  flex: 0 0 auto;
   accent-color: var(--mflg-blue);
+}
+
+#mflg-intake-root .mflg-check span {
+  min-width: 0;
 }
 
 #mflg-intake-root .mflg-check:has(input:focus-visible) {
@@ -750,6 +863,7 @@
   margin-right: 0;
   background: var(--mflg-blue);
   color: #fff;
+  box-shadow: 0 12px 26px rgba(2, 69, 122, 0.16);
 }
 
 #mflg-intake-root .mflg-primary:hover {
@@ -810,6 +924,11 @@
     padding-left: clamp(230px, 17vw, 420px);
   }
 
+  #mflg-intake-root .mflg-shell::before {
+    left: clamp(110px, 11vw, 260px);
+    width: clamp(260px, 20vw, 500px);
+  }
+
   #mflg-intake-root .mflg-intro,
   #mflg-intake-root .mflg-head,
   #mflg-intake-root .mflg-body {
@@ -825,12 +944,21 @@
     padding-left: clamp(90px, 10vw, 180px);
   }
 
+  #mflg-intake-root .mflg-shell::before {
+    left: clamp(32px, 7vw, 120px);
+    width: clamp(160px, 20vw, 320px);
+  }
+
   #mflg-intake-root .mflg-intro,
   #mflg-intake-root .mflg-head,
   #mflg-intake-root .mflg-body,
   #mflg-intake-root .mflg-foot {
     padding-left: 42px;
     padding-right: 42px;
+  }
+
+  #mflg-intake-root .mflg-cards.three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -842,18 +970,52 @@
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    overflow-x: hidden;
   }
 
   #mflg-intake-root .mflg-shell {
+    min-height: auto;
     padding-left: 0;
+  }
+
+  #mflg-intake-root .mflg-shell::before {
+    display: none;
   }
 
   #mflg-intake-root .mflg-intake {
     background-position: center;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(6, 16, 26, 0.48) 0%,
+        rgba(247, 242, 232, 0.76) 220px,
+        rgba(247, 242, 232, 0.98) 430px,
+        rgba(247, 242, 232, 1) 100%
+      ),
+      url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
+  }
+
+  #mflg-intake-root .mflg-intake::before {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(6, 16, 26, 0.20), transparent 36%),
+      linear-gradient(180deg, rgba(6, 16, 26, 0.12), rgba(247, 242, 232, 0.00) 42%);
+  }
+
+  #mflg-intake-root .mflg-right {
+    box-shadow: none;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 248, 0.96) 0%, rgba(252, 248, 239, 0.995) 100%);
+  }
+
+  #mflg-intake-root .mflg-right::before,
+  #mflg-intake-root .mflg-right::after {
+    display: none;
   }
 
   #mflg-intake-root .mflg-intro {
     padding: 32px 30px 26px;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 248, 0.91) 0%, rgba(255, 253, 248, 0.96) 100%);
   }
 
   #mflg-intake-root .mflg-intro-title {
@@ -906,16 +1068,23 @@
 /* ---------- Mobile ---------- */
 
 @media (max-width: 767px) {
+  #mflg-intake-root .mflg-intake {
+    background-size: cover;
+    background-position: center top;
+  }
+
   #mflg-intake-root .mflg-intro {
     padding: 28px 20px 24px;
   }
 
   #mflg-intake-root .mflg-intro-title {
     font-size: 32px;
+    line-height: 1.04;
   }
 
   #mflg-intake-root .mflg-intro-copy {
     font-size: 13px;
+    line-height: 1.58;
   }
 
   #mflg-intake-root .mflg-head {
@@ -925,6 +1094,12 @@
   #mflg-intake-root .mflg-headtop {
     align-items: flex-start;
     flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  #mflg-intake-root .mflg-heading {
+    font-size: 24px;
   }
 
   #mflg-intake-root .mflg-track {
@@ -936,9 +1111,14 @@
     font-size: 0;
   }
 
+  #mflg-intake-root .mflg-progress span:last-child {
+    display: none;
+  }
+
   #mflg-intake-root .mflg-dot {
     width: 13px;
     height: 13px;
+    flex-basis: 13px;
   }
 
   #mflg-intake-root .mflg-body {
@@ -946,7 +1126,18 @@
   }
 
   #mflg-intake-root .mflg-title {
+    align-items: flex-start;
     font-size: 18px;
+  }
+
+  #mflg-intake-root .mflg-title svg {
+    width: 25px;
+    height: 25px;
+    flex-basis: 25px;
+  }
+
+  #mflg-intake-root .mflg-copy {
+    font-size: 13px;
   }
 
   #mflg-intake-root .mflg-rowtop {
@@ -966,6 +1157,19 @@
     flex-basis: 28px;
   }
 
+  #mflg-intake-root .mflg-card-title {
+    font-size: 12px;
+  }
+
+  #mflg-intake-root .mflg-panel {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  #mflg-intake-root .mflg-panel-title {
+    font-size: 20px;
+  }
+
   #mflg-intake-root .mflg-nav {
     margin-top: 28px;
     flex-direction: column;
@@ -979,6 +1183,36 @@
   #mflg-intake-root .mflg-foot {
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width: 420px) {
+  #mflg-intake-root .mflg-intro {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  #mflg-intake-root .mflg-intro-title {
+    font-size: 29px;
+  }
+
+  #mflg-intake-root .mflg-head,
+  #mflg-intake-root .mflg-body,
+  #mflg-intake-root .mflg-foot {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  #mflg-intake-root .mflg-card {
+    gap: 10px;
+  }
+
+  #mflg-intake-root .mflg-radio {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
   }
 }
 
