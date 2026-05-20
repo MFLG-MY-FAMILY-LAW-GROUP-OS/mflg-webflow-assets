@@ -1,18 +1,13 @@
-/* MFLG Intake Final Launch v3.6.2 — Scoped Left Image Reveal Repair
+/* MFLG Intake Final Launch v3.6.3 — Left Rail DOM Removal / Image-Only Background
    File: css/mflg-intake.css
 
    In accordance with MP v2:
-   - CSS-only repair
-   - Preserve JS v3.1, intake logic, fields, payload, n8n webhook, validation, and Vapi routing flags
-   - Do not redesign full intake
-   - Do not change non-intake site sections
-   - Restore the left-side courthouse image visibility while keeping intro text above the form
+   - Full replacement file
+   - Scoped required changes only
+   - Preserve intake layout, logic-supporting classes, fields, payload, validation, n8n, and Vapi routing
+   - No left-side hidden rail elements, rows, columns, sections, or divs
+   - Left side is image-only through the section background
    - Keep all CSS scoped to #mflg-intake-root
-
-   Primary fix:
-   The left side looked gray because multiple cream/gray overlay gradients were sitting over
-   the courthouse image and the right-side shell feather was too heavy. This version removes
-   the excessive washout on the left side while preserving a soft premium transition into the form.
 */
 
 /* ---------- Root Isolation / Full-Bleed Breakout ---------- */
@@ -53,7 +48,7 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Section Background / Left Image Reveal Repair ---------- */
+/* ---------- Section Background / Image-Only Left Side ---------- */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
@@ -64,19 +59,19 @@
   background-image:
     linear-gradient(
       90deg,
-      rgba(255, 253, 248, 0.08) 0%,
-      rgba(255, 253, 248, 0.16) 8%,
-      rgba(255, 253, 248, 0.32) 16%,
-      rgba(247, 242, 232, 0.62) 25%,
-      rgba(247, 242, 232, 0.92) 36%,
+      rgba(255, 253, 248, 0.06) 0%,
+      rgba(255, 253, 248, 0.12) 8%,
+      rgba(255, 253, 248, 0.26) 16%,
+      rgba(247, 242, 232, 0.54) 25%,
+      rgba(247, 242, 232, 0.90) 36%,
       rgba(247, 242, 232, 0.99) 52%,
       rgba(247, 242, 232, 1) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(255, 253, 248, 0.10) 0%,
-      rgba(247, 242, 232, 0.20) 50%,
-      rgba(247, 242, 232, 0.62) 100%
+      rgba(255, 253, 248, 0.06) 0%,
+      rgba(247, 242, 232, 0.16) 50%,
+      rgba(247, 242, 232, 0.58) 100%
     ),
     url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
   background-size: cover;
@@ -84,7 +79,7 @@
   background-repeat: no-repeat;
 }
 
-/* Keep atmosphere subtle. Do not wash out the left image. */
+/* Subtle atmosphere only. Do not create a hidden left rail or wash out the image. */
 #mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
@@ -92,19 +87,19 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 7% 44%, rgba(255, 253, 248, 0.05), transparent 30%),
+    radial-gradient(circle at 7% 44%, rgba(255, 253, 248, 0.04), transparent 30%),
     radial-gradient(circle at 92% 8%, rgba(199, 154, 43, 0.08), transparent 28%),
     linear-gradient(
       90deg,
       rgba(6, 16, 26, 0.00) 0%,
-      rgba(247, 242, 232, 0.02) 18%,
-      rgba(247, 242, 232, 0.18) 31%,
+      rgba(247, 242, 232, 0.01) 18%,
+      rgba(247, 242, 232, 0.14) 31%,
       rgba(247, 242, 232, 0.00) 55%,
       rgba(247, 242, 232, 0.00) 100%
     );
 }
 
-/* Bottom fade only. Do not gray the whole left column. */
+/* Bottom fade only. */
 #mflg-intake-root .mflg-intake::after {
   content: "";
   position: absolute;
@@ -116,7 +111,7 @@
     linear-gradient(
       180deg,
       rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.58) 62%,
+      rgba(247, 242, 232, 0.56) 62%,
       rgba(247, 242, 232, 0.96) 100%
     );
 }
@@ -140,7 +135,7 @@
   box-shadow: none;
 }
 
-/* Soft transition only at the form boundary. This must not cover the entire left image. */
+/* Soft transition at the form boundary only. */
 #mflg-intake-root .mflg-shell::before {
   content: "";
   position: absolute;
@@ -154,23 +149,9 @@
     linear-gradient(
       90deg,
       rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.24) 42%,
-      rgba(247, 242, 232, 0.78) 100%
+      rgba(247, 242, 232, 0.22) 42%,
+      rgba(247, 242, 232, 0.74) 100%
     );
-}
-
-/* ---------- Keep Old Left Rail Hidden: Image Only On Left ---------- */
-
-#mflg-intake-root .mflg-left,
-#mflg-intake-root .mflg-left::before,
-#mflg-intake-root .mflg-left::after,
-#mflg-intake-root .mflg-left-content,
-#mflg-intake-root .mflg-kicker,
-#mflg-intake-root .mflg-left-title,
-#mflg-intake-root .mflg-left-copy,
-#mflg-intake-root .mflg-badges,
-#mflg-intake-root .mflg-badge {
-  display: none !important;
 }
 
 /* ---------- Form Application ---------- */
@@ -193,7 +174,7 @@
     -1px 0 0 rgba(255, 255, 255, 0.34);
 }
 
-/* Light form-edge feather only. Prevents hard edge without graying image area. */
+/* Light form-edge feather only. */
 #mflg-intake-root .mflg-right::before {
   content: "";
   position: absolute;
@@ -206,8 +187,8 @@
   background:
     linear-gradient(
       90deg,
-      rgba(247, 242, 232, 0.88) 0%,
-      rgba(252, 248, 239, 0.38) 58%,
+      rgba(247, 242, 232, 0.86) 0%,
+      rgba(252, 248, 239, 0.34) 58%,
       rgba(252, 248, 239, 0.00) 100%
     );
 }
