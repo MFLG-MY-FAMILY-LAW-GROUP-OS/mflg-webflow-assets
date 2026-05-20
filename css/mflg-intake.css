@@ -1,13 +1,13 @@
-/* MFLG Intake Final Launch v3.3 — Full-Bleed 18/82 Image Rail Layout
+/* MFLG Intake Final Launch v3.4 — Full-Width Form / Section Background Image
    File: css/mflg-intake.css
    Purpose:
    - Preserve working intake fields, cards, icons, buttons, and JS logic
-   - Break the intake out of any Webflow container constraint
-   - Remove left/right side gutters created by section padding, shell max-width, or margin auto
-   - Make the form fill the available page width
-   - Convert the old text-heavy left rail into a narrow visual image rail
-   - Keep the courthouse image/fade as a premium accent only
-   - Keep all CSS scoped to #mflg-intake-root so the rest of the site is not affected
+   - Remove the left rail completely
+   - Hide all old left-side text/content
+   - Use courthouse image as full-section background only
+   - Make the form itself full-width within the intake section
+   - Remove side rail / side container conflict
+   - Keep all CSS scoped to #mflg-intake-root
 */
 
 /* ---------- Root Isolation / Full-Bleed Breakout ---------- */
@@ -45,54 +45,27 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Main Section: No Side Gutters ---------- */
+/* ---------- Full Section Background Image ---------- */
 
 #mflg-intake-root .mflg-intake {
-  width: 100%;
-  padding: 0;
-  overflow-x: clip;
-  background:
-    linear-gradient(180deg, #F9F5EC 0%, #F3EBDD 100%);
-}
-
-/* ---------- Full-Bleed Shell ---------- */
-
-#mflg-intake-root .mflg-shell {
-  width: 100%;
-  max-width: none;
-  min-height: 700px;
-  margin: 0;
-  display: grid;
-  grid-template-columns: clamp(180px, 18vw, 320px) minmax(0, 1fr);
-  overflow: hidden;
-  border-radius: 0;
-  background: var(--mflg-cream);
-  border: 0;
-  box-shadow: none;
-}
-
-/* ---------- Narrow Left Visual Rail ---------- */
-
-#mflg-intake-root .mflg-left {
   position: relative;
-  min-height: 700px;
+  width: 100%;
   padding: 0;
-  display: block;
   overflow: hidden;
-  background-color: #E9E0D2;
+  background-color: #F7F2E8;
   background-image:
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.38) 0%,
-      rgba(6, 16, 26, 0.22) 38%,
-      rgba(247, 242, 232, 0.20) 72%,
-      rgba(247, 242, 232, 0.92) 100%
+      rgba(247, 242, 232, 0.96) 0%,
+      rgba(247, 242, 232, 0.91) 28%,
+      rgba(247, 242, 232, 0.84) 52%,
+      rgba(247, 242, 232, 0.94) 100%
     ),
     linear-gradient(
-      0deg,
-      rgba(6, 16, 26, 0.42) 0%,
-      rgba(6, 16, 26, 0.06) 50%,
-      rgba(6, 16, 26, 0.16) 100%
+      180deg,
+      rgba(255, 253, 248, 0.86) 0%,
+      rgba(247, 242, 232, 0.82) 44%,
+      rgba(243, 235, 221, 0.94) 100%
     ),
     url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0b93153649c4a23c52030f_mflg_intake_background_left_column_sandra_day_v2%20(1).webp");
   background-size: cover;
@@ -100,74 +73,91 @@
   background-repeat: no-repeat;
 }
 
-/* Extra feather that overlaps visually toward the form side */
-#mflg-intake-root .mflg-left::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -72px;
-  width: 150px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.30) 28%,
-      rgba(247, 242, 232, 0.74) 66%,
-      rgba(247, 242, 232, 1.00) 100%
-    );
-}
-
-#mflg-intake-root .mflg-left::after {
+/* Soft edge/fade treatment across full section */
+#mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 44% 86%, rgba(199, 154, 43, 0.13), transparent 34%),
+    radial-gradient(circle at 0% 42%, rgba(6, 16, 26, 0.14), transparent 30%),
+    radial-gradient(circle at 88% 8%, rgba(199, 154, 43, 0.10), transparent 30%),
     linear-gradient(
       90deg,
-      rgba(6, 16, 26, 0.00) 0%,
-      rgba(6, 16, 26, 0.00) 52%,
-      rgba(247, 242, 232, 0.18) 78%,
-      rgba(247, 242, 232, 0.72) 100%
+      rgba(6, 16, 26, 0.12) 0%,
+      rgba(247, 242, 232, 0.00) 22%,
+      rgba(247, 242, 232, 0.00) 100%
     );
 }
 
-/* Hide the old left text rail on desktop.
-   The form itself now becomes the main full-width intake experience. */
-#mflg-intake-root .mflg-left-content {
-  display: none;
+#mflg-intake-root .mflg-intake::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 120px;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 242, 232, 0.00) 0%,
+    rgba(247, 242, 232, 0.92) 100%
+  );
 }
 
+/* ---------- Full-Width Shell ---------- */
+
+#mflg-intake-root .mflg-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: none;
+  min-height: 700px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* ---------- Remove Left Rail Completely ---------- */
+
+#mflg-intake-root .mflg-left,
+#mflg-intake-root .mflg-left::before,
+#mflg-intake-root .mflg-left::after,
+#mflg-intake-root .mflg-left-content,
 #mflg-intake-root .mflg-kicker,
 #mflg-intake-root .mflg-left-title,
 #mflg-intake-root .mflg-left-copy,
 #mflg-intake-root .mflg-badges,
 #mflg-intake-root .mflg-badge {
-  display: none;
+  display: none !important;
 }
 
-/* ---------- Right Form Application ---------- */
+/* ---------- Full-Width Form Application ---------- */
 
 #mflg-intake-root .mflg-right {
+  width: 100%;
+  max-width: none;
   min-width: 0;
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  overflow: hidden;
   background:
     radial-gradient(circle at 96% 0%, rgba(199, 154, 43, 0.08), transparent 30%),
-    linear-gradient(180deg, #FFFDF8 0%, var(--mflg-cream-2) 100%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96) 0%, rgba(252, 248, 239, 0.98) 100%);
 }
 
 /* ---------- Progress Header ---------- */
 
 #mflg-intake-root .mflg-head {
-  padding: 30px clamp(34px, 5.2vw, 86px) 25px;
+  width: 100%;
+  padding: 30px clamp(40px, 7vw, 128px) 25px;
   color: #fff;
   background:
     linear-gradient(90deg, #06101A 0%, #071522 58%, #092033 100%);
@@ -238,14 +228,16 @@
 /* ---------- Body ---------- */
 
 #mflg-intake-root .mflg-body {
+  width: 100%;
   flex: 1;
-  padding: 42px clamp(34px, 5.2vw, 86px) 36px;
+  padding: 42px clamp(40px, 7vw, 128px) 36px;
   background:
     radial-gradient(circle at 96% 4%, rgba(199, 154, 43, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.78), var(--mflg-cream-2));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(252, 248, 239, 0.98));
 }
 
 #mflg-intake-root .mflg-screen {
+  width: 100%;
   animation: mflgFade 0.19s ease both;
 }
 
@@ -717,7 +709,7 @@
 #mflg-intake-root .mflg-foot {
   max-width: none;
   margin: 0;
-  padding: 0 clamp(34px, 5.2vw, 86px) 30px;
+  padding: 0 clamp(40px, 7vw, 128px) 30px;
   display: flex;
   justify-content: center;
   gap: 9px;
@@ -743,36 +735,28 @@
   box-shadow: 0 0 0 2px rgba(184, 74, 74, 0.12);
 }
 
-/* ---------- Large Desktop: 15/85 Feel ---------- */
+/* ---------- Large Desktop ---------- */
 
 @media (min-width: 1500px) {
-  #mflg-intake-root .mflg-shell {
-    grid-template-columns: clamp(180px, 15vw, 300px) minmax(0, 1fr);
-  }
-
   #mflg-intake-root .mflg-head {
-    padding-left: clamp(44px, 5.6vw, 96px);
-    padding-right: clamp(44px, 5.6vw, 96px);
+    padding-left: clamp(56px, 7.5vw, 150px);
+    padding-right: clamp(56px, 7.5vw, 150px);
   }
 
   #mflg-intake-root .mflg-body {
-    padding-left: clamp(44px, 5.6vw, 96px);
-    padding-right: clamp(44px, 5.6vw, 96px);
+    padding-left: clamp(56px, 7.5vw, 150px);
+    padding-right: clamp(56px, 7.5vw, 150px);
   }
 
   #mflg-intake-root .mflg-foot {
-    padding-left: clamp(44px, 5.6vw, 96px);
-    padding-right: clamp(44px, 5.6vw, 96px);
+    padding-left: clamp(56px, 7.5vw, 150px);
+    padding-right: clamp(56px, 7.5vw, 150px);
   }
 }
 
 /* ---------- Laptop / Smaller Desktop ---------- */
 
 @media (max-width: 1280px) {
-  #mflg-intake-root .mflg-shell {
-    grid-template-columns: clamp(150px, 15vw, 240px) minmax(0, 1fr);
-  }
-
   #mflg-intake-root .mflg-head {
     padding-left: 42px;
     padding-right: 42px;
@@ -789,7 +773,7 @@
   }
 }
 
-/* ---------- Tablet: Image Rail Becomes Short Top Accent ---------- */
+/* ---------- Tablet ---------- */
 
 @media (max-width: 991px) {
   #mflg-intake-root {
@@ -797,31 +781,6 @@
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
-  }
-
-  #mflg-intake-root .mflg-shell {
-    width: 100%;
-    grid-template-columns: 1fr;
-  }
-
-  #mflg-intake-root .mflg-left {
-    min-height: 160px;
-    background-position: center 42%;
-  }
-
-  #mflg-intake-root .mflg-left::before {
-    display: none;
-  }
-
-  #mflg-intake-root .mflg-left::after {
-    background:
-      linear-gradient(
-        0deg,
-        rgba(247, 242, 232, 0.96) 0%,
-        rgba(247, 242, 232, 0.42) 22%,
-        rgba(6, 16, 26, 0.00) 54%
-      ),
-      radial-gradient(circle at 50% 90%, rgba(199, 154, 43, 0.14), transparent 38%);
   }
 
   #mflg-intake-root .mflg-head {
@@ -859,14 +818,9 @@
   }
 }
 
-/* ---------- Mobile: Compact Top Image Accent ---------- */
+/* ---------- Mobile ---------- */
 
 @media (max-width: 767px) {
-  #mflg-intake-root .mflg-left {
-    min-height: 118px;
-    background-position: center;
-  }
-
   #mflg-intake-root .mflg-head {
     padding: 24px 20px 20px;
   }
