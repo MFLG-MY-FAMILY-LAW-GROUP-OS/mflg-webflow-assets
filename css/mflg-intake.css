@@ -1,13 +1,19 @@
-/* MFLG Intake Final Launch v3.9 — Clean Premium Conversion Intake
+/* MFLG Intake Final Launch v3.9.2 — Clean Premium Conversion Intake / Flagship Proportion Pass
    File: css/mflg-intake.css
 
    In accordance with MP v2:
    - Full CSS replacement
-   - CSS-only redesign
+   - CSS-only refinement
    - No JS changes
    - Intake architecture, conditional logic, validation hooks, class names, fields, payload, n8n, and routing preserved
-   - Removes left rail, word-cloud image, duplicate image backgrounds, and competing decorative overlays
-   - Creates a centered, premium, high-conversion family-law intake module
+   - No left rail
+   - No word-cloud image
+   - No duplicate image backgrounds
+   - No competing visual overlays
+   - Clean centered flagship intake card
+   - Wider desktop presence
+   - Tighter section flow from prior Guides section
+   - Better headline proportion and form breathing room
 */
 
 /* =========================================================
@@ -58,10 +64,10 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: clamp(46px, 5vw, 84px) 0 clamp(70px, 6vw, 108px);
+  padding: clamp(22px, 2.4vw, 42px) 0 clamp(60px, 5.2vw, 92px);
   background:
-    radial-gradient(circle at 84% 10%, rgba(199, 154, 43, 0.18) 0%, rgba(199, 154, 43, 0.055) 24%, rgba(199, 154, 43, 0) 54%),
-    radial-gradient(circle at 9% 24%, rgba(2, 69, 122, 0.075) 0%, rgba(2, 69, 122, 0.025) 28%, rgba(2, 69, 122, 0) 58%),
+    radial-gradient(circle at 84% 8%, rgba(199, 154, 43, 0.15) 0%, rgba(199, 154, 43, 0.045) 24%, rgba(199, 154, 43, 0) 54%),
+    radial-gradient(circle at 8% 24%, rgba(2, 69, 122, 0.055) 0%, rgba(2, 69, 122, 0.018) 28%, rgba(2, 69, 122, 0) 58%),
     linear-gradient(115deg, #fffdf8 0%, #fbf7ee 42%, #f3ead8 76%, #e7d8bc 100%);
 }
 
@@ -72,15 +78,15 @@
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.92) 0%, rgba(255, 253, 248, 0.22) 22%, rgba(255, 253, 248, 0) 58%),
-    linear-gradient(90deg, rgba(255, 253, 248, 0.86) 0%, rgba(255, 253, 248, 0.22) 34%, rgba(255, 253, 248, 0) 64%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.86) 0%, rgba(255, 253, 248, 0.16) 22%, rgba(255, 253, 248, 0) 58%),
+    linear-gradient(90deg, rgba(255, 253, 248, 0.78) 0%, rgba(255, 253, 248, 0.16) 34%, rgba(255, 253, 248, 0) 64%);
 }
 
 #mflg-intake-root .mflg-intake::after {
   content: "";
   position: absolute;
   right: -12vw;
-  top: 14%;
+  top: 8%;
   width: 40vw;
   height: 40vw;
   min-width: 420px;
@@ -88,17 +94,17 @@
   z-index: 0;
   pointer-events: none;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(199, 154, 43, 0.12) 0%, rgba(199, 154, 43, 0.04) 40%, rgba(199, 154, 43, 0) 72%);
+  background: radial-gradient(circle, rgba(199, 154, 43, 0.09) 0%, rgba(199, 154, 43, 0.032) 40%, rgba(199, 154, 43, 0) 72%);
 }
 
 /* =========================================================
-   3. Shell — centered authority module
+   3. Shell — wider centered authority module
    ========================================================= */
 
 #mflg-intake-root .mflg-shell {
   position: relative;
   z-index: 1;
-  width: min(1370px, calc(100% - 34px));
+  width: min(1520px, calc(100% - 30px));
   margin: 0 auto;
   display: block;
   overflow: visible;
@@ -125,13 +131,13 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border-radius: 32px;
+  border-radius: 30px;
   border: 1px solid rgba(11, 17, 24, 0.12);
   background:
     linear-gradient(180deg, rgba(255, 253, 248, 0.985) 0%, rgba(251, 247, 238, 0.985) 100%);
   box-shadow:
-    0 34px 90px rgba(6, 16, 26, 0.16),
-    0 12px 34px rgba(6, 16, 26, 0.08),
+    0 34px 88px rgba(6, 16, 26, 0.145),
+    0 12px 32px rgba(6, 16, 26, 0.072),
     inset 0 1px 0 rgba(255, 255, 255, 0.86);
 }
 
@@ -142,8 +148,8 @@
   pointer-events: none;
   inset: 0;
   background:
-    radial-gradient(circle at 100% 0%, rgba(199, 154, 43, 0.16) 0%, rgba(199, 154, 43, 0.05) 26%, rgba(199, 154, 43, 0) 58%),
-    linear-gradient(90deg, rgba(255, 253, 248, 0) 0%, rgba(232, 219, 194, 0.11) 76%, rgba(213, 198, 168, 0.22) 100%);
+    radial-gradient(circle at 100% 0%, rgba(199, 154, 43, 0.13) 0%, rgba(199, 154, 43, 0.04) 26%, rgba(199, 154, 43, 0) 58%),
+    linear-gradient(90deg, rgba(255, 253, 248, 0) 0%, rgba(232, 219, 194, 0.08) 76%, rgba(213, 198, 168, 0.16) 100%);
 }
 
 #mflg-intake-root .mflg-right::after {
@@ -154,8 +160,8 @@
   left: 0;
   right: 0;
   top: 0;
-  height: 190px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 100%);
+  height: 156px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 #mflg-intake-root .mflg-intro,
@@ -171,17 +177,17 @@
    ========================================================= */
 
 #mflg-intake-root .mflg-intro {
-  padding: clamp(44px, 4.6vw, 72px) clamp(48px, 6vw, 92px) clamp(32px, 3.4vw, 50px);
+  padding: clamp(34px, 3.4vw, 56px) clamp(58px, 6.2vw, 112px) clamp(24px, 2.6vw, 38px);
   background: rgba(255, 253, 248, 0.70);
 }
 
 #mflg-intake-root .mflg-intro-inner {
-  width: min(1120px, 100%);
+  width: min(1280px, 100%);
   margin: 0;
 }
 
 #mflg-intake-root .mflg-intro-kicker {
-  margin: 0 0 17px;
+  margin: 0 0 14px;
   display: inline-flex;
   align-items: center;
   gap: 11px;
@@ -201,22 +207,22 @@
 }
 
 #mflg-intake-root .mflg-intro-title {
-  max-width: 1060px;
-  margin: 0 0 17px;
+  max-width: 1220px;
+  margin: 0 0 14px;
   color: var(--mflg-navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 4vw, 72px);
+  font-size: clamp(38px, 3.25vw, 60px);
   font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  line-height: 1.0;
+  letter-spacing: -0.052em;
 }
 
 #mflg-intake-root .mflg-intro-copy {
-  max-width: 1060px;
+  max-width: 1180px;
   margin: 0;
   color: var(--mflg-muted);
   font-size: 15px;
-  line-height: 1.68;
+  line-height: 1.64;
 }
 
 /* =========================================================
@@ -224,14 +230,14 @@
    ========================================================= */
 
 #mflg-intake-root .mflg-head {
-  padding: 31px clamp(48px, 6vw, 92px) 27px;
+  padding: 28px clamp(58px, 6.2vw, 112px) 24px;
   color: #fff;
   background:
-    radial-gradient(circle at 88% 15%, rgba(199, 154, 43, 0.22) 0%, rgba(199, 154, 43, 0.055) 34%, rgba(199, 154, 43, 0) 62%),
+    radial-gradient(circle at 88% 15%, rgba(199, 154, 43, 0.19) 0%, rgba(199, 154, 43, 0.05) 34%, rgba(199, 154, 43, 0) 62%),
     linear-gradient(90deg, #06101a 0%, #082742 42%, #02457a 78%, #063453 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.10),
-    0 16px 30px rgba(2, 69, 122, 0.15);
+    0 13px 24px rgba(2, 69, 122, 0.13);
 }
 
 #mflg-intake-root .mflg-head::after {
@@ -239,10 +245,10 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -18px;
-  height: 18px;
+  bottom: -15px;
+  height: 15px;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(2, 69, 122, 0.14) 0%, rgba(2, 69, 122, 0.05) 48%, rgba(2, 69, 122, 0) 100%);
+  background: linear-gradient(180deg, rgba(2, 69, 122, 0.12) 0%, rgba(2, 69, 122, 0.04) 48%, rgba(2, 69, 122, 0) 100%);
 }
 
 #mflg-intake-root .mflg-headtop,
@@ -253,7 +259,7 @@
 }
 
 #mflg-intake-root .mflg-headtop {
-  margin-bottom: 22px;
+  margin-bottom: 19px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -273,7 +279,7 @@
   margin: 0;
   color: #fff;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(28px, 2vw, 36px);
+  font-size: clamp(27px, 1.8vw, 33px);
   line-height: 1.1;
 }
 
@@ -285,7 +291,7 @@
 
 #mflg-intake-root .mflg-progress {
   min-width: 0;
-  min-height: 38px;
+  min-height: 36px;
   padding: 9px 12px;
   display: flex;
   align-items: center;
@@ -337,7 +343,7 @@
 #mflg-intake-root .mflg-body {
   width: 100%;
   flex: 1;
-  padding: clamp(40px, 4vw, 60px) clamp(48px, 6vw, 92px) clamp(38px, 4vw, 56px);
+  padding: clamp(34px, 3.4vw, 50px) clamp(58px, 6.2vw, 112px) clamp(32px, 3.4vw, 50px);
 }
 
 #mflg-intake-root .mflg-screen {
@@ -359,12 +365,12 @@
 }
 
 #mflg-intake-root .mflg-title {
-  margin: 0 0 9px;
+  margin: 0 0 8px;
   display: flex;
   align-items: center;
   gap: 12px;
   color: var(--mflg-ink);
-  font-size: clamp(22px, 1.65vw, 30px);
+  font-size: clamp(22px, 1.5vw, 28px);
   font-weight: 900;
   line-height: 1.18;
   letter-spacing: -0.024em;
@@ -378,8 +384,8 @@
 }
 
 #mflg-intake-root .mflg-copy {
-  max-width: 1060px;
-  margin: 0 0 25px;
+  max-width: 1120px;
+  margin: 0 0 23px;
   color: var(--mflg-muted);
   font-size: 14px;
   line-height: 1.62;
@@ -387,7 +393,7 @@
 
 #mflg-intake-root .mflg-field {
   min-width: 0;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 #mflg-intake-root .mflg-grid2 {
@@ -429,8 +435,8 @@
 #mflg-intake-root .mflg-textarea {
   width: 100%;
   min-width: 0;
-  min-height: 54px;
-  padding: 14px 15px;
+  min-height: 52px;
+  padding: 13px 15px;
   border: 1px solid rgba(11, 17, 24, 0.15);
   border-radius: 13px;
   outline: 0;
@@ -448,7 +454,7 @@
 }
 
 #mflg-intake-root .mflg-textarea {
-  min-height: 128px;
+  min-height: 118px;
   resize: vertical;
 }
 
@@ -492,14 +498,14 @@
 #mflg-intake-root .mflg-card {
   width: 100%;
   min-width: 0;
-  min-height: 100px;
-  padding: 18px;
+  min-height: 94px;
+  padding: 16px 18px;
   display: flex;
   align-items: flex-start;
   gap: 14px;
   appearance: none;
   border: 1px solid rgba(11, 17, 24, 0.12);
-  border-radius: 18px;
+  border-radius: 17px;
   background: rgba(255, 255, 255, 0.96);
   color: var(--mflg-ink);
   text-align: left;
@@ -598,7 +604,7 @@
 
 #mflg-intake-root .mflg-seg {
   min-width: 0;
-  min-height: 76px;
+  min-height: 74px;
   padding: 15px;
   appearance: none;
   border: 0;
@@ -655,7 +661,7 @@
 
 #mflg-intake-root .mflg-divider {
   width: 100%;
-  margin: 30px 0;
+  margin: 26px 0;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -676,7 +682,7 @@
 }
 
 #mflg-intake-root .mflg-panel {
-  margin: 18px 0 24px;
+  margin: 18px 0 22px;
   padding: 24px;
   border: 1px solid rgba(11, 17, 24, 0.10);
   border-radius: 20px;
@@ -800,7 +806,7 @@
    ========================================================= */
 
 #mflg-intake-root .mflg-nav {
-  margin-top: 34px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -808,7 +814,7 @@
 }
 
 #mflg-intake-root .mflg-btn {
-  min-height: 66px;
+  min-height: 64px;
   padding: 0 24px;
   appearance: none;
   border: 0;
@@ -867,7 +873,7 @@
 #mflg-intake-root .mflg-foot {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 clamp(48px, 6vw, 92px) 36px;
+  padding: 0 clamp(58px, 6.2vw, 112px) 34px;
   display: flex;
   justify-content: center;
   gap: 9px;
@@ -926,7 +932,7 @@
 
 @media (max-width: 1280px) {
   #mflg-intake-root .mflg-shell {
-    width: min(1220px, calc(100% - 28px));
+    width: min(1280px, calc(100% - 26px));
   }
 
   #mflg-intake-root .mflg-intro,
@@ -938,7 +944,7 @@
   }
 
   #mflg-intake-root .mflg-intro-title {
-    font-size: clamp(38px, 3.8vw, 62px);
+    font-size: clamp(36px, 3.45vw, 56px);
   }
 }
 
@@ -952,7 +958,7 @@
   }
 
   #mflg-intake-root .mflg-intake {
-    padding: 38px 0 54px;
+    padding: 32px 0 52px;
   }
 
   #mflg-intake-root .mflg-shell {
@@ -1011,7 +1017,7 @@
 
 @media (max-width: 767px) {
   #mflg-intake-root .mflg-intake {
-    padding: 30px 0 46px;
+    padding: 28px 0 44px;
   }
 
   #mflg-intake-root .mflg-shell {
