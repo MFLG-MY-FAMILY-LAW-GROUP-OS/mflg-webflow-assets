@@ -1,19 +1,18 @@
-/* MFLG Intake Final Launch v3.7.1 — Refined Premium Intake Redesign
+/* MFLG Intake Final Launch v3.9 — Clean Premium Conversion Intake
    File: css/mflg-intake.css
 
    In accordance with MP v2:
-   - Full replacement file
-   - CSS-only refinement
-   - No JS change required
-   - Preserve intake architecture, conditional logic, validation hooks, class names, fields, payload, n8n, and routing
-   - Refine prior premium redesign after screenshot verification
-   - Keep form wider and more authoritative
-   - Reduce left rail dominance
-   - Soften image crop and blend
-   - Preserve conversion-focused layout and premium MFLG branding
+   - Full CSS replacement
+   - CSS-only redesign
+   - No JS changes
+   - Intake architecture, conditional logic, validation hooks, class names, fields, payload, n8n, and routing preserved
+   - Removes left rail, word-cloud image, duplicate image backgrounds, and competing decorative overlays
+   - Creates a centered, premium, high-conversion family-law intake module
 */
 
-/* ---------- Root / Variables ---------- */
+/* =========================================================
+   1. Root / Tokens
+   ========================================================= */
 
 #mflg-intake-root,
 #mflg-intake-root * {
@@ -25,47 +24,45 @@
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  isolation: isolate;
   position: relative;
+  isolation: isolate;
   overflow-x: clip;
 
-  --mflg-navy: #06101A;
-  --mflg-navy-2: #0A1724;
-  --mflg-navy-3: #0E1C2B;
-  --mflg-blue: #02457A;
-  --mflg-blue-2: #013B68;
-  --mflg-blue-3: #062F52;
-  --mflg-cream: #F7F2E8;
-  --mflg-cream-2: #FCF8EF;
-  --mflg-cream-3: #FFFDF8;
-  --mflg-paper: #FFFFFF;
-  --mflg-edge: #E8DDC9;
-  --mflg-edge-2: #DCCDAF;
-  --mflg-gold: #C79A2B;
-  --mflg-gold-2: #B88A1F;
-  --mflg-text: #101820;
-  --mflg-muted: #5F6A75;
-  --mflg-line: rgba(16, 24, 32, 0.14);
-  --mflg-line-soft: rgba(16, 24, 32, 0.08);
-  --mflg-shadow: rgba(6, 16, 26, 0.15);
-  --mflg-shadow-soft: rgba(6, 16, 26, 0.07);
-  --mflg-error: #B84A4A;
-  --mflg-error-fill: rgba(184, 74, 74, 0.052);
+  --mflg-ink: #0b1118;
+  --mflg-navy: #06101a;
+  --mflg-navy-2: #0a1724;
+  --mflg-navy-3: #0d2237;
+  --mflg-blue: #02457a;
+  --mflg-blue-2: #013b68;
+  --mflg-blue-3: #062f52;
+  --mflg-gold: #c79a2b;
+  --mflg-gold-2: #ae8121;
+  --mflg-cream: #fbf7ee;
+  --mflg-cream-2: #f5eedf;
+  --mflg-cream-3: #fffdf8;
+  --mflg-paper: #ffffff;
+  --mflg-line: rgba(11, 17, 24, 0.13);
+  --mflg-line-soft: rgba(11, 17, 24, 0.08);
+  --mflg-muted: #5f6a75;
+  --mflg-danger: #b84a4a;
 
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--mflg-text);
+  color: var(--mflg-ink);
 }
 
-/* ---------- Section Base ---------- */
+/* =========================================================
+   2. Section — clean premium canvas
+   ========================================================= */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
   width: 100%;
-  padding: clamp(38px, 3.8vw, 62px) 0 clamp(56px, 5vw, 82px);
   overflow: hidden;
+  padding: clamp(46px, 5vw, 84px) 0 clamp(70px, 6vw, 108px);
   background:
-    radial-gradient(circle at 88% 8%, rgba(199, 154, 43, 0.15) 0%, rgba(199, 154, 43, 0.05) 24%, rgba(199, 154, 43, 0.00) 48%),
-    linear-gradient(90deg, #F9F4EA 0%, #FCF8EF 42%, #F7F0E2 78%, #EADFC8 100%);
+    radial-gradient(circle at 84% 10%, rgba(199, 154, 43, 0.18) 0%, rgba(199, 154, 43, 0.055) 24%, rgba(199, 154, 43, 0) 54%),
+    radial-gradient(circle at 9% 24%, rgba(2, 69, 122, 0.075) 0%, rgba(2, 69, 122, 0.025) 28%, rgba(2, 69, 122, 0) 58%),
+    linear-gradient(115deg, #fffdf8 0%, #fbf7ee 42%, #f3ead8 76%, #e7d8bc 100%);
 }
 
 #mflg-intake-root .mflg-intake::before {
@@ -75,132 +72,90 @@
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.82) 0%, rgba(255, 253, 248, 0.18) 12%, rgba(255, 253, 248, 0.00) 30%),
-    linear-gradient(90deg, rgba(252, 248, 239, 0.95) 0%, rgba(252, 248, 239, 0.50) 16%, rgba(252, 248, 239, 0.00) 34%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.92) 0%, rgba(255, 253, 248, 0.22) 22%, rgba(255, 253, 248, 0) 58%),
+    linear-gradient(90deg, rgba(255, 253, 248, 0.86) 0%, rgba(255, 253, 248, 0.22) 34%, rgba(255, 253, 248, 0) 64%);
 }
 
 #mflg-intake-root .mflg-intake::after {
   content: "";
   position: absolute;
-  top: clamp(86px, 7vw, 128px);
-  bottom: clamp(40px, 4vw, 68px);
-  left: clamp(-180px, -8vw, -96px);
-  width: clamp(420px, 25vw, 620px);
+  right: -12vw;
+  top: 14%;
+  width: 40vw;
+  height: 40vw;
+  min-width: 420px;
+  min-height: 420px;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.12;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(252, 248, 239, 0.06) 0%,
-      rgba(252, 248, 239, 0.18) 36%,
-      rgba(252, 248, 239, 0.62) 74%,
-      rgba(252, 248, 239, 0.98) 100%
-    ),
-    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0e736d0256264ee6e4b206_Family-Law-Issues-1024x923.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%, auto 92%;
-  background-position: center center, left center;
-  filter: sepia(0.10) saturate(0.72) contrast(0.96);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 154, 43, 0.12) 0%, rgba(199, 154, 43, 0.04) 40%, rgba(199, 154, 43, 0) 72%);
 }
 
-/* ---------- Shell ---------- */
+/* =========================================================
+   3. Shell — centered authority module
+   ========================================================= */
 
 #mflg-intake-root .mflg-shell {
   position: relative;
   z-index: 1;
-  width: min(1580px, calc(100% - 28px));
+  width: min(1370px, calc(100% - 34px));
   margin: 0 auto;
-  min-height: 700px;
-  display: grid;
-  grid-template-columns: minmax(160px, 0.16fr) minmax(900px, 1fr);
-  gap: clamp(20px, 2.2vw, 34px);
-  align-items: stretch;
+  display: block;
   overflow: visible;
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
-/* Left premium brand rail — intentionally restrained */
-#mflg-intake-root .mflg-shell::before {
-  content: "";
-  position: relative;
-  z-index: 1;
-  display: block;
-  min-height: 100%;
-  border: 1px solid rgba(199, 154, 43, 0.18);
-  border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(6, 16, 26, 0.035) 0%, rgba(6, 16, 26, 0.00) 34%),
-    linear-gradient(90deg, rgba(255, 253, 248, 0.96) 0%, rgba(255, 253, 248, 0.82) 58%, rgba(255, 253, 248, 0.46) 100%),
-    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0e736d0256264ee6e4b206_Family-Law-Issues-1024x923.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%, 100% 100%, auto 78%;
-  background-position: center center, center center, center center;
-  box-shadow:
-    0 18px 44px rgba(6, 16, 26, 0.055),
-    inset 0 1px 0 rgba(255, 255, 255, 0.70);
-  opacity: 1;
-  pointer-events: none;
-}
-
+#mflg-intake-root .mflg-shell::before,
 #mflg-intake-root .mflg-shell::after {
-  content: "";
-  position: absolute;
-  left: clamp(14px, 1.3vw, 24px);
-  top: clamp(18px, 1.8vw, 30px);
-  width: clamp(62px, 5vw, 92px);
-  height: clamp(62px, 5vw, 92px);
-  z-index: 2;
-  border-radius: 50%;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at center, rgba(199, 154, 43, 0.18) 0%, rgba(199, 154, 43, 0.06) 40%, rgba(199, 154, 43, 0.00) 72%);
+  display: none;
+  content: none;
 }
 
-/* ---------- Main Form Card ---------- */
+/* =========================================================
+   4. Main Intake Card
+   ========================================================= */
 
 #mflg-intake-root .mflg-right {
-  width: 100%;
-  min-width: 0;
   position: relative;
   z-index: 2;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  border: 1px solid rgba(16, 24, 32, 0.11);
-  border-radius: 28px;
+  border-radius: 32px;
+  border: 1px solid rgba(11, 17, 24, 0.12);
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.97) 0%, rgba(252, 248, 239, 0.98) 100%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.985) 0%, rgba(251, 247, 238, 0.985) 100%);
   box-shadow:
-    0 26px 70px rgba(6, 16, 26, 0.14),
-    0 10px 26px rgba(6, 16, 26, 0.07),
-    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    0 34px 90px rgba(6, 16, 26, 0.16),
+    0 12px 34px rgba(6, 16, 26, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
 }
 
 #mflg-intake-root .mflg-right::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  width: min(28vw, 420px);
-  height: 100%;
   z-index: 0;
   pointer-events: none;
+  inset: 0;
   background:
-    radial-gradient(circle at 100% 8%, rgba(199, 154, 43, 0.16) 0%, rgba(199, 154, 43, 0.058) 28%, rgba(199, 154, 43, 0.00) 60%),
-    linear-gradient(90deg, rgba(252, 248, 239, 0.00) 0%, rgba(233, 221, 199, 0.16) 58%, rgba(214, 199, 170, 0.30) 100%);
+    radial-gradient(circle at 100% 0%, rgba(199, 154, 43, 0.16) 0%, rgba(199, 154, 43, 0.05) 26%, rgba(199, 154, 43, 0) 58%),
+    linear-gradient(90deg, rgba(255, 253, 248, 0) 0%, rgba(232, 219, 194, 0.11) 76%, rgba(213, 198, 168, 0.22) 100%);
 }
 
 #mflg-intake-root .mflg-right::after {
   content: "";
   position: absolute;
-  inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.00) 18%);
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 190px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 #mflg-intake-root .mflg-intro,
@@ -211,82 +166,83 @@
   z-index: 1;
 }
 
-/* ---------- Intro ---------- */
+/* =========================================================
+   5. Intro
+   ========================================================= */
 
 #mflg-intake-root .mflg-intro {
-  padding: clamp(34px, 3.4vw, 50px) clamp(36px, 4.4vw, 64px) clamp(26px, 2.6vw, 38px);
-  background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.97) 0%, rgba(255, 253, 248, 0.76) 100%);
+  padding: clamp(44px, 4.6vw, 72px) clamp(48px, 6vw, 92px) clamp(32px, 3.4vw, 50px);
+  background: rgba(255, 253, 248, 0.70);
 }
 
 #mflg-intake-root .mflg-intro-inner {
-  width: min(1080px, 100%);
+  width: min(1120px, 100%);
   margin: 0;
 }
 
 #mflg-intake-root .mflg-intro-kicker {
-  margin: 0 0 14px;
+  margin: 0 0 17px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   color: var(--mflg-gold);
   font-size: 12px;
   font-weight: 900;
   line-height: 1.2;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
 }
 
 #mflg-intake-root .mflg-intro-kicker::before {
   content: "";
-  width: 34px;
+  width: 42px;
   height: 1px;
-  background: rgba(199, 154, 43, 0.68);
+  background: rgba(199, 154, 43, 0.72);
 }
 
 #mflg-intake-root .mflg-intro-title {
-  max-width: 980px;
-  margin: 0 0 14px;
+  max-width: 1060px;
+  margin: 0 0 17px;
   color: var(--mflg-navy);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(36px, 3.35vw, 60px);
+  font-size: clamp(42px, 4vw, 72px);
   font-weight: 700;
-  line-height: 0.99;
-  letter-spacing: -0.052em;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
 }
 
 #mflg-intake-root .mflg-intro-copy {
-  max-width: 1040px;
+  max-width: 1060px;
   margin: 0;
   color: var(--mflg-muted);
   font-size: 15px;
-  line-height: 1.66;
+  line-height: 1.68;
 }
 
-/* ---------- Progress Header ---------- */
+/* =========================================================
+   6. Progress Header
+   ========================================================= */
 
 #mflg-intake-root .mflg-head {
-  padding: 28px clamp(36px, 4.4vw, 64px) 24px;
+  padding: 31px clamp(48px, 6vw, 92px) 27px;
   color: #fff;
   background:
-    radial-gradient(circle at 88% 18%, rgba(199, 154, 43, 0.18) 0%, rgba(199, 154, 43, 0.052) 34%, rgba(199, 154, 43, 0.00) 62%),
-    linear-gradient(90deg, var(--mflg-navy) 0%, var(--mflg-blue) 50%, var(--mflg-blue-3) 100%);
+    radial-gradient(circle at 88% 15%, rgba(199, 154, 43, 0.22) 0%, rgba(199, 154, 43, 0.055) 34%, rgba(199, 154, 43, 0) 62%),
+    linear-gradient(90deg, #06101a 0%, #082742 42%, #02457a 78%, #063453 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.10),
-    0 14px 26px rgba(2, 69, 122, 0.14);
+    0 16px 30px rgba(2, 69, 122, 0.15);
 }
 
 #mflg-intake-root .mflg-head::after {
   content: "";
   position: absolute;
-  right: 0;
-  bottom: -16px;
   left: 0;
-  height: 16px;
-  z-index: 2;
+  right: 0;
+  bottom: -18px;
+  height: 18px;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(2, 69, 122, 0.13) 0%, rgba(2, 69, 122, 0.045) 50%, rgba(2, 69, 122, 0.00) 100%);
+  background: linear-gradient(180deg, rgba(2, 69, 122, 0.14) 0%, rgba(2, 69, 122, 0.05) 48%, rgba(2, 69, 122, 0) 100%);
 }
 
 #mflg-intake-root .mflg-headtop,
@@ -297,7 +253,7 @@
 }
 
 #mflg-intake-root .mflg-headtop {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -317,7 +273,7 @@
   margin: 0;
   color: #fff;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(26px, 1.8vw, 32px);
+  font-size: clamp(28px, 2vw, 36px);
   line-height: 1.1;
 }
 
@@ -329,7 +285,8 @@
 
 #mflg-intake-root .mflg-progress {
   min-width: 0;
-  padding: 10px 12px;
+  min-height: 38px;
+  padding: 9px 12px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -340,8 +297,8 @@
   line-height: 1.2;
   letter-spacing: 0.065em;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.052);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 #mflg-intake-root .mflg-progress span:last-child {
@@ -356,30 +313,31 @@
   height: 10px;
   flex: 0 0 10px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.46);
+  border: 1px solid rgba(255, 255, 255, 0.48);
 }
 
 #mflg-intake-root .mflg-progress.is-active,
 #mflg-intake-root .mflg-progress.is-complete {
   color: #fff;
-  background: rgba(255, 255, 255, 0.095);
   border-color: rgba(199, 154, 43, 0.38);
+  background: rgba(255, 255, 255, 0.10);
 }
 
 #mflg-intake-root .mflg-progress.is-active .mflg-dot,
 #mflg-intake-root .mflg-progress.is-complete .mflg-dot {
   border-color: var(--mflg-gold);
   background: var(--mflg-gold);
-  box-shadow: 0 0 0 4px rgba(199, 154, 43, 0.14);
+  box-shadow: 0 0 0 4px rgba(199, 154, 43, 0.15);
 }
 
-/* ---------- Body ---------- */
+/* =========================================================
+   7. Body
+   ========================================================= */
 
 #mflg-intake-root .mflg-body {
   width: 100%;
   flex: 1;
-  padding: clamp(36px, 3.6vw, 50px) clamp(36px, 4.4vw, 64px) clamp(32px, 3.4vw, 46px);
-  background: transparent;
+  padding: clamp(40px, 4vw, 60px) clamp(48px, 6vw, 92px) clamp(38px, 4vw, 56px);
 }
 
 #mflg-intake-root .mflg-screen {
@@ -405,11 +363,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--mflg-text);
-  font-size: clamp(21px, 1.55vw, 27px);
+  color: var(--mflg-ink);
+  font-size: clamp(22px, 1.65vw, 30px);
   font-weight: 900;
   line-height: 1.18;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.024em;
 }
 
 #mflg-intake-root .mflg-title svg {
@@ -420,8 +378,8 @@
 }
 
 #mflg-intake-root .mflg-copy {
-  max-width: 980px;
-  margin: 0 0 24px;
+  max-width: 1060px;
+  margin: 0 0 25px;
   color: var(--mflg-muted);
   font-size: 14px;
   line-height: 1.62;
@@ -462,7 +420,9 @@
   line-height: 1.45;
 }
 
-/* ---------- Inputs ---------- */
+/* =========================================================
+   8. Inputs
+   ========================================================= */
 
 #mflg-intake-root .mflg-input,
 #mflg-intake-root .mflg-select,
@@ -471,15 +431,15 @@
   min-width: 0;
   min-height: 54px;
   padding: 14px 15px;
-  border: 1px solid rgba(16, 24, 32, 0.15);
-  border-radius: 12px;
+  border: 1px solid rgba(11, 17, 24, 0.15);
+  border-radius: 13px;
   outline: 0;
   background: rgba(255, 255, 255, 0.96);
-  color: var(--mflg-text);
+  color: var(--mflg-ink);
   font-size: 14px;
   line-height: 1.4;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.70) inset,
+    0 1px 0 rgba(255, 255, 255, 0.76) inset,
     0 8px 18px rgba(6, 16, 26, 0.035);
 }
 
@@ -488,7 +448,7 @@
 }
 
 #mflg-intake-root .mflg-textarea {
-  min-height: 124px;
+  min-height: 128px;
   resize: vertical;
 }
 
@@ -503,30 +463,16 @@
 #mflg-intake-root .mflg-input:focus-visible,
 #mflg-intake-root .mflg-select:focus-visible,
 #mflg-intake-root .mflg-textarea:focus-visible {
-  border-color: rgba(199, 154, 43, 0.78);
+  border-color: rgba(199, 154, 43, 0.82);
   background: #fff;
   box-shadow:
     0 0 0 4px rgba(199, 154, 43, 0.14),
     0 12px 26px rgba(6, 16, 26, 0.06);
 }
 
-/* ---------- Row Utilities ---------- */
-
-#mflg-intake-root .mflg-rowtop {
-  margin-bottom: 9px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 14px;
-}
-
-#mflg-intake-root .mflg-counter {
-  color: var(--mflg-muted);
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-/* ---------- Cards ---------- */
+/* =========================================================
+   9. Cards / Choices
+   ========================================================= */
 
 #mflg-intake-root .mflg-cards {
   display: grid;
@@ -546,21 +492,21 @@
 #mflg-intake-root .mflg-card {
   width: 100%;
   min-width: 0;
-  min-height: 96px;
-  padding: 16px 18px;
+  min-height: 100px;
+  padding: 18px;
   display: flex;
   align-items: flex-start;
   gap: 14px;
   appearance: none;
-  border: 1px solid rgba(16, 24, 32, 0.12);
-  border-radius: 16px;
+  border: 1px solid rgba(11, 17, 24, 0.12);
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.96);
-  color: var(--mflg-text);
+  color: var(--mflg-ink);
   text-align: left;
   cursor: pointer;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.82) inset,
-    0 9px 20px rgba(6, 16, 26, 0.035);
+    0 1px 0 rgba(255, 255, 255, 0.84) inset,
+    0 9px 22px rgba(6, 16, 26, 0.038);
   transition:
     transform 0.16s ease,
     border-color 0.16s ease,
@@ -570,11 +516,11 @@
 
 #mflg-intake-root .mflg-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(199, 154, 43, 0.55);
+  border-color: rgba(199, 154, 43, 0.58);
   background: #fff;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.92) inset,
-    0 17px 34px rgba(6, 16, 26, 0.075);
+    0 18px 36px rgba(6, 16, 26, 0.08);
 }
 
 #mflg-intake-root .mflg-card:focus-visible {
@@ -583,12 +529,11 @@
 }
 
 #mflg-intake-root .mflg-card.is-selected {
-  border-color: rgba(199, 154, 43, 0.86);
-  background:
-    linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%);
+  border-color: rgba(199, 154, 43, 0.90);
+  background: linear-gradient(180deg, #fff 0%, #fffdf8 100%);
   box-shadow:
     inset 0 0 0 1px rgba(199, 154, 43, 0.28),
-    0 17px 36px rgba(6, 16, 26, 0.085);
+    0 18px 38px rgba(6, 16, 26, 0.09);
 }
 
 #mflg-intake-root .mflg-card-wide {
@@ -600,16 +545,15 @@
   height: 20px;
   flex: 0 0 20px;
   margin-top: 2px;
-  border: 1.7px solid #B7B7B7;
+  border: 1.7px solid #b7b7b7;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.84) inset;
 }
 
 #mflg-intake-root .mflg-card.is-selected .mflg-radio {
   border-color: var(--mflg-gold);
-  background:
-    radial-gradient(circle at center, var(--mflg-gold) 0 5px, #fff 5px 100%);
+  background: radial-gradient(circle at center, var(--mflg-gold) 0 5px, #fff 5px 100%);
   box-shadow: 0 0 0 4px rgba(199, 154, 43, 0.12);
 }
 
@@ -638,14 +582,16 @@
   line-height: 1.4;
 }
 
-/* ---------- Segments ---------- */
+/* =========================================================
+   10. Segments
+   ========================================================= */
 
 #mflg-intake-root .mflg-segments {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   overflow: hidden;
-  border: 1px solid rgba(16, 24, 32, 0.14);
-  border-radius: 14px;
+  border: 1px solid rgba(11, 17, 24, 0.14);
+  border-radius: 15px;
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 10px 24px rgba(6, 16, 26, 0.04);
 }
@@ -656,9 +602,9 @@
   padding: 15px;
   appearance: none;
   border: 0;
-  border-left: 1px solid rgba(16, 24, 32, 0.12);
+  border-left: 1px solid rgba(11, 17, 24, 0.12);
   background: rgba(255, 255, 255, 0.96);
-  color: var(--mflg-text);
+  color: var(--mflg-ink);
   font-size: 13px;
   font-weight: 900;
   line-height: 1.25;
@@ -682,19 +628,34 @@
 }
 
 #mflg-intake-root .mflg-seg.is-selected {
-  background:
-    linear-gradient(180deg, var(--mflg-blue) 0%, var(--mflg-navy-3) 100%);
+  background: linear-gradient(180deg, var(--mflg-blue) 0%, var(--mflg-navy-2) 100%);
   color: #fff;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
     inset 0 -3px 0 rgba(199, 154, 43, 0.60);
 }
 
-/* ---------- Dividers / Panels ---------- */
+/* =========================================================
+   11. Utilities / Panels / Divider
+   ========================================================= */
+
+#mflg-intake-root .mflg-rowtop {
+  margin-bottom: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+#mflg-intake-root .mflg-counter {
+  color: var(--mflg-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
 
 #mflg-intake-root .mflg-divider {
   width: 100%;
-  margin: 28px 0;
+  margin: 30px 0;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -706,8 +667,7 @@
   content: "";
   flex: 1;
   height: 1px;
-  background:
-    linear-gradient(90deg, rgba(199, 154, 43, 0.00), rgba(199, 154, 43, 0.48), rgba(199, 154, 43, 0.00));
+  background: linear-gradient(90deg, rgba(199, 154, 43, 0), rgba(199, 154, 43, 0.48), rgba(199, 154, 43, 0));
 }
 
 #mflg-intake-root .mflg-divider svg {
@@ -718,12 +678,12 @@
 #mflg-intake-root .mflg-panel {
   margin: 18px 0 24px;
   padding: 24px;
-  border: 1px solid rgba(16, 24, 32, 0.10);
+  border: 1px solid rgba(11, 17, 24, 0.10);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.80);
+  background: rgba(255, 255, 255, 0.82);
   box-shadow:
     0 16px 38px rgba(6, 16, 26, 0.06),
-    0 1px 0 rgba(255, 255, 255, 0.62) inset;
+    0 1px 0 rgba(255, 255, 255, 0.64) inset;
 }
 
 #mflg-intake-root .mflg-panel-title {
@@ -747,10 +707,10 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  border: 1px solid rgba(16, 24, 32, 0.12);
+  border: 1px solid rgba(11, 17, 24, 0.12);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.94);
-  color: var(--mflg-text);
+  color: var(--mflg-ink);
   font-size: 13px;
   line-height: 1.32;
   cursor: pointer;
@@ -778,7 +738,9 @@
   outline-offset: 2px;
 }
 
-/* ---------- Notices / Errors / Success ---------- */
+/* =========================================================
+   12. Notices / Success / Errors
+   ========================================================= */
 
 #mflg-intake-root .mflg-notice,
 #mflg-intake-root .mflg-error,
@@ -798,16 +760,15 @@
 
 #mflg-intake-root .mflg-error {
   border: 1px solid rgba(184, 74, 74, 0.48);
-  background: rgba(255, 244, 244, 0.78);
-  color: #8A2222;
+  background: rgba(255, 244, 244, 0.80);
+  color: #8a2222;
   box-shadow: 0 10px 22px rgba(184, 74, 74, 0.05);
 }
 
 #mflg-intake-root .mflg-success {
   padding: 30px;
   border: 1px solid rgba(2, 69, 122, 0.26);
-  background:
-    linear-gradient(180deg, #F5FAFD 0%, #EEF6FB 100%);
+  background: linear-gradient(180deg, #f5fafd 0%, #eef6fb 100%);
 }
 
 #mflg-intake-root .mflg-notice.show,
@@ -834,10 +795,12 @@
   word-break: break-word;
 }
 
-/* ---------- Buttons ---------- */
+/* =========================================================
+   13. Buttons / Footer
+   ========================================================= */
 
 #mflg-intake-root .mflg-nav {
-  margin-top: 32px;
+  margin-top: 34px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -845,11 +808,11 @@
 }
 
 #mflg-intake-root .mflg-btn {
-  min-height: 64px;
+  min-height: 66px;
   padding: 0 24px;
   appearance: none;
   border: 0;
-  border-radius: 14px;
+  border-radius: 15px;
   font-size: 13px;
   font-weight: 900;
   line-height: 1;
@@ -881,10 +844,8 @@
 #mflg-intake-root .mflg-primary {
   flex: 1;
   max-width: none;
-  margin-left: 0;
-  margin-right: 0;
-  background:
-    linear-gradient(180deg, #07558F 0%, var(--mflg-blue) 100%);
+  margin: 0;
+  background: linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%);
   color: #fff;
   box-shadow:
     0 16px 34px rgba(2, 69, 122, 0.22),
@@ -892,33 +853,21 @@
 }
 
 #mflg-intake-root .mflg-primary:hover {
-  background:
-    linear-gradient(180deg, #08609F 0%, #013B68 100%);
+  background: linear-gradient(180deg, #08609f 0%, #013b68 100%);
 }
 
 #mflg-intake-root .mflg-secondary {
   width: 150px;
-  border: 1px solid rgba(16, 24, 32, 0.14);
-  background: rgba(255, 255, 255, 0.64);
-  color: var(--mflg-text);
+  border: 1px solid rgba(11, 17, 24, 0.14);
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--mflg-ink);
   box-shadow: 0 10px 22px rgba(6, 16, 26, 0.04);
-}
-
-/* ---------- Hidden / Validation / Footer ---------- */
-
-#mflg-intake-root .mflg-honeypot {
-  position: absolute;
-  top: auto;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
 }
 
 #mflg-intake-root .mflg-foot {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 clamp(36px, 4.4vw, 64px) 32px;
+  padding: 0 clamp(48px, 6vw, 92px) 36px;
   display: flex;
   justify-content: center;
   gap: 9px;
@@ -935,17 +884,30 @@
   flex: 0 0 17px;
 }
 
+#mflg-intake-root .mflg-honeypot {
+  position: absolute;
+  top: auto;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* =========================================================
+   14. Validation
+   ========================================================= */
+
 #mflg-intake-root .mflg-invalid {
-  outline: 1px solid rgba(184, 74, 74, 0.50) !important;
+  outline: 1px solid rgba(184, 74, 74, 0.52) !important;
   outline-offset: 1px !important;
-  border-color: rgba(184, 74, 74, 0.50) !important;
+  border-color: rgba(184, 74, 74, 0.52) !important;
   background-color: rgba(255, 244, 244, 0.48) !important;
   box-shadow: 0 0 0 4px rgba(184, 74, 74, 0.055) !important;
 }
 
 #mflg-intake-root .mflg-card.mflg-invalid {
   background: rgba(255, 255, 255, 0.98) !important;
-  border-color: rgba(184, 74, 74, 0.54) !important;
+  border-color: rgba(184, 74, 74, 0.56) !important;
   outline: none !important;
   box-shadow:
     0 0 0 4px rgba(184, 74, 74, 0.052),
@@ -953,30 +915,30 @@
 }
 
 #mflg-intake-root .mflg-invalid-group {
-  border-color: rgba(184, 74, 74, 0.44) !important;
+  border-color: rgba(184, 74, 74, 0.46) !important;
   box-shadow: 0 0 0 4px rgba(184, 74, 74, 0.052);
   background: rgba(255, 244, 244, 0.26);
 }
 
-/* ---------- Responsive ---------- */
+/* =========================================================
+   15. Responsive
+   ========================================================= */
 
 @media (max-width: 1280px) {
   #mflg-intake-root .mflg-shell {
-    width: min(1240px, calc(100% - 26px));
-    grid-template-columns: minmax(145px, 0.15fr) minmax(760px, 1fr);
-    gap: 22px;
-  }
-
-  #mflg-intake-root .mflg-shell::before {
-    background-size: 100% 100%, 100% 100%, auto 74%;
+    width: min(1220px, calc(100% - 28px));
   }
 
   #mflg-intake-root .mflg-intro,
   #mflg-intake-root .mflg-head,
   #mflg-intake-root .mflg-body,
   #mflg-intake-root .mflg-foot {
-    padding-left: 34px;
-    padding-right: 34px;
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+  #mflg-intake-root .mflg-intro-title {
+    font-size: clamp(38px, 3.8vw, 62px);
   }
 }
 
@@ -993,22 +955,8 @@
     padding: 38px 0 54px;
   }
 
-  #mflg-intake-root .mflg-intake::after {
-    display: none;
-    content: none;
-  }
-
   #mflg-intake-root .mflg-shell {
     width: min(760px, calc(100% - 24px));
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  #mflg-intake-root .mflg-shell::before,
-  #mflg-intake-root .mflg-shell::after {
-    display: none;
-    content: none;
   }
 
   #mflg-intake-root .mflg-right {
@@ -1053,7 +1001,7 @@
 
   #mflg-intake-root .mflg-seg {
     border-left: 0;
-    border-top: 1px solid rgba(16, 24, 32, 0.12);
+    border-top: 1px solid rgba(11, 17, 24, 0.12);
   }
 
   #mflg-intake-root .mflg-seg:first-child {
@@ -1216,7 +1164,9 @@
   }
 }
 
-/* ---------- Reduced Motion ---------- */
+/* =========================================================
+   16. Reduced Motion
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   #mflg-intake-root .mflg-screen,
