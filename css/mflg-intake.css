@@ -1,4 +1,4 @@
-/* MFLG Intake Final Launch v3.6.14 — Left-Side Branded Family Law Image / Right Premium Edge
+/* MFLG Intake Final Launch v3.6.16 — Locked Form Alignment / Independent Left Image Scaling
    File: css/mflg-intake.css
 
    In accordance with MP v2:
@@ -6,11 +6,11 @@
    - Scoped required changes only
    - No JS change required
    - Preserve intake layout, logic-supporting classes, fields, payload, validation, n8n, and Vapi routing
-   - Add provided Family Law image to the LEFT side of the intake section
-   - Position image so “Family Law” branding is visible
-   - Keep image decorative only; no added DOM/hidden left rail elements
-   - Preserve readable form content
-   - Keep right side as restrained premium gradient, not image
+   - Blue form/header left edge must align with the intro headline text start
+   - Left image is absolutely positioned and independently scaled
+   - Left image must not push the form/header out of alignment
+   - Scale image box so word cloud visually spans the form height
+   - Target: “Custody” near top of form and “Support” near bottom of form
    - Keep all CSS scoped to #mflg-intake-root
 */
 
@@ -56,7 +56,7 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Section Base / Left-Side Branded Image ---------- */
+/* ---------- Section Base ---------- */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
@@ -71,7 +71,7 @@
   background-repeat: initial;
 }
 
-/* Restrained top feather: blends the section edge without creating haze over the intro. */
+/* Restrained top feather */
 #mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
@@ -91,39 +91,12 @@
     );
 }
 
-/* Visible decorative LEFT image treatment. */
 #mflg-intake-root .mflg-intake::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: clamp(240px, 18vw, 430px);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.34;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(252, 248, 239, 0.10) 0%,
-      rgba(252, 248, 239, 0.18) 46%,
-      rgba(252, 248, 239, 0.66) 82%,
-      rgba(252, 248, 239, 0.96) 100%
-    ),
-    radial-gradient(
-      circle at 20% 42%,
-      rgba(199, 154, 43, 0.12) 0%,
-      rgba(199, 154, 43, 0.045) 34%,
-      rgba(199, 154, 43, 0.00) 70%
-    ),
-    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0e736d0256264ee6e4b206_Family-Law-Issues-1024x923.jpg");
-  background-size: contain;
-  background-position: left center;
-  background-repeat: no-repeat;
-  filter: sepia(0.10) saturate(0.90) contrast(0.96);
+  display: none;
+  content: none;
 }
 
-/* ---------- Shell / Form Offset ---------- */
+/* ---------- Shell / Independent Left Image Gutter ---------- */
 
 #mflg-intake-root .mflg-shell {
   position: relative;
@@ -132,7 +105,10 @@
   max-width: none;
   min-height: 700px;
   margin: 0;
-  padding-left: clamp(210px, 17vw, 430px);
+
+  /* This controls the form/header start line. Do not use this to chase image scale. */
+  padding-left: clamp(230px, 17vw, 340px);
+
   display: grid;
   grid-template-columns: 1fr;
   overflow: visible;
@@ -142,10 +118,73 @@
   box-shadow: none;
 }
 
-#mflg-intake-root .mflg-shell::before,
+/* Left-side soft blend panel. This integrates the image without moving the form. */
 #mflg-intake-root .mflg-shell::after {
-  display: none;
-  content: none;
+  content: "";
+  position: absolute;
+
+  /* Aligns to the blue/header form area, not the entire section intro. */
+  top: clamp(166px, 11.2vw, 190px);
+  bottom: 28px;
+
+  left: 0;
+  width: clamp(255px, 18vw, 405px);
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(252, 248, 239, 0.00) 0%,
+      rgba(252, 248, 239, 0.04) 16%,
+      rgba(252, 248, 239, 0.16) 38%,
+      rgba(252, 248, 239, 0.46) 68%,
+      rgba(252, 248, 239, 0.92) 100%
+    ),
+    radial-gradient(
+      circle at 30% 35%,
+      rgba(199, 154, 43, 0.09) 0%,
+      rgba(199, 154, 43, 0.032) 34%,
+      rgba(199, 154, 43, 0.00) 70%
+    );
+}
+
+/* Full-height decorative image aligned to form height; independently scaled. */
+#mflg-intake-root .mflg-shell::before {
+  content: "";
+  position: absolute;
+
+  /* Align image box to form/header zone. */
+  top: clamp(160px, 10.8vw, 184px);
+  bottom: 22px;
+
+  /* Image can sit slightly left without pushing form/header. */
+  left: clamp(-18px, -1vw, -8px);
+
+  width: clamp(285px, 20vw, 430px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.46;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247, 242, 232, 0.00) 0%,
+      rgba(247, 242, 232, 0.03) 18%,
+      rgba(247, 242, 232, 0.14) 46%,
+      rgba(247, 242, 232, 0.56) 80%,
+      rgba(247, 242, 232, 0.90) 100%
+    ),
+    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0e736d0256264ee6e4b206_Family-Law-Issues-1024x923.jpg");
+
+  background-repeat: no-repeat, no-repeat;
+
+  /* The vertical size is intentionally larger than the box to bring Custody/Support closer to form top/bottom. */
+  background-size: 100% 100%, auto 116%;
+
+  /* Slight upward bias helps place “Custody” closer to the top of the form. */
+  background-position: center center, left 47%;
+
+  filter: sepia(0.08) saturate(0.90) contrast(0.98);
 }
 
 /* ---------- Form Application / Right-Side Premium Gradient ---------- */
@@ -211,16 +250,17 @@
 
 /* ---------- Intro Block Above Form ---------- */
 
+/* Important: headline text begins at the same x-position as the blue form/header left edge. */
 #mflg-intake-root .mflg-intro {
   width: 100%;
-  padding: 38px clamp(36px, 6vw, 110px) 30px;
+  padding: 38px clamp(36px, 6vw, 110px) 30px 0;
   background: transparent;
   background-image: none;
 }
 
 #mflg-intake-root .mflg-intro-inner {
   width: min(1500px, 100%);
-  margin: 0 auto;
+  margin: 0;
 }
 
 #mflg-intake-root .mflg-intro-kicker {
@@ -252,7 +292,7 @@
   line-height: 1.65;
 }
 
-/* ---------- Progress Header: Navy With Softened Right-Side Depth ---------- */
+/* ---------- Progress Header ---------- */
 
 #mflg-intake-root .mflg-head {
   width: 100%;
@@ -271,7 +311,6 @@
     0 14px 28px rgba(2, 69, 122, 0.14);
 }
 
-/* Softer lower feather under the blue header. */
 #mflg-intake-root .mflg-head::after {
   content: "";
   position: absolute;
@@ -368,7 +407,7 @@
   background: var(--mflg-gold);
 }
 
-/* ---------- Body / Timing-Safe Content Width ---------- */
+/* ---------- Body ---------- */
 
 #mflg-intake-root .mflg-body {
   width: 100%;
@@ -908,7 +947,6 @@
   flex: 0 0 17px;
 }
 
-/* Softened required-field validation state. */
 #mflg-intake-root .mflg-invalid {
   outline: 1px solid rgba(184, 74, 74, 0.50) !important;
   outline-offset: 1px !important;
@@ -917,7 +955,6 @@
   box-shadow: 0 0 0 3px rgba(184, 74, 74, 0.045) !important;
 }
 
-/* Card validation uses border/glow only, no outline. */
 #mflg-intake-root .mflg-card.mflg-invalid {
   background: rgba(255, 255, 255, 0.98) !important;
   border-color: rgba(184, 74, 74, 0.54) !important;
@@ -937,18 +974,28 @@
 
 @media (min-width: 1500px) {
   #mflg-intake-root .mflg-shell {
-    padding-left: clamp(280px, 19vw, 500px);
+    padding-left: clamp(270px, 17.5vw, 390px);
   }
 
-  #mflg-intake-root .mflg-intake::after {
-    width: clamp(280px, 20vw, 500px);
-    opacity: 0.36;
+  #mflg-intake-root .mflg-shell::before {
+    top: 158px;
+    bottom: 22px;
+    left: -14px;
+    width: clamp(315px, 20vw, 460px);
+    opacity: 0.46;
+    background-size: 100% 100%, auto 118%;
+    background-position: center center, left 47%;
+  }
+
+  #mflg-intake-root .mflg-shell::after {
+    top: 164px;
+    bottom: 28px;
+    width: clamp(285px, 19vw, 430px);
   }
 
   #mflg-intake-root .mflg-intro,
   #mflg-intake-root .mflg-head,
   #mflg-intake-root .mflg-body {
-    padding-left: clamp(48px, 6vw, 120px);
     padding-right: clamp(48px, 6vw, 120px);
   }
 }
@@ -957,20 +1004,29 @@
 
 @media (max-width: 1280px) {
   #mflg-intake-root .mflg-shell {
-    padding-left: clamp(160px, 14vw, 260px);
+    padding-left: clamp(200px, 15vw, 270px);
   }
 
-  #mflg-intake-root .mflg-intake::after {
-    width: clamp(170px, 15vw, 270px);
-    opacity: 0.28;
-    background-position: left center;
+  #mflg-intake-root .mflg-shell::before {
+    top: 158px;
+    bottom: 22px;
+    left: -12px;
+    width: clamp(235px, 17vw, 320px);
+    opacity: 0.42;
+    background-size: 100% 100%, auto 116%;
+    background-position: center center, left 47%;
+  }
+
+  #mflg-intake-root .mflg-shell::after {
+    top: 164px;
+    bottom: 28px;
+    width: clamp(220px, 16vw, 300px);
   }
 
   #mflg-intake-root .mflg-intro,
   #mflg-intake-root .mflg-head,
   #mflg-intake-root .mflg-body,
   #mflg-intake-root .mflg-foot {
-    padding-left: 42px;
     padding-right: 42px;
   }
 
@@ -995,6 +1051,12 @@
     padding-left: 0;
   }
 
+  #mflg-intake-root .mflg-shell::before,
+  #mflg-intake-root .mflg-shell::after {
+    display: none;
+    content: none;
+  }
+
   #mflg-intake-root .mflg-intake {
     background: var(--mflg-cream-2);
     background-image: none;
@@ -1010,11 +1072,6 @@
         rgba(247, 242, 232, 0.22) 58%,
         rgba(247, 242, 232, 0.00) 100%
       );
-  }
-
-  #mflg-intake-root .mflg-intake::after {
-    display: none;
-    content: none;
   }
 
   #mflg-intake-root .mflg-right {
@@ -1050,6 +1107,10 @@
     padding: 32px 30px 26px;
     background: transparent;
     background-image: none;
+  }
+
+  #mflg-intake-root .mflg-intro-inner {
+    margin: 0 auto;
   }
 
   #mflg-intake-root .mflg-intro-title {
