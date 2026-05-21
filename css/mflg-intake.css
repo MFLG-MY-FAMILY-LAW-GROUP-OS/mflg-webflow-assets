@@ -1,4 +1,4 @@
-/* MFLG Intake Final Launch v3.6.11 — Restraint Polish / Softer Feather / Controlled Gradient
+/* MFLG Intake Final Launch v3.6.14 — Left-Side Branded Family Law Image / Right Premium Edge
    File: css/mflg-intake.css
 
    In accordance with MP v2:
@@ -6,13 +6,11 @@
    - Scoped required changes only
    - No JS change required
    - Preserve intake layout, logic-supporting classes, fields, payload, validation, n8n, and Vapi routing
-   - No left-side image
-   - No left-side hidden rail elements, rows, columns, sections, or divs
-   - Reduce top feather strength so it blends without clouding the intro
-   - Keep right-side premium gradient visible but less heavy at the far edge
-   - Reduce gold radial glow so it reads as ambient depth, not yellow tint
-   - Soften the blue-header lower feather
-   - Reduce tablet/mobile gradient intensity
+   - Add provided Family Law image to the LEFT side of the intake section
+   - Position image so “Family Law” branding is visible
+   - Keep image decorative only; no added DOM/hidden left rail elements
+   - Preserve readable form content
+   - Keep right side as restrained premium gradient, not image
    - Keep all CSS scoped to #mflg-intake-root
 */
 
@@ -40,8 +38,8 @@
   --mflg-cream: #F7F2E8;
   --mflg-cream-2: #FCF8EF;
   --mflg-cream-3: #FFFDF8;
-  --mflg-cream-edge: #E5DAC6;
-  --mflg-cream-edge-2: #D8C9AD;
+  --mflg-cream-edge: #E8DDC9;
+  --mflg-cream-edge-2: #E4D8C1;
   --mflg-gold: #C79A2B;
   --mflg-gold-2: #B88A1F;
   --mflg-gold-soft: rgba(199, 154, 43, 0.15);
@@ -58,22 +56,22 @@
   color: var(--mflg-text);
 }
 
-/* ---------- Section Base / Restrained Top Edge Feather ---------- */
+/* ---------- Section Base / Left-Side Branded Image ---------- */
 
 #mflg-intake-root .mflg-intake {
   position: relative;
   width: 100%;
   padding: 0;
   overflow: hidden;
-  background: transparent;
+  background: var(--mflg-cream-2);
   background-image: none;
-  background-color: transparent;
+  background-color: var(--mflg-cream-2);
   background-size: auto;
   background-position: initial;
   background-repeat: initial;
 }
 
-/* Reduced-strength top feather: blends the section edge without creating haze over the intro. */
+/* Restrained top feather: blends the section edge without creating haze over the intro. */
 #mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
@@ -93,10 +91,36 @@
     );
 }
 
-/* No bottom/section fade. */
+/* Visible decorative LEFT image treatment. */
 #mflg-intake-root .mflg-intake::after {
-  display: none;
-  content: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: clamp(240px, 18vw, 430px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(252, 248, 239, 0.10) 0%,
+      rgba(252, 248, 239, 0.18) 46%,
+      rgba(252, 248, 239, 0.66) 82%,
+      rgba(252, 248, 239, 0.96) 100%
+    ),
+    radial-gradient(
+      circle at 20% 42%,
+      rgba(199, 154, 43, 0.12) 0%,
+      rgba(199, 154, 43, 0.045) 34%,
+      rgba(199, 154, 43, 0.00) 70%
+    ),
+    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0e736d0256264ee6e4b206_Family-Law-Issues-1024x923.jpg");
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  filter: sepia(0.10) saturate(0.90) contrast(0.96);
 }
 
 /* ---------- Shell / Form Offset ---------- */
@@ -108,7 +132,7 @@
   max-width: none;
   min-height: 700px;
   margin: 0;
-  padding-left: clamp(150px, 15vw, 330px);
+  padding-left: clamp(210px, 17vw, 430px);
   display: grid;
   grid-template-columns: 1fr;
   overflow: visible;
@@ -124,7 +148,7 @@
   content: none;
 }
 
-/* ---------- Form Application / Controlled Right-Side Gradient ---------- */
+/* ---------- Form Application / Right-Side Premium Gradient ---------- */
 
 #mflg-intake-root .mflg-right {
   width: 100%;
@@ -139,37 +163,36 @@
     linear-gradient(
       90deg,
       var(--mflg-cream-2) 0%,
-      var(--mflg-cream-2) 68%,
-      #FAF3E7 80%,
-      #F1E5CF 90%,
-      var(--mflg-cream-edge) 97%,
-      var(--mflg-cream-edge-2) 100%
+      var(--mflg-cream-2) 76%,
+      #FAF4E9 86%,
+      #F3E9D8 94%,
+      var(--mflg-cream-edge) 100%
     );
   box-shadow: none;
 }
 
-/* Right-side ambient depth only, behind all content. */
+/* Narrow right-side ambient depth only, behind all form content. */
 #mflg-intake-root .mflg-right::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(28vw, 470px);
+  width: min(22vw, 360px);
   z-index: 0;
   pointer-events: none;
   background:
     radial-gradient(
       circle at 100% 34%,
-      rgba(199, 154, 43, 0.12) 0%,
-      rgba(199, 154, 43, 0.065) 28%,
+      rgba(199, 154, 43, 0.075) 0%,
+      rgba(199, 154, 43, 0.035) 28%,
       rgba(199, 154, 43, 0.00) 64%
     ),
     linear-gradient(
       90deg,
       rgba(252, 248, 239, 0.00) 0%,
-      rgba(238, 228, 208, 0.26) 52%,
-      rgba(214, 200, 175, 0.48) 100%
+      rgba(238, 228, 208, 0.16) 56%,
+      rgba(214, 200, 175, 0.28) 100%
     );
 }
 
@@ -914,7 +937,12 @@
 
 @media (min-width: 1500px) {
   #mflg-intake-root .mflg-shell {
-    padding-left: clamp(230px, 17vw, 420px);
+    padding-left: clamp(280px, 19vw, 500px);
+  }
+
+  #mflg-intake-root .mflg-intake::after {
+    width: clamp(280px, 20vw, 500px);
+    opacity: 0.36;
   }
 
   #mflg-intake-root .mflg-intro,
@@ -929,7 +957,13 @@
 
 @media (max-width: 1280px) {
   #mflg-intake-root .mflg-shell {
-    padding-left: clamp(90px, 10vw, 180px);
+    padding-left: clamp(160px, 14vw, 260px);
+  }
+
+  #mflg-intake-root .mflg-intake::after {
+    width: clamp(170px, 15vw, 270px);
+    opacity: 0.28;
+    background-position: left center;
   }
 
   #mflg-intake-root .mflg-intro,
@@ -962,9 +996,9 @@
   }
 
   #mflg-intake-root .mflg-intake {
-    background: transparent;
+    background: var(--mflg-cream-2);
     background-image: none;
-    background-color: transparent;
+    background-color: var(--mflg-cream-2);
   }
 
   #mflg-intake-root .mflg-intake::before {
@@ -978,32 +1012,37 @@
       );
   }
 
+  #mflg-intake-root .mflg-intake::after {
+    display: none;
+    content: none;
+  }
+
   #mflg-intake-root .mflg-right {
     box-shadow: none;
     background:
       linear-gradient(
         90deg,
         var(--mflg-cream-2) 0%,
-        var(--mflg-cream-2) 74%,
-        #F7F0E0 90%,
-        #E7DCC7 100%
+        var(--mflg-cream-2) 78%,
+        #F8F1E2 92%,
+        #E8DDC9 100%
       );
   }
 
   #mflg-intake-root .mflg-right::after {
-    width: min(34vw, 330px);
+    width: min(28vw, 290px);
     background:
       radial-gradient(
         circle at 100% 30%,
-        rgba(199, 154, 43, 0.08) 0%,
-        rgba(199, 154, 43, 0.038) 30%,
+        rgba(199, 154, 43, 0.055) 0%,
+        rgba(199, 154, 43, 0.025) 30%,
         rgba(199, 154, 43, 0.00) 62%
       ),
       linear-gradient(
         90deg,
         rgba(252, 248, 239, 0.00) 0%,
-        rgba(238, 228, 208, 0.18) 58%,
-        rgba(214, 200, 175, 0.30) 100%
+        rgba(238, 228, 208, 0.11) 58%,
+        rgba(214, 200, 175, 0.20) 100%
       );
   }
 
