@@ -1,16 +1,16 @@
-/* MFLG Intake Final Launch v3.6.16 — Locked Form Alignment / Independent Left Image Scaling
+/* MFLG Intake Final Launch v3.6.18 — Fees Card Alignment Lock / Independent Left Image Layer
    File: css/mflg-intake.css
 
    In accordance with MP v2:
    - Full replacement file
-   - Scoped required changes only
+   - CSS-only correction
    - No JS change required
-   - Preserve intake layout, logic-supporting classes, fields, payload, validation, n8n, and Vapi routing
-   - Blue form/header left edge must align with the intro headline text start
-   - Left image is absolutely positioned and independently scaled
-   - Left image must not push the form/header out of alignment
-   - Scale image box so word cloud visually spans the form height
-   - Target: “Custody” near top of form and “Support” near bottom of form
+   - Preserve intake logic, classes, fields, payload, validation, n8n, and routing
+   - Corrected alignment rule:
+     Blue intake form/header left edge must align with the left edge of the Quick Question Consultation card
+   - Do not align blue form/header to intro headline start
+   - Do not use shell padding to make room for the left image
+   - Left image remains independently positioned and must not push the form/header right
    - Keep all CSS scoped to #mflg-intake-root
 */
 
@@ -66,12 +66,8 @@
   background: var(--mflg-cream-2);
   background-image: none;
   background-color: var(--mflg-cream-2);
-  background-size: auto;
-  background-position: initial;
-  background-repeat: initial;
 }
 
-/* Restrained top feather */
 #mflg-intake-root .mflg-intake::before {
   content: "";
   position: absolute;
@@ -96,7 +92,7 @@
   content: none;
 }
 
-/* ---------- Shell / Independent Left Image Gutter ---------- */
+/* ---------- Shell / Fees Card Alignment Lock ---------- */
 
 #mflg-intake-root .mflg-shell {
   position: relative;
@@ -106,8 +102,10 @@
   min-height: 700px;
   margin: 0;
 
-  /* This controls the form/header start line. Do not use this to chase image scale. */
-  padding-left: clamp(230px, 17vw, 340px);
+  /* Correct alignment anchor:
+     Blue form/header left edge aligns with Quick Question Consultation card left edge. */
+  padding-left: clamp(10px, 0.8vw, 18px);
+  padding-right: clamp(10px, 0.8vw, 18px);
 
   display: grid;
   grid-template-columns: 1fr;
@@ -118,76 +116,13 @@
   box-shadow: none;
 }
 
-/* Left-side soft blend panel. This integrates the image without moving the form. */
+#mflg-intake-root .mflg-shell::before,
 #mflg-intake-root .mflg-shell::after {
-  content: "";
-  position: absolute;
-
-  /* Aligns to the blue/header form area, not the entire section intro. */
-  top: clamp(166px, 11.2vw, 190px);
-  bottom: 28px;
-
-  left: 0;
-  width: clamp(255px, 18vw, 405px);
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(252, 248, 239, 0.00) 0%,
-      rgba(252, 248, 239, 0.04) 16%,
-      rgba(252, 248, 239, 0.16) 38%,
-      rgba(252, 248, 239, 0.46) 68%,
-      rgba(252, 248, 239, 0.92) 100%
-    ),
-    radial-gradient(
-      circle at 30% 35%,
-      rgba(199, 154, 43, 0.09) 0%,
-      rgba(199, 154, 43, 0.032) 34%,
-      rgba(199, 154, 43, 0.00) 70%
-    );
+  display: none;
+  content: none;
 }
 
-/* Full-height decorative image aligned to form height; independently scaled. */
-#mflg-intake-root .mflg-shell::before {
-  content: "";
-  position: absolute;
-
-  /* Align image box to form/header zone. */
-  top: clamp(160px, 10.8vw, 184px);
-  bottom: 22px;
-
-  /* Image can sit slightly left without pushing form/header. */
-  left: clamp(-18px, -1vw, -8px);
-
-  width: clamp(285px, 20vw, 430px);
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.46;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(247, 242, 232, 0.00) 0%,
-      rgba(247, 242, 232, 0.03) 18%,
-      rgba(247, 242, 232, 0.14) 46%,
-      rgba(247, 242, 232, 0.56) 80%,
-      rgba(247, 242, 232, 0.90) 100%
-    ),
-    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0e736d0256264ee6e4b206_Family-Law-Issues-1024x923.jpg");
-
-  background-repeat: no-repeat, no-repeat;
-
-  /* The vertical size is intentionally larger than the box to bring Custody/Support closer to form top/bottom. */
-  background-size: 100% 100%, auto 116%;
-
-  /* Slight upward bias helps place “Custody” closer to the top of the form. */
-  background-position: center center, left 47%;
-
-  filter: sepia(0.08) saturate(0.90) contrast(0.98);
-}
-
-/* ---------- Form Application / Right-Side Premium Gradient ---------- */
+/* ---------- Form Application / Independent Image + Premium Gradient ---------- */
 
 #mflg-intake-root .mflg-right {
   width: 100%;
@@ -210,7 +145,41 @@
   box-shadow: none;
 }
 
-/* Narrow right-side ambient depth only, behind all form content. */
+/* Left-side image is now inside the form area, independent of layout offset.
+   It does not push the blue header/form right. */
+#mflg-intake-root .mflg-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(-80px, -3vw, -38px);
+  width: clamp(340px, 25vw, 600px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(252, 248, 239, 0.00) 0%,
+      rgba(252, 248, 239, 0.08) 26%,
+      rgba(252, 248, 239, 0.32) 58%,
+      rgba(252, 248, 239, 0.72) 84%,
+      rgba(252, 248, 239, 0.94) 100%
+    ),
+    radial-gradient(
+      circle at 26% 42%,
+      rgba(199, 154, 43, 0.06) 0%,
+      rgba(199, 154, 43, 0.025) 36%,
+      rgba(199, 154, 43, 0.00) 72%
+    ),
+    url("https://cdn.prod.website-files.com/6a053b2b129f691894181012/6a0e736d0256264ee6e4b206_Family-Law-Issues-1024x923.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 100% 100%, auto 96%;
+  background-position: center center, center center, left center;
+  filter: sepia(0.08) saturate(0.82) contrast(0.96);
+}
+
+/* Right-side ambient depth only, behind all form content. */
 #mflg-intake-root .mflg-right::after {
   content: "";
   position: absolute;
@@ -235,11 +204,6 @@
     );
 }
 
-#mflg-intake-root .mflg-right::before {
-  display: none;
-  content: none;
-}
-
 #mflg-intake-root .mflg-intro,
 #mflg-intake-root .mflg-head,
 #mflg-intake-root .mflg-body,
@@ -250,17 +214,16 @@
 
 /* ---------- Intro Block Above Form ---------- */
 
-/* Important: headline text begins at the same x-position as the blue form/header left edge. */
 #mflg-intake-root .mflg-intro {
   width: 100%;
-  padding: 38px clamp(36px, 6vw, 110px) 30px 0;
+  padding: 38px clamp(36px, 6vw, 110px) 30px;
   background: transparent;
   background-image: none;
 }
 
 #mflg-intake-root .mflg-intro-inner {
   width: min(1500px, 100%);
-  margin: 0;
+  margin: 0 auto;
 }
 
 #mflg-intake-root .mflg-intro-kicker {
@@ -974,23 +937,16 @@
 
 @media (min-width: 1500px) {
   #mflg-intake-root .mflg-shell {
-    padding-left: clamp(270px, 17.5vw, 390px);
+    padding-left: clamp(10px, 0.8vw, 18px);
+    padding-right: clamp(10px, 0.8vw, 18px);
   }
 
-  #mflg-intake-root .mflg-shell::before {
-    top: 158px;
-    bottom: 22px;
-    left: -14px;
-    width: clamp(315px, 20vw, 460px);
-    opacity: 0.46;
-    background-size: 100% 100%, auto 118%;
-    background-position: center center, left 47%;
-  }
-
-  #mflg-intake-root .mflg-shell::after {
-    top: 164px;
-    bottom: 28px;
-    width: clamp(285px, 19vw, 430px);
+  #mflg-intake-root .mflg-right::before {
+    left: clamp(-96px, -3.8vw, -54px);
+    width: clamp(420px, 26vw, 650px);
+    opacity: 0.25;
+    background-size: 100% 100%, 100% 100%, auto 96%;
+    background-position: center center, center center, left center;
   }
 
   #mflg-intake-root .mflg-intro,
@@ -1004,23 +960,16 @@
 
 @media (max-width: 1280px) {
   #mflg-intake-root .mflg-shell {
-    padding-left: clamp(200px, 15vw, 270px);
+    padding-left: clamp(10px, 0.8vw, 18px);
+    padding-right: clamp(10px, 0.8vw, 18px);
   }
 
-  #mflg-intake-root .mflg-shell::before {
-    top: 158px;
-    bottom: 22px;
-    left: -12px;
-    width: clamp(235px, 17vw, 320px);
-    opacity: 0.42;
-    background-size: 100% 100%, auto 116%;
-    background-position: center center, left 47%;
-  }
-
-  #mflg-intake-root .mflg-shell::after {
-    top: 164px;
-    bottom: 28px;
-    width: clamp(220px, 16vw, 300px);
+  #mflg-intake-root .mflg-right::before {
+    left: clamp(-70px, -3vw, -36px);
+    width: clamp(310px, 24vw, 480px);
+    opacity: 0.23;
+    background-size: 100% 100%, 100% 100%, auto 96%;
+    background-position: center center, center center, left center;
   }
 
   #mflg-intake-root .mflg-intro,
@@ -1049,12 +998,7 @@
   #mflg-intake-root .mflg-shell {
     min-height: auto;
     padding-left: 0;
-  }
-
-  #mflg-intake-root .mflg-shell::before,
-  #mflg-intake-root .mflg-shell::after {
-    display: none;
-    content: none;
+    padding-right: 0;
   }
 
   #mflg-intake-root .mflg-intake {
@@ -1084,6 +1028,11 @@
         #F8F1E2 92%,
         #E8DDC9 100%
       );
+  }
+
+  #mflg-intake-root .mflg-right::before {
+    display: none;
+    content: none;
   }
 
   #mflg-intake-root .mflg-right::after {
