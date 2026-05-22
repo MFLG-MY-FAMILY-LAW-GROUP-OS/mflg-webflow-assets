@@ -1,13 +1,16 @@
-/* MFLG Site Enhancements v1.2
+/* MFLG Site Enhancements v1.3
    File: css/mflg-site-enhancements.css
 
    In accordance with MP v2:
    - Full CSS replacement
-   - CSS-only nav scroll-state correction
-   - Does not alter intake architecture or intake logic
-   - Does not rebuild Webflow structure
-   - Preserves v1.1 hero CTA and fee CTA support classes
-   - No dropdowns, Pay Invoice, or Client Login in this pass
+   - Targets confirmed Webflow nav structure:
+     .navbar-fixed, .navbar-container, .navbar-menu, .navbar-start-button
+   - Keeps hero/top nav transparent for true full-screen hero
+   - Adds premium scrolled nav state
+   - Adds nav hover polish
+   - Preserves locked intake architecture and logic
+   - Preserves hero CTA and fee CTA support
+   - No dropdowns, Pay Invoice, Client Login, or section rebuild in this pass
 */
 
 /* =========================================================
@@ -17,118 +20,139 @@
 :root {
   --mflg-ink: #0b1118;
   --mflg-navy: #06101a;
-  --mflg-navy-2: #0a1724;
-  --mflg-navy-3: #0e2234;
+  --mflg-navy-dark: #030a12;
+  --mflg-navy-glass: rgba(6, 16, 26, 0.86);
   --mflg-blue: #02457a;
   --mflg-blue-hover: #07558f;
   --mflg-gold: #c79a2b;
-  --mflg-gold-soft: rgba(199, 154, 43, 0.22);
+  --mflg-gold-strong: rgba(199, 154, 43, 0.72);
+  --mflg-gold-soft: rgba(199, 154, 43, 0.24);
   --mflg-cream: #fbf7ee;
   --mflg-white: #ffffff;
 }
 
 /* =========================================================
-   2. Nav Enhancement Foundation
-   JS adds .mflg-enhanced-nav to the actual nav wrapper.
-   v1.2 makes top vs scroll state visually obvious.
+   2. Confirmed Webflow Navbar Structure
    ========================================================= */
 
-.mflg-enhanced-nav,
-.Navbar.Fixed,
 .navbar-fixed,
-[class*="Navbar Fixed"],
-[class*="navbar-fixed"] {
-  position: sticky !important;
+.mflg-enhanced-nav {
+  position: fixed !important;
   top: 0 !important;
-  z-index: 9999 !important;
+  left: 0 !important;
+  right: 0 !important;
   width: 100% !important;
+  z-index: 9999 !important;
+  background: transparent !important;
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
   transition:
-    background 240ms ease,
     background-color 240ms ease,
-    box-shadow 240ms ease,
+    background 240ms ease,
     border-color 240ms ease,
-    backdrop-filter 240ms ease,
-    transform 240ms ease !important;
+    box-shadow 240ms ease,
+    backdrop-filter 240ms ease !important;
   will-change: background, box-shadow, border-color;
 }
 
-/* Top/hero state:
-   Still premium, but intentionally softer/lighter than the scroll state. */
-body:not(.mflg-nav-scrolled) .mflg-enhanced-nav,
-body:not(.mflg-nav-scrolled) .Navbar.Fixed,
-body:not(.mflg-nav-scrolled) .navbar-fixed,
-body:not(.mflg-nav-scrolled) [class*="Navbar Fixed"],
-body:not(.mflg-nav-scrolled) [class*="navbar-fixed"] {
+/* Subtle readability veil while hero remains full-screen */
+.navbar-fixed::before,
+.mflg-enhanced-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background:
     linear-gradient(
       180deg,
-      rgba(6, 16, 26, 0.68) 0%,
-      rgba(6, 16, 26, 0.46) 100%
-    ) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-  box-shadow: none !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+      rgba(3, 10, 18, 0.62) 0%,
+      rgba(3, 10, 18, 0.34) 58%,
+      rgba(3, 10, 18, 0.00) 100%
+    );
+  opacity: 1;
+  pointer-events: none;
+  transition:
+    opacity 240ms ease,
+    background 240ms ease !important;
 }
 
-/* Scroll state:
-   Stronger and visibly locked-in over light/cream sections. */
-body.mflg-nav-scrolled .mflg-enhanced-nav,
-body.mflg-nav-scrolled .Navbar.Fixed,
+/* Keep the container clean and centered */
+.navbar-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   3. Scrolled Navbar State
+   JS applies both:
+   body.mflg-nav-scrolled
+   .navbar-fixed.mflg-nav-is-scrolled
+   ========================================================= */
+
 body.mflg-nav-scrolled .navbar-fixed,
-body.mflg-nav-scrolled [class*="Navbar Fixed"],
-body.mflg-nav-scrolled [class*="navbar-fixed"] {
+.navbar-fixed.mflg-nav-is-scrolled,
+body.mflg-nav-scrolled .mflg-enhanced-nav,
+.mflg-enhanced-nav.mflg-nav-is-scrolled {
   background:
     linear-gradient(
       180deg,
-      rgba(3, 10, 18, 1) 0%,
-      rgba(6, 16, 26, 1) 52%,
-      rgba(4, 11, 19, 1) 100%
+      rgba(3, 10, 18, 0.98) 0%,
+      rgba(6, 16, 26, 0.98) 52%,
+      rgba(3, 10, 18, 0.98) 100%
     ) !important;
-  border-bottom: 1px solid rgba(199, 154, 43, 0.42) !important;
+  border-bottom: 1px solid rgba(199, 154, 43, 0.36) !important;
   box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.30),
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 -1px 0 rgba(199, 154, 43, 0.08) inset !important;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+    0 18px 42px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* Extra visible bottom accent only after scroll */
-body.mflg-nav-scrolled .mflg-enhanced-nav::after,
-body.mflg-nav-scrolled .Navbar.Fixed::after,
+body.mflg-nav-scrolled .navbar-fixed::before,
+.navbar-fixed.mflg-nav-is-scrolled::before,
+body.mflg-nav-scrolled .mflg-enhanced-nav::before,
+.mflg-enhanced-nav.mflg-nav-is-scrolled::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 10, 18, 0.98) 0%,
+      rgba(6, 16, 26, 0.98) 100%
+    );
+  opacity: 1;
+}
+
+/* Premium thin gold accent on scroll */
 body.mflg-nav-scrolled .navbar-fixed::after,
-body.mflg-nav-scrolled [class*="Navbar Fixed"]::after,
-body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
+.navbar-fixed.mflg-nav-is-scrolled::after,
+body.mflg-nav-scrolled .mflg-enhanced-nav::after,
+.mflg-enhanced-nav.mflg-nav-is-scrolled::after {
   content: "";
   position: absolute;
   left: 50%;
   bottom: -1px;
-  width: min(980px, 82vw);
+  width: min(1040px, 84vw);
   height: 1px;
   transform: translateX(-50%);
-  background: linear-gradient(
-    90deg,
-    rgba(199, 154, 43, 0) 0%,
-    rgba(199, 154, 43, 0.34) 18%,
-    rgba(199, 154, 43, 0.56) 50%,
-    rgba(199, 154, 43, 0.34) 82%,
-    rgba(199, 154, 43, 0) 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(199, 154, 43, 0) 0%,
+      rgba(199, 154, 43, 0.24) 18%,
+      rgba(199, 154, 43, 0.58) 50%,
+      rgba(199, 154, 43, 0.24) 82%,
+      rgba(199, 154, 43, 0) 100%
+    );
   pointer-events: none;
 }
 
-/* Make sure pseudo-element positions correctly */
-.mflg-enhanced-nav,
-.Navbar.Fixed,
-.navbar-fixed,
-[class*="Navbar Fixed"],
-[class*="navbar-fixed"] {
-  position: sticky !important;
-}
+/* =========================================================
+   4. Nav Links / Hover Polish
+   ========================================================= */
 
-/* Nav link polish */
+.navbar-menu a,
+.navbar-fixed a,
 .mflg-enhanced-nav a {
+  position: relative;
   transition:
     color 180ms ease,
     opacity 180ms ease,
@@ -138,56 +162,107 @@ body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
     box-shadow 180ms ease !important;
 }
 
-.mflg-enhanced-nav a:not(.mflg-start-link) {
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link),
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link),
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link) {
   color: rgba(255, 255, 255, 0.92) !important;
+  text-decoration: none !important;
 }
 
-.mflg-enhanced-nav a:not(.mflg-start-link):hover {
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link)::after,
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link)::after,
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(199, 154, 43, 0) 0%,
+      rgba(199, 154, 43, 0.88) 50%,
+      rgba(199, 154, 43, 0) 100%
+    );
+  opacity: 0;
+  transition:
+    width 180ms ease,
+    opacity 180ms ease !important;
+  pointer-events: none;
+}
+
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link):hover,
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link):hover,
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link):hover {
   color: #ffffff !important;
   opacity: 1 !important;
 }
 
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link):hover::after,
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link):hover::after,
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link):hover::after {
+  width: 28px;
+  opacity: 1;
+}
+
 /* Phone link */
+.navbar-fixed a[href^="tel"],
+.navbar-fixed .mflg-phone-link,
 .mflg-enhanced-nav a[href^="tel"],
 .mflg-enhanced-nav .mflg-phone-link {
   color: rgba(255, 255, 255, 0.96) !important;
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
+.navbar-fixed a[href^="tel"]:hover,
+.navbar-fixed .mflg-phone-link:hover,
 .mflg-enhanced-nav a[href^="tel"]:hover,
 .mflg-enhanced-nav .mflg-phone-link:hover {
   color: var(--mflg-gold) !important;
 }
 
-/* Start button */
-.mflg-enhanced-nav .mflg-start-link,
-.mflg-enhanced-nav a[class*="start"],
-.mflg-enhanced-nav a[class*="Start"],
-.mflg-enhanced-nav [class*="Start Button"],
-.mflg-enhanced-nav [class*="start-button"] {
-  background: linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+/* =========================================================
+   5. Start Button
+   ========================================================= */
+
+.navbar-start-button,
+.mflg-start-link,
+.navbar-fixed .navbar-start-button,
+.navbar-fixed .mflg-start-link,
+.mflg-enhanced-nav .navbar-start-button,
+.mflg-enhanced-nav .mflg-start-link {
+  background:
+    linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   box-shadow:
-    0 10px 24px rgba(2, 69, 122, 0.25),
+    0 10px 24px rgba(2, 69, 122, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease !important;
 }
 
-.mflg-enhanced-nav .mflg-start-link:hover,
-.mflg-enhanced-nav a[class*="start"]:hover,
-.mflg-enhanced-nav a[class*="Start"]:hover,
-.mflg-enhanced-nav [class*="Start Button"]:hover,
-.mflg-enhanced-nav [class*="start-button"]:hover {
+.navbar-start-button:hover,
+.mflg-start-link:hover,
+.navbar-fixed .navbar-start-button:hover,
+.navbar-fixed .mflg-start-link:hover,
+.mflg-enhanced-nav .navbar-start-button:hover,
+.mflg-enhanced-nav .mflg-start-link:hover {
   transform: translateY(-1px);
-  background: linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  background:
+    linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
   box-shadow:
-    0 14px 30px rgba(2, 69, 122, 0.32),
+    0 14px 30px rgba(2, 69, 122, 0.36),
     inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
 }
 
 /* =========================================================
-   3. Hero CTA Refinement
-   JS adds .mflg-hero-section and .mflg-hero-primary-cta.
+   6. Hero CTA Refinement
    ========================================================= */
 
 .mflg-hero-section a {
@@ -204,7 +279,8 @@ body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
 }
 
 .mflg-hero-primary-cta {
-  background: linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+  background:
+    linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.10) !important;
   box-shadow:
@@ -213,7 +289,8 @@ body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
 }
 
 .mflg-hero-primary-cta:hover {
-  background: linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  background:
+    linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
   box-shadow:
     0 20px 40px rgba(2, 69, 122, 0.30),
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
@@ -230,12 +307,12 @@ body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
 }
 
 /* =========================================================
-   4. Fees CTA Enhancement
-   JS adds .mflg-fee-cta to fee buttons/links.
+   7. Fees CTA Enhancement
    ========================================================= */
 
 .mflg-fee-cta {
-  background: linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+  background:
+    linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   box-shadow:
@@ -246,18 +323,20 @@ body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
     background 180ms ease,
     box-shadow 180ms ease,
     border-color 180ms ease !important;
+  white-space: nowrap !important;
 }
 
 .mflg-fee-cta:hover {
   transform: translateY(-1px);
-  background: linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  background:
+    linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
   box-shadow:
     0 14px 30px rgba(2, 69, 122, 0.30),
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
 }
 
 /* =========================================================
-   5. Anchor Scroll Offset
+   8. Anchor Scroll Offset
    ========================================================= */
 
 #intake,
@@ -268,36 +347,44 @@ body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
 #about,
 #faq,
 #contact {
-  scroll-margin-top: 98px;
+  scroll-margin-top: 104px;
 }
 
 /* =========================================================
-   6. Desktop Guardrails
+   9. Desktop Guardrails
    ========================================================= */
 
 @media (min-width: 992px) {
-  body.mflg-nav-scrolled .mflg-enhanced-nav,
-  body.mflg-nav-scrolled .Navbar.Fixed,
+  .navbar-fixed,
+  .mflg-enhanced-nav {
+    min-height: 92px;
+  }
+
   body.mflg-nav-scrolled .navbar-fixed,
-  body.mflg-nav-scrolled [class*="Navbar Fixed"],
-  body.mflg-nav-scrolled [class*="navbar-fixed"] {
-    min-height: 72px;
+  .navbar-fixed.mflg-nav-is-scrolled,
+  body.mflg-nav-scrolled .mflg-enhanced-nav,
+  .mflg-enhanced-nav.mflg-nav-is-scrolled {
+    min-height: 82px;
   }
 }
 
 /* =========================================================
-   7. Mobile Guardrail Only
+   10. Mobile Guardrail Only
    Do not overhaul mobile yet.
    ========================================================= */
 
 @media (max-width: 991px) {
-  .mflg-enhanced-nav,
-  .Navbar.Fixed,
   .navbar-fixed,
-  [class*="Navbar Fixed"],
-  [class*="navbar-fixed"] {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+  .mflg-enhanced-nav {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .navbar-fixed::before,
+  .navbar-fixed::after,
+  .mflg-enhanced-nav::before,
+  .mflg-enhanced-nav::after {
+    display: none !important;
   }
 
   #intake,
@@ -308,6 +395,6 @@ body.mflg-nav-scrolled [class*="navbar-fixed"]::after {
   #about,
   #faq,
   #contact {
-    scroll-margin-top: 82px;
+    scroll-margin-top: 84px;
   }
 }
