@@ -1,23 +1,29 @@
-/* MFLG Site Enhancements v1.0
+/* MFLG Site Enhancements v1.1
    File: js/mflg-site-enhancements.js
 
    In accordance with MP v2:
-   - JS-only enhancement layer
+   - Full JS replacement
    - Does not alter intake architecture or intake validation logic
    - Does not rebuild Webflow structure
-   - Adds nav scroll state
+   - Adds stronger nav targeting and scroll state
    - Routes Start and hero CTAs to locked intake
-   - Changes hero primary CTA text from Schedule Consultation to Start Guided Intake
+   - Changes hero primary CTA from Schedule Consultation to Start Guided Intake
+   - Changes Fees Book Now buttons to Request Consultation and routes to intake
    - No dropdown injection yet
+   - No Pay Invoice or Client Login yet
 */
 
 (function () {
   "use strict";
 
-  var INTAKE_SELECTOR = "#mflg-intake-root";
-  var PRACTICE_SELECTOR = ".Practice-Areas-Preview-Section, [class*='Practice Areas Preview Section'], [class*='Practice-Areas'], #practice-areas";
-  var FEES_SELECTOR = ".Fees-Section, [class*='Fees Section'], [class*='Fees-Section'], #fees";
-  var GUIDES_SELECTOR = ".Guides-Section, [class*='Guides Section'], [class*='Guides-Section'], #guides";
+  var SELECTORS = {
+    intake: "#mflg-intake-root, #intake, [id*='intake']",
+    practice: ".Practice-Areas-Preview-Section, .practice-areas-preview-section, [class*='Practice Areas Preview Section'], [class*='Practice-Areas'], [class*='practice-areas'], #practice-areas",
+    fees: ".Fees-Section, .fees-section, [class*='Fees Section'], [class*='Fees-Section'], [class*='fees-section'], #fees",
+    guides: ".Guides-Section, .guides-section, [class*='Guides Section'], [class*='Guides-Section'], [class*='guides-section'], #guides",
+    hero: ".Hero-Section, .hero-section, [class*='Hero Section'], [class*='Hero-Section'], [class*='hero-section']",
+    nav: ".Navbar.Fixed, .navbar-fixed, [class*='Navbar Fixed'], [class*='navbar-fixed'], .Navbar, .navbar, nav"
+  };
 
   function ready(fn) {
     if (document.readyState === "loading") {
@@ -32,6 +38,14 @@
       return document.querySelector(selector);
     } catch (error) {
       return null;
+    }
+  }
+
+  function getAll(selector) {
+    try {
+      return Array.prototype.slice.call(document.querySelectorAll(selector));
+    } catch (error) {
+      return [];
     }
   }
 
@@ -59,24 +73,84 @@
     }
   }
 
+  function findSectionByText(textNeedles) {
+    var sections = getAll("section, div");
+    var needles = textNeedles.map(normalizeText);
+
+    for (var i = 0; i < sections.length; i += 1) {
+      var text = normalizeText(sections[i].textContent);
+
+      var matched = needles.every(function (needle) {
+        return text.indexOf(needle) !== -1;
+      });
+
+      if (matched) {
+        return sections[i];
+      }
+    }
+
+    return null;
+  }
+
   function getIntakeElement() {
-    return getFirst(INTAKE_SELECTOR) || getFirst("#intake");
+    return getFirst(SELECTORS.intake);
   }
 
   function getPracticeElement() {
-    return getFirst(PRACTICE_SELECTOR);
+    return (
+      getFirst(SELECTORS.practice) ||
+      findSectionByText(["family law services", "practical help"])
+    );
   }
 
   function getFeesElement() {
-    return getFirst(FEES_SELECTOR);
+    return (
+      getFirst(SELECTORS.fees) ||
+      findSectionByText(["fees", "service options"]) ||
+      findSectionByText(["quick question consultation", "full initial consultation"])
+    );
   }
 
   function getGuidesElement() {
-    return getFirst(GUIDES_SELECTOR);
+    return (
+      getFirst(SELECTORS.guides) ||
+      findSectionByText(["diy arizona guides"]) ||
+      findSectionByText(["step-by-step education paths"])
+    );
+  }
+
+  function getHeroElement() {
+    return getFirst(SELECTORS.hero) || findSectionByText(["clear family law guidance"]);
+  }
+
+  function getNavElement() {
+    var nav = getFirst(SELECTORS.nav);
+
+    if (nav) return nav;
+
+    var links = getAll("a");
+    var bestCandidate = null;
+
+    links.forEach(function (link) {
+      var text = normalizeText(link.textContent);
+      if (
+        text === "practice areas" ||
+        text === "fees" ||
+        text === "guides" ||
+        text === "start"
+      ) {
+        var parent = link.closest("nav, header, div");
+        if (parent && !bestCandidate) {
+          bestCandidate = parent;
+        }
+      }
+    });
+
+    return bestCandidate;
   }
 
   function updateScrollState() {
-    var threshold = 24;
+    var threshold = 36;
 
     if (window.scrollY > threshold) {
       document.body.classList.add("mflg-nav-scrolled");
@@ -85,7 +159,13 @@
     }
   }
 
-  function initNavScrollState() {
+  function initNav() {
+    var nav = getNavElement();
+
+    if (!nav) return;
+
+    nav.classList.add("mflg-enhanced-nav");
+
     updateScrollState();
 
     window.addEventListener(
@@ -99,6 +179,9 @@
 
   function routeLinkToElement(link, targetElement) {
     if (!link || !targetElement) return;
+
+    if (link.__mflgRouted) return;
+    link.__mflgRouted = true;
 
     link.addEventListener("click", function (event) {
       event.preventDefault();
@@ -127,7 +210,8 @@
     var className = normalizeText(link.className);
 
     return (
-      text.indexOf("practice area") !== -1 ||
+      text === "practice areas" ||
+      text.indexOf("view practice areas") !== -1 ||
       href === "#practice-areas" ||
       className.indexOf("practice") !== -1
     );
@@ -140,7 +224,7 @@
 
     return (
       text === "fees" ||
-      text.indexOf("full fees") !== -1 ||
+      text.indexOf("view full fees") !== -1 ||
       href === "#fees" ||
       className.indexOf("fee") !== -1
     );
@@ -160,15 +244,10 @@
   }
 
   function initAnchorIds() {
-    var intake = getIntakeElement();
-    var practice = getPracticeElement();
-    var fees = getFeesElement();
-    var guides = getGuidesElement();
-
-    setAnchorId(intake, "intake");
-    setAnchorId(practice, "practice-areas");
-    setAnchorId(fees, "fees");
-    setAnchorId(guides, "guides");
+    setAnchorId(getIntakeElement(), "intake");
+    setAnchorId(getPracticeElement(), "practice-areas");
+    setAnchorId(getFeesElement(), "fees");
+    setAnchorId(getGuidesElement(), "guides");
   }
 
   function initNavRouting() {
@@ -176,13 +255,15 @@
     var practice = getPracticeElement();
     var fees = getFeesElement();
     var guides = getGuidesElement();
+    var nav = getNavElement();
 
-    var navLinks = document.querySelectorAll(
-      "[class*='Navbar'] a, [class*='navbar'] a, nav a"
-    );
+    if (!nav) return;
+
+    var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
 
     navLinks.forEach(function (link) {
       if (isStartLink(link)) {
+        link.classList.add("mflg-start-link");
         link.setAttribute("href", "#intake");
         routeLinkToElement(link, intake);
       } else if (isPracticeLink(link)) {
@@ -195,16 +276,21 @@
         link.setAttribute("href", "#guides");
         routeLinkToElement(link, guides);
       }
+
+      if (normalizeText(link.textContent).indexOf("888") !== -1 || normalizeText(link.getAttribute("href")).indexOf("tel:") === 0) {
+        link.classList.add("mflg-phone-link");
+      }
     });
   }
 
   function initHeroCtas() {
     var intake = getIntakeElement();
     var practice = getPracticeElement();
-
-    var hero = getFirst(".Hero-Section, .Hero Section, [class*='Hero Section'], [class*='Hero-Section'], [class*='hero-section']");
+    var hero = getHeroElement();
 
     if (!hero) return;
+
+    hero.classList.add("mflg-hero-section");
 
     var heroLinks = Array.prototype.slice.call(hero.querySelectorAll("a"));
 
@@ -214,53 +300,84 @@
       if (
         text.indexOf("schedule consultation") !== -1 ||
         text.indexOf("book") !== -1 ||
-        text.indexOf("consultation") !== -1
+        text.indexOf("consultation") !== -1 ||
+        text.indexOf("start guided intake") !== -1
       ) {
         link.textContent = "Start Guided Intake";
+        link.classList.add("mflg-hero-primary-cta");
         link.setAttribute("href", "#intake");
         routeLinkToElement(link, intake);
       }
 
       if (text.indexOf("view practice") !== -1 || text.indexOf("practice area") !== -1) {
+        link.classList.add("mflg-hero-secondary-cta");
         link.setAttribute("href", "#practice-areas");
         routeLinkToElement(link, practice);
       }
     });
   }
 
-  function initFeesCtaLanguage() {
+  function updateButtonText(button, newText) {
+    if (!button) return;
+
+    var nestedText = button.querySelector("span, div, strong");
+
+    if (nestedText && normalizeText(nestedText.textContent).indexOf("book now") !== -1) {
+      nestedText.textContent = newText;
+    } else {
+      button.textContent = newText;
+    }
+  }
+
+  function initFeesCtas() {
     var fees = getFeesElement();
     var intake = getIntakeElement();
 
-    if (!fees) return;
+    if (!fees || !intake) return;
 
-    var links = fees.querySelectorAll("a, button");
+    fees.classList.add("mflg-fees-section");
 
-    links.forEach(function (link) {
-      var text = normalizeText(link.textContent);
+    var feeControls = Array.prototype.slice.call(
+      fees.querySelectorAll("a, button, [role='button']")
+    );
 
-      if (text === "book now" || text.indexOf("book now") !== -1) {
-        link.textContent = "Request Consultation";
-        if (link.tagName.toLowerCase() === "a") {
-          link.setAttribute("href", "#intake");
+    feeControls.forEach(function (control) {
+      var text = normalizeText(control.textContent);
+      var href = normalizeText(control.getAttribute("href"));
+
+      if (
+        text === "book now" ||
+        text.indexOf("book now") !== -1 ||
+        text.indexOf("schedule") !== -1 ||
+        text.indexOf("consultation") !== -1 ||
+        href.indexOf("calendly") !== -1 ||
+        href.indexOf("book") !== -1
+      ) {
+        updateButtonText(control, "Request Consultation");
+        control.classList.add("mflg-fee-cta");
+
+        if (control.tagName.toLowerCase() === "a") {
+          control.setAttribute("href", "#intake");
         }
-        routeLinkToElement(link, intake);
+
+        routeLinkToElement(control, intake);
       }
 
       if (text.indexOf("view full fees") !== -1) {
-        if (link.tagName.toLowerCase() === "a") {
-          link.setAttribute("href", "#fees");
+        if (control.tagName.toLowerCase() === "a") {
+          control.setAttribute("href", "#fees");
         }
-        routeLinkToElement(link, fees);
+
+        routeLinkToElement(control, fees);
       }
     });
   }
 
   ready(function () {
     initAnchorIds();
-    initNavScrollState();
+    initNav();
     initNavRouting();
     initHeroCtas();
-    initFeesCtaLanguage();
+    initFeesCtas();
   });
 })();
