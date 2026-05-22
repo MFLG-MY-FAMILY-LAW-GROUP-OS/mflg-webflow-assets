@@ -1,12 +1,15 @@
-/* MFLG Site Enhancements v1.0
+/* MFLG Site Enhancements v1.1
    File: css/mflg-site-enhancements.css
 
    In accordance with MP v2:
-   - CSS-only site enhancement layer
+   - Full CSS replacement
+   - Site enhancement layer only
    - Does not alter intake architecture or intake logic
    - Does not rebuild Webflow structure
-   - Stabilizes desktop nav and hero CTA styling/routing foundation
-   - Dropdowns, Pay Invoice, and Client Login reserved for later pass
+   - Strengthens desktop nav scroll state
+   - Supports JS-added targeting classes
+   - Preserves locked intake design and logic
+   - No dropdowns, Pay Invoice, or Client Login in this pass
 */
 
 /* =========================================================
@@ -17,225 +20,206 @@
   --mflg-ink: #0b1118;
   --mflg-navy: #06101a;
   --mflg-navy-2: #0a1724;
+  --mflg-navy-3: #0e2234;
   --mflg-blue: #02457a;
   --mflg-blue-hover: #07558f;
   --mflg-gold: #c79a2b;
+  --mflg-gold-soft: rgba(199, 154, 43, 0.22);
   --mflg-cream: #fbf7ee;
   --mflg-white: #ffffff;
 }
 
 /* =========================================================
-   2. Navbar Foundation
-   Current Webflow structure shown:
-   .Navbar Fixed
-   .Navbar Container
-   .Navbar Logo Light
-   .Navbar Logo Dark
-   .Navbar Menu
-   .Nav Link Practice Areas
-   .Nav Link Fees
-   .Nav Link Guides
-   .Nav Link About
-   .Nav Link FAQ
-   .Nav Link Contact
-   .Nav Link Phone
-   .Navbar Start Button
+   2. Nav Enhancement Foundation
+   JS adds .mflg-enhanced-nav to the actual nav wrapper.
+   This is safer than relying only on broad class selectors.
    ========================================================= */
 
-.Navbar.Fixed,
-.Navbar-Fixed,
-.navbar-fixed,
-[class*="Navbar Fixed"],
-[class*="navbar fixed"] {
+.mflg-enhanced-nav {
   position: sticky !important;
   top: 0 !important;
   z-index: 9999 !important;
-}
-
-/* Target the visible nav wrapper using broad-safe selectors */
-.Navbar,
-.navbar,
-[class*="Navbar"] {
+  width: 100% !important;
   transition:
     background-color 220ms ease,
     box-shadow 220ms ease,
     border-color 220ms ease,
     backdrop-filter 220ms ease,
-    padding 220ms ease;
+    transform 220ms ease !important;
+  will-change: background-color, box-shadow;
 }
 
-/* Hero/top state */
-body:not(.mflg-nav-scrolled) .Navbar,
-body:not(.mflg-nav-scrolled) .navbar,
-body:not(.mflg-nav-scrolled) [class*="Navbar"] {
-  background: rgba(6, 16, 26, 0.72) !important;
+/* Top/hero state: premium dark glass, slightly softer than scroll state */
+body:not(.mflg-nav-scrolled) .mflg-enhanced-nav {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 16, 26, 0.90) 0%,
+      rgba(6, 16, 26, 0.78) 100%
+    ) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
   box-shadow: none !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Scroll state */
-body.mflg-nav-scrolled .Navbar,
-body.mflg-nav-scrolled .navbar,
-body.mflg-nav-scrolled [class*="Navbar"] {
-  background: rgba(6, 16, 26, 0.97) !important;
-  border-bottom: 1px solid rgba(199, 154, 43, 0.20) !important;
-  box-shadow: 0 14px 34px rgba(6, 16, 26, 0.18) !important;
+/* Scroll state: visibly more solid and premium */
+body.mflg-nav-scrolled .mflg-enhanced-nav {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 16, 26, 0.99) 0%,
+      rgba(5, 13, 22, 0.99) 100%
+    ) !important;
+  border-bottom: 1px solid rgba(199, 154, 43, 0.24) !important;
+  box-shadow:
+    0 16px 36px rgba(6, 16, 26, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Keep nav content premium and centered */
-.Navbar Container,
-.Navbar-Container,
-.navbar-container,
-[class*="Navbar Container"],
-[class*="Navbar-Container"],
-[class*="navbar-container"] {
-  transition: min-height 220ms ease, padding 220ms ease;
+/* Extra fallback for Webflow nav classes */
+.Navbar.Fixed,
+.navbar-fixed,
+[class*="Navbar Fixed"],
+[class*="navbar-fixed"] {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
 }
 
-body.mflg-nav-scrolled [class*="Navbar Container"],
-body.mflg-nav-scrolled [class*="Navbar-Container"],
-body.mflg-nav-scrolled [class*="navbar-container"] {
-  min-height: 70px;
-}
-
-/* Nav links */
-.Navbar a,
-.navbar a,
-[class*="Navbar"] a {
+/* Nav link polish */
+.mflg-enhanced-nav a {
   transition:
     color 180ms ease,
     opacity 180ms ease,
     transform 180ms ease,
     background-color 180ms ease,
-    border-color 180ms ease;
+    border-color 180ms ease,
+    box-shadow 180ms ease !important;
 }
 
-.Navbar a:not([class*="Start"]),
-.navbar a:not([class*="Start"]),
-[class*="Navbar"] a:not([class*="Start"]) {
+.mflg-enhanced-nav a:not(.mflg-start-link) {
   color: rgba(255, 255, 255, 0.92) !important;
 }
 
-.Navbar a:not([class*="Start"]):hover,
-.navbar a:not([class*="Start"]):hover,
-[class*="Navbar"] a:not([class*="Start"]):hover {
+.mflg-enhanced-nav a:not(.mflg-start-link):hover {
   color: #ffffff !important;
   opacity: 1 !important;
 }
 
-/* Phone link utility treatment */
-.Navbar a[href^="tel"],
-.navbar a[href^="tel"],
-[class*="Nav Link Phone"],
-[class*="Phone"] {
-  color: rgba(255, 255, 255, 0.95) !important;
+/* Phone link */
+.mflg-enhanced-nav a[href^="tel"],
+.mflg-enhanced-nav .mflg-phone-link {
+  color: rgba(255, 255, 255, 0.96) !important;
   white-space: nowrap;
 }
 
-.Navbar a[href^="tel"]:hover,
-.navbar a[href^="tel"]:hover,
-[class*="Nav Link Phone"]:hover,
-[class*="Phone"]:hover {
+.mflg-enhanced-nav a[href^="tel"]:hover,
+.mflg-enhanced-nav .mflg-phone-link:hover {
   color: var(--mflg-gold) !important;
 }
 
 /* Start button */
-.Navbar Start Button,
-.Navbar-Start-Button,
-.navbar-start-button,
-[class*="Navbar Start Button"],
-[class*="Navbar-Start-Button"],
-[class*="Start Button"] {
+.mflg-enhanced-nav .mflg-start-link,
+.mflg-enhanced-nav a[class*="start"],
+.mflg-enhanced-nav a[class*="Start"],
+.mflg-enhanced-nav [class*="Start Button"],
+.mflg-enhanced-nav [class*="start-button"] {
   background: linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
   box-shadow:
-    0 10px 24px rgba(2, 69, 122, 0.22),
+    0 10px 24px rgba(2, 69, 122, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
-  transition:
-    transform 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
 }
 
-[class*="Navbar Start Button"]:hover,
-[class*="Navbar-Start-Button"]:hover,
-[class*="Start Button"]:hover {
+.mflg-enhanced-nav .mflg-start-link:hover,
+.mflg-enhanced-nav a[class*="start"]:hover,
+.mflg-enhanced-nav a[class*="Start"]:hover,
+.mflg-enhanced-nav [class*="Start Button"]:hover,
+.mflg-enhanced-nav [class*="start-button"]:hover {
   transform: translateY(-1px);
   background: linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
   box-shadow:
-    0 14px 30px rgba(2, 69, 122, 0.28),
+    0 14px 30px rgba(2, 69, 122, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
 }
 
 /* =========================================================
    3. Hero CTA Refinement
+   JS adds .mflg-hero-section and .mflg-hero-primary-cta.
    ========================================================= */
 
-/* Primary hero button */
-.Hero Section a,
-.Hero-Section a,
-.hero-section a,
-[class*="Hero Section"] a,
-[class*="Hero-Section"] a,
-[class*="hero-section"] a {
+.mflg-hero-section a {
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
     background-color 180ms ease,
     border-color 180ms ease,
-    color 180ms ease;
+    color 180ms ease !important;
 }
 
-/* Preserve current premium hero direction but make CTAs more polished */
-[class*="Hero Section"] a:hover,
-[class*="Hero-Section"] a:hover,
-[class*="hero-section"] a:hover {
+.mflg-hero-section a:hover {
   transform: translateY(-1px);
 }
 
-/* Hero primary CTA likely blue */
-[class*="Hero Section"] a:first-of-type,
-[class*="Hero-Section"] a:first-of-type,
-[class*="hero-section"] a:first-of-type {
+.mflg-hero-primary-cta {
   background: linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.10) !important;
   box-shadow:
-    0 16px 34px rgba(2, 69, 122, 0.22),
+    0 16px 34px rgba(2, 69, 122, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
 }
 
-[class*="Hero Section"] a:first-of-type:hover,
-[class*="Hero-Section"] a:first-of-type:hover,
-[class*="hero-section"] a:first-of-type:hover {
+.mflg-hero-primary-cta:hover {
   background: linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
   box-shadow:
-    0 20px 40px rgba(2, 69, 122, 0.28),
+    0 20px 40px rgba(2, 69, 122, 0.30),
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
 }
 
-/* Hero secondary CTA likely outline */
-[class*="Hero Section"] a:nth-of-type(2),
-[class*="Hero-Section"] a:nth-of-type(2),
-[class*="hero-section"] a:nth-of-type(2) {
+.mflg-hero-secondary-cta {
   border-color: rgba(199, 154, 43, 0.72) !important;
   color: #ffffff !important;
 }
 
-[class*="Hero Section"] a:nth-of-type(2):hover,
-[class*="Hero-Section"] a:nth-of-type(2):hover,
-[class*="hero-section"] a:nth-of-type(2):hover {
+.mflg-hero-secondary-cta:hover {
   background: rgba(199, 154, 43, 0.12) !important;
   border-color: rgba(199, 154, 43, 0.95) !important;
 }
 
 /* =========================================================
-   4. Anchor Scroll Offset
+   4. Fees CTA Enhancement
+   JS adds .mflg-fee-cta to fee buttons/links.
+   ========================================================= */
+
+.mflg-fee-cta {
+  background: linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 10px 22px rgba(2, 69, 122, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease !important;
+}
+
+.mflg-fee-cta:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  box-shadow:
+    0 14px 30px rgba(2, 69, 122, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+/* =========================================================
+   5. Anchor Scroll Offset
    ========================================================= */
 
 #intake,
@@ -250,23 +234,22 @@ body.mflg-nav-scrolled [class*="navbar-container"] {
 }
 
 /* =========================================================
-   5. Desktop Guardrails
+   6. Desktop Guardrails
    ========================================================= */
 
 @media (min-width: 992px) {
-  body.mflg-nav-scrolled [class*="Navbar"] {
+  body.mflg-nav-scrolled .mflg-enhanced-nav {
     min-height: 72px;
   }
 }
 
 /* =========================================================
-   6. Mobile Guardrail Only
+   7. Mobile Guardrail Only
    Do not overhaul mobile yet.
-   Prevent new enhancement layer from making mobile worse.
    ========================================================= */
 
 @media (max-width: 991px) {
-  [class*="Navbar"] {
+  .mflg-enhanced-nav {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
