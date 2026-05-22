@@ -1,16 +1,17 @@
-/* MFLG Site Enhancements v1.3
+/* MFLG Site Enhancements v1.4
    File: css/mflg-site-enhancements.css
 
    In accordance with MP v2:
    - Full CSS replacement
-   - Targets confirmed Webflow nav structure:
+   - CSS-only refinement pass
+   - Preserves confirmed Webflow nav structure:
      .navbar-fixed, .navbar-container, .navbar-menu, .navbar-start-button
    - Keeps hero/top nav transparent for true full-screen hero
-   - Adds premium scrolled nav state
-   - Adds nav hover polish
+   - Slightly softens scrolled nav shadow
+   - Fixes Fees CTA clipping / cramped button text
    - Preserves locked intake architecture and logic
    - Preserves hero CTA and fee CTA support
-   - No dropdowns, Pay Invoice, Client Login, or section rebuild in this pass
+   - No dropdowns, Pay Invoice, Client Login, JS edits, or section rebuild in this pass
 */
 
 /* =========================================================
@@ -65,8 +66,8 @@
   background:
     linear-gradient(
       180deg,
-      rgba(3, 10, 18, 0.62) 0%,
-      rgba(3, 10, 18, 0.34) 58%,
+      rgba(3, 10, 18, 0.58) 0%,
+      rgba(3, 10, 18, 0.30) 58%,
       rgba(3, 10, 18, 0.00) 100%
     );
   opacity: 1;
@@ -96,16 +97,16 @@ body.mflg-nav-scrolled .mflg-enhanced-nav,
   background:
     linear-gradient(
       180deg,
-      rgba(3, 10, 18, 0.98) 0%,
-      rgba(6, 16, 26, 0.98) 52%,
-      rgba(3, 10, 18, 0.98) 100%
+      rgba(3, 10, 18, 0.985) 0%,
+      rgba(6, 16, 26, 0.985) 52%,
+      rgba(3, 10, 18, 0.985) 100%
     ) !important;
-  border-bottom: 1px solid rgba(199, 154, 43, 0.36) !important;
+  border-bottom: 1px solid rgba(199, 154, 43, 0.34) !important;
   box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    0 12px 26px rgba(0, 0, 0, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.035) inset !important;
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
 }
 
 body.mflg-nav-scrolled .navbar-fixed::before,
@@ -115,8 +116,8 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::before,
   background:
     linear-gradient(
       180deg,
-      rgba(3, 10, 18, 0.98) 0%,
-      rgba(6, 16, 26, 0.98) 100%
+      rgba(3, 10, 18, 0.985) 0%,
+      rgba(6, 16, 26, 0.985) 100%
     );
   opacity: 1;
 }
@@ -137,9 +138,9 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
     linear-gradient(
       90deg,
       rgba(199, 154, 43, 0) 0%,
-      rgba(199, 154, 43, 0.24) 18%,
-      rgba(199, 154, 43, 0.58) 50%,
-      rgba(199, 154, 43, 0.24) 82%,
+      rgba(199, 154, 43, 0.22) 18%,
+      rgba(199, 154, 43, 0.52) 50%,
+      rgba(199, 154, 43, 0.22) 82%,
       rgba(199, 154, 43, 0) 100%
     );
   pointer-events: none;
@@ -308,9 +309,27 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
 
 /* =========================================================
    7. Fees CTA Enhancement
+   Fixes clipped Request Consult buttons.
    ========================================================= */
 
 .mflg-fee-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 128px !important;
+  max-width: none !important;
+  min-height: 34px !important;
+  height: auto !important;
+  padding: 9px 16px !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  line-height: 1.05 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.10em !important;
+  text-align: center !important;
+  border-radius: 999px !important;
   background:
     linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
   color: #ffffff !important;
@@ -323,7 +342,18 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
     background 180ms ease,
     box-shadow 180ms ease,
     border-color 180ms ease !important;
+}
+
+.mflg-fee-cta *,
+.mflg-fee-cta span,
+.mflg-fee-cta div,
+.mflg-fee-cta strong {
+  width: auto !important;
+  max-width: none !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
   white-space: nowrap !important;
+  line-height: 1.05 !important;
 }
 
 .mflg-fee-cta:hover {
@@ -331,8 +361,18 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
   background:
     linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
   box-shadow:
-    0 14px 30px rgba(2, 69, 122, 0.30),
+    0 14px 30px rgba(2, 69, 122, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Additional guardrail for pricing-card button wrappers */
+.mflg-fees-section a.mflg-fee-cta,
+.mflg-fees-section button.mflg-fee-cta,
+.mflg-fees-section [role="button"].mflg-fee-cta {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* =========================================================
@@ -385,6 +425,12 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
   .mflg-enhanced-nav::before,
   .mflg-enhanced-nav::after {
     display: none !important;
+  }
+
+  .mflg-fee-cta {
+    min-width: 122px !important;
+    padding: 9px 14px !important;
+    font-size: 9.5px !important;
   }
 
   #intake,
