@@ -1,13 +1,16 @@
-/* MFLG Site Enhancements v2.0
+/* MFLG Site Enhancements v1.7
    File: css/mflg-site-enhancements.css
 
    In accordance with MP v2:
-   - CSS-only hero-safe preservation pass
-   - Removes broad hero section overrides that could affect Webflow background video/layering
-   - Does not alter intake architecture or intake logic
-   - Does not rebuild Webflow structure
-   - Preserves nav, practice areas, fees, guides, and intake routing
-   - Hero styling is limited to CTA buttons only
+   - Full CSS replacement
+   - Preserves locked intake architecture and conditional logic
+   - Preserves v1.6 cleanup stability
+   - Refines nav scroll/hover state
+   - Refines Practice Areas card-to-intake pathway behavior
+   - Keeps Fees CTA fix
+   - Does not inject missing service cards
+   - Does not alter Webflow structure
+   - No mobile/tablet overhaul in this pass
 */
 
 /* =========================================================
@@ -17,646 +20,543 @@
 :root {
   --mflg-ink: #0b1118;
   --mflg-navy: #06101a;
-  --mflg-navy-2: #0a1f34;
+  --mflg-navy-dark: #030a12;
+  --mflg-navy-glass: rgba(6, 16, 26, 0.88);
   --mflg-blue: #02457a;
-  --mflg-blue-hover: #00558f;
+  --mflg-blue-hover: #07558f;
   --mflg-gold: #c79a2b;
+  --mflg-gold-strong: rgba(199, 154, 43, 0.72);
+  --mflg-gold-soft: rgba(199, 154, 43, 0.24);
   --mflg-cream: #fbf7ee;
   --mflg-white: #ffffff;
-  --mflg-muted: rgba(11, 17, 24, 0.72);
-  --mflg-border: rgba(11, 17, 24, 0.10);
-  --mflg-shadow-soft: 0 18px 48px rgba(6, 16, 26, 0.12);
-  --mflg-shadow-card: 0 16px 38px rgba(6, 16, 26, 0.10);
-  --mflg-shadow-dark: 0 22px 60px rgba(0, 0, 0, 0.34);
 }
 
 /* =========================================================
    2. Navbar Foundation
    ========================================================= */
 
-.Navbar.Fixed,
 .navbar-fixed,
-.navbar_fixed,
-[class*="Navbar"][class*="Fixed"],
-[class*="navbar"][class*="fixed"] {
+.mflg-enhanced-nav {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  z-index: 9999 !important;
   width: 100% !important;
-  background: rgba(1, 8, 14, 0.44) !important;
-  backdrop-filter: blur(10px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(130%) !important;
-  border-bottom: 1px solid rgba(199, 154, 43, 0.18) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
+  z-index: 9999 !important;
+  background: transparent !important;
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
   transition:
-    background-color 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    backdrop-filter 220ms ease !important;
+    background-color 240ms ease,
+    background 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    backdrop-filter 240ms ease !important;
+  will-change: background, box-shadow, border-color;
 }
 
-html.mflg-nav-scrolled .Navbar.Fixed,
-html.mflg-nav-scrolled .navbar-fixed,
-html.mflg-nav-scrolled .navbar_fixed,
-html.mflg-nav-scrolled [class*="Navbar"][class*="Fixed"],
-html.mflg-nav-scrolled [class*="navbar"][class*="fixed"],
-body.mflg-nav-scrolled .Navbar.Fixed,
+.navbar-fixed::before,
+.mflg-enhanced-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 10, 18, 0.58) 0%,
+      rgba(3, 10, 18, 0.30) 58%,
+      rgba(3, 10, 18, 0.00) 100%
+    );
+  opacity: 1;
+  pointer-events: none;
+  transition:
+    opacity 240ms ease,
+    background 240ms ease !important;
+}
+
+.navbar-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   3. Scrolled Navbar State
+   ========================================================= */
+
 body.mflg-nav-scrolled .navbar-fixed,
-body.mflg-nav-scrolled .navbar_fixed,
-body.mflg-nav-scrolled [class*="Navbar"][class*="Fixed"],
-body.mflg-nav-scrolled [class*="navbar"][class*="fixed"] {
-  background: rgba(3, 10, 17, 0.92) !important;
-  backdrop-filter: blur(16px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
-  border-bottom-color: rgba(199, 154, 43, 0.32) !important;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.34) !important;
+.navbar-fixed.mflg-nav-is-scrolled,
+body.mflg-nav-scrolled .mflg-enhanced-nav,
+.mflg-enhanced-nav.mflg-nav-is-scrolled {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 10, 18, 0.99) 0%,
+      rgba(6, 16, 26, 0.99) 52%,
+      rgba(3, 10, 18, 0.99) 100%
+    ) !important;
+  border-bottom: 1px solid rgba(199, 154, 43, 0.36) !important;
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.035) inset !important;
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
 }
 
-.Navbar.Fixed .Navbar.Container,
-.navbar-fixed .navbar-container,
-.navbar_fixed .navbar-container,
-[class*="navbar"] [class*="container"] {
-  max-width: 1180px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+body.mflg-nav-scrolled .navbar-fixed::before,
+.navbar-fixed.mflg-nav-is-scrolled::before,
+body.mflg-nav-scrolled .mflg-enhanced-nav::before,
+.mflg-enhanced-nav.mflg-nav-is-scrolled::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 10, 18, 0.99) 0%,
+      rgba(6, 16, 26, 0.99) 100%
+    );
+  opacity: 1;
 }
 
-.Navbar.Fixed a,
+body.mflg-nav-scrolled .navbar-fixed::after,
+.navbar-fixed.mflg-nav-is-scrolled::after,
+body.mflg-nav-scrolled .mflg-enhanced-nav::after,
+.mflg-enhanced-nav.mflg-nav-is-scrolled::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: min(1040px, 84vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(199, 154, 43, 0) 0%,
+      rgba(199, 154, 43, 0.22) 18%,
+      rgba(199, 154, 43, 0.56) 50%,
+      rgba(199, 154, 43, 0.22) 82%,
+      rgba(199, 154, 43, 0) 100%
+    );
+  pointer-events: none;
+}
+
+/* =========================================================
+   4. Nav Links / Hover Polish
+   ========================================================= */
+
+.navbar-menu a,
 .navbar-fixed a,
-.navbar_fixed a,
-[class*="Navbar"] a,
-[class*="navbar"] a {
-  text-decoration: none !important;
-}
-
-.Navbar.Fixed .Nav.Link,
-.navbar-fixed .Nav.Link,
-.navbar_fixed .Nav.Link,
-[class*="Nav Link"],
-[class*="nav-link"],
-[class*="Nav Link"] a {
+.mflg-enhanced-nav a {
+  position: relative;
   transition:
     color 180ms ease,
     opacity 180ms ease,
     transform 180ms ease,
-    text-shadow 180ms ease !important;
-}
-
-.Navbar.Fixed .Nav.Link:hover,
-.navbar-fixed .Nav.Link:hover,
-.navbar_fixed .Nav.Link:hover,
-[class*="Nav Link"]:hover,
-[class*="nav-link"]:hover {
-  color: var(--mflg-white) !important;
-  opacity: 1 !important;
-  transform: translateY(-1px) !important;
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.20) !important;
-}
-
-/* Nav Start button only */
-.Navbar.Fixed .Navbar.Start.Button,
-.navbar-fixed .Navbar.Start.Button,
-.navbar_fixed .Navbar.Start.Button,
-.navbar-fixed .mflg-start-link,
-.navbar_fixed .mflg-start-link,
-.Navbar.Fixed .mflg-start-link,
-[class*="Navbar Start Button"],
-[class*="Start Button"] {
-  background: var(--mflg-blue) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 12px 26px rgba(2, 69, 122, 0.26) !important;
-  transition:
     background-color 180ms ease,
-    transform 180ms ease,
+    border-color 180ms ease,
     box-shadow 180ms ease !important;
 }
 
-.Navbar.Fixed .Navbar.Start.Button:hover,
-.navbar-fixed .Navbar.Start.Button:hover,
-.navbar_fixed .Navbar.Start.Button:hover,
-.navbar-fixed .mflg-start-link:hover,
-.navbar_fixed .mflg-start-link:hover,
-.Navbar.Fixed .mflg-start-link:hover,
-[class*="Navbar Start Button"]:hover,
-[class*="Start Button"]:hover {
-  background: var(--mflg-blue-hover) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 16px 34px rgba(2, 69, 122, 0.36) !important;
-}
-
-/* =========================================================
-   3. Hero-Safe CTA Styling Only
-   ========================================================= */
-
-/* Do not style the hero section, hero children, hero overlay, or video layers here.
-   Webflow native hero structure controls video, overlay, layout, and positioning. */
-
-.mflg-hero-primary-cta,
-.mflg-hero-secondary-cta {
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease !important;
-}
-
-.mflg-hero-primary-cta:hover,
-.mflg-hero-secondary-cta:hover {
-  transform: translateY(-1px) !important;
-}
-
-.mflg-hero-primary-cta {
-  background: var(--mflg-blue) !important;
-  color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 14px 30px rgba(2, 69, 122, 0.28) !important;
-}
-
-.mflg-hero-primary-cta:hover {
-  background: var(--mflg-blue-hover) !important;
-  box-shadow: 0 18px 38px rgba(2, 69, 122, 0.38) !important;
-}
-
-.mflg-hero-secondary-cta {
-  border-color: rgba(199, 154, 43, 0.72) !important;
-  color: #fff !important;
-}
-
-.mflg-hero-secondary-cta:hover {
-  border-color: rgba(199, 154, 43, 0.95) !important;
-  box-shadow: 0 14px 30px rgba(199, 154, 43, 0.14) !important;
-}
-
-/* =========================================================
-   4. Practice Areas Preview Section
-   ========================================================= */
-
-.Practice.Areas.Preview.Section,
-.practice-areas-preview-section,
-[class*="Practice Areas Preview Section"],
-[class*="Practice-Areas"],
-#practice-areas {
-  position: relative !important;
-}
-
-.Practice.Areas.Preview.Section .card,
-.practice-areas-preview-section .card,
-[class*="Practice Areas Preview Section"] .card,
-[class*="Practice"] .card,
-.mflg-practice-card {
-  border: 1px solid rgba(11, 17, 24, 0.08) !important;
-  box-shadow: 0 14px 32px rgba(6, 16, 26, 0.06) !important;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease,
-    background-color 180ms ease !important;
-}
-
-.Practice.Areas.Preview.Section .card:hover,
-.practice-areas-preview-section .card:hover,
-[class*="Practice Areas Preview Section"] .card:hover,
-[class*="Practice"] .card:hover,
-.mflg-practice-card:hover,
-.mflg-practice-card.mflg-card-clicked {
-  transform: translateY(-3px) !important;
-  border-color: rgba(199, 154, 43, 0.36) !important;
-  box-shadow: 0 22px 48px rgba(6, 16, 26, 0.12) !important;
-}
-
-.mflg-practice-card {
-  cursor: pointer !important;
-}
-
-.mflg-practice-card:focus-visible {
-  outline: 3px solid rgba(2, 69, 122, 0.35) !important;
-  outline-offset: 4px !important;
-}
-
-.mflg-card-path-link,
-.mflg-practice-path-link,
-.mflg-practice-path-cue {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 7px !important;
-  width: fit-content !important;
-  margin-top: 18px !important;
-  color: var(--mflg-blue) !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.13em !important;
-  text-transform: uppercase !important;
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link),
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link),
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link) {
+  color: rgba(255, 255, 255, 0.92) !important;
   text-decoration: none !important;
-  line-height: 1.2 !important;
-  transition:
-    color 180ms ease,
-    transform 180ms ease,
-    opacity 180ms ease !important;
 }
 
-.mflg-card-path-link:hover,
-.mflg-practice-path-link:hover,
-.mflg-practice-card:hover .mflg-practice-path-cue {
-  color: var(--mflg-blue-hover) !important;
-  transform: translateX(2px) !important;
-}
-
-/* Supports both old and current JS class names */
-.mflg-view-pathways-wrap,
-.mflg-practice-view-all-wrap {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin-top: 34px !important;
-  margin-bottom: 6px !important;
-}
-
-.mflg-view-pathways-button,
-.mflg-practice-view-all {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 42px !important;
-  padding: 13px 28px !important;
-  border-radius: 999px !important;
-  background: var(--mflg-blue) !important;
-  color: #fff !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  box-shadow: 0 14px 30px rgba(2, 69, 122, 0.24) !important;
-  transition:
-    transform 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease !important;
-}
-
-.mflg-view-pathways-button:hover,
-.mflg-practice-view-all:hover {
-  background: var(--mflg-blue-hover) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 18px 38px rgba(2, 69, 122, 0.34) !important;
-}
-
-/* =========================================================
-   5. Fees Section
-   ========================================================= */
-
-.Fees.Section,
-.fees-section,
-[class*="Fees Section"],
-[class*="fees-section"],
-#fees {
-  position: relative !important;
-  overflow: hidden !important;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(2, 69, 122, 0.15), rgba(2, 69, 122, 0) 34%),
-    linear-gradient(180deg, #02070d 0%, #030a11 100%) !important;
-}
-
-.Fees.Section::before,
-.fees-section::before,
-[class*="Fees Section"]::before,
-[class*="fees-section"]::before,
-#fees::before {
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link)::after,
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link)::after,
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link)::after {
   content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  transform: translateX(-50%);
   background:
-    linear-gradient(90deg, rgba(199, 154, 43, 0) 0%, rgba(199, 154, 43, 0.10) 50%, rgba(199, 154, 43, 0) 100%),
-    radial-gradient(circle at 50% 52%, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0) 36%);
-  opacity: 0.85;
-}
-
-.Fees.Section > *,
-.fees-section > *,
-[class*="Fees Section"] > *,
-[class*="fees-section"] > *,
-#fees > * {
-  position: relative;
-  z-index: 1;
-}
-
-.Fees.Section h2,
-.fees-section h2,
-[class*="Fees Section"] h2,
-[class*="fees-section"] h2,
-#fees h2 {
-  text-wrap: balance !important;
-  letter-spacing: -0.025em !important;
-}
-
-.Fees.Section p,
-.fees-section p,
-[class*="Fees Section"] p,
-[class*="fees-section"] p,
-#fees p {
-  text-wrap: pretty !important;
-}
-
-/* Fee card/table containers */
-.Fees.Section .card,
-.fees-section .card,
-[class*="Fees Section"] .card,
-[class*="fees-section"] .card,
-#fees .card,
-.Fees.Section [class*="card"],
-.fees-section [class*="card"],
-#fees [class*="card"] {
+    linear-gradient(
+      90deg,
+      rgba(199, 154, 43, 0) 0%,
+      rgba(199, 154, 43, 0.88) 50%,
+      rgba(199, 154, 43, 0) 100%
+    );
+  opacity: 0;
   transition:
-    transform 190ms ease,
-    box-shadow 190ms ease,
-    border-color 190ms ease,
-    filter 190ms ease !important;
+    width 180ms ease,
+    opacity 180ms ease !important;
+  pointer-events: none;
 }
 
-.Fees.Section .card:hover,
-.fees-section .card:hover,
-[class*="Fees Section"] .card:hover,
-[class*="fees-section"] .card:hover,
-#fees .card:hover,
-.Fees.Section [class*="card"]:hover,
-.fees-section [class*="card"]:hover,
-#fees [class*="card"]:hover {
-  transform: translateY(-3px) !important;
-  filter: saturate(1.03) !important;
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link):hover,
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link):hover,
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link):hover {
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
-/* Fee buttons */
-.Fees.Section a,
-.fees-section a,
-[class*="Fees Section"] a,
-[class*="fees-section"] a,
-#fees a,
-.Fees.Section button,
-.fees-section button,
-[class*="Fees Section"] button,
-[class*="fees-section"] button,
-#fees button {
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease !important;
+.navbar-menu a:not(.navbar-start-button):not(.mflg-start-link):hover::after,
+.navbar-fixed a:not(.navbar-start-button):not(.mflg-start-link):hover::after,
+.mflg-enhanced-nav a:not(.navbar-start-button):not(.mflg-start-link):hover::after {
+  width: 28px;
+  opacity: 1;
 }
 
-.Fees.Section a:hover,
-.fees-section a:hover,
-[class*="Fees Section"] a:hover,
-[class*="fees-section"] a:hover,
-#fees a:hover,
-.Fees.Section button:hover,
-.fees-section button:hover,
-[class*="Fees Section"] button:hover,
-[class*="fees-section"] button:hover,
-#fees button:hover {
-  transform: translateY(-1px) !important;
-}
-
-/* Consultation buttons specifically */
-.Fees.Section a[href*="intake"],
-.fees-section a[href*="intake"],
-#fees a[href*="intake"],
-.Fees.Section a[href*="start"],
-.fees-section a[href*="start"],
-#fees a[href*="start"],
-.Fees.Section .button,
-.fees-section .button,
-#fees .button,
-.mflg-fee-cta {
-  min-width: 118px !important;
-  min-height: 34px !important;
-  padding-left: 18px !important;
-  padding-right: 18px !important;
-  border-radius: 999px !important;
-  background: var(--mflg-blue) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 12px 26px rgba(2, 69, 122, 0.28) !important;
+.navbar-fixed a[href^="tel"],
+.navbar-fixed .mflg-phone-link,
+.mflg-enhanced-nav a[href^="tel"],
+.mflg-enhanced-nav .mflg-phone-link {
+  color: rgba(255, 255, 255, 0.96) !important;
   white-space: nowrap !important;
 }
 
-.Fees.Section a[href*="intake"]:hover,
-.fees-section a[href*="intake"]:hover,
-#fees a[href*="intake"]:hover,
-.Fees.Section a[href*="start"]:hover,
-.fees-section a[href*="start"]:hover,
-#fees a[href*="start"]:hover,
-.Fees.Section .button:hover,
-.fees-section .button:hover,
-#fees .button:hover,
-.mflg-fee-cta:hover {
-  background: var(--mflg-blue-hover) !important;
-  box-shadow: 0 16px 36px rgba(2, 69, 122, 0.38) !important;
-}
-
-/* Popular center card polish */
-.Fees.Section [class*="popular"],
-.fees-section [class*="popular"],
-#fees [class*="popular"] {
-  box-shadow: 0 22px 56px rgba(199, 154, 43, 0.18) !important;
-}
-
-/* Fee disclaimer line */
-.Fees.Section small,
-.fees-section small,
-[class*="Fees Section"] small,
-[class*="fees-section"] small,
-#fees small {
-  color: rgba(255, 255, 255, 0.70) !important;
-}
-
-/* Adds a subtle premium divider under the fee pricing grid where available */
-.Fees.Section .mflg-fee-note,
-.fees-section .mflg-fee-note,
-#fees .mflg-fee-note {
-  max-width: 760px !important;
-  margin: 22px auto 0 !important;
-  color: rgba(255, 255, 255, 0.72) !important;
-  font-size: 13px !important;
-  line-height: 1.6 !important;
-  text-align: center !important;
+.navbar-fixed a[href^="tel"]:hover,
+.navbar-fixed .mflg-phone-link:hover,
+.mflg-enhanced-nav a[href^="tel"]:hover,
+.mflg-enhanced-nav .mflg-phone-link:hover {
+  color: var(--mflg-gold) !important;
 }
 
 /* =========================================================
-   6. Guides Section
+   5. Start Button
    ========================================================= */
 
-.Guides.Section,
-.guides-section,
-[class*="Guides Section"],
-[class*="guides-section"],
-#guides {
-  position: relative !important;
-}
-
-.Guides.Section input,
-.guides-section input,
-[class*="Guides Section"] input,
-[class*="guides-section"] input,
-#guides input {
-  border: 1px solid rgba(11, 17, 24, 0.10) !important;
-  box-shadow: 0 10px 24px rgba(6, 16, 26, 0.05) !important;
-}
-
-.Guides.Section .card,
-.guides-section .card,
-[class*="Guides Section"] .card,
-[class*="guides-section"] .card,
-#guides .card,
-.Guides.Section [class*="card"],
-.guides-section [class*="card"],
-#guides [class*="card"] {
+.navbar-start-button,
+.mflg-start-link,
+.navbar-fixed .navbar-start-button,
+.navbar-fixed .mflg-start-link,
+.mflg-enhanced-nav .navbar-start-button,
+.mflg-enhanced-nav .mflg-start-link {
+  background:
+    linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 10px 24px rgba(2, 69, 122, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
   transition:
     transform 180ms ease,
+    background 180ms ease,
     box-shadow 180ms ease,
     border-color 180ms ease !important;
 }
 
-.Guides.Section .card:hover,
-.guides-section .card:hover,
-[class*="Guides Section"] .card:hover,
-[class*="guides-section"] .card:hover,
-#guides .card:hover,
-.Guides.Section [class*="card"]:hover,
-.guides-section [class*="card"]:hover,
-#guides [class*="card"]:hover {
-  transform: translateY(-2px) !important;
-  border-color: rgba(199, 154, 43, 0.26) !important;
-  box-shadow: 0 18px 42px rgba(6, 16, 26, 0.10) !important;
-}
-
-/* Guide category pills */
-.Guides.Section button,
-.guides-section button,
-[class*="Guides Section"] button,
-[class*="guides-section"] button,
-#guides button {
-  transition:
-    transform 160ms ease,
-    background-color 160ms ease,
-    color 160ms ease,
-    box-shadow 160ms ease !important;
-}
-
-.Guides.Section button:hover,
-.guides-section button:hover,
-[class*="Guides Section"] button:hover,
-[class*="guides-section"] button:hover,
-#guides button:hover {
-  transform: translateY(-1px) !important;
+.navbar-start-button:hover,
+.mflg-start-link:hover,
+.navbar-fixed .navbar-start-button:hover,
+.navbar-fixed .mflg-start-link:hover,
+.mflg-enhanced-nav .navbar-start-button:hover,
+.mflg-enhanced-nav .mflg-start-link:hover {
+  transform: translateY(-1px);
+  background:
+    linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  box-shadow:
+    0 14px 30px rgba(2, 69, 122, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20) !important;
 }
 
 /* =========================================================
-   7. Intake Section Protection
+   6. Hero CTA Refinement
    ========================================================= */
 
-#mflg-intake-root,
-#mflg-intake-root * {
-  box-sizing: border-box;
-}
-
-/* Keep intake visually protected from site-wide card hover rules */
-#mflg-intake-root .issue-card,
-#mflg-intake-root .timing-card,
-#mflg-intake-root .involved-option,
-#mflg-intake-root .mflg-card {
+.mflg-hero-section a {
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease,
-    background-color 160ms ease !important;
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease !important;
 }
 
-/* Do not override intake primary button structure */
-#mflg-intake-root button,
-#mflg-intake-root input,
-#mflg-intake-root select,
-#mflg-intake-root textarea {
-  font-family: inherit;
+.mflg-hero-section a:hover {
+  transform: translateY(-1px);
+}
+
+.mflg-hero-primary-cta {
+  background:
+    linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  box-shadow:
+    0 16px 34px rgba(2, 69, 122, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+}
+
+.mflg-hero-primary-cta:hover {
+  background:
+    linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  box-shadow:
+    0 20px 40px rgba(2, 69, 122, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.mflg-hero-secondary-cta {
+  border-color: rgba(199, 154, 43, 0.72) !important;
+  color: #ffffff !important;
+}
+
+.mflg-hero-secondary-cta:hover {
+  background: rgba(199, 154, 43, 0.12) !important;
+  border-color: rgba(199, 154, 43, 0.95) !important;
 }
 
 /* =========================================================
-   8. Desktop-First Section Rhythm
+   7. Practice Areas / Services Intake Pathways
+   ========================================================= */
+
+.mflg-practice-enhanced {
+  position: relative;
+}
+
+.mflg-practice-card {
+  position: relative !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  border: 1px solid rgba(11, 17, 24, 0.065) !important;
+  transition:
+    transform 190ms ease,
+    box-shadow 190ms ease,
+    border-color 190ms ease,
+    background-color 190ms ease !important;
+}
+
+.mflg-practice-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(199, 154, 43, 0.115) 0%,
+      rgba(199, 154, 43, 0.04) 36%,
+      rgba(255, 255, 255, 0) 70%
+    );
+  transition: opacity 190ms ease !important;
+}
+
+.mflg-practice-card:hover,
+.mflg-practice-card:focus {
+  transform: translateY(-3px);
+  border-color: rgba(199, 154, 43, 0.34) !important;
+  box-shadow:
+    0 18px 38px rgba(11, 17, 24, 0.11),
+    0 1px 0 rgba(255, 255, 255, 0.84) inset !important;
+}
+
+.mflg-practice-card:hover::before,
+.mflg-practice-card:focus::before {
+  opacity: 1;
+}
+
+.mflg-practice-card:focus {
+  outline: 2px solid rgba(199, 154, 43, 0.24);
+  outline-offset: 3px;
+}
+
+.mflg-practice-path-cue {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-top: 18px !important;
+  color: var(--mflg-blue) !important;
+  font-size: 10px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  opacity: 0.78;
+  transition:
+    transform 190ms ease,
+    opacity 190ms ease,
+    color 190ms ease !important;
+}
+
+.mflg-practice-card:hover .mflg-practice-path-cue,
+.mflg-practice-card:focus .mflg-practice-path-cue {
+  transform: translateX(2px);
+  opacity: 1;
+  color: #013b68 !important;
+}
+
+.mflg-practice-card[data-mflg-pathway]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(199, 154, 43, 0) 0%,
+      rgba(199, 154, 43, 0.58) 48%,
+      rgba(199, 154, 43, 0) 100%
+    );
+  opacity: 0;
+  transition: opacity 190ms ease !important;
+}
+
+.mflg-practice-card:hover[data-mflg-pathway]::after,
+.mflg-practice-card:focus[data-mflg-pathway]::after {
+  opacity: 1;
+}
+
+.mflg-practice-card.mflg-card-clicked {
+  border-color: rgba(199, 154, 43, 0.52) !important;
+  box-shadow:
+    0 16px 34px rgba(11, 17, 24, 0.12),
+    0 0 0 3px rgba(199, 154, 43, 0.10) !important;
+}
+
+/* Guardrail: only practice cards should show cues */
+.mflg-hero-section .mflg-practice-path-cue,
+.mflg-fees-section .mflg-practice-path-cue,
+#guides .mflg-practice-path-cue,
+.guides-section .mflg-practice-path-cue,
+.Guides-Section .mflg-practice-path-cue {
+  display: none !important;
+}
+
+/* Hide any old v1.5 injected pathway row if cached */
+.mflg-pathways-wrap,
+.mflg-pathways-grid,
+.mflg-pathway-pill {
+  display: none !important;
+}
+
+/* =========================================================
+   8. Fees CTA Enhancement
+   ========================================================= */
+
+.mflg-fee-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 128px !important;
+  max-width: none !important;
+  min-height: 34px !important;
+  height: auto !important;
+  padding: 9px 16px !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  line-height: 1.05 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.10em !important;
+  text-align: center !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 10px 22px rgba(2, 69, 122, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease !important;
+}
+
+.mflg-fee-cta *,
+.mflg-fee-cta span,
+.mflg-fee-cta div,
+.mflg-fee-cta strong {
+  width: auto !important;
+  max-width: none !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  line-height: 1.05 !important;
+}
+
+.mflg-fee-cta:hover {
+  transform: translateY(-1px);
+  background:
+    linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  box-shadow:
+    0 14px 30px rgba(2, 69, 122, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.mflg-fees-section a.mflg-fee-cta,
+.mflg-fees-section button.mflg-fee-cta,
+.mflg-fees-section [role="button"].mflg-fee-cta {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* =========================================================
+   9. Anchor Scroll Offset
+   ========================================================= */
+
+#intake,
+#mflg-intake-root,
+#practice-areas,
+#fees,
+#guides,
+#about,
+#faq,
+#contact {
+  scroll-margin-top: 104px;
+}
+
+/* =========================================================
+   10. Desktop Guardrails
    ========================================================= */
 
 @media (min-width: 992px) {
-  .Practice.Areas.Preview.Section,
-  .practice-areas-preview-section,
-  [class*="Practice Areas Preview Section"],
-  [class*="Practice-Areas"],
-  #practice-areas {
-    padding-top: clamp(90px, 7vw, 128px) !important;
-    padding-bottom: clamp(92px, 7vw, 132px) !important;
+  .navbar-fixed,
+  .mflg-enhanced-nav {
+    min-height: 92px;
   }
 
-  .Fees.Section,
-  .fees-section,
-  [class*="Fees Section"],
-  [class*="fees-section"],
-  #fees {
-    padding-top: clamp(100px, 8vw, 148px) !important;
-    padding-bottom: clamp(100px, 8vw, 150px) !important;
-  }
-
-  .Guides.Section,
-  .guides-section,
-  [class*="Guides Section"],
-  [class*="guides-section"],
-  #guides {
-    padding-top: clamp(96px, 7vw, 132px) !important;
-    padding-bottom: clamp(96px, 7vw, 132px) !important;
+  body.mflg-nav-scrolled .navbar-fixed,
+  .navbar-fixed.mflg-nav-is-scrolled,
+  body.mflg-nav-scrolled .mflg-enhanced-nav,
+  .mflg-enhanced-nav.mflg-nav-is-scrolled {
+    min-height: 82px;
   }
 }
 
 /* =========================================================
-   9. Tablet / Mobile Guardrails Only
+   11. Tablet/Mobile Guardrail Only
    ========================================================= */
 
 @media (max-width: 991px) {
-  .Navbar.Fixed,
   .navbar-fixed,
-  .navbar_fixed,
-  [class*="Navbar"][class*="Fixed"],
-  [class*="navbar"][class*="fixed"] {
-    background: rgba(3, 10, 17, 0.94) !important;
-    backdrop-filter: blur(14px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  .mflg-enhanced-nav {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
-  .mflg-view-pathways-wrap,
-  .mflg-practice-view-all-wrap {
-    margin-top: 28px !important;
+  .navbar-fixed::before,
+  .navbar-fixed::after,
+  .mflg-enhanced-nav::before,
+  .mflg-enhanced-nav::after {
+    display: none !important;
   }
 
-  .mflg-view-pathways-button,
-  .mflg-practice-view-all {
-    width: auto !important;
-    max-width: calc(100vw - 42px) !important;
-    text-align: center !important;
+  .mflg-fee-cta {
+    min-width: 122px !important;
+    padding: 9px 14px !important;
+    font-size: 9.5px !important;
   }
-}
 
-/* =========================================================
-   10. Accessibility / Motion
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.001ms !important;
-    animation-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+  #intake,
+  #mflg-intake-root,
+  #practice-areas,
+  #fees,
+  #guides,
+  #about,
+  #faq,
+  #contact {
+    scroll-margin-top: 84px;
   }
 }
