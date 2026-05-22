@@ -1,11 +1,14 @@
-/* MFLG Site Enhancements v1.5
+/* MFLG Site Enhancements v1.6
    File: js/mflg-site-enhancements.js
 
    In accordance with MP v2:
    - Full JS replacement
-   - Preserves v1.4 nav and fee behavior
-   - Adds Practice Areas cards as intake pathways
-   - Adds missing pathway pills for intake architecture alignment
+   - Cleanup after v1.5
+   - Preserves nav, hero CTA, fees CTA, and intake routing
+   - Removes broad practice-card scanning
+   - Only enhances the 6 actual Practice Areas cards by exact title matching
+   - Removes misplaced Start path cues from hero/guides/fees
+   - Removes old injected pathway row
    - Does not alter intake architecture, validation, field names, payload, or conditional logic
    - Does not preselect intake values yet
    - No dropdown injection
@@ -18,7 +21,7 @@
   var SELECTORS = {
     intake: "#mflg-intake-root, #intake, [id*='intake']",
     practice:
-      ".Practice-Areas-Preview-Section, .practice-areas-preview-section, [class*='Practice Areas Preview Section'], [class*='Practice-Areas'], [class*='practice-areas'], #practice-areas",
+      ".Practice-Areas-Preview-Section, .practice-areas-preview-section, [class*='Practice Areas Preview Section'], #practice-areas",
     fees:
       ".Fees-Section, .fees-section, [class*='Fees Section'], [class*='Fees-Section'], [class*='fees-section'], #fees",
     guides:
@@ -27,46 +30,33 @@
       ".Hero-Section, .hero-section, [class*='Hero Section'], [class*='Hero-Section'], [class*='hero-section']",
     nav: ".navbar-fixed",
     navContainer: ".navbar-container",
-    navMenu: ".navbar-menu",
-    navStart: ".navbar-start-button"
+    navMenu: ".navbar-menu"
   };
 
-  var PRACTICE_KEYWORDS = [
-    "divorce",
-    "legal separation",
-    "parenting",
-    "legal decision",
-    "child support",
-    "spousal",
-    "maintenance",
-    "document preparation",
-    "filing",
-    "modification",
-    "enforcement",
-    "court appearances",
-    "licensed scope"
-  ];
-
-  var EXTRA_PATHWAYS = [
+  var PRACTICE_CARDS = [
     {
-      title: "Paternity",
-      sub: "Parentage, birth certificate, DNA testing, parenting time, or support.",
-      key: "paternity"
+      title: "Divorce & Legal Separation",
+      key: "divorce-separation"
     },
     {
-      title: "Protective Orders",
-      sub: "Family-law related safety concerns, protective orders, or related hearings.",
-      key: "protective-order"
+      title: "Parenting Time & Legal Decision-Making",
+      key: "parenting"
     },
     {
-      title: "Mediation / ADR",
-      sub: "Negotiation, mediation, arbitration, settlement, or lower-conflict resolution.",
-      key: "mediation-adr"
+      title: "Child Support & Spousal Maintenance",
+      key: "support-maintenance"
     },
     {
-      title: "Not Sure Where to Start?",
-      sub: "Use guided triage so the next step can be identified before services are confirmed.",
-      key: "not-sure"
+      title: "Document Preparation & Filing",
+      key: "documents"
+    },
+    {
+      title: "Modifications & Enforcement",
+      key: "modification-enforcement"
+    },
+    {
+      title: "Court Appearances Within Licensed Scope",
+      key: "court-appearance"
     }
   ];
 
@@ -78,9 +68,9 @@
     }
   }
 
-  function getFirst(selector) {
+  function getFirst(selector, root) {
     try {
-      return document.querySelector(selector);
+      return (root || document).querySelector(selector);
     } catch (error) {
       return null;
     }
@@ -118,18 +108,39 @@
     }
   }
 
-  function findSectionByText(textNeedles) {
-    var sections = getAll("section, div");
-    var needles = textNeedles.map(normalizeText);
+  function findNearestSectionFromElement(element) {
+    if (!element) return null;
+
+    return (
+      element.closest("section") ||
+      element.closest("[class*='Section']") ||
+      element.closest("[class*='section']") ||
+      element.parentElement
+    );
+  }
+
+  function findSectionByExactHeading(headingText) {
+    var headings = getAll("h1, h2, h3, h4, h5, h6");
+    var target = normalizeText(headingText);
+
+    for (var i = 0; i < headings.length; i += 1) {
+      if (normalizeText(headings[i].textContent).indexOf(target) !== -1) {
+        return findNearestSectionFromElement(headings[i]);
+      }
+    }
+
+    return null;
+  }
+
+  function findSectionByTextPair(primaryText, secondaryText) {
+    var sections = getAll("section, [class*='Section'], [class*='section']");
+    var primary = normalizeText(primaryText);
+    var secondary = normalizeText(secondaryText);
 
     for (var i = 0; i < sections.length; i += 1) {
       var text = normalizeText(sections[i].textContent);
 
-      var matched = needles.every(function (needle) {
-        return text.indexOf(needle) !== -1;
-      });
-
-      if (matched) {
+      if (text.indexOf(primary) !== -1 && text.indexOf(secondary) !== -1) {
         return sections[i];
       }
     }
@@ -144,28 +155,33 @@
   function getPracticeElement() {
     return (
       getFirst(SELECTORS.practice) ||
-      findSectionByText(["family law services", "practical help"])
+      findSectionByExactHeading("Practical help for Arizona family law matters") ||
+      findSectionByTextPair("family law services", "divorce & legal separation")
     );
   }
 
   function getFeesElement() {
     return (
       getFirst(SELECTORS.fees) ||
-      findSectionByText(["fees", "service options"]) ||
-      findSectionByText(["quick question consultation", "full initial consultation"])
+      findSectionByTextPair("fees", "service options") ||
+      findSectionByTextPair("quick question consultation", "full initial consultation")
     );
   }
 
   function getGuidesElement() {
     return (
       getFirst(SELECTORS.guides) ||
-      findSectionByText(["diy arizona guides"]) ||
-      findSectionByText(["step-by-step education paths"])
+      findSectionByExactHeading("Step-by-step education paths") ||
+      findSectionByTextPair("diy arizona guides", "read guide")
     );
   }
 
   function getHeroElement() {
-    return getFirst(SELECTORS.hero) || findSectionByText(["clear family law guidance"]);
+    return (
+      getFirst(SELECTORS.hero) ||
+      findSectionByExactHeading("Clear Family Law Guidance") ||
+      findSectionByTextPair("clear family law guidance", "more affordable path forward")
+    );
   }
 
   function getNavElement() {
@@ -218,8 +234,8 @@
 
   function routeLinkToElement(link, targetElement) {
     if (!link || !targetElement) return;
-
     if (link.__mflgRouted) return;
+
     link.__mflgRouted = true;
 
     link.addEventListener("click", function (event) {
@@ -285,39 +301,33 @@
   function isPracticeLink(link) {
     var text = normalizeText(link.textContent);
     var href = normalizeText(link.getAttribute("href"));
-    var className = normalizeText(link.className);
 
     return (
       text === "practice areas" ||
       text.indexOf("view practice areas") !== -1 ||
-      href === "#practice-areas" ||
-      className.indexOf("practice") !== -1
+      href === "#practice-areas"
     );
   }
 
   function isFeesLink(link) {
     var text = normalizeText(link.textContent);
     var href = normalizeText(link.getAttribute("href"));
-    var className = normalizeText(link.className);
 
     return (
       text === "fees" ||
       text.indexOf("view full fees") !== -1 ||
-      href === "#fees" ||
-      className.indexOf("fee") !== -1
+      href === "#fees"
     );
   }
 
   function isGuidesLink(link) {
     var text = normalizeText(link.textContent);
     var href = normalizeText(link.getAttribute("href"));
-    var className = normalizeText(link.className);
 
     return (
       text === "guides" ||
-      text.indexOf("guide") !== -1 ||
-      href === "#guides" ||
-      className.indexOf("guide") !== -1
+      text.indexOf("view all guides") !== -1 ||
+      href === "#guides"
     );
   }
 
@@ -464,84 +474,63 @@
     });
   }
 
-  function inferPracticeKey(text) {
-    var value = normalizeText(text);
-
-    if (value.indexOf("divorce") !== -1 || value.indexOf("separation") !== -1) {
-      return "divorce-separation";
-    }
-
-    if (value.indexOf("parenting") !== -1 || value.indexOf("decision") !== -1) {
-      return "parenting";
-    }
-
-    if (value.indexOf("child support") !== -1 || value.indexOf("spousal") !== -1 || value.indexOf("maintenance") !== -1) {
-      return "support-maintenance";
-    }
-
-    if (value.indexOf("document") !== -1 || value.indexOf("filing") !== -1) {
-      return "documents";
-    }
-
-    if (value.indexOf("modification") !== -1 || value.indexOf("enforcement") !== -1) {
-      return "modification-enforcement";
-    }
-
-    if (value.indexOf("court") !== -1 || value.indexOf("licensed scope") !== -1) {
-      return "court-appearance";
-    }
-
-    return "family-law-pathway";
+  function removeOldInjectedPathwayRow() {
+    getAll(".mflg-pathways-wrap").forEach(function (node) {
+      if (node && node.parentNode) {
+        node.parentNode.removeChild(node);
+      }
+    });
   }
 
-  function looksLikePracticeCard(element) {
-    if (!element) return false;
-
-    var text = normalizeText(element.textContent);
-
-    if (text.length < 18 || text.length > 420) return false;
-
-    var hasKeyword = PRACTICE_KEYWORDS.some(function (keyword) {
-      return text.indexOf(keyword) !== -1;
+  function removeAllPracticeCues() {
+    getAll(".mflg-practice-path-cue").forEach(function (cue) {
+      if (cue && cue.parentNode) {
+        cue.parentNode.removeChild(cue);
+      }
     });
-
-    if (!hasKeyword) return false;
-
-    var childCount = element.children ? element.children.length : 0;
-
-    return childCount >= 1;
   }
 
-  function findPracticeCards(section) {
-    if (!section) return [];
+  function findHeadingByExactText(root, text) {
+    var headings = getAll("h1, h2, h3, h4, h5, h6, strong, div", root);
+    var target = normalizeText(text);
 
-    var candidates = getAll("a, article, .w-layout-cell, .w-dyn-item, div", section);
-    var cards = [];
+    for (var i = 0; i < headings.length; i += 1) {
+      if (normalizeText(headings[i].textContent) === target) {
+        return headings[i];
+      }
+    }
 
-    candidates.forEach(function (candidate) {
-      if (!looksLikePracticeCard(candidate)) return;
+    return null;
+  }
 
-      var parentAlreadySelected = cards.some(function (existing) {
-        return existing.contains(candidate);
-      });
+  function findBestCardAncestor(heading, section) {
+    if (!heading || !section) return null;
 
-      if (parentAlreadySelected) return;
+    var current = heading;
 
-      var candidateContainsExisting = cards.some(function (existing) {
-        return candidate.contains(existing);
-      });
+    while (current && current !== section && current.parentElement) {
+      var text = normalizeText(current.textContent);
+      var childCount = current.children ? current.children.length : 0;
 
-      if (candidateContainsExisting) return;
+      if (
+        text.length >= 45 &&
+        text.length <= 360 &&
+        childCount >= 1 &&
+        !normalizeText(current.className).includes("hero") &&
+        !normalizeText(current.className).includes("guide") &&
+        !normalizeText(current.className).includes("fee")
+      ) {
+        return current;
+      }
 
-      cards.push(candidate);
-    });
+      current = current.parentElement;
+    }
 
-    return cards.slice(0, 8);
+    return heading.parentElement;
   }
 
   function addPracticeCue(card) {
     if (!card) return;
-    if (card.querySelector(".mflg-practice-path-cue")) return;
 
     var cue = document.createElement("span");
     cue.className = "mflg-practice-path-cue";
@@ -550,71 +539,28 @@
     card.appendChild(cue);
   }
 
-  function createPathwayPill(pathway) {
-    var button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "mflg-pathway-pill";
-    button.setAttribute("data-mflg-pathway", pathway.key);
-
-    button.innerHTML =
-      '<span class="mflg-pathway-pill-title">' +
-      pathway.title +
-      '</span>' +
-      '<span class="mflg-pathway-pill-sub">' +
-      pathway.sub +
-      '</span>' +
-      '<span class="mflg-pathway-pill-cta">Start path →</span>';
-
-    routeElementToIntake(button, pathway.key);
-
-    return button;
-  }
-
-  function addExtraPathways(section) {
-    if (!section) return;
-    if (section.querySelector(".mflg-pathways-wrap")) return;
-
-    var wrap = document.createElement("div");
-    wrap.className = "mflg-pathways-wrap";
-
-    var kicker = document.createElement("span");
-    kicker.className = "mflg-pathways-kicker";
-    kicker.textContent = "More family-law pathways";
-
-    var grid = document.createElement("div");
-    grid.className = "mflg-pathways-grid";
-
-    EXTRA_PATHWAYS.forEach(function (pathway) {
-      grid.appendChild(createPathwayPill(pathway));
-    });
-
-    wrap.appendChild(kicker);
-    wrap.appendChild(grid);
-
-    section.appendChild(wrap);
-  }
-
   function initPracticeAreaPathways() {
     var practice = getPracticeElement();
+
+    removeOldInjectedPathwayRow();
+    removeAllPracticeCues();
 
     if (!practice) return;
 
     practice.classList.add("mflg-practice-enhanced");
 
-    var cards = findPracticeCards(practice);
+    PRACTICE_CARDS.forEach(function (item) {
+      var heading = findHeadingByExactText(practice, item.title);
+      var card = findBestCardAncestor(heading, practice);
 
-    cards.forEach(function (card) {
-      var pathwayKey = inferPracticeKey(card.textContent);
+      if (!card) return;
 
       card.classList.add("mflg-practice-card");
-      card.setAttribute("data-mflg-pathway", pathwayKey);
+      card.setAttribute("data-mflg-pathway", item.key);
 
       addPracticeCue(card);
-      routeElementToIntake(card, pathwayKey);
+      routeElementToIntake(card, item.key);
     });
-
-    addExtraPathways(practice);
   }
 
   ready(function () {
