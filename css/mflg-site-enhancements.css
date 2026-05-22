@@ -1,12 +1,13 @@
-/* MFLG Site Enhancements v1.9
+/* MFLG Site Enhancements v2.0
    File: css/mflg-site-enhancements.css
 
    In accordance with MP v2:
-   - CSS-only enhancement layer
+   - CSS-only hero-safe preservation pass
+   - Removes broad hero section overrides that could affect Webflow background video/layering
    - Does not alter intake architecture or intake logic
    - Does not rebuild Webflow structure
-   - Preserves nav, hero, practice area, fees, guides, and intake routing
-   - Focus of this pass: Fees section premium conversion polish
+   - Preserves nav, practice areas, fees, guides, and intake routing
+   - Hero styling is limited to CTA buttons only
 */
 
 /* =========================================================
@@ -114,14 +115,15 @@ body.mflg-nav-scrolled [class*="navbar"][class*="fixed"] {
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.20) !important;
 }
 
-/* Start button */
+/* Nav Start button only */
 .Navbar.Fixed .Navbar.Start.Button,
 .navbar-fixed .Navbar.Start.Button,
 .navbar_fixed .Navbar.Start.Button,
+.navbar-fixed .mflg-start-link,
+.navbar_fixed .mflg-start-link,
+.Navbar.Fixed .mflg-start-link,
 [class*="Navbar Start Button"],
-[class*="Start Button"],
-a[href*="start"],
-a[href*="intake"] {
+[class*="Start Button"] {
   background: var(--mflg-blue) !important;
   color: #fff !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -135,88 +137,58 @@ a[href*="intake"] {
 .Navbar.Fixed .Navbar.Start.Button:hover,
 .navbar-fixed .Navbar.Start.Button:hover,
 .navbar_fixed .Navbar.Start.Button:hover,
+.navbar-fixed .mflg-start-link:hover,
+.navbar_fixed .mflg-start-link:hover,
+.Navbar.Fixed .mflg-start-link:hover,
 [class*="Navbar Start Button"]:hover,
-[class*="Start Button"]:hover,
-a[href*="start"]:hover,
-a[href*="intake"]:hover {
+[class*="Start Button"]:hover {
   background: var(--mflg-blue-hover) !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 16px 34px rgba(2, 69, 122, 0.36) !important;
 }
 
 /* =========================================================
-   3. Hero Refinement
+   3. Hero-Safe CTA Styling Only
    ========================================================= */
 
-.Hero.Section,
-.hero-section,
-[class*="Hero Section"],
-[class*="hero-section"] {
-  position: relative !important;
-  overflow: hidden !important;
-}
+/* Do not style the hero section, hero children, hero overlay, or video layers here.
+   Webflow native hero structure controls video, overlay, layout, and positioning. */
 
-.Hero.Section::after,
-.hero-section::after,
-[class*="Hero Section"]::after,
-[class*="hero-section"]::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 120px;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(251, 247, 238, 0) 0%,
-    rgba(251, 247, 238, 0.10) 42%,
-    rgba(251, 247, 238, 0.22) 100%
-  );
-  z-index: 1;
-}
-
-.Hero.Section > *,
-.hero-section > *,
-[class*="Hero Section"] > *,
-[class*="hero-section"] > * {
-  position: relative;
-  z-index: 2;
-}
-
-.Hero.Section h1,
-.hero-section h1,
-[class*="Hero Section"] h1,
-[class*="hero-section"] h1 {
-  text-wrap: balance;
-  letter-spacing: -0.035em !important;
-}
-
-.Hero.Section p,
-.hero-section p,
-[class*="Hero Section"] p,
-[class*="hero-section"] p {
-  max-width: 620px !important;
-}
-
-.Hero.Section .button,
-.hero-section .button,
-[class*="Hero Section"] .button,
-[class*="hero-section"] .button,
-.Hero.Section a,
-.hero-section a {
+.mflg-hero-primary-cta,
+.mflg-hero-secondary-cta {
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
     background-color 180ms ease,
-    border-color 180ms ease !important;
+    border-color 180ms ease,
+    color 180ms ease !important;
 }
 
-.Hero.Section .button:hover,
-.hero-section .button:hover,
-[class*="Hero Section"] .button:hover,
-[class*="hero-section"] .button:hover {
+.mflg-hero-primary-cta:hover,
+.mflg-hero-secondary-cta:hover {
   transform: translateY(-1px) !important;
+}
+
+.mflg-hero-primary-cta {
+  background: var(--mflg-blue) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 14px 30px rgba(2, 69, 122, 0.28) !important;
+}
+
+.mflg-hero-primary-cta:hover {
+  background: var(--mflg-blue-hover) !important;
+  box-shadow: 0 18px 38px rgba(2, 69, 122, 0.38) !important;
+}
+
+.mflg-hero-secondary-cta {
+  border-color: rgba(199, 154, 43, 0.72) !important;
+  color: #fff !important;
+}
+
+.mflg-hero-secondary-cta:hover {
+  border-color: rgba(199, 154, 43, 0.95) !important;
+  box-shadow: 0 14px 30px rgba(199, 154, 43, 0.14) !important;
 }
 
 /* =========================================================
@@ -234,7 +206,8 @@ a[href*="intake"]:hover {
 .Practice.Areas.Preview.Section .card,
 .practice-areas-preview-section .card,
 [class*="Practice Areas Preview Section"] .card,
-[class*="Practice"] .card {
+[class*="Practice"] .card,
+.mflg-practice-card {
   border: 1px solid rgba(11, 17, 24, 0.08) !important;
   box-shadow: 0 14px 32px rgba(6, 16, 26, 0.06) !important;
   transition:
@@ -247,14 +220,26 @@ a[href*="intake"]:hover {
 .Practice.Areas.Preview.Section .card:hover,
 .practice-areas-preview-section .card:hover,
 [class*="Practice Areas Preview Section"] .card:hover,
-[class*="Practice"] .card:hover {
+[class*="Practice"] .card:hover,
+.mflg-practice-card:hover,
+.mflg-practice-card.mflg-card-clicked {
   transform: translateY(-3px) !important;
   border-color: rgba(199, 154, 43, 0.36) !important;
   box-shadow: 0 22px 48px rgba(6, 16, 26, 0.12) !important;
 }
 
+.mflg-practice-card {
+  cursor: pointer !important;
+}
+
+.mflg-practice-card:focus-visible {
+  outline: 3px solid rgba(2, 69, 122, 0.35) !important;
+  outline-offset: 4px !important;
+}
+
 .mflg-card-path-link,
-.mflg-practice-path-link {
+.mflg-practice-path-link,
+.mflg-practice-path-cue {
   display: inline-flex !important;
   align-items: center !important;
   gap: 7px !important;
@@ -266,6 +251,7 @@ a[href*="intake"]:hover {
   letter-spacing: 0.13em !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
+  line-height: 1.2 !important;
   transition:
     color 180ms ease,
     transform 180ms ease,
@@ -273,12 +259,15 @@ a[href*="intake"]:hover {
 }
 
 .mflg-card-path-link:hover,
-.mflg-practice-path-link:hover {
+.mflg-practice-path-link:hover,
+.mflg-practice-card:hover .mflg-practice-path-cue {
   color: var(--mflg-blue-hover) !important;
   transform: translateX(2px) !important;
 }
 
-.mflg-view-pathways-wrap {
+/* Supports both old and current JS class names */
+.mflg-view-pathways-wrap,
+.mflg-practice-view-all-wrap {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -287,7 +276,8 @@ a[href*="intake"]:hover {
   margin-bottom: 6px !important;
 }
 
-.mflg-view-pathways-button {
+.mflg-view-pathways-button,
+.mflg-practice-view-all {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -309,14 +299,15 @@ a[href*="intake"]:hover {
     box-shadow 180ms ease !important;
 }
 
-.mflg-view-pathways-button:hover {
+.mflg-view-pathways-button:hover,
+.mflg-practice-view-all:hover {
   background: var(--mflg-blue-hover) !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 18px 38px rgba(2, 69, 122, 0.34) !important;
 }
 
 /* =========================================================
-   5. Fees Section — v1.9 Focus
+   5. Fees Section
    ========================================================= */
 
 .Fees.Section,
@@ -441,12 +432,18 @@ a[href*="intake"]:hover {
 #fees a[href*="start"],
 .Fees.Section .button,
 .fees-section .button,
-#fees .button {
+#fees .button,
+.mflg-fee-cta {
+  min-width: 118px !important;
+  min-height: 34px !important;
+  padding-left: 18px !important;
+  padding-right: 18px !important;
   border-radius: 999px !important;
   background: var(--mflg-blue) !important;
   color: #fff !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   box-shadow: 0 12px 26px rgba(2, 69, 122, 0.28) !important;
+  white-space: nowrap !important;
 }
 
 .Fees.Section a[href*="intake"]:hover,
@@ -457,7 +454,8 @@ a[href*="intake"]:hover {
 #fees a[href*="start"]:hover,
 .Fees.Section .button:hover,
 .fees-section .button:hover,
-#fees .button:hover {
+#fees .button:hover,
+.mflg-fee-cta:hover {
   background: var(--mflg-blue-hover) !important;
   box-shadow: 0 16px 36px rgba(2, 69, 122, 0.38) !important;
 }
@@ -636,11 +634,13 @@ a[href*="intake"]:hover {
     -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
   }
 
-  .mflg-view-pathways-wrap {
+  .mflg-view-pathways-wrap,
+  .mflg-practice-view-all-wrap {
     margin-top: 28px !important;
   }
 
-  .mflg-view-pathways-button {
+  .mflg-view-pathways-button,
+  .mflg-practice-view-all {
     width: auto !important;
     max-width: calc(100vw - 42px) !important;
     text-align: center !important;
