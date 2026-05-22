@@ -1,14 +1,15 @@
-/* MFLG Site Enhancements v1.6
+/* MFLG Site Enhancements v1.8
    File: css/mflg-site-enhancements.css
 
    In accordance with MP v2:
    - Full CSS replacement
-   - Cleanup after v1.5
-   - Preserves v1.4 nav and fee fixes
-   - Keeps Practice Areas card hover/action styling
-   - Removes pathway-row styling/injection dependency
-   - Does not alter locked intake architecture or conditional logic
-   - No dropdowns, Pay Invoice, Client Login, or mobile overhaul in this pass
+   - Preserves locked intake architecture and conditional logic
+   - Preserves v1.7 stability
+   - Adds controlled Practice Areas "View All Family Law Pathways" CTA
+   - Keeps Practice Areas cards tied to intake
+   - Does not alter Webflow structure
+   - Does not inject dropdowns
+   - Does not rebuild tablet/mobile
 */
 
 /* =========================================================
@@ -19,7 +20,7 @@
   --mflg-ink: #0b1118;
   --mflg-navy: #06101a;
   --mflg-navy-dark: #030a12;
-  --mflg-navy-glass: rgba(6, 16, 26, 0.86);
+  --mflg-navy-glass: rgba(6, 16, 26, 0.88);
   --mflg-blue: #02457a;
   --mflg-blue-hover: #07558f;
   --mflg-gold: #c79a2b;
@@ -30,7 +31,7 @@
 }
 
 /* =========================================================
-   2. Confirmed Webflow Navbar Structure
+   2. Navbar Foundation
    ========================================================= */
 
 .navbar-fixed,
@@ -89,13 +90,13 @@ body.mflg-nav-scrolled .mflg-enhanced-nav,
   background:
     linear-gradient(
       180deg,
-      rgba(3, 10, 18, 0.985) 0%,
-      rgba(6, 16, 26, 0.985) 52%,
-      rgba(3, 10, 18, 0.985) 100%
+      rgba(3, 10, 18, 0.99) 0%,
+      rgba(6, 16, 26, 0.99) 52%,
+      rgba(3, 10, 18, 0.99) 100%
     ) !important;
-  border-bottom: 1px solid rgba(199, 154, 43, 0.34) !important;
+  border-bottom: 1px solid rgba(199, 154, 43, 0.36) !important;
   box-shadow:
-    0 12px 26px rgba(0, 0, 0, 0.24),
+    0 14px 30px rgba(0, 0, 0, 0.28),
     0 1px 0 rgba(255, 255, 255, 0.035) inset !important;
   backdrop-filter: blur(11px);
   -webkit-backdrop-filter: blur(11px);
@@ -108,8 +109,8 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::before,
   background:
     linear-gradient(
       180deg,
-      rgba(3, 10, 18, 0.985) 0%,
-      rgba(6, 16, 26, 0.985) 100%
+      rgba(3, 10, 18, 0.99) 0%,
+      rgba(6, 16, 26, 0.99) 100%
     );
   opacity: 1;
 }
@@ -130,7 +131,7 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
       90deg,
       rgba(199, 154, 43, 0) 0%,
       rgba(199, 154, 43, 0.22) 18%,
-      rgba(199, 154, 43, 0.52) 50%,
+      rgba(199, 154, 43, 0.56) 50%,
       rgba(199, 154, 43, 0.22) 82%,
       rgba(199, 154, 43, 0) 100%
     );
@@ -327,27 +328,29 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
   background:
     radial-gradient(
       circle at 18% 12%,
-      rgba(199, 154, 43, 0.105) 0%,
-      rgba(199, 154, 43, 0.035) 36%,
+      rgba(199, 154, 43, 0.115) 0%,
+      rgba(199, 154, 43, 0.04) 36%,
       rgba(255, 255, 255, 0) 70%
     );
   transition: opacity 190ms ease !important;
 }
 
-.mflg-practice-card:hover {
+.mflg-practice-card:hover,
+.mflg-practice-card:focus {
   transform: translateY(-3px);
-  border-color: rgba(199, 154, 43, 0.30) !important;
+  border-color: rgba(199, 154, 43, 0.34) !important;
   box-shadow:
-    0 18px 38px rgba(11, 17, 24, 0.105),
+    0 18px 38px rgba(11, 17, 24, 0.11),
     0 1px 0 rgba(255, 255, 255, 0.84) inset !important;
 }
 
-.mflg-practice-card:hover::before {
+.mflg-practice-card:hover::before,
+.mflg-practice-card:focus::before {
   opacity: 1;
 }
 
 .mflg-practice-card:focus {
-  outline: 2px solid rgba(199, 154, 43, 0.32);
+  outline: 2px solid rgba(199, 154, 43, 0.24);
   outline-offset: 3px;
 }
 
@@ -369,7 +372,8 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
     color 190ms ease !important;
 }
 
-.mflg-practice-card:hover .mflg-practice-path-cue {
+.mflg-practice-card:hover .mflg-practice-path-cue,
+.mflg-practice-card:focus .mflg-practice-path-cue {
   transform: translateX(2px);
   opacity: 1;
   color: #013b68 !important;
@@ -386,27 +390,93 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
     linear-gradient(
       180deg,
       rgba(199, 154, 43, 0) 0%,
-      rgba(199, 154, 43, 0.55) 48%,
+      rgba(199, 154, 43, 0.58) 48%,
       rgba(199, 154, 43, 0) 100%
     );
   opacity: 0;
   transition: opacity 190ms ease !important;
 }
 
-.mflg-practice-card:hover[data-mflg-pathway]::after {
+.mflg-practice-card:hover[data-mflg-pathway]::after,
+.mflg-practice-card:focus[data-mflg-pathway]::after {
   opacity: 1;
 }
 
-/* Guardrail: only practice cards should show cues */
+.mflg-practice-card.mflg-card-clicked {
+  border-color: rgba(199, 154, 43, 0.52) !important;
+  box-shadow:
+    0 16px 34px rgba(11, 17, 24, 0.12),
+    0 0 0 3px rgba(199, 154, 43, 0.10) !important;
+}
+
+/* Practice Areas "View All" CTA */
+.mflg-practice-view-all-wrap {
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 36px auto 0 !important;
+  padding: 0 !important;
+}
+
+.mflg-practice-view-all {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  padding: 13px 24px !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(180deg, #07558f 0%, var(--mflg-blue) 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  text-decoration: none !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  box-shadow:
+    0 14px 28px rgba(2, 69, 122, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease !important;
+}
+
+.mflg-practice-view-all:hover {
+  transform: translateY(-1px);
+  background:
+    linear-gradient(180deg, #08609f 0%, #013b68 100%) !important;
+  box-shadow:
+    0 18px 36px rgba(2, 69, 122, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Guardrails */
 .mflg-hero-section .mflg-practice-path-cue,
 .mflg-fees-section .mflg-practice-path-cue,
 #guides .mflg-practice-path-cue,
 .guides-section .mflg-practice-path-cue,
-.Guides-Section .mflg-practice-path-cue {
+.Guides-Section .mflg-practice-path-cue,
+#mflg-intake-root .mflg-practice-path-cue,
+#intake .mflg-practice-path-cue {
   display: none !important;
 }
 
-/* Hide any old v1.5 injected pathway row if cached */
+.mflg-hero-section .mflg-practice-view-all-wrap,
+.mflg-fees-section .mflg-practice-view-all-wrap,
+#guides .mflg-practice-view-all-wrap,
+.guides-section .mflg-practice-view-all-wrap,
+.Guides-Section .mflg-practice-view-all-wrap,
+#mflg-intake-root .mflg-practice-view-all-wrap,
+#intake .mflg-practice-view-all-wrap {
+  display: none !important;
+}
+
+/* Hide any old cached pathway row */
 .mflg-pathways-wrap,
 .mflg-pathways-grid,
 .mflg-pathway-pill {
@@ -534,6 +604,16 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
     min-width: 122px !important;
     padding: 9px 14px !important;
     font-size: 9.5px !important;
+  }
+
+  .mflg-practice-view-all-wrap {
+    margin-top: 28px !important;
+  }
+
+  .mflg-practice-view-all {
+    min-height: 40px !important;
+    padding: 12px 18px !important;
+    font-size: 10px !important;
   }
 
   #intake,
