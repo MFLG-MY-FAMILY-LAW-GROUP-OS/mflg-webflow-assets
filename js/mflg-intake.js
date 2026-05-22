@@ -1,12 +1,14 @@
-/* MFLG Intake Final Launch v3.1.1 — Refined JS / Left Rail DOM Removed
+/* MFLG Intake Final Launch v3.2 — Routing Context Upgrade
    File: js/mflg-intake.js
    Architecture: Webflow external JS → n8n webhook → Google Sheets/Gmail/Vapi routing in n8n.
 
    In accordance with MP v2:
    - Full replacement file
-   - Scoped required change only
-   - Removes the left-side <aside> from rendered DOM
+   - Adds safe public route method: window.MFLGIntakeRoute(...)
+   - Adds routing-context banner on Step 1
+   - Allows external site-enhancement JS to pass issue/service/context without rebuilding intake
    - Preserves conditional logic, field names, payload, validation, n8n submission, and Vapi routing flags
+   - Preserves locked intake design structure
    - Do not place secrets in this public file
 */
 
@@ -14,7 +16,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.1.1-final-launch",
+    version: "3.2-routing-context",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -36,6 +38,15 @@
       serviceInterest: "Full matter support within LP scope",
       consentToContact: true,
       leadStatus: "New"
+    },
+    routingContext: {
+      entrySource: "",
+      entryLabel: "",
+      issuePathway: "",
+      serviceInterest: "",
+      contextNote: "",
+      routedAt: "",
+      userChangedIssue: false
     },
     submitting: false,
     submittedPayload: null,
@@ -93,6 +104,8 @@
     opt("Document Preparation / Review", "Documents", "Prepare, review, file, or respond to family-law documents.", "document"),
     opt("Not Sure", "Not Sure", "Answer broader triage questions so we can identify the next step.", "question")
   ];
+
+  const validIssueValues = issueOptions.map((item) => item.value);
 
   const scopeItems = [
     "Adoption",
@@ -173,9 +186,7 @@
       select("birthCertificateIssue", "Is birth certificate/signing involved?", ["Yes", "No", "Not sure"], true),
       checks("paternityIssues", "What issues are connected to parentage?", ["DNA testing", "Birth certificate", "Acknowledgment of paternity", "Parenting time", "Legal decision-making", "Child support", "Same-sex parentage issue", "Not sure"]),
       select("caseStage", "Is a case already filed?", ["Not filed yet", "Already filed / active case", "Final order entered", "I was served", "Not sure"], true)
-    ],
-
-    "Modification of Existing Orders": [
+    ],    "Modification of Existing Orders": [
       checks("orderToModify", "What order needs to be changed?", ["Parenting time", "Legal decision-making", "Child support", "Spousal maintenance", "Relocation", "Other family-court order", "Not sure"]),
       textarea("changeReason", "What changed?", "Briefly describe what changed and why a modification may be needed.", true),
       select("existingOrder", "Do you have a current signed court order?", ["Yes", "No", "Not sure"], true),
@@ -302,6 +313,185 @@
     return Array.isArray(list) && items.some((item) => list.includes(item));
   }
 
+  function validIssuePathway(value) {
+    return issueOptions.some((item) => item.value === value);
+  }
+
+  function safeJsonParse(value) {
+    try {
+      return value ? JSON.parse(value) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storageGet(key) {
+    try {
+      return window.sessionStorage.getItem(key) || "";
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function storageSet(key, value) {
+    try {
+      window.sessionStorage.setItem(key, String(value || ""));
+    } catch (error) {
+      /* sessionStorage may be unavailable; intake still works without it */
+    }
+  }
+
+  function storageRemove(key) {
+    try {
+      window.sessionStorage.removeItem(key);
+    } catch (error) {
+      /* no-op */
+    }
+  }
+
+  function emptyRoutingContext() {
+    return {
+      entrySource: "",
+      entryLabel: "",
+      issuePathway: "",
+      serviceInterest: "",
+      contextNote: "",
+      routedAt: "",
+      userChangedIssue: false
+    };
+  }
+
+  function normalizeRoutingContext(context) {
+    const input = context || {};
+    const issue = input.issuePathway || input.issueValue || input.intakeValue || input.routedIssuePathway || "";
+    const serviceInterest = input.serviceInterest || input.serviceInterestValue || input.routedServiceInterest || "";
+
+    return {
+      entrySource: String(input.entrySource || input.source || "").trim(),
+      entryLabel: String(input.entryLabel || input.label || "").trim(),
+      issuePathway: validIssuePathway(issue) ? issue : "",
+      serviceInterest: String(serviceInterest || "").trim(),
+      contextNote: String(input.contextNote || input.context || "").trim(),
+      routedAt: input.routedAt || new Date().toISOString(),
+      userChangedIssue: !!input.userChangedIssue
+    };
+  }
+
+  function routingContextHasValue(context) {
+    return !!(context && (context.entrySource || context.entryLabel || context.issuePathway || context.serviceInterest || context.contextNote));
+  }
+
+  function readRoutingContextFromStorage() {
+    const stored = safeJsonParse(storageGet("mflgRouteContext"));
+
+    if (stored && typeof stored === "object") {
+      return normalizeRoutingContext(stored);
+    }
+
+    const legacyIssue = storageGet("mflgIntakeIssueExact") || storageGet("mflgIntakeIssue");
+    const legacyContext = storageGet("mflgIntakeContext");
+    const legacyService = storageGet("mflgServiceInterestValue") || storageGet("mflgServiceInterest");
+    const legacyLabel = storageGet("mflgEntryLabel");
+    const legacySource = storageGet("mflgEntrySource");
+
+    if (!legacyIssue && !legacyContext && !legacyService && !legacyLabel && !legacySource) {
+      return emptyRoutingContext();
+    }
+
+    return normalizeRoutingContext({
+      entrySource: legacySource || "external-route",
+      entryLabel: legacyLabel || legacyIssue || legacyService,
+      issuePathway: legacyIssue,
+      serviceInterest: legacyService,
+      contextNote: legacyContext
+    });
+  }
+
+  function writeRoutingContextToStorage(context) {
+    const normalized = normalizeRoutingContext(context);
+
+    if (!routingContextHasValue(normalized)) {
+      storageRemove("mflgRouteContext");
+      return;
+    }
+
+    storageSet("mflgRouteContext", JSON.stringify(normalized));
+  }
+
+  function setRoutingAnswerFields(context) {
+    const normalized = normalizeRoutingContext(context);
+
+    set("entrySource", normalized.entrySource);
+    set("entryLabel", normalized.entryLabel);
+    set("contextNote", normalized.contextNote);
+    set("routedIssuePathway", normalized.issuePathway);
+    set("routedServiceInterest", normalized.serviceInterest);
+    set("routingContextJSON", routingContextHasValue(normalized) ? JSON.stringify(normalized) : "");
+  }
+     function clearRoutingContext() {
+    state.routingContext = emptyRoutingContext();
+    setRoutingAnswerFields(state.routingContext);
+    storageRemove("mflgRouteContext");
+    storageRemove("mflgIntakeIssueExact");
+    storageRemove("mflgIntakeIssue");
+    storageRemove("mflgIntakeContext");
+    storageRemove("mflgEntrySource");
+    storageRemove("mflgEntryLabel");
+    storageRemove("mflgServiceInterest");
+    storageRemove("mflgServiceInterestValue");
+  }
+
+  function applyRoutingContext(context, options) {
+    const normalized = normalizeRoutingContext(context);
+    const opts = options || {};
+    const hasContext = routingContextHasValue(normalized);
+
+    if (!hasContext) {
+      return false;
+    }
+
+    state.routingContext = normalized;
+    setRoutingAnswerFields(normalized);
+    writeRoutingContextToStorage(normalized);
+
+    if (normalized.issuePathway && !opts.preserveExistingIssue) {
+      state.issuePathway = normalized.issuePathway;
+      set("legalIssue", normalized.issuePathway);
+      set("matterCategory", normalized.issuePathway);
+      set("issuePathway", normalized.issuePathway);
+    }
+
+    if (normalized.serviceInterest) {
+      set("serviceInterest", normalized.serviceInterest);
+    }
+
+    if (opts.render !== false) {
+      render();
+    }
+
+    return true;
+  }
+
+  function applyStoredRoutingContext() {
+    const storedContext = readRoutingContextFromStorage();
+
+    if (routingContextHasValue(storedContext)) {
+      applyRoutingContext(storedContext, { render: false });
+    }
+  }
+
+  function exposeRoutingApi() {
+    window.MFLGIntakeRoute = function (context) {
+      return applyRoutingContext(context || {}, { render: true });
+    };
+
+    window.MFLGIntakeClearRoute = function () {
+      clearRoutingContext();
+      render();
+      return true;
+    };
+  }
+
   function currentStage() {
     return stages[state.step] || stages[1];
   }
@@ -327,6 +517,8 @@
   }
 
   function render() {
+    applyStoredRoutingContext();
+
     const mount = root();
     if (!mount) return;
 
@@ -398,9 +590,44 @@
     return contactStep();
   }
 
+  function routingBanner() {
+    const context = normalizeRoutingContext(state.routingContext);
+
+    if (!routingContextHasValue(context)) {
+      return "";
+    }
+
+    const label = context.entryLabel || context.issuePathway || context.serviceInterest || "Guided intake";
+    const issue = context.issuePathway;
+    const service = context.serviceInterest;
+    const note = context.contextNote;
+
+    let body = "We used your selection to start this intake pathway. You can change the issue below if something else is closer.";
+
+    if (context.entrySource === "fees") {
+      body = "Consultation request started. Choose or confirm the closest legal issue below so we can complete conflict, scope, and next-step review before confirming services.";
+    } else if (note) {
+      body = note;
+    } else if (issue && label && label !== issue) {
+      body = `We started with ${esc(issue)} because it is the closest intake pathway for “${esc(label)}.” You can change the issue below if needed.`;
+    }
+
+    return `
+      <div class="mflg-route-banner" role="status">
+        <div class="mflg-route-kicker">Pathway context</div>
+        <strong>${esc(label)}</strong>
+        <p>${body}</p>
+        ${issue ? `<span>Selected issue: ${esc(issue)}</span>` : ""}
+        ${service ? `<span>Service interest: ${esc(service)}</span>` : ""}
+      </div>
+    `;
+  }
+
   function issueStep() {
     return `
       <section class="mflg-screen mflg-issue-screen">
+        ${routingBanner()}
+
         <h3 class="mflg-title">${icon("courthouse")}What type of family-law issue are you facing?</h3>
         <p class="mflg-copy">Choose the closest path. If you are not sure, choose “Not Sure” and we will ask broader triage questions.</p>
 
@@ -439,8 +666,7 @@
       </section>
     `;
   }
-
-  function pathwayStep() {
+     function pathwayStep() {
     const issue = state.issuePathway || ans("issuePathway") || "Not Sure";
     const questions = pathways[issue] || pathways["Not Sure"];
 
@@ -724,8 +950,7 @@
       </section>
     `;
   }
-
-  function card(group, value, title, sub, iconName) {
+     function card(group, value, title, sub, iconName) {
     const selected = group === "issuePathway" ? state.issuePathway === value : ans(group) === value;
     const wide = group === "issuePathway" && value === "Not Sure" ? " mflg-card-wide" : "";
 
@@ -855,10 +1080,18 @@
         const value = element.getAttribute("data-option-value");
 
         if (group === "issuePathway") {
+          const prior = state.issuePathway;
+
           state.issuePathway = value;
           set("legalIssue", value);
           set("matterCategory", value);
           set("issuePathway", value);
+
+          if (prior && prior !== value) {
+            state.routingContext.userChangedIssue = true;
+            setRoutingAnswerFields(state.routingContext);
+            writeRoutingContextToStorage(state.routingContext);
+          }
         } else {
           set(group, value);
         }
@@ -1040,8 +1273,7 @@
       propertyFlag
     };
   }
-
-  function priority(flagState) {
+     function priority(flagState) {
     if (flagState.referralFlag || flagState.safetyFlag || flagState.urgencyFlag) return "RED";
     if (flagState.hardScopeReviewFlag || flagState.softScopeReviewFlag) return "YELLOW";
     if (
@@ -1134,6 +1366,14 @@
     add("Involved type", ans("involvedType"));
     add("Summary", ans("summary"));
 
+    lines.push("\nROUTING CONTEXT:");
+    add("Entry source", ans("entrySource"));
+    add("Entry label", ans("entryLabel"));
+    add("Context note", ans("contextNote"));
+    add("Routed issue pathway", ans("routedIssuePathway"));
+    add("Routed service interest", ans("routedServiceInterest"));
+    add("User changed issue", String(state.routingContext.userChangedIssue));
+
     lines.push("\nPATHWAY DETAILS:");
     Object.keys(state.answers).sort().forEach((key) => {
       if (["website", "consentNoRelationship", "consentLPScope"].includes(key)) return;
@@ -1166,6 +1406,7 @@
     const tags = internalTags(flagState, priorityValue);
     const eligible = vapiEligible(flagState, priorityValue);
     const submittedAt = new Date().toISOString();
+    const route = normalizeRoutingContext(state.routingContext);
 
     const row = {
       timestamp: submittedAt,
@@ -1230,6 +1471,14 @@
       involvedType: ans("involvedType"),
       matterDescription: ans("summary"),
       summary: ans("summary"),
+
+      entrySource: route.entrySource,
+      entryLabel: route.entryLabel,
+      contextNote: route.contextNote,
+      routedIssuePathway: route.issuePathway,
+      routedServiceInterest: route.serviceInterest,
+      routingContextJSON: routingContextHasValue(route) ? JSON.stringify(route) : "",
+      userChangedRoutedIssue: !!route.userChangedIssue,
 
       caseStage: ans("caseStage"),
       servedStatus: ans("servedStatus"),
@@ -1341,6 +1590,8 @@
       showError("There was a problem submitting your intake. Please try again, or call 888-870-6354 if the issue continues.");
     }
   }
+
+  exposeRoutingApi();
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", render);
