@@ -1,13 +1,13 @@
-/* MFLG Site Enhancements v1.5
+/* MFLG Site Enhancements v1.6
    File: css/mflg-site-enhancements.css
 
    In accordance with MP v2:
    - Full CSS replacement
+   - Cleanup after v1.5
    - Preserves v1.4 nav and fee fixes
-   - Adds Practice Areas / service-card intake pathway styling
-   - Adds missing pathway pill/card styling
+   - Keeps Practice Areas card hover/action styling
+   - Removes pathway-row styling/injection dependency
    - Does not alter locked intake architecture or conditional logic
-   - Does not rebuild Webflow structure
    - No dropdowns, Pay Invoice, Client Login, or mobile overhaul in this pass
 */
 
@@ -53,7 +53,6 @@
   will-change: background, box-shadow, border-color;
 }
 
-/* Subtle readability veil while hero remains full-screen */
 .navbar-fixed::before,
 .mflg-enhanced-nav::before {
   content: "";
@@ -74,7 +73,6 @@
     background 240ms ease !important;
 }
 
-/* Keep the container clean and centered */
 .navbar-container {
   position: relative;
   z-index: 2;
@@ -82,9 +80,6 @@
 
 /* =========================================================
    3. Scrolled Navbar State
-   JS applies both:
-   body.mflg-nav-scrolled
-   .navbar-fixed.mflg-nav-is-scrolled
    ========================================================= */
 
 body.mflg-nav-scrolled .navbar-fixed,
@@ -119,7 +114,6 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::before,
   opacity: 1;
 }
 
-/* Premium thin gold accent on scroll */
 body.mflg-nav-scrolled .navbar-fixed::after,
 .navbar-fixed.mflg-nav-is-scrolled::after,
 body.mflg-nav-scrolled .mflg-enhanced-nav::after,
@@ -205,7 +199,6 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
   opacity: 1;
 }
 
-/* Phone link */
 .navbar-fixed a[href^="tel"],
 .navbar-fixed .mflg-phone-link,
 .mflg-enhanced-nav a[href^="tel"],
@@ -353,7 +346,7 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
   opacity: 1;
 }
 
-.mflg-practice-card:focus-within {
+.mflg-practice-card:focus {
   outline: 2px solid rgba(199, 154, 43, 0.32);
   outline-offset: 3px;
 }
@@ -404,92 +397,24 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
   opacity: 1;
 }
 
-/* Missing pathway row injected by JS */
-.mflg-pathways-wrap {
-  width: min(100%, 960px);
-  margin: 34px auto 0 auto;
-  padding-top: 28px;
-  border-top: 1px solid rgba(199, 154, 43, 0.18);
+/* Guardrail: only practice cards should show cues */
+.mflg-hero-section .mflg-practice-path-cue,
+.mflg-fees-section .mflg-practice-path-cue,
+#guides .mflg-practice-path-cue,
+.guides-section .mflg-practice-path-cue,
+.Guides-Section .mflg-practice-path-cue {
+  display: none !important;
 }
 
-.mflg-pathways-kicker {
-  display: block;
-  margin-bottom: 14px;
-  color: var(--mflg-gold);
-  font-size: 10px;
-  line-height: 1;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 800;
-  text-align: center;
-}
-
-.mflg-pathways-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
+/* Hide any old v1.5 injected pathway row if cached */
+.mflg-pathways-wrap,
+.mflg-pathways-grid,
 .mflg-pathway-pill {
-  appearance: none;
-  border: 1px solid rgba(11, 17, 24, 0.10);
-  border-radius: 16px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.80) 100%);
-  color: var(--mflg-ink);
-  padding: 16px 16px;
-  text-align: left;
-  cursor: pointer;
-  box-shadow:
-    0 10px 24px rgba(11, 17, 24, 0.055),
-    inset 0 1px 0 rgba(255, 255, 255, 0.88);
-  transition:
-    transform 190ms ease,
-    box-shadow 190ms ease,
-    border-color 190ms ease,
-    background 190ms ease !important;
-}
-
-.mflg-pathway-pill:hover {
-  transform: translateY(-2px);
-  border-color: rgba(199, 154, 43, 0.34);
-  box-shadow:
-    0 16px 34px rgba(11, 17, 24, 0.09),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92);
-}
-
-.mflg-pathway-pill-title {
-  display: block;
-  color: var(--mflg-ink);
-  font-size: 13px;
-  line-height: 1.2;
-  font-weight: 850;
-  letter-spacing: 0.02em;
-}
-
-.mflg-pathway-pill-sub {
-  display: block;
-  margin-top: 6px;
-  color: rgba(11, 17, 24, 0.62);
-  font-size: 11px;
-  line-height: 1.35;
-  font-weight: 500;
-}
-
-.mflg-pathway-pill-cta {
-  display: inline-block;
-  margin-top: 10px;
-  color: var(--mflg-blue);
-  font-size: 9px;
-  line-height: 1;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 850;
+  display: none !important;
 }
 
 /* =========================================================
    8. Fees CTA Enhancement
-   Fixes clipped Request Consult buttons.
    ========================================================= */
 
 .mflg-fee-cta {
@@ -545,7 +470,6 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
 }
 
-/* Additional guardrail for pricing-card button wrappers */
 .mflg-fees-section a.mflg-fee-cta,
 .mflg-fees-section button.mflg-fee-cta,
 .mflg-fees-section [role="button"].mflg-fee-cta {
@@ -590,7 +514,6 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
 
 /* =========================================================
    11. Tablet/Mobile Guardrail Only
-   Do not overhaul mobile yet.
    ========================================================= */
 
 @media (max-width: 991px) {
@@ -613,10 +536,6 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
     font-size: 9.5px !important;
   }
 
-  .mflg-pathways-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   #intake,
   #mflg-intake-root,
   #practice-areas,
@@ -626,11 +545,5 @@ body.mflg-nav-scrolled .mflg-enhanced-nav::after,
   #faq,
   #contact {
     scroll-margin-top: 84px;
-  }
-}
-
-@media (max-width: 560px) {
-  .mflg-pathways-grid {
-    grid-template-columns: 1fr;
   }
 }
