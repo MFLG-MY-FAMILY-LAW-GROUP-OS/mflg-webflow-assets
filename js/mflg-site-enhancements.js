@@ -1,16 +1,16 @@
-/* MFLG Site Enhancements v1.8 JS-Only Routing Fix
+/* MFLG Site Enhancements v1.9 JS-Only Exact Intake Routing Fix
    File: js/mflg-site-enhancements.js
 
    In accordance with MP v2:
    - JS-only replacement
-   - Preserves locked intake architecture, layout, validation, and payload
+   - Preserves locked intake architecture, layout, validation, payload, and conditional logic
    - Does not alter CSS
    - Does not rebuild Webflow structure
    - Does not touch hero layout/video/overlay
    - Keeps Hero Start Guided Intake as general intake entry
-   - Routes Practice Area cards to intake with best-effort issue preselection
+   - Routes Practice Area cards to intake using exact mflg-intake.js data-option-value clicks
    - Restores View All Family Law Pathways button if missing
-   - Routes Fees CTAs to intake with best-effort consultation-interest context
+   - Keeps Fees CTAs routed to intake and stores service-interest context for later use
    - Does not inject dropdowns, Pay Invoice, Client Login, or mobile/tablet logic
 */
 
@@ -32,156 +32,67 @@
     navMenu: ".navbar-menu"
   };
 
+  /*
+    Exact values must match js/mflg-intake.js issueOptions values:
+    - Divorce / Legal Separation
+    - Parenting Time / Legal Decision-Making
+    - Child Support
+    - Spousal Maintenance
+    - Paternity
+    - Modification of Existing Orders
+    - Enforcement of Existing Orders
+    - Mediation / ADR / Settlement Help
+    - Protective Order Related to Family Law
+    - Document Preparation / Review
+    - Not Sure
+  */
+
   var PRACTICE_CARDS = [
     {
       title: "Divorce & Legal Separation",
       key: "divorce-separation",
-      intakeIssue: "divorce-separation",
+      intakeValue: "Divorce / Legal Separation",
       aria: "Start intake pathway for divorce and legal separation"
     },
     {
       title: "Parenting Time & Legal Decision-Making",
       key: "parenting",
-      intakeIssue: "parenting",
+      intakeValue: "Parenting Time / Legal Decision-Making",
       aria: "Start intake pathway for parenting time and legal decision-making"
     },
     {
       title: "Child Support & Spousal Maintenance",
       key: "support-maintenance",
-      intakeIssue: "child-support",
+      intakeValue: "Child Support",
+      context: "Combined homepage card selected: Child Support & Spousal Maintenance",
       aria: "Start intake pathway for child support and spousal maintenance"
     },
     {
       title: "Document Preparation & Filing",
       key: "documents",
-      intakeIssue: "documents",
+      intakeValue: "Document Preparation / Review",
       aria: "Start intake pathway for document preparation and filing"
     },
     {
       title: "Modifications & Enforcement",
       key: "modification-enforcement",
-      intakeIssue: "modification",
+      intakeValue: "Modification of Existing Orders",
+      context: "Combined homepage card selected: Modifications & Enforcement",
       aria: "Start intake pathway for modifications and enforcement"
     },
     {
       title: "Court Appearances Within Licensed Scope",
       key: "court-appearance",
-      intakeIssue: "not-sure",
+      intakeValue: "Not Sure",
       context: "Court appearance or hearing help requested",
       aria: "Start intake pathway for court appearances within licensed scope"
     }
   ];
 
-  var ISSUE_MATCHERS = {
-    "divorce-separation": [
-      "divorce",
-      "legal separation",
-      "separation",
-      "divorce / separation",
-      "divorce or separation",
-      "dissolution"
-    ],
-    parenting: [
-      "parenting",
-      "parenting time",
-      "legal decision",
-      "legal decision-making",
-      "custody",
-      "parenting plan"
-    ],
-    "child-support": [
-      "child support",
-      "support"
-    ],
-    "spousal-maintenance": [
-      "spousal maintenance",
-      "spousal support",
-      "maintenance"
-    ],
-    documents: [
-      "document",
-      "documents",
-      "document preparation",
-      "filing",
-      "forms",
-      "paperwork"
-    ],
-    modification: [
-      "modification",
-      "modify",
-      "post-decree",
-      "change an order",
-      "change existing order"
-    ],
-    enforcement: [
-      "enforcement",
-      "enforce",
-      "contempt"
-    ],
-    paternity: [
-      "paternity",
-      "parentage",
-      "establish father",
-      "establish parent"
-    ],
-    "mediation-adr": [
-      "mediation",
-      "adr",
-      "alternative dispute",
-      "settlement",
-      "arbitration"
-    ],
-    "protective-order": [
-      "protective order",
-      "order of protection",
-      "injunction",
-      "safety"
-    ],
-    relocation: [
-      "relocation",
-      "move-away",
-      "move away"
-    ],
-    "third-party-rights": [
-      "third-party",
-      "grandparent",
-      "grandparents",
-      "third party"
-    ],
-    uccjea: [
-      "uccjea",
-      "interstate",
-      "out of state",
-      "jurisdiction"
-    ],
-    "not-sure": [
-      "not sure",
-      "not sure where to start",
-      "unsure",
-      "other",
-      "something else"
-    ]
-  };
-
-  var SERVICE_MATCHERS = {
-    "quick-question": [
-      "quick question",
-      "15-minute",
-      "15 minute",
-      "short focused question"
-    ],
-    "initial-consult": [
-      "initial consultation",
-      "30-minute",
-      "30 minute",
-      "full initial consultation"
-    ],
-    "comprehensive-consult": [
-      "comprehensive",
-      "60-minute",
-      "60 minute",
-      "comprehensive consultation"
-    ]
+  var SERVICE_INTEREST_VALUES = {
+    "quick-question": "Quick question / limited guidance",
+    "initial-consult": "Full matter support within LP scope",
+    "comprehensive-consult": "Full matter support within LP scope"
   };
 
   function ready(fn) {
@@ -217,7 +128,7 @@
 
   function safeSessionSet(key, value) {
     try {
-      window.sessionStorage.setItem(key, value);
+      window.sessionStorage.setItem(key, String(value || ""));
     } catch (error) {
       /* sessionStorage may be unavailable; routing should still work */
     }
@@ -419,240 +330,132 @@
     }, 900);
   }
 
-  function getIssueMatcherTerms(issueKey) {
-    return ISSUE_MATCHERS[issueKey] || ISSUE_MATCHERS["not-sure"] || [];
-  }
-
-  function textMatchesAny(text, terms) {
-    var normalized = normalizeText(text);
-
-    return terms.some(function (term) {
-      return normalized.indexOf(normalizeText(term)) !== -1;
-    });
-  }
-
-  function findNativeSelectOption(select, terms) {
-    if (!select) return null;
-
-    var options = Array.prototype.slice.call(select.options || []);
-
-    for (var i = 0; i < options.length; i += 1) {
-      var optionText = normalizeText(options[i].textContent);
-      var optionValue = normalizeText(options[i].value);
-
-      if (
-        terms.some(function (term) {
-          var normalizedTerm = normalizeText(term);
-
-          return (
-            optionText.indexOf(normalizedTerm) !== -1 ||
-            optionValue.indexOf(normalizedTerm) !== -1
-          );
-        })
-      ) {
-        return options[i];
-      }
-    }
-
-    return null;
-  }
-
-  function selectNativeIssueOption(intake, issueKey) {
-    if (!intake) return false;
-
-    var terms = getIssueMatcherTerms(issueKey);
-    var selects = getAll("select", intake);
-
-    for (var i = 0; i < selects.length; i += 1) {
-      var select = selects[i];
-      var selectDescriptor = normalizeText(
-        [
-          select.name,
-          select.id,
-          select.getAttribute("aria-label"),
-          select.getAttribute("data-name"),
-          select.closest("label") ? select.closest("label").textContent : ""
-        ].join(" ")
-      );
-
-      var looksLikeIssueSelect =
-        selectDescriptor.indexOf("issue") !== -1 ||
-        selectDescriptor.indexOf("matter") !== -1 ||
-        selectDescriptor.indexOf("legal") !== -1 ||
-        selectDescriptor.indexOf("path") !== -1 ||
-        selectDescriptor.indexOf("service") !== -1;
-
-      var option = findNativeSelectOption(select, terms);
-
-      if (option && looksLikeIssueSelect) {
-        select.value = option.value;
-        dispatchNativeEvents(select);
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  function findClickableIssueElement(intake, issueKey) {
-    if (!intake) return null;
-
-    var terms = getIssueMatcherTerms(issueKey);
-
-    var candidates = getAll(
-      [
-        "button",
-        "[role='button']",
-        "label",
-        "a",
-        "input[type='radio']",
-        "input[type='checkbox']",
-        ".issue-card",
-        ".mflg-issue-card",
-        ".intake-issue-card",
-        ".mflg-card",
-        "[class*='issue']",
-        "[class*='Issue']",
-        "[data-issue]",
-        "[data-value]",
-        "[data-pathway]"
-      ].join(","),
-      intake
-    );
-
-    for (var i = 0; i < candidates.length; i += 1) {
-      var candidate = candidates[i];
-      var descriptor = normalizeText(
-        [
-          candidate.textContent,
-          candidate.value,
-          candidate.getAttribute("aria-label"),
-          candidate.getAttribute("data-issue"),
-          candidate.getAttribute("data-value"),
-          candidate.getAttribute("data-pathway"),
-          candidate.getAttribute("name"),
-          candidate.getAttribute("id")
-        ].join(" ")
-      );
-
-      if (textMatchesAny(descriptor, terms)) {
-        return candidate;
-      }
-    }
-
-    return null;
-  }
-
-  function activateIssueElement(element) {
-    if (!element) return false;
-
-    var tagName = normalizeText(element.tagName);
-    var inputType = normalizeText(element.getAttribute("type"));
-
-    try {
-      if (tagName === "input" && (inputType === "radio" || inputType === "checkbox")) {
-        element.checked = true;
-        dispatchNativeEvents(element);
-        return true;
-      }
-
-      element.click();
-      return true;
-    } catch (error) {
-      return false;
-    }
-  }
-
-  function preselectIntakeIssue(issueKey, context) {
+  function findExactIntakeIssueButton(issueValue) {
     var intake = getIntakeElement();
 
-    if (!intake) return false;
+    if (!intake || !issueValue) return null;
 
-    var normalizedIssueKey = issueKey || "not-sure";
+    var candidates = getAll("[data-option-group='issuePathway']", intake);
 
-    safeSessionSet("mflgIntakeIssue", normalizedIssueKey);
+    for (var i = 0; i < candidates.length; i += 1) {
+      if (candidates[i].getAttribute("data-option-value") === issueValue) {
+        return candidates[i];
+      }
+    }
+
+    return null;
+  }
+
+  function findSelectedIssueButton(issueValue) {
+    var button = findExactIntakeIssueButton(issueValue);
+
+    if (button && button.classList.contains("is-selected")) {
+      return button;
+    }
+
+    return null;
+  }
+
+  function clickExactIntakeIssue(issueValue, context) {
+    var intake = getIntakeElement();
+
+    if (!intake || !issueValue) return false;
+
+    safeSessionSet("mflgIntakeIssueExact", issueValue);
 
     if (context) {
       safeSessionSet("mflgIntakeContext", context);
       intake.setAttribute("data-mflg-routing-context", context);
     }
 
-    intake.setAttribute("data-mflg-routed-issue", normalizedIssueKey);
+    intake.setAttribute("data-mflg-routed-issue", issueValue);
 
-    var selected = selectNativeIssueOption(intake, normalizedIssueKey);
+    var button = findExactIntakeIssueButton(issueValue);
 
-    if (!selected) {
-      var issueElement = findClickableIssueElement(intake, normalizedIssueKey);
-      selected = activateIssueElement(issueElement);
+    if (!button && issueValue !== "Not Sure") {
+      button = findExactIntakeIssueButton("Not Sure");
     }
 
-    if (!selected && normalizedIssueKey !== "not-sure") {
-      selected = selectNativeIssueOption(intake, "not-sure");
+    if (!button) return false;
 
-      if (!selected) {
-        selected = activateIssueElement(findClickableIssueElement(intake, "not-sure"));
-      }
+    try {
+      button.click();
+      return true;
+    } catch (error) {
+      return false;
     }
-
-    return selected;
   }
 
-  function preselectServiceInterest(serviceKey) {
+  function preselectExactIssueWithRetry(issueValue, context) {
+    var attempts = [0, 120, 300, 650, 1000];
+
+    attempts.forEach(function (delay) {
+      window.setTimeout(function () {
+        if (findSelectedIssueButton(issueValue)) return;
+        clickExactIntakeIssue(issueValue, context);
+      }, delay);
+    });
+  }
+
+  function setVisibleServiceInterest(serviceKey) {
     var intake = getIntakeElement();
 
     if (!intake || !serviceKey) return false;
 
+    var value = SERVICE_INTEREST_VALUES[serviceKey] || SERVICE_INTEREST_VALUES["initial-consult"];
+
     safeSessionSet("mflgServiceInterest", serviceKey);
+    safeSessionSet("mflgServiceInterestValue", value);
+
     intake.setAttribute("data-mflg-service-interest", serviceKey);
+    intake.setAttribute("data-mflg-service-interest-value", value);
 
-    var terms = SERVICE_MATCHERS[serviceKey] || [];
-    var selected = false;
-
-    var selects = getAll("select", intake);
+    var selects = getAll("select[data-key='serviceInterest']", intake);
 
     for (var i = 0; i < selects.length; i += 1) {
       var select = selects[i];
-      var option = findNativeSelectOption(select, terms);
+      var options = Array.prototype.slice.call(select.options || []);
 
-      if (option) {
-        select.value = option.value;
-        dispatchNativeEvents(select);
-        selected = true;
-        break;
-      }
-    }
-
-    if (!selected) {
-      var candidates = getAll(
-        "button, [role='button'], label, input[type='radio'], input[type='checkbox'], [data-service], [data-value], [class*='service'], [class*='Service']",
-        intake
-      );
-
-      for (var j = 0; j < candidates.length; j += 1) {
-        var candidate = candidates[j];
-        var descriptor = normalizeText(
-          [
-            candidate.textContent,
-            candidate.value,
-            candidate.getAttribute("aria-label"),
-            candidate.getAttribute("data-service"),
-            candidate.getAttribute("data-value"),
-            candidate.getAttribute("name"),
-            candidate.getAttribute("id")
-          ].join(" ")
-        );
-
-        if (textMatchesAny(descriptor, terms)) {
-          selected = activateIssueElement(candidate);
-          break;
+      for (var j = 0; j < options.length; j += 1) {
+        if (options[j].value === value || options[j].textContent === value) {
+          select.value = options[j].value;
+          dispatchNativeEvents(select);
+          return true;
         }
       }
     }
 
-    return selected;
+    return false;
   }
 
-  function routeElementToIntake(element, pathwayKey, ariaLabel, intakeIssue, context) {
+  function initIntakeMutationObserver() {
+    var intake = getIntakeElement();
+
+    if (!intake || intake.__mflgMutationObserverAttached) return;
+
+    intake.__mflgMutationObserverAttached = true;
+
+    var observer = new MutationObserver(function () {
+      var serviceKey = "";
+
+      try {
+        serviceKey = window.sessionStorage.getItem("mflgServiceInterest") || "";
+      } catch (error) {
+        serviceKey = "";
+      }
+
+      if (serviceKey) {
+        setVisibleServiceInterest(serviceKey);
+      }
+    });
+
+    observer.observe(intake, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  function routeElementToIntake(element, pathwayKey, ariaLabel, issueValue, context) {
     var intake = getIntakeElement();
 
     if (!element || !intake) return;
@@ -662,6 +465,10 @@
 
     if (pathwayKey) {
       element.setAttribute("data-mflg-pathway", pathwayKey);
+    }
+
+    if (issueValue) {
+      element.setAttribute("data-mflg-intake-value", issueValue);
     }
 
     element.setAttribute("tabindex", "0");
@@ -685,11 +492,9 @@
 
       event.preventDefault();
       markClickedCard(element);
-      scrollToElement(intake);
 
-      window.setTimeout(function () {
-        preselectIntakeIssue(intakeIssue || pathwayKey || "not-sure", context);
-      }, 450);
+      preselectExactIssueWithRetry(issueValue || "Not Sure", context || "");
+      scrollToElement(intake);
     }
 
     element.addEventListener("click", handlePathwayStart);
@@ -774,7 +579,7 @@
         link.classList.add("mflg-start-link");
         link.setAttribute("href", "#intake");
         routeLinkToElement(link, intake, function () {
-          safeSessionSet("mflgIntakeIssue", "");
+          safeSessionSet("mflgIntakeIssueExact", "");
         });
       } else if (isPracticeLink(link)) {
         link.setAttribute("href", "#practice-areas");
@@ -820,7 +625,7 @@
         link.classList.add("mflg-hero-primary-cta");
         link.setAttribute("href", "#intake");
         routeLinkToElement(link, intake, function () {
-          safeSessionSet("mflgIntakeIssue", "");
+          safeSessionSet("mflgIntakeIssueExact", "");
         });
       }
 
@@ -854,12 +659,15 @@
     }
   }
 
-  function inferServiceInterestFromCard(control, fees) {
+  function inferServiceInterestFromCard(control) {
+    var parent = control && control.closest
+      ? control.closest("article, li, [class*='card'], [class*='Card'], [class*='fee'], [class*='Fee']")
+      : null;
+
     var sourceText = normalizeText(
       [
         control ? control.textContent : "",
-        control && control.closest ? control.closest("div, article, li, section") ? control.closest("div, article, li, section").textContent : "" : "",
-        fees ? fees.textContent : ""
+        parent ? parent.textContent : ""
       ].join(" ")
     );
 
@@ -919,13 +727,10 @@
         }
 
         routeLinkToElement(control, intake, function () {
-          var serviceKey = inferServiceInterestFromCard(control, fees);
+          var serviceKey = inferServiceInterestFromCard(control);
 
           safeSessionSet("mflgServiceInterest", serviceKey);
-
-          window.setTimeout(function () {
-            preselectServiceInterest(serviceKey);
-          }, 450);
+          setVisibleServiceInterest(serviceKey);
         });
       }
 
@@ -1108,7 +913,7 @@
 
       card.classList.add("mflg-practice-card");
       card.setAttribute("data-mflg-pathway", item.key);
-      card.setAttribute("data-mflg-intake-issue", item.intakeIssue);
+      card.setAttribute("data-mflg-intake-value", item.intakeValue);
 
       addPracticeCue(card);
 
@@ -1116,7 +921,7 @@
         card,
         item.key,
         item.aria,
-        item.intakeIssue,
+        item.intakeValue,
         item.context || ""
       );
 
@@ -1135,5 +940,6 @@
     initHeroCtas();
     initFeesCtas();
     initPracticeAreaPathways();
+    initIntakeMutationObserver();
   });
 })();
