@@ -1,18 +1,16 @@
-/* MFLG Site Enhancements v1.6
+/* MFLG Site Enhancements v1.8
    File: js/mflg-site-enhancements.js
 
    In accordance with MP v2:
    - Full JS replacement
-   - Cleanup after v1.5
-   - Preserves nav, hero CTA, fees CTA, and intake routing
-   - Removes broad practice-card scanning
-   - Only enhances the 6 actual Practice Areas cards by exact title matching
-   - Removes misplaced Start path cues from hero/guides/fees
-   - Removes old injected pathway row
-   - Does not alter intake architecture, validation, field names, payload, or conditional logic
+   - Preserves locked intake architecture and validation
+   - Preserves v1.7 cleanup stability
+   - Keeps Practice Areas card routing to intake
+   - Adds one controlled "View All Family Law Pathways" CTA under Practice Areas cards
+   - CTA routes to intake for now because full Practice Areas page/expanded pathway section is not built yet
+   - Does not inject dropdowns
    - Does not preselect intake values yet
-   - No dropdown injection
-   - No Pay Invoice or Client Login
+   - Does not alter Webflow section structure
 */
 
 (function () {
@@ -36,27 +34,33 @@
   var PRACTICE_CARDS = [
     {
       title: "Divorce & Legal Separation",
-      key: "divorce-separation"
+      key: "divorce-separation",
+      aria: "Start intake pathway for divorce and legal separation"
     },
     {
       title: "Parenting Time & Legal Decision-Making",
-      key: "parenting"
+      key: "parenting",
+      aria: "Start intake pathway for parenting time and legal decision-making"
     },
     {
       title: "Child Support & Spousal Maintenance",
-      key: "support-maintenance"
+      key: "support-maintenance",
+      aria: "Start intake pathway for child support and spousal maintenance"
     },
     {
       title: "Document Preparation & Filing",
-      key: "documents"
+      key: "documents",
+      aria: "Start intake pathway for document preparation and filing"
     },
     {
       title: "Modifications & Enforcement",
-      key: "modification-enforcement"
+      key: "modification-enforcement",
+      aria: "Start intake pathway for modifications and enforcement"
     },
     {
       title: "Court Appearances Within Licensed Scope",
-      key: "court-appearance"
+      key: "court-appearance",
+      aria: "Start intake pathway for court appearances within licensed scope"
     }
   ];
 
@@ -244,7 +248,25 @@
     });
   }
 
-  function routeElementToIntake(element, pathwayKey) {
+  function markClickedCard(card) {
+    if (!card) return;
+
+    var practice = getPracticeElement();
+
+    if (practice) {
+      getAll(".mflg-practice-card", practice).forEach(function (item) {
+        item.classList.remove("mflg-card-clicked");
+      });
+    }
+
+    card.classList.add("mflg-card-clicked");
+
+    window.setTimeout(function () {
+      card.classList.remove("mflg-card-clicked");
+    }, 900);
+  }
+
+  function routeElementToIntake(element, pathwayKey, ariaLabel) {
     var intake = getIntakeElement();
 
     if (!element || !intake) return;
@@ -259,6 +281,10 @@
     element.setAttribute("tabindex", "0");
     element.setAttribute("role", "button");
 
+    if (ariaLabel) {
+      element.setAttribute("aria-label", ariaLabel);
+    }
+
     element.addEventListener("click", function (event) {
       var target = event.target;
 
@@ -271,12 +297,14 @@
       }
 
       event.preventDefault();
+      markClickedCard(element);
       scrollToElement(intake);
     });
 
     element.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
+        markClickedCard(element);
         scrollToElement(intake);
       }
     });
@@ -305,6 +333,7 @@
     return (
       text === "practice areas" ||
       text.indexOf("view practice areas") !== -1 ||
+      text.indexOf("view all family law pathways") !== -1 ||
       href === "#practice-areas"
     );
   }
@@ -482,6 +511,14 @@
     });
   }
 
+  function removePracticeViewAllButton() {
+    getAll(".mflg-practice-view-all-wrap").forEach(function (node) {
+      if (node && node.parentNode) {
+        node.parentNode.removeChild(node);
+      }
+    });
+  }
+
   function removeAllPracticeCues() {
     getAll(".mflg-practice-path-cue").forEach(function (cue) {
       if (cue && cue.parentNode) {
@@ -510,15 +547,17 @@
 
     while (current && current !== section && current.parentElement) {
       var text = normalizeText(current.textContent);
+      var className = normalizeText(current.className);
       var childCount = current.children ? current.children.length : 0;
 
       if (
         text.length >= 45 &&
-        text.length <= 360 &&
+        text.length <= 380 &&
         childCount >= 1 &&
-        !normalizeText(current.className).includes("hero") &&
-        !normalizeText(current.className).includes("guide") &&
-        !normalizeText(current.className).includes("fee")
+        className.indexOf("hero") === -1 &&
+        className.indexOf("guide") === -1 &&
+        className.indexOf("fee") === -1 &&
+        className.indexOf("nav") === -1
       ) {
         return current;
       }
@@ -539,15 +578,64 @@
     card.appendChild(cue);
   }
 
+  function getPracticeCardsInOrder(practice) {
+    var cards = [];
+
+    if (!practice) return cards;
+
+    PRACTICE_CARDS.forEach(function (item) {
+      var heading = findHeadingByExactText(practice, item.title);
+      var card = findBestCardAncestor(heading, practice);
+
+      if (card && cards.indexOf(card) === -1) {
+        cards.push(card);
+      }
+    });
+
+    return cards;
+  }
+
+  function addPracticeViewAllButton(practice, cards) {
+    var intake = getIntakeElement();
+
+    if (!practice || !cards || !cards.length || !intake) return;
+    if (getFirst(".mflg-practice-view-all-wrap", practice)) return;
+
+    var lastCard = cards[cards.length - 1];
+    var cardGrid = lastCard.parentElement || practice;
+
+    var wrap = document.createElement("div");
+    wrap.className = "mflg-practice-view-all-wrap";
+
+    var button = document.createElement("a");
+    button.className = "mflg-practice-view-all";
+    button.href = "#intake";
+    button.textContent = "View All Family Law Pathways";
+    button.setAttribute("aria-label", "View all family law pathways and start the guided intake");
+
+    wrap.appendChild(button);
+
+    if (cardGrid && cardGrid.parentElement) {
+      cardGrid.parentElement.insertBefore(wrap, cardGrid.nextSibling);
+    } else {
+      practice.appendChild(wrap);
+    }
+
+    routeLinkToElement(button, intake);
+  }
+
   function initPracticeAreaPathways() {
     var practice = getPracticeElement();
 
     removeOldInjectedPathwayRow();
+    removePracticeViewAllButton();
     removeAllPracticeCues();
 
     if (!practice) return;
 
     practice.classList.add("mflg-practice-enhanced");
+
+    var routedCards = [];
 
     PRACTICE_CARDS.forEach(function (item) {
       var heading = findHeadingByExactText(practice, item.title);
@@ -559,8 +647,14 @@
       card.setAttribute("data-mflg-pathway", item.key);
 
       addPracticeCue(card);
-      routeElementToIntake(card, item.key);
+      routeElementToIntake(card, item.key, item.aria);
+
+      if (routedCards.indexOf(card) === -1) {
+        routedCards.push(card);
+      }
     });
+
+    addPracticeViewAllButton(practice, routedCards);
   }
 
   ready(function () {
