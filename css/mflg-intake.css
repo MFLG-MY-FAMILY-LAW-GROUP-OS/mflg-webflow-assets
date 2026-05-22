@@ -1180,3 +1180,118 @@
     transition: none !important;
   }
 }
+/* =========================================================
+   MFLG Intake v3.2.1 — Routing Context Banner Polish
+   Purpose: style the v3.2 routing-context banner only.
+   Scope: .mflg-route-banner and its child elements only.
+   ========================================================= */
+
+#mflg-intake-root .mflg-route-banner {
+  position: relative;
+  margin: 0 0 28px 0;
+  padding: 18px 22px 18px 24px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(248, 244, 235, 0.96)),
+    linear-gradient(90deg, rgba(194, 145, 47, 0.14), rgba(2, 69, 122, 0.05));
+  border: 1px solid rgba(194, 145, 47, 0.34);
+  box-shadow:
+    0 18px 40px rgba(1, 12, 20, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  color: #101820;
+  overflow: hidden;
+}
+
+#mflg-intake-root .mflg-route-banner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #c2912f, #8f681e);
+}
+
+#mflg-intake-root .mflg-route-banner::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -80px;
+  width: 190px;
+  height: 190px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(2, 69, 122, 0.10), rgba(2, 69, 122, 0));
+  pointer-events: none;
+}
+
+#mflg-intake-root .mflg-route-banner .mflg-route-kicker {
+  margin: 0 0 6px 0;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b1842c;
+}
+
+#mflg-intake-root .mflg-route-banner strong {
+  display: block;
+  margin: 0 0 7px 0;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #101820;
+}
+
+#mflg-intake-root .mflg-route-banner p {
+  max-width: 820px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: rgba(16, 24, 32, 0.78);
+}
+
+#mflg-intake-root .mflg-route-banner span {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  margin: 12px 8px 0 0;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(2, 69, 122, 0.08);
+  border: 1px solid rgba(2, 69, 122, 0.12);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #02457a;
+}
+
+@media (max-width: 767px) {
+  #mflg-intake-root .mflg-route-banner {
+    margin-bottom: 22px;
+    padding: 16px 17px 16px 19px;
+    border-radius: 16px;
+  }
+
+  #mflg-intake-root .mflg-route-banner strong {
+    font-size: 16px;
+  }
+
+  #mflg-intake-root .mflg-route-banner p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  #mflg-intake-root .mflg-route-banner span {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+  }
+}
