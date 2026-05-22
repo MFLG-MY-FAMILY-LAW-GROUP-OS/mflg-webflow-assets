@@ -1,13 +1,13 @@
-/* MFLG Site Enhancements v1.8
+/* MFLG Site Enhancements v1.7
    File: js/mflg-site-enhancements.js
 
    In accordance with MP v2:
    - Full JS replacement
    - Preserves locked intake architecture and validation
-   - Preserves v1.7 cleanup stability
-   - Keeps Practice Areas card routing to intake
-   - Adds one controlled "View All Family Law Pathways" CTA under Practice Areas cards
-   - CTA routes to intake for now because full Practice Areas page/expanded pathway section is not built yet
+   - Preserves v1.6 cleanup stability
+   - Strengthens Practice Areas card routing to intake
+   - Uses exact-title matching only for Practice Areas cards
+   - Does not inject missing pathway rows
    - Does not inject dropdowns
    - Does not preselect intake values yet
    - Does not alter Webflow section structure
@@ -333,7 +333,6 @@
     return (
       text === "practice areas" ||
       text.indexOf("view practice areas") !== -1 ||
-      text.indexOf("view all family law pathways") !== -1 ||
       href === "#practice-areas"
     );
   }
@@ -511,14 +510,6 @@
     });
   }
 
-  function removePracticeViewAllButton() {
-    getAll(".mflg-practice-view-all-wrap").forEach(function (node) {
-      if (node && node.parentNode) {
-        node.parentNode.removeChild(node);
-      }
-    });
-  }
-
   function removeAllPracticeCues() {
     getAll(".mflg-practice-path-cue").forEach(function (cue) {
       if (cue && cue.parentNode) {
@@ -578,64 +569,15 @@
     card.appendChild(cue);
   }
 
-  function getPracticeCardsInOrder(practice) {
-    var cards = [];
-
-    if (!practice) return cards;
-
-    PRACTICE_CARDS.forEach(function (item) {
-      var heading = findHeadingByExactText(practice, item.title);
-      var card = findBestCardAncestor(heading, practice);
-
-      if (card && cards.indexOf(card) === -1) {
-        cards.push(card);
-      }
-    });
-
-    return cards;
-  }
-
-  function addPracticeViewAllButton(practice, cards) {
-    var intake = getIntakeElement();
-
-    if (!practice || !cards || !cards.length || !intake) return;
-    if (getFirst(".mflg-practice-view-all-wrap", practice)) return;
-
-    var lastCard = cards[cards.length - 1];
-    var cardGrid = lastCard.parentElement || practice;
-
-    var wrap = document.createElement("div");
-    wrap.className = "mflg-practice-view-all-wrap";
-
-    var button = document.createElement("a");
-    button.className = "mflg-practice-view-all";
-    button.href = "#intake";
-    button.textContent = "View All Family Law Pathways";
-    button.setAttribute("aria-label", "View all family law pathways and start the guided intake");
-
-    wrap.appendChild(button);
-
-    if (cardGrid && cardGrid.parentElement) {
-      cardGrid.parentElement.insertBefore(wrap, cardGrid.nextSibling);
-    } else {
-      practice.appendChild(wrap);
-    }
-
-    routeLinkToElement(button, intake);
-  }
-
   function initPracticeAreaPathways() {
     var practice = getPracticeElement();
 
     removeOldInjectedPathwayRow();
-    removePracticeViewAllButton();
     removeAllPracticeCues();
 
     if (!practice) return;
 
     practice.classList.add("mflg-practice-enhanced");
-
-    var routedCards = [];
 
     PRACTICE_CARDS.forEach(function (item) {
       var heading = findHeadingByExactText(practice, item.title);
@@ -648,13 +590,7 @@
 
       addPracticeCue(card);
       routeElementToIntake(card, item.key, item.aria);
-
-      if (routedCards.indexOf(card) === -1) {
-        routedCards.push(card);
-      }
     });
-
-    addPracticeViewAllButton(practice, routedCards);
   }
 
   ready(function () {
