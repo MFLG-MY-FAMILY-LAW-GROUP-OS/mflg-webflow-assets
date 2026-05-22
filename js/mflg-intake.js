@@ -186,7 +186,8 @@
       select("birthCertificateIssue", "Is birth certificate/signing involved?", ["Yes", "No", "Not sure"], true),
       checks("paternityIssues", "What issues are connected to parentage?", ["DNA testing", "Birth certificate", "Acknowledgment of paternity", "Parenting time", "Legal decision-making", "Child support", "Same-sex parentage issue", "Not sure"]),
       select("caseStage", "Is a case already filed?", ["Not filed yet", "Already filed / active case", "Final order entered", "I was served", "Not sure"], true)
-    ],    "Modification of Existing Orders": [
+    ],
+         "Modification of Existing Orders": [
       checks("orderToModify", "What order needs to be changed?", ["Parenting time", "Legal decision-making", "Child support", "Spousal maintenance", "Relocation", "Other family-court order", "Not sure"]),
       textarea("changeReason", "What changed?", "Briefly describe what changed and why a modification may be needed.", true),
       select("existingOrder", "Do you have a current signed court order?", ["Yes", "No", "Not sure"], true),
