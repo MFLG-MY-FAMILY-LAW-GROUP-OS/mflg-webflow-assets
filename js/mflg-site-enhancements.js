@@ -1,17 +1,15 @@
-/* MFLG Site Enhancements v1.3
+/* MFLG Site Enhancements v1.5
    File: js/mflg-site-enhancements.js
 
    In accordance with MP v2:
    - Full JS replacement
-   - Targets confirmed Webflow nav structure
-   - Does not alter intake architecture or intake validation logic
-   - Does not rebuild Webflow structure
-   - Keeps hero Start Guided Intake routing
-   - Routes nav Start and hero CTA to locked intake
-   - Changes Fees CTAs to Request Consult and routes to intake
-   - Adds direct .mflg-nav-is-scrolled class to .navbar-fixed
-   - No dropdown injection yet
-   - No Pay Invoice or Client Login yet
+   - Preserves v1.4 nav and fee behavior
+   - Adds Practice Areas cards as intake pathways
+   - Adds missing pathway pills for intake architecture alignment
+   - Does not alter intake architecture, validation, field names, payload, or conditional logic
+   - Does not preselect intake values yet
+   - No dropdown injection
+   - No Pay Invoice or Client Login
 */
 
 (function () {
@@ -32,6 +30,45 @@
     navMenu: ".navbar-menu",
     navStart: ".navbar-start-button"
   };
+
+  var PRACTICE_KEYWORDS = [
+    "divorce",
+    "legal separation",
+    "parenting",
+    "legal decision",
+    "child support",
+    "spousal",
+    "maintenance",
+    "document preparation",
+    "filing",
+    "modification",
+    "enforcement",
+    "court appearances",
+    "licensed scope"
+  ];
+
+  var EXTRA_PATHWAYS = [
+    {
+      title: "Paternity",
+      sub: "Parentage, birth certificate, DNA testing, parenting time, or support.",
+      key: "paternity"
+    },
+    {
+      title: "Protective Orders",
+      sub: "Family-law related safety concerns, protective orders, or related hearings.",
+      key: "protective-order"
+    },
+    {
+      title: "Mediation / ADR",
+      sub: "Negotiation, mediation, arbitration, settlement, or lower-conflict resolution.",
+      key: "mediation-adr"
+    },
+    {
+      title: "Not Sure Where to Start?",
+      sub: "Use guided triage so the next step can be identified before services are confirmed.",
+      key: "not-sure"
+    }
+  ];
 
   function ready(fn) {
     if (document.readyState === "loading") {
@@ -191,6 +228,44 @@
     });
   }
 
+  function routeElementToIntake(element, pathwayKey) {
+    var intake = getIntakeElement();
+
+    if (!element || !intake) return;
+    if (element.__mflgIntakePathRouted) return;
+
+    element.__mflgIntakePathRouted = true;
+
+    if (pathwayKey) {
+      element.setAttribute("data-mflg-pathway", pathwayKey);
+    }
+
+    element.setAttribute("tabindex", "0");
+    element.setAttribute("role", "button");
+
+    element.addEventListener("click", function (event) {
+      var target = event.target;
+
+      if (
+        target &&
+        target.closest &&
+        target.closest("a, button, input, select, textarea, label")
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      scrollToElement(intake);
+    });
+
+    element.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        scrollToElement(intake);
+      }
+    });
+  }
+
   function isStartLink(link) {
     var text = normalizeText(link.textContent);
     var className = normalizeText(link.className);
@@ -335,7 +410,8 @@
       nestedText &&
       (
         normalizeText(nestedText.textContent).indexOf("book now") !== -1 ||
-        normalizeText(nestedText.textContent).indexOf("request consultation") !== -1
+        normalizeText(nestedText.textContent).indexOf("request consultation") !== -1 ||
+        normalizeText(nestedText.textContent).indexOf("request consult") !== -1
       )
     ) {
       nestedText.textContent = newText;
@@ -362,6 +438,7 @@
         text === "book now" ||
         text.indexOf("book now") !== -1 ||
         text.indexOf("request consultation") !== -1 ||
+        text.indexOf("request consult") !== -1 ||
         text.indexOf("schedule") !== -1 ||
         text.indexOf("consultation") !== -1 ||
         href.indexOf("calendly") !== -1 ||
@@ -387,11 +464,165 @@
     });
   }
 
+  function inferPracticeKey(text) {
+    var value = normalizeText(text);
+
+    if (value.indexOf("divorce") !== -1 || value.indexOf("separation") !== -1) {
+      return "divorce-separation";
+    }
+
+    if (value.indexOf("parenting") !== -1 || value.indexOf("decision") !== -1) {
+      return "parenting";
+    }
+
+    if (value.indexOf("child support") !== -1 || value.indexOf("spousal") !== -1 || value.indexOf("maintenance") !== -1) {
+      return "support-maintenance";
+    }
+
+    if (value.indexOf("document") !== -1 || value.indexOf("filing") !== -1) {
+      return "documents";
+    }
+
+    if (value.indexOf("modification") !== -1 || value.indexOf("enforcement") !== -1) {
+      return "modification-enforcement";
+    }
+
+    if (value.indexOf("court") !== -1 || value.indexOf("licensed scope") !== -1) {
+      return "court-appearance";
+    }
+
+    return "family-law-pathway";
+  }
+
+  function looksLikePracticeCard(element) {
+    if (!element) return false;
+
+    var text = normalizeText(element.textContent);
+
+    if (text.length < 18 || text.length > 420) return false;
+
+    var hasKeyword = PRACTICE_KEYWORDS.some(function (keyword) {
+      return text.indexOf(keyword) !== -1;
+    });
+
+    if (!hasKeyword) return false;
+
+    var childCount = element.children ? element.children.length : 0;
+
+    return childCount >= 1;
+  }
+
+  function findPracticeCards(section) {
+    if (!section) return [];
+
+    var candidates = getAll("a, article, .w-layout-cell, .w-dyn-item, div", section);
+    var cards = [];
+
+    candidates.forEach(function (candidate) {
+      if (!looksLikePracticeCard(candidate)) return;
+
+      var parentAlreadySelected = cards.some(function (existing) {
+        return existing.contains(candidate);
+      });
+
+      if (parentAlreadySelected) return;
+
+      var candidateContainsExisting = cards.some(function (existing) {
+        return candidate.contains(existing);
+      });
+
+      if (candidateContainsExisting) return;
+
+      cards.push(candidate);
+    });
+
+    return cards.slice(0, 8);
+  }
+
+  function addPracticeCue(card) {
+    if (!card) return;
+    if (card.querySelector(".mflg-practice-path-cue")) return;
+
+    var cue = document.createElement("span");
+    cue.className = "mflg-practice-path-cue";
+    cue.textContent = "Start path →";
+
+    card.appendChild(cue);
+  }
+
+  function createPathwayPill(pathway) {
+    var button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "mflg-pathway-pill";
+    button.setAttribute("data-mflg-pathway", pathway.key);
+
+    button.innerHTML =
+      '<span class="mflg-pathway-pill-title">' +
+      pathway.title +
+      '</span>' +
+      '<span class="mflg-pathway-pill-sub">' +
+      pathway.sub +
+      '</span>' +
+      '<span class="mflg-pathway-pill-cta">Start path →</span>';
+
+    routeElementToIntake(button, pathway.key);
+
+    return button;
+  }
+
+  function addExtraPathways(section) {
+    if (!section) return;
+    if (section.querySelector(".mflg-pathways-wrap")) return;
+
+    var wrap = document.createElement("div");
+    wrap.className = "mflg-pathways-wrap";
+
+    var kicker = document.createElement("span");
+    kicker.className = "mflg-pathways-kicker";
+    kicker.textContent = "More family-law pathways";
+
+    var grid = document.createElement("div");
+    grid.className = "mflg-pathways-grid";
+
+    EXTRA_PATHWAYS.forEach(function (pathway) {
+      grid.appendChild(createPathwayPill(pathway));
+    });
+
+    wrap.appendChild(kicker);
+    wrap.appendChild(grid);
+
+    section.appendChild(wrap);
+  }
+
+  function initPracticeAreaPathways() {
+    var practice = getPracticeElement();
+
+    if (!practice) return;
+
+    practice.classList.add("mflg-practice-enhanced");
+
+    var cards = findPracticeCards(practice);
+
+    cards.forEach(function (card) {
+      var pathwayKey = inferPracticeKey(card.textContent);
+
+      card.classList.add("mflg-practice-card");
+      card.setAttribute("data-mflg-pathway", pathwayKey);
+
+      addPracticeCue(card);
+      routeElementToIntake(card, pathwayKey);
+    });
+
+    addExtraPathways(practice);
+  }
+
   ready(function () {
     initAnchorIds();
     initNav();
     initNavRouting();
     initHeroCtas();
     initFeesCtas();
+    initPracticeAreaPathways();
   });
 })();
