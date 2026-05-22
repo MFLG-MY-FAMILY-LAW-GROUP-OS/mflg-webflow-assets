@@ -1,4 +1,4 @@
-/* MFLG Intake Final Launch v3.2 — Routing Context Upgrade
+/* MFLG Intake Final Launch v3.3 — Manual Override + One-Time Route Apply Fix
    File: js/mflg-intake.js
    Architecture: Webflow external JS → n8n webhook → Google Sheets/Gmail/Vapi routing in n8n.
 
@@ -6,7 +6,8 @@
    - Full replacement file
    - Adds safe public route method: window.MFLGIntakeRoute(...)
    - Adds routing-context banner on Step 1
-   - Allows external site-enhancement JS to pass issue/service/context without rebuilding intake
+   - Applies stored/external routing context once instead of on every render
+   - Allows manual issue-card selections to override routed context
    - Preserves conditional logic, field names, payload, validation, n8n submission, and Vapi routing flags
    - Preserves locked intake design structure
    - Do not place secrets in this public file
@@ -16,7 +17,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.2-routing-context",
+    version: "3.3-manual-override",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -48,6 +49,7 @@
       routedAt: "",
       userChangedIssue: false
     },
+    routeAppliedFromStorage: false,
     submitting: false,
     submittedPayload: null,
     submitAttemptCount: 0
@@ -104,8 +106,6 @@
     opt("Document Preparation / Review", "Documents", "Prepare, review, file, or respond to family-law documents.", "document"),
     opt("Not Sure", "Not Sure", "Answer broader triage questions so we can identify the next step.", "question")
   ];
-
-  const validIssueValues = issueOptions.map((item) => item.value);
 
   const scopeItems = [
     "Adoption",
@@ -187,7 +187,8 @@
       checks("paternityIssues", "What issues are connected to parentage?", ["DNA testing", "Birth certificate", "Acknowledgment of paternity", "Parenting time", "Legal decision-making", "Child support", "Same-sex parentage issue", "Not sure"]),
       select("caseStage", "Is a case already filed?", ["Not filed yet", "Already filed / active case", "Final order entered", "I was served", "Not sure"], true)
     ],
-         "Modification of Existing Orders": [
+
+    "Modification of Existing Orders": [
       checks("orderToModify", "What order needs to be changed?", ["Parenting time", "Legal decision-making", "Child support", "Spousal maintenance", "Relocation", "Other family-court order", "Not sure"]),
       textarea("changeReason", "What changed?", "Briefly describe what changed and why a modification may be needed.", true),
       select("existingOrder", "Do you have a current signed court order?", ["Yes", "No", "Not sure"], true),
@@ -268,8 +269,7 @@
     const random = Math.random().toString(36).slice(2, 8).toUpperCase();
     return `${prefix}-${stamp}-${random}`;
   }
-
-  function esc(value) {
+     function esc(value) {
     return String(value ?? "").replace(/[&<>"']/g, function (character) {
       return {
         "&": "&amp;",
@@ -429,7 +429,9 @@
     set("routedServiceInterest", normalized.serviceInterest);
     set("routingContextJSON", routingContextHasValue(normalized) ? JSON.stringify(normalized) : "");
   }
-     function clearRoutingContext() {
+
+  function clearRoutingContext() {
+    state.routeAppliedFromStorage = true;
     state.routingContext = emptyRoutingContext();
     setRoutingAnswerFields(state.routingContext);
     storageRemove("mflgRouteContext");
@@ -451,6 +453,7 @@
       return false;
     }
 
+    state.routeAppliedFromStorage = true;
     state.routingContext = normalized;
     setRoutingAnswerFields(normalized);
     writeRoutingContextToStorage(normalized);
@@ -474,10 +477,16 @@
   }
 
   function applyStoredRoutingContext() {
+    if (state.routeAppliedFromStorage) {
+      return;
+    }
+
+    state.routeAppliedFromStorage = true;
+
     const storedContext = readRoutingContextFromStorage();
 
     if (routingContextHasValue(storedContext)) {
-      applyRoutingContext(storedContext, { render: false });
+      applyRoutingContext(storedContext, { render: false, fromStorage: true });
     }
   }
 
@@ -528,7 +537,7 @@
     mount.innerHTML = `
       <section class="mflg-intake" data-version="${esc(CONFIG.version)}">
         <div class="mflg-shell">
-          <div class="mflg-right">
+                  <div class="mflg-right">
             ${state.step === 6 ? "" : introBlock()}
 
             <header class="mflg-head">
@@ -667,7 +676,8 @@
       </section>
     `;
   }
-     function pathwayStep() {
+
+  function pathwayStep() {
     const issue = state.issuePathway || ans("issuePathway") || "Not Sure";
     const questions = pathways[issue] || pathways["Not Sure"];
 
@@ -740,8 +750,7 @@
             <p class="mflg-help">Leave blank if unknown.</p>
           </div>
         </div>
-
-        <div class="mflg-grid2">
+                <div class="mflg-grid2">
           <div class="mflg-field">
             <label class="mflg-label">Court/hearing date, if any</label>
             ${dateEl("courtDate")}
@@ -951,7 +960,8 @@
       </section>
     `;
   }
-     function card(group, value, title, sub, iconName) {
+
+  function card(group, value, title, sub, iconName) {
     const selected = group === "issuePathway" ? state.issuePathway === value : ans(group) === value;
     const wide = group === "issuePathway" && value === "Not Sure" ? " mflg-card-wide" : "";
 
@@ -974,8 +984,7 @@
       </button>
     `;
   }
-
-  function selectEl(key, options, required) {
+     function selectEl(key, options, required) {
     return `
       <select class="mflg-select" data-key="${key}" ${required ? "data-required='true'" : ""}>
         <option value="">Select one</option>
@@ -1088,8 +1097,14 @@
           set("matterCategory", value);
           set("issuePathway", value);
 
-          if (prior && prior !== value) {
-            state.routingContext.userChangedIssue = true;
+          if (prior && prior !== value && routingContextHasValue(state.routingContext)) {
+            state.routingContext = {
+              ...state.routingContext,
+              issuePathway: value,
+              userChangedIssue: true,
+              contextNote: `You changed the selected issue to ${value}. Continue with this pathway, or choose a different issue below if needed.`
+            };
+
             setRoutingAnswerFields(state.routingContext);
             writeRoutingContextToStorage(state.routingContext);
           }
@@ -1578,6 +1593,8 @@
       if (!response.ok) {
         throw new Error(`n8n webhook returned ${response.status}`);
       }
+
+      clearRoutingContext();
 
       state.submittedPayload = submissionPayload;
       state.step = 6;
