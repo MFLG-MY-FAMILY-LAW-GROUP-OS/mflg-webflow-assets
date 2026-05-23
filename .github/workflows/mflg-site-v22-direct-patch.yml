@@ -1,0 +1,145 @@
+name: MFLG Site v2.2 Direct Patch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/mflg-site-v22-direct-patch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Patch site enhancements safely
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('js/mflg-site-enhancements.js')
+          s = p.read_text(encoding='utf-8')
+
+          def replace_once(src, old, new, label):
+              if new in src:
+                  return src
+              if old not in src:
+                  print(f'SKIP {label}: old pattern not found')
+                  return src
+              print(f'PATCH {label}')
+              return src.replace(old, new, 1)
+
+          s = s.replace('/* MFLG Site Enhancements v2.1', '/* MFLG Site Enhancements v2.2')
+          s = s.replace('View All Family Law Pathways scrolls to full pathway section', 'View More Family Law Pathways reveals the full pathway section on click')
+
+          s = replace_once(
+              s,
+              '      text.indexOf("view all family law pathways") !== -1 ||\n      href === "#practice-areas"',
+              '      text.indexOf("view all family law pathways") !== -1 ||\n      text.indexOf("view more family law pathways") !== -1 ||\n      href === "#practice-areas"',
+              'practice link matcher'
+          )
+
+          s = replace_once(
+              s,
+              '      } else if (isPracticeLink(link)) {\n        link.setAttribute("href", "#practice-areas");\n        routeLinkToElement(link, practice);\n      } else if (isFeesLink(link)) {',
+              '      } else if (isPracticeLink(link)) {\n        link.setAttribute("href", "#practice-areas");\n        routeLinkToElement(link, practice, function () {\n          hideFullPathwaysSection();\n        });\n      } else if (isFeesLink(link)) {',
+              'nav practice reset'
+          )
+
+          s = replace_once(
+              s,
+              '        link.classList.add("mflg-hero-secondary-cta");\n        link.setAttribute("href", "#practice-areas");\n        routeLinkToElement(link, practice);',
+              '        link.classList.add("mflg-hero-secondary-cta");\n        link.setAttribute("href", "#practice-areas");\n        routeLinkToElement(link, practice, function () {\n          hideFullPathwaysSection();\n        });',
+              'hero practice reset'
+          )
+
+          s = replace_once(
+              s,
+              '    var section = createFullPathwaysSection();\n    var fees = getFeesElement();',
+              '    var section = createFullPathwaysSection();\n    var fees = getFeesElement();\n\n    section.setAttribute("hidden", "hidden");\n    section.setAttribute("aria-hidden", "true");\n    section.style.display = "none";',
+              'initial hidden full pathways'
+          )
+
+          helper = '''  function revealFullPathwaysSection(section, buttonWrap) {
+    if (!section) return;
+
+    section.removeAttribute("hidden");
+    section.setAttribute("aria-hidden", "false");
+    section.style.display = "";
+    section.classList.add("mflg-full-pathways-revealed");
+
+    if (buttonWrap) {
+      buttonWrap.style.display = "none";
+      buttonWrap.setAttribute("aria-hidden", "true");
+    }
+
+    window.setTimeout(function () {
+      scrollToElement(section);
+    }, 40);
+  }
+
+  function hideFullPathwaysSection() {
+    var section = findFullPathwaySection();
+
+    if (section) {
+      section.setAttribute("hidden", "hidden");
+      section.setAttribute("aria-hidden", "true");
+      section.style.display = "none";
+      section.classList.remove("mflg-full-pathways-revealed");
+    }
+
+    getAll(".mflg-practice-view-all-wrap, .mflg-view-pathways-wrap").forEach(function (wrap) {
+      wrap.style.display = "";
+      wrap.removeAttribute("aria-hidden");
+    });
+  }
+
+'''
+          marker = '  function addPracticeViewAllButton(practice, cards) {'
+          if 'function revealFullPathwaysSection(' not in s:
+              if marker not in s:
+                  raise SystemExit('Required marker missing: addPracticeViewAllButton')
+              print('PATCH reveal/hide helper')
+              s = s.replace(marker, helper + marker, 1)
+
+          s = s.replace('button.textContent = "View All Family Law Pathways";', 'button.textContent = "View More Family Law Pathways";')
+          s = s.replace('button.setAttribute("aria-label", "View all family law pathways");', 'button.setAttribute("aria-label", "View more family law pathways");')
+
+          s = replace_once(
+              s,
+              '    routeLinkToElement(button, pathwaySection);',
+              '    button.addEventListener("click", function (event) {\n      event.preventDefault();\n      revealFullPathwaysSection(pathwaySection, wrap);\n    });',
+              'view more reveal click'
+          )
+
+          checks = [
+              'MFLG Site Enhancements v2.2',
+              'View More Family Law Pathways',
+              'function revealFullPathwaysSection',
+              'function hideFullPathwaysSection',
+              'section.setAttribute("hidden", "hidden");',
+              'revealFullPathwaysSection(pathwaySection, wrap);'
+          ]
+          missing = [c for c in checks if c not in s]
+          if missing:
+              raise SystemExit('Patch validation failed. Missing: ' + ', '.join(missing))
+
+          p.write_text(s, encoding='utf-8')
+          print('v2.2 reveal pathways patch written')
+          PY
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- js/mflg-site-enhancements.js; then
+            echo "No site enhancements changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/mflg-site-enhancements.js
+          git commit -m "Update site enhancements to v2.2 reveal pathways"
+          git push
