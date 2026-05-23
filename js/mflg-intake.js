@@ -1,4 +1,4 @@
-/* MFLG Intake Final Launch v3.3 — Manual Override + One-Time Route Apply Fix
+/* MFLG Intake Final Launch v3.3.1 — Dynamic Context Banner Sync
    File: js/mflg-intake.js
    Architecture: Webflow external JS → n8n webhook → Google Sheets/Gmail/Vapi routing in n8n.
 
@@ -17,7 +17,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.3-manual-override",
+    version: "3.3.1-dynamic-context-banner",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -1097,10 +1097,13 @@
           set("matterCategory", value);
           set("issuePathway", value);
 
-          if (prior && prior !== value && routingContextHasValue(state.routingContext)) {
+          if (prior && prior !== value) {
             state.routingContext = {
               ...state.routingContext,
+              entrySource: "manual-issue-change",
+              entryLabel: "Selected issue updated",
               issuePathway: value,
+              serviceInterest: state.routingContext.serviceInterest || ans("serviceInterest") || "",
               userChangedIssue: true,
               contextNote: `You changed the selected issue to ${value}. Continue with this pathway, or choose a different issue below if needed.`
             };
