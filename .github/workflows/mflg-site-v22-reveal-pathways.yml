@@ -1,0 +1,97 @@
+name: MFLG Site v2.2 Reveal Pathways Patch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/mflg-site-v22-reveal-pathways.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-site-enhancements:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Apply reveal-more-pathways patch
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('js/mflg-site-enhancements.js')
+          s = p.read_text(encoding='utf-8')
+
+          s = s.replace('/* MFLG Site Enhancements v2.1', '/* MFLG Site Enhancements v2.2')
+          s = s.replace('View All Family Law Pathways scrolls to full pathway section', 'View More Family Law Pathways reveals the full pathway section on click')
+
+          s = s.replace('routeLinkToElement(link, practice);', 'routeLinkToElement(link, practice, function () {\n          hideFullPathwaysSection();\n        });')
+
+          create_pat = '    var section = createFullPathwaysSection();\n    var fees = getFeesElement();'
+          create_rep = '    var section = createFullPathwaysSection();\n    var fees = getFeesElement();\n\n    section.setAttribute("hidden", "hidden");\n    section.setAttribute("aria-hidden", "true");\n    section.style.display = "none";'
+          if create_pat in s and 'section.setAttribute("hidden", "hidden");' not in s:
+              s = s.replace(create_pat, create_rep, 1)
+
+          helper = '''  function revealFullPathwaysSection(section, buttonWrap) {
+    if (!section) return;
+
+    section.removeAttribute("hidden");
+    section.setAttribute("aria-hidden", "false");
+    section.style.display = "";
+    section.classList.add("mflg-full-pathways-revealed");
+
+    if (buttonWrap) {
+      buttonWrap.style.display = "none";
+      buttonWrap.setAttribute("aria-hidden", "true");
+    }
+
+    window.setTimeout(function () {
+      scrollToElement(section);
+    }, 40);
+  }
+
+  function hideFullPathwaysSection() {
+    var section = findFullPathwaySection();
+
+    if (section) {
+      section.setAttribute("hidden", "hidden");
+      section.setAttribute("aria-hidden", "true");
+      section.style.display = "none";
+      section.classList.remove("mflg-full-pathways-revealed");
+    }
+
+    getAll(".mflg-practice-view-all-wrap, .mflg-view-pathways-wrap").forEach(function (wrap) {
+      wrap.style.display = "flex";
+      wrap.removeAttribute("aria-hidden");
+    });
+  }
+
+'''
+          marker = '  function addPracticeViewAllButton(practice, cards) {'
+          if 'function revealFullPathwaysSection(' not in s:
+              if marker not in s:
+                  raise SystemExit('Could not find addPracticeViewAllButton marker')
+              s = s.replace(marker, helper + marker, 1)
+
+          s = s.replace('button.textContent = "View All Family Law Pathways";', 'button.textContent = "View More Family Law Pathways";')
+          s = s.replace('button.setAttribute("aria-label", "View all family law pathways");', 'button.setAttribute("aria-label", "View more family law pathways");')
+
+          s = s.replace('    routeLinkToElement(button, pathwaySection);', '    button.addEventListener("click", function (event) {\n      event.preventDefault();\n      revealFullPathwaysSection(pathwaySection, wrap);\n    });')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit patch if changed
+        run: |
+          if git diff --quiet -- js/mflg-site-enhancements.js; then
+            echo "No site-enhancements changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/mflg-site-enhancements.js
+          git commit -m "Update site enhancements to v2.2 reveal pathways"
+          git push
