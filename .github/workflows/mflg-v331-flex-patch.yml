@@ -1,0 +1,77 @@
+name: MFLG v3.3.1 Flex Patch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/mflg-v331-flex-patch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-intake-js:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Apply flexible v3.3.1 patch
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('js/mflg-intake.js')
+          s = p.read_text(encoding='utf-8')
+
+          s = s.replace('/* MFLG Intake Final Launch v3.3 — Manual Override + One-Time Route Apply Fix',
+                        '/* MFLG Intake Final Launch v3.3.1 — Dynamic Context Banner Sync')
+          s = s.replace('version: "3.3-manual-override",',
+                        'version: "3.3.1-dynamic-context-banner",')
+
+          marker = 'if (prior && prior !== value && routingContextHasValue(state.routingContext)) {'
+          if marker in s:
+              lines = s.splitlines()
+              start = next(i for i, line in enumerate(lines) if marker in line)
+              end = None
+              for i in range(start, min(start + 25, len(lines))):
+                  if 'writeRoutingContextToStorage(state.routingContext);' in lines[i]:
+                      end = i + 1
+                      break
+              if end is None:
+                  raise SystemExit('Could not find routing-context block end')
+              replacement = [
+                  '          if (prior && prior !== value) {',
+                  '            state.routingContext = {',
+                  '              ...state.routingContext,',
+                  '              entrySource: "manual-issue-change",',
+                  '              entryLabel: "Selected issue updated",',
+                  '              issuePathway: value,',
+                  '              serviceInterest: state.routingContext.serviceInterest || ans("serviceInterest") || "",',
+                  '              userChangedIssue: true,',
+                  '              contextNote: `You changed the selected issue to ${value}. Continue with this pathway, or choose a different issue below if needed.`',
+                  '            };',
+                  '',
+                  '            setRoutingAnswerFields(state.routingContext);',
+                  '            writeRoutingContextToStorage(state.routingContext);',
+                  '          }'
+              ]
+              lines[start:end+1] = replacement
+              s = '\n'.join(lines) + '\n'
+          elif 'entrySource: "manual-issue-change"' not in s:
+              raise SystemExit('Manual issue-change block not found and patch not already applied')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit patch if changed
+        run: |
+          if git diff --quiet -- js/mflg-intake.js; then
+            echo "No intake JS changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/mflg-intake.js
+          git commit -m "Update intake JS to v3.3.1 dynamic context banner"
+          git push
