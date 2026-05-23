@@ -1,9 +1,6 @@
 name: MFLG Site v2.2 Reveal Pathways Patch
 
 on:
-  push:
-    paths:
-      - '.github/workflows/mflg-site-v22-reveal-pathways.yml'
   workflow_dispatch:
 
 permissions:
@@ -20,66 +17,107 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re
 
           p = Path('js/mflg-site-enhancements.js')
           s = p.read_text(encoding='utf-8')
 
           s = s.replace('/* MFLG Site Enhancements v2.1', '/* MFLG Site Enhancements v2.2')
           s = s.replace('View All Family Law Pathways scrolls to full pathway section', 'View More Family Law Pathways reveals the full pathway section on click')
+          s = s.replace('text.indexOf("view all family law pathways") !== -1 ||', 'text.indexOf("view all family law pathways") !== -1 ||\n      text.indexOf("view more family law pathways") !== -1 ||')
 
-          s = s.replace('routeLinkToElement(link, practice);', 'routeLinkToElement(link, practice, function () {\n          hideFullPathwaysSection();\n        });')
+          old_nav = '''      } else if (isPracticeLink(link)) {
+        link.setAttribute("href", "#practice-areas");
+        routeLinkToElement(link, practice);
+      } else if (isFeesLink(link)) {'''
+          new_nav = '''      } else if (isPracticeLink(link)) {
+        link.setAttribute("href", "#practice-areas");
+        routeLinkToElement(link, practice, function () {
+          hideFullPathwaysSection();
+        });
+      } else if (isFeesLink(link)) {'''
+          if old_nav in s:
+            s = s.replace(old_nav, new_nav, 1)
 
-          create_pat = '    var section = createFullPathwaysSection();\n    var fees = getFeesElement();'
-          create_rep = '    var section = createFullPathwaysSection();\n    var fees = getFeesElement();\n\n    section.setAttribute("hidden", "hidden");\n    section.setAttribute("aria-hidden", "true");\n    section.style.display = "none";'
-          if create_pat in s and 'section.setAttribute("hidden", "hidden");' not in s:
-              s = s.replace(create_pat, create_rep, 1)
+          old_hero = '''      if (text.indexOf("view practice") !== -1 || text.indexOf("practice area") !== -1) {
+        link.classList.add("mflg-hero-secondary-cta");
+        link.setAttribute("href", "#practice-areas");
+        routeLinkToElement(link, practice);
+      }'''
+          new_hero = '''      if (text.indexOf("view practice") !== -1 || text.indexOf("practice area") !== -1) {
+        link.classList.add("mflg-hero-secondary-cta");
+        link.setAttribute("href", "#practice-areas");
+        routeLinkToElement(link, practice, function () {
+          hideFullPathwaysSection();
+        });
+      }'''
+          if old_hero in s:
+            s = s.replace(old_hero, new_hero, 1)
 
-          helper = '''  function revealFullPathwaysSection(section, buttonWrap) {
-    if (!section) return;
+          old_create = '''    var section = createFullPathwaysSection();
+    var fees = getFeesElement();'''
+          new_create = '''    var section = createFullPathwaysSection();
+    var fees = getFeesElement();
 
-    section.removeAttribute("hidden");
-    section.setAttribute("aria-hidden", "false");
-    section.style.display = "";
-    section.classList.add("mflg-full-pathways-revealed");
+    section.setAttribute("hidden", "hidden");
+    section.setAttribute("aria-hidden", "true");
+    section.style.display = "none";'''
+          if old_create in s and 'section.setAttribute("hidden", "hidden");' not in s:
+            s = s.replace(old_create, new_create, 1)
 
-    if (buttonWrap) {
-      buttonWrap.style.display = "none";
-      buttonWrap.setAttribute("aria-hidden", "true");
-    }
-
-    window.setTimeout(function () {
-      scrollToElement(section);
-    }, 40);
-  }
-
-  function hideFullPathwaysSection() {
-    var section = findFullPathwaySection();
-
-    if (section) {
-      section.setAttribute("hidden", "hidden");
-      section.setAttribute("aria-hidden", "true");
-      section.style.display = "none";
-      section.classList.remove("mflg-full-pathways-revealed");
-    }
-
-    getAll(".mflg-practice-view-all-wrap, .mflg-view-pathways-wrap").forEach(function (wrap) {
-      wrap.style.display = "flex";
-      wrap.removeAttribute("aria-hidden");
-    });
-  }
-
-'''
+          helper_lines = [
+            '  function revealFullPathwaysSection(section, buttonWrap) {',
+            '    if (!section) return;',
+            '',
+            '    section.removeAttribute("hidden");',
+            '    section.setAttribute("aria-hidden", "false");',
+            '    section.style.display = "";',
+            '    section.classList.add("mflg-full-pathways-revealed");',
+            '',
+            '    if (buttonWrap) {',
+            '      buttonWrap.style.display = "none";',
+            '      buttonWrap.setAttribute("aria-hidden", "true");',
+            '    }',
+            '',
+            '    window.setTimeout(function () {',
+            '      scrollToElement(section);',
+            '    }, 40);',
+            '  }',
+            '',
+            '  function hideFullPathwaysSection() {',
+            '    var section = findFullPathwaySection();',
+            '',
+            '    if (section) {',
+            '      section.setAttribute("hidden", "hidden");',
+            '      section.setAttribute("aria-hidden", "true");',
+            '      section.style.display = "none";',
+            '      section.classList.remove("mflg-full-pathways-revealed");',
+            '    }',
+            '',
+            '    getAll(".mflg-practice-view-all-wrap, .mflg-view-pathways-wrap").forEach(function (wrap) {',
+            '      wrap.style.display = "flex";',
+            '      wrap.removeAttribute("aria-hidden");',
+            '    });',
+            '  }',
+            '',
+            ''
+          ]
+          helper = '\n'.join(helper_lines)
           marker = '  function addPracticeViewAllButton(practice, cards) {'
           if 'function revealFullPathwaysSection(' not in s:
-              if marker not in s:
-                  raise SystemExit('Could not find addPracticeViewAllButton marker')
-              s = s.replace(marker, helper + marker, 1)
+            if marker not in s:
+              raise SystemExit('Could not find addPracticeViewAllButton marker')
+            s = s.replace(marker, helper + marker, 1)
 
           s = s.replace('button.textContent = "View All Family Law Pathways";', 'button.textContent = "View More Family Law Pathways";')
           s = s.replace('button.setAttribute("aria-label", "View all family law pathways");', 'button.setAttribute("aria-label", "View more family law pathways");')
 
-          s = s.replace('    routeLinkToElement(button, pathwaySection);', '    button.addEventListener("click", function (event) {\n      event.preventDefault();\n      revealFullPathwaysSection(pathwaySection, wrap);\n    });')
+          old_button_route = '''    routeLinkToElement(button, pathwaySection);'''
+          new_button_route = '''    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      revealFullPathwaysSection(pathwaySection, wrap);
+    });'''
+          if old_button_route in s and 'revealFullPathwaysSection(pathwaySection, wrap);' not in s:
+            s = s.replace(old_button_route, new_button_route, 1)
 
           p.write_text(s, encoding='utf-8')
           PY
