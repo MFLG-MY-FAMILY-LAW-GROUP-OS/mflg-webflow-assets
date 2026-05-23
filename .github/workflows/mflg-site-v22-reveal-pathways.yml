@@ -1,6 +1,9 @@
 name: MFLG Site v2.2 Reveal Pathways Patch
 
 on:
+  push:
+    paths:
+      - '.github/workflows/mflg-site-v22-reveal-pathways.yml'
   workflow_dispatch:
 
 permissions:
