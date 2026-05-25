@@ -151,6 +151,7 @@
     "Not sure"
   ];
 
+
   const arizonaCountyOptions = [
     "Maricopa",
     "Pinal",
@@ -394,7 +395,7 @@
     try {
       return value ? JSON.parse(value) : null;
     } catch (error) {
-             return null;
+      return null;
     }
   }
 
@@ -604,8 +605,6 @@
     const mount = root();
     if (!mount) return;
 
-    syncChildrenSummaryFields();
-
     const stage = currentStage();
 
     mount.innerHTML = `
@@ -754,6 +753,13 @@
   function pathwayStep() {
     const issue = state.issuePathway || ans("issuePathway") || "Not Sure";
     const questions = pathways[issue] || pathways["Not Sure"];
+    const hasEmbeddedChildDetails = questions.some((question) => question.key === "childrenAges");
+    const shouldShowChildDetails =
+      !hasEmbeddedChildDetails &&
+      (ans("childrenInvolved") === "Yes" ||
+        issue === "Parenting Time / Legal Decision-Making" ||
+        issue === "Child Support" ||
+        issue === "Paternity");
 
     return `
       <section class="mflg-screen">
@@ -763,7 +769,7 @@
         <div class="mflg-panel">
           <h4 class="mflg-panel-title">Pathway questions</h4>
           ${questions.map(renderQuestion).join("")}
-          ${childDetailsShouldShow() ? childrenDetailsPanel() : ""}
+          ${shouldShowChildDetails ? childrenDetailsPanel() : ""}
         </div>
 
         ${["Protective Order Related to Family Law", "Document Preparation / Review", "Mediation / ADR / Settlement Help"].includes(issue) ? `
@@ -775,7 +781,7 @@
     `;
   }
 
-  function timingStep() {
+    function timingStep() {
     return `
       <section class="mflg-screen">
         <h3 class="mflg-title">${icon("clock")}Court status, urgency, and deadlines.</h3>
@@ -786,7 +792,7 @@
             <label class="mflg-label">When do you need help?</label>
             <div class="mflg-cards three">
               ${card("urgencySelection", "ASAP", "ASAP", "Urgent — I need help right away.", "clock")}
-                            ${card("urgencySelection", "Within 30 Days", "Within 30 Days", "I need help in the next few weeks.", "document")}
+              ${card("urgencySelection", "Within 30 Days", "Within 30 Days", "I need help in the next few weeks.", "document")}
               ${card("urgencySelection", "Just Exploring", "Just Exploring", "I’m gathering info for the future.", "question")}
             </div>
           </div>
@@ -955,13 +961,8 @@
 
           <div class="mflg-field">
             <label class="mflg-label">How did you hear about us?</label>
-            ${selectEl("howDidYouHearAboutUsBase", howDidYouHearOptions, false)}
-            ${["Referral", "Other"].includes(ans("howDidYouHearAboutUsBase")) ? `
-              <div style="margin-top:10px">
-                ${inputEl("howDidYouHearAboutUsDetail", ans("howDidYouHearAboutUsBase") === "Referral" ? "Who referred you?" : "Please describe")}
-                <p class="mflg-help">This detail will be saved with your referral/source selection.</p>
-              </div>
-            ` : ""}
+            ${selectEl("howDidYouHearAboutUs", howDidYouHearOptions, false)}
+            ${howDidYouHearFollowUp()}
           </div>
         </div>
 
@@ -1021,187 +1022,6 @@
         If you are in immediate danger, call 911 or local emergency services. This intake is not monitored 24/7 and does not create an emergency-response relationship.
       </div>
     `;
-  }
-
-  function childDetailsShouldShow() {
-    return ans("childrenInvolved") === "Yes" || ans("minorChildrenInvolved") === "Yes";
-  }
-
-  function getChildCountNumber() {
-    const value = ans("childrenCount");
-    if (value === "5+") return 5;
-    const parsed = parseInt(value, 10);
-    return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
-  }
-
-  function childKey(index, field) {
-    return `child${index}${field}`;
-  }
-
-  function calculateAgeFromDob(dob) {
-    if (!dob) return "";
-    const birth = new Date(`${dob}T00:00:00`);
-    if (Number.isNaN(birth.getTime())) return "";
-
-    const today = new Date();
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-      age -= 1;
-    }
-
-    if (age < 0) return "";
-    if (age === 0) return "Under 1";
-    return String(age);
-  }
-
-  function childAgeValue(index) {
-    const dob = ans(childKey(index, "Dob"));
-    const manual = ans(childKey(index, "Age"));
-
-    if (manual && manual !== "Auto-calculate from DOB") return manual;
-
-    return calculateAgeFromDob(dob) || "";
-  }
-
-  function syncChildrenSummaryFields() {
-    if (!childDetailsShouldShow()) return;
-
-    const count = getChildCountNumber();
-    if (!count) return;
-
-    const ages = [];
-    const locations = [];
-    const outsideAz = [];
-
-    for (let index = 1; index <= count; index += 1) {
-      const name = ans(childKey(index, "Name"));
-      const dob = ans(childKey(index, "Dob"));
-      const age = childAgeValue(index);
-      const cityState = ans(childKey(index, "CityState"));
-      const livesAz = ans(childKey(index, "LivesInAz"));
-
-      const label = name ? name : `Child ${index}`;
-
-      if (dob || age) {
-        ages.push(`${label}: ${dob ? `DOB ${dob}` : ""}${dob && age ? ", " : ""}${age ? `Age ${age}` : ""}`);
-      }
-
-      if (cityState || livesAz) {
-        locations.push(`${label}: ${cityState || "Current city/state not provided"}${livesAz ? `; Lives in Arizona: ${livesAz}` : ""}`);
-      }
-
-      if (livesAz === "No" || livesAz === "Not sure") {
-        outsideAz.push(`${label}: ${livesAz}`);
-      }
-    }
-
-    set("childrenAges", ages.join(" | "));
-    set("childrenCurrentCityState", locations.join(" | "));
-
-    if (outsideAz.length && !ans("childrenLivedOutsideAZ5Years")) {
-      set("childrenLivedOutsideAZ5Years", "Not sure");
-    }
-
-    set("childrenDetailsSummary", [
-      ages.length ? `Ages/DOBs: ${ages.join(" | ")}` : "",
-      locations.length ? `Locations: ${locations.join(" | ")}` : "",
-      outsideAz.length ? `Arizona residency notes: ${outsideAz.join(" | ")}` : ""
-    ].filter(Boolean).join("\n"));
-  }
-
-  function childrenDetailsPanel() {
-    const count = getChildCountNumber();
-
-    return `
-      <div class="mflg-panel" data-child-details-panel="true">
-        <h4 class="mflg-panel-title">Minor child details</h4>
-        <p class="mflg-copy" style="margin-bottom:18px">This helps avoid manual age/DOB typing and keeps child information organized for review.</p>
-
-        <div class="mflg-grid2">
-          <div class="mflg-field">
-            <label class="mflg-label">How many minor children are involved?</label>
-            ${selectEl("childrenCount", childCountOptions, true)}
-          </div>
-
-          <div class="mflg-field">
-            <label class="mflg-label">Have any children lived outside Arizona in the last five years?</label>
-            ${selectEl("childrenLivedOutsideAZ5Years", ["Yes", "No", "Not sure"], false)}
-          </div>
-        </div>
-
-        ${count ? `
-          <div class="mflg-cards" style="margin-top:18px">
-            ${Array.from({ length: count }, (_, itemIndex) => childCard(itemIndex + 1)).join("")}
-          </div>
-        ` : `
-          <p class="mflg-help">Select the number of minor children to add structured child cards.</p>
-        `}
-
-        ${ans("childrenCount") === "5+" ? `
-          <div class="mflg-field" style="margin-top:18px">
-            <label class="mflg-label">Additional child notes</label>
-            ${textareaEl("additionalChildrenNotes", "For 5+ children, add any additional names/initials, DOBs, ages, or location details here.", false)}
-          </div>
-        ` : ""}
-      </div>
-    `;
-  }
-
-  function childCard(index) {
-    const dob = ans(childKey(index, "Dob"));
-    const calculatedAge = calculateAgeFromDob(dob);
-         return `
-      <div class="mflg-card mflg-card-wide" style="display:block;cursor:default;transform:none">
-        <strong class="mflg-card-title">Child ${index}</strong>
-        <div class="mflg-grid2" style="margin-top:14px">
-          <div class="mflg-field">
-            <label class="mflg-label">Name or initials</label>
-            ${inputEl(childKey(index, "Name"), "Optional")}
-          </div>
-
-          <div class="mflg-field">
-            <label class="mflg-label">Date of birth</label>
-            ${dateEl(childKey(index, "Dob"))}
-          </div>
-        </div>
-
-        <div class="mflg-grid2">
-          <div class="mflg-field">
-            <label class="mflg-label">Age</label>
-            ${selectEl(childKey(index, "Age"), childAgeOptions, false)}
-            ${calculatedAge ? `<p class="mflg-help" data-age-help-for="${esc(childKey(index, "Dob"))}">Calculated from DOB: ${esc(calculatedAge)}</p>` : `<p class="mflg-help" data-age-help-for="${esc(childKey(index, "Dob"))}">Choose DOB first or select age if DOB is unknown.</p>`}
-          </div>
-
-          <div class="mflg-field">
-            <label class="mflg-label">Current city/state</label>
-            ${inputEl(childKey(index, "CityState"), "Example: Phoenix, AZ")}
-          </div>
-        </div>
-
-        <div class="mflg-field" style="margin-bottom:0">
-          <label class="mflg-label">Does this child currently live in Arizona?</label>
-          ${selectEl(childKey(index, "LivesInAz"), ["Yes", "No", "Not sure"], false)}
-        </div>
-      </div>
-    `;
-  }
-
-  function updateAgeHelpInPlace(dobKey) {
-    const mount = root();
-    if (!mount || !dobKey) return;
-
-    const match = /^child(\d+)Dob$/.exec(dobKey);
-    if (!match) return;
-
-    const index = parseInt(match[1], 10);
-    const calculated = calculateAgeFromDob(ans(dobKey));
-    const help = mount.querySelector(`[data-age-help-for='${dobKey}']`);
-
-    if (!help) return;
-
-    help.textContent = calculated ? `Calculated from DOB: ${calculated}` : "Choose DOB first or select age if DOB is unknown.";
   }
 
   function successStep() {
@@ -1265,7 +1085,9 @@
 
   function dateEl(key, required) {
     return `
-      <input class="mflg-input" type="date" data-key="${key}" value="${esc(ans(key))}" placeholder="Select date" ${required ? "data-required='true'" : ""}>
+      <div class="mflg-date-wrap" data-date-wrap>
+        <input class="mflg-input mflg-date-input" type="date" data-key="${key}" value="${esc(ans(key))}" placeholder="Select date" aria-label="Select date" ${required ? "data-required='true'" : ""}>
+      </div>
     `;
   }
 
@@ -1290,27 +1112,234 @@
     `;
   }
 
+  function howDidYouHearFollowUp() {
+    const selected = ans("howDidYouHearAboutUs");
+
+    if (selected !== "Referral" && selected !== "Other") {
+      return "";
+    }
+
+    const label = selected === "Referral" ? "Who referred you?" : "Please describe";
+    const placeholder = selected === "Referral" ? "Referral name or source" : "How you heard about us";
+
+    return `
+      <div class="mflg-field">
+        <label class="mflg-label">${label}</label>
+        ${inputEl("howDidYouHearAboutUsDetail", placeholder)}
+      </div>
+    `;
+  }
+
+  function composedHowDidYouHear() {
+    const selected = ans("howDidYouHearAboutUs");
+    const detail = String(ans("howDidYouHearAboutUsDetail") || "").trim();
+
+    if (!selected) return "";
+    if ((selected === "Referral" || selected === "Other") && detail) {
+      return `${selected} — ${detail}`;
+    }
+
+    return selected;
+  }
+
+  function childrenDetailsPanel() {
+    const childrenAnswer = ans("childrenInvolved");
+
+    if (childrenAnswer && childrenAnswer !== "Yes") {
+      return "";
+    }
+
+    const count = ans("childrenCount") || "";
+    const cardsToShow = childCardCount(count);
+
+    return `
+      <div class="mflg-panel mflg-children-panel">
+        <h4 class="mflg-panel-title">Minor children details</h4>
+        <p class="mflg-help">Enter date of birth where available. Age will be calculated from DOB when possible. If you are not sure, use the age dropdown.</p>
+
+        <div class="mflg-field">
+          <label class="mflg-label">How many minor children are involved?</label>
+          ${selectEl("childrenCount", childCountOptions, childrenAnswer === "Yes")}
+        </div>
+
+        ${cardsToShow ? Array.from({ length: cardsToShow }, (_, index) => childDetailCard(index + 1)).join("") : ""}
+
+        ${count === "5+" ? `
+          <div class="mflg-field">
+            <label class="mflg-label">Additional children details</label>
+            ${textareaEl("childrenAdditionalDetails", "For additional children, list initials, DOB/age if known, current city/state, and whether they live in Arizona.", false)}
+          </div>
+        ` : ""}
+
+        <p class="mflg-help">This section preserves the existing backend fields by summarizing child DOB/age details into childrenAges and child location details into childrenCurrentCityState.</p>
+      </div>
+    `;
+  }
+
+  function childCardCount(value) {
+    if (value === "5+") return 4;
+    const count = parseInt(value, 10);
+    return Number.isFinite(count) && count > 0 ? Math.min(count, 4) : 0;
+  }
+
+  function childDetailCard(number) {
+    const dobKey = `child${number}DateOfBirth`;
+    const ageKey = `child${number}Age`;
+    const calculated = calculateAgeFromDate(ans(dobKey));
+    const ageDisplay = calculated !== "" ? `${calculated}` : ans(ageKey);
+
+    return `
+      <div class="mflg-panel mflg-child-card" data-child-card="${number}">
+        <h4 class="mflg-panel-title">Child ${number}</h4>
+
+        <div class="mflg-grid2">
+          <div class="mflg-field">
+            <label class="mflg-label">Name or initials</label>
+            ${inputEl(`child${number}NameOrInitials`, "Optional")}
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Date of birth</label>
+            ${dateEl(dobKey)}
+          </div>
+        </div>
+
+        <div class="mflg-grid2">
+          <div class="mflg-field">
+            <label class="mflg-label">Age</label>
+            ${selectEl(ageKey, childAgeOptions, false)}
+            <p class="mflg-help" data-child-age-help="${number}">${calculated !== "" ? `Calculated from DOB: ${esc(ageDisplay)}` : "Choose age only if DOB is unknown or approximate."}</p>
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Current city/state</label>
+            ${inputEl(`child${number}CurrentCityState`, "Example: Phoenix, AZ")}
+          </div>
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Does this child currently live in Arizona?</label>
+          ${selectEl(`child${number}LivesInArizona`, ["Yes", "No", "Not sure"], false)}
+        </div>
+      </div>
+    `;
+  }
+
+  function calculateAgeFromDate(value) {
+    if (!value) return "";
+
+    const dob = new Date(`${value}T00:00:00`);
+    if (Number.isNaN(dob.getTime())) return "";
+
+    const today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    const monthDelta = today.getMonth() - dob.getMonth();
+
+    if (monthDelta < 0 || (monthDelta === 0 && today.getDate() < dob.getDate())) {
+      age -= 1;
+    }
+
+    return age >= 0 ? String(age) : "";
+  }
+
+  function updateChildDerivedFields() {
+    const countValue = ans("childrenCount");
+    const count = childCardCount(countValue);
+    const ageLines = [];
+    const locationLines = [];
+
+    for (let index = 1; index <= count; index += 1) {
+      const name = ans(`child${index}NameOrInitials`) || `Child ${index}`;
+      const dob = ans(`child${index}DateOfBirth`);
+      const calculatedAge = calculateAgeFromDate(dob);
+      const selectedAge = ans(`child${index}Age`);
+      const age = calculatedAge || (selectedAge && selectedAge !== "Auto-calculate from DOB" ? selectedAge : "");
+      const cityState = ans(`child${index}CurrentCityState`);
+      const livesInArizona = ans(`child${index}LivesInArizona`);
+
+      ageLines.push(`${name}: ${dob ? `DOB ${dob}` : "DOB not provided"}${age ? `, age ${age}` : ""}`);
+      locationLines.push(`${name}: ${cityState || "city/state not provided"}${livesInArizona ? `, lives in Arizona: ${livesInArizona}` : ""}`);
+    }
+
+    if (countValue === "5+" && ans("childrenAdditionalDetails")) {
+      ageLines.push(`Additional children: ${ans("childrenAdditionalDetails")}`);
+      locationLines.push(`Additional children: ${ans("childrenAdditionalDetails")}`);
+    }
+
+    if (ageLines.length) {
+      set("childrenAges", ageLines.join(" | "));
+    }
+
+    if (locationLines.length) {
+      set("childrenCurrentCityState", locationLines.join(" | "));
+    }
+  }
+
+  function focusDatePicker(input) {
+    if (!input) return;
+
+    try {
+      input.focus({ preventScroll: true });
+    } catch (error) {
+      input.focus();
+    }
+
+    /*
+      Native date inputs are intentionally not forced open on focus.
+      Calling showPicker() repeatedly while the user is navigating month/year
+      controls can close the browser's picker. We only try showPicker() from a
+      wrapper click where the user clearly intended to open the picker.
+    */
+    if (typeof input.showPicker === "function") {
+      try {
+        input.showPicker();
+      } catch (error) {
+        /* Browser may block showPicker outside direct user activation. Focus still helps. */
+      }
+    }
+  }
+
+  function focusDateInputOnly(input) {
+    if (!input) return;
+
+    try {
+      input.focus({ preventScroll: true });
+    } catch (error) {
+      input.focus();
+    }
+  }
+
+  function updateChildAgeHelpInPlace(key) {
+    const match = String(key || "").match(/^child(\d+)DateOfBirth$/);
+    if (!match) return;
+
+    const childNumber = match[1];
+    const help = root()?.querySelector(`[data-child-age-help='${childNumber}']`);
+    if (!help) return;
+
+    const calculated = calculateAgeFromDate(ans(key));
+    help.textContent = calculated !== "" ? `Calculated from DOB: ${calculated}` : "Choose age only if DOB is unknown or approximate.";
+  }
+
   function renderQuestion(question) {
+    if (question.key === "childrenAges") {
+      return childrenDetailsPanel();
+    }
+
     if (question.type === "notice") {
       return `<div class="mflg-notice show">${esc(question.text)}</div>`;
     }
 
     if (question.type === "select") {
-      const options = question.key === "courtCounty" ? arizonaCountyOptions : question.options;
-
       return `
         <div class="mflg-field">
           <label class="mflg-label">${esc(question.label)}</label>
-          ${selectEl(question.key, options, question.required)}
+          ${selectEl(question.key, question.options, question.required)}
         </div>
       `;
     }
 
     if (question.type === "input") {
-      if (question.key === "childrenAges" && childDetailsShouldShow()) {
-        return "";
-      }
-
       return `
         <div class="mflg-field">
           <label class="mflg-label">${esc(question.label)}</label>
@@ -1367,23 +1396,23 @@
           set("matterCategory", value);
           set("issuePathway", value);
 
-          if (prior && prior !== value) {
+          if (prior && prior !== value && routingContextHasValue(state.routingContext)) {
+            const routedServiceInterest = state.routingContext.serviceInterest || ans("routedServiceInterest") || "";
+
             state.routingContext = {
               ...state.routingContext,
-              entrySource: "manual-issue-change",
-              entryLabel: "Selected issue updated",
               issuePathway: value,
               serviceInterest: "",
               userChangedIssue: true,
               contextNote: `You changed the selected issue to ${value}. Continue with this pathway, or choose a different issue below if needed.`
             };
 
-            if (ans("routedServiceInterest") && ans("serviceInterest") === ans("routedServiceInterest")) {
+            if (routedServiceInterest && ans("serviceInterest") === routedServiceInterest) {
               set("serviceInterest", "");
             }
 
-            set("routedServiceInterest", "");
             setRoutingAnswerFields(state.routingContext);
+            set("routedServiceInterest", "");
             writeRoutingContextToStorage(state.routingContext);
           }
         } else {
@@ -1397,7 +1426,30 @@
     mount.querySelectorAll("[data-key]").forEach((element) => {
       element.addEventListener("input", updateFromInput);
       element.addEventListener("change", updateFromInput);
-      element.addEventListener("click", handleDateClickAnywhere);
+    });
+
+    mount.querySelectorAll("[data-date-wrap]").forEach((wrapper) => {
+      wrapper.addEventListener("click", function (event) {
+        const input = wrapper.querySelector("input[type='date']");
+
+        if (!input) return;
+
+        if (event.target === input) {
+          focusDateInputOnly(input);
+          return;
+        }
+
+        focusDatePicker(input);
+      });
+    });
+
+    mount.querySelectorAll(".mflg-date-input").forEach((input) => {
+      input.addEventListener("click", function () {
+        focusDateInputOnly(input);
+      });
+      input.addEventListener("focus", function () {
+        focusDateInputOnly(input);
+      });
     });
 
     mount.querySelectorAll("[data-check-key]").forEach((element) => {
@@ -1422,70 +1474,23 @@
     });
   }
 
-  function handleDateClickAnywhere(event) {
-    const element = event.target;
-
-    if (!element || element.type !== "date") return;
-    if (event.type !== "click") return;
-
-    try {
-      if (typeof element.showPicker === "function" && document.activeElement !== element) {
-        element.showPicker();
-      } else {
-        element.focus();
-      }
-    } catch (error) {
-      element.focus();
-    }
-  }
-
   function updateFromInput(event) {
     const element = event.target;
     const key = element.getAttribute("data-key");
     if (!key) return;
 
     set(key, element.type === "checkbox" ? element.checked : element.value);
-
-    if (key === "howDidYouHearAboutUsBase" || key === "howDidYouHearAboutUsDetail") {
-      const base = ans("howDidYouHearAboutUsBase");
-      const detail = ans("howDidYouHearAboutUsDetail");
-      set("howDidYouHearAboutUs", detail && ["Referral", "Other"].includes(base) ? `${base} — ${detail}` : base);
-    }
-
-    if (key === "childrenInvolved" && element.value !== "Yes") {
-      clearChildStructuredFields();
-    }
-
-    if (
-      key === "childrenCount" ||
-      key.startsWith("child") ||
-      key === "childrenLivedOutsideAZ5Years" ||
-      key === "additionalChildrenNotes"
-    ) {
-      syncChildrenSummaryFields();
-    }
-
-    if (key.endsWith("Dob")) {
-      updateAgeHelpInPlace(key);
-    }
-
+    updateChildDerivedFields();
+    updateChildAgeHelpInPlace(key);
     updateCounter();
 
     if (
+      key === "childrenInvolved" ||
       key === "childrenCount" ||
-      key === "howDidYouHearAboutUsBase" ||
-      key === "childrenInvolved"
+      key === "howDidYouHearAboutUs"
     ) {
       render();
     }
-  }
-
-  function clearChildStructuredFields() {
-    Object.keys(state.answers).forEach((key) => {
-      if (/^child\d+/.test(key) || key === "childrenCount" || key === "childrenDetailsSummary" || key === "additionalChildrenNotes") {
-        delete state.answers[key];
-      }
-    });
   }
 
   function updateCounter() {
@@ -1499,11 +1504,10 @@
   }
 
   function validate() {
-    syncChildrenSummaryFields();
-
     const screen = currentScreen();
     if (!screen) return true;
-         screen.querySelectorAll(".mflg-invalid,.mflg-invalid-group").forEach((element) => {
+
+    screen.querySelectorAll(".mflg-invalid,.mflg-invalid-group").forEach((element) => {
       element.classList.remove("mflg-invalid", "mflg-invalid-group");
     });
 
@@ -1705,6 +1709,7 @@
     add("County", ans("county"));
     add("Preferred contact", ans("preferredContactMethod"));
     add("Best time", ans("bestTimeToContact"));
+    add("How heard", composedHowDidYouHear());
 
     lines.push("\nCONFLICT CHECK:");
     add("Opposing party", ans("opposingParty"));
@@ -1719,6 +1724,10 @@
     add("Urgency", ans("urgencySelection"));
     add("Involved type", ans("involvedType"));
     add("Summary", ans("summary"));
+    add("Children involved", ans("childrenInvolved"));
+    add("Children count", ans("childrenCount"));
+    add("Children ages/DOB summary", ans("childrenAges"));
+    add("Children location summary", ans("childrenCurrentCityState"));
 
     lines.push("\nROUTING CONTEXT:");
     add("Entry source", ans("entrySource"));
@@ -1754,7 +1763,7 @@
   }
 
   function payload() {
-    syncChildrenSummaryFields();
+    updateChildDerivedFields();
 
     const flagState = flags();
     const priorityValue = priority(flagState);
@@ -1763,6 +1772,7 @@
     const eligible = vapiEligible(flagState, priorityValue);
     const submittedAt = new Date().toISOString();
     const route = normalizeRoutingContext(state.routingContext);
+    const howHeard = composedHowDidYouHear();
 
     const row = {
       timestamp: submittedAt,
@@ -1800,16 +1810,20 @@
       vapiTriggered: false,
       vapiStatus: "Not Triggered",
 
-      status: "New",
       leadStage: "New Intake",
+      status: "New",
       assignedTo: "Jeremy",
       nextAction: "Review intake",
       lastContactedAt: "",
+      followUpDate: "",
       consultationStatus: "Not Scheduled",
-      conflictCheckStatus: "Not Started",
-      conflictStatus: "Pending",
+      consultationDate: "",
       paymentStatus: "Not Requested",
       engagementStatus: "Not Sent",
+      conflictCheckStatus: "Pending",
+      conflictCheckDate: "",
+      conflictCheckNotes: "",
+      conflictStatus: "Pending",
       scopeDecision: flagState.referralFlag ? "Referral Review" : flagState.scopeReviewFlag ? "Scope Review Needed" : "Pending",
 
       fullName: ans("fullName"),
@@ -1820,7 +1834,7 @@
       county: ans("county"),
       preferredContactMethod: ans("preferredContactMethod"),
       bestTimeToContact: ans("bestTimeToContact"),
-      howDidYouHearAboutUs: ans("howDidYouHearAboutUs") || ans("howDidYouHearAboutUsBase"),
+      howDidYouHearAboutUs: howHeard,
 
       helpFor: ans("helpFor"),
       legalIssue: state.issuePathway,
@@ -1859,6 +1873,114 @@
 
       childrenInvolved: ans("childrenInvolved"),
       minorChildrenInvolved: ans("childrenInvolved"),
+      childrenMinorConfirm: ans("childrenInvolved"),
       childrenCount: ans("childrenCount"),
       childrenAges: ans("childrenAges"),
       childrenCurrentCityState: ans("childrenCurrentCityState"),
+      childrenLivedOutsideAZ5Years: ans("childrenLivedOutsideAZ5Years"),
+      scopeItems: arr("scopeItems").join(", "),
+      documentsAvailable: arr("documentsAvailable").join(", "),
+      desiredOutcome: ans("desiredOutcome"),
+      serviceInterest: ans("serviceInterest"),
+      preferredServiceType: ans("serviceInterest"),
+      budgetOrPaymentConcern: ans("budgetOrPaymentConcern"),
+      budgetPreference: ans("budgetOrPaymentConcern"),
+
+      consentToContact: true,
+      consentNoRelationship: !!ans("consentNoRelationship"),
+      consentLPScope: !!ans("consentLPScope"),
+
+      shortSummary: shortSummary(recommended),
+      notes: "",
+      website: ans("website"),
+
+      config: {
+        version: CONFIG.version,
+        mode: CONFIG.mode,
+        targetSheet: CONFIG.sheetName,
+        targetTab: CONFIG.sheetTab,
+        notificationEmail: CONFIG.notificationEmail
+      },
+
+      requiredForN8nValidation: {
+        source: CONFIG.source,
+        version: CONFIG.version,
+        honeypotEmpty: !ans("website"),
+        hasFullName: !!ans("fullName"),
+        hasPhone: !!ans("phone"),
+        hasEmail: !!ans("email"),
+        hasOpposingParty: !!ans("opposingParty"),
+        consentNoRelationship: !!ans("consentNoRelationship"),
+        consentLPScope: !!ans("consentLPScope")
+      },
+
+      allAnswers: { ...state.answers }
+    };
+
+    row.internalSummary = internalSummary(flagState, priorityValue, recommended, tags, eligible);
+    row.fullPayloadJSON = JSON.stringify(row);
+    row.rawJSON = row.fullPayloadJSON;
+
+    return row;
+  }
+
+  async function submit() {
+    if (state.submitting || state.step === 6) return;
+    if (!validate()) return;
+
+    if (ans("website")) {
+      showError("Submission could not be completed. Please refresh and try again.");
+      return;
+    }
+
+    state.submitAttemptCount += 1;
+
+    const submissionPayload = payload();
+
+    state.submitting = true;
+    render();
+
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(function () {
+        controller.abort();
+      }, CONFIG.requestTimeoutMs);
+
+      const response = await fetch(CONFIG.n8nWebhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(submissionPayload),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeout);
+
+      if (!response.ok) {
+        throw new Error(`n8n webhook returned ${response.status}`);
+      }
+
+      clearRoutingContext();
+
+      state.submittedPayload = submissionPayload;
+      state.step = 6;
+      state.submitting = false;
+      render();
+      root()?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (error) {
+      console.error("MFLG intake submission error:", error);
+      state.submitting = false;
+      render();
+      showError("There was a problem submitting your intake. Please try again, or call 888-870-6354 if the issue continues.");
+    }
+  }
+
+  exposeRoutingApi();
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", render);
+  } else {
+    render();
+  }
+})();
