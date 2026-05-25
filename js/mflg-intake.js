@@ -10,6 +10,8 @@
    - Allows manual issue-card selections to override routed context
    - Converts selected manual text fields to dropdowns/structured controls
    - Adds repeatable minor-child cards while preserving existing child summary fields
+   - Syncs child DOB to age to prevent conflicting DOB/age submissions
+   - Adds conservative Arizona city/state residency assist without changing backend field names
    - Adds click-anywhere date input behavior
    - Preserves conditional logic, field names, payload, validation, n8n submission, and Vapi routing flags
    - Preserves locked intake design structure
@@ -20,7 +22,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.4.1-dob-stability",
+    version: "3.4.0-intake-ui-polish",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -39,7 +41,7 @@
     answers: {
       urgencySelection: "ASAP",
       involvedType: "Me only",
-      serviceInterest: "",
+      serviceInterest: "Full matter support within LP scope",
       consentToContact: true,
       leadStatus: "New"
     },
@@ -1077,6 +1079,17 @@
     `;
   }
 
+  function selectElWithValue(key, options, value, required, disabled, extraClass) {
+    const selectedValue = value || ans(key);
+
+    return `
+      <select class="mflg-select ${extraClass || ""}" data-key="${key}" ${required ? "data-required='true'" : ""} ${disabled ? "disabled aria-disabled='true'" : ""}>
+        <option value="">Select one</option>
+        ${options.map((option) => `<option value="${esc(option)}" ${selectedValue === option ? "selected" : ""}>${esc(option)}</option>`).join("")}
+      </select>
+    `;
+  }
+
   function inputEl(key, placeholder, required, type) {
     return `
       <input class="mflg-input" type="${type || "text"}" data-key="${key}" value="${esc(ans(key))}" placeholder="${esc(placeholder || "")}" ${required ? "data-required='true'" : ""}>
@@ -1185,8 +1198,13 @@
   function childDetailCard(number) {
     const dobKey = `child${number}DateOfBirth`;
     const ageKey = `child${number}Age`;
-    const calculated = calculateAgeFromDate(ans(dobKey));
-    const ageDisplay = calculated !== "" ? `${calculated}` : ans(ageKey);
+    const dobValue = ans(dobKey);
+    const calculatedRawAge = calculateAgeFromDate(dobValue);
+    const calculatedAgeOption = ageToOption(calculatedRawAge);
+    const ageLocked = !!calculatedAgeOption;
+    const ageHelp = ageLocked
+      ? `Age locked from DOB: ${esc(calculatedRawAge)}${calculatedAgeOption !== calculatedRawAge ? ` (${esc(calculatedAgeOption)})` : ""}. Clear DOB to enter age only.`
+      : "Choose age only if DOB is unknown or approximate.";
 
     return `
       <div class="mflg-panel mflg-child-card" data-child-card="${number}">
@@ -1205,10 +1223,10 @@
         </div>
 
         <div class="mflg-grid2">
-          <div class="mflg-field">
+          <div class="mflg-field ${ageLocked ? "mflg-field-auto" : ""}">
             <label class="mflg-label">Age</label>
-            ${selectEl(ageKey, childAgeOptions, false)}
-            <p class="mflg-help" data-child-age-help="${number}">${calculated !== "" ? `Calculated from DOB: ${esc(ageDisplay)}` : "Choose age only if DOB is unknown or approximate."}</p>
+            ${selectElWithValue(ageKey, childAgeOptions, calculatedAgeOption, false, ageLocked, ageLocked ? "is-auto-locked" : "")}
+            <p class="mflg-help">${ageHelp}</p>
           </div>
 
           <div class="mflg-field">
@@ -1220,6 +1238,7 @@
         <div class="mflg-field">
           <label class="mflg-label">Does this child currently live in Arizona?</label>
           ${selectEl(`child${number}LivesInArizona`, ["Yes", "No", "Not sure"], false)}
+          <p class="mflg-help">This is separate from city/state and helps identify Arizona jurisdiction/residency issues. If city/state clearly shows Arizona and this field is blank or Not sure, the form may auto-select Yes.</p>
         </div>
       </div>
     `;
@@ -1242,6 +1261,94 @@
     return age >= 0 ? String(age) : "";
   }
 
+  function ageToOption(ageValue) {
+    if (ageValue === "") return "";
+
+    const numericAge = parseInt(ageValue, 10);
+    if (!Number.isFinite(numericAge) || numericAge < 0) return "";
+    if (numericAge === 0) return "Under 1";
+    if (numericAge >= 18) return "18+";
+
+    return String(numericAge);
+  }
+
+  function calculatedChildAgeOption(dobValue) {
+    return ageToOption(calculateAgeFromDate(dobValue));
+  }
+
+  function inferArizonaFromCityState(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    if (!normalized) return "";
+
+    if (/\b(az|arizona)\b/.test(normalized)) return "Yes";
+
+    const arizonaCities = [
+      "phoenix",
+      "scottsdale",
+      "mesa",
+      "tempe",
+      "chandler",
+      "gilbert",
+      "glendale",
+      "peoria",
+      "surprise",
+      "goodyear",
+      "avondale",
+      "buckeye",
+      "queen creek",
+      "tucson",
+      "flagstaff",
+      "prescott",
+      "yuma",
+      "maricopa",
+      "casa grande",
+      "apache junction",
+      "fountain hills",
+      "paradise valley"
+    ];
+
+    return arizonaCities.some((city) => normalized.includes(city)) ? "Yes" : "";
+  }
+
+  function syncChildAgeFromDob(number) {
+    const dobKey = `child${number}DateOfBirth`;
+    const ageKey = `child${number}Age`;
+    const calculated = calculatedChildAgeOption(ans(dobKey));
+
+    if (calculated) {
+      set(ageKey, calculated);
+    }
+  }
+
+  function syncChildResidencyFromCityState(number) {
+    const cityKey = `child${number}CurrentCityState`;
+    const livesKey = `child${number}LivesInArizona`;
+    const inferred = inferArizonaFromCityState(ans(cityKey));
+    const current = ans(livesKey);
+
+    if (inferred && (!current || current === "Not sure")) {
+      set(livesKey, inferred);
+    }
+  }
+
+  function syncChildrenDerivedInput(key) {
+    const dobMatch = /^child(\d+)DateOfBirth$/.exec(key);
+    const cityMatch = /^child(\d+)CurrentCityState$/.exec(key);
+    const livesMatch = /^child(\d+)LivesInArizona$/.exec(key);
+
+    if (dobMatch) {
+      syncChildAgeFromDob(dobMatch[1]);
+    }
+
+    if (cityMatch) {
+      syncChildResidencyFromCityState(cityMatch[1]);
+    }
+
+    if (livesMatch && ans(key) === "No" && !ans("childrenLivedOutsideAZ5Years")) {
+      set("childrenLivedOutsideAZ5Years", "Yes");
+    }
+  }
+
   function updateChildDerivedFields() {
     const countValue = ans("childrenCount");
     const count = childCardCount(countValue);
@@ -1249,6 +1356,9 @@
     const locationLines = [];
 
     for (let index = 1; index <= count; index += 1) {
+      syncChildAgeFromDob(index);
+      syncChildResidencyFromCityState(index);
+
       const name = ans(`child${index}NameOrInitials`) || `Child ${index}`;
       const dob = ans(`child${index}DateOfBirth`);
       const calculatedAge = calculateAgeFromDate(dob);
@@ -1284,12 +1394,6 @@
       input.focus();
     }
 
-    /*
-      Native date inputs are intentionally not forced open on focus.
-      Calling showPicker() repeatedly while the user is navigating month/year
-      controls can close the browser's picker. We only try showPicker() from a
-      wrapper click where the user clearly intended to open the picker.
-    */
     if (typeof input.showPicker === "function") {
       try {
         input.showPicker();
@@ -1297,28 +1401,6 @@
         /* Browser may block showPicker outside direct user activation. Focus still helps. */
       }
     }
-  }
-
-  function focusDateInputOnly(input) {
-    if (!input) return;
-
-    try {
-      input.focus({ preventScroll: true });
-    } catch (error) {
-      input.focus();
-    }
-  }
-
-  function updateChildAgeHelpInPlace(key) {
-    const match = String(key || "").match(/^child(\d+)DateOfBirth$/);
-    if (!match) return;
-
-    const childNumber = match[1];
-    const help = root()?.querySelector(`[data-child-age-help='${childNumber}']`);
-    if (!help) return;
-
-    const calculated = calculateAgeFromDate(ans(key));
-    help.textContent = calculated !== "" ? `Calculated from DOB: ${calculated}` : "Choose age only if DOB is unknown or approximate.";
   }
 
   function renderQuestion(question) {
@@ -1397,22 +1479,14 @@
           set("issuePathway", value);
 
           if (prior && prior !== value && routingContextHasValue(state.routingContext)) {
-            const routedServiceInterest = state.routingContext.serviceInterest || ans("routedServiceInterest") || "";
-
             state.routingContext = {
               ...state.routingContext,
               issuePathway: value,
-              serviceInterest: "",
               userChangedIssue: true,
               contextNote: `You changed the selected issue to ${value}. Continue with this pathway, or choose a different issue below if needed.`
             };
 
-            if (routedServiceInterest && ans("serviceInterest") === routedServiceInterest) {
-              set("serviceInterest", "");
-            }
-
             setRoutingAnswerFields(state.routingContext);
-            set("routedServiceInterest", "");
             writeRoutingContextToStorage(state.routingContext);
           }
         } else {
@@ -1429,26 +1503,17 @@
     });
 
     mount.querySelectorAll("[data-date-wrap]").forEach((wrapper) => {
-      wrapper.addEventListener("click", function (event) {
-        const input = wrapper.querySelector("input[type='date']");
-
-        if (!input) return;
-
-        if (event.target === input) {
-          focusDateInputOnly(input);
-          return;
-        }
-
-        focusDatePicker(input);
+      wrapper.addEventListener("click", function () {
+        focusDatePicker(wrapper.querySelector("input[type='date']"));
       });
     });
 
     mount.querySelectorAll(".mflg-date-input").forEach((input) => {
       input.addEventListener("click", function () {
-        focusDateInputOnly(input);
+        focusDatePicker(input);
       });
       input.addEventListener("focus", function () {
-        focusDateInputOnly(input);
+        focusDatePicker(input);
       });
     });
 
@@ -1480,14 +1545,17 @@
     if (!key) return;
 
     set(key, element.type === "checkbox" ? element.checked : element.value);
+    syncChildrenDerivedInput(key);
     updateChildDerivedFields();
-    updateChildAgeHelpInPlace(key);
     updateCounter();
 
     if (
       key === "childrenInvolved" ||
       key === "childrenCount" ||
-      key === "howDidYouHearAboutUs"
+      key === "howDidYouHearAboutUs" ||
+      /^child\d+DateOfBirth$/.test(key) ||
+      /^child\d+CurrentCityState$/.test(key) ||
+      /^child\d+LivesInArizona$/.test(key)
     ) {
       render();
     }
