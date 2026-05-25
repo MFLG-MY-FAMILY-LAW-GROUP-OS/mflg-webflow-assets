@@ -1,4 +1,4 @@
-/* MFLG Intake Final Launch v3.3.1 — Dynamic Context Banner Sync
+/* MFLG Intake Final Launch v3.4.0 — Intake UI Polish / Payload Contract Preserved
    File: js/mflg-intake.js
    Architecture: Webflow external JS → n8n webhook → Google Sheets/Gmail/Vapi routing in n8n.
 
@@ -8,6 +8,9 @@
    - Adds routing-context banner on Step 1
    - Applies stored/external routing context once instead of on every render
    - Allows manual issue-card selections to override routed context
+   - Converts selected manual text fields to dropdowns/structured controls
+   - Adds repeatable minor-child cards while preserving existing child summary fields
+   - Adds click-anywhere date input behavior
    - Preserves conditional logic, field names, payload, validation, n8n submission, and Vapi routing flags
    - Preserves locked intake design structure
    - Do not place secrets in this public file
@@ -17,7 +20,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.3.1-dynamic-context-banner",
+    version: "3.4.0-intake-ui-polish",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -148,6 +151,74 @@
     "Not sure"
   ];
 
+  const arizonaCountyOptions = [
+    "Maricopa",
+    "Pinal",
+    "Pima",
+    "Yavapai",
+    "Coconino",
+    "Mohave",
+    "Yuma",
+    "La Paz",
+    "Gila",
+    "Navajo",
+    "Apache",
+    "Greenlee",
+    "Graham",
+    "Cochise",
+    "Santa Cruz",
+    "Unknown / Not sure"
+  ];
+
+  const bestTimeToContactOptions = [
+    "Morning",
+    "Midday",
+    "Afternoon",
+    "Evening",
+    "Anytime",
+    "Text me first"
+  ];
+
+  const howDidYouHearOptions = [
+    "Google",
+    "Referral",
+    "Facebook",
+    "Instagram",
+    "YouTube",
+    "Avvo / Legal Directory",
+    "State Bar / Legal Resource",
+    "Friend or Family",
+    "Returning Client",
+    "Other"
+  ];
+
+  const childCountOptions = ["1", "2", "3", "4", "5+"];
+
+  const childAgeOptions = [
+    "Auto-calculate from DOB",
+    "Newborn",
+    "Under 1",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18+",
+    "Unknown / Not sure"
+  ];
+
   const pathways = {
     "Divorce / Legal Separation": [
       select("caseStage", "Is a case already filed?", ["Not filed yet", "Already filed / active case", "Final decree entered", "I was served", "Not sure"], true),
@@ -218,8 +289,7 @@
       select("childrenInvolved", "Are children involved?", ["Yes", "No", "Not sure"], true),
       notice("If you are in immediate danger, call 911 or local emergency services. This intake is not monitored 24/7.")
     ],
-
-    "Document Preparation / Review": [
+         "Document Preparation / Review": [
       checks("documentTypes", "What document or order do you need help with?", ["New filing / petition", "Response", "Consent decree", "Parenting plan", "Child support worksheet", "Modification", "Enforcement", "Mediation agreement", "Temporary orders", "Not sure"]),
       select("representingSelf", "Are you representing yourself or seeking LP assistance?", ["Representing myself and need document help", "Seeking LP assistance within scope", "Not sure"], true),
       date("filingDeadline", "Filing deadline, if known"),
@@ -269,7 +339,8 @@
     const random = Math.random().toString(36).slice(2, 8).toUpperCase();
     return `${prefix}-${stamp}-${random}`;
   }
-     function esc(value) {
+
+  function esc(value) {
     return String(value ?? "").replace(/[&<>"']/g, function (character) {
       return {
         "&": "&amp;",
@@ -517,7 +588,7 @@
       shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="M9 12l2 2 4-4"/>',
       handshake: '<path d="M8 12l3 3a2 2 0 0 0 3 0l4-4"/><path d="M2 12l5-5 4 4"/><path d="M22 12l-5-5-4 4"/><path d="M7 17l2 2M17 17l-2 2"/>',
       alert: '<path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5M12 17h.01"/>',
-      document: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/>',
+             document: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/>',
       question: '<circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.6 2.6 0 0 1 4.8 1.4c0 1.9-2.3 2.1-2.3 4"/><path d="M12 17h.01"/>',
       clock: '<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>',
       message: '<path d="M4 4h16v14H7l-3 3V4Z"/><path d="M8 9h8M8 13h5"/>'
@@ -532,12 +603,14 @@
     const mount = root();
     if (!mount) return;
 
+    syncChildrenSummaryFields();
+
     const stage = currentStage();
 
     mount.innerHTML = `
       <section class="mflg-intake" data-version="${esc(CONFIG.version)}">
         <div class="mflg-shell">
-                  <div class="mflg-right">
+          <div class="mflg-right">
             ${state.step === 6 ? "" : introBlock()}
 
             <header class="mflg-head">
@@ -689,6 +762,7 @@
         <div class="mflg-panel">
           <h4 class="mflg-panel-title">Pathway questions</h4>
           ${questions.map(renderQuestion).join("")}
+          ${childDetailsShouldShow() ? childrenDetailsPanel() : ""}
         </div>
 
         ${["Protective Order Related to Family Law", "Document Preparation / Review", "Mediation / ADR / Settlement Help"].includes(issue) ? `
@@ -734,7 +808,7 @@
 
           <div class="mflg-field">
             <label class="mflg-label">Arizona county</label>
-            ${selectEl("county", ["Maricopa", "Pima", "Pinal", "Yavapai", "Yuma", "Mohave", "Coconino", "Cochise", "Navajo", "Apache", "Gila", "Graham", "Greenlee", "La Paz", "Santa Cruz", "Other / Not Sure"], true)}
+            ${selectEl("county", arizonaCountyOptions, true)}
           </div>
         </div>
 
@@ -750,14 +824,14 @@
             <p class="mflg-help">Leave blank if unknown.</p>
           </div>
         </div>
-                <div class="mflg-grid2">
+
+        <div class="mflg-grid2">
           <div class="mflg-field">
             <label class="mflg-label">Court/hearing date, if any</label>
             ${dateEl("courtDate")}
             <p class="mflg-help">Leave blank if unknown.</p>
           </div>
-
-          <div class="mflg-field">
+                    <div class="mflg-field">
             <label class="mflg-label">Immediate safety concern?</label>
             ${selectEl("immediateSafetyConcern", ["Yes", "No", "Prefer not to say"], true)}
           </div>
@@ -874,12 +948,18 @@
         <div class="mflg-grid2">
           <div class="mflg-field">
             <label class="mflg-label">Best time to contact</label>
-            ${inputEl("bestTimeToContact", "Morning, afternoon, evening, etc.")}
+            ${selectEl("bestTimeToContact", bestTimeToContactOptions, false)}
           </div>
 
           <div class="mflg-field">
             <label class="mflg-label">How did you hear about us?</label>
-            ${inputEl("howDidYouHearAboutUs", "Google, referral, social, etc.")}
+            ${selectEl("howDidYouHearAboutUsBase", howDidYouHearOptions, false)}
+            ${["Referral", "Other"].includes(ans("howDidYouHearAboutUsBase")) ? `
+              <div style="margin-top:10px">
+                ${inputEl("howDidYouHearAboutUsDetail", ans("howDidYouHearAboutUsBase") === "Referral" ? "Who referred you?" : "Please describe")}
+                <p class="mflg-help">This detail will be saved with your referral/source selection.</p>
+              </div>
+            ` : ""}
           </div>
         </div>
 
@@ -941,6 +1021,172 @@
     `;
   }
 
+  function childDetailsShouldShow() {
+    return ans("childrenInvolved") === "Yes" || ans("minorChildrenInvolved") === "Yes";
+  }
+
+  function getChildCountNumber() {
+    const value = ans("childrenCount");
+    if (value === "5+") return 5;
+    const parsed = parseInt(value, 10);
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+  }
+
+  function childKey(index, field) {
+    return `child${index}${field}`;
+  }
+
+  function calculateAgeFromDob(dob) {
+    if (!dob) return "";
+    const birth = new Date(`${dob}T00:00:00`);
+    if (Number.isNaN(birth.getTime())) return "";
+
+    const today = new Date();
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age -= 1;
+    }
+
+    if (age < 0) return "";
+    if (age === 0) return "Under 1";
+    return String(age);
+  }
+
+  function childAgeValue(index) {
+    const dob = ans(childKey(index, "Dob"));
+    const manual = ans(childKey(index, "Age"));
+
+    if (manual && manual !== "Auto-calculate from DOB") return manual;
+
+    return calculateAgeFromDob(dob) || "";
+  }
+
+  function syncChildrenSummaryFields() {
+    if (!childDetailsShouldShow()) return;
+
+    const count = getChildCountNumber();
+    if (!count) return;
+
+    const ages = [];
+    const locations = [];
+    const outsideAz = [];
+
+    for (let index = 1; index <= count; index += 1) {
+      const name = ans(childKey(index, "Name"));
+      const dob = ans(childKey(index, "Dob"));
+      const age = childAgeValue(index);
+      const cityState = ans(childKey(index, "CityState"));
+      const livesAz = ans(childKey(index, "LivesInAz"));
+
+      const label = name ? name : `Child ${index}`;
+
+      if (dob || age) {
+        ages.push(`${label}: ${dob ? `DOB ${dob}` : ""}${dob && age ? ", " : ""}${age ? `Age ${age}` : ""}`);
+      }
+
+      if (cityState || livesAz) {
+        locations.push(`${label}: ${cityState || "Current city/state not provided"}${livesAz ? `; Lives in Arizona: ${livesAz}` : ""}`);
+      }
+
+      if (livesAz === "No" || livesAz === "Not sure") {
+        outsideAz.push(`${label}: ${livesAz}`);
+      }
+    }
+
+    set("childrenAges", ages.join(" | "));
+    set("childrenCurrentCityState", locations.join(" | "));
+
+    if (outsideAz.length && !ans("childrenLivedOutsideAZ5Years")) {
+      set("childrenLivedOutsideAZ5Years", "Not sure");
+    }
+
+    set("childrenDetailsSummary", [
+      ages.length ? `Ages/DOBs: ${ages.join(" | ")}` : "",
+      locations.length ? `Locations: ${locations.join(" | ")}` : "",
+      outsideAz.length ? `Arizona residency notes: ${outsideAz.join(" | ")}` : ""
+    ].filter(Boolean).join("\n"));
+  }
+
+  function childrenDetailsPanel() {
+    const count = getChildCountNumber();
+
+    return `
+      <div class="mflg-panel" data-child-details-panel="true">
+        <h4 class="mflg-panel-title">Minor child details</h4>
+        <p class="mflg-copy" style="margin-bottom:18px">This helps avoid manual age/DOB typing and keeps child information organized for review.</p>
+
+        <div class="mflg-grid2">
+          <div class="mflg-field">
+            <label class="mflg-label">How many minor children are involved?</label>
+            ${selectEl("childrenCount", childCountOptions, true)}
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Have any children lived outside Arizona in the last five years?</label>
+            ${selectEl("childrenLivedOutsideAZ5Years", ["Yes", "No", "Not sure"], false)}
+          </div>
+        </div>
+
+        ${count ? `
+          <div class="mflg-cards" style="margin-top:18px">
+            ${Array.from({ length: count }, (_, itemIndex) => childCard(itemIndex + 1)).join("")}
+          </div>
+        ` : `
+          <p class="mflg-help">Select the number of minor children to add structured child cards.</p>
+        `}
+
+        ${ans("childrenCount") === "5+" ? `
+          <div class="mflg-field" style="margin-top:18px">
+            <label class="mflg-label">Additional child notes</label>
+            ${textareaEl("additionalChildrenNotes", "For 5+ children, add any additional names/initials, DOBs, ages, or location details here.", false)}
+          </div>
+        ` : ""}
+      </div>
+    `;
+  }
+
+  function childCard(index) {
+         const dob = ans(childKey(index, "Dob"));
+    const calculatedAge = calculateAgeFromDob(dob);
+
+    return `
+      <div class="mflg-card mflg-card-wide" style="display:block;cursor:default;transform:none">
+        <strong class="mflg-card-title">Child ${index}</strong>
+        <div class="mflg-grid2" style="margin-top:14px">
+          <div class="mflg-field">
+            <label class="mflg-label">Name or initials</label>
+            ${inputEl(childKey(index, "Name"), "Optional")}
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Date of birth</label>
+            ${dateEl(childKey(index, "Dob"))}
+          </div>
+        </div>
+
+        <div class="mflg-grid2">
+          <div class="mflg-field">
+            <label class="mflg-label">Age</label>
+            ${selectEl(childKey(index, "Age"), childAgeOptions, false)}
+            ${calculatedAge ? `<p class="mflg-help">Calculated from DOB: ${esc(calculatedAge)}</p>` : `<p class="mflg-help">Choose DOB first or select age if DOB is unknown.</p>`}
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Current city/state</label>
+            ${inputEl(childKey(index, "CityState"), "Example: Phoenix, AZ")}
+          </div>
+        </div>
+
+        <div class="mflg-field" style="margin-bottom:0">
+          <label class="mflg-label">Does this child currently live in Arizona?</label>
+          ${selectEl(childKey(index, "LivesInAz"), ["Yes", "No", "Not sure"], false)}
+        </div>
+      </div>
+    `;
+  }
+
   function successStep() {
     const submitted = state.submittedPayload;
 
@@ -984,7 +1230,8 @@
       </button>
     `;
   }
-     function selectEl(key, options, required) {
+
+  function selectEl(key, options, required) {
     return `
       <select class="mflg-select" data-key="${key}" ${required ? "data-required='true'" : ""}>
         <option value="">Select one</option>
@@ -1001,7 +1248,7 @@
 
   function dateEl(key, required) {
     return `
-      <input class="mflg-input" type="date" data-key="${key}" value="${esc(ans(key))}" ${required ? "data-required='true'" : ""}>
+      <input class="mflg-input" type="date" data-key="${key}" value="${esc(ans(key))}" placeholder="Select date" ${required ? "data-required='true'" : ""}>
     `;
   }
 
@@ -1032,15 +1279,21 @@
     }
 
     if (question.type === "select") {
+      const options = question.key === "courtCounty" ? arizonaCountyOptions : question.options;
+
       return `
         <div class="mflg-field">
           <label class="mflg-label">${esc(question.label)}</label>
-          ${selectEl(question.key, question.options, question.required)}
+          ${selectEl(question.key, options, question.required)}
         </div>
       `;
     }
 
     if (question.type === "input") {
+      if (question.key === "childrenAges" && childDetailsShouldShow()) {
+        return "";
+      }
+
       return `
         <div class="mflg-field">
           <label class="mflg-label">${esc(question.label)}</label>
@@ -1122,6 +1375,8 @@
     mount.querySelectorAll("[data-key]").forEach((element) => {
       element.addEventListener("input", updateFromInput);
       element.addEventListener("change", updateFromInput);
+      element.addEventListener("click", handleDateClickAnywhere);
+      element.addEventListener("focus", handleDateClickAnywhere);
     });
 
     mount.querySelectorAll("[data-check-key]").forEach((element) => {
@@ -1146,13 +1401,66 @@
     });
   }
 
+  function handleDateClickAnywhere(event) {
+    const element = event.target;
+
+    if (!element || element.type !== "date") return;
+
+    try {
+      if (typeof element.showPicker === "function") {
+        element.showPicker();
+      } else {
+        element.focus();
+      }
+    } catch (error) {
+      element.focus();
+    }
+  }
+
   function updateFromInput(event) {
     const element = event.target;
     const key = element.getAttribute("data-key");
     if (!key) return;
 
     set(key, element.type === "checkbox" ? element.checked : element.value);
+
+    if (key === "howDidYouHearAboutUsBase" || key === "howDidYouHearAboutUsDetail") {
+      const base = ans("howDidYouHearAboutUsBase");
+      const detail = ans("howDidYouHearAboutUsDetail");
+      set("howDidYouHearAboutUs", detail && ["Referral", "Other"].includes(base) ? `${base} — ${detail}` : base);
+    }
+
+    if (key === "childrenInvolved" && element.value !== "Yes") {
+      clearChildStructuredFields();
+    }
+
+    if (
+      key === "childrenCount" ||
+      key.startsWith("child") ||
+      key === "childrenLivedOutsideAZ5Years" ||
+      key === "additionalChildrenNotes"
+    ) {
+      syncChildrenSummaryFields();
+    }
+
     updateCounter();
+
+    if (
+      key === "childrenCount" ||
+      key === "howDidYouHearAboutUsBase" ||
+      key === "childrenInvolved" ||
+      key.endsWith("Dob")
+    ) {
+      render();
+    }
+  }
+
+  function clearChildStructuredFields() {
+    Object.keys(state.answers).forEach((key) => {
+      if (/^child\d+/.test(key) || key === "childrenCount" || key === "childrenDetailsSummary" || key === "additionalChildrenNotes") {
+        delete state.answers[key];
+      }
+    });
   }
 
   function updateCounter() {
@@ -1166,6 +1474,8 @@
   }
 
   function validate() {
+    syncChildrenSummaryFields();
+
     const screen = currentScreen();
     if (!screen) return true;
 
@@ -1292,7 +1602,8 @@
       propertyFlag
     };
   }
-     function priority(flagState) {
+
+  function priority(flagState) {
     if (flagState.referralFlag || flagState.safetyFlag || flagState.urgencyFlag) return "RED";
     if (flagState.hardScopeReviewFlag || flagState.softScopeReviewFlag) return "YELLOW";
     if (
@@ -1356,8 +1667,7 @@
 
   function internalSummary(flagState, priorityValue, recommended, tags, eligible) {
     const lines = [];
-
-    function add(label, value) {
+         function add(label, value) {
       lines.push(`${label}: ${Array.isArray(value) ? value.join(", ") : value || ""}`);
     }
 
@@ -1419,6 +1729,8 @@
   }
 
   function payload() {
+    syncChildrenSummaryFields();
+
     const flagState = flags();
     const priorityValue = priority(flagState);
     const recommended = recommendedPath(flagState);
@@ -1464,11 +1776,15 @@
       vapiStatus: "Not Triggered",
 
       status: "New",
+      leadStage: "New Intake",
       assignedTo: "Jeremy",
       nextAction: "Review intake",
       lastContactedAt: "",
       consultationStatus: "Not Scheduled",
+      conflictCheckStatus: "Not Started",
       conflictStatus: "Pending",
+      paymentStatus: "Not Requested",
+      engagementStatus: "Not Sent",
       scopeDecision: flagState.referralFlag ? "Referral Review" : flagState.scopeReviewFlag ? "Scope Review Needed" : "Pending",
 
       fullName: ans("fullName"),
@@ -1479,7 +1795,7 @@
       county: ans("county"),
       preferredContactMethod: ans("preferredContactMethod"),
       bestTimeToContact: ans("bestTimeToContact"),
-      howDidYouHearAboutUs: ans("howDidYouHearAboutUs"),
+      howDidYouHearAboutUs: ans("howDidYouHearAboutUs") || ans("howDidYouHearAboutUsBase"),
 
       helpFor: ans("helpFor"),
       legalIssue: state.issuePathway,
@@ -1500,8 +1816,11 @@
       userChangedRoutedIssue: !!route.userChangedIssue,
 
       caseStage: ans("caseStage"),
+      courtStatus: ans("caseStage"),
+      courtCounty: ans("courtCounty") || ans("county"),
       servedStatus: ans("servedStatus"),
       urgentDeadline: ans("urgentDeadline"),
+      responseDeadline: ans("urgentDeadline"),
       courtDate: ans("courtDate"),
       immediateSafetyConcern: ans("immediateSafetyConcern"),
       protectiveOrderStatus: ans("protectiveOrderStatus"),
@@ -1514,6 +1833,14 @@
       otherInvolvedAdults: ans("otherInvolvedAdults"),
 
       childrenInvolved: ans("childrenInvolved"),
+      minorChildrenInvolved: ans("childrenInvolved"),
+      childrenCount: ans("childrenCount"),
+      childrenAges: ans("childrenAges"),
+      childrenCurrentCityState: ans("childrenCurrentCityState"),
+      childrenLivedOutsideAZ5Years: ans("childrenLivedOutsideAZ5Years"),
+      childrenDetailsSummary: ans("childrenDetailsSummary"),
+      additionalChildrenNotes: ans("additionalChildrenNotes"),
+
       scopeItems: arr("scopeItems").join(", "),
       documentsAvailable: arr("documentsAvailable").join(", "),
       desiredOutcome: ans("desiredOutcome"),
