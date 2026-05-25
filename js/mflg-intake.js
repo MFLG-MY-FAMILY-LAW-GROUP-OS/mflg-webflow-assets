@@ -20,7 +20,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.4.0-intake-ui-polish",
+    version: "3.4.1-dob-stability",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -39,7 +39,7 @@
     answers: {
       urgencySelection: "ASAP",
       involvedType: "Me only",
-      serviceInterest: "Full matter support within LP scope",
+      serviceInterest: "",
       consentToContact: true,
       leadStatus: "New"
     },
@@ -289,7 +289,8 @@
       select("childrenInvolved", "Are children involved?", ["Yes", "No", "Not sure"], true),
       notice("If you are in immediate danger, call 911 or local emergency services. This intake is not monitored 24/7.")
     ],
-         "Document Preparation / Review": [
+
+    "Document Preparation / Review": [
       checks("documentTypes", "What document or order do you need help with?", ["New filing / petition", "Response", "Consent decree", "Parenting plan", "Child support worksheet", "Modification", "Enforcement", "Mediation agreement", "Temporary orders", "Not sure"]),
       select("representingSelf", "Are you representing yourself or seeking LP assistance?", ["Representing myself and need document help", "Seeking LP assistance within scope", "Not sure"], true),
       date("filingDeadline", "Filing deadline, if known"),
@@ -393,7 +394,7 @@
     try {
       return value ? JSON.parse(value) : null;
     } catch (error) {
-      return null;
+             return null;
     }
   }
 
@@ -588,7 +589,7 @@
       shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="M9 12l2 2 4-4"/>',
       handshake: '<path d="M8 12l3 3a2 2 0 0 0 3 0l4-4"/><path d="M2 12l5-5 4 4"/><path d="M22 12l-5-5-4 4"/><path d="M7 17l2 2M17 17l-2 2"/>',
       alert: '<path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5M12 17h.01"/>',
-             document: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/>',
+      document: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/>',
       question: '<circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.6 2.6 0 0 1 4.8 1.4c0 1.9-2.3 2.1-2.3 4"/><path d="M12 17h.01"/>',
       clock: '<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>',
       message: '<path d="M4 4h16v14H7l-3 3V4Z"/><path d="M8 9h8M8 13h5"/>'
@@ -785,7 +786,7 @@
             <label class="mflg-label">When do you need help?</label>
             <div class="mflg-cards three">
               ${card("urgencySelection", "ASAP", "ASAP", "Urgent — I need help right away.", "clock")}
-              ${card("urgencySelection", "Within 30 Days", "Within 30 Days", "I need help in the next few weeks.", "document")}
+                            ${card("urgencySelection", "Within 30 Days", "Within 30 Days", "I need help in the next few weeks.", "document")}
               ${card("urgencySelection", "Just Exploring", "Just Exploring", "I’m gathering info for the future.", "question")}
             </div>
           </div>
@@ -831,7 +832,8 @@
             ${dateEl("courtDate")}
             <p class="mflg-help">Leave blank if unknown.</p>
           </div>
-                    <div class="mflg-field">
+
+          <div class="mflg-field">
             <label class="mflg-label">Immediate safety concern?</label>
             ${selectEl("immediateSafetyConcern", ["Yes", "No", "Prefer not to say"], true)}
           </div>
@@ -1148,10 +1150,9 @@
   }
 
   function childCard(index) {
-         const dob = ans(childKey(index, "Dob"));
+    const dob = ans(childKey(index, "Dob"));
     const calculatedAge = calculateAgeFromDob(dob);
-
-    return `
+         return `
       <div class="mflg-card mflg-card-wide" style="display:block;cursor:default;transform:none">
         <strong class="mflg-card-title">Child ${index}</strong>
         <div class="mflg-grid2" style="margin-top:14px">
@@ -1170,7 +1171,7 @@
           <div class="mflg-field">
             <label class="mflg-label">Age</label>
             ${selectEl(childKey(index, "Age"), childAgeOptions, false)}
-            ${calculatedAge ? `<p class="mflg-help">Calculated from DOB: ${esc(calculatedAge)}</p>` : `<p class="mflg-help">Choose DOB first or select age if DOB is unknown.</p>`}
+            ${calculatedAge ? `<p class="mflg-help" data-age-help-for="${esc(childKey(index, "Dob"))}">Calculated from DOB: ${esc(calculatedAge)}</p>` : `<p class="mflg-help" data-age-help-for="${esc(childKey(index, "Dob"))}">Choose DOB first or select age if DOB is unknown.</p>`}
           </div>
 
           <div class="mflg-field">
@@ -1185,6 +1186,22 @@
         </div>
       </div>
     `;
+  }
+
+  function updateAgeHelpInPlace(dobKey) {
+    const mount = root();
+    if (!mount || !dobKey) return;
+
+    const match = /^child(\d+)Dob$/.exec(dobKey);
+    if (!match) return;
+
+    const index = parseInt(match[1], 10);
+    const calculated = calculateAgeFromDob(ans(dobKey));
+    const help = mount.querySelector(`[data-age-help-for='${dobKey}']`);
+
+    if (!help) return;
+
+    help.textContent = calculated ? `Calculated from DOB: ${calculated}` : "Choose DOB first or select age if DOB is unknown.";
   }
 
   function successStep() {
@@ -1356,11 +1373,16 @@
               entrySource: "manual-issue-change",
               entryLabel: "Selected issue updated",
               issuePathway: value,
-              serviceInterest: state.routingContext.serviceInterest || ans("serviceInterest") || "",
+              serviceInterest: "",
               userChangedIssue: true,
               contextNote: `You changed the selected issue to ${value}. Continue with this pathway, or choose a different issue below if needed.`
             };
 
+            if (ans("routedServiceInterest") && ans("serviceInterest") === ans("routedServiceInterest")) {
+              set("serviceInterest", "");
+            }
+
+            set("routedServiceInterest", "");
             setRoutingAnswerFields(state.routingContext);
             writeRoutingContextToStorage(state.routingContext);
           }
@@ -1376,7 +1398,6 @@
       element.addEventListener("input", updateFromInput);
       element.addEventListener("change", updateFromInput);
       element.addEventListener("click", handleDateClickAnywhere);
-      element.addEventListener("focus", handleDateClickAnywhere);
     });
 
     mount.querySelectorAll("[data-check-key]").forEach((element) => {
@@ -1405,9 +1426,10 @@
     const element = event.target;
 
     if (!element || element.type !== "date") return;
+    if (event.type !== "click") return;
 
     try {
-      if (typeof element.showPicker === "function") {
+      if (typeof element.showPicker === "function" && document.activeElement !== element) {
         element.showPicker();
       } else {
         element.focus();
@@ -1443,13 +1465,16 @@
       syncChildrenSummaryFields();
     }
 
+    if (key.endsWith("Dob")) {
+      updateAgeHelpInPlace(key);
+    }
+
     updateCounter();
 
     if (
       key === "childrenCount" ||
       key === "howDidYouHearAboutUsBase" ||
-      key === "childrenInvolved" ||
-      key.endsWith("Dob")
+      key === "childrenInvolved"
     ) {
       render();
     }
@@ -1478,8 +1503,7 @@
 
     const screen = currentScreen();
     if (!screen) return true;
-
-    screen.querySelectorAll(".mflg-invalid,.mflg-invalid-group").forEach((element) => {
+         screen.querySelectorAll(".mflg-invalid,.mflg-invalid-group").forEach((element) => {
       element.classList.remove("mflg-invalid", "mflg-invalid-group");
     });
 
@@ -1667,7 +1691,8 @@
 
   function internalSummary(flagState, priorityValue, recommended, tags, eligible) {
     const lines = [];
-         function add(label, value) {
+
+    function add(label, value) {
       lines.push(`${label}: ${Array.isArray(value) ? value.join(", ") : value || ""}`);
     }
 
@@ -1837,113 +1862,3 @@
       childrenCount: ans("childrenCount"),
       childrenAges: ans("childrenAges"),
       childrenCurrentCityState: ans("childrenCurrentCityState"),
-      childrenLivedOutsideAZ5Years: ans("childrenLivedOutsideAZ5Years"),
-      childrenDetailsSummary: ans("childrenDetailsSummary"),
-      additionalChildrenNotes: ans("additionalChildrenNotes"),
-
-      scopeItems: arr("scopeItems").join(", "),
-      documentsAvailable: arr("documentsAvailable").join(", "),
-      desiredOutcome: ans("desiredOutcome"),
-      serviceInterest: ans("serviceInterest"),
-      preferredServiceType: ans("serviceInterest"),
-      budgetOrPaymentConcern: ans("budgetOrPaymentConcern"),
-      budgetPreference: ans("budgetOrPaymentConcern"),
-
-      consentToContact: true,
-      consentNoRelationship: !!ans("consentNoRelationship"),
-      consentLPScope: !!ans("consentLPScope"),
-
-      shortSummary: shortSummary(recommended),
-      notes: "",
-      website: ans("website"),
-
-      config: {
-        version: CONFIG.version,
-        mode: CONFIG.mode,
-        targetSheet: CONFIG.sheetName,
-        targetTab: CONFIG.sheetTab,
-        notificationEmail: CONFIG.notificationEmail
-      },
-
-      requiredForN8nValidation: {
-        source: CONFIG.source,
-        version: CONFIG.version,
-        honeypotEmpty: !ans("website"),
-        hasFullName: !!ans("fullName"),
-        hasPhone: !!ans("phone"),
-        hasEmail: !!ans("email"),
-        hasOpposingParty: !!ans("opposingParty"),
-        consentNoRelationship: !!ans("consentNoRelationship"),
-        consentLPScope: !!ans("consentLPScope")
-      },
-
-      allAnswers: { ...state.answers }
-    };
-
-    row.internalSummary = internalSummary(flagState, priorityValue, recommended, tags, eligible);
-    row.fullPayloadJSON = JSON.stringify(row);
-    row.rawJSON = row.fullPayloadJSON;
-
-    return row;
-  }
-
-  async function submit() {
-    if (state.submitting || state.step === 6) return;
-    if (!validate()) return;
-
-    if (ans("website")) {
-      showError("Submission could not be completed. Please refresh and try again.");
-      return;
-    }
-
-    state.submitAttemptCount += 1;
-
-    const submissionPayload = payload();
-
-    state.submitting = true;
-    render();
-
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(function () {
-        controller.abort();
-      }, CONFIG.requestTimeoutMs);
-
-      const response = await fetch(CONFIG.n8nWebhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(submissionPayload),
-        signal: controller.signal
-      });
-
-      clearTimeout(timeout);
-
-      if (!response.ok) {
-        throw new Error(`n8n webhook returned ${response.status}`);
-      }
-
-      clearRoutingContext();
-
-      state.submittedPayload = submissionPayload;
-      state.step = 6;
-      state.submitting = false;
-      render();
-      root()?.scrollIntoView({ behavior: "smooth", block: "start" });
-    } catch (error) {
-      console.error("MFLG intake submission error:", error);
-      state.submitting = false;
-      render();
-      showError("There was a problem submitting your intake. Please try again, or call 888-870-6354 if the issue continues.");
-    }
-  }
-
-  exposeRoutingApi();
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", render);
-  } else {
-    render();
-  }
-})();
