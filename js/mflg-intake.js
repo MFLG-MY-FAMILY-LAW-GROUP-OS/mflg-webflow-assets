@@ -1554,7 +1554,6 @@
       key === "childrenCount" ||
       key === "howDidYouHearAboutUs" ||
       /^child\d+DateOfBirth$/.test(key) ||
-      /^child\d+CurrentCityState$/.test(key) ||
       /^child\d+LivesInArizona$/.test(key)
     ) {
       render();
