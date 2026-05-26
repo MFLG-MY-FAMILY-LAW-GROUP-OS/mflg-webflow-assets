@@ -1320,6 +1320,36 @@
     }
   }
 
+  function updateChildAgeField(number) {
+    const dobKey = `child${number}DateOfBirth`;
+    const ageKey = `child${number}Age`;
+    const dobValue = ans(dobKey);
+    const calculatedRawAge = calculateAgeFromDate(dobValue);
+    const calculatedAgeOption = ageToOption(calculatedRawAge);
+    const ageSelect = root()?.querySelector(`[data-key='${ageKey}']`);
+
+    if (!ageSelect) return;
+
+    const field = ageSelect.closest(".mflg-field");
+    const help = field?.querySelector(".mflg-help");
+    const ageLocked = !!calculatedAgeOption;
+
+    ageSelect.disabled = ageLocked;
+    ageSelect.setAttribute("aria-disabled", ageLocked ? "true" : "false");
+    ageSelect.classList.toggle("is-auto-locked", ageLocked);
+    field?.classList.toggle("mflg-field-auto", ageLocked);
+
+    if (ageLocked) {
+      ageSelect.value = calculatedAgeOption;
+    }
+
+    if (help) {
+      help.textContent = ageLocked
+        ? `Age locked from DOB: ${calculatedRawAge}${calculatedAgeOption !== calculatedRawAge ? ` (${calculatedAgeOption})` : ""}. Clear DOB to enter age only.`
+        : "Choose age only if DOB is unknown or approximate.";
+    }
+  }
+
   function syncChildResidencyFromCityState(number) {
     const cityKey = `child${number}CurrentCityState`;
     const livesKey = `child${number}LivesInArizona`;
@@ -1549,11 +1579,15 @@
     updateChildDerivedFields();
     updateCounter();
 
+    const dobMatch = /^child(\d+)DateOfBirth$/.exec(key);
+    if (dobMatch) {
+      updateChildAgeField(dobMatch[1]);
+    }
+
     if (
       key === "childrenInvolved" ||
       key === "childrenCount" ||
       key === "howDidYouHearAboutUs" ||
-      /^child\d+DateOfBirth$/.test(key) ||
       /^child\d+LivesInArizona$/.test(key)
     ) {
       render();
