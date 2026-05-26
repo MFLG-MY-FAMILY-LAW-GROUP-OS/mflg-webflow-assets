@@ -13,6 +13,7 @@
    - Syncs child DOB to age to prevent conflicting DOB/age submissions
    - Adds conservative Arizona city/state residency assist without changing backend field names
    - Adds click-anywhere date input behavior
+   - Adds conditional consult-prep questions for jurisdiction, support, parenting, property, maintenance, relocation, safety, documents, and evidence
    - Preserves conditional logic, field names, payload, validation, n8n submission, and Vapi routing flags
    - Preserves locked intake design structure
    - Do not place secrets in this public file
@@ -22,7 +23,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.4.0-intake-ui-polish",
+    version: "3.5.0-consult-prep",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -220,6 +221,52 @@
     "17",
     "18+",
     "Unknown / Not sure"
+  ];
+
+  const caseRoleOptions = [
+    "Petitioner / filing party",
+    "Respondent / responding party",
+    "Not filed yet",
+    "Not sure"
+  ];
+
+  const hearingTypeOptions = [
+    "No hearing scheduled",
+    "Resolution management conference",
+    "Temporary orders hearing",
+    "Evidentiary hearing",
+    "Trial",
+    "Protective order hearing",
+    "Mediation / settlement conference",
+    "Other / not sure"
+  ];
+
+  const yesNoUnsureOptions = ["Yes", "No", "Not sure"];
+
+  const financialDocumentItems = [
+    "Recent paystubs",
+    "Tax returns / W-2s / 1099s",
+    "Health insurance cost proof",
+    "Childcare cost proof",
+    "Support payment history / arrears records",
+    "Bank or retirement statements",
+    "Real estate / mortgage documents",
+    "Debt statements",
+    "None yet",
+    "Not sure"
+  ];
+
+  const evidenceItems = [
+    "Court orders / filed pleadings",
+    "Hearing notice / service documents",
+    "Text messages / emails",
+    "Police reports",
+    "DCS / agency records",
+    "School or medical records",
+    "Photos / screenshots",
+    "Witness names",
+    "None yet",
+    "Not sure"
   ];
 
   const pathways = {
@@ -772,6 +819,7 @@
           <h4 class="mflg-panel-title">Pathway questions</h4>
           ${questions.map(renderQuestion).join("")}
           ${shouldShowChildDetails ? childrenDetailsPanel() : ""}
+          ${consultPrepPanel(issue)}
         </div>
 
         ${["Protective Order Related to Family Law", "Document Preparation / Review", "Mediation / ADR / Settlement Help"].includes(issue) ? `
@@ -883,6 +931,16 @@
           <div class="mflg-field">
             <label class="mflg-label">What documents are available?</label>
             ${checkGrid("documentsAvailable", documentItems, "None yet")}
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Financial/support documents available</label>
+            ${checkGrid("financialDocumentsAvailable", financialDocumentItems, "None yet")}
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Evidence or case materials available</label>
+            ${checkGrid("evidenceAvailable", evidenceItems, "None yet")}
           </div>
 
           <div class="mflg-field">
@@ -1185,6 +1243,281 @@
         ` : ""}
 
         <p class="mflg-help">This section preserves the existing backend fields by summarizing child DOB/age details into childrenAges and child location details into childrenCurrentCityState.</p>
+      </div>
+    `;
+  }
+
+  function consultPrepPanel(issue) {
+    const childMatter =
+      ans("childrenInvolved") === "Yes" ||
+      ["Parenting Time / Legal Decision-Making", "Child Support", "Paternity"].includes(issue) ||
+      includesAny(arr("divorceIssues"), ["Child support", "Parenting time / legal decision-making"]) ||
+      includesAny(arr("paternityIssues"), ["Parenting time", "Legal decision-making", "Child support"]);
+
+    const supportMatter =
+      issue === "Child Support" ||
+      includesAny(arr("divorceIssues"), ["Child support"]) ||
+      includesAny(arr("paternityIssues"), ["Child support"]);
+
+    const maintenanceMatter =
+      issue === "Spousal Maintenance" ||
+      includesAny(arr("divorceIssues"), ["Spousal maintenance"]);
+
+    const propertyMatter =
+      issue === "Divorce / Legal Separation" ||
+      includesAny(arr("divorceIssues"), ["Property/debt division", "Real estate / home"]);
+
+    const relocationMatter =
+      includesAny(arr("parentingIssues"), ["Relocation"]) ||
+      includesAny(arr("orderToModify"), ["Relocation"]);
+
+    const safetyMatter =
+      issue === "Protective Order Related to Family Law" ||
+      ans("immediateSafetyConcern") === "Yes" ||
+      includesAny(arr("parentingSafetyConcerns"), ["Domestic violence", "Child abuse or neglect concern", "DCS involvement", "Protective order"]);
+
+    return `
+      <div class="mflg-divider">${icon("scales")}</div>
+
+      <div class="mflg-field">
+        <h4 class="mflg-panel-title">Consult-prep details</h4>
+        <p class="mflg-help">Optional, but helpful for a more prepared consultation. Answer what you know now; unknown is okay.</p>
+      </div>
+
+      ${caseLogisticsPrep()}
+      ${jurisdictionPrep(issue, childMatter)}
+      ${childMatter ? parentingBestInterestPrep() : ""}
+      ${supportMatter ? childSupportPrep() : ""}
+      ${maintenanceMatter ? spousalMaintenancePrep() : ""}
+      ${propertyMatter ? propertyDebtPrep() : ""}
+      ${relocationMatter ? relocationPrep() : ""}
+      ${safetyMatter ? protectiveOrderSafetyPrep() : ""}
+    `;
+  }
+
+  function caseLogisticsPrep() {
+    return `
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Case number, if already filed</label>
+          ${inputEl("caseNumber", "Example: FC2026-000000")}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Your role in the case</label>
+          ${selectEl("partyRole", caseRoleOptions, false)}
+        </div>
+      </div>
+
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Upcoming hearing type</label>
+          ${selectEl("hearingType", hearingTypeOptions, false)}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Temporary orders already in place?</label>
+          ${selectEl("temporaryOrdersStatus", yesNoUnsureOptions, false)}
+        </div>
+      </div>
+    `;
+  }
+
+  function jurisdictionPrep(issue, childMatter) {
+    if (!childMatter && issue !== "Divorce / Legal Separation") {
+      return "";
+    }
+
+    return `
+      <div class="mflg-grid2">
+        ${issue === "Divorce / Legal Separation" ? `
+          <div class="mflg-field">
+            <label class="mflg-label">Has either spouse lived in Arizona for at least 90 days?</label>
+            ${selectEl("arizonaResidency90Days", yesNoUnsureOptions, false)}
+          </div>
+        ` : ""}
+
+        ${childMatter ? `
+          <div class="mflg-field">
+            <label class="mflg-label">Have the children lived in Arizona for the last 6 months?</label>
+            ${selectEl("childHomeStateSixMonths", yesNoUnsureOptions, false)}
+          </div>
+        ` : ""}
+      </div>
+
+      ${childMatter ? `
+        <div class="mflg-grid2">
+          <div class="mflg-field">
+            <label class="mflg-label">Any other state, country, or tribal court orders?</label>
+            ${selectEl("existingOutOfStateOrders", yesNoUnsureOptions, false)}
+          </div>
+
+          <div class="mflg-field">
+            <label class="mflg-label">Children’s residence history</label>
+            ${inputEl("childrenResidenceHistory", "States/cities where children lived recently")}
+          </div>
+        </div>
+      ` : ""}
+    `;
+  }
+
+  function parentingBestInterestPrep() {
+    return `
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Current parenting schedule</label>
+          ${inputEl("currentParentingSchedule", "Example: every other weekend, 2-2-3, informal")}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Desired parenting schedule</label>
+          ${inputEl("desiredParentingSchedule", "What schedule are you hoping for?")}
+        </div>
+      </div>
+
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">School/daycare or special needs</label>
+          ${inputEl("childSchoolDaycareSpecialNeeds", "School, daycare, medical, therapy, IEP, etc.")}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Communication or exchange concerns?</label>
+          ${selectEl("parentCommunicationExchangeConcerns", ["Yes", "No", "Not sure", "Prefer not to say"], false)}
+        </div>
+      </div>
+    `;
+  }
+
+  function childSupportPrep() {
+    return `
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Your gross monthly income, if known</label>
+          ${inputEl("clientGrossMonthlyIncome", "Before taxes; approximate is okay")}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Other parent gross monthly income, if known</label>
+          ${inputEl("otherParentGrossMonthlyIncome", "Before taxes; approximate or unknown")}
+        </div>
+      </div>
+
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Parenting days / overnights estimate</label>
+          ${inputEl("parentingDaysEstimate", "Approximate annual days or current schedule")}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">DES/DCSS involved?</label>
+          ${selectEl("dcssInvolvement", yesNoUnsureOptions, false)}
+        </div>
+      </div>
+
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Monthly child health insurance cost</label>
+          ${inputEl("childHealthInsuranceCost", "Amount paid for child coverage")}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Monthly childcare cost</label>
+          ${inputEl("childcareCost", "Work-related childcare, if any")}
+        </div>
+      </div>
+    `;
+  }
+
+  function spousalMaintenancePrep() {
+    return `
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Marriage date</label>
+          ${dateEl("marriageDate")}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Separation date, if any</label>
+          ${dateEl("separationDate")}
+        </div>
+      </div>
+
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Employment, health, or training issue?</label>
+          ${selectEl("maintenanceEmploymentOrHealthIssue", yesNoUnsureOptions, false)}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Career sacrifice or childcare limiting work?</label>
+          ${selectEl("maintenanceCareerOrChildcareIssue", yesNoUnsureOptions, false)}
+        </div>
+      </div>
+    `;
+  }
+
+  function propertyDebtPrep() {
+    return `
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Real estate involved?</label>
+          ${selectEl("realEstateInvolved", yesNoUnsureOptions, false)}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Retirement accounts involved?</label>
+          ${selectEl("retirementAccountsInvolved", yesNoUnsureOptions, false)}
+        </div>
+      </div>
+
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Significant debts involved?</label>
+          ${selectEl("debtsInvolved", yesNoUnsureOptions, false)}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Separate property, business, or retirement division issue?</label>
+          ${selectEl("complexPropertyIssue", ["Yes", "No", "Not sure"], false)}
+        </div>
+      </div>
+    `;
+  }
+
+  function relocationPrep() {
+    return `
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Relocation distance/type</label>
+          ${selectEl("relocationDistance", ["Out of Arizona", "More than 100 miles within Arizona", "Less than 100 miles", "Not sure"], false)}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Written relocation notice sent or received?</label>
+          ${selectEl("relocationNoticeStatus", ["Sent", "Received", "Not yet", "Not sure"], false)}
+        </div>
+      </div>
+    `;
+  }
+
+  function protectiveOrderSafetyPrep() {
+    return `
+      <div class="mflg-grid2">
+        <div class="mflg-field">
+          <label class="mflg-label">Protective order served?</label>
+          ${selectEl("protectiveOrderServed", yesNoUnsureOptions, false)}
+        </div>
+
+        <div class="mflg-field">
+          <label class="mflg-label">Safe contact instructions</label>
+          ${inputEl("safeContactInstructions", "Best/safest way to contact you")}
+        </div>
+      </div>
+
+      <div class="mflg-field">
+        <label class="mflg-label">Address confidentiality or safe-exchange concern?</label>
+        ${selectEl("addressConfidentialityOrExchangeConcern", ["Yes", "No", "Not sure", "Prefer not to say"], false)}
       </div>
     `;
   }
@@ -1678,6 +2011,50 @@
     root()?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function hasAnswer(key) {
+    const value = state.answers[key];
+    return Array.isArray(value) ? value.length > 0 : String(value || "").trim() !== "";
+  }
+
+  function consultPrepCompletenessScore() {
+    const keys = [
+      "caseNumber",
+      "partyRole",
+      "hearingType",
+      "temporaryOrdersStatus",
+      "arizonaResidency90Days",
+      "childHomeStateSixMonths",
+      "existingOutOfStateOrders",
+      "childrenResidenceHistory",
+      "currentParentingSchedule",
+      "desiredParentingSchedule",
+      "clientGrossMonthlyIncome",
+      "otherParentGrossMonthlyIncome",
+      "parentingDaysEstimate",
+      "childHealthInsuranceCost",
+      "childcareCost",
+      "dcssInvolvement",
+      "marriageDate",
+      "separationDate",
+      "maintenanceEmploymentOrHealthIssue",
+      "maintenanceCareerOrChildcareIssue",
+      "realEstateInvolved",
+      "retirementAccountsInvolved",
+      "debtsInvolved",
+      "complexPropertyIssue",
+      "relocationDistance",
+      "relocationNoticeStatus",
+      "protectiveOrderServed",
+      "safeContactInstructions",
+      "addressConfidentialityOrExchangeConcern",
+      "financialDocumentsAvailable",
+      "evidenceAvailable"
+    ];
+
+    const answered = keys.filter(hasAnswer).length;
+    return Math.round((answered / keys.length) * 100);
+  }
+
   function flags() {
     const answers = state.answers;
 
@@ -1719,6 +2096,29 @@
       includesAny(answers.divorceIssues, ["Property/debt division", "Real estate / home"]) ||
       includesAny(answers.scopeItems, ["Business entity division", "Commercial property division", "QDRO or supplemental retirement division order"]);
 
+    const jurisdictionReviewFlag =
+      ["No", "Not sure"].includes(answers.arizonaResidency90Days) ||
+      ["No", "Not sure"].includes(answers.childHomeStateSixMonths) ||
+      answers.childrenLivedOutsideAZ5Years === "Yes" ||
+      answers.existingOutOfStateOrders === "Yes" ||
+      answers.otherJurisdictionOrders === "Yes";
+
+    const caseDeadlineFlag =
+      answers.servedStatus === "Yes" ||
+      answers.caseStage === "I was served" ||
+      !!String(answers.urgentDeadline || "").trim() ||
+      !!String(answers.courtDate || "").trim() ||
+      !!String(answers.protectiveOrderHearingDate || "").trim() ||
+      !["", "No hearing scheduled"].includes(answers.hearingType || "");
+
+    const supportCalculationReadyFlag =
+      !!String(answers.clientGrossMonthlyIncome || "").trim() &&
+      !!String(answers.otherParentGrossMonthlyIncome || "").trim() &&
+      !!String(answers.parentingDaysEstimate || "").trim();
+
+    const adultChildAgeFlag =
+      Object.keys(answers).some((key) => /^child\d+Age$/.test(key) && answers[key] === "18+");
+
     return {
       urgencyFlag,
       safetyFlag,
@@ -1728,7 +2128,11 @@
       referralFlag,
       childrenFlag,
       supportFlag,
-      propertyFlag
+      propertyFlag,
+      jurisdictionReviewFlag,
+      caseDeadlineFlag,
+      supportCalculationReadyFlag,
+      adultChildAgeFlag
     };
   }
 
@@ -1774,6 +2178,10 @@
     if (flagState.childrenFlag) tags.push("CHILDREN");
     if (flagState.supportFlag) tags.push("SUPPORT");
     if (flagState.propertyFlag) tags.push("PROPERTY");
+    if (flagState.jurisdictionReviewFlag) tags.push("JURISDICTION_REVIEW");
+    if (flagState.caseDeadlineFlag) tags.push("CASE_DEADLINE");
+    if (flagState.supportCalculationReadyFlag) tags.push("SUPPORT_CALC_READY");
+    if (flagState.adultChildAgeFlag) tags.push("ADULT_CHILD_AGE_REVIEW");
 
     tags.push(`PRIORITY_${priorityValue}`);
 
@@ -1830,6 +2238,38 @@
     add("Children ages/DOB summary", ans("childrenAges"));
     add("Children location summary", ans("childrenCurrentCityState"));
 
+    lines.push("\nCONSULT PREP:");
+    add("Case number", ans("caseNumber"));
+    add("Party role", ans("partyRole"));
+    add("Hearing type", ans("hearingType"));
+    add("Temporary orders", ans("temporaryOrdersStatus"));
+    add("AZ residency 90 days", ans("arizonaResidency90Days"));
+    add("Child home state 6 months", ans("childHomeStateSixMonths"));
+    add("Out-of-state/tribal orders", ans("existingOutOfStateOrders") || ans("otherJurisdictionOrders"));
+    add("Children residence history", ans("childrenResidenceHistory"));
+    add("Current parenting schedule", ans("currentParentingSchedule"));
+    add("Desired parenting schedule", ans("desiredParentingSchedule"));
+    add("Support income client", ans("clientGrossMonthlyIncome"));
+    add("Support income other parent", ans("otherParentGrossMonthlyIncome"));
+    add("Parenting days estimate", ans("parentingDaysEstimate"));
+    add("Health insurance cost", ans("childHealthInsuranceCost"));
+    add("Childcare cost", ans("childcareCost"));
+    add("DES/DCSS", ans("dcssInvolvement"));
+    add("Marriage date", ans("marriageDate"));
+    add("Separation date", ans("separationDate"));
+    add("Real estate", ans("realEstateInvolved"));
+    add("Retirement accounts", ans("retirementAccountsInvolved"));
+    add("Debts", ans("debtsInvolved"));
+    add("Complex property issue", ans("complexPropertyIssue"));
+    add("Relocation distance", ans("relocationDistance"));
+    add("Relocation notice", ans("relocationNoticeStatus"));
+    add("Protective order served", ans("protectiveOrderServed"));
+    add("Safe contact", ans("safeContactInstructions"));
+    add("Address/exchange safety", ans("addressConfidentialityOrExchangeConcern"));
+    add("Financial docs", arr("financialDocumentsAvailable"));
+    add("Evidence/materials", arr("evidenceAvailable"));
+    add("Consult-prep completeness", `${consultPrepCompletenessScore()}%`);
+
     lines.push("\nROUTING CONTEXT:");
     add("Entry source", ans("entrySource"));
     add("Entry label", ans("entryLabel"));
@@ -1858,6 +2298,10 @@
     add("Soft scope review", String(flagState.softScopeReviewFlag));
     add("Scope review", String(flagState.scopeReviewFlag));
     add("Referral", String(flagState.referralFlag));
+    add("Jurisdiction review", String(flagState.jurisdictionReviewFlag));
+    add("Case/deadline", String(flagState.caseDeadlineFlag));
+    add("Support calc ready", String(flagState.supportCalculationReadyFlag));
+    add("Adult child age review", String(flagState.adultChildAgeFlag));
     add("Vapi eligible", String(eligible));
 
     return lines.join("\n");
@@ -1906,6 +2350,11 @@
       scopeReviewFlag: flagState.scopeReviewFlag,
       scopeFlag: flagState.scopeReviewFlag,
       referralFlag: flagState.referralFlag,
+      jurisdictionReviewFlag: flagState.jurisdictionReviewFlag,
+      caseDeadlineFlag: flagState.caseDeadlineFlag,
+      supportCalculationReadyFlag: flagState.supportCalculationReadyFlag,
+      adultChildAgeFlag: flagState.adultChildAgeFlag,
+      consultPrepCompletenessScore: consultPrepCompletenessScore(),
 
       vapiEligible: eligible,
       vapiTriggered: false,
@@ -1958,6 +2407,10 @@
       caseStage: ans("caseStage"),
       courtStatus: ans("caseStage"),
       courtCounty: ans("courtCounty") || ans("county"),
+      caseNumber: ans("caseNumber"),
+      partyRole: ans("partyRole"),
+      hearingType: ans("hearingType"),
+      temporaryOrdersStatus: ans("temporaryOrdersStatus"),
       servedStatus: ans("servedStatus"),
       urgentDeadline: ans("urgentDeadline"),
       responseDeadline: ans("urgentDeadline"),
@@ -1979,8 +2432,37 @@
       childrenAges: ans("childrenAges"),
       childrenCurrentCityState: ans("childrenCurrentCityState"),
       childrenLivedOutsideAZ5Years: ans("childrenLivedOutsideAZ5Years"),
+      arizonaResidency90Days: ans("arizonaResidency90Days"),
+      childHomeStateSixMonths: ans("childHomeStateSixMonths"),
+      existingOutOfStateOrders: ans("existingOutOfStateOrders") || ans("otherJurisdictionOrders"),
+      childrenResidenceHistory: ans("childrenResidenceHistory"),
+      currentParentingSchedule: ans("currentParentingSchedule"),
+      desiredParentingSchedule: ans("desiredParentingSchedule"),
+      childSchoolDaycareSpecialNeeds: ans("childSchoolDaycareSpecialNeeds"),
+      parentCommunicationExchangeConcerns: ans("parentCommunicationExchangeConcerns"),
+      clientGrossMonthlyIncome: ans("clientGrossMonthlyIncome"),
+      otherParentGrossMonthlyIncome: ans("otherParentGrossMonthlyIncome"),
+      parentingDaysEstimate: ans("parentingDaysEstimate"),
+      childHealthInsuranceCost: ans("childHealthInsuranceCost"),
+      childcareCost: ans("childcareCost"),
+      dcssInvolvement: ans("dcssInvolvement"),
+      marriageDate: ans("marriageDate"),
+      separationDate: ans("separationDate"),
+      maintenanceEmploymentOrHealthIssue: ans("maintenanceEmploymentOrHealthIssue"),
+      maintenanceCareerOrChildcareIssue: ans("maintenanceCareerOrChildcareIssue"),
+      realEstateInvolved: ans("realEstateInvolved"),
+      retirementAccountsInvolved: ans("retirementAccountsInvolved"),
+      debtsInvolved: ans("debtsInvolved"),
+      complexPropertyIssue: ans("complexPropertyIssue"),
+      relocationDistance: ans("relocationDistance"),
+      relocationNoticeStatus: ans("relocationNoticeStatus"),
+      protectiveOrderServed: ans("protectiveOrderServed"),
+      safeContactInstructions: ans("safeContactInstructions"),
+      addressConfidentialityOrExchangeConcern: ans("addressConfidentialityOrExchangeConcern"),
       scopeItems: arr("scopeItems").join(", "),
       documentsAvailable: arr("documentsAvailable").join(", "),
+      financialDocumentsAvailable: arr("financialDocumentsAvailable").join(", "),
+      evidenceAvailable: arr("evidenceAvailable").join(", "),
       desiredOutcome: ans("desiredOutcome"),
       serviceInterest: ans("serviceInterest"),
       preferredServiceType: ans("serviceInterest"),
