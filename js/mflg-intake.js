@@ -23,7 +23,7 @@
   "use strict";
 
   const CONFIG = {
-    version: "3.5.0-consult-prep",
+    version: "3.5.0-consistency-guardrails",
     mode: "n8n",
     n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
     source: "MFLG Website Intake",
@@ -56,6 +56,8 @@
       userChangedIssue: false
     },
     routeAppliedFromStorage: false,
+    consistencyConfirmations: {},
+    consistencyReviewVisible: false,
     submitting: false,
     submittedPayload: null,
     submitAttemptCount: 0
@@ -436,6 +438,557 @@
     return Array.isArray(list) && items.some((item) => list.includes(item));
   }
 
+  function textHasAny(value, words) {
+    const normalized = String(value || "").toLowerCase();
+    return words.some((word) => normalized.includes(word));
+  }
+
+  function combinedNarrative() {
+    return [
+      ans("summary"),
+      ans("desiredOutcome"),
+      ans("documentSummary"),
+      ans("nonComplianceDescription"),
+      ans("changeReason"),
+      ans("maintenanceNotes"),
+      ans("whatResultNeeded"),
+      ans("safeContactInstructions"),
+      ans("childrenResidenceHistory"),
+      ans("currentParentingSchedule"),
+      ans("desiredParentingSchedule"),
+      ans("parentCommunicationExchangeConcerns"),
+      ans("childSchoolDaycareSpecialNeeds")
+    ].join(" ");
+  }
+
+  function parseLocalDate(value) {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value || "").trim());
+    if (!match) return null;
+
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const dateValue = new Date(year, month - 1, day);
+
+    if (dateValue.getFullYear() !== year || dateValue.getMonth() !== month - 1 || dateValue.getDate() !== day) {
+      return null;
+    }
+
+    dateValue.setHours(0, 0, 0, 0);
+    return dateValue;
+  }
+
+  function todayLocal() {
+    const dateValue = new Date();
+    dateValue.setHours(0, 0, 0, 0);
+    return dateValue;
+  }
+
+  function daysFromToday(value) {
+    const dateValue = parseLocalDate(value);
+    if (!dateValue) return null;
+
+    return Math.round((dateValue.getTime() - todayLocal().getTime()) / 86400000);
+  }
+
+  function dateBefore(a, b) {
+    const first = parseLocalDate(a);
+    const second = parseLocalDate(b);
+    return !!(first && second && first.getTime() < second.getTime());
+  }
+
+  function hasCourtDetailAnswers() {
+    return !!(
+      ans("caseNumber") ||
+      ans("courtDate") ||
+      ans("urgentDeadline") ||
+      ans("protectiveOrderHearingDate") ||
+      ans("filingDeadline") ||
+      ans("servedStatus") === "Yes" ||
+      !["", "No hearing scheduled"].includes(ans("hearingType")) ||
+      ans("temporaryOrdersStatus") === "Yes" ||
+      ans("partyRole") === "Petitioner / filing party" ||
+      ans("partyRole") === "Respondent / responding party"
+    );
+  }
+
+  function isNoCaseStage(value) {
+    return ["No case filed", "Not filed yet"].includes(value);
+  }
+
+  function isActiveCaseStage(value) {
+    return ["Active case", "Already filed / active case", "I was served"].includes(value);
+  }
+
+  function childIssueSelected() {
+    return (
+      ["Parenting Time / Legal Decision-Making", "Child Support", "Paternity"].includes(state.issuePathway) ||
+      includesAny(arr("divorceIssues"), ["Child support", "Parenting time / legal decision-making"]) ||
+      includesAny(arr("parentingIssues"), ["Legal decision-making", "Parenting time schedule", "Modification", "Enforcement", "Relocation", "Supervised parenting time", "Child being withheld", "Grandparent / third-party rights"]) ||
+      includesAny(arr("paternityIssues"), ["Parenting time", "Legal decision-making", "Child support"]) ||
+      !!ans("childrenAges") ||
+      !!ans("childrenCurrentCityState") ||
+      !!ans("childHomeStateSixMonths") ||
+      !!ans("childrenResidenceHistory") ||
+      !!ans("currentParentingSchedule") ||
+      !!ans("desiredParentingSchedule") ||
+      !!ans("supportAction") ||
+      !!ans("relocationDistance")
+    );
+  }
+
+  function likelyOutsideArizona(value) {
+    const normalized = String(value || "").toLowerCase();
+    if (/\b(ca|nv|ut|nm|co|tx|or|wa|id|fl|ny)\b/.test(normalized)) {
+      return true;
+    }
+
+    return textHasAny(normalized, [
+      "utah",
+      "california",
+      "nevada",
+      "new mexico",
+      "colorado",
+      "texas",
+      "oregon",
+      "washington",
+      "idaho",
+      "florida",
+      "new york"
+    ]);
+  }
+
+  function consistencyIssue(id, severity, step, fields, title, message, options) {
+    const opts = options || {};
+
+    return {
+      id,
+      severity,
+      step,
+      fields,
+      title,
+      message,
+      actionLabel: opts.actionLabel || "I confirm this is correct",
+      allowContinue: opts.allowContinue !== false,
+      requiresConfirmation: opts.requiresConfirmation !== false,
+      sort: opts.sort || 50
+    };
+  }
+
+  function dateConsistencyIssues() {
+    const issues = [];
+    const dateFields = [
+      ["courtDate", "Court/hearing date", 3],
+      ["urgentDeadline", "Response deadline", 3],
+      ["protectiveOrderHearingDate", "Protective order hearing date", 2],
+      ["filingDeadline", "Filing deadline", 2]
+    ];
+
+    dateFields.forEach(([key, label, step]) => {
+      const value = ans(key);
+      const days = daysFromToday(value);
+      if (days === null) return;
+
+      if (days < 0 && ["courtDate", "protectiveOrderHearingDate"].includes(key)) {
+        issues.push(consistencyIssue(
+          `${key}-past-${value}`,
+          "clarify",
+          step,
+          [key],
+          "Date may have already passed",
+          `The ${label.toLowerCase()} appears to be in the past. Please confirm whether this date already passed or correct the date.`,
+          { sort: 18 }
+        ));
+      } else if (days >= 0 && days <= 2) {
+        issues.push(consistencyIssue(
+          `${key}-urgent-${value}`,
+          "urgent",
+          step,
+          [key],
+          "Very soon deadline or hearing",
+          "You entered a court date, hearing, or deadline that appears to be very soon. Our office may not have enough time to review, prepare, or accept the matter through this form. Please call (888) 870-6354 directly. You may continue submitting this intake, but submission does not mean representation has been accepted.",
+          { sort: 5 }
+        ));
+      } else if (days >= 3 && days <= 7) {
+        issues.push(consistencyIssue(
+          `${key}-soon-${value}`,
+          "warning",
+          step,
+          [key],
+          "Short preparation window",
+          "This date is within the next week. Please confirm it is correct so our office can review timing and preparation concerns.",
+          { sort: 12 }
+        ));
+      } else if (days >= 8 && days <= 14 && ["courtDate", "urgentDeadline", "protectiveOrderHearingDate"].includes(key)) {
+        issues.push(consistencyIssue(
+          `${key}-caution-${value}`,
+          "info",
+          step,
+          [key],
+          "Upcoming date to review",
+          "This date is coming up soon. Our office will review timing, scope, and availability before confirming any services.",
+          { requiresConfirmation: false, sort: 30 }
+        ));
+      }
+    });
+
+    if (ans("hasDeadline") === "No" && ans("urgentDeadline")) {
+      issues.push(consistencyIssue(
+        "deadline-entered-hasdeadline-no",
+        "clarify",
+        3,
+        ["hasDeadline", "urgentDeadline"],
+        "Deadline answer may not match",
+        "You entered a response deadline, but also indicated there may not be a deadline. Please confirm whether the date is known or estimated.",
+        { sort: 20 }
+      ));
+    }
+
+    if (dateBefore(ans("separationDate"), ans("marriageDate"))) {
+      issues.push(consistencyIssue(
+        "separation-before-marriage",
+        "clarify",
+        2,
+        ["marriageDate", "separationDate"],
+        "Marriage dates may not match",
+        "The separation date appears to be before the marriage date. Please correct the date or confirm the closest known dates.",
+        { sort: 22 }
+      ));
+    }
+
+    if (daysFromToday(ans("marriageDate")) !== null && daysFromToday(ans("marriageDate")) > 0) {
+      issues.push(consistencyIssue(
+        "marriage-date-future",
+        "clarify",
+        2,
+        ["marriageDate"],
+        "Marriage date appears to be in the future",
+        "The marriage date appears to be in the future. Please correct it or confirm if this is only an approximate planning date.",
+        { sort: 24 }
+      ));
+    }
+
+    for (let index = 1; index <= childCardCount(ans("childrenCount")); index += 1) {
+      const dobKey = `child${index}DateOfBirth`;
+      const ageKey = `child${index}Age`;
+      const dob = ans(dobKey);
+      const days = daysFromToday(dob);
+
+      if (days !== null && days > 0) {
+        issues.push(consistencyIssue(
+          `${dobKey}-future-${dob}`,
+          "block",
+          2,
+          [dobKey],
+          "Child date of birth is in the future",
+          "The child date of birth appears to be in the future. Please correct the date of birth or clear it before continuing.",
+          { allowContinue: false, requiresConfirmation: false, sort: 1 }
+        ));
+      }
+
+      const calculated = calculatedChildAgeOption(dob);
+      const selected = ans(ageKey);
+      if (calculated && selected && selected !== calculated) {
+        issues.push(consistencyIssue(
+          `${ageKey}-mismatch-${dob}-${selected}`,
+          "block",
+          2,
+          [dobKey, ageKey],
+          "DOB and age do not match",
+          "The date of birth and age do not appear to match. Please correct the date of birth or clear it before selecting an age manually.",
+          { allowContinue: false, requiresConfirmation: false, sort: 2 }
+        ));
+      }
+    }
+
+    return issues;
+  }
+
+  function getIntakeConsistencyIssues() {
+    updateChildDerivedFields();
+
+    const issues = [...dateConsistencyIssues()];
+    const narrative = combinedNarrative();
+    const safetyWords = ["violence", "threat", "weapon", "stalking", "abuse", "emergency", "danger", "police", "assault", "unsafe", "harass"];
+    const scopeWords = ["appeal", "qdro", "adoption", "business", "commercial property", "dependency", "dcs", "termination", "surrogacy", "criminal", "immigration", "bankruptcy", "hague", "tribal"];
+
+    if (ans("immediateSafetyConcern") === "Yes" || ans("protectiveOrderStatus") === "There is a hearing scheduled") {
+      issues.push(consistencyIssue(
+        "immediate-safety-review",
+        "urgent",
+        3,
+        ["immediateSafetyConcern", "protectiveOrderStatus"],
+        "Safety review",
+        "If you are in immediate danger, call 911 or local emergency services. This intake is not monitored 24/7. You may still submit the form so our office can review the information during business review.",
+        { actionLabel: "I understand and want to continue", sort: 3 }
+      ));
+    }
+
+    if (ans("immediateSafetyConcern") !== "Yes" && textHasAny(narrative, safetyWords)) {
+      issues.push(consistencyIssue(
+        "narrative-safety-review",
+        "warning",
+        3,
+        ["summary", "desiredOutcome"],
+        "Safety details may need review",
+        "Some words in your answers may describe a safety concern. Please confirm whether there is an immediate danger or protective-order issue.",
+        { sort: 10 }
+      ));
+    }
+
+    if (isNoCaseStage(ans("caseStage")) && hasCourtDetailAnswers()) {
+      issues.push(consistencyIssue(
+        "no-case-with-court-details",
+        "clarify",
+        3,
+        ["caseStage", "caseNumber", "courtDate", "urgentDeadline", "servedStatus", "hearingType"],
+        "Court status may not match",
+        "You selected that no court case has been filed, but you also entered court, hearing, service, or deadline information. Please confirm whether a court case already exists.",
+        { sort: 14 }
+      ));
+    }
+
+    if (isActiveCaseStage(ans("caseStage")) && !hasCourtDetailAnswers()) {
+      issues.push(consistencyIssue(
+        "active-case-no-details",
+        "info",
+        3,
+        ["caseStage", "caseNumber", "courtDate", "urgentDeadline"],
+        "Active case details help review",
+        "You selected that there is an active case. If you know the court county, case number, hearing date, or response deadline, please add it. If you are not sure, you may continue.",
+        { requiresConfirmation: false, sort: 35 }
+      ));
+    }
+
+    if (ans("servedStatus") === "Yes" && !ans("urgentDeadline")) {
+      issues.push(consistencyIssue(
+        "served-no-deadline",
+        "clarify",
+        3,
+        ["servedStatus", "urgentDeadline"],
+        "Service deadline may be missing",
+        "You selected that papers were served. If you know the service date or response deadline, please enter it because deadlines may depend on that information. If unsure, you may continue.",
+        { sort: 16 }
+      ));
+    }
+
+    if (ans("childrenInvolved") === "No" && (ans("childrenCount") || childIssueSelected())) {
+      issues.push(consistencyIssue(
+        "no-children-with-child-details",
+        "clarify",
+        2,
+        ["childrenInvolved", "childrenCount", "childrenAges", "childrenCurrentCityState"],
+        "Child-related answers may not match",
+        "You selected that no minor children are involved, but some child-related answers were also provided. Please confirm whether minor children are involved.",
+        { sort: 15 }
+      ));
+    }
+
+    for (let index = 1; index <= childCardCount(ans("childrenCount")); index += 1) {
+      const cityKey = `child${index}CurrentCityState`;
+      const livesKey = `child${index}LivesInArizona`;
+      const city = ans(cityKey);
+      const lives = ans(livesKey);
+      const inferredAz = inferArizonaFromCityState(city);
+
+      if (city && lives === "Yes" && likelyOutsideArizona(city)) {
+        issues.push(consistencyIssue(
+          `${cityKey}-outside-az-lives-yes`,
+          "clarify",
+          2,
+          [cityKey, livesKey],
+          "Child location may not match",
+          "You entered a child location that may not match the Arizona residency answer. Please confirm the child’s current location and whether the child currently lives in Arizona.",
+          { sort: 28 }
+        ));
+      }
+
+      if (city && lives === "No" && inferredAz === "Yes") {
+        issues.push(consistencyIssue(
+          `${cityKey}-az-lives-no`,
+          "clarify",
+          2,
+          [cityKey, livesKey],
+          "Child location may not match",
+          "You entered a child location that may not match the Arizona residency answer. Please confirm the child’s current location and whether the child currently lives in Arizona.",
+          { sort: 28 }
+        ));
+      }
+
+      if (ans(`child${index}Age`) === "18+") {
+        issues.push(consistencyIssue(
+          `child${index}-adult-age-review`,
+          "clarify",
+          2,
+          [`child${index}Age`],
+          "Adult child listed in minor-child section",
+          "This section is for minor children. Please confirm whether this child is 18 or older, or correct the age if the child is a minor.",
+          { sort: 26 }
+        ));
+      }
+    }
+
+    if (state.issuePathway === "Mediation / ADR / Settlement Help" && ans("bothPartiesWilling") === "No") {
+      issues.push(consistencyIssue(
+        "adr-not-willing",
+        "clarify",
+        2,
+        ["bothPartiesWilling", "adrType"],
+        "Settlement path may need review",
+        "You selected mediation or settlement help, but also indicated both parties may not be willing to participate. Please confirm the closest service path.",
+        { sort: 32 }
+      ));
+    }
+
+    if (ans("agreementStatus") === "Yes, mostly agreed" && (
+      includesAny(arr("divorceIssues"), ["Temporary orders", "Parenting time / legal decision-making", "Property/debt division", "Real estate / home"]) ||
+      includesAny(arr("parentingSafetyConcerns"), ["Domestic violence", "Child abuse or neglect concern", "DCS involvement", "Protective order"])
+    )) {
+      issues.push(consistencyIssue(
+        "agreement-with-contested-issues",
+        "clarify",
+        2,
+        ["agreementStatus", "divorceIssues", "parentingSafetyConcerns"],
+        "Agreement status may need review",
+        "You selected that the matter is mostly agreed, but some answers may involve contested, safety, or court-review issues. Please confirm the closest description.",
+        { sort: 34 }
+      ));
+    }
+
+    if (["Court appearance / limited-scope representation", "Document review", "Prepare and file documents", "Quick question / limited guidance"].includes(ans("serviceInterest"))) {
+      const courtDays = daysFromToday(ans("courtDate"));
+      const deadlineDays = daysFromToday(ans("urgentDeadline"));
+      const soonest = [courtDays, deadlineDays].filter((value) => value !== null && value >= 0).sort((a, b) => a - b)[0];
+
+      if (soonest !== undefined && soonest <= 7) {
+        issues.push(consistencyIssue(
+          "limited-service-soon-date",
+          "warning",
+          4,
+          ["serviceInterest", "courtDate", "urgentDeadline"],
+          "Service fit and timing review",
+          "You selected a lower-scope or limited service option, but your answers may involve an urgent or contested issue. We may need to review whether this is appropriate for limited-scope help.",
+          { sort: 13 }
+        ));
+      }
+    }
+
+    if (textHasAny(narrative, scopeWords) || includesAny(arr("scopeItems"), hardScopeReviewItems)) {
+      issues.push(consistencyIssue(
+        "scope-referral-review",
+        "warning",
+        4,
+        ["scopeItems", "summary", "desiredOutcome"],
+        "Scope or referral review",
+        "Some issues may require attorney involvement, additional qualifications, or referral coordination. Our office will review whether the matter falls within licensed Legal Paraprofessional scope.",
+        { sort: 25 }
+      ));
+    }
+
+    return issues.sort((a, b) => a.sort - b.sort || a.title.localeCompare(b.title));
+  }
+
+  function isConsistencyIssueConfirmed(issue) {
+    return !!state.consistencyConfirmations[issue.id];
+  }
+
+  function unresolvedConsistencyIssues(options) {
+    const opts = options || {};
+    return getIntakeConsistencyIssues().filter((issue) => {
+      if (opts.upToStep && issue.step > opts.upToStep) return false;
+      if (!issue.requiresConfirmation && issue.severity !== "block") return false;
+      if (isConsistencyIssueConfirmed(issue)) return false;
+      return true;
+    });
+  }
+
+  function issueStepLabel(step) {
+    return {
+      1: "Issue",
+      2: "Pathway",
+      3: "Timing",
+      4: "Service Fit",
+      5: "Contact"
+    }[step] || "Intake";
+  }
+
+  function issueSeverityLabel(severity) {
+    return {
+      info: "Note",
+      clarify: "Please confirm",
+      warning: "Review",
+      urgent: "Urgent",
+      block: "Correction needed"
+    }[severity] || "Review";
+  }
+
+  function consistencyReviewHtml(context) {
+    const allIssues = getIntakeConsistencyIssues();
+    const visibleIssues = allIssues.filter((issue) => {
+      if (context === "final") return issue.step <= 5;
+      if (state.consistencyReviewVisible) return issue.step <= state.step;
+      if (issue.step !== state.step) return false;
+      return issue.severity === "urgent" || issue.severity === "block";
+    });
+
+    if (!visibleIssues.length) return "";
+
+    return `
+      <div class="mflg-consistency-panel" id="mflg-consistency-panel" data-consistency-panel>
+        <div class="mflg-consistency-head">
+          <span class="mflg-consistency-kicker">Consistency review</span>
+          <h4>Some answers may need a quick review.</h4>
+          <p>Please review the item${visibleIssues.length === 1 ? "" : "s"} below. You can correct an answer or confirm it is accurate.</p>
+        </div>
+        <div class="mflg-consistency-list">
+          ${visibleIssues.map((issue) => consistencyIssueHtml(issue)).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function consistencyIssueHtml(issue) {
+    const confirmed = isConsistencyIssueConfirmed(issue);
+    const canConfirm = issue.allowContinue && issue.requiresConfirmation && issue.severity !== "block";
+
+    return `
+      <div class="mflg-consistency-item is-${esc(issue.severity)} ${confirmed ? "is-confirmed" : ""}">
+        <div class="mflg-consistency-meta">
+          <span>${esc(issueSeverityLabel(issue.severity))}</span>
+          <span>${esc(issueStepLabel(issue.step))}</span>
+          ${confirmed ? "<span>Confirmed</span>" : ""}
+        </div>
+        <strong>${esc(issue.title)}</strong>
+        <p>${esc(issue.message)}</p>
+        <div class="mflg-consistency-actions">
+          <button type="button" class="mflg-mini-btn" data-action="edit-consistency-step" data-step="${issue.step}">Edit answer</button>
+          ${canConfirm && !confirmed ? `<button type="button" class="mflg-mini-btn is-primary" data-action="confirm-consistency-issue" data-issue-id="${esc(issue.id)}">${esc(issue.actionLabel)}</button>` : ""}
+        </div>
+      </div>
+    `;
+  }
+
+  function consistencyPayloadSummary() {
+    const issues = getIntakeConsistencyIssues();
+    const confirmed = issues.filter(isConsistencyIssueConfirmed);
+    const unresolved = issues.filter((issue) => issue.requiresConfirmation && !isConsistencyIssueConfirmed(issue));
+
+    return {
+      reviewVersion: CONFIG.version,
+      issueCount: issues.length,
+      confirmedIssueIds: confirmed.map((issue) => issue.id),
+      unresolvedIssueIds: unresolved.map((issue) => issue.id),
+      issues: issues.map((issue) => ({
+        id: issue.id,
+        severity: issue.severity,
+        step: issue.step,
+        title: issue.title,
+        message: issue.message,
+        confirmed: isConsistencyIssueConfirmed(issue)
+      }))
+    };
+  }
+
   function validIssuePathway(value) {
     return issueOptions.some((item) => item.value === value);
   }
@@ -794,6 +1347,7 @@
           <label>Leave this field empty<input data-key="website" tabindex="-1" autocomplete="off"></label>
         </div>
 
+        ${consistencyReviewHtml("step")}
         ${nav(false, "Next: Pathway")}
       </section>
     `;
@@ -826,6 +1380,7 @@
           <div class="mflg-notice show">Services are subject to Arizona LP scope, conflict review, and formal engagement. Matters outside scope may require attorney involvement or referral coordination.</div>
         ` : ""}
 
+        ${consistencyReviewHtml("step")}
         ${nav(true, "Next: Timing")}
       </section>
     `;
@@ -897,6 +1452,7 @@
 
         ${ans("immediateSafetyConcern") === "Yes" ? safetyWarning() : ""}
 
+        ${consistencyReviewHtml("step")}
         ${nav(true, "Next: Service Fit")}
       </section>
     `;
@@ -961,6 +1517,7 @@
           </div>
         </div>
 
+        ${consistencyReviewHtml("step")}
         ${nav(true, "Next: Contact")}
       </section>
     `;
@@ -1067,6 +1624,8 @@
           <strong>Preliminary next step:</strong> ${esc(recommended)}<br>
           <span>This is an automated intake triage label only. It does not confirm representation or legal advice.</span>
         </div>
+
+        ${consistencyReviewHtml("final")}
 
         <div class="mflg-nav">
           <button type="button" class="mflg-btn mflg-secondary" data-action="back">Back</button>
@@ -1833,6 +2392,8 @@
         const group = element.getAttribute("data-option-group");
         const value = element.getAttribute("data-option-value");
 
+        state.consistencyReviewVisible = false;
+
         if (group === "issuePathway") {
           const prior = state.issuePathway;
 
@@ -1885,6 +2446,7 @@
         const key = element.getAttribute("data-check-key");
         const exclusive = element.closest("[data-exclusive-none]")?.getAttribute("data-exclusive-none") || "";
         setMulti(key, element.value, element.checked, exclusive);
+        state.consistencyReviewVisible = false;
         render();
       });
     });
@@ -1900,6 +2462,30 @@
     mount.querySelectorAll("[data-action='submit']").forEach((button) => {
       button.addEventListener("click", submit);
     });
+
+    mount.querySelectorAll("[data-action='confirm-consistency-issue']").forEach((button) => {
+      button.addEventListener("click", function () {
+        const issueId = button.getAttribute("data-issue-id");
+        if (issueId) {
+          state.consistencyConfirmations[issueId] = new Date().toISOString();
+        }
+        state.consistencyReviewVisible = true;
+        render();
+        document.getElementById("mflg-consistency-panel")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+
+    mount.querySelectorAll("[data-action='edit-consistency-step']").forEach((button) => {
+      button.addEventListener("click", function () {
+        const step = parseInt(button.getAttribute("data-step"), 10);
+        if (Number.isFinite(step)) {
+          state.step = Math.min(5, Math.max(1, step));
+          state.consistencyReviewVisible = true;
+          render();
+          root()?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
   }
 
   function updateFromInput(event) {
@@ -1908,6 +2494,7 @@
     if (!key) return;
 
     set(key, element.type === "checkbox" ? element.checked : element.value);
+    state.consistencyReviewVisible = false;
     syncChildrenDerivedInput(key);
     updateChildDerivedFields();
     updateCounter();
@@ -1984,9 +2571,21 @@
     if (!valid) {
       showError("Please complete the highlighted required fields before continuing.");
       screen.querySelector(".mflg-invalid,.mflg-invalid-group")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
     }
 
-    return valid;
+    const unresolved = unresolvedConsistencyIssues({ upToStep: state.step });
+    if (unresolved.length) {
+      state.consistencyReviewVisible = true;
+      render();
+      const hasBlock = unresolved.some((issue) => issue.severity === "block" || issue.allowContinue === false);
+      showError(hasBlock ? "Please correct the highlighted consistency item before continuing." : "Please review and confirm the consistency item before continuing.");
+      document.getElementById("mflg-consistency-panel")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+
+    state.consistencyReviewVisible = false;
+    return true;
   }
 
   function showError(message) {
@@ -2318,6 +2917,7 @@
     const submittedAt = new Date().toISOString();
     const route = normalizeRoutingContext(state.routingContext);
     const howHeard = composedHowDidYouHear();
+    const consistencySummary = consistencyPayloadSummary();
 
     const row = {
       timestamp: submittedAt,
@@ -2497,7 +3097,10 @@
         consentLPScope: !!ans("consentLPScope")
       },
 
-      allAnswers: { ...state.answers }
+      allAnswers: {
+        ...state.answers,
+        consistencyReview: consistencySummary
+      }
     };
 
     row.internalSummary = internalSummary(flagState, priorityValue, recommended, tags, eligible);

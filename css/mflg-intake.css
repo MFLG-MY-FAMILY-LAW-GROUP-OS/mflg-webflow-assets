@@ -799,6 +799,132 @@
   word-break: break-word;
 }
 
+#mflg-intake-root .mflg-consistency-panel {
+  margin: 24px 0 8px;
+  padding: 18px;
+  border: 1px solid rgba(199, 154, 43, 0.34);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 244, 0.96), rgba(250, 246, 236, 0.92));
+  box-shadow: 0 18px 36px rgba(6, 16, 26, 0.06);
+}
+
+#mflg-intake-root .mflg-consistency-head {
+  margin-bottom: 14px;
+}
+
+#mflg-intake-root .mflg-consistency-kicker {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--mflg-gold-2);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#mflg-intake-root .mflg-consistency-head h4 {
+  margin: 0 0 6px;
+  color: var(--mflg-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+#mflg-intake-root .mflg-consistency-head p,
+#mflg-intake-root .mflg-consistency-item p {
+  margin: 0;
+  color: rgba(6, 16, 26, 0.72);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#mflg-intake-root .mflg-consistency-list {
+  display: grid;
+  gap: 10px;
+}
+
+#mflg-intake-root .mflg-consistency-item {
+  padding: 14px;
+  border: 1px solid rgba(2, 69, 122, 0.16);
+  border-left: 5px solid var(--mflg-blue);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+#mflg-intake-root .mflg-consistency-item.is-clarify {
+  border-left-color: var(--mflg-gold);
+}
+
+#mflg-intake-root .mflg-consistency-item.is-warning {
+  border-left-color: #b37b19;
+  background: rgba(255, 248, 234, 0.84);
+}
+
+#mflg-intake-root .mflg-consistency-item.is-urgent,
+#mflg-intake-root .mflg-consistency-item.is-block {
+  border-left-color: #b84a4a;
+  background: rgba(255, 244, 244, 0.88);
+}
+
+#mflg-intake-root .mflg-consistency-item.is-confirmed {
+  border-left-color: #4f8a62;
+  background: rgba(242, 250, 245, 0.86);
+}
+
+#mflg-intake-root .mflg-consistency-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+#mflg-intake-root .mflg-consistency-meta span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(2, 69, 122, 0.08);
+  color: var(--mflg-navy);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#mflg-intake-root .mflg-consistency-item strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--mflg-navy);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+#mflg-intake-root .mflg-consistency-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+#mflg-intake-root .mflg-mini-btn {
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(2, 69, 122, 0.22);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--mflg-navy);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#mflg-intake-root .mflg-mini-btn.is-primary {
+  border-color: rgba(2, 69, 122, 0.76);
+  background: var(--mflg-blue);
+  color: #fff;
+}
+
 /* =========================================================
    13. Buttons / Footer
    ========================================================= */
