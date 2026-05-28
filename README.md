@@ -10,7 +10,7 @@ The active intake assets are:
 
 Current production version:
 
-- `3.5.0-consistency-guardrails`
+- `3.5.1-consistency-hardening`
 
 Before release, run:
 
