@@ -10,7 +10,7 @@ The active intake assets are:
 
 Current production version:
 
-- `3.5.1-consistency-hardening`
+- `3.5.2-worldclass-ops`
 
 Before release, run:
 

@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
-EXPECTED_VERSION="3.5.1-consistency-hardening"
+EXPECTED_VERSION="3.5.2-worldclass-ops"
 EXPECTED_WEBHOOK="https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake"
 
 fail() {
