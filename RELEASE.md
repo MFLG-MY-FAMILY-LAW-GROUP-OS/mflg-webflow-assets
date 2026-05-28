@@ -6,7 +6,7 @@ In accordance with MP v2, this repository treats the intake as production softwa
 
 - Production JS source: `js/mflg-intake.js`
 - Production CSS source: `css/mflg-intake.css`
-- Current intake version: `3.5.1-consistency-hardening`
+- Current intake version: `3.5.2-worldclass-ops`
 - Current known-good commit: pending merge
 - Current n8n webhook: `https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake`
 
@@ -19,8 +19,8 @@ Each meaningful production intake release should also be copied into:
 
 Current release copies:
 
-- `js/releases/mflg-intake-3.5.1-consistency-hardening.js`
-- `css/releases/mflg-intake-3.5.1-consistency-hardening.css`
+- `js/releases/mflg-intake-3.5.2-worldclass-ops.js`
+- `css/releases/mflg-intake-3.5.2-worldclass-ops.css`
 
 These copies make rollback review simple even if `main` keeps moving.
 
@@ -48,7 +48,7 @@ With this pattern, routine intake changes happen in GitHub/Cloudflare and Webflo
 If Webflow is still using query-string cache busting, use:
 
 ```html
-<script defer src="https://assets.myfamilylawgroup.com/js/mflg-intake.js?v=3.5.1-consistency-hardening"></script>
+<script defer src="https://assets.myfamilylawgroup.com/js/mflg-intake.js?v=3.5.2-worldclass-ops"></script>
 ```
 
 Do not change the n8n webhook, root element, CSS URL, payload fields, or reveal-pathways script unless a separate release specifically requires it.
