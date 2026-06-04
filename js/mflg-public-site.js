@@ -40,8 +40,8 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline poster="/assets/images/arizona-background.jpg">
-        <source src="/assets/images/mflg-background-video.mp4?v=366b571" type="video/mp4">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/arizona-background.jpg?v=hero-video-1">
+        <source src="/assets/images/mflg-background-video.mp4?v=hero-video-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
       <div class="hero-inner">
