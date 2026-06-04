@@ -12,6 +12,7 @@ const contentTypes = {
   ".json": "application/json; charset=utf-8",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
+  ".mp4": "video/mp4",
   ".png": "image/png",
   ".webp": "image/webp"
 };

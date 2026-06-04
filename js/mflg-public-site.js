@@ -40,19 +40,29 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="/assets/images/arizona-background.jpg">
+        <source src="/assets/images/mflg-background-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-shade"></div>
       <div class="hero-inner">
-        <div class="eyebrow">Arizona family law support</div>
+        <div class="eyebrow">Arizona family law guidance</div>
         <h1>${title}</h1>
         <p class="lead">${copy}</p>
+        <div class="hero-features">
+          <span><strong aria-hidden="true">▤</strong> Document preparation</span>
+          <span><strong aria-hidden="true">⇧</strong> Filing support</span>
+          <span><strong aria-hidden="true">⚖</strong> Negotiation</span>
+          <span><strong aria-hidden="true">▥</strong> Court appearances within licensed scope</span>
+        </div>
         <div class="actions">${actions}</div>
       </div>
     </section>`;
   }
 
-  function section(title, copy, body, band) {
+  function section(title, copy, body, band, eyebrow) {
     return `<section class="section ${band ? "band" : ""}">
       <div class="inner">
-        <p class="eyebrow">MY FAMILY LAW GROUP PLLC</p>
+        <p class="eyebrow">${eyebrow || "MY FAMILY LAW GROUP PLLC"}</p>
         <h2>${title}</h2>
         ${copy ? `<p class="lead muted">${copy}</p>` : ""}
         ${body}
@@ -62,48 +72,50 @@
 
   function cards(items) {
     return `<div class="grid">${items.map((item) => `<article class="card">
+      ${item.icon ? `<div class="card-icon" aria-hidden="true">${item.icon}</div>` : ""}
       <h3>${item.title}</h3>
       <p>${item.copy}</p>
+      ${item.href ? `<a class="card-link" href="${item.href}" data-link>${item.label || "Start Path"} →</a>` : ""}
     </article>`).join("")}</div>`;
+  }
+
+  function serviceCards() {
+    return cards([
+      { icon: "⚖", title: "Divorce & Legal Separation", copy: "Guidance for dissolution, legal separation, annulment, consent decrees, and related family court filings.", href: "/start" },
+      { icon: "◎", title: "Parenting Time & Legal Decision-Making", copy: "Support for parenting plans, legal decision-making, parenting time, relocation, and custody-related disputes.", href: "/start" },
+      { icon: "$", title: "Child Support & Spousal Maintenance", copy: "Help with support calculations, financial disclosures, modifications, enforcement, and related court orders.", href: "/start" },
+      { icon: "▤", title: "Document Preparation & Filing", copy: "Preparation, review, filing, and service coordination for many Arizona family law documents and court forms.", href: "/start" },
+      { icon: "↻", title: "Modifications & Enforcement", copy: "Assistance with post-decree modifications, enforcement of existing orders, and practical next-step strategy.", href: "/start" },
+      { icon: "▥", title: "Court Appearances Within Licensed Scope", copy: "Representation for eligible family court appearances, negotiations, mediation, and settlement discussions within licensed scope.", href: "/start" }
+    ]);
   }
 
   function home() {
     return hero(
-      "MY FAMILY LAW GROUP PLLC",
-      "Practical Arizona family law help, document preparation, and guided intake with conflict and scope review before services are confirmed.",
-      `${link("/start", "Start Guided Intake", "primary")} ${link("/practice-areas", "View Practice Areas")}`
+      "Clear Family Law Guidance. A More Affordable Path Forward.",
+      "Arizona family law help from a licensed Legal Paraprofessional for divorce, parenting time, child support, legal decision-making, and related family court matters.",
+      `${link("/start", "Start Guided Intake", "primary")} ${link("/practice-areas", "View Practice Areas", "outline")}`
     ) + section(
-      "Clear help for difficult family-law moments",
-      "Arizona family-law support for divorce, parenting, support, and post-decree matters, with clear guidance, practical document help, and scope review before services begin.",
-      `<div class="split">
-        <div>${cards([
-          { title: "Divorce & separation", copy: "Document preparation, process guidance, and next-step planning for Arizona divorce and legal separation matters." },
-          { title: "Children & parenting", copy: "Parenting time, legal decision-making, child support, and order-review support within licensed scope." },
-          { title: "Orders & enforcement", copy: "Review existing orders, deadlines, compliance issues, and practical next steps before formal engagement." }
-        ])}</div>
-        <div class="media-frame"><img src="/assets/images/mflg-office.webp" alt="MY FAMILY LAW GROUP office reference"></div>
-      </div>`,
-      true
+      "Practical help for Arizona family law matters.",
+      "MY FAMILY LAW GROUP provides efficient, scope-appropriate family law services for many Arizona domestic-relations matters, including document preparation, filing support, negotiation, and court appearances within licensed scope.",
+      serviceCards(),
+      true,
+      "Family law services"
     ) + section(
       "Start with the right path",
       "Choose the next step that fits where you are now. Submission of information does not create a client relationship or confirm representation.",
       cards([
-        { title: "Guided Intake", copy: "Answer a few questions so we can understand the family-law issue, timing, county, and next-step needs." },
-        { title: "DIY Guides", copy: "Explore Arizona family-law pathways before deciding whether you need document help, coaching, negotiation support, or a court appearance within licensed scope." },
-        { title: "Secure Access", copy: "Client and staff access are routed separately so private case tools remain protected." }
-      ])
+        { icon: "▤", title: "Guided Intake", copy: "Answer a few questions so we can understand the family-law issue, timing, county, and next-step needs.", href: "/start" },
+        { icon: "?", title: "DIY Guides", copy: "Explore Arizona family-law pathways before deciding whether you need document help, coaching, negotiation support, or a court appearance within licensed scope.", href: "/guides" },
+        { icon: "◇", title: "Secure Access", copy: "Client and staff access are routed separately so private case tools remain protected.", href: "/client" }
+      ]),
+      false,
+      "Next steps"
     );
   }
 
   function practiceAreas() {
-    return section("Practice Areas", "Focused Arizona family law pathways with scope review before services are accepted.", cards([
-      { title: "Divorce & legal separation", copy: "Initial filing support, document preparation, disclosure organization, and practical process planning." },
-      { title: "Legal decision-making", copy: "Parenting issues, child-focused facts, proposed plans, and safety-sensitive intake review." },
-      { title: "Parenting time", copy: "Schedules, exchanges, school and medical logistics, and order review." },
-      { title: "Child support", copy: "Support-information collection and review of income, insurance, childcare, and parenting-time inputs." },
-      { title: "Existing orders", copy: "Modification, enforcement, compliance review, and documentation planning." },
-      { title: "Scope/referral review", copy: "Issues outside licensed LP scope are flagged for attorney involvement or referral coordination." }
-    ]));
+    return section("Practice Areas", "Focused Arizona family law pathways with scope review before services are accepted.", serviceCards(), true, "Family law services");
   }
 
   function fees() {
@@ -174,7 +186,7 @@
 
   function contact() {
     return section("Contact", "Use the guided intake for structured review, or contact the office directly for urgent timing issues.", `<div class="grid two">
-      <article class="card"><h3>Office</h3><p><a href="tel:+18888706354">(888) 870-6354</a><br><a href="mailto:info@myfamilylawgroup.com">info@myfamilylawgroup.com</a><br>Fax: 602-782-8114</p><p>Jeremy James Jack, JD, LP<br>Arizona Legal Paraprofessional License No. 500094</p></article>
+      <article class="card"><h3>Office</h3><p><a href="tel:+18888706354">(888) 870-6354</a><br><a href="mailto:info@myfamilylawgroup.com">info@myfamilylawgroup.com</a><br>Fax: 602-782-8114</p><p>Jeremy James Jack, JD, LP<br>Arizona Supreme Court Licensed Legal Paraprofessional — Family Law<br>License No. 500094</p></article>
       <article class="card"><h3>Before sending details</h3><p>Please do not send confidential facts until the office confirms whether services can be provided.</p></article>
     </div>`);
   }
