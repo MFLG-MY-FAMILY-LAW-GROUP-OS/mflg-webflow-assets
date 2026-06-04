@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "divorce-legal-separation",
+    "title": "Arizona Divorce and Legal Separation Checklist",
+    "category": "Divorce",
+    "summary": "A practical starting checklist for court forms, financial disclosure, parenting issues, and service deadlines.",
+    "level": "Starter",
+    "updated": "2026-06-04",
+    "items": ["Confirm venue and case type", "Gather income, debt, and asset records", "Identify parenting and support issues", "Plan service and response timing"]
+  },
+  {
+    "slug": "parenting-time",
+    "title": "Parenting Time Preparation Guide",
+    "category": "Children",
+    "summary": "Prepare parenting-time facts, school and medical information, safety concerns, and proposed schedules.",
+    "level": "Starter",
+    "updated": "2026-06-04",
+    "items": ["List current schedule", "Document child needs", "Collect school and medical records", "Flag urgent safety concerns"]
+  },
+  {
+    "slug": "child-support",
+    "title": "Child Support Information Checklist",
+    "category": "Support",
+    "summary": "What to collect before reviewing Arizona child support, including income, insurance, childcare, and parenting time.",
+    "level": "Starter",
+    "updated": "2026-06-04",
+    "items": ["Income records", "Health insurance costs", "Childcare costs", "Parenting-time schedule"]
+  },
+  {
+    "slug": "orders-enforcement",
+    "title": "Enforcement and Existing Orders Review",
+    "category": "Orders",
+    "summary": "A structured way to review current orders, missed obligations, upcoming deadlines, and available documentation.",
+    "level": "Review",
+    "updated": "2026-06-04",
+    "items": ["Locate signed orders", "List missed requirements", "Collect payment or communication records", "Identify upcoming court dates"]
+  },
+  {
+    "slug": "not-sure-where-to-start",
+    "title": "Not Sure Where to Start",
+    "category": "Triage",
+    "summary": "A general triage pathway for people who are unsure whether their issue is divorce, parenting, support, enforcement, documents, or another family-law topic.",
+    "level": "Triage",
+    "updated": "2026-06-04",
+    "items": ["Identify whether a case already exists", "List any deadlines or court dates", "Flag safety or service concerns", "Use guided intake for scope review"]
+  }
+]
