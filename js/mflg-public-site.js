@@ -3,6 +3,7 @@
   const root = document.querySelector("[data-page-root]");
   const nav = document.querySelector("[data-nav]");
   const toggle = document.querySelector("[data-nav-toggle]");
+  const header = document.querySelector("[data-header]");
 
   const routes = {
     "/": home,
@@ -55,12 +56,16 @@
           <span><strong aria-hidden="true">▥</strong> Court appearances within licensed scope</span>
         </div>
         <div class="actions">${actions}</div>
+        <a class="scroll-cue" href="#after-hero" aria-label="View more information">
+          <span>More information</span>
+          <b aria-hidden="true"></b>
+        </a>
       </div>
     </section>`;
   }
 
   function section(title, copy, body, band, eyebrow) {
-    return `<section class="section ${band ? "band" : ""}">
+    return `<section class="section ${band ? "band" : ""}"${band ? ` id="after-hero"` : ""}>
       <div class="inner">
         <p class="eyebrow">${eyebrow || "MY FAMILY LAW GROUP PLLC"}</p>
         <h2>${title}</h2>
@@ -230,11 +235,13 @@
   async function render() {
     const path = window.location.pathname.replace(/\/$/, "") || "/";
     const view = routes[path] || notFound;
+    document.body.classList.toggle("has-hero", path === "/");
     root.innerHTML = await view();
     wireGuideFilters();
     renderIntakeIfNeeded(path);
     updateNav(path);
     window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    updateHeaderState();
   }
 
   function renderIntakeIfNeeded(path) {
@@ -251,6 +258,11 @@
       item.removeAttribute("aria-current");
       if (item.getAttribute("href") === path) item.setAttribute("aria-current", "page");
     });
+  }
+
+  function updateHeaderState() {
+    if (!header) return;
+    header.classList.toggle("scrolled", window.scrollY > 24);
   }
 
   function wireGuideFilters() {
@@ -290,5 +302,7 @@
   });
 
   window.addEventListener("popstate", render);
+  window.addEventListener("scroll", updateHeaderState, { passive: true });
+  updateHeaderState();
   render();
 }());
