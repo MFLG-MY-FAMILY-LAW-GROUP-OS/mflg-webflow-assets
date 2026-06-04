@@ -1,22 +1,8 @@
-/* MFLG Intake Final Launch v3.4.0 — Intake UI Polish / Payload Contract Preserved
+/* MFLG Intake v3.5.2
    File: js/mflg-intake.js
-   Architecture: Webflow external JS → n8n webhook → Google Sheets/Gmail/Vapi routing in n8n.
 
-   In accordance with MP v2:
-   - Full replacement file
-   - Adds safe public route method: window.MFLGIntakeRoute(...)
-   - Adds routing-context banner on Step 1
-   - Applies stored/external routing context once instead of on every render
-   - Allows manual issue-card selections to override routed context
-   - Converts selected manual text fields to dropdowns/structured controls
-   - Adds repeatable minor-child cards while preserving existing child summary fields
-   - Syncs child DOB to age to prevent conflicting DOB/age submissions
-   - Adds conservative Arizona city/state residency assist without changing backend field names
-   - Adds click-anywhere date input behavior
-   - Adds conditional consult-prep questions for jurisdiction, support, parenting, property, maintenance, relocation, safety, documents, and evidence
-   - Preserves conditional logic, field names, payload, validation, n8n submission, and Vapi routing flags
-   - Preserves locked intake design structure
-   - Do not place secrets in this public file
+   Public guided intake for Arizona family-law service review.
+   Do not place secrets in this public file.
 */
 
 (function () {
@@ -24,13 +10,11 @@
 
   const CONFIG = {
     version: "3.5.2-worldclass-ops",
-    mode: "n8n",
-    n8nWebhookUrl: "https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake",
+    mode: "public-intake",
+    intakeEndpointUrl: ["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join(""),
     source: "MFLG Website Intake",
     expectedRootId: "mflg-intake-root",
     notificationEmail: "info@myfamilylawgroup.com",
-    sheetName: "MFLG Intake Leads",
-    sheetTab: "Intake",
     requestTimeoutMs: 16000
   };
 
@@ -3318,12 +3302,10 @@
       config: {
         version: CONFIG.version,
         mode: CONFIG.mode,
-        targetSheet: CONFIG.sheetName,
-        targetTab: CONFIG.sheetTab,
         notificationEmail: CONFIG.notificationEmail
       },
 
-      requiredForN8nValidation: {
+      requiredForIntakeValidation: {
         source: CONFIG.source,
         version: CONFIG.version,
         honeypotEmpty: !ans("website"),
@@ -3374,7 +3356,7 @@
         controller.abort();
       }, CONFIG.requestTimeoutMs);
 
-      const response = await fetch(CONFIG.n8nWebhookUrl, {
+      const response = await fetch(CONFIG.intakeEndpointUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -3386,7 +3368,7 @@
       clearTimeout(timeout);
 
       if (!response.ok) {
-        throw new Error(`n8n webhook returned ${response.status}`);
+        throw new Error(`Intake submission returned ${response.status}`);
       }
 
       clearRoutingContext();

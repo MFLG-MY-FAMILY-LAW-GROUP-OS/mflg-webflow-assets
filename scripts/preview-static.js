@@ -15,9 +15,23 @@ const contentTypes = {
   ".png": "image/png",
   ".webp": "image/webp"
 };
+const blockedPrefixes = [
+  "/docs/",
+  "/scripts/",
+  "/js/releases/",
+  "/css/releases/"
+];
+const blockedPaths = new Set([
+  "/js/mflg-intake-v3.4-microcopy.js",
+  "/js/mflg-site-enhancements.js",
+  "/js/mflg-site-reveal-pathways-v2.2.js"
+]);
 
 function resolveRequest(urlPath) {
   const pathname = decodeURIComponent(urlPath.split("?")[0]);
+  if (blockedPaths.has(pathname) || blockedPrefixes.some((prefix) => pathname.startsWith(prefix))) {
+    return { blocked: true };
+  }
   const normalized = path.normalize(pathname).replace(/^(\.\.[/\\])+/, "");
   let filePath = path.join(root, normalized);
 
@@ -39,6 +53,11 @@ function sendFile(res, filePath, statusCode) {
 
 http.createServer((req, res) => {
   const filePath = resolveRequest(req.url || "/");
+  if (filePath && filePath.blocked) {
+    const fallback = path.join(root, "404.html");
+    sendFile(res, fallback, 404);
+    return;
+  }
   if (filePath) {
     sendFile(res, filePath, 200);
     return;

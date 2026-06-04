@@ -74,7 +74,7 @@
       `${link("/start", "Start Guided Intake", "primary")} ${link("/practice-areas", "View Practice Areas")}`
     ) + section(
       "Clear help for difficult family-law moments",
-      "The site is rebuilt as a static, version-controlled source so Webstudio can be used as a visual destination without trapping content in the cloud UI.",
+      "Arizona family-law support for divorce, parenting, support, and post-decree matters, with clear guidance, practical document help, and scope review before services begin.",
       `<div class="split">
         <div>${cards([
           { title: "Divorce & separation", copy: "Document preparation, process guidance, and next-step planning for Arizona divorce and legal separation matters." },
@@ -86,11 +86,11 @@
       true
     ) + section(
       "Start with the right path",
-      "Every intake path preserves the required disclaimer: submission does not create a client relationship and does not confirm representation.",
+      "Choose the next step that fits where you are now. Submission of information does not create a client relationship or confirm representation.",
       cards([
-        { title: "Guided intake", copy: "The existing production intake script remains available at /start and is configured for the documented n8n webhook. Live submission still requires approved testing." },
-        { title: "DIY guides", copy: "Guides use static JSON data and front-end search/filtering, with no Webstudio CMS dependency." },
-        { title: "Protected access", copy: "Client and staff login entries are routed separately so public pages do not point clients into staff-only CRM tools." }
+        { title: "Guided Intake", copy: "Answer a few questions so we can understand the family-law issue, timing, county, and next-step needs." },
+        { title: "DIY Guides", copy: "Explore Arizona family-law pathways before deciding whether you need document help, coaching, negotiation support, or a court appearance within licensed scope." },
+        { title: "Secure Access", copy: "Client and staff access are routed separately so private case tools remain protected." }
       ])
     );
   }
@@ -116,7 +116,7 @@
 
   async function guides() {
     const guides = await loadGuides();
-    return section("DIY Guides", "Static, version-controlled guide data with search and category filters. No paid Webstudio CMS is required.", `
+    return section("DIY Guides", "Explore Arizona family-law topics by issue, urgency, and next-step need. These guides are general information and do not replace a conflict and scope review.", `
       <div class="guide-tools">
         <input type="search" placeholder="Search guides" aria-label="Search guides" data-guide-search>
         <select aria-label="Filter guides by category" data-guide-category>
@@ -139,7 +139,7 @@
   }
 
   function renderGuides(guides) {
-    if (!guides.length) return `<article class="card"><h3>Guide data unavailable</h3><p>Run the site through a local or hosted web server so static JSON can load.</p></article>`;
+    if (!guides.length) return `<article class="card"><h3>Guides unavailable</h3><p>Please contact the office if you need help choosing where to start.</p></article>`;
     return guides.map((guide) => `<article class="card" data-category="${esc(guide.category)}" data-title="${esc(guide.title + " " + guide.summary)}">
       <h3>${esc(guide.title)}</h3>
       <div class="guide-meta"><span class="pill">${esc(guide.category)}</span><span class="pill">${esc(guide.level)}</span></div>
@@ -150,14 +150,14 @@
   }
 
   function about() {
-    return section("About", "Public bio copy remains conservative until the final approved biography is provided.", `<div class="split">
+    return section("About", "MY FAMILY LAW GROUP PLLC helps Arizona families understand options, prepare documents, and move through family-law issues within licensed legal paraprofessional scope.", `<div class="split">
       <div>
         <h3>Jeremy James Jack, JD, LP</h3>
-        <p>Arizona Legal Paraprofessional License No. 500094. Final expanded public bio copy should be verified against Arizona licensing records and the approved firm bio before publication.</p>
-        <p>The profile image included here is a local asset candidate and should be confirmed by the user before live use.</p>
+        <p>Arizona Supreme Court Licensed Legal Paraprofessional in Family Law. License No. 500094.</p>
+        <p>Services are reviewed for conflict, scope, urgency, and fit before any client relationship or representation is confirmed.</p>
         ${link("/contact", "Contact the office", "primary")}
       </div>
-      <div class="media-frame"><img src="/assets/images/jeremy-profile.jpeg" alt="Jeremy James Jack profile asset candidate"></div>
+      <div class="media-frame"><img src="/assets/images/jeremy-profile.jpeg" alt="Jeremy James Jack"></div>
     </div>`);
   }
 
@@ -166,8 +166,8 @@
       ${[
         ["Does intake create a client relationship?", "No. Intake is reviewed for conflicts, scope, urgency, and fit before any services are accepted."],
         ["Is this legal advice?", "Public guides and website content are general information. Specific legal advice requires formal engagement."],
-        ["Can I use DIY guides without CMS?", "Yes. The guide system is static JSON and front-end filtering."],
-        ["Where do staff tools live?", "Staff tools remain protected and separate from the public website."]
+        ["What if I am not sure where to start?", "Use the guided intake or contact the office so the issue, timing, county, and next-step needs can be reviewed."],
+        ["Are all family-law matters within LP scope?", "No. Some issues require attorney involvement, emergency review, or referral. Scope is reviewed before services are confirmed."]
       ].map(([q, a]) => `<article class="card"><h3>${q}</h3><p>${a}</p></article>`).join("")}
     </div>`);
   }
@@ -183,32 +183,32 @@
     return `<section class="section"><div class="inner">
       <p class="eyebrow">Guided intake</p>
       <h1>Start Guided Intake</h1>
-      <p class="lead muted">This embedded intake preserves the existing production asset workflow. Submission does not create a client relationship.</p>
+      <p class="lead muted">Answer a few questions so the office can review the family-law issue, urgency, county, and next-step needs. Submission does not create a client relationship or confirm representation.</p>
     </div></section><section class="intake-shell"><div id="mflg-intake-root"></div></section>`;
   }
 
   function clientLogin() {
-    return section("Client Login", "Client portal routing is a placeholder until the approved client portal destination is confirmed.", `<div class="notice">Do not route clients to staff CRM, Vault, or Staff Intelligence tools. Approved client portal URL is still required.</div>`);
+    return section("Client Login", "Client access is available only through an approved secure portal.", `<div class="notice">If you are an existing client and need access assistance, please contact the office at <a href="tel:+18888706354">(888) 870-6354</a> or <a href="mailto:info@myfamilylawgroup.com">info@myfamilylawgroup.com</a>.</div>`);
   }
 
   function staffLogin() {
-    return section("Staff Login", "Staff routes must be protected before production use.", `<div class="notice">Planned staff entry should route through Cloudflare Access or an equivalent protected gateway, then to Staff OS/CRM. No public bypass is implemented here.</div>`);
+    return section("Staff Login", "Staff access is restricted.", `<div class="notice">Authorized staff should use the protected staff access process. This public page does not provide case-system access.</div>`);
   }
 
   function privacy() {
-    return section("Privacy", "Draft privacy placeholder for review before publication.", `<p>This site should collect only the information needed for intake review and routing. Final privacy terms require user/legal approval before publishing.</p>`);
+    return section("Privacy", "MY FAMILY LAW GROUP PLLC limits intake collection to information reasonably needed to review conflict, scope, urgency, and next-step options.", `<p>Please avoid sending confidential or highly sensitive facts until the office confirms whether services can be provided. Information submitted through this website may be reviewed for intake, conflict checking, scheduling, and service-fit evaluation.</p>`);
   }
 
   function terms() {
-    return section("Terms & Disclaimer", "Draft disclaimer placeholder for review before publication.", `<p>Website content is general information, not legal advice. Submitting a form does not create an attorney-client relationship, does not guarantee representation, and does not confirm emergency response.</p>`);
+    return section("Terms & Disclaimer", "Website content is general information, not legal advice for a specific matter.", `<p>Submitting information does not create a client relationship or confirm representation. Services are available only after conflict, scope, urgency, and fit review, and after any required written agreement is completed.</p>`);
   }
 
   function accessibility() {
-    return section("Accessibility", "Accessibility validation is part of the rebuild acceptance pass.", `<p>The source includes keyboard skip navigation, focus states, semantic landmarks, alt text, and responsive layouts. Full audit remains required before live publishing.</p>`);
+    return section("Accessibility", "MY FAMILY LAW GROUP PLLC works to make this website usable for visitors with different access needs.", `<p>If you have difficulty using this website or need information in another format, please contact the office at <a href="tel:+18888706354">(888) 870-6354</a> or <a href="mailto:info@myfamilylawgroup.com">info@myfamilylawgroup.com</a>.</p>`);
   }
 
   function thankYou() {
-    return section("Thank You", "Submission confirmation placeholder.", `<p>This page is ready for a verified form redirect, but live n8n/CRM submission has not been tested in this rebuild pass. Any real submission remains subject to conflict, scope, urgency, and next-step review.</p>`);
+    return section("Thank You", "Thank you for contacting MY FAMILY LAW GROUP PLLC.", `<p>Your information will be reviewed for conflict, scope, urgency, and next-step needs. Submission does not create a client relationship or confirm representation.</p>`);
   }
 
   function notFound() {
