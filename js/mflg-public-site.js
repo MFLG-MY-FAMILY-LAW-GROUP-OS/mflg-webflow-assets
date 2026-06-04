@@ -49,18 +49,18 @@
         <div class="eyebrow">Arizona family law guidance</div>
         <h1>${title}</h1>
         <p class="lead">${copy}</p>
-        <div class="hero-features">
-          <span><strong aria-hidden="true">▤</strong> Document preparation</span>
-          <span><strong aria-hidden="true">⇧</strong> Filing support</span>
-          <span><strong aria-hidden="true">⚖</strong> Negotiation</span>
-          <span><strong aria-hidden="true">▥</strong> Court appearances within licensed scope</span>
+        <div class="hero-features" aria-label="Service highlights">
+          <span><strong aria-hidden="true">▤</strong><em>Document preparation</em></span>
+          <span><strong aria-hidden="true">⇧</strong><em>Filing support</em></span>
+          <span><strong aria-hidden="true">⚖</strong><em>Negotiation</em></span>
+          <span><strong aria-hidden="true">▥</strong><em>Court appearances within licensed scope</em></span>
         </div>
         <div class="actions">${actions}</div>
-        <a class="scroll-cue" href="#after-hero" aria-label="View more information">
-          <span>More information</span>
-          <b aria-hidden="true"></b>
-        </a>
       </div>
+      <a class="scroll-cue" href="#after-hero" aria-label="View more information">
+        <span>Explore more</span>
+        <b aria-hidden="true"></b>
+      </a>
     </section>`;
   }
 

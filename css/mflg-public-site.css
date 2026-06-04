@@ -13,7 +13,7 @@
   --soft-line: rgba(17, 24, 32, 0.1);
   --shadow: 0 26px 70px rgba(18, 24, 31, 0.13);
   --radius: 24px;
-  --max: 1140px;
+  --max: 1340px;
   --content: 1140px;
 }
 
@@ -56,7 +56,7 @@ button, input, select { font: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 34px;
+  gap: 28px;
   min-height: 92px;
   padding: 18px max(24px, calc((100vw - var(--max)) / 2));
   background: transparent;
@@ -79,7 +79,7 @@ body:not(.has-hero) .site-header {
   min-width: 0;
 }
 .brand img {
-  width: clamp(210px, 18vw, 300px);
+  width: clamp(300px, 25vw, 430px);
   height: auto;
   object-fit: contain;
 }
@@ -93,11 +93,11 @@ body:not(.has-hero) .site-header {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2vw, 28px);
+  gap: clamp(14px, 1.45vw, 24px);
 }
 .site-nav a {
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(0.82rem, 0.92vw, 0.98rem);
+  font-size: clamp(0.78rem, 0.82vw, 0.92rem);
   font-weight: 900;
   letter-spacing: 0.08em;
   line-height: 1;
@@ -168,41 +168,43 @@ body:not(.has-hero) .site-header {
 }
 .scroll-cue {
   position: absolute;
-  left: 0;
-  bottom: clamp(-54px, -5vw, -34px);
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: rgba(255,255,255,0.78);
-  font-size: 0.76rem;
+  left: 50%;
+  bottom: clamp(24px, 4vh, 42px);
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
+  transform: translateX(-50%);
 }
 .scroll-cue b {
   position: relative;
-  display: inline-block;
-  width: 28px;
-  height: 44px;
-  border: 1px solid rgba(255,255,255,0.58);
-  border-radius: 999px;
+  display: block;
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(180deg, rgba(227,193,107,0), rgba(227,193,107,0.95));
+  overflow: visible;
 }
 .scroll-cue b::after {
   content: "";
   position: absolute;
   left: 50%;
-  top: 9px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold-2);
-  transform: translateX(-50%);
-  animation: cue-drop 1.5s ease-in-out infinite;
+  bottom: -2px;
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--gold-2);
+  border-bottom: 2px solid var(--gold-2);
+  transform: translateX(-50%) rotate(45deg);
+  animation: cue-drop 1.7s ease-in-out infinite;
 }
 @keyframes cue-drop {
-  0%, 100% { transform: translate(-50%, 0); opacity: 0.35; }
-  45% { transform: translate(-50%, 16px); opacity: 1; }
+  0%, 100% { transform: translate(-50%, -3px) rotate(45deg); opacity: 0.45; }
+  45% { transform: translate(-50%, 8px) rotate(45deg); opacity: 1; }
 }
 .eyebrow {
   color: var(--gold);
@@ -227,26 +229,36 @@ p { margin: 0 0 16px; color: inherit; }
 }
 .hero-features {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
   margin: clamp(26px, 3vw, 42px) 0 0;
+  border-top: 1px solid rgba(197,155,59,0.34);
+  border-bottom: 1px solid rgba(197,155,59,0.2);
+  background: rgba(6, 14, 22, 0.28);
+  backdrop-filter: blur(8px);
 }
 .hero-features span {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-height: 34px;
-  padding: 0 20px;
-  border-left: 1px solid rgba(197,155,59,0.58);
-  color: rgba(255,255,255,0.74);
-  font-size: 0.82rem;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 clamp(12px, 1.3vw, 18px);
+  border-left: 1px solid rgba(197,155,59,0.42);
+  color: rgba(255,255,255,0.82);
+  font-size: clamp(0.72rem, 0.78vw, 0.84rem);
+  white-space: nowrap;
 }
 .hero-features span:first-child { border-left: 0; padding-left: 0; }
 .hero-features strong {
   color: var(--gold-2);
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   line-height: 1;
   font-weight: 400;
+}
+.hero-features em {
+  font-style: normal;
 }
 .actions { display: flex; flex-wrap: wrap; gap: 18px 24px; margin-top: clamp(32px, 4vw, 58px); }
 .button {
@@ -365,9 +377,20 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 
 @media (max-width: 1100px) {
   .site-header { gap: 18px; }
+  .brand img { width: clamp(240px, 25vw, 300px); }
   .site-nav { gap: 12px; }
   .site-nav a { font-size: 0.78rem; letter-spacing: 0.06em; }
   .site-nav .nav-cta { min-width: 92px; min-height: 50px; }
+  .hero-features {
+    flex-wrap: wrap;
+    width: min(720px, 100%);
+    background: rgba(6, 14, 22, 0.34);
+  }
+  .hero-features span {
+    flex: 1 1 50%;
+    border-left: 0;
+    padding: 8px 14px 8px 0;
+  }
 }
 
 @media (max-width: 900px) {
@@ -375,7 +398,7 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
     min-height: 76px;
     padding: 14px 20px;
   }
-  .brand img { width: 190px; }
+  .brand img { width: 230px; }
   .nav-toggle { display: inline-flex; }
   .site-nav {
     position: fixed;
@@ -399,28 +422,34 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
     padding-top: 112px;
   }
   body:not(.has-hero) [data-page-root] { padding-top: 76px; }
-  .hero-features span {
-    flex: 1 1 50%;
-    border-left: 0;
-    padding: 8px 14px 8px 0;
-  }
 }
 
 @media (max-width: 520px) {
   .site-header { min-height: 68px; padding-inline: 16px; }
-  .brand img { width: 156px; }
+  .brand img { width: 205px; }
   .site-nav { top: 68px; }
   body:not(.has-hero) [data-page-root] { padding-top: 68px; }
   h1 { font-size: 2.55rem; }
   h2 { font-size: 2.15rem; }
   .hero { min-height: 700px; padding-inline: 20px; }
   .hero { min-height: 100svh; }
-  .hero-features { display: grid; grid-template-columns: 1fr; gap: 8px; }
-  .hero-features span { padding: 0; }
+  .hero-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    width: 100%;
+    padding: 8px 0;
+  }
+  .hero-features span {
+    min-height: 34px;
+    padding: 3px 0;
+    font-size: 0.82rem;
+  }
   .actions, .button { width: 100%; }
   .button { min-width: 0; min-height: 58px; }
   .card { min-height: 0; border-radius: 20px; }
   .section { padding-inline: 20px; }
-  .scroll-cue { bottom: -46px; }
+  .scroll-cue { bottom: 18px; }
   .scroll-cue span { display: none; }
+  .scroll-cue b { height: 42px; }
 }
