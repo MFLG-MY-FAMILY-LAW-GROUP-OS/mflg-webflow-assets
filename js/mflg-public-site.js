@@ -84,15 +84,36 @@
     </article>`).join("")}</div>`;
   }
 
+  const serviceItems = [
+    { icon: "⚖", title: "Divorce & Legal Separation", copy: "Guidance for dissolution, legal separation, annulment, consent decrees, and related family court filings." },
+    { icon: "◎", title: "Parenting Time & Legal Decision-Making", copy: "Support for parenting plans, legal decision-making, parenting time, relocation, and custody-related disputes." },
+    { icon: "$", title: "Child Support & Spousal Maintenance", copy: "Help with support calculations, financial disclosures, modifications, enforcement, and related court orders." },
+    { icon: "▤", title: "Document Preparation & Filing", copy: "Preparation, review, filing, and service coordination for many Arizona family law documents and court forms." },
+    { icon: "↻", title: "Modifications & Enforcement", copy: "Assistance with post-decree modifications, enforcement of existing orders, and practical next-step strategy." },
+    { icon: "▥", title: "Court Appearances Within Licensed Scope", copy: "Representation for eligible family court appearances, negotiations, mediation, and settlement discussions within licensed scope." },
+    { icon: "◇", title: "Consent Decrees & Agreements", copy: "Help organizing settlement terms, consent decree documents, parenting terms, and support-related paperwork." },
+    { icon: "◷", title: "Temporary Orders", copy: "Document and next-step support for temporary parenting, support, possession, and related family-court requests." },
+    { icon: "▣", title: "Financial Disclosures", copy: "Support with family-court financial affidavits, disclosure organization, exhibits, and required supporting documents." },
+    { icon: "⇄", title: "Mediation & Settlement Support", copy: "Preparation and negotiation support for mediation, settlement conferences, and practical resolution planning." },
+    { icon: "⌂", title: "Relocation & Parenting Plan Updates", copy: "Support for proposed moves, parenting-plan changes, schedule updates, and related filing needs." },
+    { icon: "◉", title: "Paternity & Establishing Orders", copy: "Help with documents and process steps for establishing parentage, parenting time, decision-making, and support." },
+    { icon: "!", title: "Enforcement of Existing Orders", copy: "Assistance identifying enforcement options and preparing family-court documents tied to existing Arizona orders." },
+    { icon: "✓", title: "Document Review & Scope Checks", copy: "Focused review of family-law forms, proposed orders, agreements, and next-step options before filing or signing." },
+    { icon: "⇧", title: "Filing & Service Coordination", copy: "Practical help with filing readiness, service coordination, court copies, deadlines, and procedural next steps." }
+  ];
+
   function serviceCards() {
-    return cards([
-      { icon: "⚖", title: "Divorce & Legal Separation", copy: "Guidance for dissolution, legal separation, annulment, consent decrees, and related family court filings.", href: "/start" },
-      { icon: "◎", title: "Parenting Time & Legal Decision-Making", copy: "Support for parenting plans, legal decision-making, parenting time, relocation, and custody-related disputes.", href: "/start" },
-      { icon: "$", title: "Child Support & Spousal Maintenance", copy: "Help with support calculations, financial disclosures, modifications, enforcement, and related court orders.", href: "/start" },
-      { icon: "▤", title: "Document Preparation & Filing", copy: "Preparation, review, filing, and service coordination for many Arizona family law documents and court forms.", href: "/start" },
-      { icon: "↻", title: "Modifications & Enforcement", copy: "Assistance with post-decree modifications, enforcement of existing orders, and practical next-step strategy.", href: "/start" },
-      { icon: "▥", title: "Court Appearances Within Licensed Scope", copy: "Representation for eligible family court appearances, negotiations, mediation, and settlement discussions within licensed scope.", href: "/start" }
-    ]);
+    const items = serviceItems.map((item) => ({ ...item, href: "/start" }));
+    return `<div class="grid service-grid" data-service-grid>${items.map((item, index) => `
+    <article class="card service-card"${index >= 6 ? ` hidden data-service-extra` : ""}>
+      <div class="card-icon" aria-hidden="true">${item.icon}</div>
+      <h3>${item.title}</h3>
+      <p>${item.copy}</p>
+      <a class="card-link" href="${item.href}" data-link>Start Path →</a>
+    </article>`).join("")}</div>
+    <div class="service-reveal">
+      <button class="button primary service-reveal-button" type="button" data-service-reveal>View More Family Law Pathways</button>
+    </div>`;
   }
 
   function home() {
@@ -238,6 +259,7 @@
     document.body.classList.toggle("has-hero", path === "/");
     root.innerHTML = await view();
     wireGuideFilters();
+    wireServiceReveal();
     renderIntakeIfNeeded(path);
     updateNav(path);
     window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
@@ -281,6 +303,16 @@
     };
     search.addEventListener("input", filter);
     category.addEventListener("change", filter);
+  }
+
+  function wireServiceReveal() {
+    const button = document.querySelector("[data-service-reveal]");
+    const extras = Array.from(document.querySelectorAll("[data-service-extra]"));
+    if (!button || extras.length === 0) return;
+    button.addEventListener("click", () => {
+      extras.forEach((card) => card.removeAttribute("hidden"));
+      button.closest(".service-reveal").hidden = true;
+    });
   }
 
   document.addEventListener("click", (event) => {
