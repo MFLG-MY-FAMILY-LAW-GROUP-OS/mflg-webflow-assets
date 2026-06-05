@@ -85,21 +85,64 @@
   }
 
   const serviceItems = [
-    { icon: "⚖", category: "Core matters", title: "Divorce & Legal Separation", copy: "Guidance for dissolution, legal separation, annulment, consent decrees, and related family court filings." },
-    { icon: "◎", category: "Parenting", title: "Parenting Time & Legal Decision-Making", copy: "Support for parenting plans, legal decision-making, parenting time, relocation, and custody-related disputes." },
-    { icon: "$", category: "Support", title: "Child Support & Spousal Maintenance", copy: "Help with support calculations, financial disclosures, modifications, enforcement, and related court orders." },
-    { icon: "▤", category: "Documents", title: "Document Preparation & Filing", copy: "Preparation, review, filing, and service coordination for many Arizona family law documents and court forms." },
-    { icon: "↻", category: "Post-decree", title: "Modifications & Enforcement", copy: "Assistance with post-decree modifications, enforcement of existing orders, and practical next-step strategy." },
-    { icon: "▥", category: "Licensed scope", title: "Court Appearances Within Licensed Scope", copy: "Representation for eligible family court appearances, negotiations, mediation, and settlement discussions within licensed scope." },
-    { icon: "◇", category: "Agreements", title: "Consent Decrees & Agreements", copy: "Help organizing settlement terms, consent decree documents, parenting terms, and support-related paperwork." },
-    { icon: "◷", category: "Court requests", title: "Temporary Orders", copy: "Document and next-step support for temporary parenting, support, possession, and related family-court requests." },
-    { icon: "▣", category: "Disclosure", title: "Financial Disclosures", copy: "Support with family-court financial affidavits, disclosure organization, exhibits, and required supporting documents." },
-    { icon: "⇄", category: "Resolution", title: "Mediation & Settlement Support", copy: "Preparation and negotiation support for mediation, settlement conferences, and practical resolution planning." },
-    { icon: "⌂", category: "Parenting updates", title: "Relocation & Parenting Plan Updates", copy: "Support for proposed moves, parenting-plan changes, schedule updates, and related filing needs." },
-    { icon: "◉", category: "Establishing orders", title: "Paternity & Establishing Orders", copy: "Help with documents and process steps for establishing parentage, parenting time, decision-making, and support." },
-    { icon: "!", category: "Enforcement", title: "Enforcement of Existing Orders", copy: "Assistance identifying enforcement options and preparing family-court documents tied to existing Arizona orders." },
-    { icon: "✓", category: "Review", title: "Document Review & Scope Checks", copy: "Focused review of family-law forms, proposed orders, agreements, and next-step options before filing or signing." },
-    { icon: "⇧", category: "Filing support", title: "Filing & Service Coordination", copy: "Practical help with filing readiness, service coordination, court copies, deadlines, and procedural next steps." }
+    { icon: "⚖", category: "Marriage", title: "Divorce / Dissolution", copy: "Arizona divorce help for petitions, responses, disclosure, agreements, temporary orders, parenting, support, and decree-related next steps." },
+    { icon: "§", category: "Marriage", title: "Legal Separation", copy: "Guidance for separation filings, responses, agreements, parenting terms, support, property, debt, and court documents." },
+    { icon: "◌", category: "Marriage", title: "Annulment", copy: "Scope review and document help for annulment questions, required facts, filing posture, and related family-court paperwork." },
+    { icon: "◇", category: "Agreements", title: "Consent Decrees", copy: "Help organizing agreed divorce or separation terms into court-ready consent decree materials and supporting documents." },
+    { icon: "✦", category: "Agreements", title: "Settlement Agreements", copy: "Review and preparation support for stipulated terms, settlement documents, proposed orders, and practical resolution planning." },
+    { icon: "◷", category: "Court requests", title: "Temporary Orders", copy: "Support for temporary parenting, support, possession, disclosure, and other interim family-court requests." },
+    { icon: "⌂", category: "Property", title: "Property & Debt Division", copy: "Organization and scope review for community property, separate property, debts, disclosure, exhibits, and settlement terms." },
+    { icon: "⌂", category: "Property", title: "Real Estate / Marital Home", copy: "Family-court document support for home possession, sale or refinance terms, mortgage records, and related decree language." },
+    { icon: "¶", category: "Identity", title: "Family-Case Name Change", copy: "Document help for name-change requests connected to divorce, separation, or other eligible family-court filings." },
+    { icon: "◎", category: "Parenting", title: "Parenting Time", copy: "Help with parenting-time schedules, exchanges, missed time, school breaks, holidays, and practical parenting-plan terms." },
+    { icon: "◉", category: "Parenting", title: "Legal Decision-Making", copy: "Support for Arizona legal decision-making issues, including sole or joint authority, best-interest facts, and court documents." },
+    { icon: "▦", category: "Parenting", title: "Parenting Plans", copy: "Preparation and review of parenting plans, schedules, exchange terms, communication rules, and dispute-resolution provisions." },
+    { icon: "◍", category: "Parenting", title: "Supervised Parenting Time", copy: "Scope review and document support for supervised-time requests, safety concerns, proposed conditions, and hearing preparation." },
+    { icon: "!", category: "Parenting", title: "Child Withheld / Missed Time", copy: "Next-step review for withheld children, denied parenting time, enforcement options, documentation, and urgent court timing." },
+    { icon: "⇄", category: "Parenting", title: "Relocation", copy: "Arizona relocation support tied to parenting time, legal decision-making, notice requirements, and proposed parenting-plan changes." },
+    { icon: "⇆", category: "Jurisdiction", title: "UCCJEA / Interstate Custody", copy: "Review of interstate custody, child home-state questions, out-of-state orders, and Arizona jurisdiction concerns." },
+    { icon: "◒", category: "Parenting", title: "Grandparent / Third-Party Rights", copy: "Scope review for grandparent or third-party rights connected to Arizona family-law matters and parenting orders." },
+    { icon: "$", category: "Child support", title: "Child Support Establishment", copy: "Help starting child-support orders with income, parenting-time, insurance, childcare, and worksheet information." },
+    { icon: "$", category: "Child support", title: "Child Support Modification", copy: "Support for changed income, parenting time, insurance, childcare, and other facts that may affect support." },
+    { icon: "$", category: "Child support", title: "Child Support Enforcement", copy: "Document and next-step help when support is not being paid or existing child-support orders are not being followed." },
+    { icon: "▣", category: "Child support", title: "Support Worksheet Review", copy: "Review of child-support worksheet inputs, income records, childcare, insurance, parenting days, and calculation readiness." },
+    { icon: "!", category: "Child support", title: "Arrears / Back Support", copy: "Organization and review for unpaid support, payment history, arrears records, enforcement concerns, and related filings." },
+    { icon: "$", category: "Maintenance", title: "Spousal Maintenance Requests", copy: "Help with spousal-maintenance requests or responses connected to divorce or legal separation." },
+    { icon: "↻", category: "Maintenance", title: "Spousal Maintenance Modification", copy: "Review of existing maintenance orders, changed circumstances, income information, and modification documents." },
+    { icon: "!", category: "Maintenance", title: "Spousal Maintenance Enforcement", copy: "Support when an existing spousal-maintenance order is not being followed and enforcement may be needed." },
+    { icon: "◉", category: "Parentage", title: "Paternity / Parentage", copy: "Help with parentage, birth certificate issues, DNA testing, parenting time, legal decision-making, and child support." },
+    { icon: "◍", category: "Parentage", title: "DNA Testing / Parentage Establishment", copy: "Document and process support for establishing parentage and connecting parentage to parenting or support orders." },
+    { icon: "▤", category: "Parentage", title: "Birth Certificate / Acknowledgment", copy: "Scope review for birth-certificate and acknowledgment-of-paternity issues tied to family-court orders." },
+    { icon: "◇", category: "Parentage", title: "Same-Sex Parentage", copy: "Careful scope review for same-sex parentage questions, existing documents, parenting orders, and referral needs if required." },
+    { icon: "↻", category: "Post-decree", title: "Modification of Existing Orders", copy: "Help changing parenting, legal decision-making, child support, spousal maintenance, relocation, or other family-court orders." },
+    { icon: "!", category: "Post-decree", title: "Enforcement of Existing Orders", copy: "Assistance when parenting, support, maintenance, property, debt, or other family-court orders are not being followed." },
+    { icon: "⚖", category: "Post-decree", title: "Contempt / Noncompliance Review", copy: "Scope review and document organization for noncompliance, contempt-related facts, deadlines, and hearing preparation." },
+    { icon: "!", category: "Safety", title: "Protective Orders Related to Family Law", copy: "Family-law related safety review for protective orders, related hearings, children, and immediate referral needs where appropriate." },
+    { icon: "!", category: "Safety", title: "Family-Law Injunctions / Safety Terms", copy: "Support for safety-related family-court terms and injunction issues when they connect to an eligible family-law matter." },
+    { icon: "⇄", category: "Resolution", title: "Mediation Preparation", copy: "Preparation for mediation with issue lists, documents, proposed terms, parenting plans, support information, and settlement options." },
+    { icon: "◇", category: "Resolution", title: "Arbitration / ADR Preparation", copy: "Review and preparation for alternative dispute resolution, including scope-sensitive arbitration or collaborative-law pathways." },
+    { icon: "⇧", category: "Resolution", title: "Negotiation Support", copy: "Practical negotiation support for parenting, support, property, debt, maintenance, and agreement terms within licensed scope." },
+    { icon: "▥", category: "Resolution", title: "Settlement Conference Preparation", copy: "Help preparing documents, issue summaries, proposed terms, and exhibits for settlement conferences or informal resolution." },
+    { icon: "✓", category: "Resolution", title: "Agreement Review", copy: "Focused review of proposed agreements before signing, filing, mediation, or presentation to the court." },
+    { icon: "▤", category: "Documents", title: "Document Preparation", copy: "Preparation of family-law petitions, responses, agreements, plans, worksheets, orders, and supporting documents." },
+    { icon: "✓", category: "Documents", title: "Document Review", copy: "Review of family-law forms, proposed orders, agreements, notices, worksheets, and filing packets before the next step." },
+    { icon: "⇧", category: "Documents", title: "Petition / New Filing", copy: "Help preparing new family-court filings, initial paperwork, supporting documents, and filing-readiness checklists." },
+    { icon: "↩", category: "Documents", title: "Response to Served Papers", copy: "Support for responses, deadlines, hearing notices, service issues, and next-step review after being served." },
+    { icon: "⇧", category: "Procedure", title: "Filing & Service Coordination", copy: "Practical help with filing readiness, service coordination, court copies, deadlines, and procedural next steps." },
+    { icon: "▥", category: "Court", title: "Hearing Preparation", copy: "Preparation for family-court hearings with documents, timelines, issue summaries, exhibits, and next-step expectations." },
+    { icon: "⚖", category: "Court", title: "Court Appearance Within Licensed Scope", copy: "Representation for eligible family-court appearances, negotiations, mediation, and settlement discussions within licensed scope." },
+    { icon: "▣", category: "Disclosure", title: "Financial Disclosure", copy: "Support with affidavits, income records, expense records, disclosure organization, exhibits, and required supporting documents." },
+    { icon: "▦", category: "Disclosure", title: "Exhibit / Document Organization", copy: "Help organizing family-court documents, records, exhibits, timelines, and materials needed for review or hearing preparation." },
+    { icon: "?", category: "Triage", title: "Not Sure Where to Start", copy: "Guided triage when the family-law issue, deadline, paperwork, or best next step is not yet clear." },
+    { icon: "◇", category: "Scope review", title: "Adoption / Family Formation Review", copy: "Initial scope review for adoption or family-formation questions, including whether special qualification or referral is needed." },
+    { icon: "!", category: "Scope review", title: "Special Scope / Referral Review", copy: "Early review for QDROs, business or commercial property, appeals, tribal, Hague, dependency, immigration, tax, or other referral issues." }
+  ];
+
+  const serviceMethods = [
+    { icon: "▤", title: "Document preparation", copy: "Court-ready family-law documents and supporting materials." },
+    { icon: "⇧", title: "Filing support", copy: "Filing readiness, service coordination, deadlines, and next steps." },
+    { icon: "⚖", title: "Negotiation", copy: "Practical negotiation, mediation, and settlement support." },
+    { icon: "▥", title: "Court appearances within licensed scope", copy: "Eligible limited-scope family-court appearances after review." }
   ];
 
   function serviceCards() {
@@ -119,6 +162,13 @@
     <div class="service-reveal">
       <button class="button primary service-reveal-button" type="button" data-service-reveal>View More Family Law Pathways</button>
       <p class="service-note">Services are subject to conflict, licensed-scope, timing, and availability review before representation or document help is confirmed.</p>
+    </div>
+    <div class="service-methods" aria-label="How MFLG can help">
+      ${serviceMethods.map((item) => `<article class="service-method">
+        <span aria-hidden="true">${item.icon}</span>
+        <strong>${item.title}</strong>
+        <p>${item.copy}</p>
+      </article>`).join("")}
     </div>`;
   }
 
