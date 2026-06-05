@@ -85,21 +85,21 @@
   }
 
   const serviceItems = [
-    { icon: "⚖", title: "Divorce & Legal Separation", copy: "Guidance for dissolution, legal separation, annulment, consent decrees, and related family court filings." },
-    { icon: "◎", title: "Parenting Time & Legal Decision-Making", copy: "Support for parenting plans, legal decision-making, parenting time, relocation, and custody-related disputes." },
-    { icon: "$", title: "Child Support & Spousal Maintenance", copy: "Help with support calculations, financial disclosures, modifications, enforcement, and related court orders." },
-    { icon: "▤", title: "Document Preparation & Filing", copy: "Preparation, review, filing, and service coordination for many Arizona family law documents and court forms." },
-    { icon: "↻", title: "Modifications & Enforcement", copy: "Assistance with post-decree modifications, enforcement of existing orders, and practical next-step strategy." },
-    { icon: "▥", title: "Court Appearances Within Licensed Scope", copy: "Representation for eligible family court appearances, negotiations, mediation, and settlement discussions within licensed scope." },
-    { icon: "◇", title: "Consent Decrees & Agreements", copy: "Help organizing settlement terms, consent decree documents, parenting terms, and support-related paperwork." },
-    { icon: "◷", title: "Temporary Orders", copy: "Document and next-step support for temporary parenting, support, possession, and related family-court requests." },
-    { icon: "▣", title: "Financial Disclosures", copy: "Support with family-court financial affidavits, disclosure organization, exhibits, and required supporting documents." },
-    { icon: "⇄", title: "Mediation & Settlement Support", copy: "Preparation and negotiation support for mediation, settlement conferences, and practical resolution planning." },
-    { icon: "⌂", title: "Relocation & Parenting Plan Updates", copy: "Support for proposed moves, parenting-plan changes, schedule updates, and related filing needs." },
-    { icon: "◉", title: "Paternity & Establishing Orders", copy: "Help with documents and process steps for establishing parentage, parenting time, decision-making, and support." },
-    { icon: "!", title: "Enforcement of Existing Orders", copy: "Assistance identifying enforcement options and preparing family-court documents tied to existing Arizona orders." },
-    { icon: "✓", title: "Document Review & Scope Checks", copy: "Focused review of family-law forms, proposed orders, agreements, and next-step options before filing or signing." },
-    { icon: "⇧", title: "Filing & Service Coordination", copy: "Practical help with filing readiness, service coordination, court copies, deadlines, and procedural next steps." }
+    { icon: "⚖", category: "Core matters", title: "Divorce & Legal Separation", copy: "Guidance for dissolution, legal separation, annulment, consent decrees, and related family court filings." },
+    { icon: "◎", category: "Parenting", title: "Parenting Time & Legal Decision-Making", copy: "Support for parenting plans, legal decision-making, parenting time, relocation, and custody-related disputes." },
+    { icon: "$", category: "Support", title: "Child Support & Spousal Maintenance", copy: "Help with support calculations, financial disclosures, modifications, enforcement, and related court orders." },
+    { icon: "▤", category: "Documents", title: "Document Preparation & Filing", copy: "Preparation, review, filing, and service coordination for many Arizona family law documents and court forms." },
+    { icon: "↻", category: "Post-decree", title: "Modifications & Enforcement", copy: "Assistance with post-decree modifications, enforcement of existing orders, and practical next-step strategy." },
+    { icon: "▥", category: "Licensed scope", title: "Court Appearances Within Licensed Scope", copy: "Representation for eligible family court appearances, negotiations, mediation, and settlement discussions within licensed scope." },
+    { icon: "◇", category: "Agreements", title: "Consent Decrees & Agreements", copy: "Help organizing settlement terms, consent decree documents, parenting terms, and support-related paperwork." },
+    { icon: "◷", category: "Court requests", title: "Temporary Orders", copy: "Document and next-step support for temporary parenting, support, possession, and related family-court requests." },
+    { icon: "▣", category: "Disclosure", title: "Financial Disclosures", copy: "Support with family-court financial affidavits, disclosure organization, exhibits, and required supporting documents." },
+    { icon: "⇄", category: "Resolution", title: "Mediation & Settlement Support", copy: "Preparation and negotiation support for mediation, settlement conferences, and practical resolution planning." },
+    { icon: "⌂", category: "Parenting updates", title: "Relocation & Parenting Plan Updates", copy: "Support for proposed moves, parenting-plan changes, schedule updates, and related filing needs." },
+    { icon: "◉", category: "Establishing orders", title: "Paternity & Establishing Orders", copy: "Help with documents and process steps for establishing parentage, parenting time, decision-making, and support." },
+    { icon: "!", category: "Enforcement", title: "Enforcement of Existing Orders", copy: "Assistance identifying enforcement options and preparing family-court documents tied to existing Arizona orders." },
+    { icon: "✓", category: "Review", title: "Document Review & Scope Checks", copy: "Focused review of family-law forms, proposed orders, agreements, and next-step options before filing or signing." },
+    { icon: "⇧", category: "Filing support", title: "Filing & Service Coordination", copy: "Practical help with filing readiness, service coordination, court copies, deadlines, and procedural next steps." }
   ];
 
   function serviceCards() {
@@ -107,6 +107,7 @@
     return `<div class="grid service-grid" data-service-grid>${items.map((item, index) => `
     <article class="card service-card"${index >= 6 ? ` hidden data-service-extra` : ""}>
       <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
+      <p class="service-kicker">${esc(item.category)}</p>
       <h3><a href="${item.href}" data-link>${item.title}</a></h3>
       <p>${item.copy}</p>
       <a class="card-link" href="${item.href}" data-link>Review This Path →</a>
@@ -124,7 +125,7 @@
       `${link("/start", "Start Guided Intake", "primary")} ${link("/practice-areas", "View Practice Areas", "outline")}`
     ) + section(
       "Practical help for Arizona family law matters.",
-      "MY FAMILY LAW GROUP provides efficient, scope-appropriate family law services for many Arizona domestic-relations matters, including document preparation, filing support, negotiation, and court appearances within licensed scope.",
+      "Family-law help for moments when documents, deadlines, parenting terms, support, and court expectations need to be handled clearly. Every path begins with conflict, scope, timing, and fit review.",
       serviceCards(),
       true,
       "Family law services"
