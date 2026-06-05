@@ -56,9 +56,9 @@ button, input, select { font: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: clamp(18px, 2vw, 32px);
   min-height: 92px;
-  padding: 18px max(24px, calc((100vw - var(--max)) / 2));
+  padding: 18px clamp(18px, 2.2vw, 34px);
   background: transparent;
   border-bottom: 1px solid transparent;
   box-shadow: none;
@@ -75,6 +75,7 @@ body:not(.has-hero) .site-header {
 .brand {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
   text-decoration: none;
   min-width: 0;
 }
@@ -93,7 +94,11 @@ body:not(.has-hero) .site-header {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 1.45vw, 24px);
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  gap: clamp(14px, 1.35vw, 22px);
+  margin-left: auto;
+  min-width: 0;
 }
 .site-nav a {
   color: rgba(255, 255, 255, 0.9);
