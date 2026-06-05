@@ -106,11 +106,15 @@
     const items = serviceItems.map((item) => ({ ...item, href: "/start" }));
     return `<div class="grid service-grid" data-service-grid>${items.map((item, index) => `
     <article class="card service-card"${index >= 6 ? ` hidden data-service-extra` : ""}>
-      <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
-      <p class="service-kicker">${esc(item.category)}</p>
-      <h3><a href="${item.href}" data-link>${item.title}</a></h3>
-      <p>${item.copy}</p>
-      <a class="card-link" href="${item.href}" data-link>Review This Path →</a>
+      <div class="service-heading">
+        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
+        <p class="service-kicker">${esc(item.category)}</p>
+        <h3><a href="${item.href}" data-link>${item.title}</a></h3>
+      </div>
+      <div class="service-detail">
+        <p>${item.copy}</p>
+        <a class="card-link" href="${item.href}" data-link>Review This Path →</a>
+      </div>
     </article>`).join("")}</div>
     <div class="service-reveal">
       <button class="button primary service-reveal-button" type="button" data-service-reveal>View More Family Law Pathways</button>
