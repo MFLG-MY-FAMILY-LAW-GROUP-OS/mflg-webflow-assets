@@ -117,8 +117,7 @@
     { icon: "↻", category: "Post-decree", title: "Modification of Existing Orders", copy: "Help changing parenting, legal decision-making, child support, spousal maintenance, relocation, or other family-court orders." },
     { icon: "!", category: "Post-decree", title: "Enforcement of Existing Orders", copy: "Assistance when parenting, support, maintenance, property, debt, or other family-court orders are not being followed." },
     { icon: "⚖", category: "Post-decree", title: "Contempt / Noncompliance Review", copy: "Scope review and document organization for noncompliance, contempt-related facts, deadlines, and hearing preparation." },
-    { icon: "!", category: "Safety", title: "Protective Orders Related to Family Law", copy: "Family-law related safety review for protective orders, related hearings, children, and immediate referral needs where appropriate." },
-    { icon: "!", category: "Safety", title: "Family-Law Injunctions / Safety Terms", copy: "Support for safety-related family-court terms and injunction issues when they connect to an eligible family-law matter." },
+    { icon: "!", category: "Safety", title: "Protective Orders / Safety Terms", copy: "Family-law related safety review for protective orders, injunction issues, related hearings, children, and referral needs where appropriate." },
     { icon: "⇄", category: "Resolution", title: "Mediation Preparation", copy: "Preparation for mediation with issue lists, documents, proposed terms, parenting plans, support information, and settlement options." },
     { icon: "◇", category: "Resolution", title: "Arbitration / ADR Preparation", copy: "Review and preparation for alternative dispute resolution, including scope-sensitive arbitration or collaborative-law pathways." },
     { icon: "⇧", category: "Resolution", title: "Negotiation Support", copy: "Practical negotiation support for parenting, support, property, debt, maintenance, and agreement terms within licensed scope." },
@@ -138,6 +137,8 @@
     { icon: "!", category: "Scope review", title: "Special Scope / Referral Review", copy: "Early review for QDROs, business or commercial property, appeals, tribal, Hague, dependency, immigration, tax, or other referral issues." }
   ];
 
+  const initialServiceCount = 25;
+
   const serviceMethods = [
     { icon: "▤", title: "Document preparation", copy: "Court-ready family-law documents and supporting materials." },
     { icon: "⇧", title: "Filing support", copy: "Filing readiness, service coordination, deadlines, and next steps." },
@@ -147,8 +148,15 @@
 
   function serviceCards() {
     const items = serviceItems.map((item) => ({ ...item, href: "/start" }));
-    return `<div class="grid service-grid" data-service-grid>${items.map((item, index) => `
-    <article class="card service-card"${index >= 6 ? ` hidden data-service-extra` : ""}>
+    return `<div class="service-tools" data-service-tools>
+      <label class="service-search-label" for="service-search">Search family-law pathways</label>
+      <div class="service-search-row">
+        <input id="service-search" class="service-search" type="search" placeholder="Search parenting, support, paternity, enforcement..." data-service-search>
+        <span class="service-count" data-service-count>Showing ${initialServiceCount} of ${items.length} pathways</span>
+      </div>
+    </div>
+    <div class="grid service-grid" data-service-grid>${items.map((item, index) => `
+    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} data-service-card data-service-text="${esc(`${item.title} ${item.category} ${item.copy}`.toLowerCase())}">
       <div class="service-heading">
         <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
         <p class="service-kicker">${esc(item.category)}</p>
@@ -161,7 +169,7 @@
     </article>`).join("")}</div>
     <div class="service-reveal">
       <button class="button primary service-reveal-button" type="button" data-service-reveal>View More Family Law Pathways</button>
-      <p class="service-note">Services are subject to conflict, licensed-scope, timing, and availability review before representation or document help is confirmed.</p>
+      <p class="service-note">Showing the first ${initialServiceCount} pathways. Search any topic or reveal the remaining ${items.length - initialServiceCount}. Services are subject to conflict, licensed-scope, timing, and availability review.</p>
     </div>
     <div class="service-methods" aria-label="How MFLG can help">
       ${serviceMethods.map((item) => `<article class="service-method">
@@ -315,7 +323,7 @@
     document.body.classList.toggle("has-hero", path === "/");
     root.innerHTML = await view();
     wireGuideFilters();
-    wireServiceReveal();
+    wireServiceTools();
     renderIntakeIfNeeded(path);
     updateNav(path);
     window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
@@ -361,17 +369,47 @@
     category.addEventListener("change", filter);
   }
 
-  function wireServiceReveal() {
+  function wireServiceTools() {
     const button = document.querySelector("[data-service-reveal]");
-    const extras = Array.from(document.querySelectorAll("[data-service-extra]"));
-    if (!button || extras.length === 0) return;
-    button.addEventListener("click", () => {
-      extras.forEach((card, index) => {
-        card.removeAttribute("hidden");
-        card.style.setProperty("--reveal-index", String(index));
+    const search = document.querySelector("[data-service-search]");
+    const count = document.querySelector("[data-service-count]");
+    const cards = Array.from(document.querySelectorAll("[data-service-card]"));
+    const reveal = document.querySelector(".service-reveal");
+    if (!cards.length) return;
+
+    let revealed = false;
+    const update = () => {
+      const term = (search?.value || "").trim().toLowerCase();
+      let visible = 0;
+
+      cards.forEach((card, index) => {
+        const matches = !term || (card.dataset.serviceText || "").includes(term);
+        const show = matches && (revealed || term || index < initialServiceCount);
+        card.hidden = !show;
+        if (show) {
+          card.style.setProperty("--reveal-index", String(visible));
+          visible += 1;
+        }
       });
-      button.closest(".service-reveal").classList.add("revealed");
+
+      if (count) {
+        count.textContent = term
+          ? `Showing ${visible} matching pathway${visible === 1 ? "" : "s"}`
+          : `Showing ${visible} of ${cards.length} pathways`;
+      }
+
+      if (reveal) {
+        reveal.classList.toggle("revealed", revealed || !!term);
+      }
+    };
+
+    search?.addEventListener("input", update);
+    button?.addEventListener("click", () => {
+      revealed = true;
+      if (search) search.value = "";
+      update();
     });
+    update();
   }
 
   document.addEventListener("click", (event) => {
