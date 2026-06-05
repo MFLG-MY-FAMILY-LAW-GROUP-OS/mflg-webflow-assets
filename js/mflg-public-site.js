@@ -106,13 +106,14 @@
     const items = serviceItems.map((item) => ({ ...item, href: "/start" }));
     return `<div class="grid service-grid" data-service-grid>${items.map((item, index) => `
     <article class="card service-card"${index >= 6 ? ` hidden data-service-extra` : ""}>
-      <div class="card-icon" aria-hidden="true">${item.icon}</div>
-      <h3>${item.title}</h3>
+      <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
+      <h3><a href="${item.href}" data-link>${item.title}</a></h3>
       <p>${item.copy}</p>
-      <a class="card-link" href="${item.href}" data-link>Start Path →</a>
+      <a class="card-link" href="${item.href}" data-link>Review This Path →</a>
     </article>`).join("")}</div>
     <div class="service-reveal">
       <button class="button primary service-reveal-button" type="button" data-service-reveal>View More Family Law Pathways</button>
+      <p class="service-note">Services are subject to conflict, licensed-scope, timing, and availability review before representation or document help is confirmed.</p>
     </div>`;
   }
 
@@ -310,8 +311,11 @@
     const extras = Array.from(document.querySelectorAll("[data-service-extra]"));
     if (!button || extras.length === 0) return;
     button.addEventListener("click", () => {
-      extras.forEach((card) => card.removeAttribute("hidden"));
-      button.closest(".service-reveal").hidden = true;
+      extras.forEach((card, index) => {
+        card.removeAttribute("hidden");
+        card.style.setProperty("--reveal-index", String(index));
+      });
+      button.closest(".service-reveal").classList.add("revealed");
     });
   }
 
