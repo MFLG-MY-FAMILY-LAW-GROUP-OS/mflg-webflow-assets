@@ -143,6 +143,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background: var(--navy);
   color: white;
+  isolation: isolate;
 }
 .hero-video {
   position: absolute;
@@ -152,6 +153,7 @@ body:not(.has-hero) .site-header {
   object-fit: cover;
   object-position: center;
   opacity: 0.68;
+  z-index: 0;
 }
 .hero-shade {
   position: absolute;
@@ -160,10 +162,11 @@ body:not(.has-hero) .site-header {
     radial-gradient(circle at 22% 54%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.26) 58%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.56), rgba(6, 14, 22, 0.36) 48%, rgba(6, 14, 22, 0.54)),
     linear-gradient(180deg, rgba(6, 14, 22, 0.04), rgba(6, 14, 22, 0.5));
+  z-index: 1;
 }
 .hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: min(790px, 100%);
 }
 .scroll-cue {

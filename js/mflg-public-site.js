@@ -42,7 +42,7 @@
   function hero(title, copy, actions) {
     return `<section class="hero">
       <video class="hero-video" autoplay muted loop playsinline preload="auto">
-        <source src="/assets/images/mflg-background-video.mp4?v=hero-video-2" type="video/mp4">
+        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
       <div class="hero-inner">
