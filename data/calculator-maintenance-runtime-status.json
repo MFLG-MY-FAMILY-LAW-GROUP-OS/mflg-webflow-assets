@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-calculator-maintenance-runtime-status",
+  "built_at": "2026-06-12T04:39:45.628Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "official_api_contract_exposed": false,
+    "public_results_enabled": true,
+    "local_formula_engine_enabled": false,
+    "official_api_runtime_enabled": true
+  },
+  "summary": {
+    "maintenance_runtime_enabled": true,
+    "maintenance_runtime_type": "official_api",
+    "approved_fixture_count": 3,
+    "response_contract_fields": 12,
+    "official_api_current_version": "2.7",
+    "public_results_enabled": true
+  },
+  "public_message": "The MFLG maintenance calculator uses the official Arizona maintenance API on this page. Inputs are sent to the official calculator API for the result and are not stored by this website."
+}

@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0-calculator-launch-monitoring",
+  "built_at": "2026-06-12T04:39:45.140Z",
+  "public_safety": {
+    "internal_monitoring_runbook_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "launch_monitoring_ready": true,
+    "monitored_signals": 5,
+    "healthy_signals": 5,
+    "attention_signals": 0,
+    "official_fallback_available": true,
+    "launch_ready": true,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_signals": [
+    {
+      "key": "official_fallback",
+      "public_label": "Official calculator fallback",
+      "status": "healthy",
+      "public_note": "Official calculator sources stay available while MFLG-branded results are locked."
+    },
+    {
+      "key": "public_results_lock",
+      "public_label": "Public result lock",
+      "status": "healthy",
+      "public_note": "MFLG-branded result output remains off."
+    },
+    {
+      "key": "release_packet",
+      "public_label": "Release packet",
+      "status": "healthy",
+      "public_note": "Release packet review must be complete before launch."
+    },
+    {
+      "key": "release_evidence",
+      "public_label": "Release evidence",
+      "status": "healthy",
+      "public_note": "Evidence items are monitored before any launch decision."
+    },
+    {
+      "key": "fallback_status",
+      "public_label": "Fallback status",
+      "status": "healthy",
+      "public_note": "The page should continue routing visitors to official calculator sources."
+    }
+  ],
+  "public_message": "Calculator launch monitoring is clear. MFLG calculator results remain off until the public runtime is separately enabled."
+}

@@ -163,25 +163,27 @@
    ========================================================= */
 
 #mflg-intake-root .mflg-intro {
-  padding: clamp(32px, 3vw, 50px) clamp(64px, 6.4vw, 122px) clamp(23px, 2.35vw, 35px);
-  background: rgba(255, 253, 248, 0.70);
+  padding: clamp(70px, 6.2vw, 104px) clamp(64px, 6.4vw, 122px) clamp(62px, 5.2vw, 88px);
+  background:
+    radial-gradient(circle at 68% 24%, rgba(199, 154, 43, 0.08), rgba(199, 154, 43, 0) 34%),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.86), rgba(248, 244, 235, 0.72));
 }
 
 #mflg-intake-root .mflg-intro-inner {
-  width: min(1360px, 100%);
-  margin: 0;
+  width: min(720px, 100%);
+  margin: 0 auto;
 }
 
 #mflg-intake-root .mflg-intro-kicker {
-  margin: 0 0 13px;
+  margin: 0 0 20px;
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
   color: var(--mflg-gold);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
   line-height: 1.2;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -193,22 +195,22 @@
 }
 
 #mflg-intake-root .mflg-intro-title {
-  max-width: 1280px;
-  margin: 0 0 13px;
+  max-width: 720px;
+  margin: 0 0 22px;
   color: var(--mflg-navy);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(36px, 2.95vw, 56px);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.05em;
+  font-family: inherit;
+  font-size: clamp(52px, 4.7vw, 76px);
+  font-weight: 950;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
 }
 
 #mflg-intake-root .mflg-intro-copy {
-  max-width: 1220px;
+  max-width: 710px;
   margin: 0;
   color: var(--mflg-muted);
-  font-size: 15px;
-  line-height: 1.62;
+  font-size: clamp(16px, 1.12vw, 19px);
+  line-height: 1.58;
 }
 
 /* =========================================================
@@ -271,7 +273,7 @@
 
 #mflg-intake-root .mflg-track {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -1056,7 +1058,7 @@
   }
 
   #mflg-intake-root .mflg-intro-title {
-    font-size: clamp(36px, 3.35vw, 54px);
+    font-size: clamp(48px, 5.4vw, 68px);
   }
 }
 
@@ -1090,7 +1092,7 @@
   }
 
   #mflg-intake-root .mflg-intro-title {
-    font-size: clamp(32px, 6vw, 48px);
+    font-size: clamp(42px, 8vw, 56px);
   }
 
   #mflg-intake-root .mflg-track {
@@ -1141,17 +1143,19 @@
   }
 
   #mflg-intake-root .mflg-intro {
-    padding: 28px 20px 24px;
+    padding: 46px 20px 38px;
   }
 
   #mflg-intake-root .mflg-intro-title {
-    font-size: 33px;
-    line-height: 1.03;
+    margin-bottom: 16px;
+    font-size: 42px;
+    line-height: 0.98;
+    letter-spacing: -0.028em;
   }
 
   #mflg-intake-root .mflg-intro-copy {
-    font-size: 13px;
-    line-height: 1.58;
+    font-size: 14px;
+    line-height: 1.56;
   }
 
   #mflg-intake-root .mflg-head {
@@ -1170,7 +1174,7 @@
   }
 
   #mflg-intake-root .mflg-track {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   #mflg-intake-root .mflg-progress {
@@ -1368,21 +1372,40 @@
   color: rgba(16, 24, 32, 0.78);
 }
 
+#mflg-intake-root .mflg-route-banner .mflg-route-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 13px 0 0;
+}
+
 #mflg-intake-root .mflg-route-banner span {
   display: inline-flex;
   align-items: center;
   width: auto;
-  margin: 12px 8px 0 0;
+  max-width: 100%;
+  margin: 0;
   padding: 7px 10px;
   border-radius: 999px;
   background: rgba(2, 69, 122, 0.08);
   border: 1px solid rgba(2, 69, 122, 0.12);
   font-size: 11px;
-  line-height: 1;
+  line-height: 1.25;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0;
   color: #02457a;
+  overflow-wrap: anywhere;
+  text-transform: none;
+}
+
+#mflg-intake-root .mflg-route-banner .mflg-route-safe-note {
+  max-width: 850px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(2, 69, 122, 0.14);
+  color: rgba(16, 24, 32, 0.70);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 @media (max-width: 767px) {
@@ -1401,11 +1424,19 @@
     line-height: 1.5;
   }
 
+  #mflg-intake-root .mflg-route-banner .mflg-route-chip-row {
+    gap: 7px;
+  }
+
   #mflg-intake-root .mflg-route-banner span {
     display: flex;
     width: fit-content;
     max-width: 100%;
     white-space: normal;
     line-height: 1.25;
+  }
+
+  #mflg-intake-root .mflg-route-banner .mflg-route-safe-note {
+    font-size: 12px;
   }
 }

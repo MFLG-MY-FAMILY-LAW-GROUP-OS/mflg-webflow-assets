@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0-calculator-regression-comparison-status",
+  "built_at": "2026-06-12T04:39:41.064Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "local_formula_engine_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "comparison_plan_ready": true,
+    "comparison_results_file_present": true,
+    "fixture_comparison_items": 4,
+    "approved_fixture_count": 4,
+    "executable_regression_tests": 4,
+    "complete_comparisons": 4,
+    "pending_comparisons": 0,
+    "material_mismatches": 0,
+    "required_output_checks_per_fixture": 18,
+    "public_unlock_ready": false
+  },
+  "public_review_items": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "comparison_result_present": true,
+      "comparison_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "comparison_result_present": true,
+      "comparison_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "comparison_result_present": true,
+      "comparison_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "comparison_result_present": true,
+      "comparison_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    }
+  ],
+  "public_message": "Regression comparison is planned but public calculator results remain locked until approved fixtures exist and every comparison passes."
+}

@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0-forms-tools-review-roadmap",
+  "built_at": "2026-06-12T04:39:49.802Z",
+  "source_manifests": [
+    "data/form-review-queue.json",
+    "data/form-pdf-promotion-audit.json",
+    "data/jurisdiction-readiness.json",
+    "data/calculator-readiness.json",
+    "data/forms-tools-action-plan.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "same_origin_pdf_delivery_enabled": true,
+    "public_downloads_enabled": false,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "summary": {
+    "public_packet_page_actions": 16,
+    "packet_candidates_review_only": 12,
+    "public_pdf_actions": 70,
+    "county_source_only": 3,
+    "official_sources_ok": 19,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "same_origin_pdf_delivery_enabled": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "items": [
+    {
+      "item_id": "packet-pages-live",
+      "label": "Official packet pages",
+      "status": "public action available",
+      "count": 16,
+      "guidance": "Reviewed representative packets route users to the on-page PDF viewer."
+    },
+    {
+      "item_id": "packet-candidates-review-only",
+      "label": "Packet candidates needing review",
+      "status": "review-only",
+      "count": 12,
+      "guidance": "Candidate packet links stay out of public action until source fit and packet mapping are reviewed."
+    },
+    {
+      "item_id": "official-pdfs-live",
+      "label": "Approved official PDFs",
+      "status": "viewer and download available",
+      "count": 70,
+      "guidance": "Approved PDF actions open in the on-page viewer and download through approved same-origin court-source delivery. Cached copies remain disabled."
+    },
+    {
+      "item_id": "county-source-only",
+      "label": "County sources without packet review",
+      "status": "guided review only",
+      "count": 3,
+      "guidance": "Monitored county sources without packet-level review should use Guided Intake instead of sending visitors to an unreviewed packet path."
+    },
+    {
+      "item_id": "mflg-calculators-live",
+      "label": "MFLG calculators",
+      "status": "on-site tools available",
+      "count": 2,
+      "guidance": "Child-support and spousal-maintenance calculators are available on this page for planning, with official-source fallback."
+    }
+  ],
+  "public_message": "Approved PDFs open and download on site through approved court-source delivery. MFLG calculators are available on site. Review-only packet candidates, non-reviewed county packets, and cached copies remain controlled."
+}

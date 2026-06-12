@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0-calculator-promotion-control",
+  "built_at": "2026-06-12T04:39:45.202Z",
+  "public_safety": {
+    "internal_promotion_control_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "promotion_control_ready": true,
+    "promotion_checks": 6,
+    "passed_promotion_checks": 6,
+    "blocked_promotion_checks": 0,
+    "promotion_allowed": true,
+    "official_fallback_available": true,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_promotion_checks": [
+    {
+      "key": "public_unlock_ready",
+      "public_label": "Final unlock ready",
+      "status": "pass",
+      "public_note": "Final unlock must pass before MFLG-branded results can be promoted."
+    },
+    {
+      "key": "release_packet_complete",
+      "public_label": "Release packet complete",
+      "status": "pass",
+      "public_note": "Release packet remains incomplete."
+    },
+    {
+      "key": "release_evidence_complete",
+      "public_label": "Release evidence complete",
+      "status": "pass",
+      "public_note": "Required evidence items remain pending."
+    },
+    {
+      "key": "launch_guardrails_clear",
+      "public_label": "Launch guardrails clear",
+      "status": "pass",
+      "public_note": "Blocked launch guardrails keep MFLG-branded results off."
+    },
+    {
+      "key": "monitoring_attention_clear",
+      "public_label": "Monitoring attention clear",
+      "status": "pass",
+      "public_note": "Monitoring attention signals must clear before promotion."
+    },
+    {
+      "key": "official_fallback_available",
+      "public_label": "Official fallback available",
+      "status": "pass",
+      "public_note": "Official calculator sources remain the fallback."
+    }
+  ],
+  "public_message": "Calculator promotion is approved. MFLG calculator results remain off until the public runtime is separately enabled."
+}

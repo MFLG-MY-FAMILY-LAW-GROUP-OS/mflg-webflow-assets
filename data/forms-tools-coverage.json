@@ -1,0 +1,259 @@
+{
+  "version": "1.0.0-forms-tools-coverage",
+  "built_at": "2026-06-12T03:59:56.375Z",
+  "source_manifests": [
+    "data/source-health-public.json",
+    "data/form-packet-page-actions.json",
+    "data/form-pdf-public-actions.json",
+    "data/form-pdf-route-index.json",
+    "data/form-review-queue.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "approved_same_origin_pdf_delivery_enabled": true,
+    "public_downloads_enabled": true,
+    "direct_cached_downloads_enabled": false,
+    "raw_source_hashes_exposed": false
+  },
+  "summary": {
+    "official_sources_checked": 19,
+    "official_sources_ok": 19,
+    "official_sources_broken": 0,
+    "official_packet_page_actions": 16,
+    "packet_candidates_review_only": 12,
+    "approved_pdf_actions": 70,
+    "pdf_route_packets": 9,
+    "covered_packet_routes": 16,
+    "approved_same_origin_pdf_delivery_enabled": true,
+    "public_downloads_enabled": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "routes": [
+    {
+      "packet_id": "maricopa-consent-decree-agreement",
+      "packet_label": "Maricopa consent decree and agreement finalization",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 10,
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "Finalizing agreement",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": false,
+      "approved_pdf_actions": 0,
+      "route": {
+        "county": "Maricopa",
+        "issue": "temporary orders / court readiness",
+        "posture": "Prepare for court",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-divorce-new-no-children",
+      "packet_label": "Maricopa divorce or separation - new filing without minor children",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 10,
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-divorce-new-with-children",
+      "packet_label": "Maricopa divorce or separation - new filing with minor children",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 10,
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": false,
+      "approved_pdf_actions": 0,
+      "route": {
+        "county": "Maricopa",
+        "issue": "enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-foreign-custody-order",
+      "packet_label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 8,
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign custody / UCCJEA order",
+        "posture": "Register out-of-state custody order",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-foreign-order-hearing",
+      "packet_label": "Maricopa hearing request for a registered foreign family-court order",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": false,
+      "approved_pdf_actions": 0,
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign family-court order",
+        "posture": "Request hearing",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-foreign-support-order",
+      "packet_label": "Maricopa registration of foreign family support order",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 4,
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign support order",
+        "posture": "Register or enforce out-of-state order",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-income-withholding-order",
+      "packet_label": "Maricopa income withholding order forms",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": false,
+      "approved_pdf_actions": 0,
+      "route": {
+        "county": "Maricopa",
+        "issue": "income withholding / support",
+        "posture": "Request or update withholding",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-modification-existing-order",
+      "packet_label": "Maricopa modification of existing family-court orders",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": false,
+      "approved_pdf_actions": 0,
+      "route": {
+        "county": "Maricopa",
+        "issue": "modification",
+        "posture": "Modify existing order",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-name-address-update",
+      "packet_label": "Maricopa court name or address update forms",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 4,
+      "route": {
+        "county": "Maricopa",
+        "issue": "name or address update",
+        "posture": "Update court record",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-out-of-state-custody-enforcement",
+      "packet_label": "Maricopa enforcement of out-of-state physical custody order",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": false,
+      "approved_pdf_actions": 0,
+      "route": {
+        "county": "Maricopa",
+        "issue": "out-of-state custody enforcement",
+        "posture": "Enforce existing order",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 10,
+      "route": {
+        "county": "Maricopa",
+        "issue": "paternity / parenting time / child support",
+        "posture": "New filing",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "packet_label": "Maricopa post-decree temporary orders",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 10,
+      "route": {
+        "county": "Maricopa",
+        "issue": "post-decree temporary orders",
+        "posture": "Post-decree temporary relief",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-property-division-enforcement",
+      "packet_label": "Maricopa enforcement of property division order",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": false,
+      "approved_pdf_actions": 0,
+      "route": {
+        "county": "Maricopa",
+        "issue": "property division enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-protective-order-resources",
+      "packet_label": "Maricopa protective order resources",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 4,
+      "route": {
+        "county": "Maricopa",
+        "issue": "protective order / safety",
+        "posture": "Safety planning",
+        "children": "any"
+      }
+    }
+  ],
+  "public_message": "Forms & Tools now lets visitors view and download reviewed official PDFs on site through approved same-origin delivery. Unreviewed packet candidates and raw cached copies remain controlled."
+}

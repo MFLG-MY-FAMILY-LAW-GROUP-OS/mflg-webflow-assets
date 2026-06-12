@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-calculator-formula-engine-readiness",
+  "built_at": "2026-06-12T04:39:22.149Z",
+  "public_safety": {
+    "raw_formula_text_exposed": false,
+    "contains_sensitive_user_data": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "child_support_formula_map_ready": true,
+    "child_support_named_input_candidates": 3,
+    "child_support_named_formula_outputs_or_intermediates": 39,
+    "child_support_formula_cells_mapped": 1577,
+    "local_formula_engine_enabled": false,
+    "regression_fixtures_ready": 0,
+    "reviewer_approved_calculators": 0
+  },
+  "public_message": "The official child-support workbook has been mapped internally for engine development. Public MFLG formula results remain locked until regression tests and reviewer approval are complete."
+}

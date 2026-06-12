@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0-forms-tools-action-plan",
+  "built_at": "2026-06-12T04:39:49.737Z",
+  "source_manifests": [
+    "data/forms-tools-coverage.json",
+    "data/form-route-actions.json",
+    "data/jurisdiction-readiness.json",
+    "data/calculator-readiness.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "summary": {
+    "official_sources_ok": 19,
+    "official_sources_checked": 19,
+    "reviewed_routes": 16,
+    "approved_pdf_actions": 70,
+    "same_origin_pdf_delivery_enabled": true,
+    "official_formula_sources_ok": 2,
+    "safe_planning_tools": 1,
+    "official_embeds_enabled": true,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "steps": [
+    {
+      "step_id": "choose-on-page-start",
+      "label": "Choose the on-page starting point",
+      "status": "ready",
+      "metric": "19/19 sources OK",
+      "guidance": "Start with county and posture. If the county is uncertain, use the on-page statewide guidance first."
+    },
+    {
+      "step_id": "use-reviewed-route",
+      "label": "Use a reviewed route when available",
+      "status": "ready for reviewed Maricopa routes",
+      "metric": "16 reviewed routes",
+      "guidance": "Reviewed routes open approved PDFs in the on-page viewer without collecting sensitive facts."
+    },
+    {
+      "step_id": "keep-other-counties-source-only",
+      "label": "Keep non-reviewed counties source-only",
+      "status": "source-only",
+      "metric": "3 county sources only",
+      "guidance": "For monitored counties without packet review, use Guided Intake instead of guessing."
+    },
+    {
+      "step_id": "use-official-calculators",
+      "label": "Use MFLG calculators on this page",
+      "status": "on-site calculators available",
+      "metric": "2/2 formula sources OK",
+      "guidance": "Use the MFLG child-support and spousal-maintenance calculators on this page for planning. Official Arizona sources remain available as fallback."
+    },
+    {
+      "step_id": "start-guarded-intake",
+      "label": "Start Guided Intake when facts matter",
+      "status": "recommended for fit review",
+      "metric": "starting choices only",
+      "guidance": "Carry only the source, county, issue, posture, packet, or calculator choice into Intake. Do not collect allegations, uploads, or detailed financial facts here."
+    }
+  ],
+  "public_message": "Use on-page reviewed forms and site PDF downloads first, reviewed Maricopa routes when available, MFLG calculators for planning, and Guided Intake when facts require review."
+}

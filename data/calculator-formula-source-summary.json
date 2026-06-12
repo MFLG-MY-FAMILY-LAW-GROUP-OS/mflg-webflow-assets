@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0-calculator-formula-source-summary",
+  "built_at": "2026-06-12T04:39:21.547Z",
+  "public_safety": {
+    "raw_formula_text_exposed": false,
+    "raw_hashes_exposed": false,
+    "raw_etags_exposed": false,
+    "contains_sensitive_user_data": false
+  },
+  "summary": {
+    "child_support_workbook_reachable": true,
+    "child_support_worksheet_count": 15,
+    "child_support_formula_count": 1577,
+    "child_support_defined_name_count": 98,
+    "maintenance_page_reachable": true,
+    "maintenance_current_api_detected": true,
+    "maintenance_candidate_input_count": 40,
+    "local_formula_results_enabled": false
+  },
+  "public_message": "Formula source inventory is available for internal mapping. Public local calculator results remain locked until formula mapping and regression tests are approved."
+}

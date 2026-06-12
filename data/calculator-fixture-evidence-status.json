@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0-calculator-fixture-evidence-status",
+  "built_at": "2026-06-12T04:39:45.381Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_evidence_template_exposed": false,
+    "internal_values_publicly_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "fixture_evidence_entry_ready": true,
+    "evidence_file_present": true,
+    "fixture_evidence_packets": 4,
+    "complete_evidence_packets": 4,
+    "pending_evidence_packets": 0,
+    "required_input_fields_per_fixture": 8,
+    "required_output_fields_per_fixture": 18,
+    "public_results_enabled": false
+  },
+  "public_evidence_packets": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "evidence_record_present": true,
+      "evidence_packet_complete": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "evidence_record_present": true,
+      "evidence_packet_complete": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "evidence_record_present": true,
+      "evidence_packet_complete": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "evidence_record_present": true,
+      "evidence_packet_complete": true,
+      "public_values_exposed": false
+    }
+  ],
+  "public_message": "Fixture evidence entry is ready, but no official-output evidence values are public. MFLG calculator results remain locked until internal evidence is complete and approved."
+}

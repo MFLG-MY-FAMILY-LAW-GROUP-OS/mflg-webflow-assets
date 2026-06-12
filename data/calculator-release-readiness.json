@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0-calculator-release-readiness",
+  "built_at": "2026-06-12T04:39:44.965Z",
+  "public_safety": {
+    "internal_approval_packet_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": false
+  },
+  "summary": {
+    "release_readiness_ready": true,
+    "release_packet_complete": true,
+    "public_unlock_gate_ready": true,
+    "gate_count": 9,
+    "passed_gates": 9,
+    "blocked_gates": 0,
+    "blocking_alerts": 0,
+    "fixture_review_items": 4,
+    "complete_regression_comparisons": 4,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "blocked_release_items": [],
+  "public_message": "Calculator release evidence is complete. MFLG calculator results remain off until the public runtime is separately enabled."
+}

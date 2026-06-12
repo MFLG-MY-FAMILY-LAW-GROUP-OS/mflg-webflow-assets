@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0-calculator-operations-status",
+  "built_at": "2026-06-12T04:39:44.848Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "internal_runbook_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "operations_status_ready": true,
+    "monitored_status_files": 4,
+    "internal_artifacts_ready": true,
+    "approved_fixture_records_found": 4,
+    "complete_approved_fixtures": 4,
+    "complete_regression_comparisons": 4,
+    "public_unlock_ready": false,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_stages": [
+    {
+      "key": "fixture_entry",
+      "public_status": "in_review",
+      "blocking_reason": ""
+    },
+    {
+      "key": "comparison_run",
+      "public_status": "in_review",
+      "blocking_reason": ""
+    },
+    {
+      "key": "final_unlock_review",
+      "public_status": "ready",
+      "blocking_reason": ""
+    }
+  ],
+  "public_message": "Calculator operations are monitored, but MFLG-branded results remain locked until approved fixtures, comparison checks, and final review are complete."
+}

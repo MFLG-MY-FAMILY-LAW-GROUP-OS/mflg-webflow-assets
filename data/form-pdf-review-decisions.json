@@ -1,0 +1,667 @@
+{
+  "version": "0.8.0-pdf-promotion-control",
+  "updated_at": "2026-06-12T03:59:55.955Z",
+  "public_safety": {
+    "public_pdf_actions_enabled_after_validation": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "decision_policy": {
+    "default_status": "pending",
+    "absence_means_pending": true,
+    "allowed_decisions": [
+      "pending",
+      "approve_official_pdf",
+      "packet_page_only",
+      "reject"
+    ],
+    "approval_requirements": [
+      "A matching pdf_review_id must exist in data/form-pdf-review-queue.json.",
+      "The source_status must be pdf_source_ok.",
+      "The decision must include reviewer and reviewed_at.",
+      "Approved public actions may open only the official court PDF URL.",
+      "Direct cached downloads remain disabled."
+    ]
+  },
+  "summary": {
+    "explicit_decisions": 70,
+    "approved_official_pdf_actions": 70,
+    "packet_page_only": 0,
+    "rejected": 0,
+    "pending": 0,
+    "public_pdf_actions_enabled_after_validation": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "decisions": [
+    {
+      "pdf_review_id": "maricopa-pdf-review-001",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DV LSPROCESS (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF dv-lsprocess.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-002",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DV LSPROCESSSP (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF dv-lsprocesssp.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-003",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRDS10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drds10fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-004",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRDS10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drds10fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-005",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRMCR10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drmcr10fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-006",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRMCR10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drmcr10fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-007",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRTP4 (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp4.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-008",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRTP4S (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp4s.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-009",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRTP42FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp42fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-010",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with Minor Children - DRTP42FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp42fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-011",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DV LSPROCESS (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF dv-lsprocess.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-012",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DV LSPROCESSSP (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF dv-lsprocesssp.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-013",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRDS10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drds10fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-014",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRDS10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drds10fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-015",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRMCR10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drmcr10fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-016",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRMCR10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drmcr10fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-017",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRTP4 (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp4.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-018",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRTP4S (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp4s.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-019",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRTP42FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp42fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-020",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Divorce with No Minor Children - DRTP42FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp42fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-021",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30PZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30pz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-022",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30PSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30psz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-023",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30P (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30p-f.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-024",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30P FS (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30p-fs.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-025",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC31FZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc31fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-026",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC31FSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc31fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-027",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRSD10FZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drsd10fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-028",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRSD10FSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drsd10fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-029",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DR70FZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF dr70fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-030",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DR70FSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF dr70fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-031",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - PT LDMPROCESS (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF pt-ldmprocess.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-032",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - PT LDMPROCESSSP (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF pt-ldmprocesssp.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-033",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRDS10FZ (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drds10fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-034",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRDS10FSZ (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drds10fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-035",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRPR10FZ (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drpr10fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-036",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRPR10FSZ (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drpr10fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-037",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP4 (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp4.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-038",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP4S (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp4s.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-039",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP42FZ (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp42fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-040",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP42FSZ (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp42fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-041",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Update Name or Address with the Court - PB13FZ (English)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb13fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-042",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Update Name or Address with the Court - PB13FSZ (Spanish)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb13fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-043",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Update Name or Address with the Court - PB14FZ (English)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb14fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-044",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Update Name or Address with the Court - PB14FSZ (Spanish)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb14fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-045",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS10PZ (English)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos10pz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-046",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS10PSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos10psz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-047",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS12FZ (English)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos12fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-048",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS12FSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos12fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-049",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC10PZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc10pz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-050",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC10PSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc10psz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-051",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC12FZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc12fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-052",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC12FSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc12fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-053",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13FZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-054",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13FSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-055",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13F BZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13f-bz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-056",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13FS BZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13fs-bz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-057",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCE11PZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmce11pz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-058",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCE11PSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmce11psz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-059",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC14FZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc14fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-060",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC14FSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc14fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-061",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC11FZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc11fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-062",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC11FSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc11fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-063",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCN11PZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmcn11pz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-064",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCN11PSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmcn11psz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-065",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRT12FZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drt12fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-066",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRT12FSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drt12fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-067",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Protective Orders - LAY LEGAL ENGLISH (English)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF lay-legal-english.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-068",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Protective Orders - LAY LEGAL SPANISH (English)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF lay-legal-spanish.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-069",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Protective Orders - DVOP30FZ (English)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF dvop30fz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-070",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T03:59:55.955Z",
+      "public_display_label": "Protective Orders - DVOP30FSZ (Spanish)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF dvop30fsz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    }
+  ]
+}

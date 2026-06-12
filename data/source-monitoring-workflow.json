@@ -1,0 +1,35 @@
+{
+  "version": "1.1.0-pdf-promotion-audit",
+  "workflow": "official-source-monitoring",
+  "schedule": "daily for official calculators; weekly for form libraries unless source changes are detected",
+  "steps": [
+    "Read forms-catalog, form-packet-catalog, and calculators-catalog records from the approved internal source.",
+    "Fetch official source page and official file URLs.",
+    "Record HTTP status, content length, last-modified header, etag, page hash, and file hash when available.",
+    "Compare against previous metadata.",
+    "If URL breaks, source hash changes, PDF hash changes, or effective-date text changes, set status to needs_review.",
+    "Create an internal review task and keep public output on official-source fallback until reviewed.",
+    "After review, update verified metadata, cached file URL if allowed, and last_verified_at.",
+    "Publish source-monitoring-report with public-safe status metadata only.",
+    "Extract Maricopa candidate packet links into a review file before promoting any packet page or download.",
+    "Build a form-review-queue file that allows official packet-page actions only when the source is OK and the candidate is the representative packet page.",
+    "Extract official PDF candidates from allowed Maricopa packet pages.",
+    "Hash PDF candidates and keep direct cached downloads disabled until PDF-level URLs, hashes, and human review are maintained.",
+    "Build a PDF review queue grouped by packet and language so approved PDFs can later be promoted without opening unreviewed downloads.",
+    "Build public PDF action manifest from explicit human-review decisions; no decision means pending and no public action.",
+    "Build a PDF review workbench grouped by packet batch so review decisions can be made, validated, and promoted without exposing unreviewed PDF actions.",
+    "Build a reviewer decision template and validate explicit decisions before any official PDF action can be promoted.",
+    "Build a dry-run promotion audit that reports promotion-ready, blocked, packet-page-only, rejected, and pending decisions without enabling public PDF actions."
+  ],
+  "public_safety": {
+    "no_sensitive_public_collection": true,
+    "no_auto_formula_rewrite": true,
+    "fallback_when_stale": "official source page",
+    "display_required": [
+      "official source",
+      "last verified date once available",
+      "planning-only disclaimer",
+      "no client relationship notice"
+    ]
+  }
+}

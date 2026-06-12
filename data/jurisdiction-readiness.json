@@ -1,0 +1,133 @@
+{
+  "version": "1.0.0-jurisdiction-readiness",
+  "built_at": "2026-06-12T04:39:18.676Z",
+  "checked_at": "2026-06-10T05:28:58.672Z",
+  "source_manifests": [
+    "data/forms-catalog.json",
+    "data/source-health-public.json",
+    "data/form-route-actions.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "summary": {
+    "official_jurisdictions": 7,
+    "monitored_sources_ok": 19,
+    "monitored_sources_total": 19,
+    "jurisdictions_with_reviewed_packet_actions": 1,
+    "county_source_only": 3,
+    "statewide_source_only": 3,
+    "direct_cached_downloads_enabled": false
+  },
+  "jurisdictions": [
+    {
+      "jurisdiction_id": "azcourthelp-az-forms",
+      "label": "AZCourtHelp AZ Forms",
+      "county": "Statewide",
+      "court": "AZCourtHelp",
+      "jurisdiction_type": "statewide",
+      "official_url": "https://azcourthelp.org/forms",
+      "source_status": "official source monitored",
+      "packet_review_status": "statewide source only",
+      "reviewed_packet_routes": 0,
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0,
+      "public_guidance": "Use Guided Intake if this jurisdiction is not clearly matched yet.",
+      "intake_guidance": "Use statewide resources when the county is not known yet, then confirm the filing court before choosing packet details."
+    },
+    {
+      "jurisdiction_id": "az-statewide-family-law-library",
+      "label": "Arizona Statewide Family-Law Forms",
+      "county": "Statewide",
+      "court": "Arizona Judicial Branch",
+      "jurisdiction_type": "statewide",
+      "official_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "source_status": "official source monitored",
+      "packet_review_status": "statewide source only",
+      "reviewed_packet_routes": 0,
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0,
+      "public_guidance": "Use Guided Intake if this jurisdiction is not clearly matched yet.",
+      "intake_guidance": "Use statewide resources when the county is not known yet, then confirm the filing court before choosing packet details."
+    },
+    {
+      "jurisdiction_id": "az-protective-order-resources",
+      "label": "Arizona Protective Order Resources",
+      "county": "Statewide",
+      "court": "Arizona Judicial Branch",
+      "jurisdiction_type": "statewide",
+      "official_url": "https://azpoint.azcourts.gov/",
+      "source_status": "official source monitored",
+      "packet_review_status": "statewide source only",
+      "reviewed_packet_routes": 0,
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0,
+      "public_guidance": "Use Guided Intake if this jurisdiction is not clearly matched yet.",
+      "intake_guidance": "Use statewide resources when the county is not known yet, then confirm the filing court before choosing packet details."
+    },
+    {
+      "jurisdiction_id": "maricopa-family-court-library",
+      "label": "Maricopa Family Court Forms Library",
+      "county": "Maricopa",
+      "court": "Superior Court of Arizona in Maricopa County",
+      "jurisdiction_type": "county",
+      "official_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "official source monitored",
+      "packet_review_status": "packet actions reviewed",
+      "reviewed_packet_routes": 16,
+      "official_packet_page_actions": 16,
+      "approved_pdf_actions": 70,
+      "public_guidance": "Reviewed packet actions and approved PDFs are available in the on-page viewer for matching routes.",
+      "intake_guidance": "If this is the county for an existing case or likely new filing, carry the county into Guided Intake for review."
+    },
+    {
+      "jurisdiction_id": "pima-family-law-forms",
+      "label": "Pima County Family Law Forms",
+      "county": "Pima",
+      "court": "Superior Court of Arizona in Pima County",
+      "jurisdiction_type": "county",
+      "official_url": "https://www.sc.pima.gov/law-library/forms/",
+      "source_status": "official source monitored",
+      "packet_review_status": "county source only",
+      "reviewed_packet_routes": 0,
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0,
+      "public_guidance": "Use Guided Intake if this jurisdiction is not clearly matched yet.",
+      "intake_guidance": "If this is the county for an existing case or likely new filing, carry the county into Guided Intake for review."
+    },
+    {
+      "jurisdiction_id": "pinal-family-law-forms",
+      "label": "Pinal County Family Law Forms",
+      "county": "Pinal",
+      "court": "Superior Court of Arizona in Pinal County",
+      "jurisdiction_type": "county",
+      "official_url": "https://www.coscpinalcountyaz.gov/194/Family-Law",
+      "source_status": "official source monitored",
+      "packet_review_status": "county source only",
+      "reviewed_packet_routes": 0,
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0,
+      "public_guidance": "Use Guided Intake if this jurisdiction is not clearly matched yet.",
+      "intake_guidance": "If this is the county for an existing case or likely new filing, carry the county into Guided Intake for review."
+    },
+    {
+      "jurisdiction_id": "yavapai-family-law-forms",
+      "label": "Yavapai County Family Law Forms",
+      "county": "Yavapai",
+      "court": "Superior Court of Arizona in Yavapai County",
+      "jurisdiction_type": "county",
+      "official_url": "https://courts.yavapaiaz.gov/Departments/Law-Library/Self-Service-Center/Domestic",
+      "source_status": "official source monitored",
+      "packet_review_status": "county source only",
+      "reviewed_packet_routes": 0,
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0,
+      "public_guidance": "Use Guided Intake if this jurisdiction is not clearly matched yet.",
+      "intake_guidance": "If this is the county for an existing case or likely new filing, carry the county into Guided Intake for review."
+    }
+  ],
+  "public_message": "County choice controls the safest starting point. Maricopa has reviewed packet-level actions now; other monitored county sources should route through Guided Intake until packet review is completed."
+}

@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0-forms-tools-maintenance-status",
+  "built_at": "2026-06-12T04:39:49.860Z",
+  "checked_at": "2026-06-10T05:28:58.672Z",
+  "source_manifests": [
+    "data/source-health-public.json",
+    "data/source-monitoring-report.json",
+    "data/forms-tools-action-plan.json",
+    "data/forms-tools-review-roadmap.json",
+    "data/calculator-readiness.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "raw_hashes_exposed": false,
+    "raw_etags_exposed": false,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "same_origin_pdf_delivery_enabled": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "summary": {
+    "official_sources_checked": 19,
+    "official_sources_ok": 19,
+    "official_sources_broken": 0,
+    "reviewed_routes": 16,
+    "review_only_candidates": 12,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "same_origin_pdf_delivery_enabled": true,
+    "direct_cached_downloads_enabled": false,
+    "controls_passing_or_disabled_safe": 5
+  },
+  "controls": [
+    {
+      "control_id": "official-source-monitoring",
+      "label": "Official source monitoring",
+      "status": "passing",
+      "detail": "19/19 official sources checked OK."
+    },
+    {
+      "control_id": "fallback-rule",
+      "label": "Broken or changed source fallback",
+      "status": "enabled",
+      "detail": "If source status is uncertain, public actions should fall back to official court source pages."
+    },
+    {
+      "control_id": "download-control",
+      "label": "Approved PDF delivery control",
+      "status": "enabled",
+      "detail": "Reviewed PDFs can be viewed and downloaded on site through approved court-source delivery. Cached copies remain disabled."
+    },
+    {
+      "control_id": "formula-control",
+      "label": "On-site calculator control",
+      "status": "enabled",
+      "detail": "MFLG child-support and maintenance calculators are enabled on site with official-source fallback."
+    },
+    {
+      "control_id": "sensitive-data-control",
+      "label": "Sensitive data control",
+      "status": "enabled",
+      "detail": "Forms & Tools carries only starting-point selections and routes detailed facts to Guided Intake review."
+    }
+  ],
+  "public_message": "Forms & Tools is monitored for official-source health. MFLG calculators are available on site; cached downloads and unreviewed items remain controlled."
+}

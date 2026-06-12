@@ -1,0 +1,355 @@
+{
+  "version": "1.0.0-public-packet-page-actions",
+  "built_at": "2026-06-12T03:59:44.092Z",
+  "source_review_queue": "data/form-review-queue.json",
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "public_downloads_enabled": false,
+    "direct_cached_downloads_enabled": false
+  },
+  "summary": {
+    "official_packet_page_actions": 16,
+    "review_before_public_action": 12,
+    "public_downloads_enabled": false,
+    "direct_cached_downloads_enabled": false
+  },
+  "actions": [
+    {
+      "action_id": "official-packet-page-maricopa-review-001",
+      "review_id": "maricopa-review-001",
+      "action_type": "official_packet_page",
+      "label": "Divorce with Minor Children",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "packet_label": "Maricopa divorce or separation - new filing with minor children",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-002",
+      "review_id": "maricopa-review-002",
+      "action_type": "official_packet_page",
+      "label": "Divorce with No Minor Children",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "packet_label": "Maricopa divorce or separation - new filing without minor children",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-003",
+      "review_id": "maricopa-review-003",
+      "action_type": "official_packet_page",
+      "label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation)",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "packet_label": "Maricopa consent decree and agreement finalization",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "Finalizing agreement",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-004",
+      "review_id": "maricopa-review-004",
+      "action_type": "official_packet_page",
+      "label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "paternity / parenting time / child support",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-007",
+      "review_id": "maricopa-review-007",
+      "action_type": "official_packet_page",
+      "label": "Modify Legal Decision-Making, Parenting Time and Child Support",
+      "packet_id": "maricopa-modification-existing-order",
+      "packet_label": "Maricopa modification of existing family-court orders",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "modification",
+        "posture": "Modify existing order",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-010",
+      "review_id": "maricopa-review-010",
+      "action_type": "official_packet_page",
+      "label": "Enforce a Support Order",
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-013",
+      "review_id": "maricopa-review-013",
+      "action_type": "official_packet_page",
+      "label": "Temporary Orders (Pre-Decree)",
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "temporary orders / court readiness",
+        "posture": "Prepare for court",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-017",
+      "review_id": "maricopa-review-017",
+      "action_type": "official_packet_page",
+      "label": "Update Name or Address with the Court",
+      "packet_id": "maricopa-name-address-update",
+      "packet_label": "Maricopa court name or address update forms",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name or address update",
+        "posture": "Update court record",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-018",
+      "review_id": "maricopa-review-018",
+      "action_type": "official_packet_page",
+      "label": "Register a Foreign (Out of State) Family Support Order",
+      "packet_id": "maricopa-foreign-support-order",
+      "packet_label": "Maricopa registration of foreign family support order",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign support order",
+        "posture": "Register or enforce out-of-state order",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-019",
+      "review_id": "maricopa-review-019",
+      "action_type": "official_packet_page",
+      "label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation",
+      "packet_id": "maricopa-foreign-custody-order",
+      "packet_label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign custody / UCCJEA order",
+        "posture": "Register out-of-state custody order",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-020",
+      "review_id": "maricopa-review-020",
+      "action_type": "official_packet_page",
+      "label": "Request a Hearing on a Registered Foreign (Out of State) Family Court Order",
+      "packet_id": "maricopa-foreign-order-hearing",
+      "packet_label": "Maricopa hearing request for a registered foreign family-court order",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign family-court order",
+        "posture": "Request hearing",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-023",
+      "review_id": "maricopa-review-023",
+      "action_type": "official_packet_page",
+      "label": "Request an Income Withholding Order",
+      "packet_id": "maricopa-income-withholding-order",
+      "packet_label": "Maricopa income withholding order forms",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "income withholding / support",
+        "posture": "Request or update withholding",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-024",
+      "review_id": "maricopa-review-024",
+      "action_type": "official_packet_page",
+      "label": "Enforce Property Division Order",
+      "packet_id": "maricopa-property-division-enforcement",
+      "packet_label": "Maricopa enforcement of property division order",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "property division enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-025",
+      "review_id": "maricopa-review-025",
+      "action_type": "official_packet_page",
+      "label": "Enforce Out-of-State Physical Custody Order",
+      "packet_id": "maricopa-out-of-state-custody-enforcement",
+      "packet_label": "Maricopa enforcement of out-of-state physical custody order",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "out-of-state custody enforcement",
+        "posture": "Enforce existing order",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-026",
+      "review_id": "maricopa-review-026",
+      "action_type": "official_packet_page",
+      "label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "packet_label": "Maricopa post-decree temporary orders",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "post-decree temporary orders",
+        "posture": "Post-decree temporary relief",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-028",
+      "review_id": "maricopa-review-028",
+      "action_type": "official_packet_page",
+      "label": "Protective Orders",
+      "packet_id": "maricopa-protective-order-resources",
+      "packet_label": "Maricopa protective order resources",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "protective order / safety",
+        "posture": "Safety planning",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    }
+  ]
+}

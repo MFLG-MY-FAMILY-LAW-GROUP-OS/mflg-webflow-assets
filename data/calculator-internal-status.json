@@ -1,0 +1,219 @@
+{
+  "version": "1.0.0-calculator-internal-status",
+  "built_at": "2026-06-12T04:39:49.068Z",
+  "public_safety": {
+    "public_status_manifest_enabled": true,
+    "internal_artifacts_publicly_exposed": false,
+    "raw_formula_text_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "direct_internal_file_links_enabled": false,
+    "local_formula_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "internal_artifacts_ready": true,
+    "internal_artifact_count": 26,
+    "internal_artifacts_version_ok": 26,
+    "source_snapshot_ready": true,
+    "source_inventory_ready": true,
+    "child_support_formula_count": 1577,
+    "child_support_formula_map_ready": true,
+    "child_support_formula_cells_mapped": 1577,
+    "regression_harness_ready": true,
+    "regression_scenario_templates_ready": 4,
+    "approved_regression_fixtures": 0,
+    "engine_scaffold_ready": true,
+    "engine_required_input_fields": 8,
+    "engine_required_output_checks": 18,
+    "engine_unsupported_excel_functions": 0,
+    "fixture_entry_template_ready": true,
+    "fixture_templates_ready": 4,
+    "public_unlock_ready": false,
+    "public_results_enabled": false
+  },
+  "internal_artifacts": [
+    {
+      "name": "calculator-source-snapshot",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-formula-workbench",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-formula-map",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-regression-harness",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-engine-scaffold",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-fixture-entry-template",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-approved-fixtures-template",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-fixture-qa-plan",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-regression-comparison-plan",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-final-approval",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-public-unlock-decision",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-operations-runbook",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-operations-alert-rules",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-release-approval-packet",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-release-evidence-index",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-launch-guardrails-runbook",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-launch-monitoring-runbook",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-promotion-control",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-promotion-audit",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-unlock-phase-workflow-runbook",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-fixture-evidence-entry",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-fixture-evidence-validation",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-approved-fixture-promotion",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-regression-evidence-entry",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-engine-runtime-plan",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    },
+    {
+      "name": "calculator-runtime-self-test",
+      "present_locally": true,
+      "version_ok": true,
+      "public_url_status": "blocked_404",
+      "public_url_exposed": false
+    }
+  ],
+  "public_message": "Internal calculator build files are present for staff review, but raw internal artifacts remain blocked from public access. This public status file confirms readiness without exposing formulas, fixture values, or internal scaffolds."
+}

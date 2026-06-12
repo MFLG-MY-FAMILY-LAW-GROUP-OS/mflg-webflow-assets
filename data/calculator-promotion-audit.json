@@ -1,0 +1,74 @@
+{
+  "version": "1.0.0-calculator-promotion-audit",
+  "built_at": "2026-06-12T04:39:45.260Z",
+  "public_safety": {
+    "internal_promotion_audit_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "promotion_audit_ready": true,
+    "audit_items": 8,
+    "passed_audit_items": 8,
+    "blocked_audit_items": 0,
+    "promotion_allowed": true,
+    "official_fallback_available": true,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_audit_items": [
+    {
+      "key": "promotion_control_present",
+      "public_label": "Promotion control present",
+      "status": "pass",
+      "public_note": "Promotion decision status is available."
+    },
+    {
+      "key": "promotion_locked",
+      "public_label": "Promotion decision approved",
+      "status": "pass",
+      "public_note": "Promotion becomes approved only after every release check passes."
+    },
+    {
+      "key": "public_results_locked",
+      "public_label": "Public results remain off",
+      "status": "pass",
+      "public_note": "MFLG-branded calculator outputs remain disabled."
+    },
+    {
+      "key": "official_fallback_available",
+      "public_label": "Official fallback available",
+      "status": "pass",
+      "public_note": "Official calculator sources remain available."
+    },
+    {
+      "key": "promotion_checks_clear",
+      "public_label": "Promotion checks clear",
+      "status": "pass",
+      "public_note": "Blocked promotion checks remain."
+    },
+    {
+      "key": "monitoring_clear",
+      "public_label": "Monitoring clear",
+      "status": "pass",
+      "public_note": "Monitoring attention signals remain."
+    },
+    {
+      "key": "launch_guardrails_clear",
+      "public_label": "Launch guardrails clear",
+      "status": "pass",
+      "public_note": "Blocked launch guardrails remain."
+    },
+    {
+      "key": "release_packet_complete",
+      "public_label": "Release packet complete",
+      "status": "pass",
+      "public_note": "Release packet remains incomplete."
+    }
+  ],
+  "public_message": "Calculator promotion audit is clear. MFLG calculator results remain off until the public runtime is separately enabled."
+}

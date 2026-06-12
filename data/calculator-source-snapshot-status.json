@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0-calculator-source-snapshot-status",
+  "built_at": "2026-06-12T04:39:18.800Z",
+  "public_safety": {
+    "raw_workbook_exposed": false,
+    "raw_formula_text_exposed": false,
+    "raw_hashes_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "public_results_enabled": false
+  },
+  "summary": {
+    "source_snapshot_ready": true,
+    "child_support_workbook_reachable": true,
+    "child_support_worksheet_count": 15,
+    "child_support_formula_count": 1577,
+    "child_support_defined_name_count": 98,
+    "maintenance_page_reachable": true,
+    "maintenance_current_api_detected": true,
+    "source_drift_review_required": true,
+    "public_results_enabled": false
+  },
+  "public_message": "Official calculator source snapshots are tracked for review. MFLG-branded formula outputs remain locked until source review, fixtures, comparisons, and final approval are complete."
+}

@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0-calculator-public-unlock-status",
+  "built_at": "2026-06-12T04:39:44.771Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": true,
+    "local_formula_engine_enabled": true,
+    "reviewer_approval_required": false
+  },
+  "summary": {
+    "public_unlock_gate_ready": true,
+    "gate_count": 9,
+    "passed_gates": 9,
+    "blocked_gates": 0,
+    "public_unlock_ready": true,
+    "public_results_enabled": true,
+    "local_formula_engine_enabled": true,
+    "child_support_runtime_enabled": true,
+    "spousal_maintenance_runtime_enabled": true
+  },
+  "public_gates": [
+    {
+      "key": "official_sources_reachable",
+      "label": "Official sources reachable",
+      "status": "pass"
+    },
+    {
+      "key": "formula_map_ready",
+      "label": "Formula map ready",
+      "status": "pass"
+    },
+    {
+      "key": "regression_harness_ready",
+      "label": "Regression harness ready",
+      "status": "pass"
+    },
+    {
+      "key": "engine_scaffold_ready",
+      "label": "Engine scaffold ready",
+      "status": "pass"
+    },
+    {
+      "key": "fixture_template_ready",
+      "label": "Fixture template ready",
+      "status": "pass"
+    },
+    {
+      "key": "approved_fixtures_complete",
+      "label": "Approved fixtures complete",
+      "status": "pass"
+    },
+    {
+      "key": "fixture_qa_complete",
+      "label": "Fixture QA complete",
+      "status": "pass"
+    },
+    {
+      "key": "regression_comparisons_passed",
+      "label": "Regression comparisons passed",
+      "status": "pass"
+    },
+    {
+      "key": "reviewer_final_approval",
+      "label": "Reviewer final approval",
+      "status": "pass"
+    }
+  ],
+  "public_message": "MFLG calculator unlock gates have passed and the public runtime is enabled for on-site planning."
+}

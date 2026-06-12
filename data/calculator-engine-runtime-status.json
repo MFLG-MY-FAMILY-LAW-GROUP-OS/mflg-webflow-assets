@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0-calculator-engine-runtime-status",
+  "built_at": "2026-06-12T04:39:48.963Z",
+  "public_safety": {
+    "internal_runtime_plan_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "local_formula_engine_enabled": true,
+    "official_api_runtime_enabled": true,
+    "public_results_enabled": true,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "engine_runtime_status_ready": true,
+    "runtime_checks": 7,
+    "passed_runtime_checks": 7,
+    "blocked_runtime_checks": 0,
+    "runtime_ready": true,
+    "public_results_enabled": true,
+    "local_formula_engine_enabled": true,
+    "official_api_runtime_enabled": true,
+    "child_support_runtime_enabled": true,
+    "spousal_maintenance_runtime_enabled": true
+  },
+  "public_runtime_checks": [
+    {
+      "key": "source_snapshot_ready",
+      "public_label": "Official source snapshot ready",
+      "status": "pass",
+      "public_note": "Official source snapshot must be current before local calculations can be considered."
+    },
+    {
+      "key": "formula_map_ready",
+      "public_label": "Formula map ready",
+      "status": "pass",
+      "public_note": "Formula map must exist before a runtime can be validated."
+    },
+    {
+      "key": "unsupported_functions_resolved",
+      "public_label": "Workbook functions mapped",
+      "status": "pass",
+      "public_note": "Every formula function needed by the mapped outputs must be supported or reviewed."
+    },
+    {
+      "key": "runtime_bundle_present",
+      "public_label": "Runtime bundle present",
+      "status": "pass",
+      "public_note": "No public MFLG formula runtime bundle is enabled yet."
+    },
+    {
+      "key": "approved_fixtures_complete",
+      "public_label": "Approved fixtures complete",
+      "status": "pass",
+      "public_note": "Approved official-output fixtures are required before a local runtime can produce results."
+    },
+    {
+      "key": "regression_evidence_complete",
+      "public_label": "Regression evidence complete",
+      "status": "pass",
+      "public_note": "Every approved fixture must have completed comparison evidence."
+    },
+    {
+      "key": "comparisons_passed",
+      "public_label": "Regression comparisons passed",
+      "status": "pass",
+      "public_note": "Every comparison must pass with zero material mismatch."
+    }
+  ],
+  "public_message": "The MFLG child-support calculator runtime is enabled for on-site planning. The MFLG spousal-maintenance calculator is enabled on site and powered by the official Arizona API."
+}

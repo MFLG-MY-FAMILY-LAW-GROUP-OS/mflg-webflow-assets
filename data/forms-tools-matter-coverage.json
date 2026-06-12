@@ -1,0 +1,955 @@
+{
+  "version": "1.0.0-forms-tools-matter-coverage",
+  "built_at": "2026-06-12T04:39:50.063Z",
+  "source_manifests": [
+    "js/mflg-public-site.js",
+    "data/forms-tools-route-intake-map.json",
+    "data/jurisdiction-readiness.json",
+    "data/calculator-readiness.json",
+    "data/forms-tools-review-roadmap.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "all_public_matters_accounted_for": true,
+    "sensitive_public_collection_enabled": false,
+    "formula_logic_enabled_on_site": false,
+    "direct_cached_downloads_enabled": false
+  },
+  "summary": {
+    "public_matters": 50,
+    "categories": 19,
+    "matters_with_reviewed_route_or_source": 50,
+    "matters_with_guided_intake_start": 50,
+    "matters_with_reviewed_route_fit": 46,
+    "matters_with_direct_pdf_fit": 44,
+    "reviewed_route_starts": 16,
+    "approved_pdf_actions": 70,
+    "pdf_route_packets": 9,
+    "official_sources_ok": 19,
+    "official_sources_checked": 19,
+    "calculator_choices": 3,
+    "review_only_candidates": 12,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "categories": [
+    {
+      "category": "Agreements",
+      "matters": 2,
+      "reviewed_route_available": 2,
+      "guided_intake_available": 2
+    },
+    {
+      "category": "Child support",
+      "matters": 5,
+      "reviewed_route_available": 5,
+      "guided_intake_available": 5
+    },
+    {
+      "category": "Court",
+      "matters": 2,
+      "reviewed_route_available": 2,
+      "guided_intake_available": 2
+    },
+    {
+      "category": "Court requests",
+      "matters": 1,
+      "reviewed_route_available": 1,
+      "guided_intake_available": 1
+    },
+    {
+      "category": "Disclosure",
+      "matters": 2,
+      "reviewed_route_available": 2,
+      "guided_intake_available": 2
+    },
+    {
+      "category": "Documents",
+      "matters": 4,
+      "reviewed_route_available": 4,
+      "guided_intake_available": 4
+    },
+    {
+      "category": "Identity",
+      "matters": 1,
+      "reviewed_route_available": 1,
+      "guided_intake_available": 1
+    },
+    {
+      "category": "Jurisdiction",
+      "matters": 1,
+      "reviewed_route_available": 1,
+      "guided_intake_available": 1
+    },
+    {
+      "category": "Maintenance",
+      "matters": 3,
+      "reviewed_route_available": 3,
+      "guided_intake_available": 3
+    },
+    {
+      "category": "Marriage",
+      "matters": 3,
+      "reviewed_route_available": 3,
+      "guided_intake_available": 3
+    },
+    {
+      "category": "Parentage",
+      "matters": 4,
+      "reviewed_route_available": 4,
+      "guided_intake_available": 4
+    },
+    {
+      "category": "Parenting",
+      "matters": 7,
+      "reviewed_route_available": 7,
+      "guided_intake_available": 7
+    },
+    {
+      "category": "Post-decree",
+      "matters": 3,
+      "reviewed_route_available": 3,
+      "guided_intake_available": 3
+    },
+    {
+      "category": "Procedure",
+      "matters": 1,
+      "reviewed_route_available": 0,
+      "guided_intake_available": 1
+    },
+    {
+      "category": "Property",
+      "matters": 2,
+      "reviewed_route_available": 2,
+      "guided_intake_available": 2
+    },
+    {
+      "category": "Resolution",
+      "matters": 5,
+      "reviewed_route_available": 5,
+      "guided_intake_available": 5
+    },
+    {
+      "category": "Safety",
+      "matters": 1,
+      "reviewed_route_available": 1,
+      "guided_intake_available": 1
+    },
+    {
+      "category": "Scope review",
+      "matters": 2,
+      "reviewed_route_available": 0,
+      "guided_intake_available": 2
+    },
+    {
+      "category": "Triage",
+      "matters": 1,
+      "reviewed_route_available": 0,
+      "guided_intake_available": 1
+    }
+  ],
+  "matters": [
+    {
+      "matter_id": "divorce-dissolution",
+      "title": "Divorce / Dissolution",
+      "category": "Marriage",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Divorce / Dissolution",
+        "matterCategory": "Marriage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "legal-separation",
+      "title": "Legal Separation",
+      "category": "Marriage",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Legal Separation",
+        "matterCategory": "Marriage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "annulment",
+      "title": "Annulment",
+      "category": "Marriage",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Annulment",
+        "matterCategory": "Marriage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "consent-decrees",
+      "title": "Consent Decrees",
+      "category": "Agreements",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Consent Decrees",
+        "matterCategory": "Agreements",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "settlement-agreements",
+      "title": "Settlement Agreements",
+      "category": "Agreements",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Settlement Agreements",
+        "matterCategory": "Agreements",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "temporary-orders",
+      "title": "Temporary Orders",
+      "category": "Court requests",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Temporary Orders",
+        "matterCategory": "Court requests",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "property-and-debt-division",
+      "title": "Property & Debt Division",
+      "category": "Property",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": false,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Property & Debt Division",
+        "matterCategory": "Property",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "real-estate-marital-home",
+      "title": "Real Estate / Marital Home",
+      "category": "Property",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": false,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Real Estate / Marital Home",
+        "matterCategory": "Property",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "family-case-name-change",
+      "title": "Family-Case Name Change",
+      "category": "Identity",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Family-Case Name Change",
+        "matterCategory": "Identity",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "parenting-time",
+      "title": "Parenting Time",
+      "category": "Parenting",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Parenting Time",
+        "matterCategory": "Parenting",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "legal-decision-making",
+      "title": "Legal Decision-Making",
+      "category": "Parenting",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Legal Decision-Making",
+        "matterCategory": "Parenting",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "parenting-plans",
+      "title": "Parenting Plans",
+      "category": "Parenting",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Parenting Plans",
+        "matterCategory": "Parenting",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "supervised-parenting-time",
+      "title": "Supervised Parenting Time",
+      "category": "Parenting",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Supervised Parenting Time",
+        "matterCategory": "Parenting",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "child-withheld-missed-time",
+      "title": "Child Withheld / Missed Time",
+      "category": "Parenting",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Child Withheld / Missed Time",
+        "matterCategory": "Parenting",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "relocation",
+      "title": "Relocation",
+      "category": "Parenting",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Relocation",
+        "matterCategory": "Parenting",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "uccjea-interstate-custody",
+      "title": "UCCJEA / Interstate Custody",
+      "category": "Jurisdiction",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona family-law source routing",
+      "official_source_url": "https://www.azcourts.gov/familylaw/Family-Law-Forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "UCCJEA / Interstate Custody",
+        "matterCategory": "Jurisdiction",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "grandparent-third-party-rights",
+      "title": "Grandparent / Third-Party Rights",
+      "category": "Parenting",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Grandparent / Third-Party Rights",
+        "matterCategory": "Parenting",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "child-support-establishment",
+      "title": "Child Support Establishment",
+      "category": "Child support",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Child Support Establishment",
+        "matterCategory": "Child support",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "child-support-modification",
+      "title": "Child Support Modification",
+      "category": "Child support",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Child Support Modification",
+        "matterCategory": "Child support",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "child-support-enforcement",
+      "title": "Child Support Enforcement",
+      "category": "Child support",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Child Support Enforcement",
+        "matterCategory": "Child support",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "support-worksheet-review",
+      "title": "Support Worksheet Review",
+      "category": "Child support",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Support Worksheet Review",
+        "matterCategory": "Child support",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "arrears-back-support",
+      "title": "Arrears / Back Support",
+      "category": "Child support",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Arrears / Back Support",
+        "matterCategory": "Child support",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "spousal-maintenance-requests",
+      "title": "Spousal Maintenance Requests",
+      "category": "Maintenance",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Spousal Maintenance Requests",
+        "matterCategory": "Maintenance",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "spousal-maintenance-modification",
+      "title": "Spousal Maintenance Modification",
+      "category": "Maintenance",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Spousal Maintenance Modification",
+        "matterCategory": "Maintenance",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "spousal-maintenance-enforcement",
+      "title": "Spousal Maintenance Enforcement",
+      "category": "Maintenance",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Spousal Maintenance Enforcement",
+        "matterCategory": "Maintenance",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "paternity-parentage",
+      "title": "Paternity / Parentage",
+      "category": "Parentage",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Paternity / Parentage",
+        "matterCategory": "Parentage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "dna-testing-parentage-establishment",
+      "title": "DNA Testing / Parentage Establishment",
+      "category": "Parentage",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "DNA Testing / Parentage Establishment",
+        "matterCategory": "Parentage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "birth-certificate-acknowledgment",
+      "title": "Birth Certificate / Acknowledgment",
+      "category": "Parentage",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Birth Certificate / Acknowledgment",
+        "matterCategory": "Parentage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "same-sex-parentage",
+      "title": "Same-Sex Parentage",
+      "category": "Parentage",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Same-Sex Parentage",
+        "matterCategory": "Parentage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "modification-of-existing-orders",
+      "title": "Modification of Existing Orders",
+      "category": "Post-decree",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Modification of Existing Orders",
+        "matterCategory": "Post-decree",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "enforcement-of-existing-orders",
+      "title": "Enforcement of Existing Orders",
+      "category": "Post-decree",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Enforcement of Existing Orders",
+        "matterCategory": "Post-decree",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "contempt-noncompliance-review",
+      "title": "Contempt / Noncompliance Review",
+      "category": "Post-decree",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Contempt / Noncompliance Review",
+        "matterCategory": "Post-decree",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "protective-orders-safety-terms",
+      "title": "Protective Orders / Safety Terms",
+      "category": "Safety",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "AZPOINT protective order resources",
+      "official_source_url": "https://azpoint.azcourts.gov/",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Protective Orders / Safety Terms",
+        "matterCategory": "Safety",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "mediation-preparation",
+      "title": "Mediation Preparation",
+      "category": "Resolution",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Mediation Preparation",
+        "matterCategory": "Resolution",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "arbitration-adr-preparation",
+      "title": "Arbitration / ADR Preparation",
+      "category": "Resolution",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Arbitration / ADR Preparation",
+        "matterCategory": "Resolution",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "negotiation-support",
+      "title": "Negotiation Support",
+      "category": "Resolution",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Negotiation Support",
+        "matterCategory": "Resolution",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "settlement-conference-preparation",
+      "title": "Settlement Conference Preparation",
+      "category": "Resolution",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Settlement Conference Preparation",
+        "matterCategory": "Resolution",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "agreement-review",
+      "title": "Agreement Review",
+      "category": "Resolution",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Agreement Review",
+        "matterCategory": "Resolution",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "document-preparation",
+      "title": "Document Preparation",
+      "category": "Documents",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Document Preparation",
+        "matterCategory": "Documents",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "document-review",
+      "title": "Document Review",
+      "category": "Documents",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Document Review",
+        "matterCategory": "Documents",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "petition-new-filing",
+      "title": "Petition / New Filing",
+      "category": "Documents",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Petition / New Filing",
+        "matterCategory": "Documents",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "response-to-served-papers",
+      "title": "Response to Served Papers",
+      "category": "Documents",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Response to Served Papers",
+        "matterCategory": "Documents",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "filing-and-service-coordination",
+      "title": "Filing & Service Coordination",
+      "category": "Procedure",
+      "public_status": "official-source-first",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": false,
+      "direct_pdf_available": false,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Filing & Service Coordination",
+        "matterCategory": "Procedure",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "hearing-preparation",
+      "title": "Hearing Preparation",
+      "category": "Court",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Hearing Preparation",
+        "matterCategory": "Court",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "court-appearance-within-licensed-scope",
+      "title": "Court Appearance Within Licensed Scope",
+      "category": "Court",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Court Appearance Within Licensed Scope",
+        "matterCategory": "Court",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "financial-disclosure",
+      "title": "Financial Disclosure",
+      "category": "Disclosure",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Financial Disclosure",
+        "matterCategory": "Disclosure",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "exhibit-document-organization",
+      "title": "Exhibit / Document Organization",
+      "category": "Disclosure",
+      "public_status": "reviewed-route-or-official-source",
+      "official_source_label": "Arizona and county family-law forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "reviewed_route_available": true,
+      "direct_pdf_available": true,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Exhibit / Document Organization",
+        "matterCategory": "Disclosure",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "not-sure-where-to-start",
+      "title": "Not Sure Where to Start",
+      "category": "Triage",
+      "public_status": "guided-intake-or-official-source",
+      "official_source_label": "Guided Intake triage",
+      "official_source_url": "/start",
+      "reviewed_route_available": false,
+      "direct_pdf_available": false,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Not Sure Where to Start",
+        "matterCategory": "Triage",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "adoption-family-formation-review",
+      "title": "Adoption / Family Formation Review",
+      "category": "Scope review",
+      "public_status": "guided-intake-or-official-source",
+      "official_source_label": "Guided Intake scope review",
+      "official_source_url": "/start",
+      "reviewed_route_available": false,
+      "direct_pdf_available": false,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Adoption / Family Formation Review",
+        "matterCategory": "Scope review",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    },
+    {
+      "matter_id": "special-scope-referral-review",
+      "title": "Special Scope / Referral Review",
+      "category": "Scope review",
+      "public_status": "guided-intake-or-official-source",
+      "official_source_label": "Guided Intake scope review",
+      "official_source_url": "/start",
+      "reviewed_route_available": false,
+      "direct_pdf_available": false,
+      "guided_intake_available": true,
+      "safe_intake_payload": {
+        "matterTitle": "Special Scope / Referral Review",
+        "matterCategory": "Scope review",
+        "sourceType": "Forms & Tools matter coverage / public planning"
+      }
+    }
+  ],
+  "public_message": "All 50 public matter issues are represented in Forms & Tools through official sources, guided starts, and issue-specific next steps."
+}

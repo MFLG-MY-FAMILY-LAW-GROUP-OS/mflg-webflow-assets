@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0-public-source-health",
+  "built_at": "2026-06-10T05:29:06.270Z",
+  "source_report_version": "0.6.0-source-monitoring",
+  "checked_at": "2026-06-10T05:28:58.672Z",
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "raw_hashes_exposed": false,
+    "raw_etags_exposed": false,
+    "cached_downloads_enabled": false
+  },
+  "summary": {
+    "total": 19,
+    "ok": 19,
+    "broken": 0,
+    "public_downloads_enabled": false
+  },
+  "groups": [
+    {
+      "type": "calculator",
+      "label": "Calculator sources",
+      "total": 2,
+      "ok": 2,
+      "broken": 0
+    },
+    {
+      "type": "form_source",
+      "label": "Official form libraries",
+      "total": 7,
+      "ok": 7,
+      "broken": 0
+    },
+    {
+      "type": "form_packet",
+      "label": "Packet source pages",
+      "total": 10,
+      "ok": 10,
+      "broken": 0
+    }
+  ],
+  "public_message": "Official-source checks passed. Public actions continue to open official court sources only."
+}

@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0-calculator-engine-readiness",
+  "built_at": "2026-06-12T04:39:22.293Z",
+  "public_safety": {
+    "raw_formula_text_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "public_results_enabled": false,
+    "local_formula_engine_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "engine_scaffold_ready": true,
+    "required_input_fields": 8,
+    "required_output_checks": 18,
+    "excel_functions_used": 32,
+    "unsupported_excel_functions": 0,
+    "approved_regression_fixtures": 0,
+    "executable_regression_tests": 0,
+    "material_mismatches": 0,
+    "public_unlock_ready": false
+  },
+  "public_message": "The internal MFLG child-support engine scaffold is ready for approved fixture testing. Public formula results remain locked."
+}

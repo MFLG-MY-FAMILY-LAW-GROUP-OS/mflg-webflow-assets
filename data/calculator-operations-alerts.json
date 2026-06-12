@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0-calculator-operations-alerts",
+  "built_at": "2026-06-12T04:39:44.908Z",
+  "public_safety": {
+    "internal_alert_rules_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "operations_alerts_ready": true,
+    "alert_count": 3,
+    "blocking_alerts": 0,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_alerts": [
+    {
+      "key": "approved_fixtures_needed",
+      "public_label": "Official test records needed",
+      "public_status": "in_review",
+      "severity": "watch",
+      "public_next_step": "MFLG-branded calculator results stay locked until approved official test records are complete."
+    },
+    {
+      "key": "regression_comparisons_waiting",
+      "public_label": "Calculator comparison checks waiting",
+      "public_status": "in_review",
+      "severity": "watch",
+      "public_next_step": "Each approved test record must be compared before MFLG-branded results can be shown."
+    },
+    {
+      "key": "public_unlock_blocked",
+      "public_label": "Final result release locked",
+      "public_status": "ready",
+      "severity": "watch",
+      "public_next_step": "Official calculators remain the available option until final review clears every release gate."
+    }
+  ],
+  "public_message": "Calculator safety checks are tracked, but MFLG-branded calculator results remain locked until official test records, comparison checks, and final review are complete."
+}

@@ -1,0 +1,112 @@
+{
+  "version": "1.0.0-calculator-readiness",
+  "built_at": "2026-06-12T04:39:18.733Z",
+  "checked_at": "2026-06-10T05:28:58.672Z",
+  "source_manifests": [
+    "data/calculators-catalog.json",
+    "data/source-health-public.json",
+    "data/source-monitoring-report.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "official_embeds_enabled": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "summary": {
+    "calculators": 3,
+    "official_formula_sources": 2,
+    "official_formula_sources_ok": 2,
+    "safe_planning_tools": 1,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "child_support_runtime_enabled": true,
+    "spousal_maintenance_runtime_enabled": true,
+    "official_embeds_enabled": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "calculators": [
+    {
+      "calculator_id": "az-child-support-official",
+      "label": "Arizona Child Support Calculator",
+      "jurisdiction": "statewide",
+      "source_authority": "Arizona Judicial Branch",
+      "official_url": "https://www.azcourts.gov/familylaw/child-support-calculator-information",
+      "embed_url": "https://www.superiorcourt.maricopa.gov/ezcourtforms2/",
+      "fallback_url": "https://www.azcourts.gov/familylaw",
+      "status": "official_link",
+      "public_status": "MFLG on-site calculator available",
+      "source_monitor_status": "ok",
+      "checked_at": "2026-06-12T03:59:36.534Z",
+      "formula_logic_enabled_on_site": true,
+      "official_api_runtime_enabled": false,
+      "mflg_calculator_enabled_on_site": true,
+      "official_embed_enabled": true,
+      "safe_public_inputs": [
+        "planning numbers only",
+        "no names",
+        "no case numbers",
+        "no documents",
+        "no allegations"
+      ],
+      "public_guidance": "Use the MFLG on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear.",
+      "intake_guidance": "Carry only calculator type and source selection into Guided Intake. Detailed numbers should be reviewed only after conflict and scope review."
+    },
+    {
+      "calculator_id": "az-spousal-maintenance-official",
+      "label": "Arizona Spousal Maintenance Calculator",
+      "jurisdiction": "statewide",
+      "source_authority": "Arizona Judicial Branch",
+      "official_url": "https://www.azcourts.gov/familylaw/Child-Support-Family-Law-Information/Spousal-Maintenance-Guidelines",
+      "embed_url": "https://www.superiorcourt.maricopa.gov/app/selfsuffcalc/",
+      "fallback_url": "https://www.azcourts.gov/familylaw",
+      "status": "official_link",
+      "public_status": "MFLG on-site calculator available",
+      "source_monitor_status": "ok",
+      "checked_at": "2026-06-12T03:59:36.534Z",
+      "formula_logic_enabled_on_site": false,
+      "official_api_runtime_enabled": true,
+      "mflg_calculator_enabled_on_site": true,
+      "official_embed_enabled": true,
+      "safe_public_inputs": [
+        "planning numbers only",
+        "no names",
+        "no case numbers",
+        "no documents",
+        "no allegations"
+      ],
+      "public_guidance": "Use the MFLG on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear.",
+      "intake_guidance": "Carry only calculator type and source selection into Guided Intake. Detailed numbers should be reviewed only after conflict and scope review."
+    },
+    {
+      "calculator_id": "mflg-parenting-time-counter",
+      "label": "Parenting Time Counter",
+      "jurisdiction": "internal_planning",
+      "source_authority": "MY FAMILY LAW GROUP PLLC public planning tool",
+      "official_url": null,
+      "embed_url": null,
+      "fallback_url": null,
+      "status": "internal_safe_tool",
+      "public_status": "safe planning tool",
+      "source_monitor_status": "not an official formula source",
+      "checked_at": null,
+      "formula_logic_enabled_on_site": false,
+      "official_api_runtime_enabled": false,
+      "mflg_calculator_enabled_on_site": false,
+      "official_embed_enabled": false,
+      "safe_public_inputs": [
+        "overnight count",
+        "schedule assumptions",
+        "notes kept out of public submission"
+      ],
+      "public_guidance": "Use this only as a planning organizer. Do not enter child names, allegations, account numbers, or detailed financial records here.",
+      "intake_guidance": "Carry only that a planning tool was selected; sensitive schedule facts should be reviewed inside Guided Intake or office review."
+    }
+  ],
+  "public_message": "MFLG child-support and spousal-maintenance calculators are available on this page for planning. Official Arizona sources remain available as fallback."
+}

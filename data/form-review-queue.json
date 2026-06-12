@@ -1,0 +1,687 @@
+{
+  "version": "0.5.0-review-queue",
+  "built_at": "2026-06-12T03:59:44.039Z",
+  "public_safety": {
+    "public_downloads_enabled": false,
+    "direct_cached_downloads_enabled": false,
+    "public_packet_pages_may_open_when_source_ok_and_representative": true,
+    "sensitive_public_collection_enabled": false
+  },
+  "summary": {
+    "total_review_items": 28,
+    "source_ok": 18,
+    "open_official_page_allowed": 16,
+    "review_before_public_action": 12,
+    "public_downloads_enabled": false
+  },
+  "queue": [
+    {
+      "review_id": "maricopa-review-001",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "packet_label": "Maricopa divorce or separation - new filing with minor children",
+      "candidate_label": "Divorce with Minor Children",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "750a6afffbd3921d89a0ce34be436ae3e243663bb4afa348879cb59f94a16e21"
+      }
+    },
+    {
+      "review_id": "maricopa-review-002",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "packet_label": "Maricopa divorce or separation - new filing without minor children",
+      "candidate_label": "Divorce with No Minor Children",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "2ef56eae0b63f10b55939bccc0752e7e18b85ecee3d2a34521db5bf92c9f3a11"
+      }
+    },
+    {
+      "review_id": "maricopa-review-003",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "packet_label": "Maricopa consent decree and agreement finalization",
+      "candidate_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation)",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "2ac7a1b52f17930aa74bafaa083dc002ef9b36f29b6bcc176d3772d235fde618"
+      }
+    },
+    {
+      "review_id": "maricopa-review-004",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "candidate_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "d30501224e56b427ae92565507ad1e016b770aa24a62ceca6a847355377362cf"
+      }
+    },
+    {
+      "review_id": "maricopa-review-005",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "candidate_label": "Establish Legal Decision-Making, Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_7/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-006",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "candidate_label": "Establish Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_10/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-007",
+      "packet_id": "maricopa-modification-existing-order",
+      "packet_label": "Maricopa modification of existing family-court orders",
+      "candidate_label": "Modify Legal Decision-Making, Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "dedeff77d1d2f48d7d42e9b1df710a359ce987316f3bcb8ccc6ebd6c989c8cbc"
+      }
+    },
+    {
+      "review_id": "maricopa-review-008",
+      "packet_id": "maricopa-modification-existing-order",
+      "packet_label": "Maricopa modification of existing family-court orders",
+      "candidate_label": "Modify Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_15/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-009",
+      "packet_id": "maricopa-modification-existing-order",
+      "packet_label": "Maricopa modification of existing family-court orders",
+      "candidate_label": "Modify Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_21/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-010",
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "candidate_label": "Enforce a Support Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "c90c9d148f175203e3b245a314219eea96978f53a7ba7155d28aab1b898e25c0"
+      }
+    },
+    {
+      "review_id": "maricopa-review-011",
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "candidate_label": "Enforce Parenting Time Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_25/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-012",
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "candidate_label": "Enforce Property Division Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "d2c61f54a8b4787a7ebefc0c6476998c5ebea9c5c1d6c3d5248860db25d511df"
+      }
+    },
+    {
+      "review_id": "maricopa-review-013",
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "candidate_label": "Temporary Orders (Pre-Decree)",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "059b785eee689c64a5c33294eb17dcf85f95f5e44b236545ff3efc7b77980a5d"
+      }
+    },
+    {
+      "review_id": "maricopa-review-014",
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "8b60a338911377f15bbdb03ac259a30aae3108859694ad1f72ae340817226523"
+      }
+    },
+    {
+      "review_id": "maricopa-review-015",
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITHOUT Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmce1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-016",
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "candidate_label": "How to Calculate Child Support - instructions and forms to complete a Child Support Worksheet",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drs1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-017",
+      "packet_id": "maricopa-name-address-update",
+      "packet_label": "Maricopa court name or address update forms",
+      "candidate_label": "Update Name or Address with the Court",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "642d778e604d9ec57c8bd6e5da428838af31906028756f4893411c759a300ade"
+      }
+    },
+    {
+      "review_id": "maricopa-review-018",
+      "packet_id": "maricopa-foreign-support-order",
+      "packet_label": "Maricopa registration of foreign family support order",
+      "candidate_label": "Register a Foreign (Out of State) Family Support Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "dfb962da6ee6a122790ad6e5fda10a6d059a0782bb8303cb2a943911c08da157"
+      }
+    },
+    {
+      "review_id": "maricopa-review-019",
+      "packet_id": "maricopa-foreign-custody-order",
+      "packet_label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+      "candidate_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "c234b1d37c5dffad99b1f2574741f02fd3c405c84a32ac024fec7b8ccb3d1b96"
+      }
+    },
+    {
+      "review_id": "maricopa-review-020",
+      "packet_id": "maricopa-foreign-order-hearing",
+      "packet_label": "Maricopa hearing request for a registered foreign family-court order",
+      "candidate_label": "Request a Hearing on a Registered Foreign (Out of State) Family Court Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "baa30a9ed2db500543c72a4b79475596c2ff1657f8fe2b830937961629ef49a8"
+      }
+    },
+    {
+      "review_id": "maricopa-review-021",
+      "packet_id": "maricopa-income-withholding-order",
+      "packet_label": "Maricopa income withholding order forms",
+      "candidate_label": "Change an Income Withholding Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_13/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-022",
+      "packet_id": "maricopa-income-withholding-order",
+      "packet_label": "Maricopa income withholding order forms",
+      "candidate_label": "Stop an Income Withholding Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_18/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-023",
+      "packet_id": "maricopa-income-withholding-order",
+      "packet_label": "Maricopa income withholding order forms",
+      "candidate_label": "Request an Income Withholding Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "6a2eea7477658658ebccb62c71ccf89b85c86af2fac6cfa299199c32d750d50d"
+      }
+    },
+    {
+      "review_id": "maricopa-review-024",
+      "packet_id": "maricopa-property-division-enforcement",
+      "packet_label": "Maricopa enforcement of property division order",
+      "candidate_label": "Enforce Property Division Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "d2c61f54a8b4787a7ebefc0c6476998c5ebea9c5c1d6c3d5248860db25d511df"
+      }
+    },
+    {
+      "review_id": "maricopa-review-025",
+      "packet_id": "maricopa-out-of-state-custody-enforcement",
+      "packet_label": "Maricopa enforcement of out-of-state physical custody order",
+      "candidate_label": "Enforce Out-of-State Physical Custody Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "45e586281e82ad43e1a55a46e47c5d51786a93f3e24568017a27f2c7dcd61836"
+      }
+    },
+    {
+      "review_id": "maricopa-review-026",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "packet_label": "Maricopa post-decree temporary orders",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "8b60a338911377f15bbdb03ac259a30aae3108859694ad1f72ae340817226523"
+      }
+    },
+    {
+      "review_id": "maricopa-review-027",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "packet_label": "Maricopa post-decree temporary orders",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITHOUT Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmce1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_needs_check",
+      "public_action_status": "review_before_public_action",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": null
+    },
+    {
+      "review_id": "maricopa-review-028",
+      "packet_id": "maricopa-protective-order-resources",
+      "packet_label": "Maricopa protective order resources",
+      "candidate_label": "Protective Orders",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ],
+      "monitor": {
+        "checked_at": "2026-06-12T03:59:36.534Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "3124a5985e1f12bfcc11c93d6af9724454f702705bf3fae518d2317e30ace92d"
+      }
+    }
+  ]
+}

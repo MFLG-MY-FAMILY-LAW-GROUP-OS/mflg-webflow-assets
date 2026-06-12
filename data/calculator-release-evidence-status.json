@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0-calculator-release-evidence-status",
+  "built_at": "2026-06-12T04:39:45.024Z",
+  "public_safety": {
+    "internal_evidence_index_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": false
+  },
+  "summary": {
+    "release_evidence_status_ready": true,
+    "evidence_items": 4,
+    "complete_evidence_items": 4,
+    "pending_evidence_items": 0,
+    "release_packet_complete": true,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_evidence_items": [
+    {
+      "key": "approved_official_fixtures",
+      "public_label": "Official test records",
+      "status": "complete",
+      "public_note": "Required before MFLG-branded results can be released."
+    },
+    {
+      "key": "fixture_quality_review",
+      "public_label": "Test record review",
+      "status": "complete",
+      "public_note": "Required to confirm each official test record is usable."
+    },
+    {
+      "key": "regression_comparison_results",
+      "public_label": "Comparison checks",
+      "status": "complete",
+      "public_note": "Required to verify MFLG results match approved official outputs."
+    },
+    {
+      "key": "final_reviewer_approval",
+      "public_label": "Final release review",
+      "status": "complete",
+      "public_note": "Required before any public MFLG-branded calculator result appears."
+    }
+  ],
+  "public_message": "Release evidence is being tracked. MFLG-branded calculator results remain unavailable until every required test and review item is complete."
+}

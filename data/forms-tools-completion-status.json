@@ -1,0 +1,88 @@
+{
+  "version": "1.0.0-forms-tools-completion-status",
+  "built_at": "2026-06-12T04:39:50.123Z",
+  "source_manifests": [
+    "data/forms-tools-coverage.json",
+    "data/forms-tools-action-plan.json",
+    "data/forms-tools-review-roadmap.json",
+    "data/forms-tools-maintenance-status.json",
+    "data/forms-tools-intake-readiness.json",
+    "data/forms-tools-route-intake-map.json",
+    "data/forms-tools-matter-coverage.json",
+    "data/jurisdiction-readiness.json",
+    "data/calculator-readiness.json",
+    "data/source-health-public.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "forms_tools_public_surface_complete": true,
+    "sensitive_public_collection_enabled": false,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "same_origin_pdf_delivery_enabled": true,
+    "direct_cached_downloads_enabled": false,
+    "raw_hashes_exposed": false,
+    "raw_etags_exposed": false
+  },
+  "summary": {
+    "completion_checks": 6,
+    "completion_checks_passing": 6,
+    "forms_tools_public_surface_complete": true,
+    "public_matters": 50,
+    "public_matter_categories": 19,
+    "reviewed_route_starts": 16,
+    "safe_start_options": 6,
+    "official_sources_ok": 19,
+    "official_sources_checked": 19,
+    "official_packet_page_actions": 16,
+    "approved_pdf_actions": 70,
+    "same_origin_pdf_delivery_enabled": true,
+    "calculator_choices": 3,
+    "mflg_calculators_enabled_on_site": true,
+    "review_only_candidates_controlled": 12,
+    "action_plan_steps": 5,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "checks": [
+    {
+      "check_id": "official-sources",
+      "label": "Official source monitoring",
+      "status": "complete",
+      "detail": "19/19 official sources checked OK."
+    },
+    {
+      "check_id": "public-matters",
+      "label": "50 matter coverage",
+      "status": "complete",
+      "detail": "50 public matter issues mapped to official-source or Guided Intake starts."
+    },
+    {
+      "check_id": "reviewed-routes",
+      "label": "Reviewed route starts",
+      "status": "complete",
+      "detail": "16 exact reviewed route starts available."
+    },
+    {
+      "check_id": "official-actions",
+      "label": "Packet pages and approved PDFs",
+      "status": "complete",
+      "detail": "16 packet pages and 70 approved official PDF links."
+    },
+    {
+      "check_id": "calculator-controls",
+      "label": "Calculator safety",
+      "status": "complete",
+      "detail": "MFLG child-support and spousal-maintenance calculators are available on site with official-source fallback."
+    },
+    {
+      "check_id": "public-safety",
+      "label": "Public safety controls",
+      "status": "complete",
+      "detail": "Sensitive collection, raw hashes, and cached copies remain disabled publicly. Approved PDF delivery is enabled through reviewed action IDs."
+    }
+  ],
+  "public_message": "Forms & Tools is complete as a safe public planning, on-site PDF delivery, on-site calculator, official-source routing, reviewed-route, and Guided Intake start system. Cached copies and sensitive fact collection remain controlled."
+}

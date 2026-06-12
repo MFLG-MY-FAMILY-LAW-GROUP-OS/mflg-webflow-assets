@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0-calculator-runtime-public-status",
+  "built_at": "2026-06-12T04:39:46.088Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "public_results_enabled": true,
+    "local_formula_engine_enabled": true,
+    "official_api_runtime_enabled": true
+  },
+  "summary": {
+    "child_support_runtime_enabled": true,
+    "spousal_maintenance_runtime_enabled": true,
+    "spousal_maintenance_runtime_type": "official_api",
+    "runtime_self_test_passed": true,
+    "runtime_fixture_comparisons": 4,
+    "runtime_material_mismatches": 0,
+    "maintenance_fixture_comparisons": 3,
+    "maintenance_material_mismatches": 0,
+    "maintenance_official_api_current_version": "2.7",
+    "official_workbook_sha256": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f"
+  },
+  "public_message": "The MFLG child-support calculator is available for planning. The MFLG spousal-maintenance calculator is available on this page and powered by the official Arizona maintenance API."
+}

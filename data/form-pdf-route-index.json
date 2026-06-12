@@ -1,0 +1,326 @@
+{
+  "version": "1.0.0-pdf-route-index",
+  "built_at": "2026-06-12T04:39:18.489Z",
+  "source_manifest": "data/form-pdf-public-actions.json",
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "approved_same_origin_pdf_delivery_enabled": true,
+    "public_pdf_view_download_enabled": true,
+    "cached_downloads_enabled": false
+  },
+  "summary": {
+    "route_packets": 9,
+    "official_pdf_actions": 70,
+    "public_pdf_actions_enabled": true,
+    "same_origin_pdf_delivery_enabled": true,
+    "public_pdf_view_download_enabled": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "packets": [
+    {
+      "packet_id": "maricopa-consent-decree-agreement",
+      "packet_label": "Maricopa consent decree and agreement finalization",
+      "page_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation)",
+      "route_key": "forms-tools-maricopa-divorce-finalizing-agreement-any",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "Finalizing agreement",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-021",
+        "official-pdf-maricopa-pdf-review-022",
+        "official-pdf-maricopa-pdf-review-023",
+        "official-pdf-maricopa-pdf-review-024",
+        "official-pdf-maricopa-pdf-review-025",
+        "official-pdf-maricopa-pdf-review-026",
+        "official-pdf-maricopa-pdf-review-027",
+        "official-pdf-maricopa-pdf-review-028",
+        "official-pdf-maricopa-pdf-review-029",
+        "official-pdf-maricopa-pdf-review-030"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-divorce-new-no-children",
+      "packet_label": "Maricopa divorce or separation - new filing without minor children",
+      "page_label": "Divorce with No Minor Children",
+      "route_key": "forms-tools-maricopa-divorce-new-filing-no-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-011",
+        "official-pdf-maricopa-pdf-review-012",
+        "official-pdf-maricopa-pdf-review-013",
+        "official-pdf-maricopa-pdf-review-014",
+        "official-pdf-maricopa-pdf-review-015",
+        "official-pdf-maricopa-pdf-review-016",
+        "official-pdf-maricopa-pdf-review-017",
+        "official-pdf-maricopa-pdf-review-018",
+        "official-pdf-maricopa-pdf-review-019",
+        "official-pdf-maricopa-pdf-review-020"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-divorce-new-with-children",
+      "packet_label": "Maricopa divorce or separation - new filing with minor children",
+      "page_label": "Divorce with Minor Children",
+      "route_key": "forms-tools-maricopa-divorce-new-filing-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-001",
+        "official-pdf-maricopa-pdf-review-002",
+        "official-pdf-maricopa-pdf-review-003",
+        "official-pdf-maricopa-pdf-review-004",
+        "official-pdf-maricopa-pdf-review-005",
+        "official-pdf-maricopa-pdf-review-006",
+        "official-pdf-maricopa-pdf-review-007",
+        "official-pdf-maricopa-pdf-review-008",
+        "official-pdf-maricopa-pdf-review-009",
+        "official-pdf-maricopa-pdf-review-010"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-foreign-custody-order",
+      "packet_label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+      "page_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation",
+      "route_key": "forms-tools-maricopa-all-any-posture-any",
+      "route": {
+        "county": "Maricopa",
+        "issue": "all",
+        "posture": "Any posture",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-049",
+        "official-pdf-maricopa-pdf-review-050",
+        "official-pdf-maricopa-pdf-review-051",
+        "official-pdf-maricopa-pdf-review-052",
+        "official-pdf-maricopa-pdf-review-053",
+        "official-pdf-maricopa-pdf-review-054",
+        "official-pdf-maricopa-pdf-review-055",
+        "official-pdf-maricopa-pdf-review-056"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-foreign-support-order",
+      "packet_label": "Maricopa registration of foreign family support order",
+      "page_label": "Register a Foreign (Out of State) Family Support Order",
+      "route_key": "forms-tools-maricopa-all-any-posture-any",
+      "route": {
+        "county": "Maricopa",
+        "issue": "all",
+        "posture": "Any posture",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-045",
+        "official-pdf-maricopa-pdf-review-046",
+        "official-pdf-maricopa-pdf-review-047",
+        "official-pdf-maricopa-pdf-review-048"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-name-address-update",
+      "packet_label": "Maricopa court name or address update forms",
+      "page_label": "Update Name or Address with the Court",
+      "route_key": "forms-tools-maricopa-all-any-posture-any",
+      "route": {
+        "county": "Maricopa",
+        "issue": "all",
+        "posture": "Any posture",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-041",
+        "official-pdf-maricopa-pdf-review-042",
+        "official-pdf-maricopa-pdf-review-043",
+        "official-pdf-maricopa-pdf-review-044"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "page_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support",
+      "route_key": "forms-tools-maricopa-paternity-parenting-time-child-support-new-filing-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "paternity / parenting time / child support",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-031",
+        "official-pdf-maricopa-pdf-review-032",
+        "official-pdf-maricopa-pdf-review-033",
+        "official-pdf-maricopa-pdf-review-034",
+        "official-pdf-maricopa-pdf-review-035",
+        "official-pdf-maricopa-pdf-review-036",
+        "official-pdf-maricopa-pdf-review-037",
+        "official-pdf-maricopa-pdf-review-038",
+        "official-pdf-maricopa-pdf-review-039",
+        "official-pdf-maricopa-pdf-review-040"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "packet_label": "Maricopa post-decree temporary orders",
+      "page_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+      "route_key": "forms-tools-maricopa-all-any-posture-any",
+      "route": {
+        "county": "Maricopa",
+        "issue": "all",
+        "posture": "Any posture",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-057",
+        "official-pdf-maricopa-pdf-review-058",
+        "official-pdf-maricopa-pdf-review-059",
+        "official-pdf-maricopa-pdf-review-060",
+        "official-pdf-maricopa-pdf-review-061",
+        "official-pdf-maricopa-pdf-review-062",
+        "official-pdf-maricopa-pdf-review-063",
+        "official-pdf-maricopa-pdf-review-064",
+        "official-pdf-maricopa-pdf-review-065",
+        "official-pdf-maricopa-pdf-review-066"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-protective-order-resources",
+      "packet_label": "Maricopa protective order resources",
+      "page_label": "Protective Orders",
+      "route_key": "forms-tools-maricopa-all-any-posture-any",
+      "route": {
+        "county": "Maricopa",
+        "issue": "all",
+        "posture": "Any posture",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-067",
+        "official-pdf-maricopa-pdf-review-068",
+        "official-pdf-maricopa-pdf-review-069",
+        "official-pdf-maricopa-pdf-review-070"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    }
+  ]
+}

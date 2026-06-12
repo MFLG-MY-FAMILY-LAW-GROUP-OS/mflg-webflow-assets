@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0-calculator-fixture-qa-status",
+  "built_at": "2026-06-12T04:39:41.006Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "public_results_enabled": false,
+    "local_formula_engine_enabled": false,
+    "reviewer_approval_required": true,
+    "internal_values_publicly_exposed": false
+  },
+  "summary": {
+    "fixture_qa_plan_ready": true,
+    "fixture_review_items": 4,
+    "approved_fixture_count": 4,
+    "pending_official_comparisons": 0,
+    "required_output_fields_per_fixture": 18,
+    "executable_regression_tests": 4,
+    "approved_fixture_template_ready": true,
+    "complete_approved_fixtures": 4,
+    "material_mismatches": 0,
+    "public_unlock_ready": false
+  },
+  "public_review_items": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "review_order": 1,
+      "public_review_status": "approved_internal_fixture_ready",
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "review_order": 2,
+      "public_review_status": "approved_internal_fixture_ready",
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "review_order": 3,
+      "public_review_status": "approved_internal_fixture_ready",
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "review_order": 4,
+      "public_review_status": "approved_internal_fixture_ready",
+      "public_values_exposed": false
+    }
+  ],
+  "public_message": "MFLG-branded child-support results remain locked until official calculator comparison fixtures are approved and pass internal QA."
+}

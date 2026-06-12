@@ -1,0 +1,205 @@
+{
+  "version": "1.0.0-forms-tools-intake-readiness",
+  "built_at": "2026-06-12T04:39:49.923Z",
+  "source_manifests": [
+    "data/forms-tools-action-plan.json",
+    "data/forms-tools-review-roadmap.json",
+    "data/forms-tools-maintenance-status.json",
+    "data/jurisdiction-readiness.json",
+    "data/calculator-readiness.json",
+    "data/form-route-actions.json",
+    "data/form-packet-page-actions.json",
+    "data/form-pdf-public-actions.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "sensitive_public_collection_enabled": false,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "direct_cached_downloads_enabled": false,
+    "raw_hashes_exposed": false,
+    "raw_etags_exposed": false
+  },
+  "summary": {
+    "safe_start_options": 6,
+    "reviewed_routes": 16,
+    "jurisdiction_source_options": 7,
+    "calculator_choices": 3,
+    "official_packet_page_actions": 16,
+    "approved_pdf_actions": 70,
+    "official_sources_ok": 19,
+    "official_sources_checked": 19,
+    "action_plan_available": true,
+    "review_roadmap_available": true,
+    "maintenance_status_available": true,
+    "formula_logic_enabled_on_site": true,
+    "official_api_runtime_enabled": true,
+    "mflg_calculators_enabled_on_site": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "options": [
+    {
+      "option_id": "reviewed-route-start",
+      "label": "Reviewed form route",
+      "option_type": "route",
+      "count": 16,
+      "public_status": "Use a reviewed Forms & Tools route as the starting point.",
+      "intake_value": "Reviewed route selected"
+    },
+    {
+      "option_id": "county-source-start",
+      "label": "County source check",
+      "option_type": "jurisdiction",
+      "count": 7,
+      "public_status": "Carry only county/source status into Guided Intake.",
+      "intake_value": "County source selected"
+    },
+    {
+      "option_id": "calculator-start",
+      "label": "Calculator planning status",
+      "option_type": "calculator",
+      "count": 3,
+      "public_status": "Use the on-site calculator for planning, or carry only calculator interest into Guided Intake when inputs are unclear.",
+      "intake_value": "Calculator interest selected"
+    },
+    {
+      "option_id": "official-packet-start",
+      "label": "Official packet page",
+      "option_type": "packet_page",
+      "count": 16,
+      "public_status": "Use an official packet-page source after public review.",
+      "intake_value": "Official packet page selected"
+    },
+    {
+      "option_id": "approved-pdf-start",
+      "label": "Approved official PDF",
+      "option_type": "official_pdf",
+      "count": 70,
+      "public_status": "Use an approved official PDF link as a non-sensitive planning selection.",
+      "intake_value": "Approved official PDF selected"
+    },
+    {
+      "option_id": "source-health-start",
+      "label": "Source health reviewed",
+      "option_type": "maintenance",
+      "count": 19,
+      "public_status": "Carry official-source monitoring status only.",
+      "intake_value": "Source health reviewed"
+    }
+  ],
+  "reviewed_routes": [
+    {
+      "packet_id": "maricopa-consent-decree-agreement",
+      "packet_label": "Maricopa consent decree and agreement finalization",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "packet_pages": 1,
+      "approved_pdfs": 10
+    },
+    {
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "public_status": "Packet page available; PDF review pending",
+      "packet_pages": 1,
+      "approved_pdfs": 0
+    },
+    {
+      "packet_id": "maricopa-divorce-new-no-children",
+      "packet_label": "Maricopa divorce or separation - new filing without minor children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "packet_pages": 1,
+      "approved_pdfs": 10
+    },
+    {
+      "packet_id": "maricopa-divorce-new-with-children",
+      "packet_label": "Maricopa divorce or separation - new filing with minor children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "packet_pages": 1,
+      "approved_pdfs": 10
+    },
+    {
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "public_status": "Packet page available; PDF review pending",
+      "packet_pages": 1,
+      "approved_pdfs": 0
+    },
+    {
+      "packet_id": "maricopa-foreign-custody-order",
+      "packet_label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "packet_pages": 1,
+      "approved_pdfs": 8
+    }
+  ],
+  "official_jurisdictions": [
+    {
+      "jurisdiction_id": "azcourthelp-az-forms",
+      "label": "AZCourtHelp AZ Forms",
+      "county": "Statewide",
+      "jurisdiction_type": "statewide",
+      "packet_review_status": "statewide source only",
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0
+    },
+    {
+      "jurisdiction_id": "az-statewide-family-law-library",
+      "label": "Arizona Statewide Family-Law Forms",
+      "county": "Statewide",
+      "jurisdiction_type": "statewide",
+      "packet_review_status": "statewide source only",
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0
+    },
+    {
+      "jurisdiction_id": "az-protective-order-resources",
+      "label": "Arizona Protective Order Resources",
+      "county": "Statewide",
+      "jurisdiction_type": "statewide",
+      "packet_review_status": "statewide source only",
+      "official_packet_page_actions": 0,
+      "approved_pdf_actions": 0
+    },
+    {
+      "jurisdiction_id": "maricopa-family-court-library",
+      "label": "Maricopa Family Court Forms Library",
+      "county": "Maricopa",
+      "jurisdiction_type": "county",
+      "packet_review_status": "packet actions reviewed",
+      "official_packet_page_actions": 16,
+      "approved_pdf_actions": 70
+    }
+  ],
+  "calculators": [
+    {
+      "calculator_id": "az-child-support-official",
+      "label": "Arizona Child Support Calculator",
+      "status": "official_link",
+      "public_status": "MFLG on-site calculator available",
+      "formula_logic_enabled_on_site": true,
+      "official_api_runtime_enabled": false,
+      "mflg_calculator_enabled_on_site": true
+    },
+    {
+      "calculator_id": "az-spousal-maintenance-official",
+      "label": "Arizona Spousal Maintenance Calculator",
+      "status": "official_link",
+      "public_status": "MFLG on-site calculator available",
+      "formula_logic_enabled_on_site": false,
+      "official_api_runtime_enabled": true,
+      "mflg_calculator_enabled_on_site": true
+    },
+    {
+      "calculator_id": "mflg-parenting-time-counter",
+      "label": "Parenting Time Counter",
+      "status": "internal_safe_tool",
+      "public_status": "safe planning tool",
+      "formula_logic_enabled_on_site": false,
+      "official_api_runtime_enabled": false,
+      "mflg_calculator_enabled_on_site": false
+    }
+  ],
+  "public_message": "Start from a public selection, then move to Guided Intake with only the issue, county, packet, or calculator starting point needed to stay organized."
+}

@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0-calculator-regression-evidence-status",
+  "built_at": "2026-06-12T04:39:45.564Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "internal_comparison_evidence_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "raw_formula_text_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "regression_evidence_entry_ready": true,
+    "approved_fixtures_file_present": true,
+    "comparison_results_file_present": true,
+    "regression_evidence_items": 4,
+    "complete_regression_evidence": 4,
+    "pending_regression_evidence": 0,
+    "material_mismatches": 0,
+    "required_output_checks_per_fixture": 18,
+    "can_unlock_public_results": false,
+    "public_results_enabled": false
+  },
+  "public_review_items": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "comparison_evidence_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "comparison_evidence_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "comparison_evidence_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "comparison_evidence_complete": true,
+      "material_mismatches": 0,
+      "public_values_exposed": false
+    }
+  ],
+  "public_message": "Calculator comparison evidence is ready to track. Public MFLG calculator results stay locked until approved fixtures are compared, reviewed, and cleared."
+}

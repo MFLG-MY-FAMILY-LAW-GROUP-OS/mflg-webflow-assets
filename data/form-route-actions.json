@@ -1,0 +1,1183 @@
+{
+  "version": "1.0.0-route-actions",
+  "built_at": "2026-06-12T04:39:18.618Z",
+  "source_manifests": [
+    "data/forms-tools-coverage.json",
+    "data/form-packet-page-actions.json",
+    "data/form-pdf-public-actions.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "official_source_urls_only": false,
+    "approved_same_origin_pdf_delivery_enabled": true,
+    "public_pdf_view_download_enabled": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "summary": {
+    "route_actions": 16,
+    "routes_with_packet_pages": 16,
+    "routes_with_approved_pdfs": 9,
+    "official_packet_page_actions": 16,
+    "official_pdf_actions": 70,
+    "approved_same_origin_pdf_delivery_enabled": true,
+    "public_pdf_view_download_enabled": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "routes": [
+    {
+      "packet_id": "maricopa-consent-decree-agreement",
+      "packet_label": "Maricopa consent decree and agreement finalization",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "Finalizing agreement",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-003",
+          "label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation)",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
+          "review_id": "maricopa-review-003"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-021",
+          "display_label": "Summary Consent Decree Packet Instructions (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drdsc30pz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/oqcd3aat/drdsc30pz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-021",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-021?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-022",
+          "display_label": "Summary Consent Decree Packet Instructions (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drdsc30psz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/fgfkjrbn/drdsc30psz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-022",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-022?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-023",
+          "display_label": "Summary Consent Decree Forms Packet (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drdsc30p-f.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/4trladzi/drdsc30p-f.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-023",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-023?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-024",
+          "display_label": "Summary Consent Decree Forms Packet (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drdsc30p-fs.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/yygftbuf/drdsc30p-fs.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-024",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-024?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-025",
+          "display_label": "Consent Decree for Divorce or Legal Separation (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drdsc31fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ducnkzkl/drdsc31fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-025",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-025?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-026",
+          "display_label": "Consent Decree for Divorce or Legal Separation (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drdsc31fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/fx3hv1rn/drdsc31fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-026",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-026?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-027",
+          "display_label": "Property, Debt, and Agreement Terms Form (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drsd10fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vfeh5oz3/drsd10fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-027",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-027?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-028",
+          "display_label": "Property, Debt, and Agreement Terms Form (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drsd10fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ot4drwyl/drsd10fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-028",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-028?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-029",
+          "display_label": "Notice / Order Form for Final Divorce Paperwork (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "dr70fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/lzuner3g/dr70fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-029",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-029?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-030",
+          "display_label": "Notice / Order Form for Final Divorce Paperwork (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "dr70fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/frcb03uf/dr70fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-030",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-030?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 10,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "route": {
+        "county": "Maricopa",
+        "issue": "temporary orders / court readiness",
+        "posture": "Prepare for court",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-013",
+          "label": "Temporary Orders (Pre-Decree)",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
+          "review_id": "maricopa-review-013"
+        }
+      ],
+      "official_pdfs": [],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 0,
+        "languages": 0
+      },
+      "languages": [],
+      "public_status": "Packet page available; PDF review pending"
+    },
+    {
+      "packet_id": "maricopa-divorce-new-no-children",
+      "packet_label": "Maricopa divorce or separation - new filing without minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-002",
+          "label": "Divorce with No Minor Children",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
+          "review_id": "maricopa-review-002"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-011",
+          "display_label": "Before You File: Divorce or Legal Separation Process (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "dv-lsprocess.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-011",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-011?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-012",
+          "display_label": "Before You File: Divorce or Legal Separation Process (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "dv-lsprocesssp.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-012",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-012?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-013",
+          "display_label": "Family Department Sensitive Data Cover Sheet (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drds10fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-013",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-013?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-014",
+          "display_label": "Family Department Sensitive Data Cover Sheet (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drds10fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-014",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-014?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-015",
+          "display_label": "Petition for Divorce or Legal Separation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drmcr10fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-015",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-015?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-016",
+          "display_label": "Petition for Divorce or Legal Separation (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drmcr10fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-016",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-016?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-017",
+          "display_label": "Parenting Plan (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drtp4.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-017",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-017?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-018",
+          "display_label": "Parenting Plan (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drtp4s.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-018",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-018?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-019",
+          "display_label": "Parenting Time / Legal Decision-Making Order Form (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drtp42fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-019",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-019?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-020",
+          "display_label": "Parenting Time / Legal Decision-Making Order Form (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drtp42fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-020",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-020?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 10,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-divorce-new-with-children",
+      "packet_label": "Maricopa divorce or separation - new filing with minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-001",
+          "label": "Divorce with Minor Children",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
+          "review_id": "maricopa-review-001"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-001",
+          "display_label": "Before You File: Divorce or Legal Separation Process (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "dv-lsprocess.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-001",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-001?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-002",
+          "display_label": "Before You File: Divorce or Legal Separation Process (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "dv-lsprocesssp.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-002",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-002?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-003",
+          "display_label": "Family Department Sensitive Data Cover Sheet (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drds10fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-003",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-003?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-004",
+          "display_label": "Family Department Sensitive Data Cover Sheet (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drds10fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-004",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-004?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-005",
+          "display_label": "Petition for Divorce or Legal Separation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drmcr10fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-005",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-005?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-006",
+          "display_label": "Petition for Divorce or Legal Separation (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drmcr10fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-006",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-006?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-007",
+          "display_label": "Parenting Plan (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drtp4.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-007",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-007?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-008",
+          "display_label": "Parenting Plan (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drtp4s.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-008",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-008?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-009",
+          "display_label": "Parenting Time / Legal Decision-Making Order Form (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drtp42fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-009",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-009?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-010",
+          "display_label": "Parenting Time / Legal Decision-Making Order Form (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drtp42fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-010",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-010?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 10,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "route": {
+        "county": "Maricopa",
+        "issue": "enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-010",
+          "label": "Enforce a Support Order",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
+          "review_id": "maricopa-review-010"
+        }
+      ],
+      "official_pdfs": [],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 0,
+        "languages": 0
+      },
+      "languages": [],
+      "public_status": "Packet page available; PDF review pending"
+    },
+    {
+      "packet_id": "maricopa-foreign-custody-order",
+      "packet_label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign custody / UCCJEA order",
+        "posture": "Register out-of-state custody order",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-019",
+          "label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
+          "review_id": "maricopa-review-019"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-049",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drfoc10pz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/pc2kxmjg/drfoc10pz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-049",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-049?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-050",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drfoc10psz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/yuug4pox/drfoc10psz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-050",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-050?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-051",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drfoc12fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/10ipdynd/drfoc12fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-051",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-051?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-052",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drfoc12fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/tswagq4y/drfoc12fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-052",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-052?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-053",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drfoc13fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/a4mje2io/drfoc13fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-053",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-053?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-054",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drfoc13fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/mcsjvtw4/drfoc13fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-054",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-054?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-055",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drfoc13f-bz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/4f0lmdwl/drfoc13f-bz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-055",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-055?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-056",
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drfoc13fs-bz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/agqhnz0i/drfoc13fs-bz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-056",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-056?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 8,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-foreign-order-hearing",
+      "packet_label": "Maricopa hearing request for a registered foreign family-court order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign family-court order",
+        "posture": "Request hearing",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-020",
+          "label": "Request a Hearing on a Registered Foreign (Out of State) Family Court Order",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
+          "review_id": "maricopa-review-020"
+        }
+      ],
+      "official_pdfs": [],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 0,
+        "languages": 0
+      },
+      "languages": [],
+      "public_status": "Packet page available; PDF review pending"
+    },
+    {
+      "packet_id": "maricopa-foreign-support-order",
+      "packet_label": "Maricopa registration of foreign family support order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign support order",
+        "posture": "Register or enforce out-of-state order",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-018",
+          "label": "Register a Foreign (Out of State) Family Support Order",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
+          "review_id": "maricopa-review-018"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-045",
+          "display_label": "Register a Foreign (Out of State) Family Support Order (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drfos10pz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/31gf0w30/drfos10pz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-045",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-045?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-046",
+          "display_label": "Register a Foreign (Out of State) Family Support Order (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drfos10psz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/namc20hn/drfos10psz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-046",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-046?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-047",
+          "display_label": "Register a Foreign (Out of State) Family Support Order (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drfos12fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/i5xbe3er/drfos12fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-047",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-047?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-048",
+          "display_label": "Register a Foreign (Out of State) Family Support Order (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drfos12fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/crfflw3q/drfos12fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-048",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-048?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 4,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-income-withholding-order",
+      "packet_label": "Maricopa income withholding order forms",
+      "route": {
+        "county": "Maricopa",
+        "issue": "income withholding / support",
+        "posture": "Request or update withholding",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-023",
+          "label": "Request an Income Withholding Order",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
+          "review_id": "maricopa-review-023"
+        }
+      ],
+      "official_pdfs": [],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 0,
+        "languages": 0
+      },
+      "languages": [],
+      "public_status": "Packet page available; PDF review pending"
+    },
+    {
+      "packet_id": "maricopa-modification-existing-order",
+      "packet_label": "Maricopa modification of existing family-court orders",
+      "route": {
+        "county": "Maricopa",
+        "issue": "modification",
+        "posture": "Modify existing order",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-007",
+          "label": "Modify Legal Decision-Making, Parenting Time and Child Support",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
+          "review_id": "maricopa-review-007"
+        }
+      ],
+      "official_pdfs": [],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 0,
+        "languages": 0
+      },
+      "languages": [],
+      "public_status": "Packet page available; PDF review pending"
+    },
+    {
+      "packet_id": "maricopa-name-address-update",
+      "packet_label": "Maricopa court name or address update forms",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name or address update",
+        "posture": "Update court record",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-017",
+          "label": "Update Name or Address with the Court",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
+          "review_id": "maricopa-review-017"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-041",
+          "display_label": "Update Name or Address with the Court (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "pb13fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ymlhveok/pb13fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-041",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-041?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-042",
+          "display_label": "Update Name or Address with the Court (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "pb13fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/51abiqhc/pb13fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-042",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-042?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-043",
+          "display_label": "Update Name or Address with the Court (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "pb14fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/22ifipjf/pb14fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-043",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-043?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-044",
+          "display_label": "Update Name or Address with the Court (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "pb14fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/nn3eihwj/pb14fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-044",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-044?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 4,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-out-of-state-custody-enforcement",
+      "packet_label": "Maricopa enforcement of out-of-state physical custody order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "out-of-state custody enforcement",
+        "posture": "Enforce existing order",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-025",
+          "label": "Enforce Out-of-State Physical Custody Order",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
+          "review_id": "maricopa-review-025"
+        }
+      ],
+      "official_pdfs": [],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 0,
+        "languages": 0
+      },
+      "languages": [],
+      "public_status": "Packet page available; PDF review pending"
+    },
+    {
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "route": {
+        "county": "Maricopa",
+        "issue": "paternity / parenting time / child support",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-004",
+          "label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
+          "review_id": "maricopa-review-004"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-031",
+          "display_label": "Before You File: Paternity, Parenting Time, and Child Support Process (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "pt-ldmprocess.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/my3bounx/pt-ldmprocess.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-031",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-031?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-032",
+          "display_label": "Before You File: Paternity, Parenting Time, and Child Support Process (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "pt-ldmprocesssp.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/cc4pm3ic/pt-ldmprocesssp.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-032",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-032?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-033",
+          "display_label": "Family Department Sensitive Data Cover Sheet (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drds10fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-033",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-033?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-034",
+          "display_label": "Family Department Sensitive Data Cover Sheet (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drds10fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-034",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-034?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-035",
+          "display_label": "Petition to Establish Paternity, Legal Decision-Making, Parenting Time, and Child Support (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drpr10fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/0v0cjqhc/drpr10fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-035",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-035?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-036",
+          "display_label": "Petition to Establish Paternity, Legal Decision-Making, Parenting Time, and Child Support (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drpr10fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/iuqppays/drpr10fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-036",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-036?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-037",
+          "display_label": "Parenting Plan (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drtp4.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-037",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-037?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-038",
+          "display_label": "Parenting Plan (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drtp4s.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-038",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-038?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-039",
+          "display_label": "Parenting Time / Legal Decision-Making Order Form (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "drtp42fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-039",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-039?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-040",
+          "display_label": "Parenting Time / Legal Decision-Making Order Form (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "drtp42fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-040",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-040?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 10,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "packet_label": "Maricopa post-decree temporary orders",
+      "route": {
+        "county": "Maricopa",
+        "issue": "post-decree temporary orders",
+        "posture": "Post-decree temporary relief",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-026",
+          "label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+          "review_id": "maricopa-review-026"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-057",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drmce11pz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ppkpczei/drmce11pz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-057",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-057?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-058",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drmce11psz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zpejrlwq/drmce11psz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-058",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-058?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-059",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drosc14fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/heicfxcm/drosc14fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-059",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-059?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-060",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drosc14fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/xlqfel2d/drosc14fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-060",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-060?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-061",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drosc11fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/bn5hhhlw/drosc11fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-061",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-061?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-062",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drosc11fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/xqdcpufc/drosc11fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-062",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-062?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-063",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drmcn11pz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rihnw255/drmcn11pz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-063",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-063?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-064",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drmcn11psz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/uc4lvuxd/drmcn11psz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-064",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-064?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-065",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drt12fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/hjtjq1gx/drt12fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-065",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-065?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-066",
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drt12fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/crhaswsg/drt12fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-066",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-066?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 10,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-property-division-enforcement",
+      "packet_label": "Maricopa enforcement of property division order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "property division enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-024",
+          "label": "Enforce Property Division Order",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+          "review_id": "maricopa-review-024"
+        }
+      ],
+      "official_pdfs": [],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 0,
+        "languages": 0
+      },
+      "languages": [],
+      "public_status": "Packet page available; PDF review pending"
+    },
+    {
+      "packet_id": "maricopa-protective-order-resources",
+      "packet_label": "Maricopa protective order resources",
+      "route": {
+        "county": "Maricopa",
+        "issue": "protective order / safety",
+        "posture": "Safety planning",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-028",
+          "label": "Protective Orders",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
+          "review_id": "maricopa-review-028"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-067",
+          "display_label": "Protective Orders (English)",
+          "source_label": "Domestic Violence Lay Legal Advocates",
+          "language": "English",
+          "file_name": "lay-legal-english.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/dnif03fz/lay-legal-english.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-067",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-067?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-068",
+          "display_label": "Protective Orders (English)",
+          "source_label": "Servicios Legales y Abogacía",
+          "language": "English",
+          "file_name": "lay-legal-spanish.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/c0djw0cz/lay-legal-spanish.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-068",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-068?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-069",
+          "display_label": "Protective Orders (English)",
+          "source_label": "English",
+          "language": "English",
+          "file_name": "dvop30fz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/iiyhvkpn/dvop30fz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-069",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-069?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-070",
+          "display_label": "Protective Orders (Spanish)",
+          "source_label": "Spanish",
+          "language": "Spanish",
+          "file_name": "dvop30fsz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/uutgomn5/dvop30fsz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-070",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-070?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 4,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    }
+  ],
+  "public_message": "Choose the starting point that sounds closest, then view or download the reviewed forms on this site. No sensitive facts are collected here."
+}

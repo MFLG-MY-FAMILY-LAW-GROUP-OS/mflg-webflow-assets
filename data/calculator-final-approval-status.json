@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0-calculator-final-approval-status",
+  "built_at": "2026-06-12T04:39:41.124Z",
+  "public_safety": {
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": true,
+    "local_formula_engine_enabled": true
+  },
+  "summary": {
+    "final_approval_status_ready": true,
+    "final_approval_checks": 4,
+    "passed_final_approval_checks": 4,
+    "blocked_final_approval_checks": 0,
+    "final_approval_recorded": true,
+    "public_unlock_review_complete": true,
+    "public_results_enabled": true,
+    "local_formula_engine_enabled": true
+  },
+  "public_approval_checks": [
+    {
+      "key": "approved_official_fixtures_complete",
+      "public_label": "Official test records complete",
+      "status": "pass"
+    },
+    {
+      "key": "fixture_quality_review_complete",
+      "public_label": "Test record review complete",
+      "status": "pass"
+    },
+    {
+      "key": "regression_comparisons_complete",
+      "public_label": "Comparison checks complete",
+      "status": "pass"
+    },
+    {
+      "key": "zero_material_mismatches",
+      "public_label": "Zero material mismatches",
+      "status": "pass"
+    }
+  ],
+  "public_message": "Final calculator release review is recorded and the MFLG public runtime is enabled for on-site planning."
+}

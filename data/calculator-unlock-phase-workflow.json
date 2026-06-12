@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0-calculator-unlock-phase-workflow",
+  "built_at": "2026-06-12T04:39:45.321Z",
+  "public_safety": {
+    "internal_unlock_workflow_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "unlock_phase_workflow_ready": true,
+    "unlock_phases": 4,
+    "complete_unlock_phases": 4,
+    "blocked_unlock_phases": 0,
+    "promotion_audit_ready": true,
+    "promotion_allowed": true,
+    "public_unlock_ready": true,
+    "public_results_enabled": false,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_unlock_phases": [
+    {
+      "key": "approved_official_fixtures",
+      "order": 1,
+      "public_label": "Approved official test records",
+      "status": "complete",
+      "public_next_step": "Enter reviewer-approved official-output fixture records before MFLG results can be tested."
+    },
+    {
+      "key": "fixture_quality_review",
+      "order": 2,
+      "public_label": "Test record review",
+      "status": "complete",
+      "public_next_step": "Confirm every approved fixture has required inputs, official outputs, source version, and reviewer approval."
+    },
+    {
+      "key": "regression_comparison",
+      "order": 3,
+      "public_label": "Regression comparison",
+      "status": "complete",
+      "public_next_step": "Compare MFLG engine outputs against approved official outputs with zero material mismatches."
+    },
+    {
+      "key": "final_reviewer_approval",
+      "order": 4,
+      "public_label": "Final release approval",
+      "status": "complete",
+      "public_next_step": "Record final reviewer approval only after fixture, QA, and comparison phases are complete."
+    }
+  ],
+  "public_message": "All calculator unlock phases are complete. MFLG calculator results remain off until the public runtime is separately enabled."
+}

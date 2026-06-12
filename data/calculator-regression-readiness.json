@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0-calculator-regression-readiness",
+  "built_at": "2026-06-12T04:39:22.222Z",
+  "public_safety": {
+    "raw_formula_text_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "regression_harness_ready": true,
+    "scenario_templates_ready": 4,
+    "approved_regression_fixtures": 0,
+    "pending_official_output_fixtures": 4,
+    "required_output_checks": 18,
+    "local_formula_engine_enabled": false
+  },
+  "public_message": "Regression-test templates are ready internally. Public MFLG child-support results remain locked until official-output fixtures are approved and pass."
+}

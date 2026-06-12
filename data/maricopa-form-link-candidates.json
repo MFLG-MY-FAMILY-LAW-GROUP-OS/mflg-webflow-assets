@@ -1,0 +1,208 @@
+{
+  "version": "0.4.0-maricopa-candidate-extraction",
+  "extracted_at": "2026-06-12T03:59:36.102Z",
+  "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+  "summary": {
+    "total_candidates": 28,
+    "packet_groups_with_candidates": 16,
+    "public_downloads_enabled": false
+  },
+  "candidates": [
+    {
+      "packet_id": "maricopa-divorce-new-with-children",
+      "candidate_label": "Divorce with Minor Children",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-divorce-new-no-children",
+      "candidate_label": "Divorce with No Minor Children",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-consent-decree-agreement",
+      "candidate_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation)",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-parenting-parentage-support",
+      "candidate_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-parenting-parentage-support",
+      "candidate_label": "Establish Legal Decision-Making, Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_7/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-parenting-parentage-support",
+      "candidate_label": "Establish Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_10/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-modification-existing-order",
+      "candidate_label": "Modify Legal Decision-Making, Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-modification-existing-order",
+      "candidate_label": "Modify Parenting Time and Child Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_15/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-modification-existing-order",
+      "candidate_label": "Modify Support",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_21/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-enforcement-existing-order",
+      "candidate_label": "Enforce a Support Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-enforcement-existing-order",
+      "candidate_label": "Enforce Parenting Time Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_25/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-enforcement-existing-order",
+      "candidate_label": "Enforce Property Division Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "candidate_label": "Temporary Orders (Pre-Decree)",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITHOUT Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmce1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "candidate_label": "How to Calculate Child Support - instructions and forms to complete a Child Support Worksheet",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drs1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-name-address-update",
+      "candidate_label": "Update Name or Address with the Court",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-foreign-support-order",
+      "candidate_label": "Register a Foreign (Out of State) Family Support Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-foreign-custody-order",
+      "candidate_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-foreign-order-hearing",
+      "candidate_label": "Request a Hearing on a Registered Foreign (Out of State) Family Court Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-income-withholding-order",
+      "candidate_label": "Change an Income Withholding Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_13/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-income-withholding-order",
+      "candidate_label": "Stop an Income Withholding Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_18/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-income-withholding-order",
+      "candidate_label": "Request an Income Withholding Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-property-division-enforcement",
+      "candidate_label": "Enforce Property Division Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-out-of-state-custody-enforcement",
+      "candidate_label": "Enforce Out-of-State Physical Custody Order",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "candidate_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITHOUT Notice to the Other Party",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmce1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    },
+    {
+      "packet_id": "maricopa-protective-order-resources",
+      "candidate_label": "Protective Orders",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "review_status": "candidate_needs_human_review"
+    }
+  ]
+}

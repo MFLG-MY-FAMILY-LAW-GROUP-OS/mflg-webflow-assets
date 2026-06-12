@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0-calculator-launch-guardrails",
+  "built_at": "2026-06-12T04:39:45.083Z",
+  "public_safety": {
+    "internal_launch_runbook_exposed": false,
+    "sensitive_fixture_values_exposed": false,
+    "raw_formula_text_exposed": false,
+    "internal_engine_outputs_exposed": false,
+    "comparison_deltas_exposed": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true
+  },
+  "summary": {
+    "launch_guardrails_ready": true,
+    "guardrail_count": 5,
+    "passing_guardrails": 5,
+    "blocked_guardrails": 0,
+    "official_fallback_available": true,
+    "public_results_enabled": false,
+    "launch_ready": true,
+    "next_public_status": "official_tools_remain_available"
+  },
+  "public_guardrails": [
+    {
+      "key": "official_calculator_fallback",
+      "public_label": "Official calculators remain available",
+      "status": "pass",
+      "public_note": "Visitors keep access to official calculator sources while MFLG-branded results are locked."
+    },
+    {
+      "key": "public_results_authorized",
+      "public_label": "MFLG results authorized",
+      "status": "pass",
+      "public_note": "Local result output must stay off unless release evidence and final unlock are complete."
+    },
+    {
+      "key": "release_evidence_complete",
+      "public_label": "Release evidence complete",
+      "status": "pass",
+      "public_note": "All required test and review evidence must be complete before launch."
+    },
+    {
+      "key": "release_packet_complete",
+      "public_label": "Release packet complete",
+      "status": "pass",
+      "public_note": "The release packet must be complete before MFLG-branded results can go live."
+    },
+    {
+      "key": "final_unlock_ready",
+      "public_label": "Final unlock approved",
+      "status": "pass",
+      "public_note": "Final review must approve the public unlock before local results appear."
+    }
+  ],
+  "public_message": "Calculator launch guardrails are clear. MFLG calculator results remain off until the public runtime is separately enabled."
+}

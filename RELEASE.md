@@ -6,7 +6,7 @@ In accordance with MP v2, this repository treats the intake as production softwa
 
 - Production JS source: `js/mflg-intake.js`
 - Production CSS source: `css/mflg-intake.css`
-- Current intake version: `3.5.2-worldclass-ops`
+- Current intake version: `3.6.0-worldclass-routing`
 - Current known-good commit: pending merge
 - Current n8n webhook: `https://jeremyjamesjack.app.n8n.cloud/webhook/mflg-intake`
 
@@ -19,8 +19,8 @@ Each meaningful production intake release should also be copied into:
 
 Current release copies:
 
-- `js/releases/mflg-intake-3.5.2-worldclass-ops.js`
-- `css/releases/mflg-intake-3.5.2-worldclass-ops.css`
+- `js/releases/mflg-intake-3.6.0-worldclass-routing.js`
+- `css/releases/mflg-intake-3.6.0-worldclass-routing.css`
 
 These copies make rollback review simple even if `main` keeps moving.
 
@@ -48,10 +48,14 @@ With this pattern, routine intake changes happen in GitHub/Cloudflare and Webflo
 If Webflow is still using query-string cache busting, use:
 
 ```html
-<script defer src="https://assets.myfamilylawgroup.com/js/mflg-intake.js?v=3.5.2-worldclass-ops"></script>
+<script defer src="https://assets.myfamilylawgroup.com/js/mflg-intake.js?v=3.6.0-worldclass-routing"></script>
 ```
 
 Do not change the n8n webhook, root element, CSS URL, payload fields, or reveal-pathways script unless a separate release specifically requires it.
+
+## CRM OS Transition Note
+
+Version `3.6.0-worldclass-routing` preserves the existing n8n webhook and legacy intake payload fields so the current Sheets landing can continue temporarily. It also adds CRM-ready routing metadata (`routeKey`, `issueDetail`, `presetAnswersJSON`, and enriched `routingContextJSON`) so n8n can later forward the same submissions into CRM OS without another public intake redesign.
 
 ## Pre-Release Checklist
 
@@ -70,6 +74,35 @@ Do not change the n8n webhook, root element, CSS URL, payload fields, or reveal-
 8. Create/update immutable release copies under `js/releases/` and `css/releases/`.
 9. Merge through a PR unless this is an emergency production fix.
 10. Test in a fresh private/incognito browser window.
+
+## Required Live Deployment
+
+Local release checks are not enough. The live asset host must be updated through Cloudflare Pages and then verified from the public CDN.
+
+Use:
+
+```bash
+CLOUDFLARE_API_TOKEN="$(security find-generic-password -s CLOUDFLARE_API_TOKEN -w)" \
+./scripts/deploy-all-live-assets.sh
+```
+
+This deploys and verifies both live hosts:
+
+- `mflg-webflow-assets` for `assets.myfamilylawgroup.com`
+- `mflg-public-website` for `myfamilylawgroup.com`
+
+Use the single-project `deploy-live-assets.sh` only for emergency targeted deploys. Intake routing changes must go through `deploy-all-live-assets.sh`, otherwise one host can remain stale.
+
+The deploy script:
+
+- syncs static route entries
+- runs the intake release checks
+- creates immutable release copies
+- deploys the asset directory with Wrangler
+- verifies `https://assets.myfamilylawgroup.com/js/mflg-intake.js` serves the expected version
+- fails if credentials are missing or the live CDN remains stale
+
+Do not mark an intake/site asset change complete unless this script verifies the live asset version.
 
 ## Manual UI Test Checklist
 
