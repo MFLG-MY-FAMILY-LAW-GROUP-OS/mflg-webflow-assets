@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-nav1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guide-order1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1068,6 +1068,62 @@
     if (category.includes("parenting") || category.includes("parentage") || title.includes("parenting")) return "parenting";
     if (category.includes("maintenance") || title.includes("maintenance") || title.includes("spousal")) return "maintenance";
     return "";
+  }
+
+  function guidePdfSearchText(action) {
+    return [
+      action?.public_name,
+      action?.display_label,
+      action?.label,
+      action?.file_name,
+      action?.public_file_code,
+      action?.public_stage,
+      action?.public_description
+    ].filter(Boolean).join(" ").toLowerCase();
+  }
+
+  function guidePdfRelevanceScore(action, formsRoute, guideTitle) {
+    const text = guidePdfSearchText(action);
+    const title = `${guideTitle || ""}`.toLowerCase();
+    const stage = `${action?.public_stage || ""}`.toLowerCase();
+    let score = 50;
+
+    if (action?.language === "English") score -= 30;
+    else score += 30;
+
+    if (text.includes("petition")) score -= 28;
+    if (text.includes("consent decree")) score -= title.includes("consent") || title.includes("agreement") ? 38 : 16;
+    if (text.includes("summary consent decree forms packet")) score -= 34;
+    if (text.includes("property") || text.includes("debt")) score -= title.includes("property") || title.includes("debt") || title.includes("settlement") ? 36 : 6;
+    if (text.includes("parenting plan")) score -= title.includes("parenting plan") || title.includes("parenting time") || title.includes("legal decision") ? 36 : 10;
+    if (text.includes("legal decision-making") || text.includes("parenting time")) score -= title.includes("legal decision") || title.includes("parenting") || title.includes("custody") ? 24 : 6;
+    if (text.includes("child support")) score -= title.includes("support") || title.includes("paternity") || title.includes("parentage") ? 26 : 4;
+    if (text.includes("paternity")) score -= title.includes("paternity") || title.includes("parentage") ? 36 : 8;
+    if (text.includes("temporary orders")) score -= title.includes("temporary") || title.includes("hearing") || title.includes("court") ? 36 : 8;
+    if (text.includes("protective order")) score -= title.includes("protective") || title.includes("safety") ? 36 : 10;
+    if (text.includes("name or address")) score -= title.includes("name") || title.includes("address") ? 36 : 0;
+    if (text.includes("foreign") || text.includes("out of state")) score -= title.includes("foreign") || title.includes("interstate") || title.includes("uccjea") ? 36 : 0;
+
+    if (text.includes("sensitive data cover sheet")) score += 8;
+    if (stage.includes("start here") || text.includes("before you file") || text.includes("instructions")) score += title.includes("guide") ? 4 : 18;
+    if (text.includes("notice / order")) score += 22;
+
+    if (formsRoute?.children === "no-minor-children" && (text.includes("parenting") || text.includes("child support") || text.includes("children"))) score += 80;
+    if (formsRoute?.children === "minor-children" && (text.includes("parenting") || text.includes("child support"))) score -= 12;
+
+    return score;
+  }
+
+  function sortGuidePdfActions(actions, formsRoute, guideTitle) {
+    return [...actions].sort((a, b) => {
+      const scoreA = guidePdfRelevanceScore(a, formsRoute, guideTitle);
+      const scoreB = guidePdfRelevanceScore(b, formsRoute, guideTitle);
+      if (scoreA !== scoreB) return scoreA - scoreB;
+      const langA = a.language === "English" ? 0 : 1;
+      const langB = b.language === "English" ? 0 : 1;
+      if (langA !== langB) return langA - langB;
+      return String(a.public_stage || a.public_name || "").localeCompare(String(b.public_stage || b.public_name || ""));
+    });
   }
 
   function guideResourceSummaryFor(guide) {
@@ -2480,6 +2536,7 @@
       <div class="guide-panel-actions">
         <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>${esc(guide.leadCta || "Start guided intake")}</a>
         <button class="button outline" type="button" data-guide-scroll-forms>View forms for this guide</button>
+        <button class="button ghost guide-panel-close-inline" type="button" data-guide-panel-close>Close guide</button>
       </div>
     </div>`;
   }
@@ -2529,7 +2586,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-nav1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guide-order1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3057,7 +3114,9 @@
       panel.hidden = false;
       panel.innerHTML = renderGuidePanel(guide, index);
       insertPanelAfterRow(card);
-      panel.querySelector("[data-guide-panel-close]")?.addEventListener("click", clearPanel);
+      panel.querySelectorAll("[data-guide-panel-close]").forEach((button) => {
+        button.addEventListener("click", clearPanel);
+      });
       wireGuidePdfPanel(panel);
       panel.querySelectorAll("[data-guide-scroll-forms]").forEach((button) => {
         button.addEventListener("click", () => {
@@ -3167,14 +3226,14 @@
       const response = await fetch(`/data/form-pdf-public-actions.json?v=${Date.now()}`, { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const manifest = await response.json();
-      const actions = (Array.isArray(manifest.actions) ? manifest.actions : [])
+      const rawActions = (Array.isArray(manifest.actions) ? manifest.actions : [])
         .filter((action) => action.packet_id === packetId)
-        .sort((a, b) => {
-          const langA = a.language === "English" ? 0 : 1;
-          const langB = b.language === "English" ? 0 : 1;
-          if (langA !== langB) return langA - langB;
-          return String(a.public_stage || a.public_name || "").localeCompare(String(b.public_stage || b.public_name || ""));
+        .filter((action) => {
+          if (formsRoute.children !== "no-minor-children") return true;
+          const text = guidePdfSearchText(action);
+          return !(text.includes("parenting plan") || text.includes("child support") || text.includes("legal decision-making order"));
         });
+      const actions = sortGuidePdfActions(rawActions, formsRoute, guideTitle);
 
       if (!actions.length) {
         host.innerHTML = `
@@ -3190,7 +3249,7 @@
         return;
       }
 
-      const first = actions.find((action) => action.language === "English") || actions[0];
+      const first = actions[0];
       const actionRoute = (action) => formsToolRouteFor(
         { ...formsRoute, pdfPacket: packetId },
         action.packet_label || "",
@@ -3208,7 +3267,7 @@
           <div>
             <span>Forms for this guide</span>
             <strong>${esc(guideTitle)} forms</strong>
-            <p>Open, preview, or download the approved court PDFs assigned to this practice area. You are not filing anything by viewing them.</p>
+            <p>Start with the first form shown. The rest continue in the order most likely to match this guide. You are not filing anything by viewing them.</p>
           </div>
           <a class="button outline" href="/start" data-link data-guide-pdf-intake>Use Guided Intake</a>
         </div>
@@ -3216,7 +3275,7 @@
           <div class="guide-pdf-list" aria-label="${esc(guideTitle)} forms">
             ${actions.map((action, actionIndex) => `
               <button class="${action === first ? "active" : ""}" type="button" data-guide-pdf-choice="${actionIndex}">
-                <span>${esc(action.public_stage || action.language || "Court form")}</span>
+                <span>${String(actionIndex + 1).padStart(2, "0")} · ${esc(action.public_stage || action.language || "Court form")}</span>
                 <strong>${esc(action.public_name || action.display_label || action.label || action.file_name || "Official court PDF")}</strong>
                 <p>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</p>
               </button>

@@ -224,7 +224,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-nav1") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guide-order1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -7246,9 +7246,11 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   box-shadow: 0 28px 72px rgba(18, 24, 31, 0.14);
 }
 .guide-panel-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+  position: sticky;
+  top: 92px;
+  z-index: 3;
+  justify-self: end;
+  margin: -8px -8px -10px 0;
   min-height: 34px;
   padding: 0 12px;
   border: 1px solid rgba(17, 24, 32, 0.12);
@@ -7533,11 +7535,15 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+  justify-content: flex-end;
 }
 .guide-panel-actions .button {
   min-height: 44px;
   padding-inline: 16px;
   font-size: 0.72rem;
+}
+.guide-panel-actions [data-guide-panel-close] {
+  min-width: 0;
 }
 .guide-reveal {
   display: grid;
