@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-accessnav1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-accessnav2}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
