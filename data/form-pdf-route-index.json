@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-pdf-route-index",
-  "built_at": "2026-06-12T14:40:31.744Z",
+  "built_at": "2026-06-12T15:26:32.383Z",
   "source_manifest": "data/form-pdf-public-actions.json",
   "public_safety": {
     "contains_sensitive_user_data": false,
@@ -10,8 +10,8 @@
     "cached_downloads_enabled": false
   },
   "summary": {
-    "route_packets": 9,
-    "official_pdf_actions": 70,
+    "route_packets": 13,
+    "official_pdf_actions": 74,
     "public_pdf_actions_enabled": true,
     "same_origin_pdf_delivery_enabled": true,
     "public_pdf_view_download_enabled": true,
@@ -218,6 +218,110 @@
       "languages": [
         "English",
         "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-no-minor-children",
+      "packet_label": "Maricopa adult name change - no minor children",
+      "page_label": "Name Change for an Adult with No Minor Children",
+      "route_key": "forms-tools-maricopa-name-change-new-filing-no-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-071"
+      ],
+      "languages": [
+        "English"
+      ]
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-with-minor-child",
+      "packet_label": "Maricopa adult name change - adult has minor child",
+      "page_label": "Name Change for an Adult Who Has a Minor Child",
+      "route_key": "forms-tools-maricopa-name-change-new-filing-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-072"
+      ],
+      "languages": [
+        "English"
+      ]
+    },
+    {
+      "packet_id": "maricopa-name-change-family",
+      "packet_label": "Maricopa name change for a family",
+      "page_label": "Name Change for a Family",
+      "route_key": "forms-tools-maricopa-name-change-new-filing-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-074"
+      ],
+      "languages": [
+        "English"
+      ]
+    },
+    {
+      "packet_id": "maricopa-name-change-minor-child",
+      "packet_label": "Maricopa minor child name change",
+      "page_label": "Name Change for a Minor Child",
+      "route_key": "forms-tools-maricopa-name-change-new-filing-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-073"
+      ],
+      "languages": [
+        "English"
       ]
     },
     {

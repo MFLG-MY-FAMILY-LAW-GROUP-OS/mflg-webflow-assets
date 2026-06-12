@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-guide-order1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-namechange1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -22,6 +22,7 @@ cd "$ROOT_DIR"
 node scripts/build-form-pdf-public-actions.js
 node scripts/build-form-pdf-route-index.js
 node scripts/build-form-download-readiness.js
+node scripts/build-forms-tools-coverage.js
 node scripts/build-form-route-actions.js
 node scripts/build-jurisdiction-readiness.js
 node scripts/build-calculator-readiness.js
@@ -255,13 +256,13 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"formsToolRouteFor"* ]] &&
 	     [[ "$public_site_js" == *"approvedPdfOfficialUrl"* ]] &&
 	     [[ "$public_site_js" == *"pdfPromotionSnapshot"* ]] &&
-	     [[ "$public_site_js" == *"70 public official PDF actions enabled"* ]] &&
+	     [[ "$public_site_js" == *"74 public official PDF actions enabled"* ]] &&
 	     [[ "$public_site_js" == *"pdfReviewWorkbenchSnapshot"* ]] &&
 	     [[ "$public_site_js" == *"9 packet review batches completed"* ]] &&
 	     [[ "$public_site_js" == *"pdfDecisionTemplateSnapshot"* ]] &&
-	     [[ "$public_site_js" == *"70 reviewer decision records completed"* ]] &&
+	     [[ "$public_site_js" == *"74 reviewer decision records completed"* ]] &&
 	     [[ "$public_site_js" == *"pdfPromotionAuditSnapshot"* ]] &&
-	     [[ "$public_site_js" == *"70 promotion-ready PDF decisions"* ]] &&
+	     [[ "$public_site_js" == *"74 promotion-ready PDF decisions"* ]] &&
 	     [[ "$public_site_js" == *"wireOfficialPacketActions"* ]] &&
 	     [[ "$public_site_js" == *"form-packet-page-actions.json"* ]] &&
 	     [[ "$public_site_js" == *"data-official-packet-actions"* ]] &&
@@ -652,7 +653,7 @@ forms_tools_route_intake_map_json="$(curl -fsSL "https://myfamilylawgroup.com/da
 forms_tools_matter_coverage_json="$(curl -fsSL "https://myfamilylawgroup.com/data/forms-tools-matter-coverage.json?verify-matter-coverage=$(date +%s)" || true)"
 forms_tools_completion_status_json="$(curl -fsSL "https://myfamilylawgroup.com/data/forms-tools-completion-status.json?verify-completion-status=$(date +%s)" || true)"
 if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
-	   [[ "$pdf_actions_json" != *'"approved_official_pdf_actions": 70'* ]] ||
+	   [[ "$pdf_actions_json" != *'"approved_official_pdf_actions": 74'* ]] ||
 	   [[ "$pdf_actions_json" != *'"display_label"'* ]] ||
 	   [[ "$pdf_actions_json" != *'"public_name"'* ]] ||
 	   [[ "$pdf_actions_json" != *"Petition for Divorce or Legal Separation"* ]] ||
@@ -663,7 +664,7 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$pdf_actions_json" != *'"public_pdf_actions_enabled": true'* ]] ||
    [[ "$pdf_actions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$pdf_decisions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
-   [[ "$pdf_decisions_json" != *'"approved_official_pdf_actions": 70'* ]] ||
+   [[ "$pdf_decisions_json" != *'"approved_official_pdf_actions": 74'* ]] ||
    [[ "$pdf_decisions_json" != *'"pending": 0'* ]] ||
    [[ "$pdf_decisions_json" != *'"public_pdf_actions_enabled_after_validation": true'* ]] ||
    [[ "$pdf_decisions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
@@ -685,7 +686,7 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$pdf_audit_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$pdf_route_index_json" != *"1.0.0-pdf-route-index"* ]] ||
    [[ "$pdf_route_index_json" != *'"route_packets": 9'* ]] ||
-   [[ "$pdf_route_index_json" != *'"official_pdf_actions": 70'* ]] ||
+   [[ "$pdf_route_index_json" != *'"official_pdf_actions": 74'* ]] ||
    [[ "$pdf_route_index_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$pdf_route_index_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$source_health_json" != *"1.0.0-public-source-health"* ]] ||
@@ -698,13 +699,13 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$packet_page_actions_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$packet_page_actions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$forms_tools_coverage_json" != *"1.0.0-forms-tools-coverage"* ]] ||
-   [[ "$forms_tools_coverage_json" != *'"covered_packet_routes": 16'* ]] ||
-   [[ "$forms_tools_coverage_json" != *'"approved_pdf_actions": 70'* ]] ||
+   [[ "$forms_tools_coverage_json" != *'"covered_packet_routes": 20'* ]] ||
+   [[ "$forms_tools_coverage_json" != *'"approved_pdf_actions": 74'* ]] ||
    [[ "$forms_tools_coverage_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$forms_tools_coverage_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$form_route_actions_json" != *"1.0.0-route-actions"* ]] ||
-   [[ "$form_route_actions_json" != *'"route_actions": 16'* ]] ||
-   [[ "$form_route_actions_json" != *'"official_pdf_actions": 70'* ]] ||
+   [[ "$form_route_actions_json" != *'"route_actions": 20'* ]] ||
+   [[ "$form_route_actions_json" != *'"official_pdf_actions": 74'* ]] ||
    [[ "$form_route_actions_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$form_route_actions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$jurisdiction_readiness_json" != *"1.0.0-jurisdiction-readiness"* ]] ||
@@ -985,8 +986,8 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$calculator_internal_status_json" != *'"public_url_status": "blocked_404"'* ]] ||
    [[ "$calculator_internal_status_json" != *'"public_results_enabled": false'* ]] ||
    [[ "$forms_tools_action_plan_json" != *"1.0.0-forms-tools-action-plan"* ]] ||
-   [[ "$forms_tools_action_plan_json" != *'"reviewed_routes": 16'* ]] ||
-   [[ "$forms_tools_action_plan_json" != *'"approved_pdf_actions": 70'* ]] ||
+   [[ "$forms_tools_action_plan_json" != *'"reviewed_routes": 20'* ]] ||
+   [[ "$forms_tools_action_plan_json" != *'"approved_pdf_actions": 74'* ]] ||
    [[ "$forms_tools_action_plan_json" != *'"formula_logic_enabled_on_site": true'* ]] ||
    [[ "$forms_tools_action_plan_json" != *'"mflg_calculators_enabled_on_site": true'* ]] ||
    [[ "$forms_tools_action_plan_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
@@ -1002,21 +1003,21 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *'"raw_hashes_exposed": false'* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$form_download_readiness_json" != *"1.0.0-form-download-readiness"* ]] ||
-   [[ "$form_download_readiness_json" != *'"official_pdf_actions": 70'* ]] ||
+   [[ "$form_download_readiness_json" != *'"official_pdf_actions": 74'* ]] ||
    [[ "$form_download_readiness_json" != *'"hosted_downloads_enabled": true'* ]] ||
    [[ "$form_download_readiness_json" != *'"same_origin_pdf_delivery_enabled": true'* ]] ||
    [[ "$form_download_readiness_json" != *'"human_review_required_before_hosting": false'* ]] ||
    [[ "$form_download_readiness_json" != *'"public_runner_exposed": false'* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *"1.0.0-forms-tools-intake-readiness"* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *'"safe_start_options": 6'* ]] ||
-   [[ "$forms_tools_intake_readiness_json" != *'"reviewed_routes": 16'* ]] ||
-   [[ "$forms_tools_intake_readiness_json" != *'"approved_pdf_actions": 70'* ]] ||
+   [[ "$forms_tools_intake_readiness_json" != *'"reviewed_routes": 20'* ]] ||
+   [[ "$forms_tools_intake_readiness_json" != *'"approved_pdf_actions": 74'* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *'"sensitive_public_collection_enabled": false'* ]] ||
    [[ "$forms_tools_route_intake_map_json" != *"1.0.0-forms-tools-route-intake-map"* ]] ||
-   [[ "$forms_tools_route_intake_map_json" != *'"reviewed_route_starts": 16'* ]] ||
-   [[ "$forms_tools_route_intake_map_json" != *'"routes_with_approved_pdfs": 9'* ]] ||
-   [[ "$forms_tools_route_intake_map_json" != *'"approved_pdf_actions": 70'* ]] ||
+   [[ "$forms_tools_route_intake_map_json" != *'"reviewed_route_starts": 20'* ]] ||
+   [[ "$forms_tools_route_intake_map_json" != *'"routes_with_approved_pdfs": 13'* ]] ||
+   [[ "$forms_tools_route_intake_map_json" != *'"approved_pdf_actions": 74'* ]] ||
    [[ "$forms_tools_route_intake_map_json" != *'"exact_route_intake_enabled": true'* ]] ||
    [[ "$forms_tools_route_intake_map_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$forms_tools_matter_coverage_json" != *"1.0.0-forms-tools-matter-coverage"* ]] ||

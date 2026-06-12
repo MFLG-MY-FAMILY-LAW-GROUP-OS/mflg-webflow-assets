@@ -145,6 +145,26 @@ const publicNameByFile = {
     name: "Notice / Order Form for Final Divorce Paperwork",
     stage: "Final orders",
     description: "Official court PDF included in the summary consent decree packet."
+  },
+  "cvnca1z.pdf": {
+    name: "Adult Name Change - No Minor Children",
+    stage: "Name change",
+    description: "Maricopa packet for an adult name-change request when the adult has no minor children."
+  },
+  "cvncc1z.pdf": {
+    name: "Adult Name Change - Adult Has Minor Child",
+    stage: "Name change",
+    description: "Maricopa packet for an adult name-change request when the adult has a minor child."
+  },
+  "cvncm1z.pdf": {
+    name: "Minor Child Name Change",
+    stage: "Child name change",
+    description: "Maricopa packet for a minor child's name-change request."
+  },
+  "cvncf1z.pdf": {
+    name: "Family Name Change Packet",
+    stage: "Family name change",
+    description: "Maricopa packet for changing names for more than one family member."
   }
 };
 

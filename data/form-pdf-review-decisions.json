@@ -1,6 +1,6 @@
 {
   "version": "0.8.0-pdf-promotion-control",
-  "updated_at": "2026-06-12T12:56:41.433Z",
+  "updated_at": "2026-06-12T15:21:01.295Z",
   "public_safety": {
     "public_pdf_actions_enabled_after_validation": true,
     "direct_cached_downloads_enabled": false,
@@ -24,13 +24,15 @@
     ]
   },
   "summary": {
-    "explicit_decisions": 70,
-    "approved_official_pdf_actions": 70,
+    "explicit_decisions": 74,
+    "approved_official_pdf_actions": 74,
     "packet_page_only": 0,
     "rejected": 0,
     "pending": 0,
     "public_pdf_actions_enabled_after_validation": true,
-    "direct_cached_downloads_enabled": false
+    "direct_cached_downloads_enabled": false,
+    "total_decisions": 74,
+    "approved_official_pdf": 74
   },
   "decisions": [
     {
@@ -662,6 +664,42 @@
       "public_display_label": "Protective Orders - DVOP30FSZ (Spanish)",
       "form_purpose": "Maricopa protective order resources; official Maricopa County PDF dvop30fsz.pdf.",
       "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-071",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T15:21:01.295Z",
+      "public_display_label": "Name Change for an Adult with No Minor Children - CVNCA1Z (English)",
+      "form_purpose": "Maricopa adult name-change packet for an adult with no minor children; official Maricopa County PDF cvnca1z.pdf.",
+      "reason": "Official Maricopa name-change packet reviewed for public same-origin PDF viewing and guide routing."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-072",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T15:21:01.295Z",
+      "public_display_label": "Name Change for an Adult Who Has a Minor Child - CVNCC1Z (English)",
+      "form_purpose": "Maricopa adult name-change packet for an adult who has a minor child; official Maricopa County PDF cvncc1z.pdf.",
+      "reason": "Official Maricopa name-change packet reviewed for public same-origin PDF viewing and guide routing."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-073",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T15:21:01.295Z",
+      "public_display_label": "Name Change for a Minor Child - CVNCM1Z (English)",
+      "form_purpose": "Maricopa name-change packet for a minor child; official Maricopa County PDF cvncm1z.pdf.",
+      "reason": "Official Maricopa name-change packet reviewed for public same-origin PDF viewing and guide routing."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-074",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-12T15:21:01.295Z",
+      "public_display_label": "Name Change for a Family - CVNCF1Z (English)",
+      "form_purpose": "Maricopa name-change packet for a family group; official Maricopa County PDF cvncf1z.pdf.",
+      "reason": "Official Maricopa name-change packet reviewed for public same-origin PDF viewing and guide routing."
     }
   ]
 }

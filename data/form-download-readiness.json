@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-form-download-readiness",
-  "built_at": "2026-06-12T14:40:31.806Z",
+  "built_at": "2026-06-12T15:26:32.446Z",
   "source_manifests": [
     "data/form-pdf-public-actions.json",
     "data/form-pdf-route-index.json",
@@ -24,12 +24,12 @@
     "rollback_rule": "If any source fails or changes unexpectedly, same-origin PDF delivery is disabled and the on-page viewer keeps the court-source fallback."
   },
   "summary": {
-    "official_pdf_actions": 70,
-    "packet_groups": 9,
+    "official_pdf_actions": 74,
+    "packet_groups": 13,
     "source_records_checked": 28,
     "source_records_ok": 28,
     "source_records_broken": 0,
-    "hosted_downloads_ready": 70,
+    "hosted_downloads_ready": 74,
     "hosted_downloads_enabled": true,
     "same_origin_pdf_delivery_enabled": true,
     "direct_cached_downloads_enabled": false
@@ -75,6 +75,34 @@
       "packet_id": "maricopa-name-address-update",
       "label": "Update Name or Address with the Court",
       "files": 4,
+      "hosted_downloads_enabled": true,
+      "public_action": "View or download PDFs on this page"
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-no-minor-children",
+      "label": "Name Change for an Adult with No Minor Children",
+      "files": 1,
+      "hosted_downloads_enabled": true,
+      "public_action": "View or download PDFs on this page"
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-with-minor-child",
+      "label": "Name Change for an Adult Who Has a Minor Child",
+      "files": 1,
+      "hosted_downloads_enabled": true,
+      "public_action": "View or download PDFs on this page"
+    },
+    {
+      "packet_id": "maricopa-name-change-family",
+      "label": "Name Change for a Family",
+      "files": 1,
+      "hosted_downloads_enabled": true,
+      "public_action": "View or download PDFs on this page"
+    },
+    {
+      "packet_id": "maricopa-name-change-minor-child",
+      "label": "Name Change for a Minor Child",
+      "files": 1,
       "hosted_downloads_enabled": true,
       "public_action": "View or download PDFs on this page"
     },
@@ -1219,6 +1247,70 @@
       "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-070",
       "same_origin_pdf_delivery_enabled": true,
       "last_verified_at": "2026-06-12T12:56:41.433Z",
+      "review_required_before_hosting": false
+    },
+    {
+      "action_id": "official-pdf-maricopa-pdf-review-071",
+      "packet_id": "maricopa-name-change-adult-no-minor-children",
+      "public_name": "Adult Name Change - No Minor Children",
+      "public_stage": "Name change",
+      "language": "English",
+      "file_name": "cvnca1z.pdf",
+      "source_status": "not_individually_checked",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gowfskuf/cvnca1z.pdf",
+      "hosted_download_enabled": true,
+      "hosted_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-071?download=1",
+      "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-071",
+      "same_origin_pdf_delivery_enabled": true,
+      "last_verified_at": "2026-06-12T15:21:01.295Z",
+      "review_required_before_hosting": false
+    },
+    {
+      "action_id": "official-pdf-maricopa-pdf-review-072",
+      "packet_id": "maricopa-name-change-adult-with-minor-child",
+      "public_name": "Adult Name Change - Adult Has Minor Child",
+      "public_stage": "Name change",
+      "language": "English",
+      "file_name": "cvncc1z.pdf",
+      "source_status": "not_individually_checked",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtflhqgz/cvncc1z.pdf",
+      "hosted_download_enabled": true,
+      "hosted_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-072?download=1",
+      "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-072",
+      "same_origin_pdf_delivery_enabled": true,
+      "last_verified_at": "2026-06-12T15:21:01.295Z",
+      "review_required_before_hosting": false
+    },
+    {
+      "action_id": "official-pdf-maricopa-pdf-review-073",
+      "packet_id": "maricopa-name-change-minor-child",
+      "public_name": "Minor Child Name Change",
+      "public_stage": "Child name change",
+      "language": "English",
+      "file_name": "cvncm1z.pdf",
+      "source_status": "not_individually_checked",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3yto52or/cvncm1z.pdf",
+      "hosted_download_enabled": true,
+      "hosted_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-073?download=1",
+      "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-073",
+      "same_origin_pdf_delivery_enabled": true,
+      "last_verified_at": "2026-06-12T15:21:01.295Z",
+      "review_required_before_hosting": false
+    },
+    {
+      "action_id": "official-pdf-maricopa-pdf-review-074",
+      "packet_id": "maricopa-name-change-family",
+      "public_name": "Family Name Change Packet",
+      "public_stage": "Family name change",
+      "language": "English",
+      "file_name": "cvncf1z.pdf",
+      "source_status": "not_individually_checked",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/amileztz/cvncf1z.pdf",
+      "hosted_download_enabled": true,
+      "hosted_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-074?download=1",
+      "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-074",
+      "same_origin_pdf_delivery_enabled": true,
+      "last_verified_at": "2026-06-12T15:21:01.295Z",
       "review_required_before_hosting": false
     }
   ]

@@ -58,6 +58,33 @@ function routeHintsForPacket(packetId) {
     };
   }
 
+  if (packetId === "maricopa-name-change-adult-no-minor-children") {
+    return {
+      county: "Maricopa",
+      issue: "name change",
+      posture: "New filing",
+      children: "no-minor-children"
+    };
+  }
+
+  if (packetId === "maricopa-name-change-adult-with-minor-child") {
+    return {
+      county: "Maricopa",
+      issue: "name change",
+      posture: "New filing",
+      children: "minor-children"
+    };
+  }
+
+  if (packetId === "maricopa-name-change-minor-child" || packetId === "maricopa-name-change-family") {
+    return {
+      county: "Maricopa",
+      issue: "name change",
+      posture: "New filing",
+      children: "minor-children"
+    };
+  }
+
   return {
     county: "Maricopa",
     issue: "all",

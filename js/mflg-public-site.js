@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guide-order1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-namechange1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -991,6 +991,9 @@
       issue = "divorce";
       posture = "New filing";
       children = "no-minor-children";
+    } else if (title.includes("name change")) {
+      issue = "name change";
+      posture = "New filing";
     } else if (title.includes("divorce") || title.includes("dissolution")) {
       issue = "divorce";
       posture = title.includes("consent") || title.includes("agreement") ? "Agreement / final orders" : "New filing";
@@ -1046,6 +1049,7 @@
       else if (category.includes("child support")) pdfPacket = "maricopa-parenting-parentage-support";
       else if (category.includes("maintenance")) pdfPacket = "maricopa-divorce-new-no-children";
       else if (category.includes("agreements") || category.includes("resolution")) pdfPacket = "maricopa-consent-decree-agreement";
+      else if (title.includes("name change")) pdfPacket = "maricopa-name-change-adult-no-minor-children";
       else pdfPacket = "maricopa-divorce-new-no-children";
     }
 
@@ -1068,6 +1072,67 @@
     if (category.includes("parenting") || category.includes("parentage") || title.includes("parenting")) return "parenting";
     if (category.includes("maintenance") || title.includes("maintenance") || title.includes("spousal")) return "maintenance";
     return "";
+  }
+
+  function guidePacketChoicesFor(guide) {
+    const title = `${guide?.title || ""}`.toLowerCase();
+    if (!title.includes("name change")) return [];
+    return [
+      {
+        key: "divorce",
+        label: "During divorce",
+        helper: "Restore a former name before the decree is signed.",
+        packet: "maricopa-consent-decree-agreement",
+        issue: "divorce",
+        posture: "Agreement / final orders",
+        children: "any"
+      },
+      {
+        key: "adult-no-children",
+        label: "Adult, no minor children",
+        helper: "Separate name-change case after divorce or outside divorce.",
+        packet: "maricopa-name-change-adult-no-minor-children",
+        issue: "name change",
+        posture: "New filing",
+        children: "no-minor-children"
+      },
+      {
+        key: "adult-with-child",
+        label: "Adult with a minor child",
+        helper: "Separate adult name-change case when the adult has a minor child.",
+        packet: "maricopa-name-change-adult-with-minor-child",
+        issue: "name change",
+        posture: "New filing",
+        children: "minor-children"
+      },
+      {
+        key: "child",
+        label: "Minor child",
+        helper: "Name-change request for a child.",
+        packet: "maricopa-name-change-minor-child",
+        issue: "name change",
+        posture: "New filing",
+        children: "minor-children"
+      },
+      {
+        key: "family",
+        label: "More than one family member",
+        helper: "Family packet for multiple related name changes.",
+        packet: "maricopa-name-change-family",
+        issue: "name change",
+        posture: "New filing",
+        children: "minor-children"
+      },
+      {
+        key: "record-update",
+        label: "Update court contact record",
+        helper: "Administrative update only; this does not legally change a name.",
+        packet: "maricopa-name-address-update",
+        issue: "name or address update",
+        posture: "Existing order",
+        children: "any"
+      }
+    ];
   }
 
   function guidePdfSearchText(action) {
@@ -1211,7 +1276,7 @@
     {
       title: "Maricopa Family Court Forms Library",
       county: "Maricopa",
-      issues: ["all", "divorce", "legal separation", "parenting", "support", "parentage", "modification", "enforcement", "documents"],
+      issues: ["all", "divorce", "legal separation", "parenting", "support", "parentage", "modification", "enforcement", "name change", "documents"],
       posture: "Any posture",
       status: "Official source",
       source: "Superior Court of Arizona in Maricopa County",
@@ -1241,12 +1306,22 @@
     {
       title: "Consent Decree and Agreements",
       county: "Maricopa",
-      issues: ["agreement", "consent decree", "parenting plan", "child support worksheet", "divorce"],
+      issues: ["agreement", "consent decree", "parenting plan", "child support worksheet", "divorce", "name change"],
       posture: "Agreement / final orders",
       status: "County packet source",
       source: "Maricopa County Superior Court",
       url: "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
       note: "Use for agreed divorce/separation finalization, parenting terms, and proposed-order readiness."
+    },
+    {
+      title: "Name Change Decision Path",
+      county: "Maricopa",
+      issues: ["name change", "identity"],
+      posture: "New filing",
+      status: "On-site packets",
+      source: "Maricopa County Superior Court",
+      url: "#forms-approved-pdfs",
+      note: "Use this when a name change is separate from a pending divorce decree or when a child/family name-change packet is needed."
     },
     {
       title: "Modify or Enforce Existing Orders",
@@ -1306,6 +1381,7 @@
     ["parenting", "Parenting / legal decision-making"],
     ["support", "Child support"],
     ["parentage", "Paternity / parentage"],
+    ["name change", "Name change"],
     ["modification", "Modification"],
     ["enforcement", "Enforcement / contempt"],
     ["safety", "Protective orders / safety"],
@@ -1327,7 +1403,9 @@
     "Maricopa|agreement|Agreement / final orders": "maricopa-consent-decree-agreement",
     "Maricopa|consent decree|Agreement / final orders": "maricopa-consent-decree-agreement",
     "Maricopa|parenting|Agreement / final orders": "maricopa-consent-decree-agreement",
-    "Maricopa|support|Agreement / final orders": "maricopa-consent-decree-agreement"
+    "Maricopa|support|Agreement / final orders": "maricopa-consent-decree-agreement",
+    "Maricopa|name change|New filing": "maricopa-name-change-adult-no-minor-children",
+    "Maricopa|name change|Agreement / final orders": "maricopa-consent-decree-agreement"
   };
   function pdfPacketForFormsRoute(county, issue, posture, children) {
     if (county !== "Maricopa") return "all";
@@ -1354,6 +1432,22 @@
     "maricopa-parenting-parentage-support": {
       label: "Paternity, Parenting Time, and Child Support",
       count: 10
+    },
+    "maricopa-name-change-adult-no-minor-children": {
+      label: "Adult Name Change - No Minor Children",
+      count: 1
+    },
+    "maricopa-name-change-adult-with-minor-child": {
+      label: "Adult Name Change - Adult Has Minor Child",
+      count: 1
+    },
+    "maricopa-name-change-minor-child": {
+      label: "Minor Child Name Change",
+      count: 1
+    },
+    "maricopa-name-change-family": {
+      label: "Family Name Change",
+      count: 1
     }
   };
   function formsToolRouteFor(detail, packetLabel, pdfAction) {
@@ -1633,7 +1727,7 @@
 
   const pdfPromotionSnapshot = {
     version: "0.8.0",
-    total: "70 public official PDF actions enabled",
+    total: "74 public official PDF actions enabled",
     pending: "0 PDFs pending review",
     rule: "Approved PDFs can be viewed and downloaded on site through controlled same-origin delivery."
   };
@@ -1647,14 +1741,14 @@
 
   const pdfDecisionTemplateSnapshot = {
     version: "1.0.0",
-    template: "70 reviewer decision records completed",
+    template: "74 reviewer decision records completed",
     validation: "Decision validation passed before promotion",
     rule: "The decision file remains the controlled source for public PDF action changes."
   };
 
   const pdfPromotionAuditSnapshot = {
     version: "1.1.0",
-    ready: "70 promotion-ready PDF decisions",
+    ready: "74 promotion-ready PDF decisions",
     blocked: "0 blocked promotions",
     rule: "Dry-run audit must match the intended review result before public PDF actions change."
   };
@@ -2461,6 +2555,7 @@
     const route = guideRoute(guide);
     const formsRoute = guideFormsRouteFor(guide);
     const calculatorChoice = guideCalculatorChoiceFor(guide);
+    const packetChoices = guidePacketChoicesFor(guide);
     const calculatorLabel = calculatorChoice === "support"
       ? "Open child support calculator"
       : calculatorChoice === "parenting"
@@ -2524,6 +2619,19 @@
           <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Start Guided Intake</a>
         </div>
       </div>
+      ${packetChoices.length ? `<div class="guide-packet-chooser" data-guide-packet-chooser>
+        <div>
+          <span>Name-change path</span>
+          <strong>Choose the situation that fits before opening forms.</strong>
+          <p>If the name change is part of an active divorce, use the divorce/decree forms. If the decree is already done and did not restore the name, use a separate name-change packet.</p>
+        </div>
+        <div class="guide-packet-options" role="list">
+          ${packetChoices.map((choice, choiceIndex) => `<button class="${choiceIndex === 1 ? "active" : ""}" type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}">
+            <span>${esc(choice.label)}</span>
+            <small>${esc(choice.helper)}</small>
+          </button>`).join("")}
+        </div>
+      </div>` : ""}
       <div class="guide-forms-viewer" data-guide-pdf-panel data-guide-pdf-packet="${esc(formsRoute.pdfPacket || "")}" data-guide-title="${esc(guide.title)}" data-guide-route='${esc(JSON.stringify(formsRoute))}'>
         <div class="guide-forms-viewer-head">
           <div>
@@ -2586,7 +2694,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guide-order1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-namechange1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3121,6 +3229,26 @@
       panel.querySelectorAll("[data-guide-scroll-forms]").forEach((button) => {
         button.addEventListener("click", () => {
           panel.querySelector("[data-guide-pdf-panel]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+      panel.querySelectorAll("[data-guide-packet-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const host = panel.querySelector("[data-guide-pdf-panel]");
+          if (!host) return;
+          const route = parseRouteData(host.getAttribute("data-guide-route")) || {};
+          const nextRoute = {
+            ...route,
+            issue: button.dataset.routeIssue || route.issue || "name change",
+            posture: button.dataset.routePosture || route.posture || "New filing",
+            children: button.dataset.routeChildren || route.children || "any",
+            pdfPacket: button.dataset.packetId || route.pdfPacket || ""
+          };
+          host.setAttribute("data-guide-pdf-packet", nextRoute.pdfPacket || "");
+          host.setAttribute("data-guide-route", JSON.stringify(nextRoute));
+          panel.querySelectorAll("[data-guide-packet-choice]").forEach((item) => {
+            item.classList.toggle("active", item === button);
+          });
+          wireGuidePdfPanel(panel);
         });
       });
       const choiceButtons = Array.from(panel.querySelectorAll("[data-guide-next-choice]"));

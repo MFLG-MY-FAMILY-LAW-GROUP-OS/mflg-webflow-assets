@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-intake-readiness",
-  "built_at": "2026-06-12T14:41:00.169Z",
+  "built_at": "2026-06-12T15:27:08.298Z",
   "source_manifests": [
     "data/forms-tools-action-plan.json",
     "data/forms-tools-review-roadmap.json",
@@ -24,11 +24,11 @@
   },
   "summary": {
     "safe_start_options": 6,
-    "reviewed_routes": 16,
+    "reviewed_routes": 20,
     "jurisdiction_source_options": 7,
     "calculator_choices": 3,
     "official_packet_page_actions": 16,
-    "approved_pdf_actions": 70,
+    "approved_pdf_actions": 74,
     "official_sources_ok": 19,
     "official_sources_checked": 19,
     "action_plan_available": true,
@@ -45,7 +45,7 @@
       "option_id": "reviewed-route-start",
       "label": "Reviewed form route",
       "option_type": "route",
-      "count": 16,
+      "count": 20,
       "public_status": "Use a reviewed Forms & Tools route as the starting point.",
       "intake_value": "Reviewed route selected"
     },
@@ -77,7 +77,7 @@
       "option_id": "approved-pdf-start",
       "label": "Approved official PDF",
       "option_type": "official_pdf",
-      "count": 70,
+      "count": 74,
       "public_status": "Use an approved official PDF link as a non-sensitive planning selection.",
       "intake_value": "Approved official PDF selected"
     },

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-completion-status",
-  "built_at": "2026-06-12T14:41:00.325Z",
+  "built_at": "2026-06-12T15:27:08.456Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/forms-tools-action-plan.json",
@@ -32,12 +32,12 @@
     "forms_tools_public_surface_complete": true,
     "public_matters": 50,
     "public_matter_categories": 19,
-    "reviewed_route_starts": 16,
+    "reviewed_route_starts": 20,
     "safe_start_options": 6,
     "official_sources_ok": 19,
     "official_sources_checked": 19,
     "official_packet_page_actions": 16,
-    "approved_pdf_actions": 70,
+    "approved_pdf_actions": 74,
     "same_origin_pdf_delivery_enabled": true,
     "calculator_choices": 3,
     "mflg_calculators_enabled_on_site": true,
@@ -63,13 +63,13 @@
       "check_id": "reviewed-routes",
       "label": "Reviewed route starts",
       "status": "complete",
-      "detail": "16 exact reviewed route starts available."
+      "detail": "20 exact reviewed route starts available."
     },
     {
       "check_id": "official-actions",
       "label": "Packet pages and approved PDFs",
       "status": "complete",
-      "detail": "16 packet pages and 70 approved official PDF links."
+      "detail": "16 packet pages and 74 approved official PDF links."
     },
     {
       "check_id": "calculator-controls",

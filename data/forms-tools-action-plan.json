@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-action-plan",
-  "built_at": "2026-06-12T14:41:00.015Z",
+  "built_at": "2026-06-12T15:27:08.245Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/form-route-actions.json",
@@ -19,8 +19,8 @@
   "summary": {
     "official_sources_ok": 19,
     "official_sources_checked": 19,
-    "reviewed_routes": 16,
-    "approved_pdf_actions": 70,
+    "reviewed_routes": 20,
+    "approved_pdf_actions": 74,
     "same_origin_pdf_delivery_enabled": true,
     "official_formula_sources_ok": 2,
     "safe_planning_tools": 1,
@@ -42,7 +42,7 @@
       "step_id": "use-reviewed-route",
       "label": "Use a reviewed route when available",
       "status": "ready for reviewed Maricopa routes",
-      "metric": "16 reviewed routes",
+      "metric": "20 reviewed routes",
       "guidance": "Reviewed routes open approved PDFs in the on-page viewer without collecting sensitive facts."
     },
     {

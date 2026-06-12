@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-coverage",
-  "built_at": "2026-06-12T12:56:41.803Z",
+  "built_at": "2026-06-12T15:26:32.502Z",
   "source_manifests": [
     "data/source-health-public.json",
     "data/form-packet-page-actions.json",
@@ -22,9 +22,9 @@
     "official_sources_broken": 0,
     "official_packet_page_actions": 16,
     "packet_candidates_review_only": 12,
-    "approved_pdf_actions": 70,
-    "pdf_route_packets": 9,
-    "covered_packet_routes": 16,
+    "approved_pdf_actions": 74,
+    "pdf_route_packets": 13,
+    "covered_packet_routes": 20,
     "approved_same_origin_pdf_delivery_enabled": true,
     "public_downloads_enabled": true,
     "direct_cached_downloads_enabled": false
@@ -182,6 +182,62 @@
         "issue": "name or address update",
         "posture": "Update court record",
         "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-no-minor-children",
+      "packet_label": "Maricopa adult name change - no minor children",
+      "has_official_packet_page": false,
+      "official_packet_page_actions": 0,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 1,
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-with-minor-child",
+      "packet_label": "Maricopa adult name change - adult has minor child",
+      "has_official_packet_page": false,
+      "official_packet_page_actions": 0,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 1,
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-name-change-family",
+      "packet_label": "Maricopa name change for a family",
+      "has_official_packet_page": false,
+      "official_packet_page_actions": 0,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 1,
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-name-change-minor-child",
+      "packet_label": "Maricopa minor child name change",
+      "has_official_packet_page": false,
+      "official_packet_page_actions": 0,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 1,
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
       }
     },
     {

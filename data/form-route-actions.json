@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-route-actions",
-  "built_at": "2026-06-12T14:40:31.858Z",
+  "built_at": "2026-06-12T15:26:32.554Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/form-packet-page-actions.json",
@@ -16,11 +16,11 @@
     "sensitive_public_collection_enabled": false
   },
   "summary": {
-    "route_actions": 16,
+    "route_actions": 20,
     "routes_with_packet_pages": 16,
-    "routes_with_approved_pdfs": 9,
+    "routes_with_approved_pdfs": 13,
     "official_packet_page_actions": 16,
-    "official_pdf_actions": 70,
+    "official_pdf_actions": 74,
     "approved_same_origin_pdf_delivery_enabled": true,
     "public_pdf_view_download_enabled": true,
     "direct_cached_downloads_enabled": false
@@ -793,6 +793,134 @@
       "languages": [
         "English",
         "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-no-minor-children",
+      "packet_label": "Maricopa adult name change - no minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "official_packet_pages": [],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-071",
+          "display_label": "Adult Name Change - No Minor Children (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "cvnca1z.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gowfskuf/cvnca1z.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-071",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-071?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 0,
+        "official_pdfs": 1,
+        "languages": 1
+      },
+      "languages": [
+        "English"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-name-change-adult-with-minor-child",
+      "packet_label": "Maricopa adult name change - adult has minor child",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-072",
+          "display_label": "Adult Name Change - Adult Has Minor Child (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "cvncc1z.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtflhqgz/cvncc1z.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-072",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-072?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 0,
+        "official_pdfs": 1,
+        "languages": 1
+      },
+      "languages": [
+        "English"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-name-change-family",
+      "packet_label": "Maricopa name change for a family",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-074",
+          "display_label": "Family Name Change Packet (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "cvncf1z.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/amileztz/cvncf1z.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-074",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-074?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 0,
+        "official_pdfs": 1,
+        "languages": 1
+      },
+      "languages": [
+        "English"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-name-change-minor-child",
+      "packet_label": "Maricopa minor child name change",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-073",
+          "display_label": "Minor Child Name Change (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "cvncm1z.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3yto52or/cvncm1z.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-073",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-073?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 0,
+        "official_pdfs": 1,
+        "languages": 1
+      },
+      "languages": [
+        "English"
       ],
       "public_status": "Packet page and reviewed official PDFs available"
     },
