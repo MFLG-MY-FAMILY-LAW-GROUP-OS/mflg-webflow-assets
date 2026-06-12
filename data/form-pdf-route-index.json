@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-pdf-route-index",
-  "built_at": "2026-06-12T13:27:58.438Z",
+  "built_at": "2026-06-12T13:37:25.992Z",
   "source_manifest": "data/form-pdf-public-actions.json",
   "public_safety": {
     "contains_sensitive_user_data": false,
