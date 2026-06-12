@@ -1275,7 +1275,7 @@
 
     if (hasReviewedPdfPacket) {
       const packetMeta = pdfPacketDecisionMeta[route.pdfPacket] || {};
-      const packetLabel = packetMeta.label || "reviewed packet";
+      const packetLabel = packetMeta.label || "reviewed form group";
       const packetCount = Number(packetMeta.count || 0);
       return {
         tone: "ready",
@@ -1308,7 +1308,7 @@
         tone: "review",
         kicker: "Court source found",
         title: "Open the matching Maricopa forms.",
-        copy: "This is the safest starting point for this selection. Use the reviewed forms or start Intake if you are not sure which packet fits.",
+        copy: "This is the safest starting point for this selection. Use the reviewed forms or start Intake if you are not sure which form group fits.",
         primaryLabel: "Open court forms",
         primaryHref: firstResource.url || "#forms-packets",
         meta: ["Reviewed forms first", ...baseMeta.slice(1)],
@@ -1644,6 +1644,7 @@
               <strong data-guided-result-title>Start with the form finder.</strong>
               <p data-guided-result-copy>Answer the questions above and use the blue button when you are ready.</p>
               <div class="forms-guided-summary" data-guided-summary></div>
+              <div class="forms-guided-path-line" data-guided-path-line>Your path: Court forms -> issue unknown -> statewide -> children unknown</div>
               <div class="forms-guided-result-actions">
                 <a class="button primary" href="#forms-official-router" data-guided-result-action>Continue to recommended forms</a>
                 <a class="button outline" href="/start" data-link data-guided-intake-fallback data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
@@ -1841,7 +1842,7 @@
           <div class="section-head compact">
             <p class="eyebrow">Matching forms</p>
             <h2>Reviewed forms are loading.</h2>
-            <p>Start with the recommended packet. Open forms in order. If the packet title does not sound right, use Guided Intake instead of guessing.</p>
+            <p>Start with the recommended form group. Open forms in order. If the title does not sound right, use Guided Intake instead of guessing.</p>
           </div>
           <p class="forms-router-status">Loading reviewed forms...</p>
         </div>
@@ -1925,28 +1926,27 @@
         </div>
         <div class="calculator-pathways" aria-label="Calculator paths">
           <article>
-            <span>Support or maintenance</span>
-            <strong>Estimate money questions</strong>
-            <p>Use the on-site calculators for planning. If any input is unclear, carry the question into Intake before relying on a result.</p>
+            <span>Child support</span>
+            <strong>Estimate child support</strong>
+            <p>Use planning numbers only. If income, parenting time, insurance, or childcare inputs are unclear, start Guided Intake first.</p>
             <div>
-              <button class="button primary" type="button" data-calculator-jump="support">Child support</button>
-              <button class="button outline" type="button" data-calculator-jump="maintenance">Maintenance</button>
+              <button class="button primary" type="button" data-calculator-jump="support">Open child support calculator</button>
             </div>
           </article>
           <article>
             <span>Parenting time</span>
-            <strong>Count overnights</strong>
+            <strong>Count parenting overnights</strong>
             <p>Count overnights without names, addresses, allegations, or private facts. Use the count as an organizer, not a final child-support number.</p>
             <div>
-              <button class="button outline" type="button" data-calculator-jump="parenting">Open counter</button>
+              <button class="button primary" type="button" data-calculator-jump="parenting">Open parenting time counter</button>
             </div>
           </article>
           <article>
-            <span>Not sure</span>
-            <strong>Use Guided Intake first</strong>
-            <p>If you do not know which calculator, form, county, or deadline applies, start Intake and avoid guessing.</p>
+            <span>Spousal maintenance</span>
+            <strong>Estimate spousal maintenance</strong>
+            <p>Use planning numbers only. If marriage length, income, existing orders, or effective dates are unclear, start Guided Intake first.</p>
             <div>
-              <a class="button primary" href="/start" data-link data-calculator-path-intake>Start Intake</a>
+              <button class="button primary" type="button" data-calculator-jump="maintenance">Open maintenance calculator</button>
             </div>
           </article>
         </div>
@@ -3525,28 +3525,28 @@
           <div>
             <span>Forms</span>
             <strong>Open reviewed court forms here.</strong>
-            <p>Choose the packet that fits, open the forms in order, and use Intake if anything does not match your situation.</p>
+            <p>Choose the form group that fits, open the forms in order, and use Intake if anything does not match your situation.</p>
           </div>
           <a class="button outline" href="/start" data-link data-form-download-intake>Start Guided Intake to confirm</a>
         </div>
         <div class="forms-packet-builder" id="forms-packet-builder" data-forms-packet-builder>
           <div class="forms-packet-print-title" data-forms-packet-print-title>
-            <span>Printable packet checklist</span>
+            <span>Printable form checklist</span>
             <strong>MY FAMILY LAW GROUP PLLC</strong>
             <p>Use this checklist to track which official court PDFs you opened or reviewed. Do not write private facts, case numbers, or financial information on this page.</p>
           </div>
           <div class="forms-packet-builder-head">
             <div>
-              <span>Build your packet</span>
-              <strong>Choose one packet, then open the forms in order.</strong>
+              <span>Build your form checklist</span>
+              <strong>Choose one form group, then open the forms in order.</strong>
               <p>Open each form here first so you can keep your place. Use the court-source link in the viewer only if a PDF does not load.</p>
             </div>
-            <a class="button primary" href="/start" data-link data-forms-packet-intake>Use this packet in Intake</a>
+            <a class="button primary" href="/start" data-link data-forms-packet-intake>Add this form group to Intake</a>
           </div>
           <div class="forms-packet-builder-controls">
-            <label>Packet
+            <label>Form group
               <select data-forms-packet-select>
-                ${groups.map((group) => `<option value="${esc(group.packet_id || "all")}"${group.packet_id === defaultPacketId ? " selected" : ""}>${esc(group.label || "Court packet")}</option>`).join("")}
+                ${groups.map((group) => `<option value="${esc(group.packet_id || "all")}"${group.packet_id === defaultPacketId ? " selected" : ""}>${esc(group.label || "Court form group")}</option>`).join("")}
               </select>
             </label>
             <label>Language
@@ -3558,14 +3558,14 @@
             </label>
           </div>
           <div class="forms-packet-change-note" data-forms-packet-change-note hidden>
-            <strong>Packet view updated.</strong>
-            <span>Visible forms changed. Checks from other packet views stay saved in this browser tab.</span>
+            <strong>Form list updated.</strong>
+            <span>Visible forms changed. Checks from other form groups stay saved in this browser tab.</span>
           </div>
           <div class="forms-packet-fit" data-forms-packet-fit aria-live="polite">
             <article>
               <span>Best fit</span>
-              <strong data-forms-packet-fit-title>Choose a packet above.</strong>
-              <p data-forms-packet-fit-copy>The page will explain who the selected packet is usually for before you open forms.</p>
+              <strong data-forms-packet-fit-title>Choose a form group above.</strong>
+              <p data-forms-packet-fit-copy>The page will explain who the selected form group is usually for before you open forms.</p>
             </article>
             <article>
               <span>Confirm first</span>
@@ -3580,17 +3580,17 @@
           </div>
           <div class="forms-packet-builder-path" aria-label="Packet builder sequence">
             <article><span>01</span><strong>Read the starting instructions</strong><p>Begin with the court process sheet before opening forms.</p></article>
-            <article><span>02</span><strong>Open only matching forms</strong><p>The builder hides child-only forms when the packet says no minor children.</p></article>
-            <article><span>03</span><strong>Use Guided Intake if unsure</strong><p>If the packet title or forms do not fit, do not guess.</p></article>
+            <article><span>02</span><strong>Open only matching forms</strong><p>The page hides child-only forms when the form group says no minor children.</p></article>
+            <article><span>03</span><strong>Use Guided Intake if unsure</strong><p>If the form group title or forms do not fit, do not guess.</p></article>
           </div>
           <div class="forms-packet-checklist-bar" data-forms-packet-checklist-bar>
-            <p class="forms-packet-builder-status" data-forms-packet-status>Packet forms are ready.</p>
+            <p class="forms-packet-builder-status" data-forms-packet-status>Forms are ready.</p>
             <div class="forms-packet-primary-actions">
               <span data-forms-packet-progress>0 of 0 checked</span>
               <button class="button primary" type="button" data-forms-packet-next>Open next unchecked</button>
               <button class="button outline forms-packet-resume" type="button" data-forms-packet-resume hidden>Resume where you left off</button>
             </div>
-            <div class="forms-packet-checklist-actions" aria-label="Packet checklist utilities">
+            <div class="forms-packet-checklist-actions" aria-label="Form checklist utilities">
               <button class="button ghost" type="button" data-forms-packet-clear>Clear checks</button>
               <button class="button ghost" type="button" data-forms-packet-copy>Copy checklist</button>
               <button class="button outline" type="button" data-forms-packet-print>Print checklist</button>
@@ -3605,13 +3605,13 @@
           </div>
           <div class="forms-packet-clear-note" data-forms-packet-clear-note hidden>
             <strong>Visible checks cleared.</strong>
-            <span>This only resets the visible packet checklist in this browser tab.</span>
+            <span>This only resets the visible form checklist in this browser tab.</span>
           </div>
           <div class="forms-packet-remaining" data-forms-packet-remaining aria-live="polite">
             <div>
               <span>Still left</span>
               <strong data-forms-packet-remaining-title>Forms left to review will appear here.</strong>
-              <p data-forms-packet-remaining-copy>Use this as a quick check so you do not lose your place in the packet.</p>
+              <p data-forms-packet-remaining-copy>Use this as a quick check so you do not lose your place.</p>
             </div>
             <ol data-forms-packet-remaining-list></ol>
           </div>
@@ -3629,14 +3629,14 @@
           </div>
           <div class="forms-packet-complete" data-forms-packet-complete hidden>
             <div>
-              <span>Packet reviewed</span>
-              <strong>All visible forms in this packet are checked.</strong>
-              <p>Use the checklist for your records, or send this packet choice into Intake if you want the office to review the next step.</p>
+              <span>Forms reviewed</span>
+              <strong>All visible forms in this form group are checked.</strong>
+              <p>Use the checklist for your records, or send this form group choice into Intake if you want the office to review the next step.</p>
             </div>
             <div class="forms-packet-complete-actions">
               <button class="button outline" type="button" data-forms-packet-complete-copy>Copy checklist</button>
               <button class="button outline" type="button" data-forms-packet-complete-print>Print checklist</button>
-              <a class="button primary" href="/start" data-link data-forms-packet-complete-intake>Use packet in Intake</a>
+              <a class="button primary" href="/start" data-link data-forms-packet-complete-intake>Add form group to Intake</a>
             </div>
           </div>
           <div class="forms-packet-builder-list" data-forms-packet-list>
@@ -3675,8 +3675,8 @@
         <div class="forms-download-grid">
           ${groups.map((group) => `<article>
             <span>${esc(group.public_action || "Official PDFs first")}</span>
-            <strong>${esc(group.label || "Court packet")}</strong>
-            <p>Open the forms that match this packet, then use Intake if the title or next step is unclear.</p>
+            <strong>${esc(group.label || "Court form group")}</strong>
+            <p>Open the forms that match this form group, then use Intake if the title or next step is unclear.</p>
           </article>`).join("")}
         </div>
       `;
@@ -3787,12 +3787,12 @@
         if (packetRemainingTitle) {
           packetRemainingTitle.textContent = remaining.length
             ? `${remaining.length} form${remaining.length === 1 ? "" : "s"} still need review.`
-            : "Every visible form in this packet is checked.";
+            : "Every visible form in this form group is checked.";
         }
         if (packetRemainingCopy) {
           packetRemainingCopy.textContent = remaining.length
             ? "Open the next item below, or continue with the button above."
-            : "You can copy or print the checklist, or send this packet choice into Intake.";
+            : "You can copy or print the checklist, or send this form group choice into Intake.";
         }
         packetRemainingList.innerHTML = remaining.slice(0, 4).map((card, index) => `
           <li>
@@ -3803,7 +3803,7 @@
           </li>
         `).join("");
         if (remaining.length > 4) {
-          packetRemainingList.insertAdjacentHTML("beforeend", `<li class="forms-packet-remaining-more"><span>+</span><strong>${esc(String(remaining.length - 4))} more in this packet</strong></li>`);
+          packetRemainingList.insertAdjacentHTML("beforeend", `<li class="forms-packet-remaining-more"><span>+</span><strong>${esc(String(remaining.length - 4))} more in this form group</strong></li>`);
         }
       };
       const setCurrentPacketCard = (card) => {
@@ -3836,7 +3836,7 @@
         const nextCard = visibleCards.find((card) => !card.querySelector("[data-forms-packet-check]")?.checked);
         if (packetNext) {
           packetNext.disabled = !nextCard;
-          packetNext.textContent = nextCard ? "Open next unchecked" : "Packet reviewed";
+          packetNext.textContent = nextCard ? "Open next unchecked" : "Forms reviewed";
         }
         if (packetResume) {
           packetResume.hidden = !(checked > 0 && nextCard);
@@ -3844,22 +3844,22 @@
         }
         if (packetCurrentNext) {
           packetCurrentNext.disabled = !nextCard;
-          packetCurrentNext.textContent = nextCard ? "Continue to next form" : "Packet reviewed";
+          packetCurrentNext.textContent = nextCard ? "Continue to next form" : "Forms reviewed";
         }
         if (packetNextStatus) {
           packetNextStatus.textContent = nextCard
             ? `Next: ${nextCard.dataset.publicName || "Official court PDF"}`
-            : visibleCards.length ? "All visible forms are checked for this packet." : "No visible forms to review.";
+            : visibleCards.length ? "All visible forms are checked for this form group." : "No visible forms to review.";
         }
         if (packetStateLabel && packetStateTitle && packetStateCopy) {
           if (!visibleCards.length) {
             packetStateLabel.textContent = "No visible forms";
-            packetStateTitle.textContent = "No forms match this packet and language.";
-            packetStateCopy.textContent = "Change the packet or language, or use Intake if the right starting point is unclear.";
+            packetStateTitle.textContent = "No forms match this form group and language.";
+            packetStateCopy.textContent = "Change the form group or language, or use Intake if the right starting point is unclear.";
           } else if (complete) {
-            packetStateLabel.textContent = "Packet reviewed";
-            packetStateTitle.textContent = "Every visible form in this packet is checked.";
-            packetStateCopy.textContent = "Copy or print the checklist, or send this packet choice into Intake for help confirming the next step.";
+            packetStateLabel.textContent = "Forms reviewed";
+            packetStateTitle.textContent = "Every visible form in this form group is checked.";
+            packetStateCopy.textContent = "Copy or print the checklist, or send this form group choice into Intake for help confirming the next step.";
           } else if (checked > 0) {
             packetStateLabel.textContent = "In progress";
             packetStateTitle.textContent = `${visibleCards.length - checked} form${visibleCards.length - checked === 1 ? "" : "s"} left in this view.`;
@@ -3876,11 +3876,11 @@
         updateRemainingPacketForms(visibleCards);
       };
       const packetChecklistText = () => {
-        const packetLabel = packetSelect?.options[packetSelect.selectedIndex]?.textContent?.trim() || "Court packet";
+        const packetLabel = packetSelect?.options[packetSelect.selectedIndex]?.textContent?.trim() || "Court form group";
         const languageLabel = languageSelect?.options[languageSelect.selectedIndex]?.textContent?.trim() || "Selected language";
         const lines = [
           "MY FAMILY LAW GROUP PLLC - Court Forms Checklist",
-          `Packet: ${packetLabel}`,
+          `Form group: ${packetLabel}`,
           `Language: ${languageLabel}`,
           "Do not add private facts, case numbers, or financial information to this public checklist.",
           ""
@@ -3934,9 +3934,9 @@
         if (packetId === "maricopa-divorce-new-with-children") {
           return {
             title: "Starting a Maricopa divorce or legal separation with minor children.",
-            copy: "Use this packet when the case is a new filing and there are minor children who need parenting-time, legal decision-making, or child-support forms.",
+            copy: "Use this form group when the case is a new filing and there are minor children who need parenting-time, legal decision-making, or child-support forms.",
             check: "Confirm children, county, and filing stage.",
-            checkCopy: "If a case is already open, you may need response, post-decree, enforcement, or agreement forms instead of a new-filing packet.",
+            checkCopy: "If a case is already open, you may need response, post-decree, enforcement, or agreement forms instead of a new-filing form group.",
             next: "Read the process sheet before the petition.",
             nextCopy: "Then open the sensitive-data cover sheet, petition, parenting plan, and child-related forms in order."
           };
@@ -3944,19 +3944,19 @@
         if (packetId === "maricopa-divorce-new-no-children") {
           return {
             title: "Starting a Maricopa divorce or legal separation with no minor children.",
-            copy: "Use this packet when the case is a new filing and there are no minor children requiring parenting-time, decision-making, or child-support forms.",
+            copy: "Use this form group when the case is a new filing and there are no minor children requiring parenting-time, decision-making, or child-support forms.",
             check: "Confirm there are no minor children in the case.",
-            checkCopy: "If minor children are involved, switch to the packet with children so the builder includes the child-related forms.",
+            checkCopy: "If minor children are involved, switch to the form group with children so this page includes the child-related forms.",
             next: "Use the instructions first.",
-            nextCopy: "The builder hides child-related forms for this packet so you only see the forms that fit a no-children start."
+            nextCopy: "The page hides child-related forms for this form group so you only see the forms that fit a no-children start."
           };
         }
         if (packetId === "maricopa-consent-decree-agreement") {
           return {
             title: "Finalizing a divorce or legal separation when everyone agrees.",
-            copy: "Use this packet when both sides have reached a full agreement and need the court documents that move the matter toward final orders.",
+            copy: "Use this form group when both sides have reached a full agreement and need the court documents that move the matter toward final orders.",
             check: "Confirm the agreement is complete.",
-            checkCopy: "If terms are still disputed, if someone will not sign, or if financial disclosure is incomplete, use Intake before relying on this packet.",
+            checkCopy: "If terms are still disputed, if someone will not sign, or if financial disclosure is incomplete, use Intake before relying on this form group.",
             next: "Open the final-order forms carefully.",
             nextCopy: "Compare each form against the agreement and keep the checklist for the final review step."
           };
@@ -3964,16 +3964,16 @@
         if (packetId === "maricopa-parenting-parentage-support") {
           return {
             title: "Starting paternity, parenting-time, legal decision-making, or child support.",
-            copy: "Use this packet when parents are not using a divorce packet and need orders about parentage, children, parenting time, or support.",
+            copy: "Use this form group when parents are not using a divorce form group and need orders about parentage, children, parenting time, or support.",
             check: "Confirm this is not part of an existing divorce case.",
-            checkCopy: "If there is already a family-court order, you may need modification or enforcement instead of an establishment packet.",
+            checkCopy: "If there is already a family-court order, you may need modification or enforcement instead of establishment forms.",
             next: "Start with the parentage and child forms.",
             nextCopy: "Open the forms in order, then use Intake if the right filing path is still unclear."
           };
         }
         return {
-          title: "Use the selected packet only if the title matches your situation.",
-          copy: "If the packet does not match the county, case stage, children, or agreement status, use Intake before opening forms.",
+          title: "Use the selected form group only if the title matches your situation.",
+          copy: "If the form group does not match the county, case stage, children, or agreement status, use Intake before opening forms.",
           check: "Confirm county, children, and case stage.",
           checkCopy: "A new filing, response, agreement, post-decree request, and enforcement request can require different paperwork.",
           next: "Open the forms in order.",
@@ -3986,18 +3986,18 @@
         return {
           routeKey: `forms-packet-builder-${slugify(group.label || packetId || "packet")}`,
           entrySource: "Forms & Tools",
-          entryLabel: `Packet builder: ${group.label || "Court packet"}`,
+          entryLabel: `Forms checklist: ${group.label || "Court form group"}`,
           issuePathway: "Forms & Tools",
-          issueDetail: card?.dataset.publicName ? `Packet form / ${card.dataset.publicName}` : "Packet builder selection",
+          issueDetail: card?.dataset.publicName ? `Form checklist / ${card.dataset.publicName}` : "Form checklist selection",
           serviceInterest: "",
-          contextNote: "Public packet-builder selection only. No private facts, uploads, case numbers, or financial information were collected.",
+          contextNote: "Public form-checklist selection only. No private facts, uploads, case numbers, or financial information were collected.",
           presetAnswers: {
             packetBuilderPacket: group.label || "",
             packetBuilderPacketId: packetId,
             packetBuilderLanguage: card?.dataset.language || languageSelect?.value || "",
             packetBuilderForm: card?.dataset.publicName || "",
             approvedPdfOfficialUrl: card?.dataset.officialUrl || "",
-            sourceType: "Forms & Tools packet builder / public planning"
+            sourceType: "Forms & Tools form checklist / public planning"
           }
         };
       };
@@ -4034,8 +4034,8 @@
         }
         if (packetStatus) {
           packetStatus.textContent = visible
-            ? `${visible} matching official PDF${visible === 1 ? "" : "s"} shown for this packet.${hiddenForFit ? ` ${hiddenForFit} child-related form${hiddenForFit === 1 ? "" : "s"} hidden because this packet is for no minor children.` : ""}`
-          : "No official PDFs match this packet and language.";
+            ? `${visible} matching official PDF${visible === 1 ? "" : "s"} shown for this form group.${hiddenForFit ? ` ${hiddenForFit} child-related form${hiddenForFit === 1 ? "" : "s"} hidden because this form group is for no minor children.` : ""}`
+          : "No official PDFs match this form group and language.";
         }
         updatePacketProgress();
       };
@@ -4269,6 +4269,7 @@
     const guidedResultAction = host.querySelector("[data-guided-result-action]");
     const guidedIntakeFallback = host.querySelector("[data-guided-intake-fallback]");
     const guidedSummary = host.querySelector("[data-guided-summary]");
+    const guidedPathLine = host.querySelector("[data-guided-path-line]");
     const flowSections = Array.from(document.querySelectorAll("[data-flow-section]"));
     let showAllSections = false;
     let guidedStep = 0;
@@ -4291,7 +4292,7 @@
       forms: {
         label: "What happens next",
         title: "Continue to the recommended forms.",
-        copy: "Easy Mode has updated the form finder. Open the recommended form group, then use Guided Intake if the packet title does not sound right.",
+        copy: "Easy Mode has updated the form finder. Open the recommended form group, then use Guided Intake if the title does not sound right.",
         href: "#forms-official-router",
         text: "Continue to recommended forms"
       },
@@ -4509,6 +4510,9 @@
           childrenLabels[guidedAnswers.children] || "Children unknown"
         ];
         guidedSummary.innerHTML = chips.map((chip) => `<span>${esc(chip)}</span>`).join("");
+        if (guidedPathLine) {
+          guidedPathLine.textContent = `Your path: ${chips.join(" -> ")}`;
+        }
       }
     };
 
@@ -4905,7 +4909,7 @@
         </div>
         <div class="jurisdiction-readiness-metrics">
           <article><span>Sources OK</span><strong>${esc(String(summary.monitored_sources_ok || 0))}/${esc(String(summary.monitored_sources_total || 0))}</strong></article>
-          <article><span>Packet reviewed</span><strong>${esc(String(summary.jurisdictions_with_reviewed_packet_actions || 0))}</strong></article>
+          <article><span>Reviewed form groups</span><strong>${esc(String(summary.jurisdictions_with_reviewed_packet_actions || 0))}</strong></article>
           <article><span>County source only</span><strong>${esc(String(summary.county_source_only || 0))}</strong></article>
         </div>
         <div class="jurisdiction-readiness-grid">
@@ -6100,7 +6104,7 @@
         <div class="packet-action-head">
           <span>Official packet pages</span>
           <strong>${esc(String(actions.length))} reviewed packet page${actions.length === 1 ? "" : "s"} indexed.</strong>
-          <p>Use the reviewed PDF viewer above or Intake when the packet title does not clearly match your situation.</p>
+          <p>Use the reviewed PDF viewer above or Intake when the form group title does not clearly match your situation.</p>
         </div>
         <div class="packet-action-grid" aria-label="Reviewed official packet page actions">
           ${actions.map((item) => {
@@ -6185,29 +6189,35 @@
         <div class="section-head compact">
           <p class="eyebrow">Step 2</p>
           <h2>Open the forms for that situation.</h2>
-          <p>Start with the recommended packet. Open the forms in order. If the title does not sound right, use Guided Intake instead of guessing.</p>
+          <p>Start with the recommended form group. Open the forms in order. If the title does not sound right, use Guided Intake instead of guessing.</p>
         </div>
         <div class="official-pdf-spotlight" data-official-pdf-spotlight>
           <div>
             <span data-official-pdf-spotlight-kicker>Your next form step</span>
-            <strong data-official-pdf-spotlight-title>Finding the closest packet...</strong>
-            <p data-official-pdf-spotlight-copy>Start here. The packet below should match the choices you made above.</p>
+            <strong data-official-pdf-spotlight-title>Finding the closest form group...</strong>
+            <p data-official-pdf-spotlight-copy>Start here. The form group below should match the choices you made above.</p>
+            <ol class="forms-next-mini-list">
+              <li>Open the first form or instruction sheet.</li>
+              <li>Check that the title matches your situation.</li>
+              <li>Stop and start Guided Intake if it does not match.</li>
+            </ol>
+            <small>You are not filing anything by opening these forms.</small>
           </div>
           <button class="button outline" type="button" data-official-pdf-show-all>Browse other form groups</button>
         </div>
         <details class="official-pdf-route-index" aria-label="Choose a court packet" data-official-pdf-route-index>
           <summary>
-            <span>Need a different packet?</span>
+            <span>Need a different form group?</span>
             <strong>Choose another situation only if the recommendation above does not fit.</strong>
             <p>These choices are secondary. If none sound right, start Guided Intake.</p>
           </summary>
           <div class="official-pdf-route-grid">
             ${routePackets.map((item) => `
               <button class="official-pdf-route-card" type="button" data-official-pdf-route-card="${esc(item.packet_id)}">
-                <h3>${esc(item.page_label || item.packet_label || "Court packet")}</h3>
+                <h3>${esc(item.page_label || item.packet_label || "Court form group")}</h3>
                 <p>${esc(item.packet_label || "")}</p>
                 <strong>${esc((item.languages || []).join(" / ") || "Official PDFs")}</strong>
-                <em>Use this packet</em>
+                <em>Use this form group</em>
               </button>
             `).join("")}
           </div>
@@ -6216,11 +6226,11 @@
           <summary>Advanced: search or switch form groups</summary>
           <div class="official-pdf-controls" aria-label="Filter reviewed form links">
             <label>Search
-              <input type="search" placeholder="Search form name, packet, language..." data-official-pdf-search>
+              <input type="search" placeholder="Search form name, form group, language..." data-official-pdf-search>
             </label>
             <label>Form group
               <select data-official-pdf-packet>
-                <option value="all">All packets</option>
+                <option value="all">All form groups</option>
                 ${Array.from(groups.entries()).map(([key, group]) => `<option value="${esc(key)}">${esc(group.title)}</option>`).join("")}
               </select>
             </label>
@@ -6237,7 +6247,7 @@
         <p class="forms-router-status" data-official-pdf-status>Forms are ready.</p>
         <div class="official-pdf-intake-panel">
           <div>
-            <strong data-official-pdf-intake-title>Not sure this packet fits?</strong>
+            <strong data-official-pdf-intake-title>Not sure this form group fits?</strong>
             <p data-official-pdf-intake-copy>Use Guided Intake and the office can help route the next step.</p>
           </div>
           <a class="button primary" href="/start" data-link data-official-pdf-intake>Start Guided Intake</a>
@@ -6262,7 +6272,7 @@
           ${Array.from(groups.entries()).map(([key, group]) => `
             <details class="official-pdf-group" data-official-pdf-group="${esc(key)}">
               <summary>
-                <span>Packet</span>
+                <span>Form group</span>
                 <strong>${esc(group.title)}</strong>
                 <p>${esc(group.packet)}</p>
               </summary>
@@ -6340,14 +6350,14 @@
         if (intakeTitle) {
           intakeTitle.textContent = packetLabel
             ? `Not sure ${packetLabel} fits?`
-            : "Not sure which packet fits?";
+            : "Not sure which form group fits?";
         }
         if (intakeCopy) {
           intakeCopy.textContent = packetLabel && packetRoute
             ? "Use Guided Intake and the office can help confirm whether this is the right starting point."
             : packetLabel
-            ? "Use Intake if the packet title does not match your situation."
-            : "Use Intake if the packet list does not make sense.";
+            ? "Use Intake if the form group title does not match your situation."
+            : "Use Intake if the form list does not make sense.";
         }
       };
       const updateItemIntakeLinks = () => {
@@ -6435,17 +6445,17 @@
         });
         const selectedRoute = routePacketById.get(packetValue);
         if (spotlightKicker) {
-          spotlightKicker.textContent = selectedRoute ? "Recommended packet" : "Browsing other packets";
+          spotlightKicker.textContent = selectedRoute ? "Recommended form group" : "Browsing other form groups";
         }
         if (spotlightTitle) {
           spotlightTitle.textContent = selectedRoute
-            ? selectedRoute.page_label || selectedRoute.packet_label || "Reviewed packet selected"
+            ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended form group selected"
             : "Choose a form group only if the recommendation does not fit.";
         }
         if (spotlightCopy) {
           spotlightCopy.textContent = selectedRoute
-            ? "Start here if this packet sounds like your situation. Open the forms in order."
-            : "Use search, packet, and language filters only if you know what you are looking for. Otherwise, start Guided Intake.";
+            ? "Start here if this form group sounds like your situation. Open the forms in order."
+            : "Use search, form group, and language filters only if you know what you are looking for. Otherwise, start Guided Intake.";
         }
         if (status) {
           status.textContent = visible
@@ -6517,7 +6527,7 @@
           update();
           const label = packet.options[packet.selectedIndex]?.textContent || "approved packets";
           if (status && nextPacket !== "all") {
-            status.textContent = `${status.textContent} Showing the packet that matches your answers: ${label}.`;
+            status.textContent = `${status.textContent} Showing the form group that matches your answers: ${label}.`;
           }
         }
       };

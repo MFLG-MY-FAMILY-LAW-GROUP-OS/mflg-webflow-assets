@@ -183,7 +183,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-form-download-readiness"* ]] &&
 	     [[ "$public_site_js" == *"Open reviewed court forms here"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-builder"* ]] &&
-	     [[ "$public_site_js" == *"Build your packet"* ]] &&
+	     [[ "$public_site_js" == *"Build your form checklist"* ]] &&
 	     [[ "$public_site_js" == *"mflg:official-pdf-open"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-view"* ]] &&
 	     [[ "$public_site_js" == *"#forms-packet-builder"* ]] &&
@@ -196,7 +196,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-child-only"* ]] &&
 	     [[ "$public_site_js" == *"child-related form"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-change-note"* ]] &&
-	     [[ "$public_site_js" == *"Checks from other packet views stay saved"* ]] &&
+	     [[ "$public_site_js" == *"Checks from other form groups stay saved"* ]] &&
 	     [[ "$public_site_js" == *"forms-packet-builder-path"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-check"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-progress"* ]] &&
@@ -218,9 +218,9 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"Reviewed court PDF"* ]] &&
 	     [[ "$public_site_js" == *"Official court PDF source"* ]] &&
 	     [[ "$public_site_js" == *"forms-packet-primary-actions"* ]] &&
-	     [[ "$public_site_js" == *"Packet checklist utilities"* ]] &&
+	     [[ "$public_site_js" == *"Form checklist utilities"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-complete"* ]] &&
-	     [[ "$public_site_js" == *"All visible forms in this packet are checked"* ]] &&
+	     [[ "$public_site_js" == *"All visible forms in this form group are checked"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-complete-intake"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-copy"* ]] &&
 	     [[ "$public_site_js" == *"packetChecklistText"* ]] &&
@@ -287,10 +287,15 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-official-pdf-actions"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-spotlight"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-spotlight-kicker"* ]] &&
-	     [[ "$public_site_js" == *"Browsing other packets"* ]] &&
+	     [[ "$public_site_js" == *"Browsing other form groups"* ]] &&
 	     [[ "$public_site_js" == *"Browse other form groups"* ]] &&
 	     [[ "$public_site_js" == *"forms-safe-next"* ]] &&
 	     [[ "$public_site_js" == *"forms-advanced-details"* ]] &&
+	     [[ "$public_site_js" == *"data-guided-path-line"* ]] &&
+	     [[ "$public_site_js" == *"You are not filing anything by opening these forms"* ]] &&
+	     [[ "$public_site_js" == *"Open child support calculator"* ]] &&
+	     [[ "$public_site_js" == *"Open parenting time counter"* ]] &&
+	     [[ "$public_site_js" == *"Open maintenance calculator"* ]] &&
 	     [[ "$public_site_js" == *"clearOfficialPdfFilters"* ]] &&
 	     [[ "$public_site_js" == *"expandPdfGroup"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-search"* ]] &&

@@ -2377,6 +2377,16 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   line-height: 1;
   text-transform: uppercase;
 }
+.forms-guided-path-line {
+  padding: 9px 10px;
+  border: 1px solid rgba(33, 85, 141, 0.12);
+  border-radius: 8px;
+  background: rgba(33, 85, 141, 0.055);
+  color: rgba(17, 24, 32, 0.78);
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.35;
+}
 .forms-help-note {
   margin-top: 12px;
   border: 1px solid rgba(33, 85, 141, 0.12);
@@ -5291,6 +5301,46 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.44;
+}
+.official-pdf-spotlight small {
+  display: block;
+  margin-top: 9px;
+  color: rgba(17, 24, 32, 0.72);
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.35;
+}
+.forms-next-mini-list {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: forms-mini-step;
+}
+.forms-next-mini-list li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.32;
+  counter-increment: forms-mini-step;
+}
+.forms-next-mini-list li::before {
+  content: counter(forms-mini-step);
+  display: inline-grid;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--blue);
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 950;
+  line-height: 1;
 }
 .official-pdf-browse {
   margin: 12px 0 10px;
