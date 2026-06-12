@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-allguidecalc1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-calcchooser1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2737,6 +2737,7 @@
           : calculatorChoice === "deadline"
             ? "Open deadline-readiness planner"
             : "Choose calculator or planner";
+    const calculatorChooserLabel = "Choose calculator or planner";
     return `<div class="guide-row-panel-inner">
       <button class="guide-panel-close" type="button" data-guide-panel-close aria-label="Close guide details">Close</button>
       <div class="guide-panel-heading">
@@ -2779,10 +2780,10 @@
         ${calculatorChoice ? `<div class="guide-next-result" data-guide-next-result="calculator" hidden>
           <div>
             <span>Calculator</span>
-            <strong>${esc(calculatorLabel)}</strong>
-            <p>Use only simple planning numbers. Do not enter names, addresses, case numbers, allegations, uploads, or detailed private facts.</p>
+            <strong>Choose the calculator or planner that fits.</strong>
+            <p>This guide suggests ${esc(calculatorLabel.replace(/^Open /, ""))}, but you can switch tools on the next page. Use only simple planning numbers.</p>
           </div>
-          <a class="button primary" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(calculatorLabel)}</a>
+          <a class="button primary" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(calculatorChooserLabel)}</a>
         </div>` : ""}
         <div class="guide-next-result" data-guide-next-result="intake" hidden>
           <div>
@@ -2818,7 +2819,7 @@
       <div class="guide-panel-actions">
         <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>${esc(guide.leadCta || "Start guided intake")}</a>
         <button class="button outline" type="button" data-guide-scroll-forms>View forms for this guide</button>
-        ${calculatorChoice ? `<a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(calculatorLabel)}</a>` : ""}
+        ${calculatorChoice ? `<a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(calculatorChooserLabel)}</a>` : ""}
         <button class="button ghost guide-panel-close-inline" type="button" data-guide-panel-close>Close guide</button>
       </div>
     </div>`;
@@ -2869,7 +2870,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-allguidecalc1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-calcchooser1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
