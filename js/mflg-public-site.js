@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-namechange1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guidematrix1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1076,63 +1076,72 @@
 
   function guidePacketChoicesFor(guide) {
     const title = `${guide?.title || ""}`.toLowerCase();
-    if (!title.includes("name change")) return [];
-    return [
-      {
-        key: "divorce",
-        label: "During divorce",
-        helper: "Restore a former name before the decree is signed.",
-        packet: "maricopa-consent-decree-agreement",
-        issue: "divorce",
-        posture: "Agreement / final orders",
-        children: "any"
-      },
-      {
-        key: "adult-no-children",
-        label: "Adult, no minor children",
-        helper: "Separate name-change case after divorce or outside divorce.",
-        packet: "maricopa-name-change-adult-no-minor-children",
-        issue: "name change",
-        posture: "New filing",
-        children: "no-minor-children"
-      },
-      {
-        key: "adult-with-child",
-        label: "Adult with a minor child",
-        helper: "Separate adult name-change case when the adult has a minor child.",
-        packet: "maricopa-name-change-adult-with-minor-child",
-        issue: "name change",
-        posture: "New filing",
-        children: "minor-children"
-      },
-      {
-        key: "child",
-        label: "Minor child",
-        helper: "Name-change request for a child.",
-        packet: "maricopa-name-change-minor-child",
-        issue: "name change",
-        posture: "New filing",
-        children: "minor-children"
-      },
-      {
-        key: "family",
-        label: "More than one family member",
-        helper: "Family packet for multiple related name changes.",
-        packet: "maricopa-name-change-family",
-        issue: "name change",
-        posture: "New filing",
-        children: "minor-children"
-      },
-      {
-        key: "record-update",
-        label: "Update court contact record",
-        helper: "Administrative update only; this does not legally change a name.",
-        packet: "maricopa-name-address-update",
-        issue: "name or address update",
-        posture: "Existing order",
-        children: "any"
-      }
+    const category = `${guide?.category || ""}`.toLowerCase();
+    const text = `${category} ${title}`;
+    const choice = (key, label, helper, packet, issue, posture, children = "any") => ({
+      key,
+      label,
+      helper,
+      packet,
+      issue,
+      posture,
+      children
+    });
+    const divorceChoices = [
+      choice("divorce-no-children", "Divorce or separation, no minor children", "Use this when the case starts a divorce or legal separation and no minor children are involved.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children"),
+      choice("divorce-with-children", "Divorce or separation, with minor children", "Use this when the case starts a divorce or legal separation and parenting or support must also be addressed.", "maricopa-divorce-new-with-children", "divorce", "New filing", "minor-children"),
+      choice("agreement-final", "Agreement or final decree", "Use this when both sides have an agreement and need final decree or settlement forms.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any")
     ];
+    const parentingChoices = [
+      choice("parentage-parenting-support", "Start parenting, parentage, or support orders", "Use this when parents need first-time orders for legal decision-making, parenting time, parentage, or child support.", "maricopa-parenting-parentage-support", "parenting", "New filing", "minor-children"),
+      choice("parenting-in-divorce", "Parenting issues in a divorce", "Use this when parenting terms are part of a new divorce or legal separation case.", "maricopa-divorce-new-with-children", "parenting", "New filing", "minor-children"),
+      choice("foreign-custody", "Register an out-of-state custody order", "Use this when a custody or parenting order from another state needs Arizona court recognition.", "maricopa-foreign-custody-order", "parenting", "Existing order", "minor-children")
+    ];
+    const supportChoices = [
+      choice("new-support", "Start child support or parentage orders", "Use this when support is being started with parentage, legal decision-making, or parenting time.", "maricopa-parenting-parentage-support", "child support", "New filing", "minor-children"),
+      choice("support-in-divorce", "Child support in a divorce", "Use this when support is part of a new divorce or legal separation case.", "maricopa-divorce-new-with-children", "child support", "New filing", "minor-children"),
+      choice("foreign-support", "Register an out-of-state support order", "Use this when an existing support order from another state needs Arizona court recognition.", "maricopa-foreign-support-order", "child support", "Existing order", "minor-children")
+    ];
+    const agreementChoices = [
+      choice("agreement-final", "Agreement or consent decree", "Use this when both sides have agreed and need final settlement or decree forms.", "maricopa-consent-decree-agreement", "agreement", "Agreement / final orders", "any"),
+      choice("divorce-no-children", "Divorce agreement, no minor children", "Use this when the agreement belongs to a divorce or legal separation without minor children.", "maricopa-divorce-new-no-children", "divorce", "Agreement / final orders", "no-minor-children"),
+      choice("divorce-with-children", "Divorce agreement, with minor children", "Use this when the agreement belongs to a divorce or legal separation with parenting or support terms.", "maricopa-divorce-new-with-children", "divorce", "Agreement / final orders", "minor-children")
+    ];
+    const postDecreeChoices = [
+      choice("post-decree-temporary", "Temporary request after orders already exist", "Use this when there is already an order and a temporary court request is needed.", "maricopa-post-decree-temporary-orders", "modification", "Existing order", "any"),
+      choice("foreign-custody", "Register or respond to out-of-state custody order", "Use this when an order from another state is involved.", "maricopa-foreign-custody-order", "parenting", "Existing order", "minor-children"),
+      choice("foreign-support", "Register or respond to out-of-state support order", "Use this when an out-of-state support order is involved.", "maricopa-foreign-support-order", "child support", "Existing order", "minor-children")
+    ];
+    const documentChoices = [
+      choice("new-divorce-no-children", "Start divorce or separation, no minor children", "Use this for a new divorce or legal separation filing without minor children.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children"),
+      choice("new-divorce-with-children", "Start divorce or separation, with minor children", "Use this for a new divorce or legal separation filing with parenting or support issues.", "maricopa-divorce-new-with-children", "divorce", "New filing", "minor-children"),
+      choice("parenting-support", "Start parenting, parentage, or support", "Use this for first-time parenting, parentage, or support orders outside divorce.", "maricopa-parenting-parentage-support", "parenting", "New filing", "minor-children"),
+      choice("agreement-final", "Finish with an agreement", "Use this for consent decree, settlement, or final agreement forms.", "maricopa-consent-decree-agreement", "agreement", "Agreement / final orders", "any")
+    ];
+    const nameChangeChoices = [
+      choice("divorce", "During divorce", "Restore a former name before the decree is signed.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any"),
+      choice("adult-no-children", "Adult, no minor children", "Separate name-change case after divorce or outside divorce.", "maricopa-name-change-adult-no-minor-children", "name change", "New filing", "no-minor-children"),
+      choice("adult-with-child", "Adult with a minor child", "Separate adult name-change case when the adult has a minor child.", "maricopa-name-change-adult-with-minor-child", "name change", "New filing", "minor-children"),
+      choice("child", "Minor child", "Name-change request for a child.", "maricopa-name-change-minor-child", "name change", "New filing", "minor-children"),
+      choice("family", "More than one family member", "Family packet for multiple related name changes.", "maricopa-name-change-family", "name change", "New filing", "minor-children"),
+      choice("record-update", "Update court contact record", "Administrative update only; this does not legally change a name.", "maricopa-name-address-update", "name or address update", "Existing order", "any")
+    ];
+
+    if (title.includes("name change")) return nameChangeChoices;
+    if (text.includes("divorce") || text.includes("dissolution") || text.includes("legal separation") || text.includes("annulment")) return divorceChoices;
+    if (text.includes("consent") || text.includes("settlement") || text.includes("agreement") || category.includes("resolution")) return agreementChoices;
+    if (text.includes("parenting") || text.includes("legal decision") || text.includes("custody") || text.includes("relocation") || text.includes("grandparent") || text.includes("third-party") || text.includes("uccjea")) return parentingChoices;
+    if (text.includes("child support") || text.includes("arrears") || text.includes("support worksheet")) return supportChoices;
+    if (text.includes("paternity") || text.includes("parentage") || text.includes("dna") || text.includes("birth certificate") || text.includes("same-sex parentage")) return [parentingChoices[0]];
+    if (text.includes("modification") || text.includes("enforcement") || text.includes("contempt") || text.includes("withheld") || text.includes("missed time")) return postDecreeChoices;
+    if (text.includes("temporary") || category.includes("court") || text.includes("hearing") || text.includes("appearance")) return [postDecreeChoices[0], parentingChoices[0], divorceChoices[1]];
+    if (category.includes("property") || text.includes("property") || text.includes("debt") || text.includes("real estate") || text.includes("home")) return [agreementChoices[0], divorceChoices[0], divorceChoices[1]];
+    if (category.includes("maintenance") || text.includes("maintenance") || text.includes("spousal")) return [divorceChoices[0], divorceChoices[1], agreementChoices[0]];
+    if (category.includes("documents") || category.includes("procedure") || category.includes("disclosure") || text.includes("petition") || text.includes("filing") || text.includes("response")) return documentChoices;
+    if (category.includes("safety") || text.includes("protective")) return [
+      choice("protective-order", "Safety order resources", "Use this for protective-order planning resources. Emergency safety issues should use the official emergency path.", "maricopa-protective-order-resources", "safety", "Urgent / safety", "any")
+    ];
+    return [];
   }
 
   function guidePdfSearchText(action) {
@@ -2553,9 +2562,17 @@
 
   function renderGuidePanel(guide, index) {
     const route = guideRoute(guide);
-    const formsRoute = guideFormsRouteFor(guide);
     const calculatorChoice = guideCalculatorChoiceFor(guide);
     const packetChoices = guidePacketChoicesFor(guide);
+    const formsRoute = packetChoices[0]
+      ? {
+        ...guideFormsRouteFor(guide),
+        issue: packetChoices[0].issue,
+        posture: packetChoices[0].posture,
+        children: packetChoices[0].children,
+        pdfPacket: packetChoices[0].packet
+      }
+      : guideFormsRouteFor(guide);
     const calculatorLabel = calculatorChoice === "support"
       ? "Open child support calculator"
       : calculatorChoice === "parenting"
@@ -2621,12 +2638,12 @@
       </div>
       ${packetChoices.length ? `<div class="guide-packet-chooser" data-guide-packet-chooser>
         <div>
-          <span>Name-change path</span>
+          <span>Form path</span>
           <strong>Choose the situation that fits before opening forms.</strong>
-          <p>If the name change is part of an active divorce, use the divorce/decree forms. If the decree is already done and did not restore the name, use a separate name-change packet.</p>
+          <p>Pick the closest public form path. If none of these sound right, use Guided Intake instead of guessing.</p>
         </div>
         <div class="guide-packet-options" role="list">
-          ${packetChoices.map((choice, choiceIndex) => `<button class="${choiceIndex === 1 ? "active" : ""}" type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}">
+          ${packetChoices.map((choice, choiceIndex) => `<button class="${choiceIndex === 0 ? "active" : ""}" type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}">
             <span>${esc(choice.label)}</span>
             <small>${esc(choice.helper)}</small>
           </button>`).join("")}
@@ -2694,7 +2711,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-namechange1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guidematrix1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3238,7 +3255,7 @@
           const route = parseRouteData(host.getAttribute("data-guide-route")) || {};
           const nextRoute = {
             ...route,
-            issue: button.dataset.routeIssue || route.issue || "name change",
+            issue: button.dataset.routeIssue || route.issue || "all",
             posture: button.dataset.routePosture || route.posture || "New filing",
             children: button.dataset.routeChildren || route.children || "any",
             pdfPacket: button.dataset.packetId || route.pdfPacket || ""

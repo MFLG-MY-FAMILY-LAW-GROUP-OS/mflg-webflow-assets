@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-namechange1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-guidematrix1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -111,6 +111,12 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-guide-reveal"* ]] &&
 	     [[ "$public_site_js" == *"View Forms & Calculator"* ]] &&
 	     [[ "$public_site_js" == *"data-guide-pdf-panel"* ]] &&
+	     [[ "$public_site_js" == *"guidePacketChoicesFor"* ]] &&
+	     [[ "$public_site_js" == *"Form path"* ]] &&
+	     [[ "$public_site_js" == *"Divorce or separation, no minor children"* ]] &&
+	     [[ "$public_site_js" == *"Register an out-of-state custody order"* ]] &&
+	     [[ "$public_site_js" == *"Register an out-of-state support order"* ]] &&
+	     [[ "$public_site_js" == *"Use Guided Intake instead of guessing"* ]] &&
 	     [[ "$public_site_js" == *"site_pdf_view_url"* ]] &&
 	     [[ "$public_site_js" == *"Calculators & Planning Tools"* ]] &&
 	     [[ "$public_site_js" == *"Court Forms Finder"* ]] &&
