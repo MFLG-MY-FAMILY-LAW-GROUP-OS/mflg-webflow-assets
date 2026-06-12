@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-release-evidence-status",
-  "built_at": "2026-06-12T12:39:40.301Z",
+  "built_at": "2026-06-12T13:00:08.471Z",
   "public_safety": {
     "internal_evidence_index_exposed": false,
     "sensitive_fixture_values_exposed": false,

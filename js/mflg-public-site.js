@@ -1028,12 +1028,21 @@
     const county = issue === "safety" ? "Statewide" : "Maricopa";
     let pdfPacket = pdfPacketForFormsRoute(county, issue, posture, children);
     if (pdfPacket === "all") {
-      if (issue === "documents") pdfPacket = "maricopa-disclosure-and-hearing-readiness";
-      else if (issue === "modification") pdfPacket = "maricopa-modification-existing-order";
-      else if (issue === "enforcement") pdfPacket = "maricopa-enforcement-existing-order";
+      if (issue === "documents") {
+        if (title.includes("temporary") || title.includes("hearing") || title.includes("court appearance")) {
+          pdfPacket = "maricopa-post-decree-temporary-orders";
+        } else if (title.includes("financial") || title.includes("exhibit")) {
+          pdfPacket = "maricopa-consent-decree-agreement";
+        } else {
+          pdfPacket = "maricopa-divorce-new-no-children";
+        }
+      }
+      else if (issue === "modification") pdfPacket = "maricopa-post-decree-temporary-orders";
+      else if (issue === "enforcement") pdfPacket = "maricopa-parenting-parentage-support";
       else if (issue === "safety") pdfPacket = "maricopa-protective-order-resources";
-      else if (category.includes("property")) pdfPacket = "maricopa-property-division-enforcement";
-      else if (category.includes("disclosure") || category.includes("court") || category.includes("procedure")) pdfPacket = "maricopa-disclosure-and-hearing-readiness";
+      else if (category.includes("property")) pdfPacket = "maricopa-consent-decree-agreement";
+      else if (category.includes("disclosure")) pdfPacket = "maricopa-consent-decree-agreement";
+      else if (category.includes("court") || category.includes("procedure")) pdfPacket = "maricopa-post-decree-temporary-orders";
       else if (category.includes("child support")) pdfPacket = "maricopa-parenting-parentage-support";
       else if (category.includes("maintenance")) pdfPacket = "maricopa-divorce-new-no-children";
       else if (category.includes("agreements") || category.includes("resolution")) pdfPacket = "maricopa-consent-decree-agreement";

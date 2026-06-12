@@ -1,6 +1,6 @@
 {
   "version": "0.7.0-pdf-review-queue",
-  "built_at": "2026-06-12T03:59:55.904Z",
+  "built_at": "2026-06-12T12:56:41.379Z",
   "public_safety": {
     "public_pdf_actions_enabled": false,
     "direct_cached_downloads_enabled": false,
@@ -141,7 +141,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf",
         "content_type": "application/pdf",
@@ -172,7 +172,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf",
         "content_type": "application/pdf",
@@ -203,7 +203,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
         "content_type": "application/pdf",
@@ -234,7 +234,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
         "content_type": "application/pdf",
@@ -265,7 +265,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf",
         "content_type": "application/pdf",
@@ -296,7 +296,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf",
         "content_type": "application/pdf",
@@ -327,7 +327,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
         "content_type": "application/pdf",
@@ -358,7 +358,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
         "content_type": "application/pdf",
@@ -389,7 +389,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
         "content_type": "application/pdf",
@@ -420,7 +420,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
         "content_type": "application/pdf",
@@ -451,7 +451,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf",
         "content_type": "application/pdf",
@@ -482,7 +482,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf",
         "content_type": "application/pdf",
@@ -513,7 +513,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
         "content_type": "application/pdf",
@@ -544,7 +544,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
         "content_type": "application/pdf",
@@ -575,7 +575,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf",
         "content_type": "application/pdf",
@@ -606,7 +606,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf",
         "content_type": "application/pdf",
@@ -637,7 +637,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
         "content_type": "application/pdf",
@@ -668,7 +668,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
         "content_type": "application/pdf",
@@ -699,7 +699,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
         "content_type": "application/pdf",
@@ -730,7 +730,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
         "content_type": "application/pdf",
@@ -761,7 +761,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/oqcd3aat/drdsc30pz.pdf",
         "content_type": "application/pdf",
@@ -792,7 +792,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/fgfkjrbn/drdsc30psz.pdf",
         "content_type": "application/pdf",
@@ -823,7 +823,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/4trladzi/drdsc30p-f.pdf",
         "content_type": "application/pdf",
@@ -854,7 +854,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/yygftbuf/drdsc30p-fs.pdf",
         "content_type": "application/pdf",
@@ -885,7 +885,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ducnkzkl/drdsc31fz.pdf",
         "content_type": "application/pdf",
@@ -916,7 +916,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/fx3hv1rn/drdsc31fsz.pdf",
         "content_type": "application/pdf",
@@ -947,7 +947,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/vfeh5oz3/drsd10fz.pdf",
         "content_type": "application/pdf",
@@ -978,7 +978,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ot4drwyl/drsd10fsz.pdf",
         "content_type": "application/pdf",
@@ -1009,7 +1009,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/lzuner3g/dr70fz.pdf",
         "content_type": "application/pdf",
@@ -1040,7 +1040,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/frcb03uf/dr70fsz.pdf",
         "content_type": "application/pdf",
@@ -1071,7 +1071,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/my3bounx/pt-ldmprocess.pdf",
         "content_type": "application/pdf",
@@ -1102,7 +1102,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/cc4pm3ic/pt-ldmprocesssp.pdf",
         "content_type": "application/pdf",
@@ -1133,7 +1133,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
         "content_type": "application/pdf",
@@ -1164,7 +1164,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
         "content_type": "application/pdf",
@@ -1195,7 +1195,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/0v0cjqhc/drpr10fz.pdf",
         "content_type": "application/pdf",
@@ -1226,7 +1226,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/iuqppays/drpr10fsz.pdf",
         "content_type": "application/pdf",
@@ -1257,7 +1257,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
         "content_type": "application/pdf",
@@ -1288,7 +1288,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
         "content_type": "application/pdf",
@@ -1319,7 +1319,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
         "content_type": "application/pdf",
@@ -1350,7 +1350,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
         "content_type": "application/pdf",
@@ -1381,7 +1381,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ymlhveok/pb13fz.pdf",
         "content_type": "application/pdf",
@@ -1412,7 +1412,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/51abiqhc/pb13fsz.pdf",
         "content_type": "application/pdf",
@@ -1443,7 +1443,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/22ifipjf/pb14fz.pdf",
         "content_type": "application/pdf",
@@ -1474,7 +1474,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/nn3eihwj/pb14fsz.pdf",
         "content_type": "application/pdf",
@@ -1505,7 +1505,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/31gf0w30/drfos10pz.pdf",
         "content_type": "application/pdf",
@@ -1536,7 +1536,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/namc20hn/drfos10psz.pdf",
         "content_type": "application/pdf",
@@ -1567,7 +1567,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/i5xbe3er/drfos12fz.pdf",
         "content_type": "application/pdf",
@@ -1598,7 +1598,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/crfflw3q/drfos12fsz.pdf",
         "content_type": "application/pdf",
@@ -1629,7 +1629,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/pc2kxmjg/drfoc10pz.pdf",
         "content_type": "application/pdf",
@@ -1660,7 +1660,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/yuug4pox/drfoc10psz.pdf",
         "content_type": "application/pdf",
@@ -1691,7 +1691,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/10ipdynd/drfoc12fz.pdf",
         "content_type": "application/pdf",
@@ -1722,7 +1722,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/tswagq4y/drfoc12fsz.pdf",
         "content_type": "application/pdf",
@@ -1753,7 +1753,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/a4mje2io/drfoc13fz.pdf",
         "content_type": "application/pdf",
@@ -1784,7 +1784,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/mcsjvtw4/drfoc13fsz.pdf",
         "content_type": "application/pdf",
@@ -1815,7 +1815,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/4f0lmdwl/drfoc13f-bz.pdf",
         "content_type": "application/pdf",
@@ -1846,7 +1846,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/agqhnz0i/drfoc13fs-bz.pdf",
         "content_type": "application/pdf",
@@ -1877,7 +1877,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/ppkpczei/drmce11pz.pdf",
         "content_type": "application/pdf",
@@ -1908,7 +1908,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/zpejrlwq/drmce11psz.pdf",
         "content_type": "application/pdf",
@@ -1939,7 +1939,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/heicfxcm/drosc14fz.pdf",
         "content_type": "application/pdf",
@@ -1970,7 +1970,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/xlqfel2d/drosc14fsz.pdf",
         "content_type": "application/pdf",
@@ -2001,7 +2001,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/bn5hhhlw/drosc11fz.pdf",
         "content_type": "application/pdf",
@@ -2032,7 +2032,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/xqdcpufc/drosc11fsz.pdf",
         "content_type": "application/pdf",
@@ -2063,7 +2063,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/rihnw255/drmcn11pz.pdf",
         "content_type": "application/pdf",
@@ -2094,7 +2094,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/uc4lvuxd/drmcn11psz.pdf",
         "content_type": "application/pdf",
@@ -2125,7 +2125,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/hjtjq1gx/drt12fz.pdf",
         "content_type": "application/pdf",
@@ -2156,7 +2156,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/crhaswsg/drt12fsz.pdf",
         "content_type": "application/pdf",
@@ -2187,7 +2187,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/dnif03fz/lay-legal-english.pdf",
         "content_type": "application/pdf",
@@ -2218,7 +2218,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/c0djw0cz/lay-legal-spanish.pdf",
         "content_type": "application/pdf",
@@ -2249,7 +2249,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/iiyhvkpn/dvop30fz.pdf",
         "content_type": "application/pdf",
@@ -2280,7 +2280,7 @@
         "Confirm whether this PDF should be promoted to an official PDF action or remain packet-page only."
       ],
       "monitor": {
-        "checked_at": "2026-06-12T03:59:44.148Z",
+        "checked_at": "2026-06-12T12:56:31.147Z",
         "http_status": 200,
         "final_url": "https://superiorcourt.maricopa.gov/media/uutgomn5/dvop30fsz.pdf",
         "content_type": "application/pdf",

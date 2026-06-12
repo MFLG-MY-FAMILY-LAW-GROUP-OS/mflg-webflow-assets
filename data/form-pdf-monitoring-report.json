@@ -1,6 +1,6 @@
 {
   "version": "0.6.0-pdf-monitoring",
-  "checked_at": "2026-06-12T03:59:44.148Z",
+  "checked_at": "2026-06-12T12:56:31.147Z",
   "public_safety": {
     "public_pdf_actions_enabled": false,
     "direct_cached_downloads_enabled": false,
@@ -26,7 +26,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf",
@@ -35,7 +35,7 @@
       "last_modified": "Fri, 11 Oct 2024 23:32:44 GMT",
       "etag": "\"1db1c35df26893e\"",
       "sha256": "ed2e16bf199b7830c7bcfc54ea229c28a751095748a1b91629e5410dd145a71b",
-      "elapsed_ms": 98
+      "elapsed_ms": 96
     },
     {
       "review_id": "maricopa-review-001",
@@ -50,7 +50,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf",
@@ -59,7 +59,7 @@
       "last_modified": "Fri, 11 Oct 2024 23:33:11 GMT",
       "etag": "\"1db1c35ef3e5df9\"",
       "sha256": "2a52fee7bb41f2107e1d72a784f1f6b383c626478fee2fda3bc46b515cbc1c97",
-      "elapsed_ms": 126
+      "elapsed_ms": 117
     },
     {
       "review_id": "maricopa-review-001",
@@ -74,7 +74,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
@@ -83,7 +83,7 @@
       "last_modified": "Wed, 31 Dec 2025 23:14:34 GMT",
       "etag": "\"1dc7aab39aac6f5\"",
       "sha256": "4b62a1cac4ba8bbff29b851bb055603aecd0d088b331526aba9a65e3eefb6ccd",
-      "elapsed_ms": 97
+      "elapsed_ms": 100
     },
     {
       "review_id": "maricopa-review-001",
@@ -98,7 +98,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
@@ -107,7 +107,7 @@
       "last_modified": "Wed, 31 Dec 2025 23:15:37 GMT",
       "etag": "\"1dc7aab5f3ec3fb\"",
       "sha256": "1b634f87e79432c252cc458a6702bd04840de49dae94511cb39acfec595da4f1",
-      "elapsed_ms": 97
+      "elapsed_ms": 105
     },
     {
       "review_id": "maricopa-review-001",
@@ -122,7 +122,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf",
@@ -131,7 +131,7 @@
       "last_modified": "Fri, 17 Nov 2023 09:02:35 GMT",
       "etag": "\"1da1934ce39c8c7\"",
       "sha256": "63a86a0a397533954d28395cfef1b6cadc707ff1dd196313954d26ce0ad7358d",
-      "elapsed_ms": 96
+      "elapsed_ms": 91
     },
     {
       "review_id": "maricopa-review-001",
@@ -146,7 +146,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf",
@@ -155,7 +155,7 @@
       "last_modified": "Fri, 17 Nov 2023 09:03:09 GMT",
       "etag": "\"1da1934e284c91c\"",
       "sha256": "e0bd1d5705c0674e7cf8beff2d198a4b75eca7fe04bf8b68a6fc1acf2bb9ab42",
-      "elapsed_ms": 106
+      "elapsed_ms": 95
     },
     {
       "review_id": "maricopa-review-001",
@@ -170,7 +170,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
@@ -179,7 +179,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:17:06 GMT",
       "etag": "\"1db7cca4d553b5c\"",
       "sha256": "fae5bd23f3ceb83d9a1fc63eabb7342ee00866c4ea7b93fe2e1d4f9ec274eb35",
-      "elapsed_ms": 97
+      "elapsed_ms": 93
     },
     {
       "review_id": "maricopa-review-001",
@@ -194,7 +194,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
@@ -203,7 +203,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:17:31 GMT",
       "etag": "\"1db7cca5c3dabb8\"",
       "sha256": "f9f9da9ea32e5847c59f5be6b5143591033087479e6faffb6f70f9c37ac9c01e",
-      "elapsed_ms": 103
+      "elapsed_ms": 98
     },
     {
       "review_id": "maricopa-review-001",
@@ -218,7 +218,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
@@ -227,7 +227,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:18:23 GMT",
       "etag": "\"1db7cca7b34848a\"",
       "sha256": "9065aa1158a71c34d150a4171b4c36c4a00562fafb508d33415355b32b381729",
-      "elapsed_ms": 70
+      "elapsed_ms": 66
     },
     {
       "review_id": "maricopa-review-001",
@@ -242,7 +242,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
@@ -251,7 +251,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:18:01 GMT",
       "etag": "\"1db7cca6e196a2b\"",
       "sha256": "1d20eb5f41393cd756ee573ddd53a3305803b850b73f87617c5a83eccad6a9ca",
-      "elapsed_ms": 70
+      "elapsed_ms": 68
     },
     {
       "review_id": "maricopa-review-002",
@@ -266,7 +266,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf",
@@ -275,7 +275,7 @@
       "last_modified": "Fri, 11 Oct 2024 23:32:44 GMT",
       "etag": "\"1db1c35df26893e\"",
       "sha256": "ed2e16bf199b7830c7bcfc54ea229c28a751095748a1b91629e5410dd145a71b",
-      "elapsed_ms": 93
+      "elapsed_ms": 96
     },
     {
       "review_id": "maricopa-review-002",
@@ -290,7 +290,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf",
@@ -299,7 +299,7 @@
       "last_modified": "Fri, 11 Oct 2024 23:33:11 GMT",
       "etag": "\"1db1c35ef3e5df9\"",
       "sha256": "2a52fee7bb41f2107e1d72a784f1f6b383c626478fee2fda3bc46b515cbc1c97",
-      "elapsed_ms": 95
+      "elapsed_ms": 98
     },
     {
       "review_id": "maricopa-review-002",
@@ -314,7 +314,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
@@ -323,7 +323,7 @@
       "last_modified": "Wed, 31 Dec 2025 23:14:34 GMT",
       "etag": "\"1dc7aab39aac6f5\"",
       "sha256": "4b62a1cac4ba8bbff29b851bb055603aecd0d088b331526aba9a65e3eefb6ccd",
-      "elapsed_ms": 98
+      "elapsed_ms": 96
     },
     {
       "review_id": "maricopa-review-002",
@@ -338,7 +338,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
@@ -347,7 +347,7 @@
       "last_modified": "Wed, 31 Dec 2025 23:15:37 GMT",
       "etag": "\"1dc7aab5f3ec3fb\"",
       "sha256": "1b634f87e79432c252cc458a6702bd04840de49dae94511cb39acfec595da4f1",
-      "elapsed_ms": 98
+      "elapsed_ms": 103
     },
     {
       "review_id": "maricopa-review-002",
@@ -362,7 +362,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf",
@@ -371,7 +371,7 @@
       "last_modified": "Fri, 17 Nov 2023 09:02:35 GMT",
       "etag": "\"1da1934ce39c8c7\"",
       "sha256": "63a86a0a397533954d28395cfef1b6cadc707ff1dd196313954d26ce0ad7358d",
-      "elapsed_ms": 97
+      "elapsed_ms": 91
     },
     {
       "review_id": "maricopa-review-002",
@@ -386,7 +386,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf",
@@ -395,7 +395,7 @@
       "last_modified": "Fri, 17 Nov 2023 09:03:09 GMT",
       "etag": "\"1da1934e284c91c\"",
       "sha256": "e0bd1d5705c0674e7cf8beff2d198a4b75eca7fe04bf8b68a6fc1acf2bb9ab42",
-      "elapsed_ms": 99
+      "elapsed_ms": 98
     },
     {
       "review_id": "maricopa-review-002",
@@ -410,7 +410,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
@@ -419,7 +419,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:17:06 GMT",
       "etag": "\"1db7cca4d553b5c\"",
       "sha256": "fae5bd23f3ceb83d9a1fc63eabb7342ee00866c4ea7b93fe2e1d4f9ec274eb35",
-      "elapsed_ms": 98
+      "elapsed_ms": 102
     },
     {
       "review_id": "maricopa-review-002",
@@ -434,7 +434,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
@@ -443,7 +443,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:17:31 GMT",
       "etag": "\"1db7cca5c3dabb8\"",
       "sha256": "f9f9da9ea32e5847c59f5be6b5143591033087479e6faffb6f70f9c37ac9c01e",
-      "elapsed_ms": 100
+      "elapsed_ms": 102
     },
     {
       "review_id": "maricopa-review-002",
@@ -458,7 +458,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
@@ -467,7 +467,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:18:23 GMT",
       "etag": "\"1db7cca7b34848a\"",
       "sha256": "9065aa1158a71c34d150a4171b4c36c4a00562fafb508d33415355b32b381729",
-      "elapsed_ms": 67
+      "elapsed_ms": 69
     },
     {
       "review_id": "maricopa-review-002",
@@ -482,7 +482,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
@@ -491,7 +491,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:18:01 GMT",
       "etag": "\"1db7cca6e196a2b\"",
       "sha256": "1d20eb5f41393cd756ee573ddd53a3305803b850b73f87617c5a83eccad6a9ca",
-      "elapsed_ms": 71
+      "elapsed_ms": 70
     },
     {
       "review_id": "maricopa-review-003",
@@ -506,7 +506,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/oqcd3aat/drdsc30pz.pdf",
@@ -515,7 +515,7 @@
       "last_modified": "Mon, 28 Aug 2023 19:09:30 GMT",
       "etag": "\"1d9d9e32bd13fec\"",
       "sha256": "8c2305b9f1e4364379100ae025bdc128efc1718438507e598becde72f4783385",
-      "elapsed_ms": 34
+      "elapsed_ms": 36
     },
     {
       "review_id": "maricopa-review-003",
@@ -530,7 +530,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/fgfkjrbn/drdsc30psz.pdf",
@@ -539,7 +539,7 @@
       "last_modified": "Mon, 28 Aug 2023 19:09:22 GMT",
       "etag": "\"1d9d9e3270a2e07\"",
       "sha256": "d680260309de71a689b37571639d48ff2f870fcc35d9983f99b94a3adf3d4514",
-      "elapsed_ms": 40
+      "elapsed_ms": 37
     },
     {
       "review_id": "maricopa-review-003",
@@ -554,7 +554,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/4trladzi/drdsc30p-f.pdf",
@@ -563,7 +563,7 @@
       "last_modified": "Mon, 28 Aug 2023 19:09:16 GMT",
       "etag": "\"1d9d9e3237a51c9\"",
       "sha256": "f14ac37217ab6244835b984b8aadd63e3d197ba2b57a4bd232987131921b7c0d",
-      "elapsed_ms": 224
+      "elapsed_ms": 257
     },
     {
       "review_id": "maricopa-review-003",
@@ -578,7 +578,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/yygftbuf/drdsc30p-fs.pdf",
@@ -587,7 +587,7 @@
       "last_modified": "Mon, 28 Aug 2023 19:09:40 GMT",
       "etag": "\"1d9d9e331ca9930\"",
       "sha256": "5ad105ee44c4d8bfa63e10c2e4ece0617a75bc7c6b18a53758d8569960dbc904",
-      "elapsed_ms": 276
+      "elapsed_ms": 267
     },
     {
       "review_id": "maricopa-review-003",
@@ -602,7 +602,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ducnkzkl/drdsc31fz.pdf",
@@ -611,7 +611,7 @@
       "last_modified": "Mon, 28 Aug 2023 19:09:20 GMT",
       "etag": "\"1d9d9e325fde856\"",
       "sha256": "22473a617853f654b012db4f542ec0930694719aea0d60f6d2f5cf081afd1cc3",
-      "elapsed_ms": 1603
+      "elapsed_ms": 671
     },
     {
       "review_id": "maricopa-review-003",
@@ -626,7 +626,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/fx3hv1rn/drdsc31fsz.pdf",
@@ -635,7 +635,7 @@
       "last_modified": "Mon, 28 Aug 2023 19:09:22 GMT",
       "etag": "\"1d9d9e32716c2d3\"",
       "sha256": "315f02d7051f4d484f02b195d6b8a5e8dedba43d70bf7330630595b4966bab7d",
-      "elapsed_ms": 1386
+      "elapsed_ms": 511
     },
     {
       "review_id": "maricopa-review-003",
@@ -650,7 +650,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/vfeh5oz3/drsd10fz.pdf",
@@ -659,7 +659,7 @@
       "last_modified": "Mon, 15 Sep 2025 21:05:27 GMT",
       "etag": "\"1dc268475eba3bb\"",
       "sha256": "ebe1c444a21347391105cee4eaaade5ac47ca82cfca12c71b4752542128a4f3f",
-      "elapsed_ms": 65
+      "elapsed_ms": 72
     },
     {
       "review_id": "maricopa-review-003",
@@ -674,7 +674,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ot4drwyl/drsd10fsz.pdf",
@@ -683,7 +683,7 @@
       "last_modified": "Mon, 15 Sep 2025 21:05:06 GMT",
       "etag": "\"1dc26846962ba12\"",
       "sha256": "a1182935461fc06739d9eb8302e9797f9a8aee36e039f2393e4dade98d094212",
-      "elapsed_ms": 129
+      "elapsed_ms": 143
     },
     {
       "review_id": "maricopa-review-003",
@@ -698,7 +698,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/lzuner3g/dr70fz.pdf",
@@ -707,7 +707,7 @@
       "last_modified": "Mon, 15 Sep 2025 21:03:57 GMT",
       "etag": "\"1dc2684404bbdf5\"",
       "sha256": "3ddc78d7906f3582067de881de2d56263b50a927fde7692ab22610ac13f5d9a8",
-      "elapsed_ms": 160
+      "elapsed_ms": 179
     },
     {
       "review_id": "maricopa-review-003",
@@ -722,7 +722,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/frcb03uf/dr70fsz.pdf",
@@ -731,7 +731,7 @@
       "last_modified": "Mon, 15 Sep 2025 21:03:39 GMT",
       "etag": "\"1dc268435840ed9\"",
       "sha256": "f2e80749ad9205806b0340e30a46d599fbc0b98efc2a519d21be4927f20dc801",
-      "elapsed_ms": 271
+      "elapsed_ms": 301
     },
     {
       "review_id": "maricopa-review-004",
@@ -746,7 +746,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/my3bounx/pt-ldmprocess.pdf",
@@ -755,7 +755,7 @@
       "last_modified": "Fri, 11 Oct 2024 23:32:00 GMT",
       "etag": "\"1db1c35c4eccb5d\"",
       "sha256": "07dba7df5f45fe66e7cc01ba4c9c2e0e320cf4647c72ec0edeac7f3dabe7375d",
-      "elapsed_ms": 99
+      "elapsed_ms": 93
     },
     {
       "review_id": "maricopa-review-004",
@@ -770,7 +770,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/cc4pm3ic/pt-ldmprocesssp.pdf",
@@ -779,7 +779,7 @@
       "last_modified": "Fri, 11 Oct 2024 23:32:19 GMT",
       "etag": "\"1db1c35d038701a\"",
       "sha256": "6991af466ca3b957ef36cec6215011acc5d0b378d08859e07fe8ec45317598eb",
-      "elapsed_ms": 103
+      "elapsed_ms": 92
     },
     {
       "review_id": "maricopa-review-004",
@@ -794,7 +794,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf",
@@ -803,7 +803,7 @@
       "last_modified": "Wed, 31 Dec 2025 23:14:34 GMT",
       "etag": "\"1dc7aab39aac6f5\"",
       "sha256": "4b62a1cac4ba8bbff29b851bb055603aecd0d088b331526aba9a65e3eefb6ccd",
-      "elapsed_ms": 103
+      "elapsed_ms": 94
     },
     {
       "review_id": "maricopa-review-004",
@@ -818,7 +818,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf",
@@ -827,7 +827,7 @@
       "last_modified": "Wed, 31 Dec 2025 23:15:37 GMT",
       "etag": "\"1dc7aab5f3ec3fb\"",
       "sha256": "1b634f87e79432c252cc458a6702bd04840de49dae94511cb39acfec595da4f1",
-      "elapsed_ms": 107
+      "elapsed_ms": 100
     },
     {
       "review_id": "maricopa-review-004",
@@ -842,7 +842,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/0v0cjqhc/drpr10fz.pdf",
@@ -851,7 +851,7 @@
       "last_modified": "Fri, 17 Nov 2023 09:03:16 GMT",
       "etag": "\"1da1934e6af098a\"",
       "sha256": "6b59df4ad4bfa2fe86d33ed040bf947ce5845e6630fb426b87ae663539801232",
-      "elapsed_ms": 70
+      "elapsed_ms": 65
     },
     {
       "review_id": "maricopa-review-004",
@@ -866,7 +866,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/iuqppays/drpr10fsz.pdf",
@@ -875,7 +875,7 @@
       "last_modified": "Fri, 17 Nov 2023 09:03:09 GMT",
       "etag": "\"1da1934e285fd46\"",
       "sha256": "92868ef208a3f676b386f914a530ee964e4571c6dba92d9f83bf7fe7594897dd",
-      "elapsed_ms": 96
+      "elapsed_ms": 95
     },
     {
       "review_id": "maricopa-review-004",
@@ -890,7 +890,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf",
@@ -899,7 +899,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:17:06 GMT",
       "etag": "\"1db7cca4d553b5c\"",
       "sha256": "fae5bd23f3ceb83d9a1fc63eabb7342ee00866c4ea7b93fe2e1d4f9ec274eb35",
-      "elapsed_ms": 95
+      "elapsed_ms": 98
     },
     {
       "review_id": "maricopa-review-004",
@@ -914,7 +914,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf",
@@ -923,7 +923,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:17:31 GMT",
       "etag": "\"1db7cca5c3dabb8\"",
       "sha256": "f9f9da9ea32e5847c59f5be6b5143591033087479e6faffb6f70f9c37ac9c01e",
-      "elapsed_ms": 100
+      "elapsed_ms": 111
     },
     {
       "review_id": "maricopa-review-004",
@@ -938,7 +938,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf",
@@ -947,7 +947,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:18:23 GMT",
       "etag": "\"1db7cca7b34848a\"",
       "sha256": "9065aa1158a71c34d150a4171b4c36c4a00562fafb508d33415355b32b381729",
-      "elapsed_ms": 65
+      "elapsed_ms": 63
     },
     {
       "review_id": "maricopa-review-004",
@@ -962,7 +962,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf",
@@ -971,7 +971,7 @@
       "last_modified": "Tue, 11 Feb 2025 21:18:01 GMT",
       "etag": "\"1db7cca6e196a2b\"",
       "sha256": "1d20eb5f41393cd756ee573ddd53a3305803b850b73f87617c5a83eccad6a9ca",
-      "elapsed_ms": 69
+      "elapsed_ms": 71
     },
     {
       "review_id": "maricopa-review-017",
@@ -986,7 +986,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ymlhveok/pb13fz.pdf",
@@ -995,7 +995,7 @@
       "last_modified": "Wed, 06 Sep 2023 14:06:36 GMT",
       "etag": "\"1d9e0cb58f06b80\"",
       "sha256": "c0b6d9a0efde7aaa4caaa9fc45cd44b42fe278ecd6d23d25fac01fb0f98d46ca",
-      "elapsed_ms": 199
+      "elapsed_ms": 185
     },
     {
       "review_id": "maricopa-review-017",
@@ -1010,7 +1010,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/51abiqhc/pb13fsz.pdf",
@@ -1019,7 +1019,7 @@
       "last_modified": "Wed, 06 Sep 2023 14:06:36 GMT",
       "etag": "\"1d9e0cb58f18867\"",
       "sha256": "f80c75f29d126ed4826c25522bb6f67f33487a96bfea0b80bb924b04bb1ced35",
-      "elapsed_ms": 198
+      "elapsed_ms": 189
     },
     {
       "review_id": "maricopa-review-017",
@@ -1034,7 +1034,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/22ifipjf/pb14fz.pdf",
@@ -1043,7 +1043,7 @@
       "last_modified": "Wed, 06 Sep 2023 14:06:37 GMT",
       "etag": "\"1d9e0cb599edc89\"",
       "sha256": "63ce9f37ca5f448a2beb4bb9720dde30bf87e23771265b12e525b61b6a90bd32",
-      "elapsed_ms": 187
+      "elapsed_ms": 179
     },
     {
       "review_id": "maricopa-review-017",
@@ -1058,7 +1058,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/nn3eihwj/pb14fsz.pdf",
@@ -1067,7 +1067,7 @@
       "last_modified": "Wed, 06 Sep 2023 14:06:36 GMT",
       "etag": "\"1d9e0cb58f02b9d\"",
       "sha256": "e40a861fea8cee4d83a3bae5915fe1676bf3853ccda3771b87359688e5defbf6",
-      "elapsed_ms": 197
+      "elapsed_ms": 186
     },
     {
       "review_id": "maricopa-review-018",
@@ -1082,7 +1082,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/31gf0w30/drfos10pz.pdf",
@@ -1091,7 +1091,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:58:23 GMT",
       "etag": "\"1d9e93cbb1324f0\"",
       "sha256": "3cf151271de48e63690319fa8ba8363fc4f4a0ac0282b34b1c50b4f9583d4cdc",
-      "elapsed_ms": 39
+      "elapsed_ms": 35
     },
     {
       "review_id": "maricopa-review-018",
@@ -1106,7 +1106,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/namc20hn/drfos10psz.pdf",
@@ -1115,7 +1115,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:58:24 GMT",
       "etag": "\"1d9e93cbba97622\"",
       "sha256": "db494ccda84a1e35ed5c939541189893cbed513a078f6dc1953b2ac59f57a66a",
-      "elapsed_ms": 104
+      "elapsed_ms": 65
     },
     {
       "review_id": "maricopa-review-018",
@@ -1130,7 +1130,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/i5xbe3er/drfos12fz.pdf",
@@ -1154,7 +1154,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/crfflw3q/drfos12fsz.pdf",
@@ -1163,7 +1163,7 @@
       "last_modified": "Sun, 17 Sep 2023 08:02:22 GMT",
       "etag": "\"1d9e93d498f7d2f\"",
       "sha256": "e668419711bc62f48028210cc171df3db7ea63fed1594a15ea3e4b1a619664ed",
-      "elapsed_ms": 161
+      "elapsed_ms": 171
     },
     {
       "review_id": "maricopa-review-019",
@@ -1178,7 +1178,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/pc2kxmjg/drfoc10pz.pdf",
@@ -1187,7 +1187,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:22:25 GMT",
       "etag": "\"1d9e937b4cca36b\"",
       "sha256": "f96564a017c6e176de8e1f7ffeb514d58b6350181d0d22e6a63214aec97cf791",
-      "elapsed_ms": 37
+      "elapsed_ms": 35
     },
     {
       "review_id": "maricopa-review-019",
@@ -1202,7 +1202,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/yuug4pox/drfoc10psz.pdf",
@@ -1211,7 +1211,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:22:24 GMT",
       "etag": "\"1d9e937b43442a5\"",
       "sha256": "d54de477da09a66af352b746eda83f51d7bdec2a1f4c79ab4b8e64d8c7a98d46",
-      "elapsed_ms": 37
+      "elapsed_ms": 35
     },
     {
       "review_id": "maricopa-review-019",
@@ -1226,7 +1226,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/10ipdynd/drfoc12fz.pdf",
@@ -1235,7 +1235,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:26:03 GMT",
       "etag": "\"1d9e93836b5a4eb\"",
       "sha256": "3d7b37a62d2a1681f0af5c5545a377647942489f2e24e241d78eedaff224b92d",
-      "elapsed_ms": 154
+      "elapsed_ms": 172
     },
     {
       "review_id": "maricopa-review-019",
@@ -1250,7 +1250,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/tswagq4y/drfoc12fsz.pdf",
@@ -1259,7 +1259,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:26:01 GMT",
       "etag": "\"1d9e9383585a370\"",
       "sha256": "8b9ce84e27daf7b036bededab08c1a6a8a3cf95d2540dd65febd608f69b2ae10",
-      "elapsed_ms": 163
+      "elapsed_ms": 168
     },
     {
       "review_id": "maricopa-review-019",
@@ -1274,7 +1274,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/a4mje2io/drfoc13fz.pdf",
@@ -1283,7 +1283,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:27:26 GMT",
       "etag": "\"1d9e938683f5055\"",
       "sha256": "4ac581688723278a5bae22eb33a758265ec20a3daa6c9a010273e9a1afbe5faa",
-      "elapsed_ms": 156
+      "elapsed_ms": 154
     },
     {
       "review_id": "maricopa-review-019",
@@ -1298,7 +1298,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/mcsjvtw4/drfoc13fsz.pdf",
@@ -1307,7 +1307,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:27:27 GMT",
       "etag": "\"1d9e93868c3ef48\"",
       "sha256": "46d7ffd72324b71964c5b9df4a9cfaa9266eddbdb86c826147204dc069ad4563",
-      "elapsed_ms": 240
+      "elapsed_ms": 235
     },
     {
       "review_id": "maricopa-review-019",
@@ -1322,7 +1322,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/4f0lmdwl/drfoc13f-bz.pdf",
@@ -1331,7 +1331,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:28:24 GMT",
       "etag": "\"1d9e9388acfa3d5\"",
       "sha256": "1968305e85440c2cf12bef9c81d02fb2820787fd75ac0d2d9237180cfd5a8212",
-      "elapsed_ms": 137
+      "elapsed_ms": 139
     },
     {
       "review_id": "maricopa-review-019",
@@ -1346,7 +1346,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/agqhnz0i/drfoc13fs-bz.pdf",
@@ -1355,7 +1355,7 @@
       "last_modified": "Sun, 17 Sep 2023 07:28:23 GMT",
       "etag": "\"1d9e9388a37be29\"",
       "sha256": "0047903c8097774e38ff4267c1db58770311d48dd290db08c23a2aab6a3dc422",
-      "elapsed_ms": 294
+      "elapsed_ms": 157
     },
     {
       "review_id": "maricopa-review-026",
@@ -1370,7 +1370,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/ppkpczei/drmce11pz.pdf",
@@ -1379,7 +1379,7 @@
       "last_modified": "Tue, 19 Sep 2023 04:56:43 GMT",
       "etag": "\"1d9eab5aefd12cf\"",
       "sha256": "dc9a22e4266a58151209d7ca05aee72e6f78b44ecd3598ab6f56b8d0bb3532bd",
-      "elapsed_ms": 34
+      "elapsed_ms": 35
     },
     {
       "review_id": "maricopa-review-026",
@@ -1394,7 +1394,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/zpejrlwq/drmce11psz.pdf",
@@ -1403,7 +1403,7 @@
       "last_modified": "Tue, 19 Sep 2023 04:56:45 GMT",
       "etag": "\"1d9eab5b02fe876\"",
       "sha256": "38cd5217cfaf9339f952fd80302701de8e4c92ffd48414c44e6915dfa65a1f25",
-      "elapsed_ms": 37
+      "elapsed_ms": 39
     },
     {
       "review_id": "maricopa-review-026",
@@ -1418,7 +1418,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/heicfxcm/drosc14fz.pdf",
@@ -1427,7 +1427,7 @@
       "last_modified": "Sun, 17 Sep 2023 06:15:51 GMT",
       "etag": "\"1d9e92e683146c1\"",
       "sha256": "67e75ca39d2c12dee88ff7514c3e70fe50860a3c55525edcce02bb90c3a95bb2",
-      "elapsed_ms": 32
+      "elapsed_ms": 39
     },
     {
       "review_id": "maricopa-review-026",
@@ -1442,7 +1442,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/xlqfel2d/drosc14fsz.pdf",
@@ -1451,7 +1451,7 @@
       "last_modified": "Sun, 17 Sep 2023 06:15:53 GMT",
       "etag": "\"1d9e92e69620bb5\"",
       "sha256": "2332b9d036dcae1ccbccbdd3087cf5245bdbefc348c317ca2fb664cf39a8d497",
-      "elapsed_ms": 36
+      "elapsed_ms": 35
     },
     {
       "review_id": "maricopa-review-026",
@@ -1466,7 +1466,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/bn5hhhlw/drosc11fz.pdf",
@@ -1475,7 +1475,7 @@
       "last_modified": "Sun, 17 Sep 2023 06:17:19 GMT",
       "etag": "\"1d9e92e9ca52ffd\"",
       "sha256": "d0096f1c4a16d09d8b4a1171643207534fc6e2b8a611020481a7290bf3e833e2",
-      "elapsed_ms": 36
+      "elapsed_ms": 33
     },
     {
       "review_id": "maricopa-review-026",
@@ -1490,7 +1490,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/xqdcpufc/drosc11fsz.pdf",
@@ -1499,7 +1499,7 @@
       "last_modified": "Sun, 17 Sep 2023 06:17:20 GMT",
       "etag": "\"1d9e92e9d3e98e6\"",
       "sha256": "e5638dc6b724e644311a4d5b8f0db2d9d4142baa603cd0e9b2f502832b6ea586",
-      "elapsed_ms": 34
+      "elapsed_ms": 31
     },
     {
       "review_id": "maricopa-review-026",
@@ -1514,7 +1514,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/rihnw255/drmcn11pz.pdf",
@@ -1523,7 +1523,7 @@
       "last_modified": "Wed, 27 Mar 2024 21:56:14 GMT",
       "etag": "\"1da8091963ec4c2\"",
       "sha256": "06fae4d235814b5accce4fd5f6116de680771d5b3e7a47763ba9eb7713b741f0",
-      "elapsed_ms": 69
+      "elapsed_ms": 64
     },
     {
       "review_id": "maricopa-review-026",
@@ -1538,7 +1538,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/uc4lvuxd/drmcn11psz.pdf",
@@ -1547,7 +1547,7 @@
       "last_modified": "Wed, 27 Mar 2024 21:56:35 GMT",
       "etag": "\"1da8091a2c242af\"",
       "sha256": "42e53b1df8c459620f845c6e6b34d5ec3aa387b173a08d1b2e15268c75559d05",
-      "elapsed_ms": 70
+      "elapsed_ms": 72
     },
     {
       "review_id": "maricopa-review-026",
@@ -1562,7 +1562,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/hjtjq1gx/drt12fz.pdf",
@@ -1571,7 +1571,7 @@
       "last_modified": "Thu, 14 Sep 2023 17:31:03 GMT",
       "etag": "\"1d9e7313bfa869c\"",
       "sha256": "cadb093cbf809f22c03e37eb5563e3e76396ba2af877f4fe6ecd6650799648f7",
-      "elapsed_ms": 127
+      "elapsed_ms": 134
     },
     {
       "review_id": "maricopa-review-026",
@@ -1586,7 +1586,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/crhaswsg/drt12fsz.pdf",
@@ -1595,7 +1595,7 @@
       "last_modified": "Thu, 14 Sep 2023 17:31:01 GMT",
       "etag": "\"1d9e7313acc2df4\"",
       "sha256": "347bab4a3f7a0645196ec31718d89a76e98d580e6efd8f0ee1afcafbf5abe3cc",
-      "elapsed_ms": 134
+      "elapsed_ms": 124
     },
     {
       "review_id": "maricopa-review-028",
@@ -1610,7 +1610,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/dnif03fz/lay-legal-english.pdf",
@@ -1619,7 +1619,7 @@
       "last_modified": "Wed, 23 Jul 2025 17:57:27 GMT",
       "etag": "\"1dbfbfb40362dfc\"",
       "sha256": "fcdcc1b0ac0a63096291cf9c12b7e2ee48495a51d13ce9a3b55f3ae4e9a04c2c",
-      "elapsed_ms": 99
+      "elapsed_ms": 101
     },
     {
       "review_id": "maricopa-review-028",
@@ -1634,7 +1634,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/c0djw0cz/lay-legal-spanish.pdf",
@@ -1658,7 +1658,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/iiyhvkpn/dvop30fz.pdf",
@@ -1667,7 +1667,7 @@
       "last_modified": "Wed, 25 Oct 2023 10:18:03 GMT",
       "etag": "\"1da072c89a99381\"",
       "sha256": "7ceda815a545d892e3f78ba8c69d3a9075c306327d1d11cf46ac256f1448f371",
-      "elapsed_ms": 194
+      "elapsed_ms": 186
     },
     {
       "review_id": "maricopa-review-028",
@@ -1682,7 +1682,7 @@
       "review_status": "pdf_needs_human_review",
       "public_pdf_action_enabled": false,
       "direct_cached_download_enabled": false,
-      "checked_at": "2026-06-12T03:59:44.148Z",
+      "checked_at": "2026-06-12T12:56:31.147Z",
       "source_status": "pdf_source_ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/media/uutgomn5/dvop30fsz.pdf",
@@ -1691,7 +1691,7 @@
       "last_modified": "Wed, 25 Oct 2023 10:18:04 GMT",
       "etag": "\"1da072c8a36eae5\"",
       "sha256": "cb5f2fa323185139c58196f3e73bdc1db10665a226b686be530eb29e316e9e1c",
-      "elapsed_ms": 199
+      "elapsed_ms": 201
     }
   ]
 }
