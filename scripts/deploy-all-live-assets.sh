@@ -287,8 +287,10 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-official-pdf-actions"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-spotlight"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-spotlight-kicker"* ]] &&
-	     [[ "$public_site_js" == *"All form groups are visible"* ]] &&
-	     [[ "$public_site_js" == *"Show all form groups"* ]] &&
+	     [[ "$public_site_js" == *"Browsing other packets"* ]] &&
+	     [[ "$public_site_js" == *"Browse other form groups"* ]] &&
+	     [[ "$public_site_js" == *"forms-safe-next"* ]] &&
+	     [[ "$public_site_js" == *"forms-advanced-details"* ]] &&
 	     [[ "$public_site_js" == *"clearOfficialPdfFilters"* ]] &&
 	     [[ "$public_site_js" == *"expandPdfGroup"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-search"* ]] &&
@@ -307,7 +309,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"form-pdf-route-index.json"* ]] &&
 	     [[ "$public_site_js" == *"packetRoute?.route"* ]] &&
 	     [[ "$public_site_js" == *'packet) packet.value = "all"'* ]] &&
-	     [[ "$public_site_js" == *"View the PDF on this page or download it"* ]] &&
+	     [[ "$public_site_js" == *"Open the forms in order"* ]] &&
 	     [[ "$public_site_js" == *"Adoption / Family Formation Review"* ]] &&
 	     [[ "$public_site_js" == *"Special Scope / Referral Review"* ]] &&
 	     [[ "$public_site_js" == *"Court-readiness check"* ]] &&
@@ -526,7 +528,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 			     [[ "$public_site_js" == *"Open calculator tools"* ]] &&
 			     [[ "$public_site_js" == *"data-forms-unified-result"* ]] &&
 			     [[ "$public_site_js" == *"Why this recommendation"* ]] &&
-			     [[ "$public_site_js" == *"Search or switch form groups"* ]] &&
+			     [[ "$public_site_js" == *"Advanced: search or switch form groups"* ]] &&
 			     [[ "$public_site_js" == *"setUnifiedFormsResult"* ]] &&
 			     [[ "$public_site_js" == *"Your recommended next action"* ]] &&
 			     [[ "$public_site_js" != *"data-smart-title"* ]] &&

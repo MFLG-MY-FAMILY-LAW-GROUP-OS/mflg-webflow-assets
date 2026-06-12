@@ -1270,7 +1270,7 @@
     const baseMeta = [
       "Reviewed forms first",
       "No private facts needed",
-      "Use Intake if unsure"
+      "Use Guided Intake if unsure"
     ];
 
     if (hasReviewedPdfPacket) {
@@ -1324,7 +1324,7 @@
         copy: "For this county, use the court page. If you cannot tell which forms fit, start Intake.",
         primaryLabel: "Open county page",
         primaryHref: firstResource.url || "#forms-official-router",
-        meta: ["County page first", "Use Intake if unsure"],
+        meta: ["County page first", "Use Guided Intake if unsure"],
         route: baseRoute
       };
     }
@@ -1357,7 +1357,7 @@
     if (meta) {
       const items = Array.isArray(decision.meta) && decision.meta.length
         ? decision.meta
-        : ["Reviewed forms first", "No private facts needed", "Use Intake if unsure"];
+        : ["Reviewed forms first", "No private facts needed", "Use Guided Intake if unsure"];
       meta.innerHTML = items.slice(0, 3).map((item) => `<span>${esc(item)}</span>`).join("");
     }
     if (primary) {
@@ -1397,7 +1397,7 @@
       <div class="forms-unified-actions">
         <a class="button primary" href="${esc(courtHref)}">${esc(decision.primaryLabel || "View on-site forms")}</a>
         <a class="button outline" href="${esc(packetHref)}">View forms${packetLabel ? `: ${esc(packetLabel)}` : ""}</a>
-        <a class="button ghost" href="/start" data-link data-forms-unified-intake>Use Intake instead</a>
+        <a class="button ghost" href="/start" data-link data-forms-unified-intake>Start Guided Intake instead</a>
       </div>
     `;
     host.querySelector("[data-forms-unified-intake]")?.setAttribute("data-intake-route", JSON.stringify(intakeRoute));
@@ -1723,6 +1723,15 @@
         <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Use Guided Intake</a>
       </div>
 
+      <div class="forms-safe-next" aria-label="Forms and Tools safe next step">
+        <div>
+          <span>Unsure at any point?</span>
+          <strong>Do not guess on forms, deadlines, or calculator inputs.</strong>
+          <p>Use Guided Intake when the court, county, packet, deadline, or calculator input is unclear. This page does not collect private facts.</p>
+        </div>
+        <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
+      </div>
+
       <details class="forms-help-note">
         <summary>Not sure which court or county to choose?</summary>
         <div class="jurisdiction-list">
@@ -1779,12 +1788,12 @@
               <p data-form-route-decision-copy>The page will recommend reviewed forms or Intake if the choice is not clear.</p>
               <div class="forms-route-decision-meta" data-form-route-decision-meta>
                 <span>No private facts needed</span>
-                <span>Use Intake if unsure</span>
+                <span>Use Guided Intake if unsure</span>
               </div>
             </div>
             <div class="forms-route-decision-actions">
               <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>View matching forms</a>
-              <a class="button outline" href="/start" data-link data-form-route-decision-intake>Use Intake</a>
+              <a class="button outline" href="/start" data-link data-form-route-decision-intake>Start Guided Intake</a>
             </div>
           </div>
         </details>
@@ -1832,7 +1841,7 @@
           <div class="section-head compact">
             <p class="eyebrow">Matching forms</p>
             <h2>Reviewed forms are loading.</h2>
-            <p>Use the form group that matches your answers. If none match, use Intake.</p>
+            <p>Start with the recommended packet. Open forms in order. If the packet title does not sound right, use Guided Intake instead of guessing.</p>
           </div>
           <p class="forms-router-status">Loading reviewed forms...</p>
         </div>
@@ -1849,7 +1858,15 @@
         <div class="section-head">
           <p class="eyebrow">Calculators</p>
           <h2>Use the right calculator without guessing.</h2>
-          <p>Answer three quick questions first. The page will open the right calculator or send the question to Intake if you should not guess.</p>
+          <p>Calculators are planning tools, not court forms. Answer three quick questions and use Guided Intake if you do not know which numbers belong in the fields.</p>
+        </div>
+        <div class="calculator-start-card">
+          <div>
+            <span>Pick a calculator safely</span>
+            <strong>Use only simple numbers and dates here.</strong>
+            <p>Do not enter names, addresses, case numbers, allegations, uploads, or detailed private facts. If you need to explain what happened, use Guided Intake.</p>
+          </div>
+          <a class="button outline" href="/start" data-link data-calculator-safe-intake>Not sure? Start Guided Intake</a>
         </div>
         <div class="calculator-precheck" data-calculator-precheck>
           <div class="calculator-precheck-head">
@@ -1890,7 +1907,7 @@
             </div>
             <div class="calculator-precheck-actions">
               <button class="button primary" type="button" data-calculator-precheck-action>Open recommended calculator</button>
-              <a class="button outline" href="/start" data-link data-calculator-precheck-intake>Use this in Intake</a>
+              <a class="button outline" href="/start" data-link data-calculator-precheck-intake>Add this calculator choice to Intake</a>
             </div>
           </div>
           <div class="calculator-precheck-checklist" aria-live="polite">
@@ -1926,7 +1943,7 @@
           </article>
           <article>
             <span>Not sure</span>
-            <strong>Use Intake first</strong>
+            <strong>Use Guided Intake first</strong>
             <p>If you do not know which calculator, form, county, or deadline applies, start Intake and avoid guessing.</p>
             <div>
               <a class="button primary" href="/start" data-link data-calculator-path-intake>Start Intake</a>
@@ -1991,7 +2008,7 @@
             <article><span>01</span><strong>Use MFLG first</strong><p>The on-site calculators appear above. Use this official workspace only as fallback when needed.</p></article>
             <article><span>02</span><strong>Know where facts go</strong><p>Facts entered inside the embedded frame are handled by the official calculator. This public site carries only the selected calculator type into Intake.</p></article>
             <article><span>03</span><strong>Confirm your inputs</strong><p>Gather orders, income records, parenting-time counts, insurance, childcare, and effective dates before relying on any result.</p></article>
-            <article><span>04</span><strong>Use Intake if unsure</strong><p>If you do not know which numbers apply, save the calculator choice to Intake before guessing.</p></article>
+            <article><span>04</span><strong>Use Guided Intake if unsure</strong><p>If you do not know which numbers apply, save the calculator choice to Intake before guessing.</p></article>
           </div>
           <div class="official-calculator-next" aria-label="Calculator next steps">
             <div>
@@ -3271,26 +3288,29 @@
       host.innerHTML = `
         <div class="forms-action-plan-head">
           <div>
-            <span>Action plan</span>
-            <strong>${esc(String(summary.official_sources_ok || 0))}/${esc(String(summary.official_sources_checked || 0))} official sources OK. ${esc(String(summary.reviewed_routes || 0))} reviewed routes available.</strong>
-            <p>${esc(manifest.public_message || "Use on-page reviewed forms and Guided Intake when facts require review.")}</p>
+            <span>Advanced details</span>
+            <strong>Forms and calculator sources are monitored before they are shown.</strong>
+            <p>${esc(manifest.public_message || "Use the guided choices first. These details are here only if you want to understand how this page stays current.")}</p>
           </div>
-          <a class="button primary" href="/start" data-link data-forms-action-plan-intake>Use Action Plan in Intake</a>
+          <a class="button outline" href="/start" data-link data-forms-action-plan-intake>Start Guided Intake</a>
         </div>
-        <div class="forms-action-plan-metrics">
-          <article><span>Reviewed routes</span><strong>${esc(String(summary.reviewed_routes || 0))}</strong></article>
-          <article><span>Approved PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
-          <article><span>Official formulas</span><strong>${esc(String(summary.official_formula_sources_ok || 0))}</strong></article>
-          <article><span>Embedded tools</span><strong>${summary.official_embeds_enabled ? "Enabled" : "Review"}</strong></article>
-        </div>
-        <div class="forms-action-plan-steps">
-          ${steps.map((step) => `<article>
-            <span>${esc(step.status || "Step")}</span>
-            <strong>${esc(step.label || "")}</strong>
-            <p>${esc(step.guidance || "")}</p>
-            <small>${esc(step.metric || "")}</small>
-          </article>`).join("")}
-        </div>
+        <details class="forms-advanced-details">
+          <summary>Show source and maintenance details</summary>
+          <div class="forms-action-plan-metrics">
+            <article><span>Reviewed paths</span><strong>${esc(String(summary.reviewed_routes || 0))}</strong></article>
+            <article><span>Court PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
+            <article><span>Calculator sources</span><strong>${esc(String(summary.official_formula_sources_ok || 0))}</strong></article>
+            <article><span>On-page tools</span><strong>${summary.official_embeds_enabled ? "Available" : "Reviewing"}</strong></article>
+          </div>
+          <div class="forms-action-plan-steps">
+            ${steps.map((step) => `<article>
+              <span>${esc(step.status || "Step")}</span>
+              <strong>${esc(step.label || "")}</strong>
+              <p>${esc(step.guidance || "")}</p>
+              <small>${esc(step.metric || "")}</small>
+            </article>`).join("")}
+          </div>
+        </details>
       `;
       host.querySelector("[data-forms-action-plan-intake]")?.setAttribute("data-intake-route", JSON.stringify(route));
     } catch (error) {
@@ -3332,26 +3352,29 @@
       host.innerHTML = `
         <div class="forms-review-roadmap-head">
           <div>
-            <span>Review roadmap</span>
-            <strong>${esc(String(summary.public_packet_page_actions || 0))} packet page actions live. ${esc(String(summary.packet_candidates_review_only || 0))} candidates remain review-only.</strong>
-            <p>${esc(manifest.public_message || "Approved actions open on-page reviewed forms while review-only items remain blocked.")}</p>
+            <span>Advanced details</span>
+            <strong>Some court resources are available here; others stay behind Guided Intake.</strong>
+            <p>${esc(manifest.public_message || "Use the recommended forms first. Items that need review stay out of the main path.")}</p>
           </div>
-          <a class="button outline" href="/start" data-link data-forms-review-roadmap-intake>Use Review Status in Intake</a>
+          <a class="button outline" href="/start" data-link data-forms-review-roadmap-intake>Start Guided Intake</a>
         </div>
-        <div class="forms-review-roadmap-metrics">
-          <article><span>Packet pages</span><strong>${esc(String(summary.public_packet_page_actions || 0))}</strong></article>
-          <article><span>Review-only</span><strong>${esc(String(summary.packet_candidates_review_only || 0))}</strong></article>
-          <article><span>Official PDFs</span><strong>${esc(String(summary.public_pdf_actions || 0))}</strong></article>
-          <article><span>Source-only counties</span><strong>${esc(String(summary.county_source_only || 0))}</strong></article>
-        </div>
-        <div class="forms-review-roadmap-grid">
-          ${items.map((item) => `<article>
-            <span>${esc(item.status || "Status")}</span>
-            <strong>${esc(item.label || "")}</strong>
-            <p>${esc(item.guidance || "")}</p>
-            <small>${esc(String(item.count ?? ""))}</small>
-          </article>`).join("")}
-        </div>
+        <details class="forms-advanced-details">
+          <summary>Show court-source coverage details</summary>
+          <div class="forms-review-roadmap-metrics">
+            <article><span>Packet pages</span><strong>${esc(String(summary.public_packet_page_actions || 0))}</strong></article>
+            <article><span>Needs review</span><strong>${esc(String(summary.packet_candidates_review_only || 0))}</strong></article>
+            <article><span>Court PDFs</span><strong>${esc(String(summary.public_pdf_actions || 0))}</strong></article>
+            <article><span>County source pages</span><strong>${esc(String(summary.county_source_only || 0))}</strong></article>
+          </div>
+          <div class="forms-review-roadmap-grid">
+            ${items.map((item) => `<article>
+              <span>${esc(item.status || "Status")}</span>
+              <strong>${esc(item.label || "")}</strong>
+              <p>${esc(item.guidance || "")}</p>
+              <small>${esc(String(item.count ?? ""))}</small>
+            </article>`).join("")}
+          </div>
+        </details>
       `;
       host.querySelector("[data-forms-review-roadmap-intake]")?.setAttribute("data-intake-route", JSON.stringify(route));
     } catch (error) {
@@ -3400,26 +3423,29 @@
       host.innerHTML = `
         <div class="forms-maintenance-head">
           <div>
-            <span>Form safety</span>
+            <span>Advanced details</span>
             <strong>Official court links are checked before they are shown.</strong>
-            <p>Use the reviewed PDF viewer and download buttons shown above. Unreviewed files and raw cached copies remain controlled.</p>
+            <p>Use the reviewed PDF viewer and download buttons shown above. If anything looks wrong or does not match your situation, start Guided Intake.</p>
             <small>Last checked: ${esc(checked)}</small>
           </div>
           <a class="button outline" href="/start" data-link data-forms-maintenance-intake>Start Guided Intake to confirm</a>
         </div>
-        <div class="forms-maintenance-metrics">
-          <article><span>Official sources</span><strong>${esc(String(summary.official_sources_ok || 0))}/${esc(String(summary.official_sources_checked || 0))} checked</strong></article>
-          <article><span>Packet routes</span><strong>${esc(String(summary.reviewed_routes || 0))} reviewed</strong></article>
-          <article><span>Under review</span><strong>${esc(String(summary.review_only_candidates || 0))} items</strong></article>
-          <article><span>Site downloads</span><strong>${summary.direct_cached_downloads_enabled ? "Available" : "Not yet"}</strong></article>
-        </div>
-        <div class="forms-maintenance-grid">
-          ${controls.map((control) => `<article>
-            <span>${esc(control.status || "Status")}</span>
-            <strong>${esc(control.label || "")}</strong>
-            <p>${esc(control.detail || "")}</p>
-          </article>`).join("")}
-        </div>
+        <details class="forms-advanced-details">
+          <summary>Show form safety details</summary>
+          <div class="forms-maintenance-metrics">
+            <article><span>Court sources</span><strong>${esc(String(summary.official_sources_ok || 0))}/${esc(String(summary.official_sources_checked || 0))} checked</strong></article>
+            <article><span>Reviewed paths</span><strong>${esc(String(summary.reviewed_routes || 0))}</strong></article>
+            <article><span>Still reviewing</span><strong>${esc(String(summary.review_only_candidates || 0))}</strong></article>
+            <article><span>Site downloads</span><strong>${summary.direct_cached_downloads_enabled ? "Available" : "Controlled"}</strong></article>
+          </div>
+          <div class="forms-maintenance-grid">
+            ${controls.map((control) => `<article>
+              <span>${esc(control.status || "Status")}</span>
+              <strong>${esc(control.label || "")}</strong>
+              <p>${esc(control.detail || "")}</p>
+            </article>`).join("")}
+          </div>
+        </details>
       `;
       host.querySelector("[data-forms-maintenance-intake]")?.setAttribute("data-intake-route", JSON.stringify(route));
     } catch (error) {
@@ -3544,7 +3570,7 @@
             <article>
               <span>Confirm first</span>
               <strong data-forms-packet-fit-check>Do not guess if the title does not match.</strong>
-              <p data-forms-packet-fit-check-copy>Use Intake if you are unsure about the county, children, filing stage, or whether a response has already been filed.</p>
+              <p data-forms-packet-fit-check-copy>Use Guided Intake if you are unsure about the county, children, filing stage, or whether a response has already been filed.</p>
             </article>
             <article>
               <span>Safe next step</span>
@@ -3555,7 +3581,7 @@
           <div class="forms-packet-builder-path" aria-label="Packet builder sequence">
             <article><span>01</span><strong>Read the starting instructions</strong><p>Begin with the court process sheet before opening forms.</p></article>
             <article><span>02</span><strong>Open only matching forms</strong><p>The builder hides child-only forms when the packet says no minor children.</p></article>
-            <article><span>03</span><strong>Use Intake if unsure</strong><p>If the packet title or forms do not fit, do not guess.</p></article>
+            <article><span>03</span><strong>Use Guided Intake if unsure</strong><p>If the packet title or forms do not fit, do not guess.</p></article>
           </div>
           <div class="forms-packet-checklist-bar" data-forms-packet-checklist-bar>
             <p class="forms-packet-builder-status" data-forms-packet-status>Packet forms are ready.</p>
@@ -4118,7 +4144,7 @@
           <div>
             <span>Forms</span>
             <strong>Forms could not load right now.</strong>
-            <p>Use Intake if you need help finding the right form.</p>
+            <p>Use Guided Intake if you need help finding the right form.</p>
           </div>
         </div>
       `;
@@ -4697,7 +4723,7 @@
             <strong>Search by the family-law problem you recognize.</strong>
             <p>You do not need to know the form name. Search the plain-language issue, then open Intake if the next step is not clear.</p>
           </div>
-          <a class="button outline" href="/start" data-link data-forms-matter-intake>Use Intake</a>
+          <a class="button outline" href="/start" data-link data-forms-matter-intake>Start Guided Intake</a>
         </div>
         <div class="forms-matter-controls">
           <label>Search
@@ -4717,7 +4743,7 @@
             <div>
               <span>${esc(matter.category || "Matter")}</span>
               <strong>${esc(matter.title || "")}</strong>
-              <p>${esc(matter.reviewed_route_available ? "Use this issue to narrow forms or start Intake." : "Use Intake if you are not sure which form applies.")}</p>
+              <p>${esc(matter.reviewed_route_available ? "Use this issue to narrow forms or start Intake." : "Use Guided Intake if you are not sure which form applies.")}</p>
             </div>
             <div class="forms-matter-actions">
               <a class="card-link" href="#forms-approved-pdfs">View matched forms →</a>
@@ -4809,25 +4835,28 @@
       host.innerHTML = `
         <div class="forms-completion-head">
           <div>
-            <span>Completion status</span>
-            <strong>${complete ? "Forms & Tools public surface is complete." : "Forms & Tools still needs review."}</strong>
-            <p>${esc(manifest.public_message || "Forms & Tools completion checks are summarized here.")}</p>
+            <span>Advanced details</span>
+            <strong>${complete ? "Forms & Tools is ready for public use." : "Some Forms & Tools items are still being reviewed."}</strong>
+            <p>${esc(manifest.public_message || "Use the guided path first. These details are optional.")}</p>
           </div>
           <a class="button primary" href="/start" data-link data-forms-completion-intake>Start Guided Intake</a>
         </div>
-        <div class="forms-completion-metrics">
-          <article><span>Checks</span><strong>${esc(String(summary.completion_checks_passing || 0))}/${esc(String(summary.completion_checks || 0))}</strong></article>
-          <article><span>Matters</span><strong>${esc(String(summary.public_matters || 0))}</strong></article>
-          <article><span>Route starts</span><strong>${esc(String(summary.reviewed_route_starts || 0))}</strong></article>
-          <article><span>PDF actions</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
-        </div>
-        <div class="forms-completion-grid">
-          ${checks.map((check) => `<article class="${check.status === "complete" ? "complete" : "needs-review"}">
-            <span>${esc(check.status || "status")}</span>
-            <strong>${esc(check.label || "")}</strong>
-            <p>${esc(check.detail || "")}</p>
-          </article>`).join("")}
-        </div>
+        <details class="forms-advanced-details">
+          <summary>Show page readiness details</summary>
+          <div class="forms-completion-metrics">
+            <article><span>Checks</span><strong>${esc(String(summary.completion_checks_passing || 0))}/${esc(String(summary.completion_checks || 0))}</strong></article>
+            <article><span>Issues covered</span><strong>${esc(String(summary.public_matters || 0))}</strong></article>
+            <article><span>Guided starts</span><strong>${esc(String(summary.reviewed_route_starts || 0))}</strong></article>
+            <article><span>Court PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
+          </div>
+          <div class="forms-completion-grid">
+            ${checks.map((check) => `<article class="${check.status === "complete" ? "complete" : "needs-review"}">
+              <span>${esc(check.status || "status")}</span>
+              <strong>${esc(check.label || "")}</strong>
+              <p>${esc(check.detail || "")}</p>
+            </article>`).join("")}
+          </div>
+        </details>
       `;
       host.querySelector("[data-forms-completion-intake]")?.setAttribute("data-intake-route", JSON.stringify({
         routeKey: "forms-tools-completion-status",
@@ -4846,8 +4875,8 @@
       host.innerHTML = `
         <div class="forms-completion-head">
           <div>
-            <span>Completion status</span>
-            <strong>Completion status could not load.</strong>
+            <span>Advanced details</span>
+            <strong>Page readiness details could not load.</strong>
             <p>Use official sources and Guided Intake while completion checks are unavailable.</p>
           </div>
         </div>
@@ -5028,7 +5057,7 @@
           <div>
             <span>Calculators</span>
             <strong>Calculators could not load right now.</strong>
-            <p>Use Intake if you need help choosing the right calculation path.</p>
+            <p>Use Guided Intake if you need help choosing the right calculation path.</p>
           </div>
         </div>
       `;
@@ -5060,7 +5089,7 @@
           <div>
             <span>Calculators</span>
             <strong>${summary.child_support_runtime_enabled ? "Start with the calculator that matches your question." : "Start with Intake if a calculator does not load."}</strong>
-            <p>${summary.child_support_runtime_enabled ? `Use the on-site child-support calculator${summary.spousal_maintenance_runtime_enabled ? " and maintenance calculator" : ""} for planning. Use Intake if the numbers, dates, existing orders, or required forms are unclear.` : "Use Intake if you need help choosing the right calculation path."}</p>
+            <p>${summary.child_support_runtime_enabled ? `Use the on-site child-support calculator${summary.spousal_maintenance_runtime_enabled ? " and maintenance calculator" : ""} for planning. Use Intake if the numbers, dates, existing orders, or required forms are unclear.` : "Use Guided Intake if you need help choosing the right calculation path."}</p>
           </div>
           <a class="button outline" href="/start" data-link data-calculator-formula-intake>Start Guided Intake to confirm</a>
         </div>
@@ -5164,7 +5193,7 @@
           <div>
             <span>Calculators</span>
             <strong>Calculators could not load right now.</strong>
-            <p>Use Intake if you need help choosing the right calculation path.</p>
+            <p>Use Guided Intake if you need help choosing the right calculation path.</p>
           </div>
         </div>
       `;
@@ -5255,7 +5284,7 @@
         if (!engine?.spousalMaintenance) throw new Error("Maintenance runtime unavailable");
         render(await engine.spousalMaintenance(readInput()));
       } catch (error) {
-        result.innerHTML = `<span>Review needed</span><strong>The on-site maintenance calculator could not load.</strong><p>Use Intake for routing help or use the official fallback workspace below.</p>`;
+        result.innerHTML = `<span>Review needed</span><strong>The on-site maintenance calculator could not load.</strong><p>Use Guided Intake for routing help or use the official fallback workspace below.</p>`;
       }
     });
   }
@@ -5350,7 +5379,7 @@
         copy: "When the right calculator or required numbers are unclear, do not guess. Carry only this calculator question into Intake.",
         button: "Start Intake",
         intakeLabel: "Calculator pre-check unsure",
-        checklistLabel: "Use Intake first",
+        checklistLabel: "Use Guided Intake first",
         checklistTitle: "Do not guess at formula inputs.",
         checklistCopy: "When the needed calculator or numbers are unclear, use Intake before entering facts into a calculator.",
         checklistItems: [
@@ -5632,7 +5661,7 @@
         if (annual > 0) {
           nextLabel.textContent = "Review before relying";
           nextTitle.textContent = `${annual} estimated annual overnight${annual === 1 ? "" : "s"} entered.`;
-          nextCopy.textContent = "Use the official calculator if support is involved. Use Intake if you are unsure whether these counts belong in your situation.";
+          nextCopy.textContent = "Use the official calculator if support is involved. Use Guided Intake if you are unsure whether these counts belong in your situation.";
         } else {
           nextLabel.textContent = "Planning number only";
           nextTitle.textContent = "Use this count as an organizer, not a final support number.";
@@ -5749,7 +5778,7 @@
         next = {
           level: "Calendar check",
           title: "Confirm the hearing or conference instructions.",
-          copy: "Review the notice and official court source. Use Intake if you need help deciding what to prepare.",
+          copy: "Review the notice and official court source. Use Guided Intake if you need help deciding what to prepare.",
           sourceHref: "#forms-official-router",
           nextLabel: "Prepare carefully",
           nextTitle: "Start with the notice and court instructions.",
@@ -5757,7 +5786,7 @@
           steps: [
             "Review the hearing notice or court order.",
             "Use the form finder for official source links.",
-            "Use Intake if you need help deciding what to prepare."
+            "Use Guided Intake if you need help deciding what to prepare."
           ]
         };
       }
@@ -5944,7 +5973,7 @@
                 <small>${esc((route.languages || []).join(" / ") || "Review pending")}</small>
               </div>
               <div class="route-action-links">
-                ${pdfs.length ? `<a class="route-action-pdf-focus" href="#forms-approved-pdfs" data-route-action-pdf-focus="${esc(route.packet_id)}">Open ${esc(String(pdfs.length))} forms for this situation</a>` : `<small class="route-action-more">Use Intake for this situation while form review is pending.</small>`}
+                ${pdfs.length ? `<a class="route-action-pdf-focus" href="#forms-approved-pdfs" data-route-action-pdf-focus="${esc(route.packet_id)}">Open ${esc(String(pdfs.length))} forms for this situation</a>` : `<small class="route-action-more">Use Guided Intake for this situation while form review is pending.</small>`}
               </div>
               <a class="button primary route-action-intake" href="/start" data-link data-route-action-card-intake>Start Guided Intake to confirm</a>
             </details>`;
@@ -6133,7 +6162,7 @@
           <div class="section-head compact">
             <p class="eyebrow">Reviewed forms</p>
             <h2>Reviewed forms are not available right now.</h2>
-            <p>Use Intake and the office can help route you to the right court page.</p>
+            <p>Use Guided Intake and the office can help route you to the right court page.</p>
           </div>
         `;
         return;
@@ -6156,35 +6185,35 @@
         <div class="section-head compact">
           <p class="eyebrow">Step 2</p>
           <h2>Open the forms for that situation.</h2>
-          <p>Start with the recommended packet. View the PDF on this page or download it. If the title does not sound right, use Intake instead of guessing.</p>
+          <p>Start with the recommended packet. Open the forms in order. If the title does not sound right, use Guided Intake instead of guessing.</p>
         </div>
         <div class="official-pdf-spotlight" data-official-pdf-spotlight>
           <div>
-            <span data-official-pdf-spotlight-kicker>Recommended forms</span>
+            <span data-official-pdf-spotlight-kicker>Your next form step</span>
             <strong data-official-pdf-spotlight-title>Finding the closest packet...</strong>
-            <p data-official-pdf-spotlight-copy>Use the packet filter or search if you need a different packet.</p>
+            <p data-official-pdf-spotlight-copy>Start here. The packet below should match the choices you made above.</p>
           </div>
-          <button class="button outline" type="button" data-official-pdf-show-all>Show all form groups</button>
+          <button class="button outline" type="button" data-official-pdf-show-all>Browse other form groups</button>
         </div>
-        <div class="official-pdf-route-index" aria-label="Choose a court packet">
-          <div>
-            <span>Pick one</span>
-            <strong>Choose the situation that sounds closest.</strong>
-            <p>The matching forms open below with plain-language names.</p>
-          </div>
+        <details class="official-pdf-route-index" aria-label="Choose a court packet" data-official-pdf-route-index>
+          <summary>
+            <span>Need a different packet?</span>
+            <strong>Choose another situation only if the recommendation above does not fit.</strong>
+            <p>These choices are secondary. If none sound right, start Guided Intake.</p>
+          </summary>
           <div class="official-pdf-route-grid">
             ${routePackets.map((item) => `
               <button class="official-pdf-route-card" type="button" data-official-pdf-route-card="${esc(item.packet_id)}">
                 <h3>${esc(item.page_label || item.packet_label || "Court packet")}</h3>
                 <p>${esc(item.packet_label || "")}</p>
                 <strong>${esc((item.languages || []).join(" / ") || "Official PDFs")}</strong>
-                <em>Open matching forms</em>
+                <em>Use this packet</em>
               </button>
             `).join("")}
           </div>
-        </div>
+        </details>
         <details class="official-pdf-browse">
-          <summary>Search or switch form groups</summary>
+          <summary>Advanced: search or switch form groups</summary>
           <div class="official-pdf-controls" aria-label="Filter reviewed form links">
             <label>Search
               <input type="search" placeholder="Search form name, packet, language..." data-official-pdf-search>
@@ -6209,9 +6238,9 @@
         <div class="official-pdf-intake-panel">
           <div>
             <strong data-official-pdf-intake-title>Not sure this packet fits?</strong>
-            <p data-official-pdf-intake-copy>Use Intake and the office can help route the next step.</p>
+            <p data-official-pdf-intake-copy>Use Guided Intake and the office can help route the next step.</p>
           </div>
-          <a class="button primary" href="/start" data-link data-official-pdf-intake>Use Intake</a>
+          <a class="button primary" href="/start" data-link data-official-pdf-intake>Start Guided Intake</a>
         </div>
         <div class="official-pdf-viewer" data-official-pdf-viewer hidden>
           <div class="official-pdf-viewer-head">
@@ -6275,6 +6304,7 @@
       const spotlightTitle = host.querySelector("[data-official-pdf-spotlight-title]");
       const spotlightCopy = host.querySelector("[data-official-pdf-spotlight-copy]");
       const showAll = host.querySelector("[data-official-pdf-show-all]");
+      const routeIndexDisclosure = host.querySelector("[data-official-pdf-route-index]");
       const intakeTitle = host.querySelector("[data-official-pdf-intake-title]");
       const intakeCopy = host.querySelector("[data-official-pdf-intake-copy]");
       const intakeLink = host.querySelector("[data-official-pdf-intake]");
@@ -6314,7 +6344,7 @@
         }
         if (intakeCopy) {
           intakeCopy.textContent = packetLabel && packetRoute
-            ? "Use Intake and the office can help confirm whether this is the right starting point."
+            ? "Use Guided Intake and the office can help confirm whether this is the right starting point."
             : packetLabel
             ? "Use Intake if the packet title does not match your situation."
             : "Use Intake if the packet list does not make sense.";
@@ -6405,17 +6435,17 @@
         });
         const selectedRoute = routePacketById.get(packetValue);
         if (spotlightKicker) {
-          spotlightKicker.textContent = selectedRoute ? "Closest packet" : "All packets";
+          spotlightKicker.textContent = selectedRoute ? "Recommended packet" : "Browsing other packets";
         }
         if (spotlightTitle) {
           spotlightTitle.textContent = selectedRoute
             ? selectedRoute.page_label || selectedRoute.packet_label || "Reviewed packet selected"
-            : "All form groups are visible.";
+            : "Choose a form group only if the recommendation does not fit.";
         }
         if (spotlightCopy) {
           spotlightCopy.textContent = selectedRoute
-            ? "Start here if this packet sounds like your situation. Use search or language filters if needed."
-            : "Use search, packet, and language filters to narrow the list.";
+            ? "Start here if this packet sounds like your situation. Open the forms in order."
+            : "Use search, packet, and language filters only if you know what you are looking for. Otherwise, start Guided Intake.";
         }
         if (status) {
           status.textContent = visible
@@ -6458,8 +6488,10 @@
         });
       });
       showAll?.addEventListener("click", () => {
+        if (routeIndexDisclosure) routeIndexDisclosure.open = true;
         clearOfficialPdfFilters();
         update();
+        routeIndexDisclosure?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       reset?.addEventListener("click", () => {
         clearOfficialPdfFilters();
@@ -6500,12 +6532,17 @@
         }
         update();
       }
+      if (window.location.hash === "#forms-approved-pdfs") {
+        window.setTimeout(() => {
+          host.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 120);
+      }
     } catch (error) {
       host.innerHTML = `
         <div class="section-head compact">
           <p class="eyebrow">Reviewed forms</p>
           <h2>Reviewed forms could not load.</h2>
-          <p>Use Intake and the office can help route you to the right court page.</p>
+          <p>Use Guided Intake and the office can help route you to the right court page.</p>
         </div>
       `;
     }

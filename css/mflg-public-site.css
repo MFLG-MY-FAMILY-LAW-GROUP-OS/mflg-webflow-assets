@@ -2400,6 +2400,51 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 .forms-help-note .jurisdiction-list {
   padding: 0 14px 14px;
 }
+.forms-safe-next,
+.calculator-start-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-top: 14px;
+  padding: clamp(15px, 2vw, 20px);
+  border: 1px solid rgba(197, 155, 59, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(197, 155, 59, 0.12), rgba(255, 255, 255, 0.95) 44%, rgba(33, 85, 141, 0.07)),
+    #fff;
+  box-shadow: 0 16px 38px rgba(18, 24, 31, 0.06);
+}
+.forms-safe-next span,
+.calculator-start-card span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--gold);
+  font-size: 0.64rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.forms-safe-next strong,
+.calculator-start-card strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(1rem, 1.35vw, 1.22rem);
+  line-height: 1.18;
+}
+.forms-safe-next p,
+.calculator-start-card p {
+  max-width: 760px;
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+.forms-safe-next .button,
+.calculator-start-card .button {
+  min-width: 220px;
+}
 .forms-smart-path-controls {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2828,6 +2873,44 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.42;
+}
+.forms-advanced-details {
+  margin-top: 12px;
+  border: 1px solid rgba(33, 85, 141, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+}
+.forms-advanced-details summary {
+  min-height: 46px;
+  padding: 13px 42px 13px 14px;
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 950;
+  line-height: 1.2;
+  list-style: none;
+  position: relative;
+}
+.forms-advanced-details summary::-webkit-details-marker {
+  display: none;
+}
+.forms-advanced-details summary::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 180ms ease;
+}
+.forms-advanced-details[open] summary::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+.forms-advanced-details > div {
+  margin: 0 14px 14px;
 }
 .forms-review-roadmap {
   display: grid;
@@ -5183,9 +5266,9 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   border: 1px solid rgba(197, 155, 59, 0.28);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(197, 155, 59, 0.13), rgba(255, 255, 255, 0.9)),
+    linear-gradient(135deg, rgba(197, 155, 59, 0.18), rgba(255, 255, 255, 0.94) 48%, rgba(33, 85, 141, 0.08)),
     #fff;
-  box-shadow: 0 14px 34px rgba(18, 24, 31, 0.06);
+  box-shadow: 0 18px 44px rgba(18, 24, 31, 0.08);
 }
 .official-pdf-spotlight span {
   display: block;
@@ -5317,21 +5400,41 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   line-height: 1.4;
 }
 .official-pdf-route-index {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.74fr) minmax(0, 1.26fr);
-  gap: 14px;
+  display: block;
   margin: 12px 0 16px;
-  padding: 16px;
   border: 1px solid rgba(33, 85, 141, 0.13);
   border-radius: 8px;
   background:
     linear-gradient(135deg, rgba(33, 85, 141, 0.075), rgba(255, 255, 255, 0.88)),
     #fff;
 }
-.official-pdf-route-index > div:first-child {
+.official-pdf-route-index summary {
   display: grid;
   align-content: start;
   gap: 6px;
+  min-height: 66px;
+  padding: 14px 42px 14px 16px;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+.official-pdf-route-index summary::-webkit-details-marker {
+  display: none;
+}
+.official-pdf-route-index summary::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 180ms ease;
+}
+.official-pdf-route-index[open] summary::after {
+  transform: translateY(-30%) rotate(225deg);
 }
 .official-pdf-route-index span {
   width: fit-content;
@@ -5360,6 +5463,7 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+  padding: 0 16px 16px;
 }
 .official-pdf-route-card {
   display: grid;
@@ -9012,5 +9116,14 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   }
   .forms-smart-path-mode-actions .button {
     width: 100%;
+  }
+  .forms-safe-next,
+  .calculator-start-card {
+    grid-template-columns: 1fr;
+  }
+  .forms-safe-next .button,
+  .calculator-start-card .button {
+    width: 100%;
+    min-width: 0;
   }
 }
