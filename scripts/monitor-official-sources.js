@@ -17,9 +17,10 @@ function uniqueRecords() {
   const records = [];
 
   for (const item of forms.official_source_router || []) {
+    if (item.monitoring_status === "access_restricted") continue;
     records.push({
       id: item.form_set_id,
-      type: "form_source",
+      type: item.source_type || "form_source",
       label: item.label,
       url: item.source_page_url || item.official_url,
       fallback_url: item.official_url

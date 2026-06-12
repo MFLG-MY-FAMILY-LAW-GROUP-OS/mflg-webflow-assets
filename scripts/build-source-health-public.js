@@ -16,6 +16,7 @@ function typeLabel(type) {
   if (type === "form_source") return "Official form libraries";
   if (type === "form_packet") return "Packet source pages";
   if (type === "calculator") return "Calculator sources";
+  if (type === "reference_index") return "Reference indexes";
   return "Official sources";
 }
 

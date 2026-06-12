@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guidematrix1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-sourceexpansion1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1293,6 +1293,16 @@
       note: "Primary county source for Maricopa packets, instructions, and updates."
     },
     {
+      title: "Maricopa Clerk Filing and Records Resources",
+      county: "Maricopa",
+      issues: ["filing", "service", "deadline", "documents", "not sure"],
+      posture: "Any posture",
+      status: "Official filing source",
+      source: "Clerk of the Superior Court of Maricopa County",
+      url: "https://www.clerkofcourt.maricopa.gov/",
+      note: "Use for filing, records, fees, and clerk-process checks; court-form packet selection still routes through the court forms library."
+    },
+    {
       title: "Start Divorce or Legal Separation",
       county: "Maricopa",
       issues: ["divorce", "legal separation", "property", "maintenance"],
@@ -1373,6 +1383,16 @@
       note: "County source should be verified before packet-level download links are cached."
     },
     {
+      title: "Pinal Superior Court Official Website",
+      county: "Pinal",
+      issues: ["all", "not sure", "filing", "deadline", "documents"],
+      posture: "Any posture",
+      status: "Official court source",
+      source: "Superior Court of Arizona in Pinal County",
+      url: "https://www.pinalcourtsaz.gov/",
+      note: "Use as a court-information fallback; packet-level form selection should still prefer reviewed county form pages."
+    },
+    {
       title: "Yavapai County Family Law Forms",
       county: "Yavapai",
       issues: ["all", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
@@ -1381,6 +1401,26 @@
       source: "Yavapai County Superior Court",
       url: "https://courts.yavapaiaz.gov/Departments/Law-Library/Self-Service-Center/Domestic",
       note: "County source should be verified before packet-level download links are cached."
+    },
+    {
+      title: "National Legal Support Services Forms Index",
+      county: "Reference",
+      issues: ["all", "documents", "name change", "divorce", "parenting", "support", "parentage"],
+      posture: "Research only",
+      status: "Reference index",
+      source: "National Legal Support Services",
+      url: "https://nationallegalsupportservices.com/forms/",
+      note: "Use only to discover possible Arizona form names or IDs. Do not treat this as the official court source for user downloads."
+    },
+    {
+      title: "eForms Arizona Reference Pages",
+      county: "Reference",
+      issues: ["documents", "name change", "research"],
+      posture: "Research only",
+      status: "Access-restricted reference",
+      source: "eForms",
+      url: "https://eforms.com/",
+      note: "Automated checks are blocked, so this must remain research-only and must not be used for public form routing."
     }
   ];
 
@@ -2711,7 +2751,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guidematrix1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-sourceexpansion1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}

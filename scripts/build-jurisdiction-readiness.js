@@ -16,7 +16,11 @@ const formsCatalog = readJSON("data/forms-catalog.json");
 const sourceHealth = readJSON("data/source-health-public.json");
 const routeActions = readJSON("data/form-route-actions.json");
 
-const officialSources = formsCatalog.official_source_router || [];
+const officialSources = (formsCatalog.official_source_router || []).filter((source) => (
+  source.jurisdiction !== "reference" &&
+  source.source_type !== "reference_index" &&
+  source.monitoring_status !== "access_restricted"
+));
 const routeList = Array.isArray(routeActions.routes) ? routeActions.routes : [];
 const checkedAt = sourceHealth.checked_at || null;
 

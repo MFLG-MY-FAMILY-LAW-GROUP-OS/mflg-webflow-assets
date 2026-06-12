@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-completion-status",
-  "built_at": "2026-06-12T15:47:42.765Z",
+  "built_at": "2026-06-12T16:37:28.897Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/forms-tools-action-plan.json",
@@ -34,8 +34,8 @@
     "public_matter_categories": 19,
     "reviewed_route_starts": 20,
     "safe_start_options": 6,
-    "official_sources_ok": 19,
-    "official_sources_checked": 19,
+    "official_sources_ok": 31,
+    "official_sources_checked": 31,
     "official_packet_page_actions": 16,
     "approved_pdf_actions": 74,
     "same_origin_pdf_delivery_enabled": true,
@@ -51,7 +51,7 @@
       "check_id": "official-sources",
       "label": "Official source monitoring",
       "status": "complete",
-      "detail": "19/19 official sources checked OK."
+      "detail": "31/31 official sources checked OK."
     },
     {
       "check_id": "public-matters",

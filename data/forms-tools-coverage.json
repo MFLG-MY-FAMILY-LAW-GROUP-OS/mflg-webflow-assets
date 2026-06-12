@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-coverage",
-  "built_at": "2026-06-12T15:47:09.743Z",
+  "built_at": "2026-06-12T16:37:28.842Z",
   "source_manifests": [
     "data/source-health-public.json",
     "data/form-packet-page-actions.json",
@@ -17,8 +17,8 @@
     "raw_source_hashes_exposed": false
   },
   "summary": {
-    "official_sources_checked": 19,
-    "official_sources_ok": 19,
+    "official_sources_checked": 31,
+    "official_sources_ok": 31,
     "official_sources_broken": 0,
     "official_packet_page_actions": 16,
     "packet_candidates_review_only": 12,

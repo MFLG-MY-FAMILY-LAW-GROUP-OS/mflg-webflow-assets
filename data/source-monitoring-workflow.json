@@ -11,6 +11,8 @@
     "Create an internal review task and keep public output on official-source fallback until reviewed.",
     "After review, update verified metadata, cached file URL if allowed, and last_verified_at.",
     "Publish source-monitoring-report with public-safe status metadata only.",
+    "Classify non-court form-name indexes as reference_index and never promote them to public downloads without an official court source match.",
+    "Skip automated monitoring for access-restricted reference sites and keep them out of public route decisions.",
     "Extract Maricopa candidate packet links into a review file before promoting any packet page or download.",
     "Build a form-review-queue file that allows official packet-page actions only when the source is OK and the candidate is the representative packet page.",
     "Extract official PDF candidates from allowed Maricopa packet pages.",

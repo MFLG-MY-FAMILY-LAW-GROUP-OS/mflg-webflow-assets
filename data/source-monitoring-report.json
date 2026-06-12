@@ -1,9 +1,9 @@
 {
   "version": "0.6.0-source-monitoring",
-  "checked_at": "2026-06-12T03:59:36.534Z",
+  "checked_at": "2026-06-12T16:37:19.851Z",
   "summary": {
-    "total": 28,
-    "ok": 28,
+    "total": 31,
+    "ok": 31,
     "broken": 0
   },
   "rules": {
@@ -18,16 +18,16 @@
       "label": "AZCourtHelp AZ Forms",
       "url": "https://azcourthelp.org/forms",
       "fallback_url": "https://azcourthelp.org/forms",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://azcourthelp.org/forms",
       "content_type": "text/html; charset=utf-8",
-      "content_length": 134955,
-      "last_modified": "Fri, 12 Jun 2026 03:59:37 GMT",
+      "content_length": 134739,
+      "last_modified": "Fri, 12 Jun 2026 16:37:21 GMT",
       "etag": null,
-      "sha256": "111e1b32e39ff0794e719396bf612b9d0d0e1e760e90965c572547e7e1a9a86b",
-      "elapsed_ms": 1131
+      "sha256": "a00f58a5890e637a5b4b22ca9e9e3bef597648e841c3d365997bf39525232a2f",
+      "elapsed_ms": 1491
     },
     {
       "id": "az-statewide-family-law-library",
@@ -35,7 +35,7 @@
       "label": "Arizona Statewide Family-Law Forms",
       "url": "https://www.azcourts.gov/selfservicecenter/forms",
       "fallback_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://www.azcourts.gov/selfservicecenter/forms",
@@ -43,8 +43,8 @@
       "content_length": 43955,
       "last_modified": null,
       "etag": null,
-      "sha256": "86509f480ea962fde4e1fb5e36a7127787059e2743b2110432176514327d6142",
-      "elapsed_ms": 597
+      "sha256": "3b25847a599b8ca9d2fb5bf4db6e39c9011ad11efe74e16f113a27b3c4efe1ff",
+      "elapsed_ms": 1365
     },
     {
       "id": "az-protective-order-resources",
@@ -52,7 +52,7 @@
       "label": "Arizona Protective Order Resources",
       "url": "https://azpoint.azcourts.gov/",
       "fallback_url": "https://azpoint.azcourts.gov/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://azpoint.azcourts.gov/",
@@ -60,8 +60,8 @@
       "content_length": 104743,
       "last_modified": null,
       "etag": null,
-      "sha256": "479e923fda90cf5d85282fda8ad6dc21270b8b2b02c7cbe95af24c03bb75ab26",
-      "elapsed_ms": 206
+      "sha256": "8d114f333f2070db7c5abc7bf6f9096143cac00d28f32b757e1a9cdb989f813c",
+      "elapsed_ms": 179
     },
     {
       "id": "maricopa-family-court-library",
@@ -69,7 +69,7 @@
       "label": "Maricopa Family Court Forms Library",
       "url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
@@ -78,7 +78,24 @@
       "last_modified": null,
       "etag": null,
       "sha256": "5123b56d5fe85f321d9b61823f11dc346b50141a69fba4fd47be14f771781572",
-      "elapsed_ms": 248
+      "elapsed_ms": 235
+    },
+    {
+      "id": "maricopa-clerk-family-filing",
+      "type": "form_source",
+      "label": "Maricopa Clerk filing and records resources",
+      "url": "https://www.clerkofcourt.maricopa.gov/",
+      "fallback_url": "https://www.clerkofcourt.maricopa.gov/",
+      "checked_at": "2026-06-12T16:37:19.851Z",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.clerkofcourt.maricopa.gov/",
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 95601,
+      "last_modified": "Fri, 12 Jun 2026 09:46:54 GMT",
+      "etag": null,
+      "sha256": "37f7e6f7a9c65f7a17c31bac7ba95cfb2a906e2de2f398d4a0be60cc95a94ff4",
+      "elapsed_ms": 127
     },
     {
       "id": "pima-family-law-forms",
@@ -86,16 +103,16 @@
       "label": "Pima County Family Law Forms",
       "url": "https://www.sc.pima.gov/law-library/forms/",
       "fallback_url": "https://www.sc.pima.gov/law-library/forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://www.sc.pima.gov/law-library/forms/",
       "content_type": "text/html; charset=utf-8",
-      "content_length": 408629,
+      "content_length": 408627,
       "last_modified": null,
       "etag": null,
-      "sha256": "bcee790de3abc8db3e069f8a186bc26792eeef5ad10ec6272315c8fd25bedf86",
-      "elapsed_ms": 150
+      "sha256": "3944a87c38b53bc9ecc75870f539a74e54d170fac2dfc44232828c3574989fc9",
+      "elapsed_ms": 153
     },
     {
       "id": "pinal-family-law-forms",
@@ -103,16 +120,33 @@
       "label": "Pinal County Family Law Forms",
       "url": "https://www.coscpinalcountyaz.gov/194/Family-Law",
       "fallback_url": "https://www.coscpinalcountyaz.gov/194/Family-Law",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://www.coscpinalcountyaz.gov/194/Family-Law",
       "content_type": "text/html; charset=utf-8",
       "content_length": 143713,
-      "last_modified": "Fri, 12 Jun 2026 03:59:39 GMT",
+      "last_modified": "Fri, 12 Jun 2026 16:37:23 GMT",
       "etag": null,
       "sha256": "9b1cb33e596342a923c3bda2b68d483bae149839455bd945ad3a5e03f6c7eba6",
-      "elapsed_ms": 422
+      "elapsed_ms": 275
+    },
+    {
+      "id": "pinal-superior-court-hub",
+      "type": "form_source",
+      "label": "Pinal Superior Court official website",
+      "url": "https://www.pinalcourtsaz.gov/",
+      "fallback_url": "https://www.pinalcourtsaz.gov/",
+      "checked_at": "2026-06-12T16:37:19.851Z",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.pinalcourtsaz.gov/",
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 133136,
+      "last_modified": "Fri, 12 Jun 2026 16:37:23 GMT",
+      "etag": null,
+      "sha256": "f6f8f424b044e4e36dad8118788d00fbc9a93e0eae37793385ba5142cd554829",
+      "elapsed_ms": 214
     },
     {
       "id": "yavapai-family-law-forms",
@@ -120,16 +154,33 @@
       "label": "Yavapai County Family Law Forms",
       "url": "https://courts.yavapaiaz.gov/Departments/Law-Library/Self-Service-Center/Domestic",
       "fallback_url": "https://courts.yavapaiaz.gov/Departments/Law-Library/Self-Service-Center/Domestic",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://courts.yavapaiaz.gov/Departments/Law-Library/Self-Service-Center/Domestic",
       "content_type": "text/html; charset=utf-8",
-      "content_length": 60752,
+      "content_length": 60764,
       "last_modified": null,
       "etag": null,
-      "sha256": "453a2cbe12b0ad92f11be1633d3c1cc26f2ab1653a0bcf80e5fac90c5aac7e5e",
-      "elapsed_ms": 611
+      "sha256": "0f033ad85567e13cb2cce53a36692e9e0cc0bda3191faab4a54eedf352855674",
+      "elapsed_ms": 140
+    },
+    {
+      "id": "national-legal-support-services-forms-index",
+      "type": "reference_index",
+      "label": "National Legal Support Services forms index",
+      "url": "https://nationallegalsupportservices.com/forms/",
+      "fallback_url": "https://nationallegalsupportservices.com/forms/",
+      "checked_at": "2026-06-12T16:37:19.851Z",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://nationallegalsupportservices.com/forms/",
+      "content_type": "text/html; charset=UTF-8",
+      "content_length": 543760,
+      "last_modified": null,
+      "etag": null,
+      "sha256": "c62441f0ef5246855ac50d58c18193425d188688a836067ed98f3efa2d1e097f",
+      "elapsed_ms": 322
     },
     {
       "id": "az-statewide-family-law-start",
@@ -137,7 +188,7 @@
       "label": "Arizona statewide family-law forms",
       "url": "https://www.azcourts.gov/selfservicecenter/forms",
       "fallback_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://www.azcourts.gov/selfservicecenter/forms",
@@ -145,8 +196,8 @@
       "content_length": 43955,
       "last_modified": null,
       "etag": null,
-      "sha256": "61f942439a3eacfc0fbda33bb46f1d1932e183d95afec7e26768022361f338df",
-      "elapsed_ms": 615
+      "sha256": "92669e6e716d3c9e0aa6059323eeb4bac5fe0daf43aba8db4c845b6155d18960",
+      "elapsed_ms": 964
     },
     {
       "id": "az-protective-order-start",
@@ -154,7 +205,7 @@
       "label": "Protective order official start",
       "url": "https://azpoint.azcourts.gov/",
       "fallback_url": "https://azpoint.azcourts.gov/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://azpoint.azcourts.gov/",
@@ -162,7 +213,7 @@
       "content_length": 104743,
       "last_modified": null,
       "etag": null,
-      "sha256": "5cf068cee514afd47fb9c2e4ec3044c973d5a6145938d1f6c188061266fd5de0",
+      "sha256": "33f65b7c1310874fa238fb731f2afc949f40d212eae21a2138fc37a2aff8cef8",
       "elapsed_ms": 133
     },
     {
@@ -171,7 +222,7 @@
       "label": "Maricopa divorce or separation - new filing without minor children",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
@@ -180,7 +231,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "2ef56eae0b63f10b55939bccc0752e7e18b85ecee3d2a34521db5bf92c9f3a11",
-      "elapsed_ms": 37
+      "elapsed_ms": 42
     },
     {
       "id": "maricopa-divorce-new-with-children",
@@ -188,7 +239,7 @@
       "label": "Maricopa divorce or separation - new filing with minor children",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
@@ -197,7 +248,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "750a6afffbd3921d89a0ce34be436ae3e243663bb4afa348879cb59f94a16e21",
-      "elapsed_ms": 176
+      "elapsed_ms": 200
     },
     {
       "id": "maricopa-response-family-court",
@@ -205,7 +256,7 @@
       "label": "Maricopa response to family-court papers",
       "url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
@@ -214,7 +265,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "5123b56d5fe85f321d9b61823f11dc346b50141a69fba4fd47be14f771781572",
-      "elapsed_ms": 74
+      "elapsed_ms": 83
     },
     {
       "id": "maricopa-consent-decree-agreement",
@@ -222,7 +273,7 @@
       "label": "Maricopa consent decree and agreement finalization",
       "url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
@@ -231,7 +282,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "2ac7a1b52f17930aa74bafaa083dc002ef9b36f29b6bcc176d3772d235fde618",
-      "elapsed_ms": 76
+      "elapsed_ms": 46
     },
     {
       "id": "maricopa-parenting-parentage-support",
@@ -239,7 +290,7 @@
       "label": "Maricopa parenting, parentage, and child-support packets",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
@@ -248,7 +299,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "d30501224e56b427ae92565507ad1e016b770aa24a62ceca6a847355377362cf",
-      "elapsed_ms": 48
+      "elapsed_ms": 40
     },
     {
       "id": "maricopa-modification-existing-order",
@@ -256,7 +307,7 @@
       "label": "Maricopa modification of existing family-court orders",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
@@ -265,7 +316,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "dedeff77d1d2f48d7d42e9b1df710a359ce987316f3bcb8ccc6ebd6c989c8cbc",
-      "elapsed_ms": 51
+      "elapsed_ms": 41
     },
     {
       "id": "maricopa-enforcement-existing-order",
@@ -273,7 +324,7 @@
       "label": "Maricopa enforcement or contempt review for existing orders",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
@@ -282,7 +333,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "c90c9d148f175203e3b245a314219eea96978f53a7ba7155d28aab1b898e25c0",
-      "elapsed_ms": 45
+      "elapsed_ms": 37
     },
     {
       "id": "maricopa-disclosure-and-hearing-readiness",
@@ -290,7 +341,7 @@
       "label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
@@ -299,7 +350,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "059b785eee689c64a5c33294eb17dcf85f95f5e44b236545ff3efc7b77980a5d",
-      "elapsed_ms": 39
+      "elapsed_ms": 38
     },
     {
       "id": "maricopa-name-address-update",
@@ -307,7 +358,7 @@
       "label": "Maricopa court name or address update forms",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
@@ -316,7 +367,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "642d778e604d9ec57c8bd6e5da428838af31906028756f4893411c759a300ade",
-      "elapsed_ms": 42
+      "elapsed_ms": 39
     },
     {
       "id": "maricopa-foreign-support-order",
@@ -324,7 +375,7 @@
       "label": "Maricopa registration of foreign family support order",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
@@ -333,7 +384,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "dfb962da6ee6a122790ad6e5fda10a6d059a0782bb8303cb2a943911c08da157",
-      "elapsed_ms": 41
+      "elapsed_ms": 40
     },
     {
       "id": "maricopa-foreign-custody-order",
@@ -341,7 +392,7 @@
       "label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
@@ -350,7 +401,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "c234b1d37c5dffad99b1f2574741f02fd3c405c84a32ac024fec7b8ccb3d1b96",
-      "elapsed_ms": 40
+      "elapsed_ms": 38
     },
     {
       "id": "maricopa-foreign-order-hearing",
@@ -358,7 +409,7 @@
       "label": "Maricopa hearing request for a registered foreign family-court order",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
@@ -367,7 +418,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "baa30a9ed2db500543c72a4b79475596c2ff1657f8fe2b830937961629ef49a8",
-      "elapsed_ms": 40
+      "elapsed_ms": 33
     },
     {
       "id": "maricopa-income-withholding-order",
@@ -375,7 +426,7 @@
       "label": "Maricopa income withholding order forms",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
@@ -384,7 +435,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "6a2eea7477658658ebccb62c71ccf89b85c86af2fac6cfa299199c32d750d50d",
-      "elapsed_ms": 38
+      "elapsed_ms": 42
     },
     {
       "id": "maricopa-property-division-enforcement",
@@ -392,7 +443,7 @@
       "label": "Maricopa enforcement of property division order",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
@@ -401,7 +452,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "d2c61f54a8b4787a7ebefc0c6476998c5ebea9c5c1d6c3d5248860db25d511df",
-      "elapsed_ms": 39
+      "elapsed_ms": 40
     },
     {
       "id": "maricopa-out-of-state-custody-enforcement",
@@ -409,7 +460,7 @@
       "label": "Maricopa enforcement of out-of-state physical custody order",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
@@ -418,7 +469,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "45e586281e82ad43e1a55a46e47c5d51786a93f3e24568017a27f2c7dcd61836",
-      "elapsed_ms": 41
+      "elapsed_ms": 37
     },
     {
       "id": "maricopa-post-decree-temporary-orders",
@@ -426,7 +477,7 @@
       "label": "Maricopa post-decree temporary orders",
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
@@ -435,7 +486,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "8b60a338911377f15bbdb03ac259a30aae3108859694ad1f72ae340817226523",
-      "elapsed_ms": 40
+      "elapsed_ms": 39
     },
     {
       "id": "maricopa-protective-order-resources",
@@ -443,7 +494,7 @@
       "label": "Maricopa protective order resources",
       "url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
       "fallback_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
@@ -452,7 +503,7 @@
       "last_modified": null,
       "etag": null,
       "sha256": "3124a5985e1f12bfcc11c93d6af9724454f702705bf3fae518d2317e30ace92d",
-      "elapsed_ms": 50
+      "elapsed_ms": 42
     },
     {
       "id": "az-child-support-official",
@@ -460,7 +511,7 @@
       "label": "Arizona Child Support Calculator",
       "url": "https://www.azcourts.gov/familylaw/child-support-calculator-information",
       "fallback_url": "https://www.azcourts.gov/familylaw",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://www.azcourts.gov/familylaw/child-support-calculator-information",
@@ -468,8 +519,8 @@
       "content_length": 40300,
       "last_modified": null,
       "etag": null,
-      "sha256": "a874d92be33dbe5f5d22cda88bf062ac86fe3b1584dcdb5a31c831985c86ab5f",
-      "elapsed_ms": 1863
+      "sha256": "10ee313542416cb69750537819ecf663765d62164c0e371f14aff63f798491fd",
+      "elapsed_ms": 1728
     },
     {
       "id": "az-spousal-maintenance-official",
@@ -477,7 +528,7 @@
       "label": "Arizona Spousal Maintenance Calculator",
       "url": "https://www.azcourts.gov/familylaw/Child-Support-Family-Law-Information/Spousal-Maintenance-Guidelines",
       "fallback_url": "https://www.azcourts.gov/familylaw",
-      "checked_at": "2026-06-12T03:59:36.534Z",
+      "checked_at": "2026-06-12T16:37:19.851Z",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://www.azcourts.gov/familylaw/Child-Support-Family-Law-Information/Spousal-Maintenance-Guidelines",
@@ -485,8 +536,8 @@
       "content_length": 41993,
       "last_modified": null,
       "etag": null,
-      "sha256": "8f3c294b90034020d101ebe573ecfb3ab87c6fd30adfa286324dbdbfd614ba50",
-      "elapsed_ms": 495
+      "sha256": "7f625f626c51c1f04ba2ef3af7ba8f1e9338702281b27ef67b5f99aa4e6a594f",
+      "elapsed_ms": 502
     }
   ]
 }
