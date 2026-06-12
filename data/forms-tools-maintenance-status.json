@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-maintenance-status",
-  "built_at": "2026-06-12T14:41:00.118Z",
+  "built_at": "2026-06-12T15:29:21.137Z",
   "checked_at": "2026-06-10T05:28:58.672Z",
   "source_manifests": [
     "data/source-health-public.json",
@@ -25,7 +25,7 @@
     "official_sources_checked": 19,
     "official_sources_ok": 19,
     "official_sources_broken": 0,
-    "reviewed_routes": 16,
+    "reviewed_routes": 20,
     "review_only_candidates": 12,
     "formula_logic_enabled_on_site": true,
     "official_api_runtime_enabled": true,

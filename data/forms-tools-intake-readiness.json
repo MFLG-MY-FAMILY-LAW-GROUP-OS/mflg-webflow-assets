@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-intake-readiness",
-  "built_at": "2026-06-12T15:27:08.298Z",
+  "built_at": "2026-06-12T15:29:21.193Z",
   "source_manifests": [
     "data/forms-tools-action-plan.json",
     "data/forms-tools-review-roadmap.json",
@@ -169,7 +169,7 @@
       "jurisdiction_type": "county",
       "packet_review_status": "packet actions reviewed",
       "official_packet_page_actions": 16,
-      "approved_pdf_actions": 70
+      "approved_pdf_actions": 74
     }
   ],
   "calculators": [

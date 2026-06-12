@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-jurisdiction-readiness",
-  "built_at": "2026-06-12T14:40:31.908Z",
+  "built_at": "2026-06-12T15:28:49.972Z",
   "checked_at": "2026-06-10T05:28:58.672Z",
   "source_manifests": [
     "data/forms-catalog.json",
@@ -77,9 +77,9 @@
       "official_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
       "source_status": "official source monitored",
       "packet_review_status": "packet actions reviewed",
-      "reviewed_packet_routes": 16,
+      "reviewed_packet_routes": 20,
       "official_packet_page_actions": 16,
-      "approved_pdf_actions": 70,
+      "approved_pdf_actions": 74,
       "public_guidance": "Reviewed packet actions and approved PDFs are available in the on-page viewer for matching routes.",
       "intake_guidance": "If this is the county for an existing case or likely new filing, carry the county into Guided Intake for review."
     },
