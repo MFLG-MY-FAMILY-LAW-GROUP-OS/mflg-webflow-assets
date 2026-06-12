@@ -7408,6 +7408,102 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   min-width: min(280px, 100%);
   white-space: normal;
 }
+.guide-forms-viewer {
+  display: grid;
+  gap: 16px;
+  padding: clamp(16px, 2vw, 22px);
+  border: 1px solid rgba(33, 85, 141, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 50px rgba(18, 24, 31, 0.08);
+  scroll-margin-top: 120px;
+}
+.guide-forms-viewer-head,
+.guide-pdf-frame-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+}
+.guide-forms-viewer-head > div,
+.guide-pdf-frame-head > div {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+.guide-forms-viewer-head span,
+.guide-pdf-frame-head span,
+.guide-pdf-list span {
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.guide-forms-viewer-head strong,
+.guide-pdf-frame-head strong {
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.45vw, 1.35rem);
+  line-height: 1.18;
+}
+.guide-forms-viewer-head p,
+.guide-pdf-frame-head p,
+.guide-pdf-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+.guide-pdf-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.4fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.guide-pdf-list {
+  display: grid;
+  gap: 8px;
+  max-height: 620px;
+  overflow: auto;
+  padding-right: 4px;
+}
+.guide-pdf-list button {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  min-height: 82px;
+  padding: 12px;
+  border: 1px solid rgba(33, 85, 141, 0.16);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+.guide-pdf-list button:hover,
+.guide-pdf-list button:focus-visible,
+.guide-pdf-list button.active {
+  border-color: rgba(33, 85, 141, 0.52);
+  background: rgba(33, 85, 141, 0.08);
+  outline: none;
+}
+.guide-pdf-list strong {
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.22;
+}
+.guide-pdf-frame {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+.guide-pdf-frame iframe {
+  width: 100%;
+  min-height: min(720px, 72vh);
+  border: 1px solid rgba(17, 24, 32, 0.12);
+  border-radius: 8px;
+  background: white;
+}
 .guide-resource-row {
   display: flex;
   flex-wrap: wrap;
@@ -8196,10 +8292,26 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
 	    display: grid;
 	    justify-content: stretch;
 	  }
-	  .forms-smart-path-mode .button {
+		  .forms-smart-path-mode .button {
+		    width: 100%;
+		  }
+	  .guide-forms-viewer-head,
+	  .guide-pdf-frame-head,
+	  .guide-pdf-layout {
+	    grid-template-columns: 1fr;
+	  }
+	  .guide-forms-viewer-head .button,
+	  .guide-pdf-frame-head .button {
 	    width: 100%;
 	  }
-	  .forms-matrix,
+	  .guide-pdf-list {
+	    max-height: 360px;
+	    padding-right: 0;
+	  }
+	  .guide-pdf-frame iframe {
+	    min-height: 560px;
+	  }
+		  .forms-matrix,
 	  .tool-card-grid,
 	  .official-resource-grid,
   .packet-readiness-grid,

@@ -2392,7 +2392,7 @@
         </div>
       </div>
       <p>${esc(guide.summary)}</p>
-      <button class="guide-detail-trigger" type="button" data-guide-open="${index}" aria-expanded="false">View Steps & Forms</button>
+      <button class="guide-detail-trigger" type="button" data-guide-open="${index}" aria-expanded="false">View Forms & Calculator</button>
       <div class="guide-lead">
         <p>${esc(guide.leadMagnet || "Readiness review")}</p>
         <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>${esc(guide.leadCta || "Start guided intake")}</a>
@@ -2434,22 +2434,22 @@
       </div>
       <div class="guide-next-step" data-guide-next-step>
         <div class="guide-next-step-head">
-          <span>Choose one next step</span>
-          <strong>What do you need from this guide?</strong>
-          <p>${esc(guideResourceSummaryFor(guide))} If none of these feel right, use Guided Intake instead of guessing.</p>
+          <span>Guide tools</span>
+          <strong>View the forms and calculator for this guide.</strong>
+          <p>${esc(guideResourceSummaryFor(guide))} Forms open on this page. You are not filing anything by viewing or downloading a PDF.</p>
         </div>
         <div class="guide-next-options" role="list">
-          <button class="active" type="button" data-guide-next-choice="forms">I need court forms</button>
-          ${calculatorChoice ? `<button type="button" data-guide-next-choice="calculator">I need a calculator</button>` : ""}
+          <button class="active" type="button" data-guide-next-choice="forms">View forms</button>
+          ${calculatorChoice ? `<button type="button" data-guide-next-choice="calculator">Use calculator</button>` : ""}
           <button type="button" data-guide-next-choice="intake">I am not sure</button>
         </div>
         <div class="guide-next-result" data-guide-next-result="forms">
           <div>
-            <span>Recommended</span>
-            <strong>Open the matched forms for this guide.</strong>
-            <p>This opens the matched form viewer on this site with the closest form group selected. You are not filing anything by opening forms.</p>
+            <span>Forms</span>
+            <strong>Open the forms assigned to this guide.</strong>
+            <p>The PDF viewer below opens the approved court forms for this practice area. If the form title does not fit, use Guided Intake.</p>
           </div>
-          <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Open matched forms on this site</a>
+          <button class="button primary" type="button" data-guide-scroll-forms>View forms below</button>
         </div>
         ${calculatorChoice ? `<div class="guide-next-result" data-guide-next-result="calculator" hidden>
           <div>
@@ -2468,9 +2468,18 @@
           <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Start Guided Intake</a>
         </div>
       </div>
+      <div class="guide-forms-viewer" data-guide-pdf-panel data-guide-pdf-packet="${esc(formsRoute.pdfPacket || "")}" data-guide-title="${esc(guide.title)}" data-guide-route='${esc(JSON.stringify(formsRoute))}'>
+        <div class="guide-forms-viewer-head">
+          <div>
+            <span>Forms for this guide</span>
+            <strong>Loading approved PDFs...</strong>
+            <p>Forms appear here so you can stay on this guide.</p>
+          </div>
+        </div>
+      </div>
       <div class="guide-panel-actions">
         <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>${esc(guide.leadCta || "Start guided intake")}</a>
-        <a class="button outline" href="/tools#forms-approved-pdfs" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Open forms for this guide</a>
+        <button class="button outline" type="button" data-guide-scroll-forms>View forms for this guide</button>
       </div>
     </div>`;
   }
@@ -3049,6 +3058,12 @@
       panel.innerHTML = renderGuidePanel(guide, index);
       insertPanelAfterRow(card);
       panel.querySelector("[data-guide-panel-close]")?.addEventListener("click", clearPanel);
+      wireGuidePdfPanel(panel);
+      panel.querySelectorAll("[data-guide-scroll-forms]").forEach((button) => {
+        button.addEventListener("click", () => {
+          panel.querySelector("[data-guide-pdf-panel]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
       const choiceButtons = Array.from(panel.querySelectorAll("[data-guide-next-choice]"));
       const resultPanels = Array.from(panel.querySelectorAll("[data-guide-next-result]"));
       choiceButtons.forEach((button) => {
@@ -3140,6 +3155,122 @@
     });
     window.addEventListener("resize", filter, { passive: true });
     filter();
+  }
+
+  async function wireGuidePdfPanel(panel) {
+    const host = panel.querySelector("[data-guide-pdf-panel]");
+    if (!host) return;
+    const packetId = host.getAttribute("data-guide-pdf-packet") || "";
+    const guideTitle = host.getAttribute("data-guide-title") || "this guide";
+    const formsRoute = parseRouteData(host.getAttribute("data-guide-route")) || {};
+    try {
+      const response = await fetch(`/data/form-pdf-public-actions.json?v=${Date.now()}`, { cache: "no-store" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const manifest = await response.json();
+      const actions = (Array.isArray(manifest.actions) ? manifest.actions : [])
+        .filter((action) => action.packet_id === packetId)
+        .sort((a, b) => {
+          const langA = a.language === "English" ? 0 : 1;
+          const langB = b.language === "English" ? 0 : 1;
+          if (langA !== langB) return langA - langB;
+          return String(a.public_stage || a.public_name || "").localeCompare(String(b.public_stage || b.public_name || ""));
+        });
+
+      if (!actions.length) {
+        host.innerHTML = `
+          <div class="guide-forms-viewer-head">
+            <div>
+              <span>Forms for this guide</span>
+              <strong>Forms are being reviewed for ${esc(guideTitle)}.</strong>
+              <p>This guide does not yet have an approved on-site PDF group. Use Guided Intake so the office can confirm the correct official forms.</p>
+            </div>
+            <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
+          </div>
+        `;
+        return;
+      }
+
+      const first = actions.find((action) => action.language === "English") || actions[0];
+      const actionRoute = (action) => formsToolRouteFor(
+        { ...formsRoute, pdfPacket: packetId },
+        action.packet_label || "",
+        {
+          displayLabel: action.display_label || action.public_name || "",
+          label: action.source_label || action.label || action.public_name || "",
+          fileName: action.file_name || "",
+          language: action.language || "",
+          officialUrl: action.official_pdf_url || ""
+        }
+      );
+
+      host.innerHTML = `
+        <div class="guide-forms-viewer-head">
+          <div>
+            <span>Forms for this guide</span>
+            <strong>${esc(guideTitle)} forms</strong>
+            <p>Open, preview, or download the approved court PDFs assigned to this practice area. You are not filing anything by viewing them.</p>
+          </div>
+          <a class="button outline" href="/start" data-link data-guide-pdf-intake>Use Guided Intake</a>
+        </div>
+        <div class="guide-pdf-layout">
+          <div class="guide-pdf-list" aria-label="${esc(guideTitle)} forms">
+            ${actions.map((action, actionIndex) => `
+              <button class="${action === first ? "active" : ""}" type="button" data-guide-pdf-choice="${actionIndex}">
+                <span>${esc(action.public_stage || action.language || "Court form")}</span>
+                <strong>${esc(action.public_name || action.display_label || action.label || action.file_name || "Official court PDF")}</strong>
+                <p>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</p>
+              </button>
+            `).join("")}
+          </div>
+          <div class="guide-pdf-frame">
+            <div class="guide-pdf-frame-head">
+              <div>
+                <span data-guide-pdf-stage>${esc(first.public_stage || "Court form")}</span>
+                <strong data-guide-pdf-title>${esc(first.public_name || first.display_label || first.file_name || "Official court PDF")}</strong>
+                <p data-guide-pdf-copy>${esc(first.public_description || "Approved court PDF assigned to this guide.")}</p>
+              </div>
+              <a class="button outline" href="${esc(first.site_pdf_download_url || first.site_pdf_view_url || "#")}" data-guide-pdf-download>Download PDF</a>
+            </div>
+            <iframe title="${esc(guideTitle)} court PDF viewer" loading="lazy" src="${esc(first.site_pdf_view_url || first.official_pdf_url || "")}" data-guide-pdf-frame></iframe>
+          </div>
+        </div>
+      `;
+
+      const intake = host.querySelector("[data-guide-pdf-intake]");
+      const frame = host.querySelector("[data-guide-pdf-frame]");
+      const title = host.querySelector("[data-guide-pdf-title]");
+      const stage = host.querySelector("[data-guide-pdf-stage]");
+      const copy = host.querySelector("[data-guide-pdf-copy]");
+      const download = host.querySelector("[data-guide-pdf-download]");
+      const buttons = Array.from(host.querySelectorAll("[data-guide-pdf-choice]"));
+
+      const setActive = (index) => {
+        const action = actions[index] || first;
+        buttons.forEach((button, buttonIndex) => button.classList.toggle("active", buttonIndex === index));
+        if (frame) frame.setAttribute("src", action.site_pdf_view_url || action.official_pdf_url || "");
+        if (title) title.textContent = action.public_name || action.display_label || action.file_name || "Official court PDF";
+        if (stage) stage.textContent = action.public_stage || action.language || "Court form";
+        if (copy) copy.textContent = action.public_description || "Approved court PDF assigned to this guide.";
+        if (download) download.setAttribute("href", action.site_pdf_download_url || action.site_pdf_view_url || action.official_pdf_url || "#");
+        intake?.setAttribute("data-intake-route", JSON.stringify(actionRoute(action)));
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setActive(Number(button.getAttribute("data-guide-pdf-choice") || 0)));
+      });
+      setActive(actions.indexOf(first));
+    } catch (error) {
+      host.innerHTML = `
+        <div class="guide-forms-viewer-head">
+          <div>
+            <span>Forms for this guide</span>
+            <strong>Forms could not load.</strong>
+            <p>Use Guided Intake while the approved PDF manifest is unavailable.</p>
+          </div>
+          <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
+        </div>
+      `;
+    }
   }
 
 	  function wireServiceTools() {
