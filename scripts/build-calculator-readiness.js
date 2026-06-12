@@ -45,10 +45,9 @@ const calculators = (calculatorCatalog.calculators || []).map((item) => {
     embed_url: item.embed_url || null,
     fallback_url: item.fallback_url,
     status: item.status,
-    public_status: mflgEnabled
-      ? "MFLG on-site calculator available"
-      : isOfficial ? "official calculator fallback available"
-      : isSafePlanning ? "safe planning tool" : "review required",
+    public_status: mflgEnabled || isSafePlanning
+      ? "Planning tool"
+      : isOfficial ? "Official backup" : "Review required",
     source_monitor_status: monitored?.status || (isSafePlanning ? "not an official formula source" : "needs review"),
     checked_at: monitored?.checked_at || null,
     formula_logic_enabled_on_site: Boolean(isChildSupport && childRuntimeEnabled),
@@ -61,7 +60,7 @@ const calculators = (calculatorCatalog.calculators || []).map((item) => {
       ? ["overnight count", "schedule assumptions", "notes kept out of public submission"]
       : ["none on this website before official calculator or Guided Intake"],
     public_guidance: mflgEnabled
-      ? "Use the MFLG on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear."
+      ? "Use the on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear."
       : isOfficial ? "Use the official fallback workspace, then Guided Intake when formula inputs or next steps are unclear."
       : "Use this only as a planning organizer. Do not enter child names, allegations, account numbers, or detailed financial records here.",
     intake_guidance: isOfficial
@@ -108,7 +107,7 @@ const output = {
   },
   calculators,
   public_message: childRuntimeEnabled && maintenanceRuntimeEnabled
-    ? "MFLG child-support and spousal-maintenance calculators are available on this page for planning. Official Arizona sources remain available as fallback."
+    ? "Child-support and spousal-maintenance calculators are available on this page for planning. Official Arizona sources remain available as fallback."
     : "Official formula calculators load in the on-page fallback workspace until each MFLG calculator is reviewed and enabled."
 };
 

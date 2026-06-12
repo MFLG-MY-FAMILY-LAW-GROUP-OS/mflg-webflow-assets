@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guides1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-calc-labels1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2001,8 +2001,8 @@
           <div class="calculator-precheck-result" aria-live="polite">
             <div>
               <span data-calculator-precheck-label>Recommended next step</span>
-              <strong data-calculator-precheck-title>Use the MFLG child-support calculator on this page.</strong>
-              <p data-calculator-precheck-copy>Use the on-site MFLG child-support calculator for planning and move the calculator choice into Intake if any input is unclear.</p>
+              <strong data-calculator-precheck-title>Use the child-support calculator on this page.</strong>
+              <p data-calculator-precheck-copy>Use the on-site child-support calculator for planning and move the calculator choice into Intake if any input is unclear.</p>
             </div>
             <div class="calculator-precheck-actions">
               <button class="button primary" type="button" data-calculator-precheck-action>Open recommended calculator</button>
@@ -2086,7 +2086,7 @@
             <div>
               <span>Official fallback workspace</span>
               <strong data-official-calculator-title>Arizona Child Support Calculator</strong>
-              <p data-official-calculator-copy>Use this official workspace only as a fallback. The MFLG calculators appear above when available.</p>
+              <p data-official-calculator-copy>Use this official workspace only as a fallback. The on-site calculators appear above when available.</p>
             </div>
             <div class="official-calculator-actions">
               <a class="button primary" href="/start" data-link data-official-calculator-source>Start guided review</a>
@@ -2103,7 +2103,7 @@
             <iframe title="Arizona child support calculator" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-official-calculator-frame></iframe>
           </div>
           <div class="official-calculator-steps" aria-label="Calculator safety steps">
-            <article><span>01</span><strong>Use MFLG first</strong><p>The on-site calculators appear above. Use this official workspace only as fallback when needed.</p></article>
+            <article><span>01</span><strong>Use the on-site calculator first</strong><p>The on-site calculators appear above. Use this official workspace only as fallback when needed.</p></article>
             <article><span>02</span><strong>Know where facts go</strong><p>Facts entered inside the embedded frame are handled by the official calculator. This public site carries only the selected calculator type into Intake.</p></article>
             <article><span>03</span><strong>Confirm your inputs</strong><p>Gather orders, income records, parenting-time counts, insurance, childcare, and effective dates before relying on any result.</p></article>
             <article><span>04</span><strong>Use Guided Intake if unsure</strong><p>If you do not know which numbers apply, save the calculator choice to Intake before guessing.</p></article>
@@ -2529,7 +2529,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guides1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-calc-labels1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5363,7 +5363,7 @@
             data-calculator-card="${esc(item.calculator_id)}"
             data-calculator-label="${esc(item.label || "")}"
             data-calculator-status="${esc(item.public_status || "")}">
-            <span>${esc(item.public_status || "Calculator")}</span>
+            <span>Planning tool</span>
             <strong>${esc(item.label || "Calculator")}</strong>
             <p>${esc(item.public_guidance || "")}</p>
             <small>${esc(item.source_authority || "")} · ${esc(item.source_monitor_status || "")}</small>
@@ -5470,14 +5470,14 @@
           <article><span>Regression checks</span><strong>${summary.complete_regression_comparisons ? `${esc(String(summary.complete_regression_comparisons))} passed` : "Waiting"}</strong></article>
           <article><span>Unlock gate</span><strong>${unlockSummary.public_unlock_ready ? "Ready" : "Locked"}</strong></article>
           <article><span>Testing</span><strong>${fixtureQaSummary.public_unlock_ready ? "Complete" : "Official comparison needed"}</strong></article>
-          <article><span>MFLG results</span><strong>${summary.public_results_enabled ? "Available" : "Not yet"}</strong></article>
+          <article><span>On-site results</span><strong>${summary.public_results_enabled ? "Available" : "Not yet"}</strong></article>
           <article><span>Safety records</span><strong>${internalSummary.internal_artifacts_ready ? "Status only" : "Checking"}</strong></article>
         </div>
         ${summary.child_support_runtime_enabled ? `
         <form class="mflg-child-support-calculator" id="mflg-child-support-calculator" data-mflg-child-support-calculator>
           <div class="mflg-child-support-head">
             <div>
-              <span>On-site planner</span>
+              <span>Planning tool</span>
               <strong>Estimate Arizona child support</strong>
               <p>Enter only planning numbers. Do not enter names, case numbers, addresses, allegations, or private documents.</p>
             </div>
@@ -5503,7 +5503,7 @@
         <form class="mflg-child-support-calculator mflg-maintenance-calculator" id="mflg-spousal-maintenance-calculator" data-mflg-maintenance-calculator>
           <div class="mflg-child-support-head">
             <div>
-              <span>Official API powered</span>
+              <span>Planning tool</span>
               <strong>Estimate Arizona spousal maintenance</strong>
               <p>Enter planning numbers only. Do not enter names, case numbers, addresses, allegations, or private documents.</p>
             </div>
@@ -5531,7 +5531,7 @@
         </form>` : ""}
         <div class="calculator-formula-grid">
           ${sources.map((item) => `<article class="calculator-formula-card">
-            <span>${item.public_result_enabled ? "Available" : "Official tool first"}</span>
+            <span>Planning tool</span>
             <strong>${esc(item.branded_calculator_name || item.public_name || "MFLG calculator")}</strong>
             <p>${item.public_result_enabled
               ? "Use this calculator here and confirm the result before filing or signing anything."
@@ -5675,10 +5675,10 @@
     const recommendations = {
       support: {
         choice: "support",
-        label: "MFLG calculator",
-        title: "Use the MFLG child-support calculator on this page.",
-        copy: "Use the on-site MFLG calculator for planning. If income, parenting time, insurance, childcare, existing orders, or effective dates are unclear, use Intake before relying on a number.",
-        button: "Open MFLG calculator",
+        label: "Planning tool",
+        title: "Use the child-support calculator on this page.",
+        copy: "Use the on-site calculator for planning. If income, parenting time, insurance, childcare, existing orders, or effective dates are unclear, use Intake before relying on a number.",
+        button: "Open calculator",
         intakeLabel: "Child support calculator pre-check",
         checklistLabel: "Before you start",
         checklistTitle: "Gather the child-support inputs first.",
@@ -5692,10 +5692,10 @@
       },
       maintenance: {
         choice: "maintenance",
-        label: "MFLG calculator",
-        title: "Use the MFLG spousal-maintenance calculator on this page.",
-        copy: "Use the on-site MFLG maintenance calculator for planning. If marriage dates, income, eligibility, existing orders, or effective dates are unclear, use Intake before relying on a result.",
-        button: "Open MFLG calculator",
+        label: "Planning tool",
+        title: "Use the spousal-maintenance calculator on this page.",
+        copy: "Use the on-site maintenance calculator for planning. If marriage dates, income, eligibility, existing orders, or effective dates are unclear, use Intake before relying on a result.",
+        button: "Open calculator",
         intakeLabel: "Spousal maintenance calculator pre-check",
         checklistLabel: "Before you start",
         checklistTitle: "Gather the maintenance inputs first.",
@@ -5709,7 +5709,7 @@
       },
       parenting: {
         choice: "parenting",
-        label: "Safe organizer",
+        label: "Planning tool",
         title: "Use the parenting-time counter.",
         copy: "The counter can organize estimated overnights without private facts. Use official calculator review when the count affects support or court paperwork.",
         button: "Open parenting-time counter",
@@ -5726,7 +5726,7 @@
       },
       deadline: {
         choice: "deadline",
-        label: "Timing check",
+        label: "Planning tool",
         title: "Use the deadline readiness planner.",
         copy: "This planner does not calculate or extend legal deadlines. It helps decide whether to start Intake or review court-source timing information now.",
         button: "Open deadline planner",
@@ -5836,31 +5836,31 @@
     const workspaceEmbedCopy = workspace?.querySelector("[data-official-calculator-embed-copy]");
     const options = {
       support: {
-        kicker: "MFLG tool on this page",
-        title: "Use the MFLG child-support calculator here.",
+        kicker: "Planning tool",
+        title: "Use the child-support calculator here.",
         copy: "The on-site calculator appears above the official fallback workspace. It does not submit your numbers and should be confirmed before filing, signing, or relying on the result.",
-        primaryText: "Open MFLG calculator",
+        primaryText: "Open calculator",
         href: "#mflg-child-support-calculator",
         workspaceChoice: false,
         intakeLabel: "MFLG Child Support Calculator"
       },
       maintenance: {
-        kicker: "MFLG tool on this page",
-        title: "Use the MFLG spousal-maintenance calculator here.",
+        kicker: "Planning tool",
+        title: "Use the spousal-maintenance calculator here.",
         copy: "The on-site calculator is powered by the official Arizona maintenance API. It keeps the experience on this page and should be confirmed before filing, signing, or relying on the result.",
         workspaceTitle: "Arizona Spousal Maintenance Calculator",
-        workspaceCopy: "Use the MFLG calculator above for planning. The official calculator remains available as a fallback for final confirmation before filing or relying on a number.",
+        workspaceCopy: "Use the on-site calculator above for planning. The official calculator remains available as a fallback for final confirmation before filing or relying on a number.",
         embedTitle: "Spousal maintenance calculator",
         embedCopy: "The on-site calculator uses the official Arizona maintenance API. Confirm version, income, marriage length, and maintenance factors before relying on the result.",
         frameNote: "Official fallback remains available if confirmation is needed.",
-        primaryText: "Open MFLG calculator",
+        primaryText: "Open calculator",
         href: "#mflg-spousal-maintenance-calculator",
         embedUrl: "https://www.superiorcourt.maricopa.gov/app/selfsuffcalc/",
         workspaceChoice: false,
         intakeLabel: "MFLG Spousal Maintenance Calculator"
       },
       parenting: {
-        kicker: "Safe planning tool",
+        kicker: "Planning tool",
         title: "Use the parenting-time counter.",
         copy: "Use only counts and assumptions. Do not enter names, allegations, addresses, or financial details.",
         primaryText: "Open Counter",
@@ -5869,7 +5869,7 @@
         intakeLabel: "Parenting Time Counter"
       },
       deadline: {
-        kicker: "Timing check",
+        kicker: "Planning tool",
         title: "Use the deadline readiness planner.",
         copy: "This does not calculate or extend legal deadlines. It helps you decide whether to use Intake or official court sources now.",
         primaryText: "Open Planner",
@@ -6001,7 +6001,7 @@
       contextNote: "Public parenting-time counter route only. The website did not store names, dates of birth, allegations, addresses, financial details, or the calculated overnight total.",
       presetAnswers: {
         selectedCalculator: "Parenting Time Counter",
-        calculatorStatus: "safe planning tool",
+        calculatorStatus: "Planning tool",
         sourceType: "Parenting time counter / public planning"
       }
     };

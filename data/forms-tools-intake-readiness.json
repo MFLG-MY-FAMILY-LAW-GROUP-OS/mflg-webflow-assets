@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-intake-readiness",
-  "built_at": "2026-06-12T13:48:46.387Z",
+  "built_at": "2026-06-12T13:56:23.687Z",
   "source_manifests": [
     "data/forms-tools-action-plan.json",
     "data/forms-tools-review-roadmap.json",
@@ -177,7 +177,7 @@
       "calculator_id": "az-child-support-official",
       "label": "Arizona Child Support Calculator",
       "status": "official_link",
-      "public_status": "MFLG on-site calculator available",
+      "public_status": "Planning tool",
       "formula_logic_enabled_on_site": true,
       "official_api_runtime_enabled": false,
       "mflg_calculator_enabled_on_site": true
@@ -186,7 +186,7 @@
       "calculator_id": "az-spousal-maintenance-official",
       "label": "Arizona Spousal Maintenance Calculator",
       "status": "official_link",
-      "public_status": "MFLG on-site calculator available",
+      "public_status": "Planning tool",
       "formula_logic_enabled_on_site": false,
       "official_api_runtime_enabled": true,
       "mflg_calculator_enabled_on_site": true
@@ -195,7 +195,7 @@
       "calculator_id": "mflg-parenting-time-counter",
       "label": "Parenting Time Counter",
       "status": "internal_safe_tool",
-      "public_status": "safe planning tool",
+      "public_status": "Planning tool",
       "formula_logic_enabled_on_site": false,
       "official_api_runtime_enabled": false,
       "mflg_calculator_enabled_on_site": false

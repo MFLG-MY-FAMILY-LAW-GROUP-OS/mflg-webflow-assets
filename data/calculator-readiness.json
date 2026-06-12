@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-readiness",
-  "built_at": "2026-06-12T13:48:11.705Z",
+  "built_at": "2026-06-12T13:56:23.308Z",
   "checked_at": "2026-06-10T05:28:58.672Z",
   "source_manifests": [
     "data/calculators-catalog.json",
@@ -40,7 +40,7 @@
       "embed_url": "https://www.superiorcourt.maricopa.gov/ezcourtforms2/",
       "fallback_url": "https://www.azcourts.gov/familylaw",
       "status": "official_link",
-      "public_status": "MFLG on-site calculator available",
+      "public_status": "Planning tool",
       "source_monitor_status": "ok",
       "checked_at": "2026-06-12T03:59:36.534Z",
       "formula_logic_enabled_on_site": true,
@@ -54,7 +54,7 @@
         "no documents",
         "no allegations"
       ],
-      "public_guidance": "Use the MFLG on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear.",
+      "public_guidance": "Use the on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear.",
       "intake_guidance": "Carry only calculator type and source selection into Guided Intake. Detailed numbers should be reviewed only after conflict and scope review."
     },
     {
@@ -66,7 +66,7 @@
       "embed_url": "https://www.superiorcourt.maricopa.gov/app/selfsuffcalc/",
       "fallback_url": "https://www.azcourts.gov/familylaw",
       "status": "official_link",
-      "public_status": "MFLG on-site calculator available",
+      "public_status": "Planning tool",
       "source_monitor_status": "ok",
       "checked_at": "2026-06-12T03:59:36.534Z",
       "formula_logic_enabled_on_site": false,
@@ -80,7 +80,7 @@
         "no documents",
         "no allegations"
       ],
-      "public_guidance": "Use the MFLG on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear.",
+      "public_guidance": "Use the on-site calculator for planning, then confirm the result before filing, signing, or relying on it. Use Guided Intake when inputs or next steps are unclear.",
       "intake_guidance": "Carry only calculator type and source selection into Guided Intake. Detailed numbers should be reviewed only after conflict and scope review."
     },
     {
@@ -92,7 +92,7 @@
       "embed_url": null,
       "fallback_url": null,
       "status": "internal_safe_tool",
-      "public_status": "safe planning tool",
+      "public_status": "Planning tool",
       "source_monitor_status": "not an official formula source",
       "checked_at": null,
       "formula_logic_enabled_on_site": false,
@@ -108,5 +108,5 @@
       "intake_guidance": "Carry only that a planning tool was selected; sensitive schedule facts should be reviewed inside Guided Intake or office review."
     }
   ],
-  "public_message": "MFLG child-support and spousal-maintenance calculators are available on this page for planning. Official Arizona sources remain available as fallback."
+  "public_message": "Child-support and spousal-maintenance calculators are available on this page for planning. Official Arizona sources remain available as fallback."
 }

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-guides1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-calc-labels1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -143,13 +143,13 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-calculator-chooser"* ]] &&
 	     [[ "$public_site_js" == *"What are you trying to figure out?"* ]] &&
 	     [[ "$public_site_js" == *"mflg-spousal-maintenance-calculator"* ]] &&
-	     [[ "$public_site_js" == *"MFLG spousal-maintenance calculator"* ]] &&
+	     [[ "$public_site_js" == *"Use the spousal-maintenance calculator"* ]] &&
 	     [[ "$public_site_js" == *"carried forward only the selected tool type"* ]] &&
 	     [[ "$public_site_js" == *"data-official-calculator-workspace"* ]] &&
 	     [[ "$public_site_js" == *"Open calculators"* ]] &&
 	     [[ "$public_site_js" == *"Official fallback workspace"* ]] &&
 	     [[ "$public_site_js" == *"data-official-calculator-frame"* ]] &&
-	     [[ "$public_site_js" == *"Open MFLG calculator"* ]] &&
+	     [[ "$public_site_js" == *"Open calculator"* ]] &&
 	     [[ "$public_site_js" == *"After the calculator"* ]] &&
 	     [[ "$public_site_js" == *"data-official-calculator-next-intake"* ]] &&
 	     [[ "$public_site_js" == *"Find matching forms"* ]] &&
