@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-calcchooser1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-accessnav1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -82,7 +82,11 @@ fi
 if grep -R 'href="/guides" data-link>Guides</a>' "$ROOT_DIR" --include='*.html' >/dev/null; then
   fail "Old Guides navigation label found in HTML"
 fi
-grep -R "Client portal access" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Client portal access marker missing from HTML"
+grep -R 'href="/client" data-link>Client Portal</a>' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Client Portal link missing from HTML"
+grep -R 'href="/staff" data-link>Staff Access</a>' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Staff Access link missing from HTML"
+if grep -R '<span>Client portal access</span>' "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' --exclude-dir='rollback-snapshots' --exclude-dir='test-results' >/dev/null; then
+  fail "Inactive Client portal access nav row found in public HTML"
+fi
 if grep -R "Secure client portal pending" "$ROOT_DIR" --include='*.html' >/dev/null; then
   fail "Unpolished pending client portal label found in public HTML"
 fi
