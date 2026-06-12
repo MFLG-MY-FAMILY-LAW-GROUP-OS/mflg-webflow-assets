@@ -2153,10 +2153,13 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   line-height: 1.5;
 }
 .forms-entry-lanes {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
   margin-top: 14px;
+}
+.forms-smart-path.user-showing-all .forms-entry-lanes {
+  display: grid;
 }
 .forms-start-steps {
   display: grid;
@@ -2189,10 +2192,13 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   line-height: 1.2;
 }
 .forms-path-strip {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin-top: 12px;
+}
+.forms-smart-path.user-showing-all .forms-path-strip {
+  display: grid;
 }
 .forms-path-strip span {
   display: flex;
@@ -4341,6 +4347,12 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
     var(--surface);
   box-shadow: 0 26px 70px rgba(18, 24, 31, 0.1);
 }
+.forms-router.forms-flow-hidden {
+  display: none !important;
+}
+.forms-router:not(.forms-flow-active) {
+  display: none;
+}
 .forms-router-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -5817,6 +5829,9 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   gap: 8px;
   justify-content: flex-end;
 }
+.official-pdf-viewer-actions [data-official-pdf-source-fallback] {
+  display: none;
+}
 .pdf-review-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -5845,6 +5860,18 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 .forms-matrix,
 .calculator-hub {
   margin-top: clamp(34px, 5vw, 68px);
+}
+.calculator-hub .calculator-pathways,
+.calculator-hub .tool-card-grid,
+.calculator-hub .calculator-readiness,
+.calculator-hub .official-calculator-workspace {
+  display: none;
+}
+body.forms-showing-all-sections .calculator-hub .calculator-pathways,
+body.forms-showing-all-sections .calculator-hub .tool-card-grid,
+body.forms-showing-all-sections .calculator-hub .calculator-readiness,
+body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
+  display: grid;
 }
 .forms-matrix {
   display: grid;

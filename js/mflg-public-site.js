@@ -948,16 +948,16 @@
     const category = item.category;
     const base = {
       formsLabel: "Arizona court forms",
-      formsUrl: "https://www.azcourts.gov/selfservicecenter/forms",
+      formsUrl: "/tools#forms-approved-pdfs",
       countyFormsLabel: "Maricopa family court forms",
-      countyFormsUrl: "https://superiorcourt.maricopa.gov/llrc/family-court-forms/"
+      countyFormsUrl: "/tools#forms-approved-pdfs"
     };
 
     if (category === "Child support" || title.includes("Support Worksheet")) {
       return {
         ...base,
         formsLabel: "Arizona child support forms",
-        formsUrl: "https://www.azcourts.gov/familylaw/Family-Law-Forms"
+        formsUrl: "/tools#forms-approved-pdfs"
       };
     }
 
@@ -965,7 +965,7 @@
       return {
         ...base,
         formsLabel: "Arizona family law forms",
-        formsUrl: "https://www.azcourts.gov/familylaw/Family-Law-Forms"
+        formsUrl: "/tools#forms-approved-pdfs"
       };
     }
 
@@ -973,7 +973,7 @@
       return {
         ...base,
         formsLabel: "Protective order resources",
-        formsUrl: "https://azpoint.azcourts.gov/"
+        formsUrl: "/tools#forms-approved-pdfs"
       };
     }
 
@@ -987,7 +987,11 @@
     let posture = "Any posture";
     let children = "any";
 
-    if (title.includes("divorce") || title.includes("dissolution")) {
+    if (title.includes("annulment")) {
+      issue = "divorce";
+      posture = "New filing";
+      children = "no-minor-children";
+    } else if (title.includes("divorce") || title.includes("dissolution")) {
       issue = "divorce";
       posture = title.includes("consent") || title.includes("agreement") ? "Agreement / final orders" : "New filing";
     } else if (title.includes("separation")) {
@@ -1022,12 +1026,26 @@
     }
 
     const county = issue === "safety" ? "Statewide" : "Maricopa";
+    let pdfPacket = pdfPacketForFormsRoute(county, issue, posture, children);
+    if (pdfPacket === "all") {
+      if (issue === "documents") pdfPacket = "maricopa-disclosure-and-hearing-readiness";
+      else if (issue === "modification") pdfPacket = "maricopa-modification-existing-order";
+      else if (issue === "enforcement") pdfPacket = "maricopa-enforcement-existing-order";
+      else if (issue === "safety") pdfPacket = "maricopa-protective-order-resources";
+      else if (category.includes("property")) pdfPacket = "maricopa-property-division-enforcement";
+      else if (category.includes("disclosure") || category.includes("court") || category.includes("procedure")) pdfPacket = "maricopa-disclosure-and-hearing-readiness";
+      else if (category.includes("child support")) pdfPacket = "maricopa-parenting-parentage-support";
+      else if (category.includes("maintenance")) pdfPacket = "maricopa-divorce-new-no-children";
+      else if (category.includes("agreements") || category.includes("resolution")) pdfPacket = "maricopa-consent-decree-agreement";
+      else pdfPacket = "maricopa-divorce-new-no-children";
+    }
+
     return {
       county,
       issue,
       posture,
       children,
-      pdfPacket: pdfPacketForFormsRoute(county, issue, posture, children),
+      pdfPacket,
       expandPdfGroup: true,
       focusPacketBuilder: true,
       fromGuide: guide?.title || "DIY Guide"
@@ -1681,7 +1699,7 @@
       }
       : {
         mode: "forms",
-        title: "Forms & Tools",
+        title: "Forms & Calculators",
         copy: "Choose what you need. The page will show a safe next step without asking for private details."
       };
     const initialToolMode = routeIntent.mode;
@@ -1715,7 +1733,7 @@
               <strong data-guided-result-title>Start with the form finder.</strong>
               <p data-guided-result-copy>Answer the questions above and use the blue button when you are ready.</p>
               <div class="forms-guided-summary" data-guided-summary></div>
-              <div class="forms-guided-path-line" data-guided-path-line>Your path: Court forms -> issue unknown -> statewide -> children unknown</div>
+              <div class="forms-guided-path-line" data-guided-path-line>Answer the next question. The page will keep the form choices hidden until they are useful.</div>
               <div class="forms-guided-result-actions">
                 <a class="button primary" href="#forms-official-router" data-guided-result-action>Continue to recommended forms</a>
                 <a class="button outline" href="/start" data-link data-guided-intake-fallback data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
@@ -1811,7 +1829,7 @@
         </div>
       </details>
 
-      <div class="forms-router" id="forms-official-router" data-flow-section="forms deadline" aria-label="Court forms finder">
+      <div class="forms-router" id="forms-official-router" data-flow-section="manual" aria-label="Court forms finder">
         <div class="forms-router-head">
           <div>
             <p class="eyebrow">Step 1</p>
@@ -2805,6 +2823,7 @@
     const view = routes[path] || notFound;
     activeRenderPath = routes[path] ? path : "/404";
     document.body.classList.toggle("has-hero", path === "/");
+    document.body.classList.remove("forms-showing-all-sections");
     root.innerHTML = await view();
     applyStoredFormsRouteIfNeeded(path);
     wireGuideFilters();
@@ -4471,9 +4490,9 @@
       forms: {
         label: "What happens next",
         title: "Continue to the recommended forms.",
-        copy: "Easy Mode has updated the form finder. Open the recommended form group, then use Guided Intake if the title does not sound right.",
-        href: "#forms-official-router",
-        text: "Continue to recommended forms"
+        copy: "Easy Mode has selected the closest form group. Open the forms in order, and use Guided Intake if the title does not sound right.",
+        href: "#forms-approved-pdfs",
+        text: "Open matched forms"
       },
       calculator: {
         label: "What happens next",
@@ -4582,6 +4601,8 @@
       guidedAnswers.children = children?.value || guidedAnswers.children;
       const recommendation = recommendations[need?.value || "forms"] || recommendations.forms;
       const activeNeed = need?.value || "forms";
+      host.classList.toggle("user-showing-all", showAllSections);
+      document.body.classList.toggle("forms-showing-all-sections", showAllSections);
       flowSections.forEach((section) => {
         const sectionTargets = (section.getAttribute("data-flow-section") || "").split(/\s+/).filter(Boolean);
         const visible = showAllSections || sectionTargets.includes(activeNeed);
@@ -4589,8 +4610,11 @@
         section.classList.toggle("forms-flow-active", visible && !showAllSections && sectionTargets.includes(activeNeed));
       });
       if (modeCopy) {
+        const isStillAnswering = guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
         modeCopy.textContent = showAllSections
           ? "Showing every Forms & Tools section. Start Guided Intake if the choices feel unclear."
+          : isStillAnswering
+          ? "Showing one guided question at a time."
           : `Showing the recommended path first: ${recommendation.text}.`;
       }
       if (showAll) {
@@ -4632,21 +4656,28 @@
     const updateGuidedResult = () => {
       const recommendation = recommendations[guidedAnswers.need || "forms"] || recommendations.forms;
       const needLabels = {
-        forms: "Forms",
-        deadline: "Deadline",
+        forms: "Court forms",
+        deadline: "Deadline or served papers",
         calculator: "Calculator",
-        intake: "Intake",
+        intake: "Guided Intake",
         issue: "Issue search",
-        guide: "DIY guide"
+        guide: "DIY Guides"
       };
       const issueLabels = {
-        all: "Issue unknown",
+        all: "Not sure yet",
         divorce: "Divorce / separation",
         parenting: "Parenting",
         support: "Support"
       };
+      const countyLabels = {
+        Statewide: "Court not sure yet",
+        Maricopa: "Maricopa County",
+        Pima: "Pima County",
+        Pinal: "Pinal County",
+        Yavapai: "Yavapai County"
+      };
       const childrenLabels = {
-        any: "Children unknown",
+        any: "Children not sure yet",
         "minor-children": "Minor children",
         "no-minor-children": "No minor children"
       };
@@ -4656,25 +4687,31 @@
         : guidedAnswers.children === "no-minor-children"
         ? " without minor children"
         : "";
+      const shouldContinueQuestions = guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
       if (guidedResultTitle) {
-        guidedResultTitle.textContent = recommendation.title || (guidedAnswers.need === "intake"
+        guidedResultTitle.textContent = shouldContinueQuestions
+          ? "Answer the next question."
+          : recommendation.title || (guidedAnswers.need === "intake"
           ? "Use Guided Intake instead of guessing."
           : guidedAnswers.need === "calculator"
           ? "Open the calculator tools."
           : `Use the ${countyLabel}form finder${childrenLabel}.`);
       }
       if (guidedResultCopy) {
-        guidedResultCopy.textContent = recommendation.copy || (guidedAnswers.need === "intake"
+        guidedResultCopy.textContent = shouldContinueQuestions
+          ? "Keep going. The page will show the right forms, calculator, or intake option after the basic choices are answered."
+          : recommendation.copy || (guidedAnswers.need === "intake"
           ? "This is the safest choice when the court, issue, deadline, or next form is unclear."
           : guidedAnswers.need === "calculator"
           ? "Start with calculator tools only if you know which numbers belong in the fields."
           : "The page has updated the form finder below. Use the next step button when you are ready.");
       }
       if (guidedResultAction) {
-        guidedResultAction.textContent = recommendation.text || "Go to next step";
-        guidedResultAction.setAttribute("href", recommendation.href || "#forms-official-router");
-        guidedResultAction.toggleAttribute("data-link", Boolean(recommendation.link));
-        if (recommendation.route) {
+        guidedResultAction.textContent = shouldContinueQuestions ? "Continue to next question" : recommendation.text || "Go to next step";
+        guidedResultAction.setAttribute("href", shouldContinueQuestions ? "#" : recommendation.href || "#forms-approved-pdfs");
+        guidedResultAction.toggleAttribute("data-guided-continue", shouldContinueQuestions);
+        guidedResultAction.toggleAttribute("data-link", !shouldContinueQuestions && Boolean(recommendation.link));
+        if (!shouldContinueQuestions && recommendation.route) {
           guidedResultAction.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
         } else {
           guidedResultAction.removeAttribute("data-intake-route");
@@ -4684,13 +4721,15 @@
       if (guidedSummary) {
         const chips = [
           needLabels[guidedAnswers.need] || "Forms",
-          issueLabels[guidedAnswers.issue] || "Issue unknown",
-          guidedAnswers.county || "Statewide",
-          childrenLabels[guidedAnswers.children] || "Children unknown"
+          issueLabels[guidedAnswers.issue] || "Not sure yet",
+          countyLabels[guidedAnswers.county] || guidedAnswers.county || "Court not sure yet",
+          childrenLabels[guidedAnswers.children] || "Children not sure yet"
         ];
         guidedSummary.innerHTML = chips.map((chip) => `<span>${esc(chip)}</span>`).join("");
         if (guidedPathLine) {
-          guidedPathLine.textContent = `Your path: ${chips.join(" -> ")}`;
+          guidedPathLine.textContent = shouldContinueQuestions
+            ? "Keep going one question at a time. You can always choose Guided Intake if you are unsure."
+            : `Ready next step: ${recommendation.text}.`;
         }
       }
     };
@@ -4781,6 +4820,13 @@
       });
     });
     guidedResultAction?.addEventListener("click", (event) => {
+      if (guidedResultAction.hasAttribute("data-guided-continue")) {
+        event.preventDefault();
+        guidedStep = Math.min(guidedStep + 1, guidedSteps.length - 1);
+        update();
+        guidedQuestion?.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
       const href = guidedResultAction.getAttribute("href") || "";
       if (!href.startsWith("#")) return;
       const target = document.querySelector(href);
