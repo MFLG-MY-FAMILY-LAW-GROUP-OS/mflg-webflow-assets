@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-guidecalc1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-allguidecalc1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -153,6 +153,7 @@ grep -q "data-guide-reveal" "$PUBLIC_JS_FILE" || fail "DIY guide reveal control 
 grep -q "View Forms & Calculator" "$PUBLIC_JS_FILE" || fail "Condensed DIY guide forms/calculator reveal missing from public JS"
 grep -q "data-guide-pdf-panel" "$PUBLIC_JS_FILE" || fail "DIY guide on-card PDF panel missing from public JS"
 grep -q "data-guide-calculator-choice" "$PUBLIC_JS_FILE" || fail "DIY guide calculator action missing from public JS"
+grep -q "Open deadline-readiness planner" "$PUBLIC_JS_FILE" || fail "DIY guide deadline planner action missing from public JS"
 grep -q "guidePacketChoicesFor" "$PUBLIC_JS_FILE" || fail "DIY guide packet choice router missing from public JS"
 grep -q "Form path" "$PUBLIC_JS_FILE" || fail "DIY guide generic form-path chooser copy missing"
 grep -q "Divorce or separation, no minor children" "$PUBLIC_JS_FILE" || fail "DIY guide divorce packet choices missing"

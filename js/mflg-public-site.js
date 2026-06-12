@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guidecalc1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-allguidecalc1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1068,10 +1068,14 @@
   function guideCalculatorChoiceFor(guide) {
     const title = `${guide?.title || ""}`.toLowerCase();
     const category = `${guide?.category || ""}`.toLowerCase();
-    if (category.includes("child support") || title.includes("support")) return "support";
-    if (category.includes("parenting") || category.includes("parentage") || title.includes("parenting")) return "parenting";
+    const text = `${category} ${title}`;
+    if (category.includes("child support") || title.includes("child support") || title.includes("support worksheet") || title.includes("arrears") || title.includes("back support")) return "support";
+    if (category.includes("parenting") || category.includes("parentage") || category.includes("jurisdiction") || title.includes("parenting") || title.includes("custody") || title.includes("decision-making") || title.includes("paternity") || title.includes("parentage") || title.includes("relocation") || title.includes("grandparent") || title.includes("third-party") || title.includes("uccjea") || title.includes("dna") || title.includes("birth certificate")) return "parenting";
     if (category.includes("maintenance") || title.includes("maintenance") || title.includes("spousal")) return "maintenance";
-    return "";
+    if (category.includes("marriage") || category.includes("agreements") || category.includes("property") || category.includes("disclosure") || title.includes("divorce") || title.includes("separation") || title.includes("annulment") || title.includes("consent") || title.includes("settlement") || title.includes("property") || title.includes("debt") || title.includes("real estate") || title.includes("financial")) return "maintenance";
+    if (category.includes("resolution") && (title.includes("negotiation") || title.includes("agreement") || title.includes("settlement"))) return "support";
+    if (text.includes("temporary") || text.includes("modification") || text.includes("enforcement") || text.includes("contempt") || text.includes("protective") || text.includes("safety") || text.includes("document") || text.includes("petition") || text.includes("response") || text.includes("filing") || text.includes("service") || text.includes("hearing") || text.includes("court") || text.includes("not sure") || text.includes("adoption") || text.includes("scope") || text.includes("referral") || text.includes("name change") || text.includes("mediation") || text.includes("arbitration") || text.includes("exhibit")) return "deadline";
+    return "deadline";
   }
 
   function guidePacketChoicesFor(guide) {
@@ -1205,6 +1209,7 @@
     if (calculatorChoice === "support") return "This guide can open matched forms and the child-support calculator.";
     if (calculatorChoice === "parenting") return "This guide can open matched forms and the parenting-time counter.";
     if (calculatorChoice === "maintenance") return "This guide can open matched forms and the spousal-maintenance calculator.";
+    if (calculatorChoice === "deadline") return "This guide can open matched forms and the deadline-readiness planner.";
     return "This guide can open matched forms or send the issue to Guided Intake.";
   }
 
@@ -2729,7 +2734,9 @@
         ? "Open parenting-time counter"
         : calculatorChoice === "maintenance"
           ? "Open spousal-maintenance calculator"
-          : "Check calculators";
+          : calculatorChoice === "deadline"
+            ? "Open deadline-readiness planner"
+            : "Choose calculator or planner";
     return `<div class="guide-row-panel-inner">
       <button class="guide-panel-close" type="button" data-guide-panel-close aria-label="Close guide details">Close</button>
       <div class="guide-panel-heading">
@@ -2862,7 +2869,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guidecalc1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-allguidecalc1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
