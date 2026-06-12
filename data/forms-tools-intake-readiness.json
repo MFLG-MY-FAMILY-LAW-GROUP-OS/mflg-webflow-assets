@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-intake-readiness",
-  "built_at": "2026-06-12T15:47:42.603Z",
+  "built_at": "2026-06-12T16:40:14.252Z",
   "source_manifests": [
     "data/forms-tools-action-plan.json",
     "data/forms-tools-review-roadmap.json",
@@ -25,12 +25,12 @@
   "summary": {
     "safe_start_options": 6,
     "reviewed_routes": 20,
-    "jurisdiction_source_options": 7,
+    "jurisdiction_source_options": 9,
     "calculator_choices": 3,
     "official_packet_page_actions": 16,
     "approved_pdf_actions": 74,
-    "official_sources_ok": 19,
-    "official_sources_checked": 19,
+    "official_sources_ok": 31,
+    "official_sources_checked": 31,
     "action_plan_available": true,
     "review_roadmap_available": true,
     "maintenance_status_available": true,
@@ -53,7 +53,7 @@
       "option_id": "county-source-start",
       "label": "County source check",
       "option_type": "jurisdiction",
-      "count": 7,
+      "count": 9,
       "public_status": "Carry only county/source status into Guided Intake.",
       "intake_value": "County source selected"
     },
@@ -85,7 +85,7 @@
       "option_id": "source-health-start",
       "label": "Source health reviewed",
       "option_type": "maintenance",
-      "count": 19,
+      "count": 31,
       "public_status": "Carry official-source monitoring status only.",
       "intake_value": "Source health reviewed"
     }
