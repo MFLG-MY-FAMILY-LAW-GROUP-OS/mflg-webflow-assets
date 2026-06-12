@@ -75,7 +75,10 @@ grep -R "$EXPECTED_ASSET_KEY" "$ROOT_DIR" --include='*.html' >/dev/null || fail 
 grep -R "$EXPECTED_FAVICON_KEY" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Expected favicon cache key $EXPECTED_FAVICON_KEY not found in HTML"
 grep -R "nav-access" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Access navigation menu missing from HTML"
 grep -R "DIY Guides" "$ROOT_DIR" --include='*.html' >/dev/null || fail "DIY Guides navigation label missing from HTML"
-grep -R "Forms &amp; Tools" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Forms & Tools navigation label missing from HTML"
+grep -R "Forms &amp; Calculators" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Forms & Calculators navigation label missing from HTML"
+if grep -R "Forms &amp; Tools" "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' >/dev/null; then
+  fail "Old Forms & Tools navigation label found in HTML"
+fi
 if grep -R 'href="/guides" data-link>Guides</a>' "$ROOT_DIR" --include='*.html' >/dev/null; then
   fail "Old Guides navigation label found in HTML"
 fi

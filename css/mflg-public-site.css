@@ -7301,6 +7301,86 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   font-size: 0.82rem;
   line-height: 1.42;
 }
+.guide-next-step {
+  display: grid;
+  gap: 14px;
+  margin-top: 6px;
+  padding: clamp(16px, 2vw, 22px);
+  border: 1px solid rgba(33, 85, 141, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+}
+.guide-next-step-head {
+  display: grid;
+  gap: 5px;
+  max-width: 820px;
+}
+.guide-next-step-head span,
+.guide-next-result span {
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.guide-next-step-head strong,
+.guide-next-result strong {
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.5vw, 1.38rem);
+  line-height: 1.16;
+}
+.guide-next-step-head p,
+.guide-next-result p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.guide-next-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.guide-next-options button {
+  min-height: 54px;
+  padding: 10px 12px;
+  border: 1px solid rgba(33, 85, 141, 0.16);
+  border-radius: 8px;
+  background: white;
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 950;
+  line-height: 1.2;
+  text-align: center;
+}
+.guide-next-options button:hover,
+.guide-next-options button:focus-visible,
+.guide-next-options button.active {
+  background: var(--blue);
+  color: white;
+}
+.guide-next-result {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid rgba(197, 155, 59, 0.22);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(197, 155, 59, 0.09), rgba(255, 255, 255, 0.82));
+}
+.guide-next-result[hidden] {
+  display: none;
+}
+.guide-next-result > div {
+  display: grid;
+  gap: 5px;
+}
+.guide-next-result .button {
+  min-width: min(280px, 100%);
+  white-space: normal;
+}
 .guide-resource-row {
   display: flex;
   flex-wrap: wrap;
@@ -8677,8 +8757,13 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   .official-pdf-controls,
   .official-pdf-link-grid,
   .pdf-review-grid,
+  .guide-next-options,
+  .guide-next-result,
   .jurisdiction-list {
     grid-template-columns: 1fr;
+  }
+  .guide-next-result .button {
+    width: 100%;
   }
   .forms-router-controls {
     grid-template-columns: 1fr;

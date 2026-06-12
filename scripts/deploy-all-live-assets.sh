@@ -373,6 +373,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
      [[ "$public_html" == *"favicon-light-32x32.png"* ]] &&
      [[ "$public_html" == *"favicon-dark-32x32.png"* ]] &&
 	     [[ "$public_html" == *"DIY Guides"* ]] &&
+	     [[ "$public_html" == *"Forms &amp; Calculators"* ]] &&
+	     [[ "$public_html" != *"Forms &amp; Tools"* ]] &&
 	     [[ "$public_html" != *'href="/guides" data-link>Guides</a>'* ]] &&
 	     [[ "$public_html" == *"nav-access"* ]] &&
 		     [[ "$public_html" == *"Client portal access"* ]] &&

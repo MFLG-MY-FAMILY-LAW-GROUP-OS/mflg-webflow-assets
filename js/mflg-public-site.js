@@ -15,7 +15,7 @@
     { path: "/practice-areas", label: "Practice Areas" },
     { path: "/fees", label: "Fees" },
     { path: "/guides", label: "DIY Guides" },
-    { path: "/tools", label: "Forms & Tools" },
+    { path: "/tools", label: "Forms & Calculators" },
     { path: "/about", label: "About" },
     { path: "/faq", label: "FAQ" },
     { path: "/contact", label: "Contact" },
@@ -881,22 +881,22 @@
 
   async function guides() {
     const guides = await loadGuides();
-    return section("DIY Guides", "Choose a guided path, collect the right facts, open official court-form resources, then route into Intake when you want a reviewed next step.", `
+    return section("DIY Guides", "Choose one issue, open the plain-language guide, then use the matched forms, calculator, or Guided Intake from that same guide.", `
       <div class="guide-command">
         <div>
-          <p class="eyebrow">DIY to reviewed next step</p>
-          <h3>Start with the guide. Finish with a clean intake record.</h3>
-          <p>Choose your issue, collect the basics, then send the guide context into Intake for conflict, scope, urgency, and service-fit review.</p>
+          <p class="eyebrow">Start here</p>
+          <h3>Pick a guide first. The forms and calculators appear inside the guide.</h3>
+          <p>You should not have to search a form library first. Choose the closest issue, then pick one clear next step: forms, calculator, or Guided Intake.</p>
         </div>
         <div class="guide-command-actions">
-          <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Get matched in Intake</a>
-          <a class="button outline" href="/forms" data-link>Forms & Tools</a>
+          <a class="button primary" href="#guide-resource-start">Choose a DIY Guide</a>
+          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
         </div>
       </div>
       <div class="guide-path-strip" aria-label="DIY guide process">
-        ${["Choose path", "Gather facts", "View matched forms", "Check readiness", "Route to Intake"].map((step, index) => `<span><b>0${index + 1}</b>${esc(step)}</span>`).join("")}
+        ${["Choose a guide", "Answer what you need", "Open matched forms", "Use calculator if needed", "Start Intake if unsure"].map((step, index) => `<span><b>0${index + 1}</b>${esc(step)}</span>`).join("")}
       </div>
-      <div class="guide-tools">
+      <div class="guide-tools" id="guide-resource-start">
         <input type="search" placeholder="Search guides" aria-label="Search guides" data-guide-search>
         <select aria-label="Filter guides by category" data-guide-category>
           <option value="">All categories</option>
@@ -978,6 +978,77 @@
     }
 
     return base;
+  }
+
+  function guideFormsRouteFor(guide) {
+    const title = `${guide?.title || ""}`.toLowerCase();
+    const category = `${guide?.category || ""}`.toLowerCase();
+    let issue = "all";
+    let posture = "Any posture";
+    let children = "any";
+
+    if (title.includes("divorce") || title.includes("dissolution")) {
+      issue = "divorce";
+      posture = title.includes("consent") || title.includes("agreement") ? "Agreement / final orders" : "New filing";
+    } else if (title.includes("separation")) {
+      issue = "divorce";
+      posture = "New filing";
+    } else if (title.includes("agreement") || title.includes("consent") || category.includes("agreement")) {
+      issue = "divorce";
+      posture = "Agreement / final orders";
+    } else if (category.includes("parenting") || category.includes("jurisdiction") || title.includes("parenting") || title.includes("custody")) {
+      issue = "parenting";
+      posture = title.includes("modif") || title.includes("enforce") || category.includes("post-decree") ? "Existing order" : "New filing";
+      children = "minor-children";
+    } else if (category.includes("child support") || title.includes("support")) {
+      issue = "support";
+      posture = title.includes("modif") || title.includes("enforce") || category.includes("post-decree") ? "Existing order" : "New filing";
+      children = "minor-children";
+    } else if (category.includes("parentage") || title.includes("paternity") || title.includes("parentage")) {
+      issue = "parentage";
+      posture = "New filing";
+      children = "minor-children";
+    } else if (category.includes("post-decree") || title.includes("modif")) {
+      issue = "modification";
+      posture = "Existing order";
+    } else if (title.includes("enforce") || title.includes("contempt")) {
+      issue = "enforcement";
+      posture = "Existing order";
+    } else if (category.includes("safety") || title.includes("protective")) {
+      issue = "safety";
+      posture = "Safety";
+    } else if (category.includes("document") || category.includes("disclosure") || category.includes("procedure") || category.includes("court")) {
+      issue = "documents";
+    }
+
+    const county = issue === "safety" ? "Statewide" : "Maricopa";
+    return {
+      county,
+      issue,
+      posture,
+      children,
+      pdfPacket: pdfPacketForFormsRoute(county, issue, posture, children),
+      expandPdfGroup: true,
+      focusPacketBuilder: true,
+      fromGuide: guide?.title || "DIY Guide"
+    };
+  }
+
+  function guideCalculatorChoiceFor(guide) {
+    const title = `${guide?.title || ""}`.toLowerCase();
+    const category = `${guide?.category || ""}`.toLowerCase();
+    if (category.includes("child support") || title.includes("support")) return "support";
+    if (category.includes("parenting") || category.includes("parentage") || title.includes("parenting")) return "parenting";
+    if (category.includes("maintenance") || title.includes("maintenance") || title.includes("spousal")) return "maintenance";
+    return "";
+  }
+
+  function guideResourceSummaryFor(guide) {
+    const calculatorChoice = guideCalculatorChoiceFor(guide);
+    if (calculatorChoice === "support") return "This guide can open matched forms and the child-support calculator.";
+    if (calculatorChoice === "parenting") return "This guide can open matched forms and the parenting-time counter.";
+    if (calculatorChoice === "maintenance") return "This guide can open matched forms and the spousal-maintenance calculator.";
+    return "This guide can open matched forms or send the issue to Guided Intake.";
   }
 
   const publicPlanningRules = [
@@ -2305,6 +2376,15 @@
 
   function renderGuidePanel(guide, index) {
     const route = guideRoute(guide);
+    const formsRoute = guideFormsRouteFor(guide);
+    const calculatorChoice = guideCalculatorChoiceFor(guide);
+    const calculatorLabel = calculatorChoice === "support"
+      ? "Open child support calculator"
+      : calculatorChoice === "parenting"
+        ? "Open parenting-time counter"
+        : calculatorChoice === "maintenance"
+          ? "Open spousal-maintenance calculator"
+          : "Check calculators";
     return `<div class="guide-row-panel-inner">
       <button class="guide-panel-close" type="button" data-guide-panel-close aria-label="Close guide details">Close</button>
       <div class="guide-panel-heading">
@@ -2325,10 +2405,45 @@
           <ul class="list">${(guide.listener || []).map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
         </div>
       </div>
+      <div class="guide-next-step" data-guide-next-step>
+        <div class="guide-next-step-head">
+          <span>Choose one next step</span>
+          <strong>What do you need from this guide?</strong>
+          <p>${esc(guideResourceSummaryFor(guide))} If none of these feel right, use Guided Intake instead of guessing.</p>
+        </div>
+        <div class="guide-next-options" role="list">
+          <button class="active" type="button" data-guide-next-choice="forms">I need court forms</button>
+          ${calculatorChoice ? `<button type="button" data-guide-next-choice="calculator">I need a calculator</button>` : ""}
+          <button type="button" data-guide-next-choice="intake">I am not sure</button>
+        </div>
+        <div class="guide-next-result" data-guide-next-result="forms">
+          <div>
+            <span>Recommended</span>
+            <strong>Open the matched forms for this guide.</strong>
+            <p>This opens the matched form viewer on this site with the closest form group selected. You are not filing anything by opening forms.</p>
+          </div>
+          <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Open matched forms on this site</a>
+        </div>
+        ${calculatorChoice ? `<div class="guide-next-result" data-guide-next-result="calculator" hidden>
+          <div>
+            <span>Calculator</span>
+            <strong>${esc(calculatorLabel)}</strong>
+            <p>Use only simple planning numbers. Do not enter names, addresses, case numbers, allegations, uploads, or detailed private facts.</p>
+          </div>
+          <a class="button primary" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(calculatorLabel)}</a>
+        </div>` : ""}
+        <div class="guide-next-result" data-guide-next-result="intake" hidden>
+          <div>
+            <span>Safe fallback</span>
+            <strong>Use Guided Intake if you are unsure.</strong>
+            <p>Intake helps confirm the issue, timing, court-form path, and service fit without making you guess.</p>
+          </div>
+          <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Start Guided Intake</a>
+        </div>
+      </div>
       <div class="guide-panel-actions">
         <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>${esc(guide.leadCta || "Start guided intake")}</a>
-        <a class="button outline" href="/forms" data-link>Find matching forms</a>
-        <a class="button outline" href="/forms#forms-approved-pdfs">View forms</a>
+        <a class="button outline" href="/tools#forms-approved-pdfs" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Open forms for this guide</a>
       </div>
     </div>`;
   }
@@ -2691,6 +2806,7 @@
     activeRenderPath = routes[path] ? path : "/404";
     document.body.classList.toggle("has-hero", path === "/");
     root.innerHTML = await view();
+    applyStoredFormsRouteIfNeeded(path);
     wireGuideFilters();
     wireServiceTools();
     wireServiceMethodCarousel();
@@ -2753,6 +2869,48 @@
 	      }));
 	    } catch (error) {
 	      /* Intake still works without session storage. */
+	    }
+	  }
+
+	  function storeFormsRoute(route, calculatorChoice) {
+	    try {
+	      window.sessionStorage.setItem("mflgFormsRouteContext", JSON.stringify({
+	        ...(route || {}),
+	        calculatorChoice: calculatorChoice || "",
+	        routedAt: new Date().toISOString()
+	      }));
+	    } catch (error) {
+	      /* Forms routing still works without session storage. */
+	    }
+	    if (route && typeof route === "object") {
+	      window.MFLGLatestFormsRoute = { ...route };
+	    }
+	  }
+
+	  function storedFormsRoute() {
+	    try {
+	      return parseRouteData(window.sessionStorage.getItem("mflgFormsRouteContext"));
+	    } catch (error) {
+	      return null;
+	    }
+	  }
+
+	  function applyStoredFormsRouteIfNeeded(path) {
+	    if (path !== "/tools" && path !== "/forms" && path !== "/calculators") return;
+	    const route = storedFormsRoute();
+	    if (!route) return;
+	    window.MFLGLatestFormsRoute = {
+	      county: route.county || "Statewide",
+	      issue: route.issue || "all",
+	      posture: route.posture || "Any posture",
+	      children: route.children || "any",
+	      pdfPacket: route.pdfPacket || "all",
+	      expandPdfGroup: route.expandPdfGroup !== false,
+	      focusPacketBuilder: route.focusPacketBuilder !== false,
+	      fromGuide: route.fromGuide || ""
+	    };
+	    if (route.calculatorChoice) {
+	      window.MFLGGuideCalculatorChoice = route.calculatorChoice;
 	    }
 	  }
 
@@ -2863,6 +3021,17 @@
       panel.innerHTML = renderGuidePanel(guide, index);
       insertPanelAfterRow(card);
       panel.querySelector("[data-guide-panel-close]")?.addEventListener("click", clearPanel);
+      const choiceButtons = Array.from(panel.querySelectorAll("[data-guide-next-choice]"));
+      const resultPanels = Array.from(panel.querySelectorAll("[data-guide-next-result]"));
+      choiceButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const choice = button.getAttribute("data-guide-next-choice") || "forms";
+          choiceButtons.forEach((item) => item.classList.toggle("active", item === button));
+          resultPanels.forEach((item) => {
+            item.hidden = item.getAttribute("data-guide-next-result") !== choice;
+          });
+        });
+      });
       requestAnimationFrame(() => {
         panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
       });
@@ -3183,6 +3352,13 @@
     const cards = Array.from(router.querySelectorAll("[data-form-resource]"));
     const routeSave = router.querySelector("[data-form-route-save]");
     const decisionPrimary = router.querySelector("[data-form-route-decision-primary]");
+    const presetRoute = window.MFLGLatestFormsRoute || storedFormsRoute();
+    if (presetRoute) {
+      if (county && Array.from(county.options).some((option) => option.value === presetRoute.county)) county.value = presetRoute.county;
+      if (issue && Array.from(issue.options).some((option) => option.value === presetRoute.issue)) issue.value = presetRoute.issue;
+      if (posture && Array.from(posture.options).some((option) => option.value === presetRoute.posture)) posture.value = presetRoute.posture;
+      if (children && Array.from(children.options).some((option) => option.value === presetRoute.children)) children.value = presetRoute.children;
+    }
 
     const update = () => {
       const countyValue = county?.value || "Statewide";
@@ -3222,7 +3398,10 @@
         issue: issueValue,
         posture: postureValue,
         children: childrenValue,
-        pdfPacket: pdfPacketForFormsRoute(countyValue, issueValue, postureValue, childrenValue)
+        pdfPacket: pdfPacketForFormsRoute(countyValue, issueValue, postureValue, childrenValue),
+        expandPdfGroup: presetRoute?.expandPdfGroup === true,
+        focusPacketBuilder: presetRoute?.focusPacketBuilder === true,
+        fromGuide: presetRoute?.fromGuide || ""
       };
       window.MFLGLatestFormsRoute = routeDetail;
       const decision = formsRouteDecisionFor(routeDetail, visibleResources);
@@ -5609,7 +5788,7 @@
     window.addEventListener("mflg:calculator-workspace", (event) => {
       select(event.detail?.choice || "support", true);
     });
-    select("support", false);
+    select(window.MFLGGuideCalculatorChoice || "support", Boolean(window.MFLGGuideCalculatorChoice));
   }
 
   function wireParentingTimeCounter() {
@@ -6564,6 +6743,12 @@
 	    const url = new URL(anchor.href, window.location.href);
 	    if (url.origin !== window.location.origin) return;
 	    const route = parseRouteData(anchor.getAttribute("data-intake-route"));
+	    const formsRoute = parseRouteData(anchor.getAttribute("data-guide-forms-route"));
+	    const calculatorChoice = anchor.getAttribute("data-guide-calculator-choice") || "";
+
+	    if (formsRoute || calculatorChoice) {
+	      storeFormsRoute(formsRoute || window.MFLGLatestFormsRoute || {}, calculatorChoice);
+	    }
 
 	    if (url.pathname.replace(/\/$/, "") === "/start") {
 	      if (route) {
@@ -6592,10 +6777,18 @@
 	    history.pushState({}, "", `${url.pathname}${url.hash}`);
 	    await render({ restoreScroll: false });
 	    requestAnimationFrame(() => {
-	      jumpToTop();
+	      if (url.hash) {
+	        document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+	      } else {
+	        jumpToTop();
+	      }
 	      updateHeaderState();
 	      requestAnimationFrame(() => {
-	        jumpToTop();
+	        if (url.hash) {
+	          document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+	        } else {
+	          jumpToTop();
+	        }
 	        updateHeaderState();
 	      });
 	    });
