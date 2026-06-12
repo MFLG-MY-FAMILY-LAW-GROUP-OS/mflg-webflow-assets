@@ -108,7 +108,9 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"guideFromServiceItem"* ]] &&
 	     [[ "$public_site_js" == *"guide-issue-grid"* ]] &&
 	     [[ "$public_site_js" == *"data-guide-reveal"* ]] &&
-	     [[ "$public_site_js" == *"View Steps & Forms"* ]] &&
+	     [[ "$public_site_js" == *"View Forms & Calculator"* ]] &&
+	     [[ "$public_site_js" == *"data-guide-pdf-panel"* ]] &&
+	     [[ "$public_site_js" == *"site_pdf_view_url"* ]] &&
 	     [[ "$public_site_js" == *"Calculators & Planning Tools"* ]] &&
 	     [[ "$public_site_js" == *"Court Forms Finder"* ]] &&
 	     [[ "$public_site_js" == *"Use safe planning tools and official Arizona calculator sources"* ]] &&
@@ -418,6 +420,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_css" == *"guide-issue-grid"* ]] &&
 	     [[ "$public_css" == *"guide-row-panel"* ]] &&
 	     [[ "$public_css" == *"guide-reveal"* ]] &&
+	     [[ "$public_css" == *"guide-forms-viewer"* ]] &&
+	     [[ "$public_css" == *"guide-pdf-frame"* ]] &&
 	     [[ "$public_css" == *"pdf-promotion-card"* ]] &&
 	     [[ "$public_css" == *"pdf-workbench-card"* ]] &&
 	     [[ "$public_css" == *"pdf-template-card"* ]] &&
