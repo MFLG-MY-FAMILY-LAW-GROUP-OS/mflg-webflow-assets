@@ -1,7 +1,7 @@
 {
   "version": "1.0.0-calculator-readiness",
-  "built_at": "2026-06-12T16:39:42.117Z",
-  "checked_at": "2026-06-12T16:37:19.851Z",
+  "built_at": "2026-06-12T18:21:22.929Z",
+  "checked_at": "2026-06-12T18:19:26.926Z",
   "source_manifests": [
     "data/calculators-catalog.json",
     "data/source-health-public.json",
@@ -42,7 +42,7 @@
       "status": "official_link",
       "public_status": "Planning tool",
       "source_monitor_status": "ok",
-      "checked_at": "2026-06-12T16:37:19.851Z",
+      "checked_at": "2026-06-12T18:19:26.926Z",
       "formula_logic_enabled_on_site": true,
       "official_api_runtime_enabled": false,
       "mflg_calculator_enabled_on_site": true,
@@ -68,7 +68,7 @@
       "status": "official_link",
       "public_status": "Planning tool",
       "source_monitor_status": "ok",
-      "checked_at": "2026-06-12T16:37:19.851Z",
+      "checked_at": "2026-06-12T18:19:26.926Z",
       "formula_logic_enabled_on_site": false,
       "official_api_runtime_enabled": true,
       "mflg_calculator_enabled_on_site": true,

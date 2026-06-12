@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-review-roadmap",
-  "built_at": "2026-06-12T16:40:14.149Z",
+  "built_at": "2026-06-12T18:22:05.162Z",
   "source_manifests": [
     "data/form-review-queue.json",
     "data/form-pdf-promotion-audit.json",
@@ -23,8 +23,8 @@
     "public_packet_page_actions": 16,
     "packet_candidates_review_only": 12,
     "public_pdf_actions": 70,
-    "county_source_only": 4,
-    "official_sources_ok": 31,
+    "county_source_only": 15,
+    "official_sources_ok": 38,
     "formula_logic_enabled_on_site": true,
     "official_api_runtime_enabled": true,
     "mflg_calculators_enabled_on_site": true,
@@ -57,7 +57,7 @@
       "item_id": "county-source-only",
       "label": "County sources without packet review",
       "status": "guided review only",
-      "count": 4,
+      "count": 15,
       "guidance": "Monitored county sources without packet-level review should use Guided Intake instead of sending visitors to an unreviewed packet path."
     },
     {

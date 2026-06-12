@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-matter-coverage",
-  "built_at": "2026-06-12T16:40:14.361Z",
+  "built_at": "2026-06-12T18:22:05.396Z",
   "source_manifests": [
     "js/mflg-public-site.js",
     "data/forms-tools-route-intake-map.json",
@@ -26,8 +26,8 @@
     "reviewed_route_starts": 20,
     "approved_pdf_actions": 74,
     "pdf_route_packets": 13,
-    "official_sources_ok": 31,
-    "official_sources_checked": 31,
+    "official_sources_ok": 38,
+    "official_sources_checked": 38,
     "calculator_choices": 3,
     "review_only_candidates": 12,
     "direct_cached_downloads_enabled": false,

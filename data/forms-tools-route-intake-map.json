@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-route-intake-map",
-  "built_at": "2026-06-12T16:40:14.307Z",
+  "built_at": "2026-06-12T18:22:05.336Z",
   "source_manifests": [
     "data/form-route-actions.json",
     "data/forms-tools-coverage.json",
@@ -24,8 +24,8 @@
     "routes_with_approved_pdfs": 13,
     "official_packet_page_actions": 16,
     "approved_pdf_actions": 74,
-    "official_sources_ok": 31,
-    "official_sources_checked": 31,
+    "official_sources_ok": 38,
+    "official_sources_checked": 38,
     "safe_start_options": 6,
     "direct_cached_downloads_enabled": false,
     "sensitive_public_collection_enabled": false

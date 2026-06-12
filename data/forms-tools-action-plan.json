@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-action-plan",
-  "built_at": "2026-06-12T16:40:14.098Z",
+  "built_at": "2026-06-12T18:22:05.105Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/form-route-actions.json",
@@ -17,8 +17,8 @@
     "sensitive_public_collection_enabled": false
   },
   "summary": {
-    "official_sources_ok": 31,
-    "official_sources_checked": 31,
+    "official_sources_ok": 38,
+    "official_sources_checked": 38,
     "reviewed_routes": 20,
     "approved_pdf_actions": 74,
     "same_origin_pdf_delivery_enabled": true,
@@ -35,7 +35,7 @@
       "step_id": "choose-on-page-start",
       "label": "Choose the on-page starting point",
       "status": "ready",
-      "metric": "31/31 sources OK",
+      "metric": "38/38 sources OK",
       "guidance": "Start with county and posture. If the county is uncertain, use the on-page statewide guidance first."
     },
     {
@@ -49,7 +49,7 @@
       "step_id": "keep-other-counties-source-only",
       "label": "Keep non-reviewed counties source-only",
       "status": "source-only",
-      "metric": "4 county sources only",
+      "metric": "15 county sources only",
       "guidance": "For monitored counties without packet review, use Guided Intake instead of guessing."
     },
     {
