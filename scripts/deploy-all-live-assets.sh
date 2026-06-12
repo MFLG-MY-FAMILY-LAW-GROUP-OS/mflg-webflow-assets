@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-allcountyforms1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-guidecalc1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -111,6 +111,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-guide-reveal"* ]] &&
 	     [[ "$public_site_js" == *"View Forms & Calculator"* ]] &&
 	     [[ "$public_site_js" == *"data-guide-pdf-panel"* ]] &&
+	     [[ "$public_site_js" == *"data-guide-calculator-choice"* ]] &&
 	     [[ "$public_site_js" == *"guidePacketChoicesFor"* ]] &&
 	     [[ "$public_site_js" == *"Form path"* ]] &&
 	     [[ "$public_site_js" == *"Divorce or separation, no minor children"* ]] &&
