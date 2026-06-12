@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-sourceexpansion1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-allcountyforms1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -697,7 +697,7 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$pdf_route_index_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$source_health_json" != *"1.0.0-public-source-health"* ]] ||
    [[ "$source_health_json" != *'"raw_hashes_exposed": false'* ]] ||
-   [[ "$source_health_json" != *'"total": 31'* ]] ||
+   [[ "$source_health_json" != *'"total": 38'* ]] ||
    [[ "$source_health_json" != *'"broken": 0'* ]] ||
    [[ "$source_health_json" != *"Reference indexes"* ]] ||
    [[ "$source_health_json" != *'"public_downloads_enabled": false'* ]] ||
@@ -716,8 +716,9 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$form_route_actions_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$form_route_actions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$jurisdiction_readiness_json" != *"1.0.0-jurisdiction-readiness"* ]] ||
-   [[ "$jurisdiction_readiness_json" != *'"official_jurisdictions": 9'* ]] ||
-   [[ "$jurisdiction_readiness_json" != *'"monitored_sources_total": 31'* ]] ||
+   [[ "$jurisdiction_readiness_json" != *'"official_jurisdictions": 20'* ]] ||
+   [[ "$jurisdiction_readiness_json" != *'"monitored_sources_total": 38'* ]] ||
+   [[ "$jurisdiction_readiness_json" != *'"unique_arizona_counties": 15'* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"jurisdictions_with_reviewed_packet_actions": 2'* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
@@ -1006,7 +1007,7 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$forms_tools_review_roadmap_json" != *'"mflg_calculators_enabled_on_site": true'* ]] ||
    [[ "$forms_tools_review_roadmap_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *"1.0.0-forms-tools-maintenance-status"* ]] ||
-   [[ "$forms_tools_maintenance_status_json" != *'"official_sources_ok": 31'* ]] ||
+   [[ "$forms_tools_maintenance_status_json" != *'"official_sources_ok": 38'* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *'"mflg_calculators_enabled_on_site": true'* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *'"raw_hashes_exposed": false'* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *'"direct_cached_downloads_enabled": false'* ]] ||

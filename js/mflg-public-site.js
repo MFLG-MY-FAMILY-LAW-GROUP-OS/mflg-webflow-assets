@@ -68,7 +68,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-sourceexpansion1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-allcountyforms1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1391,6 +1391,116 @@
       source: "Superior Court of Arizona in Pinal County",
       url: "https://www.pinalcourtsaz.gov/",
       note: "Use as a court-information fallback; packet-level form selection should still prefer reviewed county form pages."
+    },
+    {
+      title: "Apache County Superior Court Family-Law Source",
+      county: "Apache",
+      issues: ["all", "not sure", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official source listed",
+      source: "Superior Court of Arizona in Apache County",
+      url: "https://www.apachecountyaz.gov/superior-court",
+      note: "Official county source is listed for county routing. Automated monitoring is blocked, so use Guided Intake before relying on packet details."
+    },
+    {
+      title: "Cochise County Family Law Forms",
+      county: "Cochise",
+      issues: ["all", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official county source",
+      source: "Superior Court of Arizona in Cochise County",
+      url: "https://www.cochise.az.gov/244/Family-Law-Forms",
+      note: "County source should be verified before packet-level download links are cached."
+    },
+    {
+      title: "Coconino County Family Law Source",
+      county: "Coconino",
+      issues: ["all", "not sure", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official source listed",
+      source: "Superior Court of Arizona in Coconino County",
+      url: "https://www.coconino.az.gov/870/Family-Law",
+      note: "Official county source is listed for county routing. Automated monitoring is blocked, so use Guided Intake before relying on packet details."
+    },
+    {
+      title: "Gila County Clerk Family Forms",
+      county: "Gila",
+      issues: ["all", "divorce", "parenting", "support", "parentage", "modification", "enforcement", "filing"],
+      posture: "Any posture",
+      status: "Official county source",
+      source: "Superior Court of Arizona in Gila County",
+      url: "https://www.gilacountyaz.gov/government/courts/clerk_of_the_court/miscellaneousforms.php",
+      note: "County source should be verified before packet-level download links are cached."
+    },
+    {
+      title: "Graham County Superior Court Forms",
+      county: "Graham",
+      issues: ["all", "not sure", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official source listed",
+      source: "Superior Court of Arizona in Graham County",
+      url: "https://www.graham.az.gov/781/Superior-Court-Forms",
+      note: "Official county source is listed for county routing. Automated monitoring is blocked, so use Guided Intake before relying on packet details."
+    },
+    {
+      title: "Greenlee County Courts Official Source",
+      county: "Greenlee",
+      issues: ["all", "not sure", "filing", "documents"],
+      posture: "Any posture",
+      status: "Official county source",
+      source: "Superior Court of Arizona in Greenlee County",
+      url: "https://greenlee.az.gov/ova_dep/courts/",
+      note: "Use as a county court-information fallback when packet-level family-law forms are not clearly published."
+    },
+    {
+      title: "La Paz County Self-Service Center",
+      county: "La Paz",
+      issues: ["all", "not sure", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official county source",
+      source: "Superior Court of Arizona in La Paz County",
+      url: "https://www.lapazsuperiorcourtclerk.com/self-service-center.html",
+      note: "County source should be verified before packet-level download links are cached."
+    },
+    {
+      title: "Mohave County Family Court Forms and Kits",
+      county: "Mohave",
+      issues: ["all", "divorce", "legal separation", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official county source",
+      source: "Superior Court of Arizona in Mohave County",
+      url: "https://www.mohavecourts.com/forms-form-kits-page/families-children-forms-kits",
+      note: "County source should be verified before packet-level download links are cached."
+    },
+    {
+      title: "Navajo County Court Forms",
+      county: "Navajo",
+      issues: ["all", "not sure", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official county source",
+      source: "Superior Court of Arizona in Navajo County",
+      url: "https://www.navajocountyaz.gov/761/Court-Forms",
+      note: "County source should be verified before packet-level download links are cached."
+    },
+    {
+      title: "Santa Cruz County Clerk of the Superior Court",
+      county: "Santa Cruz",
+      issues: ["all", "not sure", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official source listed",
+      source: "Superior Court of Arizona in Santa Cruz County",
+      url: "https://www.santacruzcountyaz.gov/132/Clerk-of-the-Superior-Court",
+      note: "Official county source is listed for county routing. Automated monitoring is blocked, so use Guided Intake before relying on packet details."
+    },
+    {
+      title: "Yuma County Family Law Self-Service Center",
+      county: "Yuma",
+      issues: ["all", "divorce", "legal separation", "parenting", "support", "parentage", "modification", "enforcement"],
+      posture: "Any posture",
+      status: "Official county source",
+      source: "Superior Court of Arizona in Yuma County",
+      url: "https://www.yumacountyaz.gov/government/courts/self-service-center/family-law",
+      note: "County source should be verified before packet-level download links are cached."
     },
     {
       title: "Yavapai County Family Law Forms",
@@ -2751,7 +2861,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-sourceexpansion1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-allcountyforms1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}

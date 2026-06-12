@@ -18,8 +18,7 @@ const routeActions = readJSON("data/form-route-actions.json");
 
 const officialSources = (formsCatalog.official_source_router || []).filter((source) => (
   source.jurisdiction !== "reference" &&
-  source.source_type !== "reference_index" &&
-  source.monitoring_status !== "access_restricted"
+  source.source_type !== "reference_index"
 ));
 const routeList = Array.isArray(routeActions.routes) ? routeActions.routes : [];
 const checkedAt = sourceHealth.checked_at || null;
@@ -38,7 +37,9 @@ function statusFor(source) {
     court: source.court,
     jurisdiction_type: source.jurisdiction,
     official_url: source.official_url,
-    source_status: "official source monitored",
+    source_status: source.monitoring_status === "access_restricted"
+      ? "official source listed; automated monitoring blocked"
+      : "official source monitored",
     packet_review_status: packetReviewed
       ? "packet actions reviewed"
       : county === "Statewide" ? "statewide source only" : "county source only",
@@ -55,6 +56,9 @@ function statusFor(source) {
 }
 
 const jurisdictions = officialSources.map(statusFor);
+const uniqueArizonaCounties = new Set(jurisdictions
+  .map((item) => item.county)
+  .filter((county) => county && county !== "Statewide"));
 
 const output = {
   version: "1.0.0-jurisdiction-readiness",
@@ -75,6 +79,7 @@ const output = {
     official_jurisdictions: jurisdictions.length,
     monitored_sources_ok: sourceHealth.summary?.ok || 0,
     monitored_sources_total: sourceHealth.summary?.total || 0,
+    unique_arizona_counties: uniqueArizonaCounties.size,
     jurisdictions_with_reviewed_packet_actions: jurisdictions.filter((item) => item.reviewed_packet_routes > 0).length,
     county_source_only: jurisdictions.filter((item) => item.reviewed_packet_routes === 0 && item.jurisdiction_type === "county").length,
     statewide_source_only: jurisdictions.filter((item) => item.reviewed_packet_routes === 0 && item.jurisdiction_type === "statewide").length,
