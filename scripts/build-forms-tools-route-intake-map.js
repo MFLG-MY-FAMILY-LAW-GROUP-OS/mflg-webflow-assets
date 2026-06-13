@@ -26,6 +26,9 @@ const intakeReadiness = readJSON("data/forms-tools-intake-readiness.json");
 const routes = (routeActions.routes || []).map((item) => {
   const pdfs = Array.isArray(item.official_pdfs) ? item.official_pdfs : [];
   const packetPages = Array.isArray(item.official_packet_pages) ? item.official_packet_pages : [];
+  const primaryPdf = pdfs.find((pdf) => pdf.official_pdf_url);
+  const primaryOfficialUrl = packetPages[0]?.official_packet_page_url || primaryPdf?.official_pdf_url || "";
+  const primaryOfficialLabel = packetPages[0]?.label || primaryPdf?.display_label || primaryPdf?.label || primaryPdf?.file_name || "";
   return {
     route_start_id: `route-start-${item.packet_id}`,
     packet_id: item.packet_id,
@@ -36,8 +39,8 @@ const routes = (routeActions.routes || []).map((item) => {
     official_packet_pages: packetPages.length,
     approved_pdfs: pdfs.length,
     languages: Array.isArray(item.languages) ? item.languages : [],
-    primary_official_packet_page_url: packetPages[0]?.official_packet_page_url || "",
-    primary_official_packet_page_label: packetPages[0]?.label || "",
+    primary_official_packet_page_url: primaryOfficialUrl,
+    primary_official_packet_page_label: primaryOfficialLabel,
     sample_approved_pdfs: pdfs.slice(0, 3).map((pdf) => ({
       display_label: pdf.display_label,
       language: pdf.language,
