@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-promotion-control",
-  "built_at": "2026-06-13T07:28:57.885Z",
+  "built_at": "2026-06-13T07:51:24.025Z",
   "public_safety": {
     "internal_promotion_control_exposed": false,
     "sensitive_fixture_values_exposed": false,
