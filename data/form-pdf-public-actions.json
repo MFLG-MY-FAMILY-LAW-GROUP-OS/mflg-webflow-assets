@@ -1,6 +1,6 @@
 {
   "version": "0.8.0-pdf-promotion-control",
-  "built_at": "2026-06-13T07:50:52.962Z",
+  "built_at": "2026-06-13T08:49:11.003Z",
   "public_safety": {
     "public_pdf_actions_enabled": true,
     "same_origin_pdf_delivery_enabled": true,
