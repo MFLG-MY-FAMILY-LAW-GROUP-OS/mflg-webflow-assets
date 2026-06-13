@@ -1,0 +1,27 @@
+{
+  "name": "mflg-webflow-assets",
+  "version": "1.0.0",
+  "description": "External Webflow CSS, JavaScript, and static front-end assets for MY FAMILY LAW GROUP PLLC.",
+  "main": "_worker.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test:forms-tools": "node scripts/playwright-forms-tools-guided-flow.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/issues"
+  },
+  "homepage": "https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets#readme",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}
