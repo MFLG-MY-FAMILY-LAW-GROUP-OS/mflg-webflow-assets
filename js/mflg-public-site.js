@@ -191,7 +191,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicepanel1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicecards2">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -522,7 +522,7 @@
 	      promise: "Turn the next filing into a clean packet.",
 	      copy: "Petitions, responses, agreements, parenting plans, worksheets, proposed orders, and supporting materials organized for family-court review.",
 	      bestFor: "Forms, packets, agreements",
-	      cta: "Start document intake",
+	      cta: "Start intake for documents",
 	      route: intakeMethodRoute("Document preparation", "Document Preparation / Review", "Prepare and file documents", {
 	        documentTypes: ["New filing / petition"],
 	        serviceNeed: "Document preparation"
@@ -534,7 +534,7 @@
 	      promise: "Know what needs to be filed, served, and tracked.",
 	      copy: "Filing readiness, service coordination, copies, deadline awareness, and practical next steps before a document moves forward.",
 	      bestFor: "Filing, service, deadlines",
-	      cta: "Start filing intake",
+	      cta: "Start intake for filing",
 	      route: intakeMethodRoute("Filing support", "Document Preparation / Review", "Prepare and file documents", {
 	        documentTypes: ["Service documents"],
 	        hasDeadline: "Not sure",
@@ -547,7 +547,7 @@
 	      promise: "Build a settlement path before the conflict hardens.",
 	      copy: "Issue lists, proposed terms, mediation preparation, settlement conference support, and agreement review within licensed scope.",
 	      bestFor: "Mediation, settlement, terms",
-	      cta: "Start settlement intake",
+	      cta: "Start intake for settlement",
 	      route: intakeMethodRoute("Negotiation", "Mediation / ADR / Settlement Help", "Mediation or settlement preparation", {
 	        adrType: ["Negotiation"],
 	        bothPartiesWilling: "Maybe / not sure",
@@ -560,7 +560,7 @@
 	      promise: "Check fit before a hearing or appearance.",
 	      copy: "Eligibility review for limited-scope family-court appearances, hearing preparation, negotiation, mediation, and settlement discussions.",
 	      bestFor: "Hearings, scope review",
-	      cta: "Start appearance review",
+	      cta: "Start intake for court review",
 	      route: intakeMethodRoute("Court appearances within licensed scope", "Not Sure", "Court appearance / limited-scope representation", {
 	        hasDeadline: "Yes",
 	        primaryHelpNeeded: "Prepare for court",
@@ -718,7 +718,7 @@
 	      <div class="service-methods-intro">
 	        <p class="eyebrow">Focused intake paths</p>
 	        <h3>Not ready to choose a legal issue? Start with the kind of help you need.</h3>
-	        <p>Choose a service track and Intake will open with the closest issue, service focus, and next-step context already set.</p>
+	        <p>These cards open Guided Intake with that kind of help already selected. If you want to read about a specific legal issue first, use the practice-area cards below.</p>
 	        <a class="service-methods-primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>
 	          Get matched in Intake <span aria-hidden="true">→</span>
 	        </a>
@@ -756,7 +756,7 @@
 		    </div>
 			    <div class="grid service-grid" data-service-grid data-service-list>${items.map((item, index) => {
 			      return `
-				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
+				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} role="button" tabindex="0" aria-label="Review details for ${esc(item.title)}" data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
 			      <div class="service-heading">
 			        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
 		        <p class="service-kicker">${esc(item.category)}</p>
@@ -764,7 +764,7 @@
 		      </div>
 		      <div class="service-detail">
 		        <p>${item.copy}</p>
-		        <button class="card-link service-detail-toggle" type="button" data-service-detail-toggle aria-expanded="false">View Details →</button>
+		        <button class="card-link service-detail-toggle" type="button" data-service-detail-toggle aria-expanded="false">Review this path →</button>
 		      </div>
 		    </article>`;
 			    }).join("")}</div>
@@ -3056,7 +3056,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-servicepanel1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-servicecards2" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -4004,6 +4004,15 @@
 	      update();
 	    });
 	    cards.forEach((card) => {
+	      card.addEventListener("click", (event) => {
+	        if (event.target.closest("a, button")) return;
+	        openServicePanel(card);
+	      });
+	      card.addEventListener("keydown", (event) => {
+	        if (event.key !== "Enter" && event.key !== " ") return;
+	        event.preventDefault();
+	        openServicePanel(card);
+	      });
 	      card.querySelector("[data-service-detail-toggle]")?.addEventListener("click", () => openServicePanel(card));
 	    });
 	    window.addEventListener("resize", update, { passive: true });
