@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test:forms-tools": "node scripts/playwright-forms-tools-guided-flow.js"
+    "test:forms-tools": "node scripts/playwright-forms-tools-guided-flow.js",
+    "test:public-surface": "node scripts/validate-public-surface.js"
   },
   "repository": {
     "type": "git",

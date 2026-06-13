@@ -65,6 +65,9 @@
     jurisdiction: "The court or county that has authority to handle the case or filing.",
     petition: "The first court paper that asks the court to open a case or make orders.",
     response: "The court paper filed after someone receives a petition or other request.",
+    served: "When court papers are formally delivered to someone in the way court rules require.",
+    service: "The formal delivery of court papers to another person.",
+    filing: "Giving a document to the court so it becomes part of the court record.",
     decree: "The final court order that resolves a divorce, legal separation, or similar family-law matter.",
     disclosure: "The required exchange of financial or case information between parties.",
     affidavit: "A written statement signed under oath or penalty of perjury.",
@@ -74,13 +77,105 @@
     "legal-decision-making": "Arizona's term for legal custody: who makes major decisions for a child.",
     "parenting-time": "The schedule for when a child is with each parent.",
     paternity: "A legal case or finding that establishes a child's legal parent.",
+    hearing: "A court event where the judge may take information, hear arguments, and decide next steps.",
+    packet: "A group of forms that usually go together for one court task.",
+    contempt: "A court request claiming someone violated a court order.",
+    scope: "The type of help the office is legally allowed and agreed to provide.",
+    conflict: "A required check for whether the office can ethically review or accept a matter.",
+    retainer: "Money paid in advance and held for legal services under an agreement.",
     qdro: "A special retirement-order document that usually requires attorney or specialist review."
   };
 
   function legalTerm(key, label) {
     const definition = legalTermDefinitions[key] || legalTermDefinitions[String(key || "").toLowerCase()];
     if (!definition) return esc(label || key);
-    return `<span class="legal-term">${esc(label || key)}<button type="button" class="legal-term-help" aria-label="${esc(`${label || key}: ${definition}`)}" data-legal-definition="${esc(definition)}">?</button></span>`;
+    return `<span class="legal-term" data-legal-term-key="${esc(key)}">${esc(label || key)}<button type="button" class="legal-term-help" aria-label="${esc(`${label || key}: ${definition}`)}" data-legal-definition="${esc(definition)}">?</button></span>`;
+  }
+
+  const legalTermMatchers = [
+    ["legal-decision-making", /\blegal decision-making\b/i],
+    ["temporary-orders", /\btemporary orders\b/i],
+    ["parenting-time", /\bparenting time\b/i],
+    ["case-stage", /\bcase stage\b/i],
+    ["jurisdiction", /\bjurisdiction\b/i],
+    ["disclosure", /\bdisclosure\b/i],
+    ["affidavit", /\baffidavit\b/i],
+    ["enforcement", /\benforcement\b/i],
+    ["modification", /\bmodification\b/i],
+    ["paternity", /\bpaternity\b/i],
+    ["petition", /\bpetition\b/i],
+    ["response", /\bresponse\b/i],
+    ["decree", /\bdecree\b/i],
+    ["served", /\bserved\b/i],
+    ["service", /\bservice\b/i],
+    ["filing", /\bfiling\b/i],
+    ["hearing", /\bhearing\b/i],
+    ["packet", /\bpacket\b/i],
+    ["contempt", /\bcontempt\b/i],
+    ["scope", /\bscope\b/i],
+    ["conflict", /\bconflict\b/i],
+    ["retainer", /\bretainer\b/i],
+    ["posture", /\bposture\b/i],
+    ["qdro", /\bQDROs?\b/]
+  ];
+
+  function enhanceLegalTerms(container) {
+    const host = container || root;
+    if (!host || !host.querySelectorAll) return;
+    const used = new Set(Array.from(host.querySelectorAll("[data-legal-term-key]")).map((item) => item.getAttribute("data-legal-term-key")));
+    const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const text = node.nodeValue || "";
+        if (!text.trim()) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (parent.closest(".legal-term, .site-header, .footer, script, style, button, a, select, option, input, textarea")) return NodeFilter.FILTER_REJECT;
+        if (!parent.closest("p, li, dd, dt, h1, h2, h3, h4, strong, small, span")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const replacements = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const text = node.nodeValue || "";
+      const match = legalTermMatchers.find(([key, regex]) => !used.has(key) && regex.test(text));
+      if (!match) continue;
+      const [key, regex] = match;
+      const result = regex.exec(text);
+      if (!result || result.index < 0) continue;
+      replacements.push({ node, key, index: result.index, label: result[0] });
+      used.add(key);
+      if (used.size >= legalTermMatchers.length) break;
+    }
+    replacements.forEach(({ node, key, index, label }) => {
+      const text = node.nodeValue || "";
+      const before = text.slice(0, index);
+      const after = text.slice(index + label.length);
+      const wrapper = document.createElement("span");
+      wrapper.className = "legal-term";
+      wrapper.setAttribute("data-legal-term-key", key);
+      wrapper.textContent = label;
+      const help = document.createElement("button");
+      help.type = "button";
+      help.className = "legal-term-help";
+      help.textContent = "?";
+      const definition = legalTermDefinitions[key] || "";
+      help.setAttribute("aria-label", `${label}: ${definition}`);
+      help.setAttribute("data-legal-definition", definition);
+      wrapper.appendChild(help);
+      const fragment = document.createDocumentFragment();
+      if (before) fragment.appendChild(document.createTextNode(before));
+      fragment.appendChild(wrapper);
+      if (after) fragment.appendChild(document.createTextNode(after));
+      node.parentNode?.replaceChild(fragment, node);
+    });
+  }
+
+  function scheduleLegalTermEnhancement(container) {
+    window.requestAnimationFrame(() => enhanceLegalTerms(container || root));
+    window.setTimeout(() => enhanceLegalTerms(container || root), 250);
+    window.setTimeout(() => enhanceLegalTerms(container || root), 900);
+    window.setTimeout(() => enhanceLegalTerms(container || root), 1800);
   }
 
 	  function link(href, label, cls) {
@@ -96,7 +191,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-nofakelinks1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-publicsurface1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2899,7 +2994,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-nofakelinks1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-publicsurface1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3246,9 +3341,10 @@
     wireCalculatorChooser();
     wireParentingTimeCounter();
     wireDeadlineReadinessPlanner();
-    renderIntakeIfNeeded(path);
-    updateNav(path);
-	    if (opts.restoreScroll) {
+	    renderIntakeIfNeeded(path);
+	    updateNav(path);
+	    scheduleLegalTermEnhancement(root);
+		    if (opts.restoreScroll) {
 	      window.scrollTo({ top: scrollPositions.get(path) || 0, behavior: "instant" in window ? "instant" : "auto" });
 	    } else {
 	      jumpToTop();
@@ -5467,33 +5563,31 @@
       host.innerHTML = `
         <div class="forms-route-intake-head">
           <div>
-            <span>Reviewed route starts</span>
-            <strong>${esc(String(summary.reviewed_route_starts || routes.length))} exact route start${(summary.reviewed_route_starts || routes.length) === 1 ? "" : "s"} ready for Guided Intake.</strong>
-            <p>${esc(manifest.public_message || "Reviewed packet routes can start Guided Intake with only your selected issue, county, and packet starting point.")}</p>
+            <span>Saved starting points</span>
+            <strong>Choose a starting point only if it sounds like your situation.</strong>
+            <p>These choices keep county, issue, and forms together. If none sound right, use Guided Intake instead.</p>
           </div>
-          <a class="button outline" href="/start" data-link data-route-map-intake>Use First Reviewed Route</a>
+          <a class="button outline" href="/start" data-link data-route-map-intake>Start Guided Intake</a>
         </div>
         <div class="forms-route-intake-metrics">
-          <article><span>Packet pages</span><strong>${esc(String(summary.official_packet_page_actions || 0))}</strong></article>
-          <article><span>Approved PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
-          <article><span>PDF routes</span><strong>${esc(String(summary.routes_with_approved_pdfs || 0))}</strong></article>
-          <article><span>Sources OK</span><strong>${esc(String(summary.official_sources_ok || 0))}/${esc(String(summary.official_sources_checked || 0))}</strong></article>
+          <article><span>Form groups</span><strong>${esc(String(summary.reviewed_route_starts || routes.length))}</strong></article>
+          <article><span>Viewable PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
+          <article><span>County sources</span><strong>${esc(String(summary.official_sources_ok || 0))}/${esc(String(summary.official_sources_checked || 0))}</strong></article>
         </div>
         <div class="forms-route-intake-grid">
           ${routes.map((item) => `<article>
             <div class="forms-route-intake-card-head">
               <span>${esc(item.route?.county || "Official source")}</span>
-              <strong>${esc(item.packet_label || "Reviewed route")}</strong>
-              <p>${esc(item.route_label || "Reviewed packet route")}</p>
+              <strong>${esc(item.packet_label || "Form starting point")}</strong>
+              <p>${esc([item.route?.issue, item.route?.posture, item.route?.children].filter(Boolean).join(" / ") || "Forms matched to this starting point")}</p>
             </div>
             <div class="forms-route-intake-counts">
-              <small>${esc(String(item.official_packet_pages || 0))} packet page${(item.official_packet_pages || 0) === 1 ? "" : "s"}</small>
-              <small>${esc(String(item.approved_pdfs || 0))} approved PDF${(item.approved_pdfs || 0) === 1 ? "" : "s"}</small>
+              <small>${item.approved_pdfs ? `${esc(String(item.approved_pdfs))} form${item.approved_pdfs === 1 ? "" : "s"} ready to view` : "Use Guided Intake to confirm the next form"}</small>
               <small>${esc((item.languages || []).join(" / ") || "Official source")}</small>
             </div>
             <div class="forms-route-intake-actions">
               ${item.approved_pdfs ? `<a class="card-link" href="#forms-approved-pdfs" data-route-map-card-pdfs="${esc(item.packet_id || "")}">View forms →</a>` : ""}
-              <a class="button primary" href="/start" data-link data-route-map-card-intake="${esc(item.route_start_id || "")}">Start Intake From This Route</a>
+              <a class="button primary" href="/start" data-link data-route-map-card-intake="${esc(item.route_start_id || "")}">Use Guided Intake</a>
             </div>
           </article>`).join("")}
         </div>
@@ -5510,9 +5604,9 @@
       host.innerHTML = `
         <div class="forms-route-intake-head">
           <div>
-            <span>Reviewed route starts</span>
-            <strong>Route-start options could not load.</strong>
-            <p>Use the form finder or Guided Intake while reviewed starting points are unavailable.</p>
+            <span>Starting points</span>
+            <strong>Starting points could not load.</strong>
+            <p>Use the form finder or Guided Intake while starting points are unavailable.</p>
           </div>
           <a class="button outline" href="/start" data-link>Start Guided Intake</a>
         </div>
@@ -6701,21 +6795,20 @@
       host.innerHTML = `
         <div class="forms-coverage-summary">
           <span>Coverage</span>
-          <strong>${esc(String(summary.covered_packet_routes || 0))} packet route${summary.covered_packet_routes === 1 ? "" : "s"} have reviewed official-source actions.</strong>
-          <p>${esc(coverage.public_message || "Forms & Tools uses official court sources and keeps the next step tied to your selections.")}</p>
+          <strong>Forms are organized by situation so you do not have to know the form name first.</strong>
+          <p>Start with the guided helper. This keeps the next step tied to your selections while you compare form groups manually.</p>
         </div>
         <div class="forms-coverage-metrics">
-          <article><span>Sources OK</span><strong>${esc(String(summary.official_sources_ok || 0))}/${esc(String(summary.official_sources_checked || 0))}</strong></article>
-          <article><span>Packet pages</span><strong>${esc(String(summary.official_packet_page_actions || 0))}</strong></article>
-          <article><span>Approved PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
-          <article><span>Review-only</span><strong>${esc(String(summary.packet_candidates_review_only || 0))}</strong></article>
+          <article><span>County sources</span><strong>${esc(String(summary.official_sources_ok || 0))}/${esc(String(summary.official_sources_checked || 0))}</strong></article>
+          <article><span>Form pages</span><strong>${esc(String(summary.official_packet_page_actions || 0))}</strong></article>
+          <article><span>Viewable PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
         </div>
         <div class="forms-coverage-routes" aria-label="Forms and Tools covered routes">
           ${routes.map((route) => `<article>
             <span>${esc(route.route?.county || "Official source")}</span>
             <strong>${esc(route.packet_label || route.packet_id)}</strong>
             <p>${esc([route.route?.issue, route.route?.posture, route.route?.children].filter(Boolean).join(" / "))}</p>
-            <small>${route.has_official_packet_page ? `${esc(String(route.official_packet_page_actions))} packet page${route.official_packet_page_actions === 1 ? "" : "s"}` : "No packet page action"} · ${route.has_approved_pdf_actions ? `${esc(String(route.approved_pdf_actions))} PDFs` : "PDF review pending"}</small>
+            <small>${route.has_approved_pdf_actions ? `${esc(String(route.approved_pdf_actions))} PDF${route.approved_pdf_actions === 1 ? "" : "s"} ready to view` : "Use Guided Intake to confirm forms"}</small>
           </article>`).join("")}
         </div>
       `;
