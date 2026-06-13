@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-launch-monitoring",
-  "built_at": "2026-06-13T07:23:45.818Z",
+  "built_at": "2026-06-13T07:28:57.832Z",
   "public_safety": {
     "internal_monitoring_runbook_exposed": false,
     "sensitive_fixture_values_exposed": false,

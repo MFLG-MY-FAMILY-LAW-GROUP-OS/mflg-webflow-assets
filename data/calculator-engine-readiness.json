@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-engine-readiness",
-  "built_at": "2026-06-13T07:23:20.531Z",
+  "built_at": "2026-06-13T07:28:35.250Z",
   "public_safety": {
     "raw_formula_text_exposed": false,
     "sensitive_fixture_values_exposed": false,

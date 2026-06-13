@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-runtime-public-status",
-  "built_at": "2026-06-13T07:23:46.810Z",
+  "built_at": "2026-06-13T07:28:58.720Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,
