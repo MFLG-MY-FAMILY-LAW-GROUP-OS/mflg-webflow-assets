@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-accessnav3}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-journeynav1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -391,9 +391,6 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_html" == *"nav-access"* ]] &&
 	     [[ "$public_html" == *'href="/client" data-link>Client Portal</a>'* ]] &&
 	     [[ "$public_html" == *'href="/staff" data-link>Staff Access</a>'* ]] &&
-	     [[ "$public_html" != *'<div class="nav-access-menu">
-          <a href="/client" data-link>Client Portal</a>
-          <a href="/staff" data-link>Staff Access</a>'* ]] &&
 	     [[ "$public_html" != *"<span>Client portal access</span>"* ]] &&
 	     [[ "$public_html" != *"Secure client portal pending"* ]] &&
 	     [[ "$public_html" != *"CRM OS pending"* ]] &&
@@ -424,6 +421,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_css" == *"decision-bridge"* ]] &&
 	     [[ "$public_css" == *"intake-process-strip"* ]] &&
 	     [[ "$public_css" == *"nav-access-menu"* ]] &&
+	     [[ "$public_css" == *"section-journey-link:last-child:nth-child(4n + 1)"* ]] &&
 	     [[ "$public_css" == *"width: clamp(238px, 17.8vw, 320px)"* ]] &&
      [[ "$public_css" == *"access-roadmap"* ]] &&
      [[ "$public_css" == *"section-switcher"* ]] &&

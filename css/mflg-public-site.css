@@ -219,7 +219,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-accessnav3") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-journeynav1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -551,6 +551,9 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   padding: 10px 12px;
   color: var(--blue);
   text-decoration: none;
+}
+.section-journey-link:last-child:nth-child(4n + 1) {
+  grid-column: 1 / -1;
 }
 .section-journey-link b {
   display: inline-grid;
