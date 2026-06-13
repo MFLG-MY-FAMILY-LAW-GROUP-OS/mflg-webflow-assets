@@ -27,6 +27,8 @@ async function pageState(page) {
     activeCalc: document.body.classList.contains("forms-active-need-calculator"),
     activeDeadline: document.body.classList.contains("forms-active-need-deadline"),
     action: document.querySelector("[data-guided-result-action]")?.textContent?.trim(),
+    fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
+    legalHelpCount: document.querySelectorAll("[data-legal-definition]").length,
     overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
   }));
 }
@@ -44,6 +46,8 @@ async function pageState(page) {
       assert(initial.calculatorHidden, `${viewport.name}: calculator should start hidden`);
       assert(initial.matterHidden, `${viewport.name}: matter coverage should start hidden`);
       assert(initial.laneVisible, `${viewport.name}: four quick-start cards should be visible`);
+      assert(initial.fakeLinks.length === 0, `${viewport.name}: page should not render fake href=# links: ${initial.fakeLinks.join(", ")}`);
+      assert(initial.legalHelpCount > 0, `${viewport.name}: legal-term help should render`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
       await page.click('[data-guided-answer="forms"]');
@@ -56,6 +60,7 @@ async function pageState(page) {
       assert(!forms.packetsHidden, `${viewport.name}: packets should reveal after forms path`);
       assert(forms.calculatorHidden, `${viewport.name}: calculator should remain hidden on forms path`);
       assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
+      assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);
       assert(!forms.overflow, `${viewport.name}: forms path has horizontal overflow`);
       await capture(page, viewport, "forms-path");
 

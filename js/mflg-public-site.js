@@ -54,6 +54,35 @@
     }[char]));
   }
 
+  function isUsableHref(value) {
+    const href = String(value || "").trim();
+    return Boolean(href && href !== "#");
+  }
+
+  const legalTermDefinitions = {
+    "case-stage": "The step your case is in, such as starting a case, responding to papers, finalizing an agreement, or changing an existing order.",
+    posture: "The legal stage or position of a case. On this site, use it like case stage.",
+    jurisdiction: "The court or county that has authority to handle the case or filing.",
+    petition: "The first court paper that asks the court to open a case or make orders.",
+    response: "The court paper filed after someone receives a petition or other request.",
+    decree: "The final court order that resolves a divorce, legal separation, or similar family-law matter.",
+    disclosure: "The required exchange of financial or case information between parties.",
+    affidavit: "A written statement signed under oath or penalty of perjury.",
+    enforcement: "A request asking the court to make someone follow an existing order.",
+    modification: "A request asking the court to change an existing order.",
+    "temporary-orders": "Short-term court orders used while the case is still pending.",
+    "legal-decision-making": "Arizona's term for legal custody: who makes major decisions for a child.",
+    "parenting-time": "The schedule for when a child is with each parent.",
+    paternity: "A legal case or finding that establishes a child's legal parent.",
+    qdro: "A special retirement-order document that usually requires attorney or specialist review."
+  };
+
+  function legalTerm(key, label) {
+    const definition = legalTermDefinitions[key] || legalTermDefinitions[String(key || "").toLowerCase()];
+    if (!definition) return esc(label || key);
+    return `<span class="legal-term">${esc(label || key)}<button type="button" class="legal-term-help" aria-label="${esc(`${label || key}: ${definition}`)}" data-legal-definition="${esc(definition)}">?</button></span>`;
+  }
+
 	  function link(href, label, cls) {
 	    return `<a class="button ${cls || ""}" href="${href}" data-link>${label}</a>`;
 	  }
@@ -67,7 +96,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guidedflow3">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-nofakelinks1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2058,7 +2087,7 @@
               <div class="forms-guided-summary" data-guided-summary></div>
               <div class="forms-guided-path-line" data-guided-path-line>Answer the next question. The page will keep the form choices hidden until they are useful.</div>
               <div class="forms-guided-result-actions">
-                <a class="button primary" href="#forms-official-router" data-guided-result-action>Continue to recommended forms</a>
+                <button class="button primary" type="button" data-guided-result-action data-guided-target="#forms-official-router">Continue to recommended forms</button>
                 <a class="button outline" href="/start" data-link data-guided-intake-fallback data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
               </div>
             </div>
@@ -2107,7 +2136,7 @@
               ${formRouterCounties.map((county) => `<option value="${esc(county)}">${esc(county)}</option>`).join("")}
             </select>
           </label>
-          <label>Case stage
+          <label>${legalTerm("case-stage", "Case stage")}
             <select data-smart-posture>
               ${formRouterPostures.map((posture) => `<option value="${esc(posture)}">${esc(posture)}</option>`).join("")}
             </select>
@@ -2172,7 +2201,7 @@
               ${formRouterIssues.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join("")}
             </select>
           </label>
-          <label>Posture
+          <label>${legalTerm("posture", "Posture")}
             <select data-form-posture>
               ${formRouterPostures.map((posture) => `<option value="${esc(posture)}">${esc(posture)}</option>`).join("")}
             </select>
@@ -2227,7 +2256,7 @@
             <div class="official-resource-detail">
               <dl>
                 <div><dt>Jurisdiction</dt><dd>${esc(item.county)}</dd></div>
-                <div><dt>Posture</dt><dd>${esc(item.posture)}</dd></div>
+                <div><dt>${legalTerm("posture", "Posture")}</dt><dd>${esc(item.posture)}</dd></div>
                 <div><dt>Source</dt><dd>${esc(item.source)}</dd></div>
               </dl>
               <a class="card-link" href="#forms-approved-pdfs">View matched forms →</a>
@@ -2870,7 +2899,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guidedflow3" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-nofakelinks1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3598,7 +3627,9 @@
                 <strong data-guide-pdf-title>${esc(first.public_name || first.display_label || first.file_name || "Official court PDF")}</strong>
                 <p data-guide-pdf-copy>${esc(first.public_description || "Approved court PDF assigned to this guide.")}</p>
               </div>
-              <a class="button outline" href="${esc(first.site_pdf_download_url || first.site_pdf_view_url || "#")}" data-guide-pdf-download>Download PDF</a>
+              ${isUsableHref(first.site_pdf_download_url || first.site_pdf_view_url || first.official_pdf_url)
+                ? `<a class="button outline" href="${esc(first.site_pdf_download_url || first.site_pdf_view_url || first.official_pdf_url)}" data-guide-pdf-download>Download PDF</a>`
+                : `<button class="button outline" type="button" data-guide-pdf-download disabled>PDF unavailable</button>`}
             </div>
             <iframe title="${esc(guideTitle)} court PDF viewer" loading="lazy" src="${esc(first.site_pdf_view_url || first.official_pdf_url || "")}" data-guide-pdf-frame></iframe>
           </div>
@@ -3620,7 +3651,16 @@
         if (title) title.textContent = action.public_name || action.display_label || action.file_name || "Official court PDF";
         if (stage) stage.textContent = action.public_stage || action.language || "Court form";
         if (copy) copy.textContent = action.public_description || "Approved court PDF assigned to this guide.";
-        if (download) download.setAttribute("href", action.site_pdf_download_url || action.site_pdf_view_url || action.official_pdf_url || "#");
+        if (download) {
+          const downloadUrl = action.site_pdf_download_url || action.site_pdf_view_url || action.official_pdf_url || "";
+          if (download.tagName === "A" && isUsableHref(downloadUrl)) {
+            download.setAttribute("href", downloadUrl);
+            download.removeAttribute("aria-disabled");
+          } else {
+            download.removeAttribute("href");
+            download.setAttribute("aria-disabled", "true");
+          }
+        }
         intake?.setAttribute("data-intake-route", JSON.stringify(actionRoute(action)));
       };
 
@@ -5245,9 +5285,8 @@
       }
       if (guidedResultAction) {
         guidedResultAction.textContent = shouldContinueQuestions ? "Continue to next question" : recommendation.text || "Go to next step";
-        guidedResultAction.setAttribute("href", shouldContinueQuestions ? "#" : recommendation.href || "#forms-approved-pdfs");
+        guidedResultAction.dataset.guidedTarget = shouldContinueQuestions ? "" : recommendation.href || "#forms-approved-pdfs";
         guidedResultAction.toggleAttribute("data-guided-continue", shouldContinueQuestions);
-        guidedResultAction.toggleAttribute("data-link", !shouldContinueQuestions && Boolean(recommendation.link));
         if (!shouldContinueQuestions && recommendation.route) {
           guidedResultAction.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
         } else {
@@ -5380,8 +5419,17 @@
         return;
       }
       guidedComplete = true;
-      const href = guidedResultAction.getAttribute("href") || "";
-      if (!href.startsWith("#")) return;
+      const href = guidedResultAction.dataset.guidedTarget || "";
+      if (!href.startsWith("#")) {
+        if (href) {
+          if (href.replace(/\/$/, "") === "/start") {
+            const route = parseRouteData(guidedResultAction.getAttribute("data-intake-route"));
+            if (route) storeIntakeRoute(route);
+          }
+          window.location.assign(href);
+        }
+        return;
+      }
       update();
       const target = document.querySelector(href);
       if (!target) return;
@@ -7042,8 +7090,8 @@
           </div>
           <iframe title="Official court PDF viewer" loading="lazy" data-official-pdf-frame></iframe>
           <div class="official-pdf-viewer-actions">
-            <a class="button outline source-fallback-link" href="#" data-official-pdf-download>Download PDF</a>
-            <a class="button outline source-fallback-link" href="#" target="_blank" rel="noopener" data-official-pdf-source-fallback>Open court source</a>
+            <a class="button outline source-fallback-link" data-official-pdf-download aria-disabled="true">Download PDF</a>
+            <a class="button outline source-fallback-link" target="_blank" rel="noopener" data-official-pdf-source-fallback aria-disabled="true">Open court source</a>
             <a class="button outline" href="/start" data-link data-official-pdf-viewer-intake>Add this form to Intake</a>
           </div>
         </div>
@@ -7187,9 +7235,15 @@
             : "Viewing the official court PDF through the approved site viewer.";
         }
         viewerFrame.setAttribute("src", siteViewUrl);
-        viewerDownload?.setAttribute("href", siteDownloadUrl);
-        viewerDownload?.setAttribute("download", fileName || "official-court-form.pdf");
-        viewerSourceFallback?.setAttribute("href", url || siteViewUrl);
+        if (viewerDownload && isUsableHref(siteDownloadUrl)) {
+          viewerDownload.setAttribute("href", siteDownloadUrl);
+          viewerDownload.setAttribute("download", fileName || "official-court-form.pdf");
+          viewerDownload.removeAttribute("aria-disabled");
+        }
+        if (viewerSourceFallback && isUsableHref(url || siteViewUrl)) {
+          viewerSourceFallback.setAttribute("href", url || siteViewUrl);
+          viewerSourceFallback.removeAttribute("aria-disabled");
+        }
         viewerIntake?.setAttribute("data-intake-route", JSON.stringify(routeForPdfLink(link)));
         viewer.scrollIntoView({ behavior: "smooth", block: "start" });
       };
