@@ -47,8 +47,9 @@ async function pageState(page) {
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
       await page.click('[data-guided-answer="forms"]');
-      await page.click('[data-guided-answer="divorce"]');
       await page.click('[data-guided-answer="Maricopa"]');
+      await page.click('[data-guided-answer="New filing"]');
+      await page.click('[data-guided-answer="divorce"]');
       await page.click('[data-guided-answer="minor-children"]');
       const forms = await pageState(page);
       assert(!forms.routerHidden, `${viewport.name}: form router should reveal after forms path`);

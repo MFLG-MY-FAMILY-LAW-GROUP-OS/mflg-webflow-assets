@@ -67,7 +67,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guidedflow2">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guidedflow3">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2038,7 +2038,7 @@
           </div>
           <div class="forms-guided-start" data-forms-guided-start>
             <div>
-              <span>Easy Mode</span>
+              <span>Guided Form Helper</span>
               <strong>Answer one question at a time.</strong>
               <p data-guided-copy>Start with what you need. The page will update the choices below for you.</p>
             </div>
@@ -2047,6 +2047,7 @@
               <button type="button" data-guided-jump="1">2</button>
               <button type="button" data-guided-jump="2">3</button>
               <button type="button" data-guided-jump="3">4</button>
+              <button type="button" data-guided-jump="4">5</button>
             </div>
             <div class="forms-guided-question" data-guided-question>What sounds closest?</div>
             <div class="forms-guided-options" data-guided-options></div>
@@ -2156,7 +2157,7 @@
           <div>
             <p class="eyebrow">Step 1</p>
             <h2>Choose the form group that sounds closest.</h2>
-            <p>Easy Mode fills this in for you. Change the boxes only if the recommendation does not match. If you are unsure, use Guided Intake instead of guessing.</p>
+            <p>The guided helper fills this in for you. Change the boxes only if the recommendation does not match. If you are unsure, use Guided Intake instead of guessing.</p>
           </div>
           <a class="button outline" href="/start" data-link data-form-route-save data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
         </div>
@@ -2187,7 +2188,7 @@
         <div class="forms-unified-result" data-forms-unified-result aria-live="polite">
           <div class="forms-unified-main">
             <span>Start here</span>
-            <strong>Answer Easy Mode to see the recommended forms.</strong>
+            <strong>Answer the guided helper to see the recommended forms.</strong>
             <p>The page will keep reviewed forms, court-source backup, and Intake together.</p>
           </div>
         </div>
@@ -2869,7 +2870,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guidedflow2" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guidedflow3" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -4976,8 +4977,9 @@
     let guidedComplete = currentToolsPath === "/forms" || currentToolsPath === "/calculators";
     const guidedAnswers = {
       need: need?.value || "forms",
-      issue: "all",
       county: county?.value || "Statewide",
+      posture: posture?.value || "Any posture",
+      issue: "all",
       children: children?.value || "any"
     };
 
@@ -4993,7 +4995,7 @@
       forms: {
         label: "What happens next",
         title: "Continue to the recommended forms.",
-        copy: "Easy Mode has selected the closest form group. Open the forms in order, and use Guided Intake if the title does not sound right.",
+        copy: "The guided helper has selected the closest form group. Open the forms in order, and use Guided Intake if the title does not sound right.",
         href: "#forms-approved-pdfs",
         text: "Open matched forms"
       },
@@ -5049,6 +5051,30 @@
         ]
       },
       {
+        question: "Which court or county sounds closest?",
+        copy: "Forms can change by county. If you do not know, choose Statewide.",
+        key: "county",
+        options: [
+          ["Statewide", "I do not know"],
+          ["Maricopa", "Maricopa"],
+          ["Pima", "Pima"],
+          ["Pinal", "Pinal"],
+          ["Yavapai", "Yavapai"]
+        ]
+      },
+      {
+        question: "What are you trying to do in court?",
+        copy: "This changes whether you need starting forms, response forms, final papers, or post-order papers.",
+        key: "posture",
+        options: [
+          ["New filing", "Start a new case"],
+          ["Served / response", "Respond to papers I received"],
+          ["Existing order", "Change or enforce an order"],
+          ["Agreement / final orders", "Finalize an agreement"],
+          ["Any posture", "I am not sure"]
+        ]
+      },
+      {
         question: "What is the family-law issue?",
         copy: "Choose the closest topic. If none fit, leave it broad.",
         key: "issue",
@@ -5057,18 +5083,6 @@
           ["parenting", "Parenting or custody"],
           ["support", "Child support or money"],
           ["all", "I am not sure"]
-        ]
-      },
-      {
-        question: "Which court or county sounds closest?",
-        copy: "If you do not know, choose Statewide.",
-        key: "county",
-        options: [
-          ["Statewide", "I do not know"],
-          ["Maricopa", "Maricopa"],
-          ["Pima", "Pima"],
-          ["Pinal", "Pinal"],
-          ["Yavapai", "Yavapai"]
         ]
       },
       {
@@ -5103,6 +5117,7 @@
     const update = () => {
       guidedAnswers.need = need?.value || guidedAnswers.need;
       guidedAnswers.county = county?.value || guidedAnswers.county;
+      guidedAnswers.posture = posture?.value || guidedAnswers.posture;
       guidedAnswers.children = children?.value || guidedAnswers.children;
       const recommendation = recommendations[need?.value || "forms"] || recommendations.forms;
       const activeNeed = need?.value || "forms";
@@ -5128,7 +5143,7 @@
           : isStillAnswering
           ? "Showing one guided question at a time."
           : !guidedComplete
-          ? "Your recommended section will appear after you finish Easy Mode."
+          ? "Your recommended section will appear after you finish the guided helper."
           : `Showing the recommended path first: ${recommendation.text}.`;
       }
       if (showAll) {
@@ -5156,13 +5171,13 @@
       setSelectValue(formCounty, guidedAnswers.county || "Statewide");
       setSelectValue(formChildren, guidedAnswers.children || "any");
       if (guidedAnswers.need === "deadline") {
-        setSelectValue(formPosture, "Served / response");
+        setSelectValue(formPosture, guidedAnswers.posture && guidedAnswers.posture !== "Any posture" ? guidedAnswers.posture : "Served / response");
         setSelectValue(formIssue, guidedAnswers.issue || "all");
       } else if (guidedAnswers.need === "calculator") {
         setSelectValue(formPosture, "Any posture");
         setSelectValue(formIssue, "support");
       } else {
-        setSelectValue(formPosture, guidedAnswers.issue === "divorce" ? "New filing" : formPosture?.value || "Any posture");
+        setSelectValue(formPosture, guidedAnswers.posture || "Any posture");
         setSelectValue(formIssue, guidedAnswers.issue || "all");
       }
       formCounty?.dispatchEvent(new Event("change", { bubbles: true }));
@@ -5189,6 +5204,14 @@
         Pima: "Pima County",
         Pinal: "Pinal County",
         Yavapai: "Yavapai County"
+      };
+      const postureLabels = {
+        "Any posture": "Stage not sure yet",
+        "New filing": "Starting a case",
+        "Served / response": "Responding to papers",
+        "Existing order": "Changing or enforcing an order",
+        "Agreement / final orders": "Finalizing an agreement",
+        Safety: "Safety concern"
       };
       const childrenLabels = {
         any: "Children not sure yet",
@@ -5235,8 +5258,9 @@
       if (guidedSummary) {
         const chips = [
           needLabels[guidedAnswers.need] || "Forms",
-          issueLabels[guidedAnswers.issue] || "Not sure yet",
           countyLabels[guidedAnswers.county] || guidedAnswers.county || "Court not sure yet",
+          postureLabels[guidedAnswers.posture] || guidedAnswers.posture || "Stage not sure yet",
+          issueLabels[guidedAnswers.issue] || "Not sure yet",
           childrenLabels[guidedAnswers.children] || "Children not sure yet"
         ];
         guidedSummary.innerHTML = chips.map((chip) => `<span>${esc(chip)}</span>`).join("");
@@ -5266,6 +5290,7 @@
     [need, county, children, posture].forEach((control) => control?.addEventListener("change", () => {
       guidedAnswers.need = need?.value || guidedAnswers.need;
       guidedAnswers.county = county?.value || guidedAnswers.county;
+      guidedAnswers.posture = posture?.value || guidedAnswers.posture;
       guidedAnswers.children = children?.value || guidedAnswers.children;
       syncFormsFinder();
       update();
@@ -5277,7 +5302,10 @@
           need.value = laneNeed;
           guidedAnswers.need = laneNeed;
           guidedComplete = laneNeed !== "intake";
-          if (laneNeed === "deadline") setSelectValue(posture, "Served / response");
+          if (laneNeed === "deadline") {
+            guidedAnswers.posture = "Served / response";
+            setSelectValue(posture, "Served / response");
+          }
           showAllSections = false;
           syncFormsFinder();
           update();
@@ -5299,8 +5327,9 @@
       guidedStep = 0;
       guidedComplete = false;
       guidedAnswers.need = "forms";
-      guidedAnswers.issue = "all";
       guidedAnswers.county = "Statewide";
+      guidedAnswers.posture = "Any posture";
+      guidedAnswers.issue = "all";
       guidedAnswers.children = "any";
       setSelectValue(need, "forms");
       setSelectValue(county, "Statewide");
@@ -5319,10 +5348,14 @@
       guidedAnswers[step.key] = value;
       if (step.key === "need") {
         setSelectValue(need, value);
-        if (value === "deadline") setSelectValue(posture, "Served / response");
+        if (value === "deadline") {
+          guidedAnswers.posture = "Served / response";
+          setSelectValue(posture, "Served / response");
+        }
       }
       if (step.key === "issue") guidedAnswers.issue = value;
       if (step.key === "county") setSelectValue(county, value);
+      if (step.key === "posture") setSelectValue(posture, value);
       if (step.key === "children") setSelectValue(children, value);
       if (guidedStep >= guidedSteps.length - 1 || value === "intake") {
         guidedComplete = true;
