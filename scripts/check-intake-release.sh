@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-stafflogin1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-nobottomcards1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -1035,7 +1035,6 @@ grep -q "forms-review-roadmap-grid" "$ROOT_DIR/css/mflg-public-site.css" || fail
 grep -q "forms-maintenance-status" "$ROOT_DIR/css/mflg-public-site.css" || fail "Forms & Tools maintenance status CSS missing"
 grep -q "forms-maintenance-grid" "$ROOT_DIR/css/mflg-public-site.css" || fail "Forms & Tools maintenance grid CSS missing"
 grep -q "forms-download-readiness" "$ROOT_DIR/css/mflg-public-site.css" || fail "Form download readiness CSS missing"
-grep -q "forms-download-grid" "$ROOT_DIR/css/mflg-public-site.css" || fail "Form download readiness grid CSS missing"
 grep -q "forms-packet-builder" "$ROOT_DIR/css/mflg-public-site.css" || fail "Packet builder CSS missing"
 grep -q "forms-packet-builder-list" "$ROOT_DIR/css/mflg-public-site.css" || fail "Packet builder list CSS missing"
 grep -q "forms-packet-file-purpose" "$ROOT_DIR/css/mflg-public-site.css" || fail "Packet builder file-purpose CSS missing"

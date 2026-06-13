@@ -67,7 +67,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-stafflogin1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-nobottomcards1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2869,7 +2869,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-stafflogin1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-nobottomcards1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -4371,13 +4371,6 @@
               </div>
             </article>`).join("")}
           </div>
-        </div>
-        <div class="forms-download-grid">
-          ${groups.map((group) => `<article>
-            <span>${esc(group.public_action || "Official PDFs first")}</span>
-            <strong>${esc(group.label || "Court form group")}</strong>
-            <p>Open the forms that match this form group, then use Intake if the title or next step is unclear.</p>
-          </article>`).join("")}
         </div>
       `;
       host.querySelector("[data-form-download-intake]")?.setAttribute("data-intake-route", JSON.stringify(route));

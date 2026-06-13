@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-stafflogin1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-nobottomcards1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -475,11 +475,10 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_css" == *"forms-action-plan-steps"* ]] &&
 	     [[ "$public_css" == *"forms-review-roadmap"* ]] &&
 	     [[ "$public_css" == *"forms-review-roadmap-grid"* ]] &&
-	     [[ "$public_css" == *"forms-maintenance-status"* ]] &&
-	     [[ "$public_css" == *"forms-maintenance-grid"* ]] &&
-	     [[ "$public_css" == *"forms-download-readiness"* ]] &&
-	     [[ "$public_css" == *"forms-download-grid"* ]] &&
-	     [[ "$public_css" == *"forms-packet-builder"* ]] &&
+		     [[ "$public_css" == *"forms-maintenance-status"* ]] &&
+		     [[ "$public_css" == *"forms-maintenance-grid"* ]] &&
+		     [[ "$public_css" == *"forms-download-readiness"* ]] &&
+		     [[ "$public_css" == *"forms-packet-builder"* ]] &&
 	     [[ "$public_css" == *"forms-packet-builder-list"* ]] &&
 	     [[ "$public_css" == *"forms-packet-file-purpose"* ]] &&
 	     [[ "$public_css" == *"forms-packet-current"* ]] &&

@@ -219,7 +219,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-stafflogin1") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-nobottomcards1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -3111,8 +3111,7 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   gap: 6px;
 }
 .forms-download-head span,
-.forms-download-metrics span,
-.forms-download-grid span {
+.forms-download-metrics span {
   width: fit-content;
   padding: 5px 8px;
   border-radius: 999px;
@@ -3136,19 +3135,14 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   font-size: 0.86rem;
   line-height: 1.5;
 }
-.forms-download-metrics,
-.forms-download-grid {
+.forms-download-metrics {
   display: grid;
   gap: 10px;
 }
 .forms-download-metrics {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.forms-download-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.forms-download-metrics article,
-.forms-download-grid article {
+.forms-download-metrics article {
   display: grid;
   gap: 7px;
   padding: 12px;
@@ -3156,17 +3150,10 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
 }
-.forms-download-metrics strong,
-.forms-download-grid strong {
+.forms-download-metrics strong {
   color: var(--ink);
   font-size: 0.9rem;
   line-height: 1.2;
-}
-.forms-download-grid p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.42;
 }
 .forms-packet-builder {
   display: grid;
@@ -8452,7 +8439,6 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   .forms-maintenance-metrics,
   .forms-maintenance-grid,
   .forms-download-metrics,
-  .forms-download-grid,
   .forms-packet-builder-head,
   .forms-packet-builder-controls,
   .forms-packet-change-note,
@@ -8971,7 +8957,6 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   .forms-maintenance-metrics,
   .forms-maintenance-grid,
   .forms-download-metrics,
-  .forms-download-grid,
   .forms-packet-builder-head,
   .forms-packet-builder-controls,
   .forms-packet-change-note,
@@ -9438,8 +9423,7 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   .forms-packet-current,
   .forms-packet-complete,
   .forms-packet-checklist-actions .button,
-  .forms-packet-file-actions,
-  .forms-download-grid {
+  .forms-packet-file-actions {
     display: none !important;
   }
   .forms-packet-checklist-bar {
