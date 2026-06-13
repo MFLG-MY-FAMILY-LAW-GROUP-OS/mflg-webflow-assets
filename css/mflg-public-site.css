@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-maplabel3") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicepanel1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -835,37 +835,6 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 .service-detail-toggle[aria-expanded="true"] {
   color: var(--gold);
 }
-.service-card-expanded {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(33, 85, 141, 0.12);
-}
-.service-card-expanded strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-.service-card-expanded ul {
-  display: grid;
-  gap: 8px;
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.42;
-}
-.service-card-expanded li::marker {
-  color: var(--gold);
-}
 .service-card-fallback {
   padding: 10px 12px;
   border: 1px solid rgba(33, 85, 141, 0.12);
@@ -874,17 +843,32 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   color: var(--ink);
   font-weight: 800;
 }
-.service-card-actions {
-  display: grid;
-  gap: 8px;
-}
-.service-card-actions .button {
+.service-row-panel {
   width: 100%;
-  min-height: 44px;
-  min-width: 0;
-  padding: 0 12px;
-  font-size: 0.66rem;
-  line-height: 1.1;
+}
+.service-row-panel-inner {
+  gap: 16px;
+}
+.service-panel-heading {
+  max-width: 840px;
+}
+.service-panel-grid {
+  margin-top: 0;
+}
+.service-panel-next {
+  margin-top: 0;
+}
+.service-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.service-row-actions .button {
+  min-height: 46px;
+  min-width: min(220px, 100%);
+  padding-inline: 16px;
+  font-size: 0.7rem;
 }
 .service-tools {
   width: min(1600px, calc(100vw - 64px));
