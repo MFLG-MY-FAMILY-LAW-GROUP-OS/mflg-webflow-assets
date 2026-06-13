@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-journeynav1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-loginnav1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -74,6 +74,10 @@ fi
 grep -R "$EXPECTED_ASSET_KEY" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Expected static asset cache key $EXPECTED_ASSET_KEY not found in HTML"
 grep -R "$EXPECTED_FAVICON_KEY" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Expected favicon cache key $EXPECTED_FAVICON_KEY not found in HTML"
 grep -R "nav-access" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Access navigation menu missing from HTML"
+grep -R '<summary>Login</summary>' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Login navigation label missing from HTML"
+if grep -R '<summary>Access</summary>' "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' --exclude-dir='rollback-snapshots' --exclude-dir='test-results' >/dev/null; then
+  fail "Old Access navigation label found in public HTML"
+fi
 grep -R "DIY Guides" "$ROOT_DIR" --include='*.html' >/dev/null || fail "DIY Guides navigation label missing from HTML"
 grep -R "Forms &amp; Calculators" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Forms & Calculators navigation label missing from HTML"
 if grep -R "Forms &amp; Tools" "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' >/dev/null; then
@@ -968,6 +972,9 @@ grep -q "decision-bridge" "$ROOT_DIR/css/mflg-public-site.css" || fail "Decision
 grep -q "intake-process-strip" "$ROOT_DIR/css/mflg-public-site.css" || fail "Post-intake process strip CSS missing"
 grep -q "nav-access-menu" "$ROOT_DIR/css/mflg-public-site.css" || fail "Access navigation CSS missing"
 grep -q "section-journey-link:last-child:nth-child(4n + 1)" "$ROOT_DIR/css/mflg-public-site.css" || fail "Section journey orphan row fill rule missing"
+if grep -q '{ path: "/client", label: "Client Portal" }' "$PUBLIC_JS_FILE"; then
+  fail "Client Portal should not appear in the bottom section journey flow"
+fi
 grep -q "width: clamp(238px, 17.8vw, 320px)" "$ROOT_DIR/css/mflg-public-site.css" || fail "Desktop header logo anti-crowding CSS missing"
 grep -q "access-roadmap" "$ROOT_DIR/css/mflg-public-site.css" || fail "CRM access roadmap CSS missing"
 grep -q "section-switcher" "$ROOT_DIR/css/mflg-public-site.css" || fail "Connected section navigator CSS missing"

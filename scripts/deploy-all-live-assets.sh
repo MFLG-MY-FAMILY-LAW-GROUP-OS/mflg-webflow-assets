@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-journeynav1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260612-loginnav1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -95,6 +95,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"decisionBridge"* ]] &&
 	     [[ "$public_site_js" == *"What happens after Intake"* ]] &&
 	     [[ "$public_site_js" == *"Client portal access is coordinated through the office"* ]] &&
+	     [[ "$public_site_js" != *'{ path: "/client", label: "Client Portal" }'* ]] &&
 	     [[ "$public_site_js" == *"Existing clients should contact the office for case status"* ]] &&
 	     [[ "$public_site_js" == *"Official social channels"* ]] &&
 	     [[ "$public_site_js" != *"placeholder access paths"* ]] &&
@@ -389,6 +390,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_html" != *"Forms &amp; Tools"* ]] &&
 	     [[ "$public_html" != *'href="/guides" data-link>Guides</a>'* ]] &&
 	     [[ "$public_html" == *"nav-access"* ]] &&
+	     [[ "$public_html" == *"<summary>Login</summary>"* ]] &&
+	     [[ "$public_html" != *"<summary>Access</summary>"* ]] &&
 	     [[ "$public_html" == *'href="/client" data-link>Client Portal</a>'* ]] &&
 	     [[ "$public_html" == *'href="/staff" data-link>Staff Access</a>'* ]] &&
 	     [[ "$public_html" != *"<span>Client portal access</span>"* ]] &&
