@@ -67,7 +67,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-nobottomcards1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260612-guidedflow1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2120,7 +2120,7 @@
         <div class="forms-smart-path-mode" data-smart-mode>
           <span data-smart-mode-copy>Recommended path shown first. Browse all sections only if you want more options.</span>
           <div class="forms-smart-path-mode-actions">
-            <button class="button ghost" type="button" data-smart-show-all>Show all sections</button>
+            <button class="button ghost" type="button" data-smart-show-all>Advanced: show all sections</button>
             <button class="button ghost" type="button" data-smart-reset>Reset choices</button>
           </div>
         </div>
@@ -2151,7 +2151,7 @@
         </div>
       </details>
 
-      <div class="forms-router" id="forms-official-router" data-flow-section="manual" aria-label="Court forms finder">
+      <div class="forms-router" id="forms-official-router" data-flow-section="forms deadline manual" aria-label="Court forms finder">
         <div class="forms-router-head">
           <div>
             <p class="eyebrow">Step 1</p>
@@ -2243,7 +2243,7 @@
         </div>
       </div>
 
-        <div class="packet-readiness" id="forms-packets" data-flow-section="forms deadline">
+	        <div class="packet-readiness" id="forms-packets" data-flow-section="forms">
           <div class="section-head">
             <p class="eyebrow">Step 2</p>
             <h2>Open the forms that match your answers.</h2>
@@ -2504,7 +2504,7 @@
             </div>
           </div>
         </div>
-        <div class="deadline-readiness-tool" id="deadline-readiness-planner" data-deadline-readiness>
+        <div class="deadline-readiness-tool" id="deadline-readiness-planner" data-flow-section="deadline" data-deadline-readiness>
           <div class="deadline-readiness-head">
             <div>
               <span>Planning tool</span>
@@ -2869,7 +2869,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-nobottomcards1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260612-guidedflow1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3181,7 +3181,13 @@
     const view = routes[path] || notFound;
     activeRenderPath = routes[path] ? path : "/404";
     document.body.classList.toggle("has-hero", path === "/");
-    document.body.classList.remove("forms-showing-all-sections");
+    document.body.classList.remove(
+      "forms-showing-all-sections",
+      "forms-active-need-forms",
+      "forms-active-need-calculator",
+      "forms-active-need-deadline",
+      "forms-active-need-issue"
+    );
     root.innerHTML = await view();
     applyStoredFormsRouteIfNeeded(path);
     wireGuideFilters();
@@ -4966,6 +4972,8 @@
     const flowSections = Array.from(document.querySelectorAll("[data-flow-section]"));
     let showAllSections = false;
     let guidedStep = 0;
+    const currentToolsPath = window.location.pathname.replace(/\/$/, "") || "/";
+    let guidedComplete = currentToolsPath === "/forms" || currentToolsPath === "/calculators";
     const guidedAnswers = {
       need: need?.value || "forms",
       issue: "all",
@@ -5085,6 +5093,8 @@
       const nextNeed = needForHash(hash);
       if (nextNeed && need) {
         need.value = nextNeed;
+        guidedAnswers.need = nextNeed;
+        guidedComplete = true;
         showAllSections = false;
         update();
       }
@@ -5096,24 +5106,33 @@
       guidedAnswers.children = children?.value || guidedAnswers.children;
       const recommendation = recommendations[need?.value || "forms"] || recommendations.forms;
       const activeNeed = need?.value || "forms";
+      const pathReady = showAllSections || guidedComplete || activeNeed === "intake";
       host.classList.toggle("user-showing-all", showAllSections);
+      host.classList.toggle("forms-guided-complete", guidedComplete);
+      host.classList.toggle("forms-guided-pending", !pathReady);
       document.body.classList.toggle("forms-showing-all-sections", showAllSections);
+      document.body.classList.toggle("forms-active-need-forms", pathReady && activeNeed === "forms");
+      document.body.classList.toggle("forms-active-need-calculator", pathReady && activeNeed === "calculator");
+      document.body.classList.toggle("forms-active-need-deadline", pathReady && activeNeed === "deadline");
+      document.body.classList.toggle("forms-active-need-issue", pathReady && activeNeed === "issue");
       flowSections.forEach((section) => {
         const sectionTargets = (section.getAttribute("data-flow-section") || "").split(/\s+/).filter(Boolean);
-        const visible = showAllSections || sectionTargets.includes(activeNeed);
+        const visible = pathReady && (showAllSections || sectionTargets.includes(activeNeed));
         section.classList.toggle("forms-flow-hidden", !visible);
         section.classList.toggle("forms-flow-active", visible && !showAllSections && sectionTargets.includes(activeNeed));
       });
       if (modeCopy) {
-        const isStillAnswering = guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
+        const isStillAnswering = !guidedComplete && guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
         modeCopy.textContent = showAllSections
-          ? "Showing every Forms & Tools section. Start Guided Intake if the choices feel unclear."
+          ? "Showing every advanced section. Start Guided Intake if the choices feel unclear."
           : isStillAnswering
           ? "Showing one guided question at a time."
+          : !guidedComplete
+          ? "Your recommended section will appear after you finish Easy Mode."
           : `Showing the recommended path first: ${recommendation.text}.`;
       }
       if (showAll) {
-        showAll.textContent = showAllSections ? "Show recommended path" : "Show all sections";
+        showAll.textContent = showAllSections ? "Show recommended path" : "Advanced: show all sections";
         showAll.setAttribute("aria-pressed", showAllSections ? "true" : "false");
       }
       laneLinks.forEach((lane) => {
@@ -5182,7 +5201,7 @@
         : guidedAnswers.children === "no-minor-children"
         ? " without minor children"
         : "";
-      const shouldContinueQuestions = guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
+      const shouldContinueQuestions = !guidedComplete && guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
       if (guidedResultTitle) {
         guidedResultTitle.textContent = shouldContinueQuestions
           ? "Answer the next question."
@@ -5257,6 +5276,7 @@
         if (laneNeed && need && recommendations[laneNeed]) {
           need.value = laneNeed;
           guidedAnswers.need = laneNeed;
+          guidedComplete = laneNeed !== "intake";
           if (laneNeed === "deadline") setSelectValue(posture, "Served / response");
           showAllSections = false;
           syncFormsFinder();
@@ -5277,6 +5297,7 @@
     });
     reset?.addEventListener("click", () => {
       guidedStep = 0;
+      guidedComplete = false;
       guidedAnswers.need = "forms";
       guidedAnswers.issue = "all";
       guidedAnswers.county = "Statewide";
@@ -5303,6 +5324,9 @@
       if (step.key === "issue") guidedAnswers.issue = value;
       if (step.key === "county") setSelectValue(county, value);
       if (step.key === "children") setSelectValue(children, value);
+      if (guidedStep >= guidedSteps.length - 1 || value === "intake") {
+        guidedComplete = true;
+      }
       showAllSections = false;
       syncFormsFinder();
       if (guidedStep < guidedSteps.length - 1) guidedStep += 1;
@@ -5322,8 +5346,10 @@
         guidedQuestion?.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
       }
+      guidedComplete = true;
       const href = guidedResultAction.getAttribute("href") || "";
       if (!href.startsWith("#")) return;
+      update();
       const target = document.querySelector(href);
       if (!target) return;
       event.preventDefault();
