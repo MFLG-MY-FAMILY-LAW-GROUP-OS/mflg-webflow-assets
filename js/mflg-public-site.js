@@ -191,7 +191,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-publicsurface1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-practiceflow1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -644,9 +644,25 @@
 		    </div>`;
 		  }
 
-		  function serviceCards() {
-			    const items = serviceItems.map((item) => ({ ...item, href: "/start", route: intakeRouteForService(item) }));
-			    const categories = publicCategoryGroups.filter((group) => group.label === "All" || items.some((item) => group.categories?.includes(item.category)));
+  function serviceCards() {
+	    const items = serviceItems.map((item) => {
+	      const route = intakeRouteForService(item);
+	      const guide = guideFromServiceItem(item);
+	      const packetChoices = guidePacketChoicesFor(guide);
+	      const primaryPacket = packetChoices[0];
+	      const formsRoute = primaryPacket
+	        ? {
+	          ...guideFormsRouteFor(guide),
+	          issue: primaryPacket.issue,
+	          posture: primaryPacket.posture,
+	          children: primaryPacket.children,
+	          pdfPacket: primaryPacket.packet
+	        }
+	        : guideFormsRouteFor(guide);
+	      const calculatorChoice = guideCalculatorChoiceFor(guide);
+	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice };
+	    });
+				    const categories = publicCategoryGroups.filter((group) => group.label === "All" || items.some((item) => group.categories?.includes(item.category)));
 		    return `<div class="service-tools" data-service-tools>
 	      <label class="service-search-label" for="service-search">Search family-law pathways</label>
 	      <div class="service-search-row">
@@ -694,18 +710,41 @@
 		        ${categories.map((group, index) => `<button class="service-category-chip${index === 0 ? " active" : ""}" type="button" data-service-category-filter="${esc(group.label)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(group.label)}</button>`).join("")}
 		      </div>
 		    </div>
-		    <div class="grid service-grid" data-service-grid data-service-list>${items.map((item, index) => `
-			    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} data-service-card data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
-		      <div class="service-heading">
-		        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
-	        <p class="service-kicker">${esc(item.category)}</p>
-	        <h3><a href="${item.href}" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>${item.title}</a></h3>
-	      </div>
-	      <div class="service-detail">
-	        <p>${item.copy}</p>
-	        <a class="card-link" href="${item.href}" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Review This Path →</a>
-	      </div>
-	    </article>`).join("")}</div>
+			    <div class="grid service-grid" data-service-grid data-service-list>${items.map((item, index) => {
+			      const checklist = guideChecklistFor(item).slice(0, 3);
+			      const readiness = guideReadinessFor(item)[0] || "If the next step is unclear, use Guided Intake before choosing forms.";
+			      const calculatorLabel = item.calculatorChoice === "support"
+			        ? "Open support calculator"
+			        : item.calculatorChoice === "parenting"
+			          ? "Open parenting-time counter"
+			          : item.calculatorChoice === "maintenance"
+			            ? "Open maintenance calculator"
+			            : "Open deadline planner";
+			      return `
+				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} data-service-card data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
+			      <div class="service-heading">
+			        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
+		        <p class="service-kicker">${esc(item.category)}</p>
+		        <h3>${esc(item.title)}</h3>
+		      </div>
+		      <div class="service-detail">
+		        <p>${item.copy}</p>
+		        <button class="card-link service-detail-toggle" type="button" data-service-detail-toggle aria-expanded="false">View Details →</button>
+		      </div>
+		      <div class="service-card-expanded" data-service-card-expanded hidden>
+		        <div>
+		          <strong>What this usually involves</strong>
+		          <ul>${checklist.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+		        </div>
+		        <p class="service-card-fallback">${esc(readiness)}</p>
+		        <div class="service-card-actions">
+		          <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>View Forms & Tools</a>
+		          <a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(item.calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>${esc(calculatorLabel)}</a>
+		          <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+		        </div>
+		      </div>
+		    </article>`;
+			    }).join("")}</div>
 	    <div class="service-reveal">
 	      <button class="button primary service-reveal-button" type="button" data-service-reveal>View All Family Law Pathways</button>
 		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} pathways. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Services are subject to conflict, licensed-scope, timing, and availability review.</p>
@@ -1306,7 +1345,7 @@
     if (text.includes("foreign") || text.includes("out of state")) score -= title.includes("foreign") || title.includes("interstate") || title.includes("uccjea") ? 36 : 0;
 
     if (text.includes("sensitive data cover sheet")) score += 8;
-    if (stage.includes("start here") || text.includes("before you file") || text.includes("instructions")) score += title.includes("guide") ? 4 : 18;
+    if (stage.includes("start here") || text.includes("before you file") || text.includes("instructions")) score -= 42;
     if (text.includes("notice / order")) score += 22;
 
     if (formsRoute?.children === "no-minor-children" && (text.includes("parenting") || text.includes("child support") || text.includes("children"))) score += 80;
@@ -2994,7 +3033,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-publicsurface1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-practiceflow1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3878,6 +3917,23 @@
 	    button?.addEventListener("click", () => {
 	      revealed = true;
 	      update();
+	    });
+	    cards.forEach((card) => {
+	      const toggle = card.querySelector("[data-service-detail-toggle]");
+	      const panel = card.querySelector("[data-service-card-expanded]");
+	      toggle?.addEventListener("click", () => {
+	        const nextOpen = panel?.hidden !== false;
+	        cards.forEach((otherCard) => {
+	          if (otherCard === card) return;
+	          otherCard.classList.remove("is-expanded");
+	          otherCard.querySelector("[data-service-detail-toggle]")?.setAttribute("aria-expanded", "false");
+	          const otherPanel = otherCard.querySelector("[data-service-card-expanded]");
+	          if (otherPanel) otherPanel.hidden = true;
+	        });
+	        card.classList.toggle("is-expanded", nextOpen);
+	        toggle.setAttribute("aria-expanded", String(nextOpen));
+	        if (panel) panel.hidden = !nextOpen;
+	      });
 	    });
 	    window.addEventListener("resize", update, { passive: true });
 	    update();
