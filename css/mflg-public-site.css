@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-maplabel1") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-maplabel2") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -8161,8 +8161,8 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
 }
 .footer-map-label {
   position: absolute;
-  left: 50%;
-  top: calc(50% + 32px);
+  left: calc(50% + 18px);
+  top: calc(50% - 20px);
   z-index: 2;
   display: block;
   max-width: min(280px, calc(100% - 40px));
@@ -8174,8 +8174,8 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   font-family: Arial, Roboto, sans-serif;
   line-height: 1.16;
   pointer-events: none;
-  text-align: center;
-  transform: translate(-50%, 0);
+  text-align: left;
+  transform: translateY(-50%);
 }
 .footer-map-label::before {
   content: none;
@@ -9060,10 +9060,10 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
     height: 220px;
   }
   .footer-map-label {
-    left: 50%;
-    top: calc(44% + 34px);
+    left: calc(50% + 16px);
+    top: calc(50% - 18px);
     max-width: calc(100% - 32px);
-    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
   .guide-row-panel-inner {
     padding: 20px;
