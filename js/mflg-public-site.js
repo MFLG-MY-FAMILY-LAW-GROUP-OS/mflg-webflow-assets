@@ -705,7 +705,18 @@
 	          : calculatorChoice === "maintenance"
 	            ? "Open maintenance calculator"
 	            : "Open deadline planner";
-	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice, calculatorLabel, neutralCalculator };
+	      const primaryAction = neutralCalculator ? "forms" : "calculator";
+	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice, calculatorLabel, neutralCalculator, primaryAction };
+  }
+
+  function serviceAvailabilityTags(item) {
+    const tags = ["Forms", "Steps", "Intake"];
+    if (!item.neutralCalculator) {
+      tags.splice(1, 0, item.calculatorChoice === "deadline" ? "Deadline" : "Calculator");
+    } else {
+      tags.splice(1, 0, "Tools");
+    }
+    return tags;
   }
 
   function shouldUseNeutralCalculatorChoice(guide) {
@@ -756,7 +767,14 @@
     const packetChoices = guidePacketChoicesFor(item.guide);
     const calculatorChoices = calculatorQuickChoices(item.calculatorChoice);
     const calculatorOpen = !item.neutralCalculator;
-    return `<div class="guide-row-panel-inner service-row-panel-inner">
+    const primaryAction = item.primaryAction || "forms";
+    const recommendationTitle = primaryAction === "calculator"
+      ? item.calculatorLabel
+      : "View the forms for this issue";
+    const recommendationCopy = primaryAction === "calculator"
+      ? "This issue often depends on numbers or timing. Start with the planning tool, then open forms or Intake if the result raises questions."
+      : "Start with the assigned form path. If the county, children, filing stage, or title does not fit, use Guided Intake before guessing.";
+    return `<div class="guide-row-panel-inner service-row-panel-inner" data-service-default-section="${esc(primaryAction)}">
       <button class="guide-panel-close" type="button" data-service-panel-close aria-label="Close practice area details">Close</button>
       <div class="guide-panel-heading service-panel-heading">
         <p class="eyebrow">${esc(item.category)}</p>
@@ -765,13 +783,13 @@
       </div>
       <div class="guide-next-step service-panel-next">
         <div class="guide-next-step-head">
-          <span>Next step</span>
-          <strong>What do you want to do next?</strong>
-          <p>Choose one path. The page will only open the section you need, so you do not have to sort through everything at once.</p>
+          <span>Recommended next step</span>
+          <strong>${esc(recommendationTitle)}</strong>
+          <p>${esc(recommendationCopy)}</p>
         </div>
         <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
-          <button class="button primary" type="button" data-service-action="forms">View forms</button>
-          <button class="button outline" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
+          <button class="button ${primaryAction === "forms" ? "primary" : "outline"}" type="button" data-service-action="forms">View forms for this issue</button>
+          <button class="button ${primaryAction === "calculator" ? "primary" : "outline"}" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
           <button class="button outline" type="button" data-service-action="steps">Understand the steps</button>
           <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
         </div>
@@ -833,17 +851,48 @@
 	    const items = serviceItems.map(serviceViewModelForItem);
 				    const categories = publicCategoryGroups.filter((group) => group.label === "All" || items.some((item) => group.categories?.includes(item.category)));
 		    return `<div class="service-tools" data-service-tools>
-	      <label class="service-search-label" for="service-search">Search family-law pathways</label>
+	      <label class="service-search-label" for="service-search">Start by choosing your issue</label>
 	      <div class="service-search-row">
-	        <input id="service-search" class="service-search" type="search" placeholder="Search parenting, support, paternity, enforcement..." data-service-search>
+	        <input id="service-search" class="service-search" type="search" placeholder="Search divorce, parenting, support, paternity, enforcement..." data-service-search>
 	        <span class="service-count" data-service-count>Showing ${initialServiceCount} of ${items.length} pathways</span>
 	      </div>
 	    </div>
+		    <div class="service-category-panel" aria-label="Filter family-law pathways by situation">
+		      <div class="service-category-head">
+		        <p class="service-search-label">Browse by situation</p>
+		        <button class="service-category-reset" type="button" data-service-category-reset>Reset</button>
+		      </div>
+		      <div class="service-category-list" role="group" aria-label="Pathway categories">
+		        ${categories.map((group, index) => `<button class="service-category-chip${index === 0 ? " active" : ""}" type="button" data-service-category-filter="${esc(group.label)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(group.label)}</button>`).join("")}
+		      </div>
+		    </div>
+			    <div class="grid service-grid" data-service-grid data-service-list>${items.map((item, index) => {
+			      return `
+				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} role="button" tabindex="0" aria-label="Review details for ${esc(item.title)}" data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
+			      <div class="service-heading">
+			        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
+		        <p class="service-kicker">${esc(item.category)}</p>
+		        <h3>${esc(item.title)}</h3>
+		        <div class="service-card-tools" aria-label="Available options for ${esc(item.title)}">
+		          ${serviceAvailabilityTags(item).map((tag) => `<span>${esc(tag)}</span>`).join("")}
+		        </div>
+		      </div>
+		      <div class="service-detail">
+		        <p>${item.copy}</p>
+		        <button class="card-link service-detail-toggle" type="button" data-service-detail-toggle aria-expanded="false">Open this issue →</button>
+		      </div>
+		    </article>`;
+			    }).join("")}</div>
+	    <div class="service-reveal">
+	      <button class="button primary service-reveal-button" type="button" data-service-reveal>View All Family Law Pathways</button>
+		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} pathways. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some matters may need attorney review or another professional.</p>
+	    </div>
+	    ${urgencyRouter()}
 	    <div class="service-methods" aria-label="Choose a focused intake path">
 	      <div class="service-methods-intro">
-	        <p class="eyebrow">Focused intake paths</p>
-	        <h3>Not ready to choose a legal issue? Start with the kind of help you need.</h3>
-	        <p>These cards open Guided Intake with that kind of help already selected. If you want to read about a specific legal issue first, use the practice-area cards below.</p>
+	        <p class="eyebrow">Not sure where to start?</p>
+	        <h3>Use Intake to get matched without choosing the perfect legal label.</h3>
+	        <p>If none of the issue cards feels right, choose the kind of help you need and Guided Intake will carry that context forward.</p>
 	        <a class="service-methods-primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>
 	          Get matched in Intake <span aria-hidden="true">→</span>
 	        </a>
@@ -868,34 +917,6 @@
 	        </a>`).join("")}
 	      </div>
 	      </div>
-	    </div>
-		    ${urgencyRouter()}
-		    <div class="service-category-panel" aria-label="Filter family-law pathways by situation">
-		      <div class="service-category-head">
-		        <p class="service-search-label">Browse by situation</p>
-		        <button class="service-category-reset" type="button" data-service-category-reset>Reset</button>
-		      </div>
-		      <div class="service-category-list" role="group" aria-label="Pathway categories">
-		        ${categories.map((group, index) => `<button class="service-category-chip${index === 0 ? " active" : ""}" type="button" data-service-category-filter="${esc(group.label)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(group.label)}</button>`).join("")}
-		      </div>
-		    </div>
-			    <div class="grid service-grid" data-service-grid data-service-list>${items.map((item, index) => {
-			      return `
-				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} role="button" tabindex="0" aria-label="Review details for ${esc(item.title)}" data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
-			      <div class="service-heading">
-			        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
-		        <p class="service-kicker">${esc(item.category)}</p>
-		        <h3>${esc(item.title)}</h3>
-		      </div>
-		      <div class="service-detail">
-		        <p>${item.copy}</p>
-		        <button class="card-link service-detail-toggle" type="button" data-service-detail-toggle aria-expanded="false">Review this path →</button>
-		      </div>
-		    </article>`;
-			    }).join("")}</div>
-	    <div class="service-reveal">
-	      <button class="button primary service-reveal-button" type="button" data-service-reveal>View All Family Law Pathways</button>
-		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} pathways. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Services are subject to conflict, licensed-scope, timing, and availability review.</p>
 	    </div>`;
 	  }
 
@@ -922,7 +943,7 @@
 	  }
 
   function practiceAreas() {
-    return section("Practice Areas", "Focused Arizona family law pathways with scope review before services are accepted.", serviceCards(), true, "Family law services");
+    return section("Practice Areas", "Choose the issue that is closest to your situation. Each card opens forms, tools, next steps, and Guided Intake if you are unsure.", serviceCards(), true, "Family law services");
   }
 
   function feeRoute(title, serviceInterest, budgetConcern, presetAnswers) {
@@ -4108,6 +4129,7 @@
           wireGuidePdfPanel(panel);
         });
       });
+      revealServiceSection(panel.querySelector("[data-service-default-section]")?.getAttribute("data-service-default-section") || item.primaryAction || "forms", false);
       requestAnimationFrame(() => {
         panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
       });
@@ -4177,8 +4199,8 @@
 	      if (note) {
 	        const remaining = Math.max(cards.length - limit, 0);
 	        note.textContent = revealed
-		          ? `Showing all ${cards.length} pathways. Search any topic or choose a situation to narrow the list. Services are subject to conflict, licensed-scope, timing, and availability review.`
-		          : `Showing the first ${Math.min(limit, matchesTotal)} pathways for this screen. Search any topic, browse a situation, or reveal the remaining ${remaining}. Services are subject to conflict, licensed-scope, timing, and availability review.`;
+		          ? `Showing all ${cards.length} pathways. Search any topic or choose a situation to narrow the list. Some matters may need attorney review or another professional.`
+		          : `Showing the first ${Math.min(limit, matchesTotal)} pathways for this screen. Search any topic, browse a situation, or reveal the remaining ${remaining}. Some matters may need attorney review or another professional.`;
 	      }
 	
 	      if (reveal) {
