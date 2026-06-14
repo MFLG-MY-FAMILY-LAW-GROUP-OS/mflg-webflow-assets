@@ -363,6 +363,9 @@ p { margin: 0 0 16px; color: inherit; }
   text-transform: uppercase;
   text-decoration: none;
   background: transparent;
+  line-height: 1.12;
+  text-align: center;
+  white-space: nowrap;
 }
 .button.primary {
   border-color: rgba(115, 162, 217, 0.5);
@@ -388,6 +391,9 @@ p { margin: 0 0 16px; color: inherit; }
   position: relative;
   align-items: center;
   gap: 5px;
+  max-width: 100%;
+  vertical-align: baseline;
+  white-space: nowrap;
   z-index: 30;
 }
 .legal-term-help {
@@ -410,6 +416,62 @@ p { margin: 0 0 16px; color: inherit; }
   content: "?";
   font-size: 0.62rem;
   line-height: 1;
+}
+.eyebrow,
+.service-category-chip,
+.faq-category-chip,
+.faq-item summary span,
+.forms-guided-summary span,
+.forms-route-intake-head span,
+.forms-route-intake-metrics span,
+.forms-route-intake-grid span,
+.forms-route-intake-counts small,
+.forms-matter-head span,
+.forms-matter-grid span,
+.forms-completion-head span,
+.forms-completion-metrics span,
+.forms-completion-grid span,
+.jurisdiction-readiness-head span,
+.jurisdiction-readiness-metrics span,
+.jurisdiction-readiness-card span,
+.forms-route-decision .forms-route-decision-meta span,
+.route-action-head span,
+.route-action-empty span,
+.route-action-card span,
+.route-pdf-link span,
+.packet-action-card span,
+.official-pdf-group summary span,
+.official-pdf-source span,
+.guide-card .pill,
+.guide-next-step-head span,
+.guide-next-result span,
+.form-confidence,
+.guide-packet-options button span,
+.forms-packet-fit span,
+.forms-packet-state span,
+.forms-packet-primary-actions span,
+.forms-packet-source-note,
+.official-calculator-workspace-head span,
+.official-calculator-steps span,
+.official-calculator-embed-head span,
+.official-calculator-next span,
+.calculator-readiness-head span,
+.calculator-readiness-metrics span,
+.calculator-readiness-card span,
+.calculator-formula-head span,
+.calculator-formula-metrics span,
+.calculator-formula-card span,
+.parenting-time-head span,
+.parenting-time-result span,
+.parenting-time-next span,
+.mflg-child-support-head span,
+.mflg-child-support-result span,
+.mflg-child-support-breakdown small {
+  max-width: 100%;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .legal-term-help::after {
   content: attr(data-legal-definition);
@@ -825,13 +887,17 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 }
 .card-link {
   display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   margin-top: 14px;
   color: var(--blue);
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0.1em;
+  line-height: 1.12;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
 }
 .service-card .card-link {
   margin-top: auto;
@@ -841,6 +907,7 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   font-family: inherit;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
+  line-height: 1.1;
   cursor: pointer;
 }
 .service-card .card-link:hover,
@@ -1112,7 +1179,11 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   gap: 10px;
 }
 .service-category-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 40px;
+  max-width: 100%;
   padding: 0 14px;
   border: 1px solid rgba(17, 24, 32, 0.1);
   border-radius: 8px;
@@ -1121,6 +1192,10 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: 0.02em;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   cursor: pointer;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
@@ -6945,6 +7020,32 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   html {
     scroll-padding-top: 88px;
   }
+  .button {
+    min-width: 0;
+    width: 100%;
+    white-space: normal;
+  }
+  .service-category-list,
+  .faq-category-list,
+  .forms-guided-summary,
+  .forms-route-decision-meta,
+  .forms-route-intake-counts,
+  .mflg-child-support-breakdown {
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .service-category-list > *,
+  .faq-category-list > *,
+  .forms-guided-summary > *,
+  .forms-route-decision-meta > *,
+  .forms-route-intake-counts > *,
+  .mflg-child-support-breakdown > * {
+    flex: 0 0 auto;
+  }
   #forms-approved-pdfs,
   #forms-calculator-hub,
   #forms-official-router,
@@ -7462,9 +7563,7 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
 .guide-card .pill {
   justify-self: start;
   max-width: 100%;
-  white-space: normal;
   text-align: left;
-  overflow-wrap: anywhere;
 }
 .guide-card > p {
   display: none;
@@ -9687,17 +9786,16 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
 		    padding: 14px;
 		  }
 		  .service-category-list {
-		    flex-wrap: wrap;
-		    margin-inline: 0;
-		    padding: 0;
-		    overflow-x: visible;
-		    scrollbar-width: none;
-		  }
-		  .service-category-list::-webkit-scrollbar {
-		    display: none;
+		    flex-wrap: nowrap;
+		    margin-inline: -4px;
+		    padding: 0 4px 4px;
+		    overflow-x: auto;
+		    overflow-y: hidden;
+		    scrollbar-width: thin;
 		  }
 				  .service-category-chip {
-				    flex: 1 1 140px;
+				    flex: 0 0 auto;
+				    min-width: max-content;
 				  }
 			  .urgency-router {
 			    padding: 16px;
