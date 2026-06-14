@@ -210,7 +210,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-simplify1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-guided1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -748,7 +748,20 @@
         <h3>${esc(item.title)}</h3>
         <p>${esc(item.copy)}</p>
       </div>
-      <div class="guide-card-grid service-panel-grid">
+      <div class="guide-next-step service-panel-next">
+        <div class="guide-next-step-head">
+          <span>Next step</span>
+          <strong>What do you want to do next?</strong>
+          <p>Choose one path. The page will only open the section you need, so you do not have to sort through everything at once.</p>
+        </div>
+        <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
+          <button class="button primary" type="button" data-service-action="forms">View forms</button>
+          <button class="button outline" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
+          <button class="button outline" type="button" data-service-action="steps">Understand the steps</button>
+          <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+        </div>
+      </div>
+      <div class="guide-card-grid service-panel-grid" data-service-panel-section="steps" hidden>
         <div>
           <h4>What this usually involves</h4>
           <ul class="list">${checklist.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
@@ -758,19 +771,7 @@
           <p class="service-card-fallback">${esc(readiness)}</p>
         </div>
       </div>
-      <div class="guide-next-step service-panel-next">
-        <div class="guide-next-step-head">
-          <span>Next step</span>
-          <strong>What do you want to do next?</strong>
-          <p>Start with forms if you know this is the right topic. Choose a calculator only if you need an estimate. Use Guided Intake if anything feels uncertain.</p>
-        </div>
-        <div class="service-row-actions">
-          <button class="button primary" type="button" data-guide-scroll-forms>View forms below</button>
-          <a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(item.neutralCalculator ? "" : item.calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>${esc(item.calculatorLabel)}</a>
-          <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
-        </div>
-      </div>
-      <details class="service-calculator-chooser" aria-label="Choose calculator or planner"${calculatorOpen ? " open" : ""}>
+      <details class="service-calculator-chooser" aria-label="Choose calculator or planner"${calculatorOpen ? " open" : ""} data-service-panel-section="calculator" hidden>
         <summary class="service-calculator-head">
           <span>Calculator or planner</span>
           <strong>${calculatorOpen ? "Use the suggested tool, or switch if another issue fits better." : "Need an estimate? Choose a calculator or planner."}</strong>
@@ -785,6 +786,7 @@
           </a>`).join("")}
         </div>
       </details>
+      <div data-service-panel-section="forms" hidden>
       ${packetChoices.length ? `<div class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
         <div>
           <span>Form path</span>
@@ -807,6 +809,7 @@
             <p>Forms appear here so you can stay with the practice area you selected.</p>
           </div>
         </div>
+      </div>
       </div>
     </div>`;
   }
@@ -3231,7 +3234,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-simplify1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260614-guided1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -4164,8 +4167,34 @@
         button.addEventListener("click", clearServicePanel);
       });
       wireGuidePdfPanel(panel);
+      const revealServiceSection = (sectionName, shouldScroll = true) => {
+        const sections = Array.from(panel.querySelectorAll("[data-service-panel-section]"));
+        sections.forEach((section) => {
+          section.hidden = section.getAttribute("data-service-panel-section") !== sectionName;
+        });
+        panel.querySelectorAll("[data-service-action]").forEach((button) => {
+          const active = button.getAttribute("data-service-action") === sectionName;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+        const target = panel.querySelector(`[data-service-panel-section="${sectionName}"]`);
+        if (sectionName === "calculator") {
+          target?.setAttribute("open", "");
+        }
+        if (shouldScroll) {
+          requestAnimationFrame(() => {
+            target?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        }
+      };
+      panel.querySelectorAll("[data-service-action]").forEach((button) => {
+        button.addEventListener("click", () => {
+          revealServiceSection(button.getAttribute("data-service-action") || "forms");
+        });
+      });
       panel.querySelectorAll("[data-guide-scroll-forms]").forEach((button) => {
         button.addEventListener("click", () => {
+          revealServiceSection("forms", false);
           panel.querySelector("[data-guide-pdf-panel]")?.scrollIntoView({ behavior: "smooth", block: "start" });
         });
       });
