@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-regression-readiness",
-  "built_at": "2026-06-14T01:34:59.413Z",
+  "built_at": "2026-06-14T02:11:13.960Z",
   "public_safety": {
     "raw_formula_text_exposed": false,
     "sensitive_fixture_values_exposed": false,
