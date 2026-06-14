@@ -39,6 +39,8 @@ const routeMap = readJSON("data/forms-tools-route-intake-map.json");
 const jurisdiction = readJSON("data/jurisdiction-readiness.json");
 const calculators = readJSON("data/calculator-readiness.json");
 const reviewRoadmap = readJSON("data/forms-tools-review-roadmap.json");
+const matterFormMatrix = readJSON("data/matter-form-matrix.json");
+const matrixByMatterId = new Map((matterFormMatrix.records || []).map((record) => [record.matter_id, record]));
 
 const reviewedCategoryFit = new Set([
   "Marriage",
@@ -59,24 +61,6 @@ const reviewedCategoryFit = new Set([
   "Safety"
 ]);
 
-const directPdfCategoryFit = new Set([
-  "Marriage",
-  "Agreements",
-  "Parenting",
-  "Child support",
-  "Parentage",
-  "Post-decree",
-  "Court requests",
-  "Court",
-  "Disclosure",
-  "Documents",
-  "Resolution",
-  "Identity",
-  "Jurisdiction",
-  "Maintenance",
-  "Safety"
-]);
-
 const officialSourceByCategory = new Map([
   ["Safety", { label: "AZPOINT protective order resources", url: "https://azpoint.azcourts.gov/" }],
   ["Scope review", { label: "Guided Intake scope review", url: "/start" }],
@@ -90,20 +74,36 @@ const defaultSource = {
 };
 
 const matters = extractServiceItems().map((item) => {
+  const matterId = slugify(item.title);
+  const formMatrix = matrixByMatterId.get(matterId);
   const source = officialSourceByCategory.get(item.category) || defaultSource;
   const isReviewed = reviewedCategoryFit.has(item.category);
-  const hasDirectPdf = directPdfCategoryFit.has(item.category);
+  const hasDirectPdf = Boolean(formMatrix?.direct_pdf_available);
   const needsScope = item.category === "Scope review" || item.category === "Safety" || item.category === "Jurisdiction" || item.category === "Triage";
-  const status = isReviewed
+  const matrixStatus = formMatrix?.confidence === "intake-required"
+    ? "intake-required-before-forms"
+    : formMatrix?.confidence === "related-only"
+      ? "related-forms-only"
+      : formMatrix?.confidence === "statewide-generic"
+        ? "statewide-source-first"
+        : "";
+  const status = matrixStatus || (isReviewed
     ? "reviewed-route-or-official-source"
-    : needsScope ? "guided-intake-or-official-source" : "official-source-first";
+    : needsScope ? "guided-intake-or-official-source" : "official-source-first");
   return {
-    matter_id: slugify(item.title),
+    matter_id: matterId,
     title: item.title,
     category: item.category,
     public_status: status,
-    official_source_label: source.label,
-    official_source_url: source.url,
+    form_confidence: formMatrix?.confidence || "unknown",
+    exact_packet_available: Boolean(formMatrix?.exact_packet_available),
+    county_controls_forms: formMatrix?.county_controls_forms !== false,
+    default_county: formMatrix?.default_county || "Maricopa",
+    exact_packets: formMatrix?.exact_packets || [],
+    related_packets: formMatrix?.related_packets || [],
+    public_guidance: formMatrix?.public_guidance || "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+    official_source_label: formMatrix?.official_source_label || source.label,
+    official_source_url: formMatrix?.official_source_url || source.url,
     reviewed_route_available: isReviewed,
     direct_pdf_available: hasDirectPdf,
     guided_intake_available: true,
@@ -133,7 +133,8 @@ const output = {
     "data/forms-tools-route-intake-map.json",
     "data/jurisdiction-readiness.json",
     "data/calculator-readiness.json",
-    "data/forms-tools-review-roadmap.json"
+    "data/forms-tools-review-roadmap.json",
+    "data/matter-form-matrix.json"
   ],
   public_safety: {
     contains_sensitive_user_data: false,
@@ -150,6 +151,9 @@ const output = {
     matters_with_guided_intake_start: matters.length,
     matters_with_reviewed_route_fit: matters.filter((matter) => matter.reviewed_route_available).length,
     matters_with_direct_pdf_fit: matters.filter((matter) => matter.direct_pdf_available).length,
+    matters_with_exact_packet: matters.filter((matter) => matter.exact_packet_available).length,
+    matters_requiring_intake_before_forms: matters.filter((matter) => matter.form_confidence === "intake-required").length,
+    matters_with_related_forms_only: matters.filter((matter) => matter.form_confidence === "related-only").length,
     reviewed_route_starts: routeMap.summary?.reviewed_route_starts || 0,
     approved_pdf_actions: routeMap.summary?.approved_pdf_actions || 0,
     pdf_route_packets: routeMap.summary?.routes_with_approved_pdfs || 0,
@@ -162,7 +166,7 @@ const output = {
   },
   categories,
   matters,
-  public_message: "All 50 public matter issues are represented in Forms & Tools through official sources, guided starts, and issue-specific next steps."
+  public_message: "All 50 public matter issues are represented, but exact form status now depends on county, case stage, children, and packet confidence."
 };
 
 writeJSON("data/forms-tools-matter-coverage.json", output);

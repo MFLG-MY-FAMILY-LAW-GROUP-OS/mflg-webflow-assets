@@ -1,168 +1,43 @@
 {
-  "version": "1.0.0-forms-tools-matter-coverage",
-  "built_at": "2026-06-14T00:14:51.714Z",
+  "version": "1.0.0-matter-form-matrix",
+  "built_at": "2026-06-14T00:14:51.645Z",
   "source_manifests": [
     "js/mflg-public-site.js",
-    "data/forms-tools-route-intake-map.json",
-    "data/jurisdiction-readiness.json",
-    "data/calculator-readiness.json",
-    "data/forms-tools-review-roadmap.json",
-    "data/matter-form-matrix.json"
+    "data/form-pdf-public-actions.json",
+    "data/form-packet-catalog.json"
   ],
   "public_safety": {
     "contains_sensitive_user_data": false,
-    "safe_route_metadata_only": true,
-    "all_public_matters_accounted_for": true,
-    "sensitive_public_collection_enabled": false,
-    "formula_logic_enabled_on_site": false,
-    "direct_cached_downloads_enabled": false
+    "exactness_audit_only": true,
+    "county_specific_warning_enabled": true,
+    "no_unverified_exact_claims": true
   },
   "summary": {
-    "public_matters": 50,
-    "categories": 19,
-    "matters_with_reviewed_route_or_source": 50,
-    "matters_with_guided_intake_start": 50,
-    "matters_with_reviewed_route_fit": 46,
-    "matters_with_direct_pdf_fit": 43,
-    "matters_with_exact_packet": 45,
-    "matters_requiring_intake_before_forms": 4,
-    "matters_with_related_forms_only": 1,
-    "reviewed_route_starts": 20,
-    "approved_pdf_actions": 74,
-    "pdf_route_packets": 13,
-    "official_sources_ok": 38,
-    "official_sources_checked": 38,
-    "calculator_choices": 3,
-    "review_only_candidates": 12,
-    "direct_cached_downloads_enabled": false,
-    "sensitive_public_collection_enabled": false
-  },
-  "categories": [
-    {
-      "category": "Agreements",
-      "matters": 2,
-      "reviewed_route_available": 2,
-      "guided_intake_available": 2
-    },
-    {
-      "category": "Child support",
-      "matters": 5,
-      "reviewed_route_available": 5,
-      "guided_intake_available": 5
-    },
-    {
-      "category": "Court",
-      "matters": 2,
-      "reviewed_route_available": 2,
-      "guided_intake_available": 2
-    },
-    {
-      "category": "Court requests",
-      "matters": 1,
-      "reviewed_route_available": 1,
-      "guided_intake_available": 1
-    },
-    {
-      "category": "Disclosure",
-      "matters": 2,
-      "reviewed_route_available": 2,
-      "guided_intake_available": 2
-    },
-    {
-      "category": "Documents",
-      "matters": 4,
-      "reviewed_route_available": 4,
-      "guided_intake_available": 4
-    },
-    {
-      "category": "Identity",
-      "matters": 1,
-      "reviewed_route_available": 1,
-      "guided_intake_available": 1
-    },
-    {
-      "category": "Jurisdiction",
-      "matters": 1,
-      "reviewed_route_available": 1,
-      "guided_intake_available": 1
-    },
-    {
-      "category": "Maintenance",
-      "matters": 3,
-      "reviewed_route_available": 3,
-      "guided_intake_available": 3
-    },
-    {
-      "category": "Marriage",
-      "matters": 3,
-      "reviewed_route_available": 3,
-      "guided_intake_available": 3
-    },
-    {
-      "category": "Parentage",
-      "matters": 4,
-      "reviewed_route_available": 4,
-      "guided_intake_available": 4
-    },
-    {
-      "category": "Parenting",
-      "matters": 7,
-      "reviewed_route_available": 7,
-      "guided_intake_available": 7
-    },
-    {
-      "category": "Post-decree",
-      "matters": 3,
-      "reviewed_route_available": 3,
-      "guided_intake_available": 3
-    },
-    {
-      "category": "Procedure",
-      "matters": 1,
-      "reviewed_route_available": 0,
-      "guided_intake_available": 1
-    },
-    {
-      "category": "Property",
-      "matters": 2,
-      "reviewed_route_available": 2,
-      "guided_intake_available": 2
-    },
-    {
-      "category": "Resolution",
-      "matters": 5,
-      "reviewed_route_available": 5,
-      "guided_intake_available": 5
-    },
-    {
-      "category": "Safety",
-      "matters": 1,
-      "reviewed_route_available": 1,
-      "guided_intake_available": 1
-    },
-    {
-      "category": "Scope review",
-      "matters": 2,
-      "reviewed_route_available": 0,
-      "guided_intake_available": 2
-    },
-    {
-      "category": "Triage",
-      "matters": 1,
-      "reviewed_route_available": 0,
-      "guided_intake_available": 1
+    "matters": 50,
+    "exact_or_county_exact": 43,
+    "statewide_generic": 2,
+    "related_only": 1,
+    "intake_required": 4,
+    "direct_pdf_available": 43,
+    "confidence_counts": {
+      "county-exact": 43,
+      "intake-required": 4,
+      "related-only": 1,
+      "statewide-generic": 2
     }
-  ],
-  "matters": [
+  },
+  "records": [
     {
       "matter_id": "divorce-dissolution",
       "title": "Divorce / Dissolution",
       "category": "Marriage",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -193,27 +68,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Divorce / Dissolution",
-        "matterCategory": "Marriage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "legal-separation",
       "title": "Legal Separation",
       "category": "Marriage",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -244,27 +115,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Legal Separation",
-        "matterCategory": "Marriage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "annulment",
       "title": "Annulment",
       "category": "Marriage",
-      "public_status": "intake-required-before-forms",
-      "form_confidence": "intake-required",
+      "confidence": "intake-required",
       "exact_packet_available": false,
+      "direct_pdf_available": false,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [],
       "related_packets": [
         {
@@ -277,27 +144,23 @@
           "has_approved_pdf_actions": true
         }
       ],
-      "public_guidance": "Annulment has its own official packet path. Confirm county and annulment facts before using divorce or separation forms.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_28/",
-      "reviewed_route_available": true,
-      "direct_pdf_available": false,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Annulment",
-        "matterCategory": "Marriage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Annulment has its own official packet path. Confirm county and annulment facts before using divorce or separation forms.",
+      "intake_fallback_required": true,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "consent-decrees",
       "title": "Consent Decrees",
       "category": "Agreements",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -328,27 +191,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Consent Decrees",
-        "matterCategory": "Agreements",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "settlement-agreements",
       "title": "Settlement Agreements",
       "category": "Agreements",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -379,27 +238,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Settlement Agreements",
-        "matterCategory": "Agreements",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "temporary-orders",
       "title": "Temporary Orders",
       "category": "Court requests",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-post-decree-temporary-orders",
@@ -421,27 +276,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Temporary Orders",
-        "matterCategory": "Court requests",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "property-and-debt-division",
       "title": "Property & Debt Division",
       "category": "Property",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -463,27 +314,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Property & Debt Division",
-        "matterCategory": "Property",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "real-estate-marital-home",
       "title": "Real Estate / Marital Home",
       "category": "Property",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -505,27 +352,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Real Estate / Marital Home",
-        "matterCategory": "Property",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "family-case-name-change",
       "title": "Family-Case Name Change",
       "category": "Identity",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-name-change-adult-no-minor-children",
@@ -574,27 +417,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Family-Case Name Change",
-        "matterCategory": "Identity",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "parenting-time",
       "title": "Parenting Time",
       "category": "Parenting",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -625,27 +464,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Parenting Time",
-        "matterCategory": "Parenting",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "legal-decision-making",
       "title": "Legal Decision-Making",
       "category": "Parenting",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -676,27 +511,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Legal Decision-Making",
-        "matterCategory": "Parenting",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "parenting-plans",
       "title": "Parenting Plans",
       "category": "Parenting",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -727,27 +558,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Parenting Plans",
-        "matterCategory": "Parenting",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "supervised-parenting-time",
       "title": "Supervised Parenting Time",
       "category": "Parenting",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -778,27 +605,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Supervised Parenting Time",
-        "matterCategory": "Parenting",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "child-withheld-missed-time",
       "title": "Child Withheld / Missed Time",
       "category": "Parenting",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-enforcement-existing-order",
@@ -829,27 +652,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Child Withheld / Missed Time",
-        "matterCategory": "Parenting",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "relocation",
       "title": "Relocation",
       "category": "Parenting",
-      "public_status": "intake-required-before-forms",
-      "form_confidence": "intake-required",
+      "confidence": "intake-required",
       "exact_packet_available": false,
+      "direct_pdf_available": false,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [],
       "related_packets": [
         {
@@ -871,27 +690,23 @@
           "has_approved_pdf_actions": false
         }
       ],
-      "public_guidance": "Relocation depends on existing orders, distance, timing, and the A.R.S. 25-408 notice rules. Do not guess from a generic parenting packet.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azleg.gov/ars/25/00408.htm",
-      "reviewed_route_available": true,
-      "direct_pdf_available": false,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Relocation",
-        "matterCategory": "Parenting",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Relocation depends on existing orders, distance, timing, and the A.R.S. 25-408 notice rules. Do not guess from a generic parenting packet.",
+      "intake_fallback_required": true,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "uccjea-interstate-custody",
       "title": "UCCJEA / Interstate Custody",
       "category": "Jurisdiction",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-foreign-custody-order",
@@ -922,27 +737,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "UCCJEA / Interstate Custody",
-        "matterCategory": "Jurisdiction",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "grandparent-third-party-rights",
       "title": "Grandparent / Third-Party Rights",
       "category": "Parenting",
-      "public_status": "related-forms-only",
-      "form_confidence": "related-only",
+      "confidence": "related-only",
       "exact_packet_available": false,
+      "direct_pdf_available": false,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [],
       "related_packets": [
         {
@@ -964,27 +775,23 @@
           "has_approved_pdf_actions": false
         }
       ],
-      "public_guidance": "Grandparent and third-party rights can require specialized pleadings. Use parenting forms only after confirming the correct posture.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": false,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Grandparent / Third-Party Rights",
-        "matterCategory": "Parenting",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Grandparent and third-party rights can require specialized pleadings. Use parenting forms only after confirming the correct posture.",
+      "intake_fallback_required": true,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "child-support-establishment",
       "title": "Child Support Establishment",
       "category": "Child support",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1024,27 +831,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Child Support Establishment",
-        "matterCategory": "Child support",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "child-support-modification",
       "title": "Child Support Modification",
       "category": "Child support",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1084,27 +887,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Child Support Modification",
-        "matterCategory": "Child support",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "child-support-enforcement",
       "title": "Child Support Enforcement",
       "category": "Child support",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1144,27 +943,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Child Support Enforcement",
-        "matterCategory": "Child support",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "support-worksheet-review",
       "title": "Support Worksheet Review",
       "category": "Child support",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1204,27 +999,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Support Worksheet Review",
-        "matterCategory": "Child support",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "arrears-back-support",
       "title": "Arrears / Back Support",
       "category": "Child support",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1264,27 +1055,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Arrears / Back Support",
-        "matterCategory": "Child support",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "spousal-maintenance-requests",
       "title": "Spousal Maintenance Requests",
       "category": "Maintenance",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -1333,27 +1120,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Spousal Maintenance Requests",
-        "matterCategory": "Maintenance",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "spousal-maintenance-modification",
       "title": "Spousal Maintenance Modification",
       "category": "Maintenance",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -1402,27 +1185,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Spousal Maintenance Modification",
-        "matterCategory": "Maintenance",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "spousal-maintenance-enforcement",
       "title": "Spousal Maintenance Enforcement",
       "category": "Maintenance",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -1471,27 +1250,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Spousal Maintenance Enforcement",
-        "matterCategory": "Maintenance",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "paternity-parentage",
       "title": "Paternity / Parentage",
       "category": "Parentage",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1504,27 +1279,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Paternity / Parentage",
-        "matterCategory": "Parentage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "dna-testing-parentage-establishment",
       "title": "DNA Testing / Parentage Establishment",
       "category": "Parentage",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1537,27 +1308,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "DNA Testing / Parentage Establishment",
-        "matterCategory": "Parentage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "birth-certificate-acknowledgment",
       "title": "Birth Certificate / Acknowledgment",
       "category": "Parentage",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1570,27 +1337,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Birth Certificate / Acknowledgment",
-        "matterCategory": "Parentage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "same-sex-parentage",
       "title": "Same-Sex Parentage",
       "category": "Parentage",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-parenting-parentage-support",
@@ -1603,27 +1366,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Same-Sex Parentage",
-        "matterCategory": "Parentage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "modification-of-existing-orders",
       "title": "Modification of Existing Orders",
       "category": "Post-decree",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-modification-existing-order",
@@ -1645,27 +1404,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Modification of Existing Orders",
-        "matterCategory": "Post-decree",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "enforcement-of-existing-orders",
       "title": "Enforcement of Existing Orders",
       "category": "Post-decree",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": false,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-enforcement-existing-order",
@@ -1696,27 +1451,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": false,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Enforcement of Existing Orders",
-        "matterCategory": "Post-decree",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "contempt-noncompliance-review",
       "title": "Contempt / Noncompliance Review",
       "category": "Post-decree",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": false,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-enforcement-existing-order",
@@ -1747,27 +1498,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": false,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Contempt / Noncompliance Review",
-        "matterCategory": "Post-decree",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "protective-orders-safety-terms",
       "title": "Protective Orders / Safety Terms",
       "category": "Safety",
-      "public_status": "statewide-source-first",
-      "form_confidence": "statewide-generic",
+      "confidence": "statewide-generic",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": false,
       "default_county": "Statewide",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-protective-order-resources",
@@ -1780,27 +1527,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Protective orders should start through the official AZPOINT safety path.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://azpoint.azcourts.gov/",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Protective Orders / Safety Terms",
-        "matterCategory": "Safety",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Protective orders should start through the official AZPOINT safety path.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "mediation-preparation",
       "title": "Mediation Preparation",
       "category": "Resolution",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -1822,27 +1565,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Mediation Preparation",
-        "matterCategory": "Resolution",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "arbitration-adr-preparation",
       "title": "Arbitration / ADR Preparation",
       "category": "Resolution",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -1864,27 +1603,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Arbitration / ADR Preparation",
-        "matterCategory": "Resolution",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "negotiation-support",
       "title": "Negotiation Support",
       "category": "Resolution",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -1906,27 +1641,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Negotiation Support",
-        "matterCategory": "Resolution",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "settlement-conference-preparation",
       "title": "Settlement Conference Preparation",
       "category": "Resolution",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -1957,27 +1688,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Settlement Conference Preparation",
-        "matterCategory": "Resolution",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "agreement-review",
       "title": "Agreement Review",
       "category": "Resolution",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-consent-decree-agreement",
@@ -2008,27 +1735,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Agreement Review",
-        "matterCategory": "Resolution",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "document-preparation",
       "title": "Document Preparation",
       "category": "Documents",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -2077,27 +1800,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Document Preparation",
-        "matterCategory": "Documents",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "document-review",
       "title": "Document Review",
       "category": "Documents",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -2146,27 +1865,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Document Review",
-        "matterCategory": "Documents",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "petition-new-filing",
       "title": "Petition / New Filing",
       "category": "Documents",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -2215,27 +1930,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Petition / New Filing",
-        "matterCategory": "Documents",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "response-to-served-papers",
       "title": "Response to Served Papers",
       "category": "Documents",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -2284,27 +1995,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Response to Served Papers",
-        "matterCategory": "Documents",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "filing-and-service-coordination",
       "title": "Filing & Service Coordination",
       "category": "Procedure",
-      "public_status": "official-source-first",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-response-family-court",
@@ -2344,27 +2051,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": false,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Filing & Service Coordination",
-        "matterCategory": "Procedure",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "hearing-preparation",
       "title": "Hearing Preparation",
       "category": "Court",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-disclosure-and-hearing-readiness",
@@ -2386,27 +2089,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Hearing Preparation",
-        "matterCategory": "Court",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "court-appearance-within-licensed-scope",
       "title": "Court Appearance Within Licensed Scope",
       "category": "Court",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-disclosure-and-hearing-readiness",
@@ -2428,27 +2127,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Court Appearance Within Licensed Scope",
-        "matterCategory": "Court",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "financial-disclosure",
       "title": "Financial Disclosure",
       "category": "Disclosure",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-disclosure-and-hearing-readiness",
@@ -2470,27 +2165,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Financial Disclosure",
-        "matterCategory": "Disclosure",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "exhibit-document-organization",
       "title": "Exhibit / Document Organization",
       "category": "Disclosure",
-      "public_status": "reviewed-route-or-official-source",
-      "form_confidence": "county-exact",
+      "confidence": "county-exact",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -2539,27 +2230,23 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": true,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Exhibit / Document Organization",
-        "matterCategory": "Disclosure",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "not-sure-where-to-start",
       "title": "Not Sure Where to Start",
       "category": "Triage",
-      "public_status": "statewide-source-first",
-      "form_confidence": "statewide-generic",
+      "confidence": "statewide-generic",
       "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [
         {
           "packet_id": "maricopa-divorce-new-no-children",
@@ -2599,64 +2286,49 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use this as a starting point only. Guided Intake is the safest path if the issue is unclear.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": false,
-      "direct_pdf_available": true,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Not Sure Where to Start",
-        "matterCategory": "Triage",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "Use this as a starting point only. Guided Intake is the safest path if the issue is unclear.",
+      "intake_fallback_required": false,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "adoption-family-formation-review",
       "title": "Adoption / Family Formation Review",
       "category": "Scope review",
-      "public_status": "intake-required-before-forms",
-      "form_confidence": "intake-required",
+      "confidence": "intake-required",
       "exact_packet_available": false,
+      "direct_pdf_available": false,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [],
       "related_packets": [],
-      "public_guidance": "This issue can fall outside standard public family-law packets. Use Guided Intake before choosing forms.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": false,
-      "direct_pdf_available": false,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Adoption / Family Formation Review",
-        "matterCategory": "Scope review",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "This issue can fall outside standard public family-law packets. Use Guided Intake before choosing forms.",
+      "intake_fallback_required": true,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "special-scope-referral-review",
       "title": "Special Scope / Referral Review",
       "category": "Scope review",
-      "public_status": "intake-required-before-forms",
-      "form_confidence": "intake-required",
+      "confidence": "intake-required",
       "exact_packet_available": false,
+      "direct_pdf_available": false,
       "county_controls_forms": true,
       "default_county": "Maricopa",
+      "children": "unknown",
+      "posture": "unknown",
       "exact_packets": [],
       "related_packets": [],
-      "public_guidance": "This issue can fall outside standard public family-law packets. Use Guided Intake before choosing forms.",
-      "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
-      "reviewed_route_available": false,
-      "direct_pdf_available": false,
-      "guided_intake_available": true,
-      "safe_intake_payload": {
-        "matterTitle": "Special Scope / Referral Review",
-        "matterCategory": "Scope review",
-        "sourceType": "Forms & Tools matter coverage / public planning"
-      }
+      "official_source_label": "Arizona and county family-law forms",
+      "public_guidance": "This issue can fall outside standard public family-law packets. Use Guided Intake before choosing forms.",
+      "intake_fallback_required": true,
+      "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     }
-  ],
-  "public_message": "All 50 public matter issues are represented, but exact form status now depends on county, case stage, children, and packet confidence."
+  ]
 }

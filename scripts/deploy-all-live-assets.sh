@@ -63,6 +63,7 @@ node scripts/build-forms-tools-review-roadmap.js
 node scripts/build-forms-tools-maintenance-status.js
 node scripts/build-forms-tools-intake-readiness.js
 node scripts/build-forms-tools-route-intake-map.js
+node scripts/build-matter-form-matrix.js
 node scripts/build-forms-tools-matter-coverage.js
 node scripts/build-forms-tools-completion-status.js
 

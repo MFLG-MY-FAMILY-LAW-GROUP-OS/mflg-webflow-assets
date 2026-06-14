@@ -78,6 +78,8 @@
     "parenting-time": "The schedule for when a child is with each parent.",
     paternity: "A legal case or finding that establishes a child's legal parent.",
     hearing: "A court event where the judge may take information, hear arguments, and decide next steps.",
+    "existing-orders": "Court orders that have already been signed by a judge or entered in the case.",
+    ars: "Arizona Revised Statutes. These are Arizona state laws.",
     packet: "A group of forms that usually go together for one court task.",
     contempt: "A court request claiming someone violated a court order.",
     scope: "The type of help the office is legally allowed and agreed to provide.",
@@ -110,6 +112,8 @@
     ["service", /\bservice\b/i],
     ["filing", /\bfiling\b/i],
     ["hearing", /\bhearing\b/i],
+    ["existing-orders", /\bexisting orders?\b/i],
+    ["ars", /\bA\.R\.S\.?\b/i],
     ["packet", /\bpacket\b/i],
     ["contempt", /\bcontempt\b/i],
     ["scope", /\bscope\b/i],
@@ -122,7 +126,20 @@
   function enhanceLegalTerms(container) {
     const host = container || root;
     if (!host || !host.querySelectorAll) return;
-    const used = new Set(Array.from(host.querySelectorAll("[data-legal-term-key]")).map((item) => item.getAttribute("data-legal-term-key")));
+    const usedByBlock = new WeakMap();
+    const maxReplacements = 80;
+    const blockFor = (element) => element.closest([
+      ".guide-row-panel",
+      ".service-row-panel",
+      ".forms-matter-grid article",
+      ".forms-route-card",
+      ".forms-router-card",
+      ".official-pdf-link",
+      ".faq-item",
+      ".card",
+      "section",
+      "article"
+    ].join(", ")) || host;
     const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         const text = node.nodeValue || "";
@@ -138,6 +155,9 @@
     while (walker.nextNode()) {
       const node = walker.currentNode;
       const text = node.nodeValue || "";
+      const block = blockFor(node.parentElement);
+      const used = usedByBlock.get(block) || new Set(Array.from(block.querySelectorAll?.("[data-legal-term-key]") || []).map((item) => item.getAttribute("data-legal-term-key")));
+      usedByBlock.set(block, used);
       const match = legalTermMatchers.find(([key, regex]) => !used.has(key) && regex.test(text));
       if (!match) continue;
       const [key, regex] = match;
@@ -145,7 +165,7 @@
       if (!result || result.index < 0) continue;
       replacements.push({ node, key, index: result.index, label: result[0] });
       used.add(key);
-      if (used.size >= legalTermMatchers.length) break;
+      if (replacements.length >= maxReplacements) break;
     }
     replacements.forEach(({ node, key, index, label }) => {
       const text = node.nodeValue || "";
@@ -191,7 +211,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicecards2">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-formmatrix1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -655,7 +675,9 @@
 	          issue: primaryPacket.issue,
 	          posture: primaryPacket.posture,
 	          children: primaryPacket.children,
-	          pdfPacket: primaryPacket.packet
+	          pdfPacket: primaryPacket.packet,
+	          formConfidence: primaryPacket.confidence || "related",
+	          officialSourceUrl: primaryPacket.sourceUrl || ""
 	        }
 	        : guideFormsRouteFor(guide);
 	      const calculatorChoice = guideCalculatorChoiceFor(guide);
@@ -1267,39 +1289,53 @@
     const title = `${guide?.title || ""}`.toLowerCase();
     const category = `${guide?.category || ""}`.toLowerCase();
     const text = `${category} ${title}`;
-    const choice = (key, label, helper, packet, issue, posture, children = "any") => ({
+    const choice = (key, label, helper, packet, issue, posture, children = "any", confidence = "related", sourceUrl = "") => ({
       key,
       label,
       helper,
       packet,
       issue,
       posture,
-      children
+      children,
+      confidence,
+      sourceUrl
     });
+    const exact = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "exact", sourceUrl);
+    const countyExact = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "county-exact", sourceUrl);
+    const related = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "related", sourceUrl);
+    const intakeRequired = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "intake-required", sourceUrl);
     const divorceChoices = [
-      choice("divorce-no-children", "Divorce or separation, no minor children", "Use this when the case starts a divorce or legal separation and no minor children are involved.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children"),
-      choice("divorce-with-children", "Divorce or separation, with minor children", "Use this when the case starts a divorce or legal separation and parenting or support must also be addressed.", "maricopa-divorce-new-with-children", "divorce", "New filing", "minor-children"),
-      choice("agreement-final", "Agreement or final decree", "Use this when both sides have an agreement and need final decree or settlement forms.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any")
+      countyExact("divorce-no-children", "Divorce or separation, no minor children", "Use this when the case starts a divorce or legal separation and no minor children are involved.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children"),
+      countyExact("divorce-with-children", "Divorce or separation, with minor children", "Use this when the case starts a divorce or legal separation and parenting or support must also be addressed.", "maricopa-divorce-new-with-children", "divorce", "New filing", "minor-children"),
+      countyExact("agreement-final", "Agreement or final decree", "Use this when both sides have an agreement and need final decree or settlement forms.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any")
+    ];
+    const annulmentChoices = [
+      intakeRequired("annulment-source", "Annulment forms need county confirmation", "Annulment has a separate official packet path. If your county is not listed, confirm whether that court accepts Maricopa forms before relying on them.", "maricopa-annulment-official-source", "annulment", "New filing", "any", "https://superiorcourt.maricopa.gov/llrc/fc_group_28/"),
+      related("divorce-no-children", "Related divorce/separation packet", "Use only for orientation. Annulment is a separate path and should be confirmed through Guided Intake or the official court source.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children")
     ];
     const parentingChoices = [
-      choice("parentage-parenting-support", "Start parenting, parentage, or support orders", "Use this when parents need first-time orders for legal decision-making, parenting time, parentage, or child support.", "maricopa-parenting-parentage-support", "parenting", "New filing", "minor-children"),
-      choice("parenting-in-divorce", "Parenting issues in a divorce", "Use this when parenting terms are part of a new divorce or legal separation case.", "maricopa-divorce-new-with-children", "parenting", "New filing", "minor-children"),
-      choice("foreign-custody", "Register an out-of-state custody order", "Use this when a custody or parenting order from another state needs Arizona court recognition.", "maricopa-foreign-custody-order", "parenting", "Existing order", "minor-children")
+      countyExact("parentage-parenting-support", "Start parenting, parentage, or support orders", "Use this when parents need first-time orders for legal decision-making, parenting time, parentage, or child support.", "maricopa-parenting-parentage-support", "parenting", "New filing", "minor-children"),
+      countyExact("parenting-in-divorce", "Parenting issues in a divorce", "Use this when parenting terms are part of a new divorce or legal separation case.", "maricopa-divorce-new-with-children", "parenting", "New filing", "minor-children"),
+      countyExact("foreign-custody", "Register an out-of-state custody order", "Use this when a custody or parenting order from another state needs Arizona court recognition.", "maricopa-foreign-custody-order", "parenting", "Existing order", "minor-children")
+    ];
+    const relocationChoices = [
+      intakeRequired("relocation-review", "Relocation notice and court path", "Relocation depends on existing orders, distance, timing, and the A.R.S. 25-408 notice rules. Use intake before choosing forms.", "maricopa-relocation-official-source", "relocation", "Existing order", "minor-children", "https://www.azleg.gov/ars/25/00408.htm"),
+      related("parenting-existing", "Related parenting/order packet", "Use only after confirming whether this is a relocation notice, objection, modification, enforcement, or new parenting case.", "maricopa-parenting-parentage-support", "parenting", "Existing order", "minor-children")
     ];
     const supportChoices = [
-      choice("new-support", "Start child support or parentage orders", "Use this when support is being started with parentage, legal decision-making, or parenting time.", "maricopa-parenting-parentage-support", "child support", "New filing", "minor-children"),
-      choice("support-in-divorce", "Child support in a divorce", "Use this when support is part of a new divorce or legal separation case.", "maricopa-divorce-new-with-children", "child support", "New filing", "minor-children"),
-      choice("foreign-support", "Register an out-of-state support order", "Use this when an existing support order from another state needs Arizona court recognition.", "maricopa-foreign-support-order", "child support", "Existing order", "minor-children")
+      countyExact("new-support", "Start child support or parentage orders", "Use this when support is being started with parentage, legal decision-making, or parenting time.", "maricopa-parenting-parentage-support", "child support", "New filing", "minor-children"),
+      countyExact("support-in-divorce", "Child support in a divorce", "Use this when support is part of a new divorce or legal separation case.", "maricopa-divorce-new-with-children", "child support", "New filing", "minor-children"),
+      countyExact("foreign-support", "Register an out-of-state support order", "Use this when an existing support order from another state needs Arizona court recognition.", "maricopa-foreign-support-order", "child support", "Existing order", "minor-children")
     ];
     const agreementChoices = [
-      choice("agreement-final", "Agreement or consent decree", "Use this when both sides have agreed and need final settlement or decree forms.", "maricopa-consent-decree-agreement", "agreement", "Agreement / final orders", "any"),
-      choice("divorce-no-children", "Divorce agreement, no minor children", "Use this when the agreement belongs to a divorce or legal separation without minor children.", "maricopa-divorce-new-no-children", "divorce", "Agreement / final orders", "no-minor-children"),
-      choice("divorce-with-children", "Divorce agreement, with minor children", "Use this when the agreement belongs to a divorce or legal separation with parenting or support terms.", "maricopa-divorce-new-with-children", "divorce", "Agreement / final orders", "minor-children")
+      countyExact("agreement-final", "Agreement or consent decree", "Use this when both sides have agreed and need final settlement or decree forms.", "maricopa-consent-decree-agreement", "agreement", "Agreement / final orders", "any"),
+      countyExact("divorce-no-children", "Divorce agreement, no minor children", "Use this when the agreement belongs to a divorce or legal separation without minor children.", "maricopa-divorce-new-no-children", "divorce", "Agreement / final orders", "no-minor-children"),
+      countyExact("divorce-with-children", "Divorce agreement, with minor children", "Use this when the agreement belongs to a divorce or legal separation with parenting or support terms.", "maricopa-divorce-new-with-children", "divorce", "Agreement / final orders", "minor-children")
     ];
     const postDecreeChoices = [
-      choice("post-decree-temporary", "Temporary request after orders already exist", "Use this when there is already an order and a temporary court request is needed.", "maricopa-post-decree-temporary-orders", "modification", "Existing order", "any"),
-      choice("foreign-custody", "Register or respond to out-of-state custody order", "Use this when an order from another state is involved.", "maricopa-foreign-custody-order", "parenting", "Existing order", "minor-children"),
-      choice("foreign-support", "Register or respond to out-of-state support order", "Use this when an out-of-state support order is involved.", "maricopa-foreign-support-order", "child support", "Existing order", "minor-children")
+      countyExact("post-decree-temporary", "Temporary request after orders already exist", "Use this when there is already an order and a temporary court request is needed.", "maricopa-post-decree-temporary-orders", "modification", "Existing order", "any"),
+      countyExact("foreign-custody", "Register or respond to out-of-state custody order", "Use this when an order from another state is involved.", "maricopa-foreign-custody-order", "parenting", "Existing order", "minor-children"),
+      countyExact("foreign-support", "Register or respond to out-of-state support order", "Use this when an out-of-state support order is involved.", "maricopa-foreign-support-order", "child support", "Existing order", "minor-children")
     ];
     const documentChoices = [
       choice("new-divorce-no-children", "Start divorce or separation, no minor children", "Use this for a new divorce or legal separation filing without minor children.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children"),
@@ -1309,14 +1345,16 @@
     ];
     const nameChangeChoices = [
       choice("divorce", "During divorce", "Restore a former name before the decree is signed.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any"),
-      choice("adult-no-children", "Adult, no minor children", "Separate name-change case after divorce or outside divorce.", "maricopa-name-change-adult-no-minor-children", "name change", "New filing", "no-minor-children"),
-      choice("adult-with-child", "Adult with a minor child", "Separate adult name-change case when the adult has a minor child.", "maricopa-name-change-adult-with-minor-child", "name change", "New filing", "minor-children"),
-      choice("child", "Minor child", "Name-change request for a child.", "maricopa-name-change-minor-child", "name change", "New filing", "minor-children"),
-      choice("family", "More than one family member", "Family packet for multiple related name changes.", "maricopa-name-change-family", "name change", "New filing", "minor-children"),
-      choice("record-update", "Update court contact record", "Administrative update only; this does not legally change a name.", "maricopa-name-address-update", "name or address update", "Existing order", "any")
+      countyExact("adult-no-children", "Adult, no minor children", "Separate name-change case after divorce or outside divorce.", "maricopa-name-change-adult-no-minor-children", "name change", "New filing", "no-minor-children"),
+      countyExact("adult-with-child", "Adult with a minor child", "Separate adult name-change case when the adult has a minor child.", "maricopa-name-change-adult-with-minor-child", "name change", "New filing", "minor-children"),
+      countyExact("child", "Minor child", "Name-change request for a child.", "maricopa-name-change-minor-child", "name change", "New filing", "minor-children"),
+      countyExact("family", "More than one family member", "Family packet for multiple related name changes.", "maricopa-name-change-family", "name change", "New filing", "minor-children"),
+      countyExact("record-update", "Update court contact record", "Administrative update only; this does not legally change a name.", "maricopa-name-address-update", "name or address update", "Existing order", "any")
     ];
 
     if (title.includes("name change")) return nameChangeChoices;
+    if (title.includes("annulment")) return annulmentChoices;
+    if (title.includes("relocation")) return relocationChoices;
     if (text.includes("divorce") || text.includes("dissolution") || text.includes("legal separation") || text.includes("annulment")) return divorceChoices;
     if (text.includes("consent") || text.includes("settlement") || text.includes("agreement") || category.includes("resolution")) return agreementChoices;
     if (text.includes("parenting") || text.includes("legal decision") || text.includes("custody") || text.includes("relocation") || text.includes("grandparent") || text.includes("third-party") || text.includes("uccjea")) return parentingChoices;
@@ -1387,6 +1425,24 @@
       if (langA !== langB) return langA - langB;
       return String(a.public_stage || a.public_name || "").localeCompare(String(b.public_stage || b.public_name || ""));
     });
+  }
+
+  function formConfidenceLabel(confidence) {
+    if (confidence === "exact") return "Exact form path";
+    if (confidence === "county-exact") return "County-specific form path";
+    if (confidence === "intake-required") return "Confirm before forms";
+    if (confidence === "statewide-generic") return "Statewide starting point";
+    if (confidence === "related-only") return "Related forms only";
+    return "Related forms";
+  }
+
+  function formConfidenceCopy(confidence) {
+    if (confidence === "exact") return "This form path is directly assigned to the selected issue.";
+    if (confidence === "county-exact") return "This form path is assigned for the listed county. If your case is in another county, confirm the local court form requirement.";
+    if (confidence === "intake-required") return "Use Guided Intake before choosing forms. The issue depends on timing, court orders, county, or legal stage.";
+    if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires a local packet.";
+    if (confidence === "related-only") return "Related forms exist, but this is not confirmed as the exact packet for the selected issue.";
+    return "These forms are related, but may not be the exact packet for the selected issue.";
   }
 
   function guideResourceSummaryFor(guide) {
@@ -2911,7 +2967,9 @@
         issue: packetChoices[0].issue,
         posture: packetChoices[0].posture,
         children: packetChoices[0].children,
-        pdfPacket: packetChoices[0].packet
+        pdfPacket: packetChoices[0].packet,
+        formConfidence: packetChoices[0].confidence || "related",
+        officialSourceUrl: packetChoices[0].sourceUrl || ""
       }
       : guideFormsRouteFor(guide);
     const calculatorLabel = calculatorChoice === "support"
@@ -2987,7 +3045,8 @@
           <p>Pick the closest public form path. If none of these sound right, use Guided Intake instead of guessing.</p>
         </div>
         <div class="guide-packet-options" role="list">
-          ${packetChoices.map((choice, choiceIndex) => `<button class="${choiceIndex === 0 ? "active" : ""}" type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}">
+          ${packetChoices.map((choice, choiceIndex) => `<button class="${choiceIndex === 0 ? "active" : ""}" type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
+            <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
             <span>${esc(choice.label)}</span>
             <small>${esc(choice.helper)}</small>
           </button>`).join("")}
@@ -3056,7 +3115,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-servicecards2" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-formmatrix1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3591,6 +3650,7 @@
       panel.hidden = false;
       panel.innerHTML = renderGuidePanel(guide, index);
       insertPanelAfterRow(card);
+      scheduleLegalTermEnhancement(panel);
       panel.querySelectorAll("[data-guide-panel-close]").forEach((button) => {
         button.addEventListener("click", clearPanel);
       });
@@ -3610,7 +3670,9 @@
             issue: button.dataset.routeIssue || route.issue || "all",
             posture: button.dataset.routePosture || route.posture || "New filing",
             children: button.dataset.routeChildren || route.children || "any",
-            pdfPacket: button.dataset.packetId || route.pdfPacket || ""
+            pdfPacket: button.dataset.packetId || route.pdfPacket || "",
+            formConfidence: button.dataset.routeConfidence || route.formConfidence || "related",
+            officialSourceUrl: button.dataset.routeSourceUrl || route.officialSourceUrl || ""
           };
           host.setAttribute("data-guide-pdf-packet", nextRoute.pdfPacket || "");
           host.setAttribute("data-guide-route", JSON.stringify(nextRoute));
@@ -3743,6 +3805,7 @@
             <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
           </div>
         `;
+        scheduleLegalTermEnhancement(host);
         return;
       }
 
@@ -3793,6 +3856,7 @@
           </div>
         </div>
       `;
+      scheduleLegalTermEnhancement(host);
 
       const intake = host.querySelector("[data-guide-pdf-intake]");
       const frame = host.querySelector("[data-guide-pdf-frame]");
@@ -3837,6 +3901,7 @@
           <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
         </div>
       `;
+      scheduleLegalTermEnhancement(host);
     }
   }
 
@@ -3899,6 +3964,7 @@
 	      panel.hidden = false;
 	      panel.innerHTML = renderServicePanel(item);
 	      insertServicePanelAfterRow(card);
+	      scheduleLegalTermEnhancement(panel);
 	      panel.querySelectorAll("[data-service-panel-close]").forEach((button) => {
 	        button.addEventListener("click", clearServicePanel);
 	      });
@@ -5776,6 +5842,14 @@
           sourceType: "Forms & Tools issue finder"
         }
       });
+      const matterConfidenceLabel = (matter) => formConfidenceLabel(matter.form_confidence || (matter.direct_pdf_available ? "county-exact" : "intake-required"));
+      const matterCardCopy = (matter) => {
+        if (matter.form_confidence === "intake-required") return matter.public_guidance || "Use Guided Intake before choosing forms for this issue.";
+        if (matter.form_confidence === "related-only") return matter.public_guidance || "Related forms are available, but the exact packet still needs confirmation.";
+        if (matter.form_confidence === "statewide-generic") return matter.public_guidance || "Start with the official statewide source, then confirm county requirements.";
+        if (matter.exact_packet_available) return "Matched forms are available. Confirm county and case stage before relying on them.";
+        return "Use this issue to narrow forms or start Intake.";
+      };
 
       host.innerHTML = `
         <div class="forms-matter-head">
@@ -5804,10 +5878,11 @@
             <div>
               <span>${esc(matter.category || "Matter")}</span>
               <strong>${esc(matter.title || "")}</strong>
-              <p>${esc(matter.reviewed_route_available ? "Use this issue to narrow forms or start Intake." : "Use Guided Intake if you are not sure which form applies.")}</p>
+              <em class="form-confidence ${esc(matter.form_confidence || "related")}">${esc(matterConfidenceLabel(matter))}</em>
+              <p>${esc(matterCardCopy(matter))}</p>
             </div>
             <div class="forms-matter-actions">
-              <a class="card-link" href="#forms-approved-pdfs">View matched forms →</a>
+              <a class="card-link" href="#forms-approved-pdfs">${esc(matter.direct_pdf_available ? "View matched forms" : "Review form sources")} →</a>
               <a class="button primary" href="/start" data-link data-forms-matter-card-intake="${esc(matter.matter_id || "")}">Start Guided Intake</a>
             </div>
           </article>`).join("")}
@@ -5868,6 +5943,7 @@
         update();
       });
       update();
+      scheduleLegalTermEnhancement(host);
     } catch (error) {
       host.innerHTML = `
         <div class="forms-matter-head">
@@ -5879,6 +5955,7 @@
           <a class="button outline" href="/start" data-link>Start Guided Intake</a>
         </div>
       `;
+      scheduleLegalTermEnhancement(host);
     }
   }
 

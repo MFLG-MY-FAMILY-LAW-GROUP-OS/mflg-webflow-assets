@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicecards2") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-formmatrix1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -439,7 +439,10 @@ p { margin: 0 0 16px; color: inherit; }
 .guide-card:has(.legal-term-help),
 .fee-card:has(.legal-term-help),
 .official-pdf-link:has(.legal-term-help),
-.forms-route-intake-grid article:has(.legal-term-help) {
+.forms-route-intake-grid article:has(.legal-term-help),
+.guide-row-panel:has(.legal-term-help),
+.guide-packet-chooser:has(.legal-term-help),
+.forms-matter-grid article:has(.legal-term-help) {
   overflow: visible;
 }
 .hero .button:not(.primary) { color: white; border-color: rgba(197,155,59,0.78); }
@@ -7570,6 +7573,39 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   cursor: pointer;
   text-align: left;
 }
+.form-confidence {
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid rgba(33, 85, 141, 0.18);
+  border-radius: 999px;
+  background: rgba(33, 85, 141, 0.07);
+  color: var(--blue);
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+.form-confidence.exact,
+.form-confidence.county-exact {
+  border-color: rgba(197, 155, 59, 0.34);
+  background: rgba(197, 155, 59, 0.1);
+  color: #7a5a0d;
+}
+.form-confidence.intake-required {
+  border-color: rgba(149, 54, 54, 0.22);
+  background: rgba(149, 54, 54, 0.08);
+  color: #8a3030;
+}
+.form-confidence.related,
+.form-confidence.statewide-generic {
+  border-color: rgba(83, 97, 115, 0.2);
+  background: rgba(83, 97, 115, 0.08);
+  color: var(--muted);
+}
 .guide-packet-options button span {
   color: var(--blue);
   font-size: 0.76rem;
@@ -7585,6 +7621,9 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
 .guide-packet-options button:hover span,
 .guide-packet-options button:focus-visible span,
 .guide-packet-options button.active span,
+.guide-packet-options button:hover .form-confidence,
+.guide-packet-options button:focus-visible .form-confidence,
+.guide-packet-options button.active .form-confidence,
 .guide-packet-options button:hover small,
 .guide-packet-options button:focus-visible small,
 .guide-packet-options button.active small {
