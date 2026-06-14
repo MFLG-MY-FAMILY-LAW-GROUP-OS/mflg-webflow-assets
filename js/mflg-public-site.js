@@ -211,7 +211,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-azcounty1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicepdf1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -694,6 +694,7 @@
   function renderServicePanel(item) {
     const checklist = guideChecklistFor(item).slice(0, 3);
     const readiness = guideReadinessFor(item)[0] || "If the next step is unclear, use Guided Intake before choosing forms.";
+    const packetChoices = guidePacketChoicesFor(item.guide);
     return `<div class="guide-row-panel-inner service-row-panel-inner">
       <button class="guide-panel-close" type="button" data-service-panel-close aria-label="Close practice area details">Close</button>
       <div class="guide-panel-heading service-panel-heading">
@@ -715,12 +716,35 @@
         <div class="guide-next-step-head">
           <span>Next step</span>
           <strong>Review forms, use a planner, or start intake when you are ready.</strong>
-          <p>This overview is intentionally lighter than the DIY Guide. Use Forms & Tools for documents and calculators, or Guided Intake if the path is not clear.</p>
+          <p>This overview is intentionally lighter than the DIY Guide. View the assigned forms below, open a planning calculator, or use Guided Intake if the path is not clear.</p>
         </div>
         <div class="service-row-actions">
-          <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>View Forms & Tools</a>
+          <button class="button primary" type="button" data-guide-scroll-forms>View forms below</button>
           <a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(item.calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>${esc(item.calculatorLabel)}</a>
           <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+        </div>
+      </div>
+      ${packetChoices.length ? `<div class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
+        <div>
+          <span>Form path</span>
+          <strong>Choose the closest situation before opening forms.</strong>
+          <p>The forms below are assigned from this practice-area card. If the title or county does not fit, use Guided Intake instead of guessing.</p>
+        </div>
+        <div class="guide-packet-options" role="list">
+          ${packetChoices.map((choice, choiceIndex) => `<button class="${choiceIndex === 0 ? "active" : ""}" type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
+            <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
+            <span>${esc(choice.label)}</span>
+            <small>${esc(choice.helper)}</small>
+          </button>`).join("")}
+        </div>
+      </div>` : ""}
+      <div class="guide-forms-viewer service-forms-viewer" data-guide-pdf-panel data-guide-pdf-packet="${esc(item.formsRoute.pdfPacket || "")}" data-guide-title="${esc(item.title)}" data-guide-route='${esc(JSON.stringify(item.formsRoute))}'>
+        <div class="guide-forms-viewer-head">
+          <div>
+            <span>Forms for this pathway</span>
+            <strong>Loading approved PDFs...</strong>
+            <p>Forms appear here so you can stay with the practice area you selected.</p>
+          </div>
         </div>
       </div>
     </div>`;
@@ -3146,7 +3170,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-azcounty1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-servicepdf1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3705,6 +3729,7 @@
             formConfidence: button.dataset.routeConfidence || route.formConfidence || "related",
             officialSourceUrl: button.dataset.routeSourceUrl || route.officialSourceUrl || ""
           };
+          host.removeAttribute("data-guide-county-confirmed");
           host.setAttribute("data-guide-pdf-packet", nextRoute.pdfPacket || "");
           host.setAttribute("data-guide-route", JSON.stringify(nextRoute));
           panel.querySelectorAll("[data-guide-packet-choice]").forEach((item) => {
@@ -4074,13 +4099,42 @@
 	      panel.innerHTML = renderServicePanel(item);
 	      insertServicePanelAfterRow(card);
 	      scheduleLegalTermEnhancement(panel);
-	      panel.querySelectorAll("[data-service-panel-close]").forEach((button) => {
-	        button.addEventListener("click", clearServicePanel);
-	      });
-	      requestAnimationFrame(() => {
-	        panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
-	      });
-	    };
+      panel.querySelectorAll("[data-service-panel-close]").forEach((button) => {
+        button.addEventListener("click", clearServicePanel);
+      });
+      wireGuidePdfPanel(panel);
+      panel.querySelectorAll("[data-guide-scroll-forms]").forEach((button) => {
+        button.addEventListener("click", () => {
+          panel.querySelector("[data-guide-pdf-panel]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+      panel.querySelectorAll("[data-guide-packet-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const host = panel.querySelector("[data-guide-pdf-panel]");
+          if (!host) return;
+          const route = parseRouteData(host.getAttribute("data-guide-route")) || {};
+          const nextRoute = {
+            ...route,
+            issue: button.dataset.routeIssue || route.issue || "all",
+            posture: button.dataset.routePosture || route.posture || "New filing",
+            children: button.dataset.routeChildren || route.children || "any",
+            pdfPacket: button.dataset.packetId || route.pdfPacket || "",
+            formConfidence: button.dataset.routeConfidence || route.formConfidence || "related",
+            officialSourceUrl: button.dataset.routeSourceUrl || route.officialSourceUrl || ""
+          };
+          host.removeAttribute("data-guide-county-confirmed");
+          host.setAttribute("data-guide-pdf-packet", nextRoute.pdfPacket || "");
+          host.setAttribute("data-guide-route", JSON.stringify(nextRoute));
+          panel.querySelectorAll("[data-guide-packet-choice]").forEach((item) => {
+            item.classList.toggle("active", item === button);
+          });
+          wireGuidePdfPanel(panel);
+        });
+      });
+      requestAnimationFrame(() => {
+        panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      });
+    };
 	
 	    const defaultVisibleCount = () => {
 	      const width = window.innerWidth || document.documentElement.clientWidth || 1200;
