@@ -210,7 +210,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-guided1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-nooffsite1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2066,11 +2066,11 @@
       return {
         tone: "urgent",
         kicker: "Safety first",
-        title: "Use the protective-order court page first.",
-        copy: "If safety is involved, do not start with general family-law forms. Open the safety court page, then use Guided Intake if you want office review.",
-        primaryLabel: "Open safety page",
-        primaryHref: firstResource.url || "https://azpoint.azcourts.gov/",
-        meta: ["Safety page first", ...baseMeta.slice(1)],
+        title: "Use Guided Intake before choosing safety forms.",
+        copy: "If safety is involved, do not start with general family-law forms or leave the site from this page. Use Guided Intake so the next step can be routed carefully.",
+        primaryLabel: "Start Guided Intake",
+        primaryHref: "/start",
+        meta: ["Safety review first", ...baseMeta.slice(1)],
         route: baseRoute
       };
     }
@@ -2079,10 +2079,10 @@
       return {
         tone: "review",
         kicker: "Court source found",
-        title: "Open the matching Maricopa forms.",
-        copy: "This is the safest starting point for this selection. Use the reviewed forms or start Intake if you are not sure which form group fits.",
-        primaryLabel: "Open court forms",
-        primaryHref: firstResource.url || "#forms-packets",
+        title: "Open the reviewed on-site forms.",
+        copy: "This is the safest starting point for this selection. Use the on-site reviewed forms or start Intake if you are not sure which form group fits.",
+        primaryLabel: "View on-site forms",
+        primaryHref: "#forms-packets",
         meta: ["Reviewed forms first", ...baseMeta.slice(1)],
         route: baseRoute
       };
@@ -2091,12 +2091,12 @@
     if (isSourceOnlyCounty) {
       return {
         tone: "source",
-        kicker: "County source found",
-        title: "Open the county court page.",
-        copy: "For this county, use the court page. If you cannot tell which forms fit, start Intake.",
-        primaryLabel: "Open county page",
-        primaryHref: firstResource.url || "#forms-official-router",
-        meta: ["County page first", "Use Guided Intake if unsure"],
+        kicker: "County review needed",
+        title: "Use Guided Intake to confirm county forms.",
+        copy: "This county does not yet have reviewed on-site packet links. Use Guided Intake so the correct county forms can be confirmed without leaving this website.",
+        primaryLabel: "Start Guided Intake",
+        primaryHref: "/start",
+        meta: ["County confirmation first", "Stay on this website"],
         route: baseRoute
       };
     }
@@ -2106,8 +2106,8 @@
       kicker: "Reviewed forms first",
       title: "Start with reviewed forms or use Intake.",
       copy: "If county, case stage, or children status is unclear, do not guess. Review the form options first or use Intake.",
-      primaryLabel: "Open court forms",
-      primaryHref: firstResource.url || "#forms-official-router",
+      primaryLabel: "View on-site forms",
+      primaryHref: "#forms-official-router",
       meta: baseMeta,
       route: baseRoute
     };
@@ -2133,14 +2133,15 @@
       meta.innerHTML = items.slice(0, 3).map((item) => `<span>${esc(item)}</span>`).join("");
     }
     if (primary) {
-      primary.textContent = decision.primaryLabel || "Open court forms";
+      primary.textContent = decision.primaryLabel || "View on-site forms";
       primary.setAttribute("href", decision.primaryHref || "#forms-official-router");
       primary.dataset.formRouteDecisionPacket = decision.pdfPacket || "";
       const external = /^https?:\/\//.test(decision.primaryHref || "");
       if (external) {
-        primary.setAttribute("target", "_blank");
-        primary.setAttribute("rel", "noopener");
-        primary.removeAttribute("data-link");
+        primary.setAttribute("href", "/start");
+        primary.removeAttribute("target");
+        primary.removeAttribute("rel");
+        primary.setAttribute("data-link", "");
       } else {
         primary.removeAttribute("target");
         primary.removeAttribute("rel");
@@ -2186,25 +2187,25 @@
       title: "Safety and protective orders",
       scope: "Protective order, injunction, or urgent safety resource routing",
       status: "Source verified",
-      action: "Open AZPOINT"
+      action: "Use Guided Intake"
     },
     {
       title: "Maricopa divorce packets",
       scope: "New filing with or without children, response, agreement, and consent decree routing",
       status: "Packet URLs pending review",
-      action: "Open Maricopa forms library"
+      action: "Use on-site forms"
     },
     {
       title: "Maricopa parenting/support packets",
       scope: "Parentage, parenting time, legal decision-making, child support, worksheet readiness",
       status: "Packet URLs pending review",
-      action: "Open Maricopa forms library"
+      action: "Use on-site forms"
     },
     {
       title: "Post-decree and enforcement",
       scope: "Modification, enforcement, contempt, support, parenting, and maintenance order issues",
       status: "Packet URLs pending review",
-      action: "Open court source"
+      action: "Use Guided Intake"
     },
     {
       title: "Disclosure and court readiness",
@@ -2395,7 +2396,7 @@
           <div class="forms-start-steps" aria-label="Forms and Tools start steps">
             <article><span>Step 1</span><strong>Tell us what you need</strong></article>
             <article><span>Step 2</span><strong>Choose the closest match</strong></article>
-            <article><span>Step 3</span><strong>Open court forms, use a calculator, or start intake</strong></article>
+            <article><span>Step 3</span><strong>View on-site forms, use a calculator, or start intake</strong></article>
           </div>
           <div class="forms-guided-start" data-forms-guided-start>
             <div>
@@ -2623,7 +2624,7 @@
           <div class="forms-download-head">
             <span>Forms</span>
             <strong>Loading reviewed forms...</strong>
-            <p>Open court forms here and keep your place. Use Guided Intake if the form group or next step is unclear.</p>
+            <p>View court forms here and keep your place. Use Guided Intake if the form group or next step is unclear.</p>
           </div>
         </div>
       </div>
@@ -3234,7 +3235,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260614-guided1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260614-nooffsite1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3431,11 +3432,11 @@
       </div>
       <div class="policy-resources faq-resources">
         <h3>Official reference points</h3>
-        <a href="https://www.azcourts.gov/selfservicecenter/Family-Law-Forms/Child-Support" target="_blank" rel="noopener">Arizona Courts family-law forms and basic filing information</a>
-        <a href="https://www.azbar.org/for-legal-professionals/practice-tools-management/practice-2-0/legal-paraprofessionals/" target="_blank" rel="noopener">State Bar of Arizona Legal Paraprofessionals</a>
-        <a href="https://www.azleg.gov/ars/25/00403.htm" target="_blank" rel="noopener">A.R.S. § 25-403 best-interests factors</a>
-        <a href="https://www.azleg.gov/ars/25/00411.htm" target="_blank" rel="noopener">A.R.S. § 25-411 modification timing and adequate cause</a>
-        <a href="https://www.americanbar.org/groups/family_law/resources/family-advocate/client-manuals/" target="_blank" rel="noopener">ABA Family Advocate client manuals</a>
+        <span>Arizona Courts family-law forms and basic filing information</span>
+        <span>State Bar of Arizona Legal Paraprofessionals</span>
+        <span>A.R.S. Section 25-403 best-interests factors</span>
+        <span>A.R.S. Section 25-411 modification timing and adequate cause</span>
+        <span>ABA Family Advocate client manuals</span>
       </div>`);
   }
 
@@ -3484,9 +3485,9 @@
       <article class="card"><h3>Official framework</h3><p>Arizona legal paraprofessionals provide services only within licensed scope and remain subject to Arizona professional-conduct obligations. The privacy posture follows that scope-first intake model.</p></article>
     </div><div class="policy-resources">
       <h3>Reference points</h3>
-      <a href="https://www.azcourts.gov/Licensing-Regulation/Legal-Paraprofessional-Program" target="_blank" rel="noopener">Arizona Supreme Court Legal Paraprofessional Program</a>
-      <a href="https://www.azbar.org/for-legal-professionals/practice-tools-management/practice-2-0/legal-paraprofessionals/" target="_blank" rel="noopener">State Bar of Arizona Legal Paraprofessionals</a>
-      <a href="https://www.azbar.org/for-legal-professionals/lawyer-regulation/resources/rules-of-professional-conduct/" target="_blank" rel="noopener">Arizona Rules of Professional Conduct</a>
+      <span>Arizona Supreme Court Legal Paraprofessional Program</span>
+      <span>State Bar of Arizona Legal Paraprofessionals</span>
+      <span>Arizona Rules of Professional Conduct</span>
     </div>`);
   }
 
@@ -3500,9 +3501,9 @@
       <article class="card"><h3>Client portal access</h3><p>Secure portal access is not available through the public website yet. Existing clients should contact the office for status, documents, tasks, and communications.</p></article>
     </div><div class="policy-resources">
       <h3>Reference points</h3>
-      <a href="https://www.azcourts.gov/Portals/0/0/admcode/pdfcurrentcode/7-210%20Legal%20Paraprofessional%20Amended%2008-2024.pdf" target="_blank" rel="noopener">ACJA Section 7-210 Legal Paraprofessional</a>
-      <a href="https://www.azbar.org/for-legal-professionals/lawyer-regulation/resources/rules-of-professional-conduct/" target="_blank" rel="noopener">Arizona Rule 42, Rules of Professional Conduct</a>
-      <a href="https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/" target="_blank" rel="noopener">ABA Model Rules reference</a>
+      <span>ACJA Section 7-210 Legal Paraprofessional</span>
+      <span>Arizona Rule 42, Rules of Professional Conduct</span>
+      <span>ABA Model Rules reference</span>
     </div>`);
   }
 
@@ -3915,7 +3916,7 @@
             <p>${esc(formConfidenceCopy(formConfidence))} This guide depends on county, case stage, children, timing, or existing court orders.</p>
           </div>
           <div class="guide-county-actions">
-            ${isUsableHref(formsRoute.officialSourceUrl) ? `<a class="button outline" href="${esc(formsRoute.officialSourceUrl)}" target="_blank" rel="noopener">Review official source</a>` : ""}
+            ${isUsableHref(formsRoute.officialSourceUrl) ? `<span class="guide-source-status" data-guide-source-status>Official source tracked for internal review</span>` : ""}
             <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
           </div>
         </div>
@@ -3941,7 +3942,7 @@
           </label>
           <div class="guide-county-actions">
             <button class="button primary" type="button" data-guide-county-confirm disabled>Open Maricopa PDFs</button>
-            <a class="button outline" href="https://www.azcourts.gov/selfservicecenter/forms" target="_blank" rel="noopener" data-guide-county-source>Review official county source</a>
+            <span class="guide-source-status" data-guide-county-source>Official county source tracked internally</span>
             <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Use Guided Intake</a>
           </div>
           <p class="guide-county-note" data-guide-county-note>Select Maricopa only if your case or new filing belongs there.</p>
@@ -3953,13 +3954,11 @@
       const countySource = host.querySelector("[data-guide-county-source]");
       countyChoice?.addEventListener("change", () => {
         const value = countyChoice.value;
-        const source = officialCountySourceFor(value);
         if (confirm) confirm.disabled = value !== "Maricopa";
         if (countySource) {
-          countySource.setAttribute("href", source.url);
           countySource.textContent = value && value !== "Not sure"
-            ? `Review ${value} County source`
-            : "Review official statewide source";
+            ? `${value} County source tracked internally`
+            : "Official source tracked internally";
         }
         if (note) {
           note.textContent = value === "Maricopa"
@@ -3967,7 +3966,7 @@
             : value
               ? value === "Not sure"
                 ? "Use Guided Intake if you are not sure which county controls the case or new filing."
-                : `${value} County selected. Use that official county source or Guided Intake before relying on Maricopa packets.`
+                : `${value} County selected. Use Guided Intake so county-specific forms can be confirmed without leaving this website.`
               : "Select Maricopa only if your case or new filing belongs there.";
         }
       });
@@ -7650,7 +7649,7 @@
           <iframe title="Official court PDF viewer" loading="lazy" data-official-pdf-frame></iframe>
           <div class="official-pdf-viewer-actions">
             <a class="button outline source-fallback-link" data-official-pdf-download aria-disabled="true">Download PDF</a>
-            <a class="button outline source-fallback-link" target="_blank" rel="noopener" data-official-pdf-source-fallback aria-disabled="true">Open court source</a>
+            <a class="button outline source-fallback-link" href="/start" data-link data-official-pdf-source-fallback>Confirm this form in Intake</a>
             <a class="button outline" href="/start" data-link data-official-pdf-viewer-intake>Add this form to Intake</a>
           </div>
         </div>
@@ -7790,7 +7789,7 @@
         if (viewerTitle) viewerTitle.textContent = label;
         if (viewerCopy) {
           viewerCopy.textContent = fileName
-            ? `Viewing ${fileName} through the approved site viewer. Use the fallback only if the file does not load.`
+            ? `Viewing ${fileName} through the approved site viewer. Use Guided Intake if the file does not load or does not look right.`
             : "Viewing the official court PDF through the approved site viewer.";
         }
         viewerFrame.setAttribute("src", siteViewUrl);
@@ -7800,7 +7799,9 @@
           viewerDownload.removeAttribute("aria-disabled");
         }
         if (viewerSourceFallback && isUsableHref(url || siteViewUrl)) {
-          viewerSourceFallback.setAttribute("href", url || siteViewUrl);
+          viewerSourceFallback.setAttribute("href", "/start");
+          viewerSourceFallback.setAttribute("data-source-url", url || siteViewUrl);
+          viewerSourceFallback.setAttribute("data-intake-route", JSON.stringify(routeForPdfLink(link)));
           viewerSourceFallback.removeAttribute("aria-disabled");
         }
         viewerIntake?.setAttribute("data-intake-route", JSON.stringify(routeForPdfLink(link)));

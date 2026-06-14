@@ -103,7 +103,7 @@ if (jurisdiction.summary?.unique_arizona_counties !== 15) {
 
 [
   "data-guide-county-source",
-  "Review official county source",
+  "Official county source tracked internally",
   "officialCountySourceFor",
   "[data-guide-pdf-title]"
 ].forEach((marker) => {

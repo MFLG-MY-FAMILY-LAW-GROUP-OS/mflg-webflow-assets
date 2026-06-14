@@ -319,7 +319,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-official-pdf-item-intake"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-viewer"* ]] &&
 	     [[ "$public_site_js" == *"Open court form PDF"* ]] &&
-	     [[ "$public_site_js" == *"Open court source"* ]] &&
+	     [[ "$public_site_js" == *"Confirm this form in Intake"* ]] &&
 	     [[ "$public_site_js" == *"Download PDF"* ]] &&
 	     [[ "$public_site_js" == *"display_label"* ]] &&
 	     [[ "$public_site_js" == *"public_name"* ]] &&
@@ -340,7 +340,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"faqGroups"* ]] &&
 	     [[ "$public_site_js" == *"wireFaqTools"* ]] &&
 	     [[ "$public_site_js" == *"data-faq-filter"* ]] &&
-	     [[ "$public_site_js" == *"A.R.S. § 25-403 best-interests factors"* ]] &&
+	     [[ "$public_site_js" == *"A.R.S. Section 25-403 best-interests factors"* ]] &&
 	     [[ "$public_site_js" == *"State Bar of Arizona Legal Paraprofessionals"* ]] &&
 	     [[ "$public_site_js" == *"ABA Family Advocate client manuals"* ]] &&
 	     [[ "$public_site_js" == *"feeRoute"* ]] &&

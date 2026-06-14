@@ -954,7 +954,7 @@ grep -q "data-faq-filter" "$PUBLIC_JS_FILE" || fail "FAQ filter controls must us
 if grep -A220 "const faqGroups" "$PUBLIC_JS_FILE" | grep -Eq "CRM OS|n8n|automation"; then
   fail "FAQ content contains internal CRM OS, n8n, or automation language"
 fi
-grep -q "A.R.S. § 25-403 best-interests factors" "$PUBLIC_JS_FILE" || fail "Arizona best-interests FAQ reference missing"
+grep -q "A.R.S. Section 25-403 best-interests factors" "$PUBLIC_JS_FILE" || fail "Arizona best-interests FAQ reference missing"
 grep -q "State Bar of Arizona Legal Paraprofessionals" "$PUBLIC_JS_FILE" || fail "State Bar LP FAQ reference missing"
 grep -q "ABA Family Advocate client manuals" "$PUBLIC_JS_FILE" || fail "ABA family-law FAQ reference missing"
 grep -q "feeRoute" "$PUBLIC_JS_FILE" || fail "Fee route context missing from public JS"
@@ -1111,7 +1111,7 @@ grep -q "Why this recommendation" "$PUBLIC_JS_FILE" || fail "Forms & Tools colla
 grep -q "Advanced: search or switch form groups" "$PUBLIC_JS_FILE" || fail "Forms & Tools collapsible form-group browser copy missing from public JS"
 grep -q "data-official-pdf-viewer" "$PUBLIC_JS_FILE" || fail "On-site official PDF viewer missing from public JS"
 grep -q "Open court form PDF" "$PUBLIC_JS_FILE" || fail "On-site official PDF view action missing from public JS"
-grep -q "Open court source" "$PUBLIC_JS_FILE" || fail "Official PDF source fallback action missing from public JS"
+grep -q "Confirm this form in Intake" "$PUBLIC_JS_FILE" || fail "Official PDF intake fallback action missing from public JS"
 grep -q "Download PDF" "$PUBLIC_JS_FILE" || fail "On-site PDF download action missing from public JS"
 grep -q "setUnifiedFormsResult" "$PUBLIC_JS_FILE" || fail "Forms & Tools unified result updater missing from public JS"
 grep -q "Your recommended next action" "$PUBLIC_JS_FILE" || fail "Forms & Tools recommendation label missing from public JS"

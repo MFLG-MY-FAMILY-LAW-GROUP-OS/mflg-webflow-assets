@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-guided1") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-nooffsite1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -7862,6 +7862,21 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
 }
 .guide-county-actions .button {
   min-height: 46px;
+}
+.guide-source-status {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid rgba(33, 85, 141, 0.14);
+  border-radius: 8px;
+  background: rgba(33, 85, 141, 0.06);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 .guide-county-note {
   margin: 0;
