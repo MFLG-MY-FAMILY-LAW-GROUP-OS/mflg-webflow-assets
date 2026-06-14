@@ -447,7 +447,7 @@ p { margin: 0 0 16px; color: inherit; }
 .guide-next-result span,
 .form-confidence,
 .guide-packet-options button span,
-.forms-packet-fit span,
+.forms-packet-fit article > span,
 .forms-packet-state span,
 .forms-packet-primary-actions span,
 .forms-packet-source-note,
@@ -467,8 +467,12 @@ p { margin: 0 0 16px; color: inherit; }
 .mflg-child-support-head span,
 .mflg-child-support-result span,
 .mflg-child-support-breakdown small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
-  line-height: 1;
+  min-height: 1.75em;
+  line-height: 1.12;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -3633,7 +3637,7 @@ body.forms-active-need-deadline:not(.forms-showing-all-sections) .calculator-hub
     linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 251, 255, 0.78)),
     #fff;
 }
-.forms-packet-fit span {
+.forms-packet-fit article > span {
   display: inline-flex;
   width: fit-content;
   max-width: 100%;
