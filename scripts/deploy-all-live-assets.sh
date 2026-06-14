@@ -5,6 +5,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260614-complete1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
+RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
 
 fail() {
   echo "FAIL: $1" >&2
@@ -1145,6 +1146,13 @@ fi
 internal_engine_runtime_status="$(curl -sS -o /dev/null -w "%{http_code}" "https://myfamilylawgroup.com/internal/calculator-engine-runtime-plan.json?verify-internal-engine-runtime-block=$(date +%s)" || true)"
 if [[ "$internal_engine_runtime_status" != "404" ]]; then
   fail "Internal calculator engine runtime plan is publicly reachable with status ${internal_engine_runtime_status}."
+fi
+
+if [[ "$RUN_LIVE_COMPLETION_AUDIT" == "1" ]]; then
+  echo "Running live public completion audit..."
+  MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node "$ROOT_DIR/scripts/playwright-public-completion-audit.js" >/dev/null
+  echo "Running live guide county-gate audit..."
+  MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node "$ROOT_DIR/scripts/playwright-guide-county-gate.js" >/dev/null
 fi
 
 echo "All live MFLG hosts verified."

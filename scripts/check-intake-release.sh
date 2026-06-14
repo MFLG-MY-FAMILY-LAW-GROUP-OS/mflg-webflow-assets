@@ -1172,7 +1172,13 @@ pass "Child Current City/State focus-loss guard preserved"
 
 node --check "$JS_FILE" >/dev/null
 node --check "$PUBLIC_JS_FILE" >/dev/null
+node --check "$ROOT_DIR/scripts/playwright-public-completion-audit.js" >/dev/null
+node --check "$ROOT_DIR/scripts/playwright-guide-county-gate.js" >/dev/null
 node "$ROOT_DIR/scripts/validate-public-surface.js" >/dev/null
+if grep -Ev '^\s*(#.*)?$' "$ROOT_DIR/_redirects" | grep -q .; then
+  fail "_redirects must stay documentation-only; route blocking belongs in _worker.js"
+fi
+grep -q "Private/generated paths" "$ROOT_DIR/_redirects" || fail "_redirects documentation marker missing"
 pass "JavaScript syntax checks passed"
 
 [[ -f "$ROOT_DIR/data/form-packet-catalog.json" ]] || fail "Missing form packet catalog"
