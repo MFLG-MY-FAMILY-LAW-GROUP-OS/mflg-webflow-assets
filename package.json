@@ -9,6 +9,7 @@
   "scripts": {
     "test:matter-form-matrix": "node scripts/validate-matter-form-matrix.js",
     "test:forms-tools": "node scripts/playwright-forms-tools-guided-flow.js",
+    "test:guide-county-gate": "node scripts/playwright-guide-county-gate.js",
     "test:public-surface": "node scripts/validate-public-surface.js"
   },
   "repository": {

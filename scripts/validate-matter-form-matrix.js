@@ -103,7 +103,9 @@ if (jurisdiction.summary?.unique_arizona_counties !== 15) {
 
 [
   "data-guide-county-source",
-  "Official county source tracked internally",
+  "County forms will update after you choose.",
+  "data-guide-county-intake",
+  "Confirm ${value} County in Intake",
   "officialCountySourceFor",
   "[data-guide-pdf-title]"
 ].forEach((marker) => {

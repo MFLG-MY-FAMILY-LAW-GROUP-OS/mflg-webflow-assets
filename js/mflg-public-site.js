@@ -210,7 +210,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-nooffsite1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-countygate1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1913,6 +1913,18 @@
       url: source?.url || "https://www.azcourts.gov/selfservicecenter/forms"
     };
   }
+  function guideCountyRoute(formsRoute, selectedCounty) {
+    const county = selectedCounty && selectedCounty !== "Not sure"
+      ? selectedCounty
+      : formsRoute.county || "Statewide";
+    return formsToolRouteFor({
+      county,
+      issue: formsRoute.issue || "all",
+      posture: formsRoute.posture || "Any posture",
+      children: formsRoute.children || "any",
+      pdfPacket: formsRoute.pdfPacket || formsRoute.packetId || "all"
+    }, formsRoute.packetLabel || formsRoute.pageLabel || "Guide county check");
+  }
   const formRouterPostures = ["Any posture", "New filing", "Served / response", "Agreement / final orders", "Existing order", "Safety"];
   const formRouterChildren = [
     ["any", "Children not selected"],
@@ -3235,7 +3247,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260614-nooffsite1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260614-countygate1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3941,9 +3953,9 @@
             </select>
           </label>
           <div class="guide-county-actions">
-            <button class="button primary" type="button" data-guide-county-confirm disabled>Open Maricopa PDFs</button>
-            <span class="guide-source-status" data-guide-county-source>Official county source tracked internally</span>
-            <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Use Guided Intake</a>
+            <button class="button primary" type="button" data-guide-county-confirm disabled>Choose county first</button>
+            <span class="guide-source-status" data-guide-county-source>County forms will update after you choose.</span>
+            <a class="button outline" href="/start" data-link data-guide-county-intake data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Use Guided Intake</a>
           </div>
           <p class="guide-county-note" data-guide-county-note>Select Maricopa only if your case or new filing belongs there.</p>
         </div>
@@ -3952,13 +3964,29 @@
       const confirm = host.querySelector("[data-guide-county-confirm]");
       const note = host.querySelector("[data-guide-county-note]");
       const countySource = host.querySelector("[data-guide-county-source]");
+      const intake = host.querySelector("[data-guide-county-intake]");
+      const setCountyState = () => {
+        const value = countyChoice?.value || "";
+        const selectedRoute = guideCountyRoute(formsRoute, value || "Statewide");
+        intake?.setAttribute("data-intake-route", JSON.stringify(selectedRoute));
+        if (!confirm) return;
+        confirm.disabled = !value;
+        confirm.dataset.guideCountyAction = value === "Maricopa" ? "open-pdfs" : "use-intake";
+        confirm.textContent = !value
+          ? "Choose county first"
+          : value === "Maricopa"
+            ? "Open Maricopa PDFs"
+            : value === "Not sure"
+              ? "Start Guided Intake"
+              : `Confirm ${value} County in Intake`;
+      };
       countyChoice?.addEventListener("change", () => {
         const value = countyChoice.value;
-        if (confirm) confirm.disabled = value !== "Maricopa";
+        setCountyState();
         if (countySource) {
           countySource.textContent = value && value !== "Not sure"
-            ? `${value} County source tracked internally`
-            : "Official source tracked internally";
+            ? `${value} County forms need Intake confirmation`
+            : "Use Intake if you are not sure which county controls.";
         }
         if (note) {
           note.textContent = value === "Maricopa"
@@ -3971,9 +3999,16 @@
         }
       });
       confirm?.addEventListener("click", () => {
+        const value = countyChoice?.value || "";
+        if (value && value !== "Maricopa") {
+          storeIntakeRoute(guideCountyRoute(formsRoute, value));
+          window.location.assign("/start");
+          return;
+        }
         host.setAttribute("data-guide-county-confirmed", "true");
         wireGuidePdfPanel(panel);
       });
+      setCountyState();
       scheduleLegalTermEnhancement(host);
       return;
     }
