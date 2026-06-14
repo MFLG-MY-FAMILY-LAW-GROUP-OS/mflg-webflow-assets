@@ -146,7 +146,7 @@
         if (!text.trim()) return NodeFilter.FILTER_REJECT;
         const parent = node.parentElement;
         if (!parent) return NodeFilter.FILTER_REJECT;
-        if (parent.closest(".legal-term, .site-header, .footer, script, style, button, a, select, option, input, textarea")) return NodeFilter.FILTER_REJECT;
+        if (parent.closest(".legal-term, .site-header, .footer, script, style, button, a, select, option, input, textarea, [data-guide-pdf-title], [data-official-pdf-viewer-title]")) return NodeFilter.FILTER_REJECT;
         if (!parent.closest("p, li, dd, dt, h1, h2, h3, h4, strong, small, span")) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
@@ -211,7 +211,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-countygate1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-azcounty1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1344,11 +1344,11 @@
       choice("agreement-final", "Finish with an agreement", "Use this for consent decree, settlement, or final agreement forms.", "maricopa-consent-decree-agreement", "agreement", "Agreement / final orders", "any")
     ];
     const nameChangeChoices = [
-      countyExact("divorce", "During divorce", "Restore a former name before the decree is signed.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any"),
       countyExact("adult-no-children", "Adult, no minor children", "Separate name-change case after divorce or outside divorce.", "maricopa-name-change-adult-no-minor-children", "name change", "New filing", "no-minor-children"),
       countyExact("adult-with-child", "Adult with a minor child", "Separate adult name-change case when the adult has a minor child.", "maricopa-name-change-adult-with-minor-child", "name change", "New filing", "minor-children"),
       countyExact("child", "Minor child", "Name-change request for a child.", "maricopa-name-change-minor-child", "name change", "New filing", "minor-children"),
       countyExact("family", "More than one family member", "Family packet for multiple related name changes.", "maricopa-name-change-family", "name change", "New filing", "minor-children"),
+      countyExact("divorce", "During divorce", "Restore a former name before the decree is signed.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any"),
       countyExact("record-update", "Update court contact record", "Administrative update only; this does not legally change a name.", "maricopa-name-address-update", "name or address update", "Existing order", "any")
     ];
 
@@ -1793,7 +1793,38 @@
     ["documents", "Document review"]
   ];
 
-  const formRouterCounties = ["Statewide", "Maricopa", "Pima", "Pinal", "Yavapai"];
+  const arizonaCountyOptions = [
+    "Apache",
+    "Cochise",
+    "Coconino",
+    "Gila",
+    "Graham",
+    "Greenlee",
+    "La Paz",
+    "Maricopa",
+    "Mohave",
+    "Navajo",
+    "Pima",
+    "Pinal",
+    "Santa Cruz",
+    "Yavapai",
+    "Yuma"
+  ];
+  const formRouterCounties = ["Statewide", ...arizonaCountyOptions];
+  function officialCountySourceFor(county) {
+    const normalized = String(county || "").trim();
+    if (!normalized || normalized === "Statewide") {
+      return {
+        label: "Arizona statewide family-law forms",
+        url: "https://www.azcourts.gov/selfservicecenter/forms"
+      };
+    }
+    const source = formResourceCatalog.find((item) => item.county === normalized && item.status !== "Reference index" && item.status !== "Access-restricted reference");
+    return {
+      label: source?.title || `${normalized} County official court source`,
+      url: source?.url || "https://www.azcourts.gov/selfservicecenter/forms"
+    };
+  }
   const formRouterPostures = ["Any posture", "New filing", "Served / response", "Agreement / final orders", "Existing order", "Safety"];
   const formRouterChildren = [
     ["any", "Children not selected"],
@@ -3115,7 +3146,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-countygate1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-azcounty1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3815,13 +3846,13 @@
           <label class="guide-county-select">Case county
             <select data-guide-county-choice>
               <option value="">Choose county</option>
-              <option value="Maricopa">Maricopa County</option>
-              <option value="Other">Another Arizona county</option>
+              ${arizonaCountyOptions.map((county) => `<option value="${esc(county)}">${esc(county)} County</option>`).join("")}
               <option value="Not sure">I am not sure</option>
             </select>
           </label>
           <div class="guide-county-actions">
             <button class="button primary" type="button" data-guide-county-confirm disabled>Open Maricopa PDFs</button>
+            <a class="button outline" href="https://www.azcourts.gov/selfservicecenter/forms" target="_blank" rel="noopener" data-guide-county-source>Review official county source</a>
             <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Use Guided Intake</a>
           </div>
           <p class="guide-county-note" data-guide-county-note>Select Maricopa only if your case or new filing belongs there.</p>
@@ -3830,14 +3861,24 @@
       const countyChoice = host.querySelector("[data-guide-county-choice]");
       const confirm = host.querySelector("[data-guide-county-confirm]");
       const note = host.querySelector("[data-guide-county-note]");
+      const countySource = host.querySelector("[data-guide-county-source]");
       countyChoice?.addEventListener("change", () => {
         const value = countyChoice.value;
+        const source = officialCountySourceFor(value);
         if (confirm) confirm.disabled = value !== "Maricopa";
+        if (countySource) {
+          countySource.setAttribute("href", source.url);
+          countySource.textContent = value && value !== "Not sure"
+            ? `Review ${value} County source`
+            : "Review official statewide source";
+        }
         if (note) {
           note.textContent = value === "Maricopa"
             ? "Maricopa selected. You can open the Maricopa PDF viewer below."
             : value
-              ? "Use Guided Intake or the official source before relying on Maricopa packets for another county."
+              ? value === "Not sure"
+                ? "Use Guided Intake if you are not sure which county controls the case or new filing."
+                : `${value} County selected. Use that official county source or Guided Intake before relying on Maricopa packets.`
               : "Select Maricopa only if your case or new filing belongs there.";
         }
       });

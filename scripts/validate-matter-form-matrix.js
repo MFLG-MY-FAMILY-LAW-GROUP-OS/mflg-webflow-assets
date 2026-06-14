@@ -15,6 +15,8 @@ function fail(message) {
 
 const matrix = readJSON("data/matter-form-matrix.json");
 const coverage = readJSON("data/forms-tools-matter-coverage.json");
+const jurisdiction = readJSON("data/jurisdiction-readiness.json");
+const publicActions = readJSON("data/form-pdf-public-actions.json");
 const publicJs = fs.readFileSync(path.join(root, "js/mflg-public-site.js"), "utf8");
 
 const records = Array.isArray(matrix.records) ? matrix.records : [];
@@ -72,6 +74,48 @@ if (requireRecord("grandparent-third-party-rights").confidence !== "related-only
 
 if (publicJs.includes("County-specific form path")) {
   fail("public JS still uses overbroad County-specific form path label");
+}
+
+const expectedCounties = [
+  "Apache",
+  "Cochise",
+  "Coconino",
+  "Gila",
+  "Graham",
+  "Greenlee",
+  "La Paz",
+  "Maricopa",
+  "Mohave",
+  "Navajo",
+  "Pima",
+  "Pinal",
+  "Santa Cruz",
+  "Yavapai",
+  "Yuma"
+];
+for (const county of expectedCounties) {
+  if (!publicJs.includes(`"${county}"`)) fail(`guide county gate missing county option: ${county}`);
+}
+
+if (jurisdiction.summary?.unique_arizona_counties !== 15) {
+  fail(`expected 15 Arizona counties in jurisdiction readiness, found ${jurisdiction.summary?.unique_arizona_counties}`);
+}
+
+[
+  "data-guide-county-source",
+  "Review official county source",
+  "officialCountySourceFor",
+  "[data-guide-pdf-title]"
+].forEach((marker) => {
+  if (!publicJs.includes(marker)) fail(`public JS missing marker: ${marker}`);
+});
+
+const badTitle = (publicActions.actions || []).find((action) => {
+  const title = `${action.public_name || ""} ${action.display_label || ""}`;
+  return /[�]/.test(title) || /\?/.test(title.replace(/\?$/g, ""));
+});
+if (badTitle) {
+  fail(`public PDF title contains replacement/artifact character: ${badTitle.packet_id} ${badTitle.public_name || badTitle.display_label}`);
 }
 
 console.log("MATTER_FORM_MATRIX_VALIDATION_PASS");
