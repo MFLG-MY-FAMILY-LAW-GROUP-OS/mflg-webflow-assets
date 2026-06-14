@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-cardcalc1") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-simplify1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -394,17 +394,22 @@ p { margin: 0 0 16px; color: inherit; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border: 1px solid rgba(33, 85, 141, 0.28);
   border-radius: 999px;
   background: rgba(33, 85, 141, 0.08);
   color: var(--blue);
   font-family: inherit;
-  font-size: 0.68rem;
+  font-size: 0;
   font-weight: 900;
   line-height: 1;
   cursor: help;
+}
+.legal-term-help::before {
+  content: "?";
+  font-size: 0.62rem;
+  line-height: 1;
 }
 .legal-term-help::after {
   content: attr(data-legal-definition);
@@ -884,10 +889,38 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
     linear-gradient(135deg, rgba(197, 155, 59, 0.08), rgba(255, 255, 255, 0.92) 48%, rgba(33, 85, 141, 0.06)),
     #fff;
 }
+.service-calculator-chooser:not([open]) {
+  padding-block: 14px;
+}
 .service-calculator-head {
+  position: relative;
   display: grid;
   gap: 5px;
   max-width: 880px;
+  padding-right: 34px;
+  cursor: pointer;
+  list-style: none;
+}
+.service-calculator-head::-webkit-details-marker {
+  display: none;
+}
+.service-calculator-head::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 160ms ease;
+}
+.service-calculator-chooser[open] .service-calculator-head::after {
+  transform: translateY(-35%) rotate(225deg);
+}
+.service-calculator-chooser:not([open]) .service-calculator-options {
+  display: none;
 }
 .service-calculator-head span,
 .service-calculator-option span {

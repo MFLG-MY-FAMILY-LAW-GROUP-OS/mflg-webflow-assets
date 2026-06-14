@@ -63,8 +63,8 @@ if (requireRecord("family-case-name-change").confidence !== "county-exact") fail
 if (requireRecord("grandparent-third-party-rights").confidence !== "related-only") fail("grandparent/third-party rights must remain related-only");
 
 [
-  "Maricopa packet available",
-  "Confirm before forms",
+  "Maricopa County forms",
+  "Check first",
   "guide-county-gate",
   "data-guide-county-choice",
   "data-guide-county-confirm"

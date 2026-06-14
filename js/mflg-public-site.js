@@ -91,7 +91,7 @@
   function legalTerm(key, label) {
     const definition = legalTermDefinitions[key] || legalTermDefinitions[String(key || "").toLowerCase()];
     if (!definition) return esc(label || key);
-    return `<span class="legal-term" data-legal-term-key="${esc(key)}">${esc(label || key)}<button type="button" class="legal-term-help" aria-label="${esc(`${label || key}: ${definition}`)}" data-legal-definition="${esc(definition)}">?</button></span>`;
+    return `<span class="legal-term" data-legal-term-key="${esc(key)}">${esc(label || key)}<button type="button" class="legal-term-help" aria-label="${esc(`${label || key}: ${definition}`)}" data-legal-definition="${esc(definition)}"></button></span>`;
   }
 
   const legalTermMatchers = [
@@ -178,7 +178,6 @@
       const help = document.createElement("button");
       help.type = "button";
       help.className = "legal-term-help";
-      help.textContent = "?";
       const definition = legalTermDefinitions[key] || "";
       help.setAttribute("aria-label", `${label}: ${definition}`);
       help.setAttribute("data-legal-definition", definition);
@@ -211,7 +210,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-cardcalc1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-simplify1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -681,14 +680,28 @@
 	        }
 	        : guideFormsRouteFor(guide);
 	      const calculatorChoice = guideCalculatorChoiceFor(guide);
-	      const calculatorLabel = calculatorChoice === "support"
+	      const neutralCalculator = shouldUseNeutralCalculatorChoice(guide);
+	      const calculatorLabel = neutralCalculator
+	        ? "Choose calculator or planner"
+	        : calculatorChoice === "support"
 	        ? "Open support calculator"
 	        : calculatorChoice === "parenting"
 	          ? "Open parenting-time counter"
 	          : calculatorChoice === "maintenance"
 	            ? "Open maintenance calculator"
 	            : "Open deadline planner";
-	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice, calculatorLabel };
+	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice, calculatorLabel, neutralCalculator };
+  }
+
+  function shouldUseNeutralCalculatorChoice(guide) {
+    const title = `${guide?.title || ""}`.toLowerCase();
+    const category = `${guide?.category || ""}`.toLowerCase();
+    const text = `${category} ${title}`;
+    if (text.includes("child support") || text.includes("support worksheet") || text.includes("arrears")) return false;
+    if (text.includes("spousal maintenance") || text.includes("maintenance")) return false;
+    if (text.includes("parenting time") || text.includes("legal decision") || text.includes("custody") || text.includes("relocation")) return false;
+    if (text.includes("deadline") || text.includes("served") || text.includes("response") || text.includes("hearing")) return false;
+    return category.includes("marriage") || category.includes("agreements") || category.includes("property") || title.includes("divorce") || title.includes("dissolution") || title.includes("separation") || title.includes("annulment") || title.includes("consent") || title.includes("settlement");
   }
 
   function calculatorQuickChoices(recommendedChoice) {
@@ -727,6 +740,7 @@
     const readiness = guideReadinessFor(item)[0] || "If the next step is unclear, use Guided Intake before choosing forms.";
     const packetChoices = guidePacketChoicesFor(item.guide);
     const calculatorChoices = calculatorQuickChoices(item.calculatorChoice);
+    const calculatorOpen = !item.neutralCalculator;
     return `<div class="guide-row-panel-inner service-row-panel-inner">
       <button class="guide-panel-close" type="button" data-service-panel-close aria-label="Close practice area details">Close</button>
       <div class="guide-panel-heading service-panel-heading">
@@ -747,30 +761,30 @@
       <div class="guide-next-step service-panel-next">
         <div class="guide-next-step-head">
           <span>Next step</span>
-          <strong>Review forms, use a planner, or start intake when you are ready.</strong>
-          <p>This overview is intentionally lighter than the DIY Guide. View the assigned forms below, open a planning calculator, or use Guided Intake if the path is not clear.</p>
+          <strong>What do you want to do next?</strong>
+          <p>Start with forms if you know this is the right topic. Choose a calculator only if you need an estimate. Use Guided Intake if anything feels uncertain.</p>
         </div>
         <div class="service-row-actions">
           <button class="button primary" type="button" data-guide-scroll-forms>View forms below</button>
-          <a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(item.calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>${esc(item.calculatorLabel)}</a>
+          <a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(item.neutralCalculator ? "" : item.calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>${esc(item.calculatorLabel)}</a>
           <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
         </div>
       </div>
-      <div class="service-calculator-chooser" aria-label="Choose calculator or planner">
-        <div class="service-calculator-head">
+      <details class="service-calculator-chooser" aria-label="Choose calculator or planner"${calculatorOpen ? " open" : ""}>
+        <summary class="service-calculator-head">
           <span>Calculator or planner</span>
-          <strong>Use the suggested tool, or switch if another issue fits better.</strong>
+          <strong>${calculatorOpen ? "Use the suggested tool, or switch if another issue fits better." : "Need an estimate? Choose a calculator or planner."}</strong>
           <p>These tools stay on the website and use planning numbers only. Do not enter names, addresses, case numbers, allegations, or private facts.</p>
-        </div>
+        </summary>
         <div class="service-calculator-options">
-          ${calculatorChoices.map((choice, choiceIndex) => `<a class="service-calculator-option${choiceIndex === 0 ? " recommended" : ""}" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(choice.key)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>
-            <span>${choiceIndex === 0 ? "Suggested" : "Switch tool"}</span>
+          ${calculatorChoices.map((choice, choiceIndex) => `<a class="service-calculator-option${choiceIndex === 0 && calculatorOpen ? " recommended" : ""}" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(choice.key)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>
+            <span>${choiceIndex === 0 && calculatorOpen ? "Suggested" : "Choose tool"}</span>
             <strong>${esc(choice.title)}</strong>
             <p>${esc(choice.copy)}</p>
             <b>${esc(choice.cta)} <span aria-hidden="true">→</span></b>
           </a>`).join("")}
         </div>
-      </div>
+      </details>
       ${packetChoices.length ? `<div class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
         <div>
           <span>Form path</span>
@@ -1499,20 +1513,20 @@
   }
 
   function formConfidenceLabel(confidence) {
-    if (confidence === "exact") return "Exact form path";
-    if (confidence === "county-exact") return "Maricopa packet available";
-    if (confidence === "intake-required") return "Confirm before forms";
-    if (confidence === "statewide-generic") return "Statewide starting point";
-    if (confidence === "related-only") return "Related forms only";
+    if (confidence === "exact") return "Forms matched";
+    if (confidence === "county-exact") return "Maricopa County forms";
+    if (confidence === "intake-required") return "Check first";
+    if (confidence === "statewide-generic") return "Statewide forms";
+    if (confidence === "related-only") return "Related forms";
     return "Related forms";
   }
 
   function formConfidenceCopy(confidence) {
-    if (confidence === "exact") return "This form path is directly assigned to the selected issue.";
-    if (confidence === "county-exact") return "A Maricopa packet is available. Confirm your county before relying on these forms.";
-    if (confidence === "intake-required") return "Use Guided Intake before choosing forms. The issue depends on timing, court orders, county, or legal stage.";
-    if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires a local packet.";
-    if (confidence === "related-only") return "Related forms exist, but this is not confirmed as the exact packet for the selected issue.";
+    if (confidence === "exact") return "These forms are matched to the selected issue.";
+    if (confidence === "county-exact") return "These are Maricopa County forms. Confirm your county before relying on them.";
+    if (confidence === "intake-required") return "Use Guided Intake before choosing forms. This issue depends on timing, court orders, county, or case stage.";
+    if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires local forms.";
+    if (confidence === "related-only") return "Related forms exist, but this may not be the exact form group for your issue.";
     return "These forms are related, but may not be the exact packet for the selected issue.";
   }
 
@@ -3217,7 +3231,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-cardcalc1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-simplify1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
