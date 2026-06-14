@@ -65,6 +65,7 @@ node scripts/build-forms-tools-intake-readiness.js
 node scripts/build-forms-tools-route-intake-map.js
 node scripts/build-matter-form-matrix.js
 node scripts/build-forms-tools-matter-coverage.js
+node scripts/validate-matter-form-matrix.js
 node scripts/build-forms-tools-completion-status.js
 
 echo "Deploying Webflow asset host..."

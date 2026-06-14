@@ -7,6 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
+    "test:matter-form-matrix": "node scripts/validate-matter-form-matrix.js",
     "test:forms-tools": "node scripts/playwright-forms-tools-guided-flow.js",
     "test:public-surface": "node scripts/validate-public-surface.js"
   },

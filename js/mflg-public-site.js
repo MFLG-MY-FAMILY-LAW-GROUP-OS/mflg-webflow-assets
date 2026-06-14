@@ -211,7 +211,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-formmatrix1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-countygate1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1344,7 +1344,7 @@
       choice("agreement-final", "Finish with an agreement", "Use this for consent decree, settlement, or final agreement forms.", "maricopa-consent-decree-agreement", "agreement", "Agreement / final orders", "any")
     ];
     const nameChangeChoices = [
-      choice("divorce", "During divorce", "Restore a former name before the decree is signed.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any"),
+      countyExact("divorce", "During divorce", "Restore a former name before the decree is signed.", "maricopa-consent-decree-agreement", "divorce", "Agreement / final orders", "any"),
       countyExact("adult-no-children", "Adult, no minor children", "Separate name-change case after divorce or outside divorce.", "maricopa-name-change-adult-no-minor-children", "name change", "New filing", "no-minor-children"),
       countyExact("adult-with-child", "Adult with a minor child", "Separate adult name-change case when the adult has a minor child.", "maricopa-name-change-adult-with-minor-child", "name change", "New filing", "minor-children"),
       countyExact("child", "Minor child", "Name-change request for a child.", "maricopa-name-change-minor-child", "name change", "New filing", "minor-children"),
@@ -1429,7 +1429,7 @@
 
   function formConfidenceLabel(confidence) {
     if (confidence === "exact") return "Exact form path";
-    if (confidence === "county-exact") return "County-specific form path";
+    if (confidence === "county-exact") return "Maricopa packet available";
     if (confidence === "intake-required") return "Confirm before forms";
     if (confidence === "statewide-generic") return "Statewide starting point";
     if (confidence === "related-only") return "Related forms only";
@@ -1438,7 +1438,7 @@
 
   function formConfidenceCopy(confidence) {
     if (confidence === "exact") return "This form path is directly assigned to the selected issue.";
-    if (confidence === "county-exact") return "This form path is assigned for the listed county. If your case is in another county, confirm the local court form requirement.";
+    if (confidence === "county-exact") return "A Maricopa packet is available. Confirm your county before relying on these forms.";
     if (confidence === "intake-required") return "Use Guided Intake before choosing forms. The issue depends on timing, court orders, county, or legal stage.";
     if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires a local packet.";
     if (confidence === "related-only") return "Related forms exist, but this is not confirmed as the exact packet for the selected issue.";
@@ -2472,7 +2472,7 @@
                 <div><dt>${legalTerm("posture", "Posture")}</dt><dd>${esc(item.posture)}</dd></div>
                 <div><dt>Source</dt><dd>${esc(item.source)}</dd></div>
               </dl>
-              <a class="card-link" href="#forms-approved-pdfs">View matched forms →</a>
+              <a class="card-link" href="#forms-approved-pdfs">Review this form group →</a>
             </div>
           </details>`).join("")}
         </div>
@@ -3115,7 +3115,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-formmatrix1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-countygate1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -3781,6 +3781,74 @@
     const packetId = host.getAttribute("data-guide-pdf-packet") || "";
     const guideTitle = host.getAttribute("data-guide-title") || "this guide";
     const formsRoute = parseRouteData(host.getAttribute("data-guide-route")) || {};
+    const formConfidence = formsRoute.formConfidence || "related";
+    const requiresIntakeBeforeForms = formConfidence === "intake-required" || formConfidence === "related-only";
+    const countySpecific = (formsRoute.county || "Maricopa") === "Maricopa" && formConfidence !== "statewide-generic";
+    const countyConfirmed = host.getAttribute("data-guide-county-confirmed") === "true";
+
+    if (requiresIntakeBeforeForms) {
+      host.innerHTML = `
+        <div class="guide-forms-viewer-head guide-county-gate">
+          <div>
+            <span>${esc(formConfidenceLabel(formConfidence))}</span>
+            <strong>Confirm the path before opening forms.</strong>
+            <p>${esc(formConfidenceCopy(formConfidence))} This guide depends on county, case stage, children, timing, or existing court orders.</p>
+          </div>
+          <div class="guide-county-actions">
+            ${isUsableHref(formsRoute.officialSourceUrl) ? `<a class="button outline" href="${esc(formsRoute.officialSourceUrl)}" target="_blank" rel="noopener">Review official source</a>` : ""}
+            <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
+          </div>
+        </div>
+      `;
+      scheduleLegalTermEnhancement(host);
+      return;
+    }
+
+    if (countySpecific && !countyConfirmed) {
+      host.innerHTML = `
+        <div class="guide-forms-viewer-head guide-county-gate">
+          <div>
+            <span>${esc(formConfidenceLabel(formConfidence))}</span>
+            <strong>Confirm county before opening PDFs.</strong>
+            <p>These forms are assigned to Maricopa County. If your case is in another Arizona county, the local superior court may require its own packet.</p>
+          </div>
+          <label class="guide-county-select">Case county
+            <select data-guide-county-choice>
+              <option value="">Choose county</option>
+              <option value="Maricopa">Maricopa County</option>
+              <option value="Other">Another Arizona county</option>
+              <option value="Not sure">I am not sure</option>
+            </select>
+          </label>
+          <div class="guide-county-actions">
+            <button class="button primary" type="button" data-guide-county-confirm disabled>Open Maricopa PDFs</button>
+            <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Use Guided Intake</a>
+          </div>
+          <p class="guide-county-note" data-guide-county-note>Select Maricopa only if your case or new filing belongs there.</p>
+        </div>
+      `;
+      const countyChoice = host.querySelector("[data-guide-county-choice]");
+      const confirm = host.querySelector("[data-guide-county-confirm]");
+      const note = host.querySelector("[data-guide-county-note]");
+      countyChoice?.addEventListener("change", () => {
+        const value = countyChoice.value;
+        if (confirm) confirm.disabled = value !== "Maricopa";
+        if (note) {
+          note.textContent = value === "Maricopa"
+            ? "Maricopa selected. You can open the Maricopa PDF viewer below."
+            : value
+              ? "Use Guided Intake or the official source before relying on Maricopa packets for another county."
+              : "Select Maricopa only if your case or new filing belongs there.";
+        }
+      });
+      confirm?.addEventListener("click", () => {
+        host.setAttribute("data-guide-county-confirmed", "true");
+        wireGuidePdfPanel(panel);
+      });
+      scheduleLegalTermEnhancement(host);
+      return;
+    }
+
     try {
       const response = await fetch(`/data/form-pdf-public-actions.json?v=${Date.now()}`, { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
