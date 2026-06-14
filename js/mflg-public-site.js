@@ -210,7 +210,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-countygate1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260614-complete1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2188,193 +2188,29 @@
     host.querySelector("[data-forms-unified-intake]")?.setAttribute("data-intake-route", JSON.stringify(intakeRoute));
   }
 
-  const packetReadinessCatalog = [
-    {
-      title: "Statewide starting point",
-      scope: "Unknown county, first pass, or general document review",
-      status: "Source verified",
-      action: "View statewide form guidance"
-    },
-    {
-      title: "Safety and protective orders",
-      scope: "Protective order, injunction, or urgent safety resource routing",
-      status: "Source verified",
-      action: "Use Guided Intake"
-    },
-    {
-      title: "Maricopa divorce packets",
-      scope: "New filing with or without children, response, agreement, and consent decree routing",
-      status: "Packet URLs pending review",
-      action: "Use on-site forms"
-    },
-    {
-      title: "Maricopa parenting/support packets",
-      scope: "Parentage, parenting time, legal decision-making, child support, worksheet readiness",
-      status: "Packet URLs pending review",
-      action: "Use on-site forms"
-    },
-    {
-      title: "Post-decree and enforcement",
-      scope: "Modification, enforcement, contempt, support, parenting, and maintenance order issues",
-      status: "Packet URLs pending review",
-      action: "Use Guided Intake"
-    },
-    {
-      title: "Disclosure and court readiness",
-      scope: "Financial disclosure, exhibits, temporary orders, and hearing preparation resources",
-      status: "Packet URLs pending review",
-      action: "Use checklist first"
-    }
-  ];
-
-  const sourceMonitorSnapshot = {
-    version: "0.6.0",
-    checked: "19 official-source records checked",
-    result: "19 OK / 0 broken",
-    rule: "Public downloads stay disabled until packet URLs and hashes are reviewed."
-  };
-
-  const maricopaCandidateSnapshot = {
-    version: "0.4.0",
-    extracted: "16 Maricopa candidate packet links",
-    groups: "7 packet groups mapped",
-    rule: "Candidates require human review before download buttons are enabled."
-  };
-
-  const reviewQueueSnapshot = {
-    version: "0.5.0",
-    total: "16 review queue items",
-    allowed: "7 official packet-page actions allowed",
-    rule: "Reviewed packet starts stay controlled while approved PDFs open in the on-site viewer."
-  };
-
-  const pdfCandidateSnapshot = {
-    version: "0.6.0",
-    extracted: "40 official PDF candidates found",
-    result: "40 OK / 0 broken",
-    rule: "PDF links remain review-only until promoted by human review."
-  };
-
-  const pdfReviewQueueSnapshot = {
-    version: "0.7.0",
-    total: "40 PDF review items",
-    split: "36 English / 34 Spanish",
-    rule: "Human-reviewed items can now be promoted through the validated public manifest."
-  };
-
-  const pdfPromotionSnapshot = {
-    version: "0.8.0",
-    total: "74 public official PDF actions enabled",
-    pending: "0 PDFs pending review",
-    rule: "Approved PDFs can be viewed and downloaded on site through controlled same-origin delivery."
-  };
-
-  const pdfReviewWorkbenchSnapshot = {
-    version: "0.9.0",
-    batches: "9 packet review batches completed",
-    total: "70 official PDF candidates organized",
-    rule: "Review decisions validate before any official PDF link is surfaced."
-  };
-
-  const pdfDecisionTemplateSnapshot = {
-    version: "1.0.0",
-    template: "74 reviewer decision records completed",
-    validation: "Decision validation passed before promotion",
-    rule: "The decision file remains the controlled source for public PDF action changes."
-  };
-
-  const pdfPromotionAuditSnapshot = {
-    version: "1.1.0",
-    ready: "74 promotion-ready PDF decisions",
-    blocked: "0 blocked promotions",
-    rule: "Dry-run audit must match the intended review result before public PDF actions change."
-  };
-
-  const pdfRouteIndexSnapshot = {
-    version: "1.0.0",
-    routes: "4 safe packet routes indexed",
-    actions: "40 approved official PDF actions mapped",
-    rule: "Route metadata stays limited to county, issue, posture, child-involved status, packet, language, and official source."
-  };
-
-  const maricopaCandidateGroups = [
-    ["Divorce with children", "Candidate packet page found"],
-    ["Divorce without children", "Candidate packet page found"],
-    ["Summary consent decree", "Candidate packet page found"],
-    ["Parentage / parenting / support", "3 candidate packet pages found"],
-    ["Modification", "3 candidate packet pages found"],
-    ["Enforcement", "3 candidate packet pages found"],
-    ["Temporary orders / worksheet readiness", "4 candidate packet pages found"]
-  ];
-
-  const officialPacketPageActions = [
-    {
-      label: "Divorce with Minor Children",
-      packet: "Maricopa divorce or separation - with children",
-      url: "https://superiorcourt.maricopa.gov/llrc/fc_group_4/"
-    },
-    {
-      label: "Divorce with No Minor Children",
-      packet: "Maricopa divorce or separation - no children",
-      url: "https://superiorcourt.maricopa.gov/llrc/fc_group_3/"
-    },
-    {
-      label: "Summary Consent Decree",
-      packet: "Agreement / final orders",
-      url: "https://superiorcourt.maricopa.gov/llrc/drscd/"
-    },
-    {
-      label: "Paternity, Parenting Time and Support",
-      packet: "Parentage / parenting / support",
-      url: "https://superiorcourt.maricopa.gov/llrc/fc_group_6/"
-    },
-    {
-      label: "Modify Parenting, Decision-Making and Support",
-      packet: "Post-decree modification",
-      url: "https://superiorcourt.maricopa.gov/llrc/fc_group_14/"
-    },
-    {
-      label: "Enforce a Support Order",
-      packet: "Enforcement",
-      url: "https://superiorcourt.maricopa.gov/llrc/fc_group_11/"
-    },
-    {
-      label: "Temporary Orders Pre-Decree",
-      packet: "Court readiness",
-      url: "https://superiorcourt.maricopa.gov/llrc/fc_group_5/"
-    }
-  ];
-
-  const pdfReviewGroups = [
-    ["Divorce with children", "10 PDFs: 5 English / 5 Spanish"],
-    ["Divorce without children", "10 PDFs: 5 English / 5 Spanish"],
-    ["Summary consent decree", "10 PDFs: 5 English / 5 Spanish"],
-    ["Parentage / parenting / support", "10 PDFs: 5 English / 5 Spanish"]
-  ];
-
   const calculatorCatalog = [
     {
       title: "Child Support Calculator",
       use: "Official Arizona calculation support when income, parenting time, insurance, childcare, and support inputs are available.",
       source: "Arizona Judicial Branch / official calculator",
-      safety: "Official calculator link first; on-site estimates only after version monitoring and review."
+      safety: "Use the on-page calculator for planning. Start Guided Intake if any input is unclear."
     },
     {
       title: "Spousal Maintenance Calculator",
       use: "Planning support for guideline version, eligibility, amount, duration, and effective-date awareness.",
       source: "Arizona Judicial Branch / official maintenance calculator",
-      safety: "Formula/version changes must trigger review before any on-site calculation logic is used."
+      safety: "Use only planning numbers. Start Guided Intake if the dates, income, or order status are unclear."
     },
     {
       title: "Parenting Time Counter",
       use: "On-site organizer for annual overnights and schedule assumptions used by other tools.",
-      source: "MFLG planning tool with user-entered assumptions",
+      source: "MY FAMILY LAW GROUP on-page planning tool",
       safety: "No child names, birth dates, school names, or sensitive allegations required."
     },
     {
       title: "Deadline Readiness Planner",
       use: "Public checklist for served papers, hearing dates, service, disclosure, and response urgency.",
-      source: "MFLG planning tool with official-source links",
+      source: "MY FAMILY LAW GROUP on-page planning tool",
       safety: "Collect deadline exists yes/no and date only if the user chooses; no document upload in public tool."
     }
   ];
@@ -3247,7 +3083,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260614-countygate1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260614-complete1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -4676,7 +4512,7 @@
         serviceInterest: "",
         contextNote: "Public Forms & Tools review-roadmap route only. Review status and source-only limits were carried forward; no sensitive facts were collected.",
         presetAnswers: {
-          formsToolsReviewRoadmap: "Approved actions open on-page reviewed forms; review-only candidates and disabled features stay blocked until review controls support them.",
+          formsToolsReviewRoadmap: "Use the on-page forms first; anything unclear should be confirmed through Guided Intake before relying on it.",
           sourceType: "Forms & Tools review roadmap / public planning"
         }
       };

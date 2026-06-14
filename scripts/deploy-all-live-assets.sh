@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260614-countygate1}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260614-complete1}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 
@@ -267,14 +267,12 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"MFLGLatestFormsRoute"* ]] &&
 	     [[ "$public_site_js" == *"formsToolRouteFor"* ]] &&
 	     [[ "$public_site_js" == *"approvedPdfOfficialUrl"* ]] &&
-	     [[ "$public_site_js" == *"pdfPromotionSnapshot"* ]] &&
-	     [[ "$public_site_js" == *"74 public official PDF actions enabled"* ]] &&
-	     [[ "$public_site_js" == *"pdfReviewWorkbenchSnapshot"* ]] &&
-	     [[ "$public_site_js" == *"9 packet review batches completed"* ]] &&
-	     [[ "$public_site_js" == *"pdfDecisionTemplateSnapshot"* ]] &&
-	     [[ "$public_site_js" == *"74 reviewer decision records completed"* ]] &&
-	     [[ "$public_site_js" == *"pdfPromotionAuditSnapshot"* ]] &&
-	     [[ "$public_site_js" == *"74 promotion-ready PDF decisions"* ]] &&
+	     [[ "$public_site_js" != *"packetReadinessCatalog"* ]] &&
+	     [[ "$public_site_js" != *"sourceMonitorSnapshot"* ]] &&
+	     [[ "$public_site_js" != *"pdfPromotionSnapshot"* ]] &&
+	     [[ "$public_site_js" != *"packet URLs pending review"* ]] &&
+	     [[ "$public_site_js" != *"packet groups mapped"* ]] &&
+	     [[ "$public_site_js" != *"review queue"* ]] &&
 	     [[ "$public_site_js" == *"wireOfficialPacketActions"* ]] &&
 	     [[ "$public_site_js" == *"form-packet-page-actions.json"* ]] &&
 	     [[ "$public_site_js" == *"data-official-packet-actions"* ]] &&

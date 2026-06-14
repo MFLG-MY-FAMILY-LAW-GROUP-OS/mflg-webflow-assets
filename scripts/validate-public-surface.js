@@ -55,7 +55,24 @@ function checkPublicLanguage() {
     "Start Intake From This Route",
     "PDF review pending",
     "No packet page action",
-    "Review-only"
+    "Review-only",
+    "packetReadinessCatalog",
+    "sourceMonitorSnapshot",
+    "maricopaCandidateSnapshot",
+    "maricopaCandidateGroups",
+    "reviewQueueSnapshot",
+    "officialPacketPageActions",
+    "pdfCandidateSnapshot",
+    "pdfReviewQueueSnapshot",
+    "pdfPromotionSnapshot",
+    "pdfReviewWorkbenchSnapshot",
+    "pdfDecisionTemplateSnapshot",
+    "pdfPromotionAuditSnapshot",
+    "pdfReviewGroups",
+    "Packet URLs pending review",
+    "packet groups mapped",
+    "review queue",
+    "candidate packet"
   ];
   blockedPublicPhrases.forEach((phrase) => {
     if (publicJs.includes(phrase)) fail(`public JS still contains admin-facing phrase: ${phrase}`);
