@@ -28,6 +28,10 @@ async function pageState(page) {
     activeDeadline: document.body.classList.contains("forms-active-need-deadline"),
     action: document.querySelector("[data-guided-result-action]")?.textContent?.trim(),
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
+    exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
+    externalPdfHrefs: Array.from(document.querySelectorAll("[data-guide-pdf-download], [data-official-pdf-download]"))
+      .map((link) => link.getAttribute("href") || "")
+      .filter((href) => /^https?:\/\//i.test(href)),
     legalHelpCount: document.querySelectorAll("[data-legal-definition]").length,
     overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
   }));
@@ -47,6 +51,8 @@ async function pageState(page) {
       assert(initial.matterHidden, `${viewport.name}: matter coverage should start hidden`);
       assert(initial.laneVisible, `${viewport.name}: four quick-start cards should be visible`);
       assert(initial.fakeLinks.length === 0, `${viewport.name}: page should not render fake href=# links: ${initial.fakeLinks.join(", ")}`);
+      assert(initial.exposedSourceAttributes.length === 0, `${viewport.name}: page should not expose raw source URL attributes`);
+      assert(initial.externalPdfHrefs.length === 0, `${viewport.name}: PDF actions should not render external hrefs`);
       assert(initial.legalHelpCount > 0, `${viewport.name}: legal-term help should render`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
@@ -61,7 +67,18 @@ async function pageState(page) {
       assert(forms.calculatorHidden, `${viewport.name}: calculator should remain hidden on forms path`);
       assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);
+      assert(forms.exposedSourceAttributes.length === 0, `${viewport.name}: forms path should not expose raw source URL attributes`);
+      assert(forms.externalPdfHrefs.length === 0, `${viewport.name}: forms path should not render external PDF hrefs`);
       assert(!forms.overflow, `${viewport.name}: forms path has horizontal overflow`);
+      await page.click("[data-forms-packet-view]");
+      const viewerState = await page.evaluate(() => ({
+        officialPdfFrameSrc: document.querySelector("[data-official-pdf-frame]")?.getAttribute("src") || "",
+        guidePdfFrameSrc: document.querySelector("[data-guide-pdf-frame]")?.getAttribute("src") || "",
+        packetDownloadHrefs: Array.from(document.querySelectorAll("[data-guide-pdf-download], [data-official-pdf-download]")).map((link) => link.getAttribute("href") || "")
+      }));
+      const activeFrameSrc = viewerState.officialPdfFrameSrc || viewerState.guidePdfFrameSrc;
+      assert(activeFrameSrc.startsWith("/api/official-pdf/"), `${viewport.name}: PDF viewer should use same-origin official PDF route, got ${activeFrameSrc}`);
+      assert(viewerState.packetDownloadHrefs.every((href) => !href || href.startsWith("/api/official-pdf/")), `${viewport.name}: PDF downloads should use same-origin official PDF routes`);
       await capture(page, viewport, "forms-path");
 
       await page.click("[data-smart-reset]");

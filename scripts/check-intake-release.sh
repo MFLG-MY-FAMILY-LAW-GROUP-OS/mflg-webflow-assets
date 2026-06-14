@@ -289,7 +289,10 @@ grep -q "Ready to start" "$PUBLIC_JS_FILE" || fail "Packet builder ready-state c
 grep -q "In progress" "$PUBLIC_JS_FILE" || fail "Packet builder in-progress copy missing"
 grep -q "Preview PDF only" "$PUBLIC_JS_FILE" || fail "Packet builder PDF preview action missing"
 grep -q "Reviewed court PDF" "$PUBLIC_JS_FILE" || fail "Packet builder reviewed PDF note missing"
-grep -q "Official court PDF source" "$PUBLIC_JS_FILE" || fail "Packet builder copied checklist source label missing"
+grep -q "Do not add private facts, case numbers, or financial information to this public checklist" "$PUBLIC_JS_FILE" || fail "Packet builder public checklist privacy note missing"
+if grep -q "Official court PDF source" "$PUBLIC_JS_FILE"; then
+  fail "Packet builder copied checklist must not expose raw official source URLs"
+fi
 grep -q "forms-packet-primary-actions" "$PUBLIC_JS_FILE" || fail "Packet builder primary action row missing"
 grep -q "Form checklist utilities" "$PUBLIC_JS_FILE" || fail "Form checklist utility action label missing"
 grep -q "data-forms-packet-complete" "$PUBLIC_JS_FILE" || fail "Packet builder completion panel missing"

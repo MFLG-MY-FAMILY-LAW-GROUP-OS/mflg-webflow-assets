@@ -59,6 +59,21 @@
     return Boolean(href && href !== "#");
   }
 
+  function isSameOriginSitePath(value) {
+    const href = String(value || "").trim();
+    return Boolean(href && href.startsWith("/") && !href.startsWith("//"));
+  }
+
+  function sitePdfViewUrlFor(file) {
+    return isSameOriginSitePath(file?.site_pdf_view_url) ? file.site_pdf_view_url : "";
+  }
+
+  function sitePdfDownloadUrlFor(file) {
+    if (isSameOriginSitePath(file?.site_pdf_download_url)) return file.site_pdf_download_url;
+    if (isSameOriginSitePath(file?.hosted_download_url)) return file.hosted_download_url;
+    return sitePdfViewUrlFor(file);
+  }
+
   const legalTermDefinitions = {
     "case-stage": "The step your case is in, such as starting a case, responding to papers, finalizing an agreement, or changing an existing order.",
     posture: "The legal stage or position of a case. On this site, use it like case stage.",
@@ -2427,8 +2442,7 @@
             data-issues="${esc(item.issues.join(" "))}"
             data-posture="${esc(item.posture)}"
             data-title="${esc(item.title)}"
-            data-status="${esc(item.status)}"
-            data-url="${esc(item.url)}">
+            data-status="${esc(item.status)}">
             <summary class="official-resource-summary">
               <span>${esc(item.status)}</span>
               <strong>${esc(item.title)}</strong>
@@ -3878,6 +3892,8 @@
       }
 
       const first = actions[0];
+      const firstViewUrl = sitePdfViewUrlFor(first);
+      const firstDownloadUrl = sitePdfDownloadUrlFor(first);
       const actionRoute = (action) => formsToolRouteFor(
         { ...formsRoute, pdfPacket: packetId },
         action.packet_label || "",
@@ -3886,7 +3902,7 @@
           label: action.source_label || action.label || action.public_name || "",
           fileName: action.file_name || "",
           language: action.language || "",
-          officialUrl: action.official_pdf_url || ""
+          officialUrl: sitePdfViewUrlFor(action)
         }
       );
 
@@ -3916,11 +3932,11 @@
                 <strong data-guide-pdf-title>${esc(first.public_name || first.display_label || first.file_name || "Official court PDF")}</strong>
                 <p data-guide-pdf-copy>${esc(first.public_description || "Approved court PDF assigned to this guide.")}</p>
               </div>
-              ${isUsableHref(first.site_pdf_download_url || first.site_pdf_view_url || first.official_pdf_url)
-                ? `<a class="button outline" href="${esc(first.site_pdf_download_url || first.site_pdf_view_url || first.official_pdf_url)}" data-guide-pdf-download>Download PDF</a>`
+              ${isUsableHref(firstDownloadUrl)
+                ? `<a class="button outline" href="${esc(firstDownloadUrl)}" data-guide-pdf-download>Download PDF</a>`
                 : `<button class="button outline" type="button" data-guide-pdf-download disabled>PDF unavailable</button>`}
             </div>
-            <iframe title="${esc(guideTitle)} court PDF viewer" loading="lazy" src="${esc(first.site_pdf_view_url || first.official_pdf_url || "")}" data-guide-pdf-frame></iframe>
+            <iframe title="${esc(guideTitle)} court PDF viewer" loading="lazy" src="${esc(firstViewUrl)}" data-guide-pdf-frame></iframe>
           </div>
         </div>
       `;
@@ -3936,13 +3952,14 @@
 
       const setActive = (index) => {
         const action = actions[index] || first;
+        const viewUrl = sitePdfViewUrlFor(action);
         buttons.forEach((button, buttonIndex) => button.classList.toggle("active", buttonIndex === index));
-        if (frame) frame.setAttribute("src", action.site_pdf_view_url || action.official_pdf_url || "");
+        if (frame) frame.setAttribute("src", viewUrl);
         if (title) title.textContent = action.public_name || action.display_label || action.file_name || "Official court PDF";
         if (stage) stage.textContent = action.public_stage || action.language || "Court form";
         if (copy) copy.textContent = action.public_description || "Approved court PDF assigned to this guide.";
         if (download) {
-          const downloadUrl = action.site_pdf_download_url || action.site_pdf_view_url || action.official_pdf_url || "";
+          const downloadUrl = sitePdfDownloadUrlFor(action);
           if (download.tagName === "A" && isUsableHref(downloadUrl)) {
             download.setAttribute("href", downloadUrl);
             download.removeAttribute("aria-disabled");
@@ -4813,7 +4830,8 @@
               data-packet-id="${esc(file.packet_id || "")}"
               data-language="${esc(file.language || "")}"
               data-child-only="${isChildOnlyPacketFile(file) ? "true" : "false"}"
-              data-official-url="${esc(file.official_pdf_url || "")}"
+              data-site-pdf-view-url="${esc(sitePdfViewUrlFor(file))}"
+              data-site-pdf-download-url="${esc(sitePdfDownloadUrlFor(file))}"
               data-file-name="${esc(file.file_name || "")}"
               data-public-name="${esc(file.public_name || file.file_name || "Official court PDF")}"
               data-public-purpose="${esc(packetFilePurpose(file))}"
@@ -4896,7 +4914,7 @@
           // Session storage can be unavailable in some private browsing modes.
         }
       };
-      const checklistKeyForCard = (card) => `${card?.dataset.packetId || ""}:${card?.dataset.officialUrl || card?.dataset.fileName || ""}:${card?.dataset.language || ""}`;
+      const checklistKeyForCard = (card) => `${card?.dataset.packetId || ""}:${card?.dataset.sitePdfViewUrl || card?.dataset.fileName || ""}:${card?.dataset.language || ""}`;
       const restorePacketChecklist = () => {
         const state = readPacketChecklist();
         fileCards.forEach((card) => {
@@ -5050,7 +5068,6 @@
           const checked = card.querySelector("[data-forms-packet-check]")?.checked ? "x" : " ";
           lines.push(`${index + 1}. [${checked}] ${card.dataset.publicName || "Official court PDF"}`);
           if (card.dataset.fileName) lines.push(`   File: ${card.dataset.fileName}`);
-          if (card.dataset.officialUrl) lines.push(`   Official court PDF source: ${card.dataset.officialUrl}`);
         });
         return lines.join("\n");
       };
@@ -5157,7 +5174,7 @@
             packetBuilderPacketId: packetId,
             packetBuilderLanguage: card?.dataset.language || languageSelect?.value || "",
             packetBuilderForm: card?.dataset.publicName || "",
-            approvedPdfOfficialUrl: card?.dataset.officialUrl || "",
+            approvedPdfOfficialUrl: card?.dataset.sitePdfViewUrl || "",
             sourceType: "Forms & Tools form checklist / public planning"
           }
         };
@@ -5229,7 +5246,7 @@
           }
           window.dispatchEvent(new CustomEvent("mflg:official-pdf-open", {
             detail: {
-              officialUrl: card.dataset.officialUrl || "",
+              sitePdfViewUrl: card.dataset.sitePdfViewUrl || "",
               label: card.dataset.publicName || "",
               fileName: card.dataset.fileName || ""
             }
@@ -7541,9 +7558,9 @@
                     data-label="${esc(action.public_name || action.display_label || action.label || action.file_name || "Official PDF")}"
                     data-source-label="${esc(action.source_label || action.label || "")}"
                     data-file-name="${esc(action.file_name || "")}"
-                    data-pdf-url="${esc(action.official_pdf_url || "")}"
-                    data-site-pdf-view-url="${esc(action.site_pdf_view_url || "")}"
-                    data-site-pdf-download-url="${esc(action.site_pdf_download_url || "")}"
+                    data-pdf-url="${esc(sitePdfViewUrlFor(action))}"
+                    data-site-pdf-view-url="${esc(sitePdfViewUrlFor(action))}"
+                    data-site-pdf-download-url="${esc(sitePdfDownloadUrlFor(action))}"
                     data-search="${esc([action.public_name, action.public_description, action.public_stage, action.display_label, action.label, action.source_label, action.file_name, action.packet_label, action.page_label, action.language].filter(Boolean).join(" ").toLowerCase())}">
                     <button class="official-pdf-source" type="button" data-official-pdf-preview>
                       <span>${esc(action.public_stage || action.language || "Court form")}</span>
@@ -7669,9 +7686,9 @@
           viewerDownload.setAttribute("download", fileName || "official-court-form.pdf");
           viewerDownload.removeAttribute("aria-disabled");
         }
-        if (viewerSourceFallback && isUsableHref(url || siteViewUrl)) {
+        if (viewerSourceFallback && isUsableHref(siteViewUrl)) {
           viewerSourceFallback.setAttribute("href", "/start");
-          viewerSourceFallback.setAttribute("data-source-url", url || siteViewUrl);
+          viewerSourceFallback.setAttribute("data-source-url", siteViewUrl);
           viewerSourceFallback.setAttribute("data-intake-route", JSON.stringify(routeForPdfLink(link)));
           viewerSourceFallback.removeAttribute("aria-disabled");
         }
@@ -7679,8 +7696,8 @@
         viewer.scrollIntoView({ behavior: "smooth", block: "start" });
       };
       window.addEventListener("mflg:official-pdf-open", (event) => {
-        const url = event.detail?.officialUrl || "";
-        const match = links.find((link) => link.dataset.pdfUrl === url);
+        const url = event.detail?.sitePdfViewUrl || event.detail?.officialUrl || "";
+        const match = links.find((link) => link.dataset.sitePdfViewUrl === url || link.dataset.pdfUrl === url);
         if (match) openPdfViewer(match);
       });
       const update = () => {
