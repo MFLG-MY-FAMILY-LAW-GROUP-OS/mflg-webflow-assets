@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-promotion-audit",
-  "built_at": "2026-06-14T22:27:18.968Z",
+  "built_at": "2026-06-14T23:11:40.578Z",
   "public_safety": {
     "internal_promotion_audit_exposed": false,
     "sensitive_fixture_values_exposed": false,
