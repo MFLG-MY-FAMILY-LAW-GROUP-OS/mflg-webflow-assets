@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-regression-evidence-status",
-  "built_at": "2026-06-14T00:20:55.922Z",
+  "built_at": "2026-06-14T00:41:19.102Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "internal_comparison_evidence_exposed": false,
