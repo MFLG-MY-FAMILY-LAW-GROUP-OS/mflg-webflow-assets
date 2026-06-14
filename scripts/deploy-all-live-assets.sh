@@ -232,7 +232,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"In progress"* ]] &&
 	     [[ "$public_site_js" == *"Preview PDF only"* ]] &&
 	     [[ "$public_site_js" == *"Reviewed court PDF"* ]] &&
-	     [[ "$public_site_js" == *"Official court PDF source"* ]] &&
+	     [[ "$public_site_js" == *"Do not add private facts, case numbers, or financial information to this public checklist"* ]] &&
+	     [[ "$public_site_js" != *"Official court PDF source"* ]] &&
 	     [[ "$public_site_js" == *"forms-packet-primary-actions"* ]] &&
 	     [[ "$public_site_js" == *"Form checklist utilities"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-complete"* ]] &&
