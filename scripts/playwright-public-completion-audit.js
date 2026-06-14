@@ -106,10 +106,15 @@ function assert(condition, message) {
               viewportWidth: document.documentElement.clientWidth,
               tooSmallTapTargets: tooSmallTapTargets.slice(0, 8),
               hasStartIntake: anchors.some((link) => link.href === "/start" || link.href.startsWith("/start")),
-              hasMainHeading: Boolean(main?.querySelector("h1, h2"))
+              hasMainHeading: Boolean(main?.querySelector("h1, h2")),
+              currentHost: window.location.hostname,
+              isAccessLogin: /Cloudflare Access|Sign in/i.test(document.title || "") || Boolean(document.querySelector(".AuthBox"))
             };
           }, { requiredNavLabels, blockedText, route });
 
+          if (route === "/staff/" && state.isAccessLogin && state.currentHost.includes("cloudflareaccess.com")) {
+            continue;
+          }
           assert(state.mainTextLength > 100, `${viewport.name} ${route}: main content looks empty`);
           assert(state.hasMainHeading, `${viewport.name} ${route}: missing main heading`);
           assert(state.requiredMissing.length === 0, `${viewport.name} ${route}: nav missing ${state.requiredMissing.join(", ")}`);

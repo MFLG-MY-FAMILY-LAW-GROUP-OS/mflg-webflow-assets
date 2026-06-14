@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-formula-readiness",
-  "built_at": "2026-06-14T15:19:36.368Z",
+  "built_at": "2026-06-14T16:51:44.139Z",
   "source_manifests": [
     "data/calculators-catalog.json",
     "data/calculator-source-snapshot-status.json",
