@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicepdf1") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-cardcalc1") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -873,6 +873,101 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 }
 .service-forms-viewer {
   margin-top: 0;
+}
+.service-calculator-chooser {
+  display: grid;
+  gap: 14px;
+  padding: clamp(16px, 2vw, 22px);
+  border: 1px solid rgba(197, 155, 59, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(197, 155, 59, 0.08), rgba(255, 255, 255, 0.92) 48%, rgba(33, 85, 141, 0.06)),
+    #fff;
+}
+.service-calculator-head {
+  display: grid;
+  gap: 5px;
+  max-width: 880px;
+}
+.service-calculator-head span,
+.service-calculator-option span {
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.service-calculator-head strong {
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.5vw, 1.34rem);
+  line-height: 1.16;
+}
+.service-calculator-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+.service-calculator-options {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.15fr) repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.service-calculator-option {
+  display: grid;
+  gap: 7px;
+  min-height: 146px;
+  align-content: start;
+  padding: 13px;
+  border: 1px solid rgba(33, 85, 141, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--ink);
+  text-decoration: none;
+}
+.service-calculator-option.recommended {
+  border-color: rgba(33, 85, 141, 0.32);
+  background:
+    linear-gradient(135deg, rgba(33, 85, 141, 0.1), rgba(255, 255, 255, 0.92)),
+    #fff;
+}
+.service-calculator-option strong {
+  color: var(--blue);
+  font-size: 0.98rem;
+  line-height: 1.16;
+}
+.service-calculator-option p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.38;
+}
+.service-calculator-option b {
+  margin-top: auto;
+  color: var(--blue);
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.service-calculator-option:hover,
+.service-calculator-option:focus-visible {
+  border-color: rgba(33, 85, 141, 0.48);
+  background: var(--blue);
+  color: white;
+  outline: none;
+}
+.service-calculator-option:hover span,
+.service-calculator-option:focus-visible span,
+.service-calculator-option:hover strong,
+.service-calculator-option:focus-visible strong,
+.service-calculator-option:hover p,
+.service-calculator-option:focus-visible p,
+.service-calculator-option:hover b,
+.service-calculator-option:focus-visible b {
+  color: white;
 }
 .service-row-actions {
   display: flex;
@@ -8419,6 +8514,9 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   .forms-decision-console {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .service-calculator-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1360px) {
@@ -8552,7 +8650,7 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
     background: rgba(255, 255, 255, 0.05);
   }
   .site-nav .nav-cta { margin-top: 8px; }
-	  .split, .grid, .grid.two, .access-roadmap, .guide-command, .guide-card-grid, .guide-issue-grid, .guide-packet-options, .bio-proof, .bio-proof dl, .fee-hero-panel, .fee-grid, .fee-notes, .faq-command, .faq-tools, .faq-layout, .section-journey, .about-profile, .about-proof-grid, .about-process, .policy-grid, .decision-bridge, .intake-process-strip, .planning-guard, .jurisdiction-router, .maintenance-framework, .safe-fields, .forms-router-head, .forms-smart-path { grid-template-columns: 1fr; }
+	  .split, .grid, .grid.two, .access-roadmap, .guide-command, .guide-card-grid, .guide-issue-grid, .guide-packet-options, .service-calculator-options, .bio-proof, .bio-proof dl, .fee-hero-panel, .fee-grid, .fee-notes, .faq-command, .faq-tools, .faq-layout, .section-journey, .about-profile, .about-proof-grid, .about-process, .policy-grid, .decision-bridge, .intake-process-strip, .planning-guard, .jurisdiction-router, .maintenance-framework, .safe-fields, .forms-router-head, .forms-smart-path { grid-template-columns: 1fr; }
   .planning-flow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

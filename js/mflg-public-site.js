@@ -211,7 +211,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-servicepdf1">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260613-cardcalc1">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -691,10 +691,42 @@
 	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice, calculatorLabel };
   }
 
+  function calculatorQuickChoices(recommendedChoice) {
+    const choices = [
+      {
+        key: "support",
+        title: "Child support",
+        copy: "Estimate support using planning numbers only.",
+        cta: "Open support calculator"
+      },
+      {
+        key: "maintenance",
+        title: "Spousal maintenance",
+        copy: "Estimate maintenance using generic planning inputs.",
+        cta: "Open maintenance calculator"
+      },
+      {
+        key: "parenting",
+        title: "Parenting time",
+        copy: "Count overnights or parenting-time days.",
+        cta: "Open parenting counter"
+      },
+      {
+        key: "deadline",
+        title: "Deadline readiness",
+        copy: "Check whether timing should be reviewed first.",
+        cta: "Open deadline planner"
+      }
+    ];
+    const recommended = choices.find((choice) => choice.key === recommendedChoice) || choices[3];
+    return [recommended, ...choices.filter((choice) => choice.key !== recommended.key)];
+  }
+
   function renderServicePanel(item) {
     const checklist = guideChecklistFor(item).slice(0, 3);
     const readiness = guideReadinessFor(item)[0] || "If the next step is unclear, use Guided Intake before choosing forms.";
     const packetChoices = guidePacketChoicesFor(item.guide);
+    const calculatorChoices = calculatorQuickChoices(item.calculatorChoice);
     return `<div class="guide-row-panel-inner service-row-panel-inner">
       <button class="guide-panel-close" type="button" data-service-panel-close aria-label="Close practice area details">Close</button>
       <div class="guide-panel-heading service-panel-heading">
@@ -722,6 +754,21 @@
           <button class="button primary" type="button" data-guide-scroll-forms>View forms below</button>
           <a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(item.calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>${esc(item.calculatorLabel)}</a>
           <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+        </div>
+      </div>
+      <div class="service-calculator-chooser" aria-label="Choose calculator or planner">
+        <div class="service-calculator-head">
+          <span>Calculator or planner</span>
+          <strong>Use the suggested tool, or switch if another issue fits better.</strong>
+          <p>These tools stay on the website and use planning numbers only. Do not enter names, addresses, case numbers, allegations, or private facts.</p>
+        </div>
+        <div class="service-calculator-options">
+          ${calculatorChoices.map((choice, choiceIndex) => `<a class="service-calculator-option${choiceIndex === 0 ? " recommended" : ""}" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(choice.key)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>
+            <span>${choiceIndex === 0 ? "Suggested" : "Switch tool"}</span>
+            <strong>${esc(choice.title)}</strong>
+            <p>${esc(choice.copy)}</p>
+            <b>${esc(choice.cta)} <span aria-hidden="true">→</span></b>
+          </a>`).join("")}
         </div>
       </div>
       ${packetChoices.length ? `<div class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
@@ -3170,7 +3217,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-servicepdf1" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260613-cardcalc1" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
