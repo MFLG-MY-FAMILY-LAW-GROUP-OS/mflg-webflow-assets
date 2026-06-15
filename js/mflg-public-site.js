@@ -3857,7 +3857,7 @@
           </div>
           <div class="guide-county-actions">
             ${isUsableHref(formsRoute.officialSourceUrl) ? `<span class="guide-source-status" data-guide-source-status>Official source tracked for internal review</span>` : ""}
-            <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
+            <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Confirm this path in Intake</a>
           </div>
         </div>
       `;
@@ -3883,7 +3883,7 @@
           <div class="guide-county-actions">
             <button class="button primary" type="button" data-guide-county-confirm disabled>Choose county first</button>
             <span class="guide-source-status" data-guide-county-source>County forms will update after you choose.</span>
-            <a class="button outline" href="/start" data-link data-guide-county-intake data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Use Guided Intake</a>
+            <a class="button outline" href="/start" data-link data-guide-county-intake data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Confirm county in Intake</a>
           </div>
           <p class="guide-county-note" data-guide-county-note>Select Maricopa only if your case or new filing belongs there.</p>
         </div>
@@ -3905,7 +3905,7 @@
           : value === "Maricopa"
             ? "Open Maricopa PDFs"
             : value === "Not sure"
-              ? "Start Guided Intake"
+              ? "Confirm county in Intake"
               : `Confirm ${value} County in Intake`;
       };
       countyChoice?.addEventListener("change", () => {
@@ -3962,7 +3962,7 @@
               <strong>Forms are being reviewed for ${esc(guideTitle)}.</strong>
               <p>This guide does not yet have an approved on-site PDF group. Use Guided Intake so the office can confirm the correct official forms.</p>
             </div>
-            <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Start Guided Intake</a>
+            <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Confirm forms in Intake</a>
           </div>
         `;
         scheduleLegalTermEnhancement(host);
@@ -3991,7 +3991,7 @@
             <strong>${esc(guideTitle)} forms</strong>
             <p>Start with the first form shown. The rest continue in the order most likely to match this guide. You are not filing anything by viewing them.</p>
           </div>
-          <a class="button outline" href="/start" data-link data-guide-pdf-intake>Use Guided Intake</a>
+          <a class="button outline" href="/start" data-link data-guide-pdf-intake>Confirm forms in Intake</a>
         </div>
         <div class="guide-pdf-layout">
           <div class="guide-pdf-list" aria-label="${esc(guideTitle)} forms">
