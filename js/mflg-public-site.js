@@ -941,7 +941,7 @@
 	      </div>
 	    </div>
 	    <div class="service-reveal">
-	      <button class="button primary service-reveal-button" type="button" data-service-reveal>View All Family Law Pathways</button>
+	      <button class="button primary service-reveal-button" type="button" data-service-reveal aria-expanded="false">View All Family Law Pathways</button>
 		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} pathways. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some matters may need attorney review or another professional.</p>
 	    </div>
 	    ${urgencyRouter()}
@@ -4255,15 +4255,22 @@
 	          : `Showing ${visible} of ${cards.length} pathways`;
 	      }
 
+	      const filtered = !!term || categoryActive;
 	      if (note) {
 	        const remaining = Math.max(cards.length - limit, 0);
-	        note.textContent = revealed
+	        note.textContent = revealed && !filtered
 		          ? `Showing all ${cards.length} pathways. Search any topic or choose a situation to narrow the list. Some matters may need attorney review or another professional.`
 		          : `Showing the first ${Math.min(limit, matchesTotal)} pathways for this screen. Search any topic, browse a situation, or reveal the remaining ${remaining}. Some matters may need attorney review or another professional.`;
 	      }
 	
 	      if (reveal) {
-	        reveal.classList.toggle("revealed", revealed || !!term || categoryActive);
+	        reveal.hidden = filtered || cards.length <= limit;
+	        reveal.classList.toggle("revealed", revealed && !filtered);
+	      }
+	      if (button) {
+	        const expanded = revealed && !filtered;
+	        button.textContent = expanded ? "Show Starting Pathways" : "View All Family Law Pathways";
+	        button.setAttribute("aria-expanded", String(expanded));
 	      }
 
 	      if (emptyState) {
@@ -4300,8 +4307,11 @@
 	      update();
 	    });
 	    button?.addEventListener("click", () => {
-	      revealed = true;
+	      revealed = !revealed;
 	      update();
+	      window.requestAnimationFrame(() => {
+	        document.querySelector("[data-service-list]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+	      });
 	    });
 	    cards.forEach((card) => {
 	      card.addEventListener("click", (event) => {

@@ -1397,7 +1397,12 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   margin-top: clamp(30px, 4vw, 46px);
   transform: translateX(-50%);
 }
-.service-reveal.revealed { display: none; }
+.service-reveal.revealed .service-reveal-button {
+  border-color: rgba(33, 85, 141, 0.24);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--blue);
+  box-shadow: 0 12px 28px rgba(18, 24, 31, 0.08);
+}
 .service-reveal-button {
   min-width: min(100%, 336px);
   min-height: 54px;
