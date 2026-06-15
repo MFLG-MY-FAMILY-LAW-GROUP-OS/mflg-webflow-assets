@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260615-termfix") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260615-textfix") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -10300,4 +10300,41 @@ li .legal-term-help,
   flex: 0 0 auto;
   margin-left: 1px;
   transform: translateY(0);
+}
+
+.button,
+button,
+.pill,
+.eyebrow,
+.service-category-chip,
+.faq-category-chip,
+.service-card-tools span,
+.form-confidence,
+.guide-card .pill,
+.guide-packet-options button span,
+.forms-route-decision .forms-route-decision-meta span,
+.official-calculator-next span,
+.calculator-pathways span {
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: manual;
+}
+
+.pill,
+.eyebrow,
+.service-category-chip,
+.faq-category-chip,
+.service-card-tools span,
+.form-confidence,
+.guide-card .pill,
+.forms-route-decision .forms-route-decision-meta span,
+.official-calculator-next span,
+.calculator-pathways span {
+  white-space: nowrap !important;
+}
+
+.button,
+button:not(.legal-term-help),
+.guide-packet-options button span {
+  text-wrap: balance;
 }
