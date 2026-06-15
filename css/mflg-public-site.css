@@ -1658,6 +1658,10 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   background: white;
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24);
 }
+.service-method[aria-current="true"] {
+  border-color: rgba(227, 193, 107, 0.68);
+  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.22);
+}
 .service-method:hover::after,
 .service-method:focus-visible::after {
   opacity: 1;

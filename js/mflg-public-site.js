@@ -4365,10 +4365,15 @@
 	    const update = () => {
 	      const activeIndex = indexFromScroll();
 	      const isScrollable = grid.scrollWidth > grid.clientWidth + 4;
+	      const activeTitle = methods[activeIndex]?.querySelector("strong")?.textContent?.trim() || `path ${activeIndex + 1}`;
 	      carousel.classList.toggle("is-scrollable", isScrollable);
-	      if (status) status.textContent = `Path ${activeIndex + 1} of ${methods.length}`;
+	      if (status) status.textContent = `Path ${activeIndex + 1} of ${methods.length}: ${activeTitle}`;
 	      if (prev) prev.disabled = !isScrollable || activeIndex <= 0;
 	      if (next) next.disabled = !isScrollable || activeIndex >= methods.length - 1;
+	      methods.forEach((method, index) => {
+	        if (index === activeIndex) method.setAttribute("aria-current", "true");
+	        else method.removeAttribute("aria-current");
+	      });
 	    };
 
 	    const move = (direction) => {
