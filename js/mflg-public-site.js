@@ -4297,20 +4297,24 @@
 	        update();
 	      });
 	    });
-	    reset?.addEventListener("click", () => {
+	    const resetServiceFilters = (shouldFocusSearch = false) => {
 	      activeCategory = "All";
 	      revealed = false;
-	      if (search) search.value = "";
-	      update();
-	    });
-	    emptyReset?.addEventListener("click", () => {
-	      activeCategory = "All";
-	      revealed = false;
+	      clearServicePanel();
 	      if (search) {
 	        search.value = "";
-	        search.focus();
+	        if (shouldFocusSearch) search.focus();
 	      }
 	      update();
+	      window.requestAnimationFrame(() => {
+	        document.querySelector("[data-service-tools]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+	      });
+	    };
+	    reset?.addEventListener("click", () => {
+	      resetServiceFilters(true);
+	    });
+	    emptyReset?.addEventListener("click", () => {
+	      resetServiceFilters(true);
 	    });
 	    button?.addEventListener("click", () => {
 	      revealed = !revealed;
