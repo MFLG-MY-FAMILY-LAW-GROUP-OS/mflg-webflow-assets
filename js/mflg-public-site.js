@@ -829,7 +829,7 @@
         </div>
         <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
           ${serviceActions.map((action) => `<button class="button ${action.primary ? "primary" : "outline"}" type="button" data-service-action="${esc(action.key)}" data-service-primary-action="${action.primary ? "true" : "false"}">${esc(action.label)}</button>`).join("")}
-          <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+          <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Use this issue in Intake</a>
         </div>
       </div>
       <div class="guide-card-grid service-panel-grid" data-service-panel-section="steps" hidden>
@@ -883,7 +883,7 @@
       </div>
       </div>
       <div class="guide-panel-actions service-panel-actions" aria-label="Practice area follow-up actions">
-        <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+        <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Use this issue in Intake</a>
         <button class="button outline" type="button" data-service-action="forms">View forms again</button>
         <button class="button outline" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
         <button class="button ghost guide-panel-close-inline" type="button" data-service-panel-close>Close this issue</button>
