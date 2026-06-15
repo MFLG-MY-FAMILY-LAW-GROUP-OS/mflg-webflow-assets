@@ -871,6 +871,10 @@
 	        <input id="service-search" class="service-search" type="search" placeholder="Search divorce, parenting, support, paternity, enforcement..." data-service-search>
 	        <span class="service-count" data-service-count>Showing ${initialServiceCount} of ${items.length} pathways</span>
 	      </div>
+	      <div class="service-quick-fallback" aria-label="Fallback if the issue is unclear">
+	        <span>Not sure what to choose?</span>
+	        <a href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>Use Guided Intake</a>
+	      </div>
 	    </div>
 		    <div class="service-category-panel" aria-label="Filter family-law pathways by situation">
 		      <div class="service-category-head">
@@ -898,6 +902,15 @@
 		      </div>
 		    </article>`;
 			    }).join("")}</div>
+	    <div class="service-empty-state" data-service-empty hidden>
+	      <span>No matching issue card</span>
+	      <strong>Use a broader search or let Guided Intake sort it out.</strong>
+	      <p>If the words do not match, the issue may still be covered under another family-law pathway.</p>
+	      <div>
+	        <button class="button outline" type="button" data-service-empty-reset>Reset search</button>
+	        <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>Use Guided Intake</a>
+	      </div>
+	    </div>
 	    <div class="service-reveal">
 	      <button class="button primary service-reveal-button" type="button" data-service-reveal>View All Family Law Pathways</button>
 		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} pathways. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some matters may need attorney review or another professional.</p>
@@ -4033,6 +4046,8 @@
 	    const cards = Array.from(document.querySelectorAll("[data-service-card]"));
 	    const categoryButtons = Array.from(document.querySelectorAll("[data-service-category-filter]"));
 	    const reset = document.querySelector("[data-service-category-reset]");
+	    const emptyState = document.querySelector("[data-service-empty]");
+	    const emptyReset = document.querySelector("[data-service-empty-reset]");
 	    const reveal = document.querySelector(".service-reveal");
 	    const note = document.querySelector("[data-service-note]");
 	    if (!cards.length) return;
@@ -4222,6 +4237,10 @@
 	        reveal.classList.toggle("revealed", revealed || !!term || categoryActive);
 	      }
 
+	      if (emptyState) {
+	        emptyState.hidden = visible !== 0;
+	      }
+
 	      categoryButtons.forEach((categoryButton) => {
 	        const active = categoryButton.dataset.serviceCategoryFilter === activeCategory;
 	        categoryButton.classList.toggle("active", active);
@@ -4240,6 +4259,15 @@
 	      activeCategory = "All";
 	      revealed = false;
 	      if (search) search.value = "";
+	      update();
+	    });
+	    emptyReset?.addEventListener("click", () => {
+	      activeCategory = "All";
+	      revealed = false;
+	      if (search) {
+	        search.value = "";
+	        search.focus();
+	      }
 	      update();
 	    });
 	    button?.addEventListener("click", () => {
