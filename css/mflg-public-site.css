@@ -511,9 +511,11 @@ li .legal-term-help::before,
   max-width: 100%;
   min-height: 1.75em;
   line-height: 1.12;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-overflow: clip;
+  white-space: normal;
 }
 .legal-term-help::after {
   content: attr(data-legal-definition);
@@ -920,7 +922,7 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   min-height: 24px;
   align-items: center;
   justify-content: center;
-  padding: 0 8px;
+  padding: 4px 8px;
   border: 1px solid rgba(33, 85, 141, 0.12);
   border-radius: 999px;
   background: rgba(33, 85, 141, 0.055);
@@ -928,9 +930,11 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   font-size: 0.58rem;
   font-weight: 950;
   letter-spacing: 0.08em;
-  line-height: 1;
+  line-height: 1.12;
+  text-align: center;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .guide-packet-options button > span {
   display: block;
@@ -1244,7 +1248,9 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   color: var(--muted);
   font-size: 0.88rem;
   font-weight: 800;
-  white-space: nowrap;
+  line-height: 1.25;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .service-quick-fallback {
   display: flex;
@@ -1317,7 +1323,7 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   justify-content: center;
   min-height: 40px;
   max-width: 100%;
-  padding: 0 14px;
+  padding: 8px 14px;
   border: 1px solid rgba(17, 24, 32, 0.1);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
@@ -1325,10 +1331,12 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: 0.02em;
-  line-height: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.14;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-overflow: clip;
+  white-space: normal;
   cursor: pointer;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
@@ -3978,7 +3986,9 @@ body.forms-active-need-deadline:not(.forms-showing-all-sections) .calculator-hub
   font-size: 0.68rem;
   font-weight: 950;
   letter-spacing: 0.07em;
-  line-height: 1;
+  line-height: 1.14;
+  text-align: center;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 .forms-packet-primary-actions .button {
@@ -5117,11 +5127,13 @@ body.forms-active-need-deadline:not(.forms-showing-all-sections) .calculator-hub
 }
 .forms-route-decision .forms-route-decision-meta span {
   min-height: 24px;
-  padding: 0 8px;
+  padding: 4px 8px;
   background: rgba(255, 255, 255, 0.72);
   color: rgba(17, 24, 32, 0.62);
   font-size: 0.58rem;
   letter-spacing: 0.07em;
+  line-height: 1.12;
+  text-align: center;
 }
 .forms-route-decision-actions {
   display: flex;
@@ -5440,7 +5452,8 @@ body.forms-active-need-deadline:not(.forms-showing-all-sections) .calculator-hub
   font-size: 0.64rem;
   font-weight: 950;
   letter-spacing: 0.08em;
-  line-height: 1;
+  line-height: 1.12;
+  text-align: center;
   text-transform: uppercase;
 }
 .route-action-head span {
@@ -6177,7 +6190,8 @@ body.forms-active-need-deadline:not(.forms-showing-all-sections) .calculator-hub
   font-size: 0.64rem;
   font-weight: 950;
   letter-spacing: 0.08em;
-  line-height: 1;
+  line-height: 1.12;
+  text-align: center;
   text-transform: uppercase;
 }
 .official-pdf-group summary strong {
@@ -6501,7 +6515,8 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   font-size: 0.64rem;
   font-weight: 950;
   letter-spacing: 0.08em;
-  line-height: 1;
+  line-height: 1.12;
+  text-align: center;
   text-transform: uppercase;
 }
 .calculator-pathways strong {
@@ -8044,7 +8059,10 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   font-weight: 950;
   letter-spacing: 0.07em;
   line-height: 1.15;
+  text-align: center;
   text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .form-confidence.exact,
 .form-confidence.county-exact {
@@ -8163,11 +8181,19 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   gap: 10px;
   align-items: center;
 }
+.guide-county-actions > * {
+  max-width: 100%;
+  min-width: 0;
+}
 .guide-county-actions .button {
+  flex: 1 1 180px;
   min-height: 46px;
+  white-space: normal;
 }
 .guide-source-status {
   display: inline-flex;
+  flex: 1 1 100%;
+  max-width: 100%;
   min-height: 42px;
   align-items: center;
   padding: 8px 12px;
@@ -8180,6 +8206,8 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   letter-spacing: 0.06em;
   line-height: 1.25;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 .guide-county-note {
   margin: 0;
