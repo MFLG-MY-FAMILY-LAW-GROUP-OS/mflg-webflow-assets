@@ -4088,6 +4088,14 @@
 	    const panel = document.createElement("div");
 	    panel.className = "guide-row-panel service-row-panel";
 	    panel.hidden = true;
+
+	    const setServiceToggleState = (card, active) => {
+	      const toggle = card.querySelector("[data-service-detail-toggle]");
+	      card.classList.toggle("is-expanded", active);
+	      if (!toggle) return;
+	      toggle.setAttribute("aria-expanded", String(active));
+	      toggle.textContent = active ? "Close this issue" : "Open this issue \u2192";
+	    };
 	
 	    const clearServicePanel = () => {
 	      activeServiceIndex = null;
@@ -4095,8 +4103,7 @@
 	      panel.innerHTML = "";
 	      if (panel.parentElement) panel.remove();
 	      cards.forEach((card) => {
-	        card.classList.remove("is-expanded");
-	        card.querySelector("[data-service-detail-toggle]")?.setAttribute("aria-expanded", "false");
+	        setServiceToggleState(card, false);
 	      });
 	    };
 	
@@ -4123,8 +4130,7 @@
 	      activeServiceIndex = index;
 	      cards.forEach((candidate) => {
 	        const active = candidate === card;
-	        candidate.classList.toggle("is-expanded", active);
-	        candidate.querySelector("[data-service-detail-toggle]")?.setAttribute("aria-expanded", String(active));
+	        setServiceToggleState(candidate, active);
 	      });
 	      panel.hidden = false;
 	      panel.innerHTML = renderServicePanel(item);
