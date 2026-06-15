@@ -217,9 +217,11 @@
         const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
         const tooltipWidth = Math.min(280, viewportWidth * 0.72);
         const center = rect.left + rect.width / 2;
+        const leftWhenCentered = center - tooltipWidth / 2;
+        const rightWhenCentered = center + tooltipWidth / 2;
         let edge = "center";
-        if (center - tooltipWidth / 2 < 12) edge = "left";
-        if (center + tooltipWidth / 2 > viewportWidth - 12) edge = "right";
+        if (leftWhenCentered < 0 && rect.left < tooltipWidth / 2) edge = "left";
+        if (rightWhenCentered > viewportWidth && viewportWidth - rect.right < tooltipWidth / 2) edge = "right";
         help.dataset.tooltipEdge = edge;
       };
       help.addEventListener("pointerenter", updateAlignment);

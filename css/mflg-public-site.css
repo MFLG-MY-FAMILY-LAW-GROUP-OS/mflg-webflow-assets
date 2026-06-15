@@ -365,7 +365,8 @@ p { margin: 0 0 16px; color: inherit; }
   background: transparent;
   line-height: 1.12;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .button.primary {
   border-color: rgba(115, 162, 217, 0.5);
