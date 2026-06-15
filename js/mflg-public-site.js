@@ -774,6 +774,23 @@
     const recommendationCopy = primaryAction === "calculator"
       ? "This issue often depends on numbers or timing. Start with the planning tool, then open forms or Intake if the result raises questions."
       : "Start with the assigned form path. If the county, children, filing stage, or title does not fit, use Guided Intake before guessing.";
+    const serviceActions = [
+      {
+        key: "forms",
+        label: "View forms for this issue",
+        primary: primaryAction === "forms"
+      },
+      {
+        key: "calculator",
+        label: item.calculatorLabel,
+        primary: primaryAction === "calculator"
+      },
+      {
+        key: "steps",
+        label: "Understand the steps",
+        primary: false
+      }
+    ].sort((a, b) => Number(b.primary) - Number(a.primary));
     return `<div class="guide-row-panel-inner service-row-panel-inner" data-service-default-section="${esc(primaryAction)}">
       <button class="guide-panel-close" type="button" data-service-panel-close aria-label="Close practice area details">Close</button>
       <div class="guide-panel-heading service-panel-heading">
@@ -788,9 +805,7 @@
           <p>${esc(recommendationCopy)}</p>
         </div>
         <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
-          <button class="button ${primaryAction === "forms" ? "primary" : "outline"}" type="button" data-service-action="forms">View forms for this issue</button>
-          <button class="button ${primaryAction === "calculator" ? "primary" : "outline"}" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
-          <button class="button outline" type="button" data-service-action="steps">Understand the steps</button>
+          ${serviceActions.map((action) => `<button class="button ${action.primary ? "primary" : "outline"}" type="button" data-service-action="${esc(action.key)}" data-service-primary-action="${action.primary ? "true" : "false"}">${esc(action.label)}</button>`).join("")}
           <a class="button ghost" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
         </div>
       </div>

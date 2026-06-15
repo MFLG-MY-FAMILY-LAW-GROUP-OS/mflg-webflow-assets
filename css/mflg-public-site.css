@@ -1021,7 +1021,7 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 }
 .service-decision-actions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(280px, 1.55fr) repeat(3, minmax(0, 0.9fr));
   gap: 10px;
   align-items: stretch;
 }
@@ -1031,6 +1031,13 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   min-height: 52px;
   padding-inline: 12px;
   white-space: normal;
+}
+.service-decision-actions .button:not(.primary) {
+  background: rgba(255, 255, 255, 0.74);
+}
+.service-decision-actions [data-service-primary-action="true"] {
+  min-height: 58px;
+  font-size: 0.82rem;
 }
 .service-decision-actions .button.active,
 .service-decision-actions .button[aria-pressed="true"] {
@@ -8894,6 +8901,16 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   }
   .site-nav .nav-cta { margin-top: 8px; }
 	  .split, .grid, .grid.two, .access-roadmap, .guide-command, .guide-card-grid, .guide-issue-grid, .guide-packet-options, .service-calculator-options, .service-decision-actions, .bio-proof, .bio-proof dl, .fee-hero-panel, .fee-grid, .fee-notes, .faq-command, .faq-tools, .faq-layout, .section-journey, .about-profile, .about-proof-grid, .about-process, .policy-grid, .decision-bridge, .intake-process-strip, .planning-guard, .jurisdiction-router, .maintenance-framework, .safe-fields, .forms-router-head, .forms-smart-path { grid-template-columns: 1fr; }
+  .service-decision-actions .button {
+    min-height: 50px;
+  }
+  .service-decision-actions [data-service-primary-action="true"] {
+    min-height: 58px;
+  }
+  .service-decision-actions .button:not(.primary):not([aria-pressed="true"]) {
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: none;
+  }
   .planning-flow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
