@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-fixture-qa-status",
-  "built_at": "2026-06-15T13:45:17.439Z",
+  "built_at": "2026-06-15T13:57:45.814Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,

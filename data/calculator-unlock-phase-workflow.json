@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-unlock-phase-workflow",
-  "built_at": "2026-06-15T13:45:26.312Z",
+  "built_at": "2026-06-15T13:57:51.605Z",
   "public_safety": {
     "internal_unlock_workflow_exposed": false,
     "sensitive_fixture_values_exposed": false,
