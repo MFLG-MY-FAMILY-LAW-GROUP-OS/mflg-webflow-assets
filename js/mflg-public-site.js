@@ -81,7 +81,7 @@
     petition: "The first court paper that asks the court to open a case or make orders.",
     response: "The court paper filed after someone receives a petition or other request.",
     served: "When court papers are formally delivered to someone in the way court rules require.",
-    service: "The formal delivery of court papers to another person.",
+    "service-of-process": "The formal delivery of court papers to another person in the way court rules require.",
     filing: "Giving a document to the court so it becomes part of the court record.",
     decree: "The final court order that resolves a divorce, legal separation, or similar family-law matter.",
     disclosure: "The required exchange of financial or case information between parties.",
@@ -123,8 +123,8 @@
     ["petition", /\bpetition\b/i],
     ["response", /\bresponse\b/i],
     ["decree", /\bdecree\b/i],
+    ["service-of-process", /\bservice of process\b/i],
     ["served", /\bserved\b/i],
-    ["service", /\bservice\b/i],
     ["filing", /\bfiling\b/i],
     ["hearing", /\bhearing\b/i],
     ["existing-orders", /\bexisting orders?\b/i],
@@ -250,7 +250,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260615-titlefix">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260615-tooltipfix">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3177,7 +3177,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260615-titlefix" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260615-tooltipfix" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
