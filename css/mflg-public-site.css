@@ -1019,6 +1019,19 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 .service-forms-viewer {
   margin-top: 0;
 }
+.service-panel-actions {
+  margin-top: 2px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(33, 85, 141, 0.12);
+}
+.service-panel-actions .button {
+  flex: 1 1 190px;
+  justify-content: center;
+  text-align: center;
+}
+.service-panel-actions .button.primary {
+  flex-grow: 1.35;
+}
 .service-decision-actions {
   display: grid;
   grid-template-columns: minmax(280px, 1.55fr) repeat(3, minmax(0, 0.9fr));
@@ -9749,6 +9762,14 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   .guide-progress,
   .guide-card-grid {
     grid-template-columns: 1fr;
+  }
+  .service-panel-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+  .service-panel-actions .button {
+    width: 100%;
   }
   .guide-panel-actions .button {
     width: 100%;

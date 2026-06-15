@@ -859,6 +859,12 @@
         </div>
       </div>
       </div>
+      <div class="guide-panel-actions service-panel-actions" aria-label="Practice area follow-up actions">
+        <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+        <button class="button outline" type="button" data-service-action="forms">View forms again</button>
+        <button class="button outline" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
+        <button class="button ghost guide-panel-close-inline" type="button" data-service-panel-close>Close this issue</button>
+      </div>
     </div>`;
   }
 
