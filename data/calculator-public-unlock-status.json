@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-public-unlock-status",
-  "built_at": "2026-06-15T06:59:34.417Z",
+  "built_at": "2026-06-15T07:10:00.811Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,
