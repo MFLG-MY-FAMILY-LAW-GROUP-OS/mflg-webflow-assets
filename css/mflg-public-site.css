@@ -417,6 +417,44 @@ p { margin: 0 0 16px; color: inherit; }
   font-size: 0.62rem;
   line-height: 1;
 }
+p .legal-term,
+li .legal-term,
+.service-card p .legal-term,
+.service-panel-heading .legal-term,
+.guide-next-step-head p .legal-term,
+.guide-packet-chooser p .legal-term,
+.guide-forms-viewer p .legal-term,
+.service-card-fallback .legal-term {
+  display: inline;
+  max-width: none;
+  border-bottom: 1px dotted rgba(33, 85, 141, 0.34);
+  color: inherit;
+  white-space: normal;
+}
+p .legal-term-help,
+li .legal-term-help,
+.service-card p .legal-term-help,
+.service-panel-heading .legal-term-help,
+.guide-next-step-head p .legal-term-help,
+.guide-packet-chooser p .legal-term-help,
+.guide-forms-viewer p .legal-term-help,
+.service-card-fallback .legal-term-help {
+  width: 14px;
+  height: 14px;
+  margin-left: 3px;
+  vertical-align: text-top;
+  transform: translateY(1px);
+}
+p .legal-term-help::before,
+li .legal-term-help::before,
+.service-card p .legal-term-help::before,
+.service-panel-heading .legal-term-help::before,
+.guide-next-step-head p .legal-term-help::before,
+.guide-packet-chooser p .legal-term-help::before,
+.guide-forms-viewer p .legal-term-help::before,
+.service-card-fallback .legal-term-help::before {
+  font-size: 0.56rem;
+}
 .eyebrow,
 .service-category-chip,
 .faq-category-chip,
@@ -9611,9 +9649,11 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
     padding-right: 0;
   }
   .guide-panel-close {
-    position: static;
+    position: sticky;
+    top: 78px;
     justify-self: start;
     order: -1;
+    margin: -6px 0 -4px;
   }
   .guide-progress,
   .guide-card-grid {
