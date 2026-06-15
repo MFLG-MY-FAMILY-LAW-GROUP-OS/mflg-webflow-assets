@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-regression-comparison-status",
-  "built_at": "2026-06-15T14:18:19.944Z",
+  "built_at": "2026-06-15T15:11:09.956Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,
