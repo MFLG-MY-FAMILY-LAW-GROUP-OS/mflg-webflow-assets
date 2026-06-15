@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-fixture-evidence-status",
-  "built_at": "2026-06-15T07:10:02.553Z",
+  "built_at": "2026-06-15T07:19:59.720Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,
