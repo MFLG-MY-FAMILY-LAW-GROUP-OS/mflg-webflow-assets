@@ -633,10 +633,10 @@
 
 		  function urgencyRouter() {
 		    const urgentRoutes = [
-		      { title: "I was served or have a deadline", route: routeForServiceTitle("Response to Served Papers") },
-		      { title: "A court date is coming up", route: routeForServiceTitle("Hearing Preparation") },
-		      { title: "Parenting time or support is not being followed", route: routeForServiceTitle("Enforcement of Existing Orders") },
-		      { title: "Safety or protective-order issue", route: routeForServiceTitle("Protective Orders / Safety Terms") }
+		      { title: "I was served or have a deadline", action: "Start Intake with deadline context", route: routeForServiceTitle("Response to Served Papers") },
+		      { title: "A court date is coming up", action: "Start Intake with hearing context", route: routeForServiceTitle("Hearing Preparation") },
+		      { title: "Parenting time or support is not being followed", action: "Start Intake with enforcement context", route: routeForServiceTitle("Enforcement of Existing Orders") },
+		      { title: "Safety or protective-order issue", action: "Start Intake with safety context", route: routeForServiceTitle("Protective Orders / Safety Terms") }
 		    ];
 		    return `<div class="urgency-router" aria-label="Fast routes for urgent family-law situations">
 		      <div class="urgency-router-copy">
@@ -645,7 +645,7 @@
 		        <p>You do not need to know the legal label. Choose the closest pressure point and Intake will preserve that context for review.</p>
 		      </div>
 		      <div class="urgency-router-actions">
-		        ${urgentRoutes.map((item) => `<a href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>${esc(item.title)} <span aria-hidden="true">→</span></a>`).join("")}
+		        ${urgentRoutes.map((item) => `<a href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'><strong>${esc(item.title)}</strong><small>${esc(item.action)}</small><span aria-hidden="true">→</span></a>`).join("")}
 		      </div>
 		    </div>`;
 		  }
