@@ -951,7 +951,7 @@
 	        <h3>Use Intake to get matched without choosing the perfect legal label.</h3>
 	        <p>If none of the issue cards feels right, choose the kind of help you need and Guided Intake will carry that context forward.</p>
 	        <a class="service-methods-primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>
-	          Get matched in Intake <span aria-hidden="true">→</span>
+	          Let Intake match my track <span aria-hidden="true">→</span>
 	        </a>
 	      </div>
 	      <div class="service-method-carousel" data-service-method-carousel>
