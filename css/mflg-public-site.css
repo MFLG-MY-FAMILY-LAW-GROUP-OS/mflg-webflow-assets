@@ -221,7 +221,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260615-wrapfix") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260615-termfix") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -10258,4 +10258,46 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
     width: 100%;
     min-width: 0;
   }
+}
+
+.legal-term,
+p .legal-term,
+li .legal-term,
+.service-card p .legal-term,
+.service-panel-heading .legal-term,
+.guide-progress .legal-term,
+.guide-next-step-head .legal-term,
+.guide-packet-chooser .legal-term,
+.guide-forms-viewer .legal-term,
+.guide-card-grid .legal-term,
+.guide-panel-heading .legal-term,
+.guide-row-panel .legal-term,
+.service-card-fallback .legal-term {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 4px;
+  grid-template-columns: none !important;
+  vertical-align: baseline;
+  white-space: nowrap !important;
+}
+
+.legal-term-help,
+p .legal-term-help,
+li .legal-term-help,
+.service-card p .legal-term-help,
+.service-panel-heading .legal-term-help,
+.guide-progress .legal-term-help,
+.guide-next-step-head .legal-term-help,
+.guide-packet-chooser .legal-term-help,
+.guide-forms-viewer .legal-term-help,
+.guide-card-grid .legal-term-help,
+.guide-panel-heading .legal-term-help,
+.guide-row-panel .legal-term-help,
+.service-card-fallback .legal-term-help {
+  flex: 0 0 auto;
+  margin-left: 1px;
+  transform: translateY(0);
 }
