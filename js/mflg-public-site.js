@@ -579,7 +579,7 @@
 	      promise: "Turn the next filing into a clean packet.",
 	      copy: "Petitions, responses, agreements, parenting plans, worksheets, proposed orders, and supporting materials organized for family-court review.",
 	      bestFor: "Forms, packets, agreements",
-	      cta: "Start intake for documents",
+	      cta: "Use document track in Intake",
 	      route: intakeMethodRoute("Document preparation", "Document Preparation / Review", "Prepare and file documents", {
 	        documentTypes: ["New filing / petition"],
 	        serviceNeed: "Document preparation"
@@ -591,7 +591,7 @@
 	      promise: "Know what needs to be filed, served, and tracked.",
 	      copy: "Filing readiness, service coordination, copies, deadline awareness, and practical next steps before a document moves forward.",
 	      bestFor: "Filing, service, deadlines",
-	      cta: "Start intake for filing",
+	      cta: "Use filing track in Intake",
 	      route: intakeMethodRoute("Filing support", "Document Preparation / Review", "Prepare and file documents", {
 	        documentTypes: ["Service documents"],
 	        hasDeadline: "Not sure",
@@ -604,7 +604,7 @@
 	      promise: "Build a settlement path before the conflict hardens.",
 	      copy: "Issue lists, proposed terms, mediation preparation, settlement conference support, and agreement review within licensed scope.",
 	      bestFor: "Mediation, settlement, terms",
-	      cta: "Start intake for settlement",
+	      cta: "Use settlement track in Intake",
 	      route: intakeMethodRoute("Negotiation", "Mediation / ADR / Settlement Help", "Mediation or settlement preparation", {
 	        adrType: ["Negotiation"],
 	        bothPartiesWilling: "Maybe / not sure",
@@ -617,7 +617,7 @@
 	      promise: "Check fit before a hearing or appearance.",
 	      copy: "Eligibility review for limited-scope family-court appearances, hearing preparation, negotiation, mediation, and settlement discussions.",
 	      bestFor: "Hearings, scope review",
-	      cta: "Start intake for court review",
+	      cta: "Use court track in Intake",
 	      route: intakeMethodRoute("Court appearances within licensed scope", "Not Sure", "Court appearance / limited-scope representation", {
 	        hasDeadline: "Yes",
 	        primaryHelpNeeded: "Prepare for court",
