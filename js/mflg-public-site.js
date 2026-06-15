@@ -203,6 +203,29 @@
       if (after) fragment.appendChild(document.createTextNode(after));
       node.parentNode?.replaceChild(fragment, node);
     });
+    alignLegalTermTooltips(host);
+  }
+
+  function alignLegalTermTooltips(container) {
+    const host = container || root;
+    if (!host?.querySelectorAll) return;
+    host.querySelectorAll(".legal-term-help").forEach((help) => {
+      if (help.dataset.tooltipAligned === "true") return;
+      help.dataset.tooltipAligned = "true";
+      const updateAlignment = () => {
+        const rect = help.getBoundingClientRect();
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
+        const tooltipWidth = Math.min(280, viewportWidth * 0.72);
+        const center = rect.left + rect.width / 2;
+        let edge = "center";
+        if (center - tooltipWidth / 2 < 12) edge = "left";
+        if (center + tooltipWidth / 2 > viewportWidth - 12) edge = "right";
+        help.dataset.tooltipEdge = edge;
+      };
+      help.addEventListener("pointerenter", updateAlignment);
+      help.addEventListener("focus", updateAlignment);
+      help.addEventListener("click", updateAlignment);
+    });
   }
 
   function scheduleLegalTermEnhancement(container) {

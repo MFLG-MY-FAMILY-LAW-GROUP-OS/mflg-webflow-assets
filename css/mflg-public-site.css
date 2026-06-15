@@ -538,10 +538,25 @@ li .legal-term-help::before,
   pointer-events: none;
   transition: opacity 0.16s ease, transform 0.16s ease;
 }
+.legal-term-help[data-tooltip-edge="left"]::after {
+  left: 0;
+  transform: translate(0, 4px);
+}
+.legal-term-help[data-tooltip-edge="right"]::after {
+  right: 0;
+  left: auto;
+  transform: translate(0, 4px);
+}
 .legal-term-help:hover::after,
 .legal-term-help:focus-visible::after {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+.legal-term-help[data-tooltip-edge="left"]:hover::after,
+.legal-term-help[data-tooltip-edge="left"]:focus-visible::after,
+.legal-term-help[data-tooltip-edge="right"]:hover::after,
+.legal-term-help[data-tooltip-edge="right"]:focus-visible::after {
+  transform: translate(0, 0);
 }
 .card:has(.legal-term-help),
 .service-card:has(.legal-term-help),
