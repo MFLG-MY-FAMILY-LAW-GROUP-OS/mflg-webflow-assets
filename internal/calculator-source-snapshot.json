@@ -1,0 +1,156 @@
+{
+  "version": "1.0.0-calculator-source-snapshot",
+  "built_at": "2026-06-19T14:08:37.802Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal official-source snapshot for source drift detection and calculator engine preparation."
+  },
+  "child_support_workbook": {
+    "source_url": "https://superiorcourt.maricopa.gov/media/pktkahu4/cs_calculator.xlsx",
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "content_length": 389766,
+    "last_modified": "Wed, 29 Apr 2026 14:31:33 GMT",
+    "workbook_sha256": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f",
+    "workbook_entry_count": 59,
+    "worksheet_count": 15,
+    "sheet_names": [
+      "Worksheet",
+      "AppendixA",
+      "ChildSupportOrder",
+      "Paternity Judgment &amp; Order",
+      "IWO",
+      "Schedule",
+      "Parenting Time",
+      "2011 Schedule",
+      "County",
+      "DefinedNames",
+      "Order of Assignment",
+      "Paragraphs",
+      "PTD",
+      "Tax",
+      "TaxAB"
+    ],
+    "defined_name_count": 98,
+    "formula_count": 1577,
+    "defined_name_hash": "223e97bb0016ac05ac3ce38b",
+    "worksheet_signatures": [
+      {
+        "sheet_entry": "xl/worksheets/sheet1.xml",
+        "sheet_name": "Worksheet",
+        "formula_count": 241,
+        "sheet_formula_hash": "b2bf9a56e4fb72b53f0684c2"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet2.xml",
+        "sheet_name": "AppendixA",
+        "formula_count": 2,
+        "sheet_formula_hash": "1455305610772074e769e82d"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet3.xml",
+        "sheet_name": "ChildSupportOrder",
+        "formula_count": 168,
+        "sheet_formula_hash": "b602657b2f54ebb9c3bd10ae"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet4.xml",
+        "sheet_name": "Paternity Judgment &amp; Order",
+        "formula_count": 213,
+        "sheet_formula_hash": "f4b341a11162f096e97247e2"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet5.xml",
+        "sheet_name": "IWO",
+        "formula_count": 94,
+        "sheet_formula_hash": "5e1ef462b78531ff8562bdd4"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet6.xml",
+        "sheet_name": "Schedule",
+        "formula_count": 0,
+        "sheet_formula_hash": "e3b0c44298fc1c149afbf4c8"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet7.xml",
+        "sheet_name": "Parenting Time",
+        "formula_count": 0,
+        "sheet_formula_hash": "e3b0c44298fc1c149afbf4c8"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet8.xml",
+        "sheet_name": "2011 Schedule",
+        "formula_count": 0,
+        "sheet_formula_hash": "e3b0c44298fc1c149afbf4c8"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet9.xml",
+        "sheet_name": "County",
+        "formula_count": 11,
+        "sheet_formula_hash": "d05e265c16a16c0429703059"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet10.xml",
+        "sheet_name": "DefinedNames",
+        "formula_count": 65,
+        "sheet_formula_hash": "25f9eb7ba96ea51dfedb9dc6"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet11.xml",
+        "sheet_name": "Order of Assignment",
+        "formula_count": 27,
+        "sheet_formula_hash": "bf84cbb511d1c69100ce79ea"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet12.xml",
+        "sheet_name": "Paragraphs",
+        "formula_count": 8,
+        "sheet_formula_hash": "185bc0475b1fc6cd6b932161"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet13.xml",
+        "sheet_name": "PTD",
+        "formula_count": 18,
+        "sheet_formula_hash": "7bfca92f4044d7a3739d9c6b"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet14.xml",
+        "sheet_name": "Tax",
+        "formula_count": 365,
+        "sheet_formula_hash": "f066d339edcb993a3d05beb3"
+      },
+      {
+        "sheet_entry": "xl/worksheets/sheet15.xml",
+        "sheet_name": "TaxAB",
+        "formula_count": 365,
+        "sheet_formula_hash": "b3b2cbb4fb4b0460743d6442"
+      }
+    ]
+  },
+  "spousal_maintenance_calculator": {
+    "source_url": "https://www.superiorcourt.maricopa.gov/app/selfsuffcalc/",
+    "status": 200,
+    "ok": true,
+    "content_type": "text/html",
+    "last_modified": "",
+    "page_sha256": "8b76b365d641ee55ab751f9eb570dd0bf05ee397e0a7ac0a099bbe7396c0fbee",
+    "byte_length": 114161,
+    "current_api_detected": true,
+    "effective_dates_detected": [
+      "1/1/26"
+    ],
+    "api_versions_detected": [
+      "1.18",
+      "2.6",
+      "current"
+    ]
+  },
+  "next_steps": [
+    "Use this snapshot to detect official-source drift before every calculator release check.",
+    "Regenerate formula maps and regression fixtures whenever the workbook hash changes.",
+    "Keep public MFLG formula results locked until source drift, fixtures, regression comparisons, and final approval all pass."
+  ]
+}

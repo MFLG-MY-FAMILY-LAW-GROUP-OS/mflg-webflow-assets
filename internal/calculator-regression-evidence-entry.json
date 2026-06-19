@@ -1,0 +1,98 @@
+{
+  "version": "1.0.0-calculator-regression-evidence-entry",
+  "built_at": "2026-06-19T14:09:05.424Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "source_promotion_status_version": "1.0.0-calculator-approved-fixture-promotion-status",
+  "source_comparison_status_version": "1.0.0-calculator-regression-comparison-status",
+  "source_comparison_plan_version": "1.0.0-calculator-regression-comparison-plan",
+  "intended_input_paths": [
+    "internal/calculator-approved-fixtures.json",
+    "internal/calculator-regression-comparison-results.json"
+  ],
+  "intended_output_path": "internal/calculator-regression-comparison-results.json",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true,
+    "intended_use": "Internal comparison-evidence entry and completion bridge for n8n and CRM OS only."
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Run after approved fixture promotion and before regression comparison status rebuilds.",
+    "allowed_public_fetches": [
+      "/data/calculator-regression-evidence-status.json",
+      "/data/calculator-approved-fixture-promotion-status.json",
+      "/data/calculator-regression-comparison-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-regression-evidence-entry.json",
+      "/internal/calculator-approved-fixtures.json",
+      "/internal/calculator-regression-comparison-results.json",
+      "/internal/calculator-formula-map.json"
+    ],
+    "crm_os_fields": {
+      "calculator_regression_evidence_ready": "data.calculator-regression-evidence-status.summary.regression_evidence_entry_ready",
+      "calculator_complete_regression_evidence": "data.calculator-regression-evidence-status.summary.complete_regression_evidence",
+      "calculator_pending_regression_evidence": "data.calculator-regression-evidence-status.summary.pending_regression_evidence",
+      "calculator_public_results_enabled": "data.calculator-regression-evidence-status.summary.public_results_enabled"
+    }
+  },
+  "comparison_evidence_policy": {
+    "require_promoted_approved_fixture": true,
+    "require_all_output_checks_passed": true,
+    "require_zero_material_mismatches": true,
+    "require_reviewer_approval": true,
+    "public_results_enabled": false
+  },
+  "evidence_items": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "review_order": 1,
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "output_checks_present": 18,
+      "required_output_checks": 18,
+      "passed_output_checks": 18,
+      "material_mismatches": 0,
+      "comparison_evidence_complete": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "review_order": 2,
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "output_checks_present": 18,
+      "required_output_checks": 18,
+      "passed_output_checks": 18,
+      "material_mismatches": 0,
+      "comparison_evidence_complete": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "review_order": 3,
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "output_checks_present": 18,
+      "required_output_checks": 18,
+      "passed_output_checks": 18,
+      "material_mismatches": 0,
+      "comparison_evidence_complete": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "review_order": 4,
+      "promoted_approved_fixture": true,
+      "comparison_result_present": true,
+      "output_checks_present": 18,
+      "required_output_checks": 18,
+      "passed_output_checks": 18,
+      "material_mismatches": 0,
+      "comparison_evidence_complete": true,
+      "public_values_exposed": false
+    }
+  ]
+}

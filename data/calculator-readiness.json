@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-readiness",
-  "built_at": "2026-06-15T15:44:43.609Z",
+  "built_at": "2026-06-19T14:08:37.740Z",
   "checked_at": "2026-06-12T18:19:26.926Z",
   "source_manifests": [
     "data/calculators-catalog.json",
@@ -42,7 +42,7 @@
       "status": "official_link",
       "public_status": "Planning tool",
       "source_monitor_status": "ok",
-      "checked_at": "2026-06-12T18:19:26.926Z",
+      "checked_at": "2026-06-16T02:10:26.803Z",
       "formula_logic_enabled_on_site": true,
       "official_api_runtime_enabled": false,
       "mflg_calculator_enabled_on_site": true,
@@ -68,7 +68,7 @@
       "status": "official_link",
       "public_status": "Planning tool",
       "source_monitor_status": "ok",
-      "checked_at": "2026-06-12T18:19:26.926Z",
+      "checked_at": "2026-06-16T02:10:26.803Z",
       "formula_logic_enabled_on_site": false,
       "official_api_runtime_enabled": true,
       "mflg_calculator_enabled_on_site": true,

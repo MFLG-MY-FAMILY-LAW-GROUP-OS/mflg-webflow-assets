@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-route-intake-map",
-  "built_at": "2026-06-15T15:45:41.749Z",
+  "built_at": "2026-06-19T14:09:10.137Z",
   "source_manifests": [
     "data/form-route-actions.json",
     "data/forms-tools-coverage.json",
@@ -19,11 +19,11 @@
     "raw_etags_exposed": false
   },
   "summary": {
-    "reviewed_route_starts": 20,
-    "routes_with_packet_pages": 16,
-    "routes_with_approved_pdfs": 13,
-    "official_packet_page_actions": 16,
-    "approved_pdf_actions": 74,
+    "reviewed_route_starts": 27,
+    "routes_with_packet_pages": 20,
+    "routes_with_approved_pdfs": 20,
+    "official_packet_page_actions": 20,
+    "approved_pdf_actions": 85,
     "official_sources_ok": 38,
     "official_sources_checked": 38,
     "safe_start_options": 6,
@@ -31,6 +31,164 @@
     "sensitive_public_collection_enabled": false
   },
   "routes": [
+    {
+      "route_start_id": "route-start-azcourts-limited-scope-representation",
+      "packet_id": "azcourts-limited-scope-representation",
+      "packet_label": "Arizona limited scope representation",
+      "route": {
+        "county": "Statewide",
+        "issue": "limited scope representation",
+        "posture": "Representation",
+        "children": "any"
+      },
+      "route_label": "Statewide / limited scope representation / Representation / any",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
+      "primary_official_packet_page_label": "Limited Scope Representation",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Limited Scope Representation (English)",
+          "language": "English",
+          "official_pdf_url": "https://www.azcourts.gov/Portals/0/34/1LimitedScopeRepresentationPacket.pdf?ver=2019-09-16-083706-363"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Statewide",
+        "formIssue": "limited scope representation",
+        "formPosture": "Representation",
+        "formChildren": "any",
+        "approvedPdfPacket": "Arizona limited scope representation",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-cochise-notice-of-intent-to-relocate",
+      "packet_id": "cochise-notice-of-intent-to-relocate",
+      "packet_label": "Cochise notice of intent to relocate",
+      "route": {
+        "county": "Cochise",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "route_label": "Cochise / relocation / Notice of intent to relocate / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://www.cochise.az.gov/DocumentCenter/View/20626/Notice-of-Intent-to-Relocate-Minor-Child-PDF",
+      "primary_official_packet_page_label": "Notice of Intent to Relocate (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Notice of Intent to Relocate (English)",
+          "language": "English",
+          "official_pdf_url": "https://www.cochise.az.gov/DocumentCenter/View/20626/Notice-of-Intent-to-Relocate-Minor-Child-PDF"
+        },
+        {
+          "display_label": "Notice of Intent to Relocate (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://www.cochise.az.gov/DocumentCenter/View/20627/Notice-of-Intent-to-Relocate-Minor-Child---Spanish-PDF"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Cochise",
+        "formIssue": "relocation",
+        "formPosture": "Notice of intent to relocate",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Cochise notice of intent to relocate",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-adult-adoption",
+      "packet_id": "maricopa-adult-adoption",
+      "packet_label": "Maricopa adult adoption",
+      "route": {
+        "county": "Maricopa",
+        "issue": "adult adoption",
+        "posture": "New filing",
+        "children": "adult"
+      },
+      "route_label": "Maricopa / adult adoption / New filing / adult",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/prob_pbaa/",
+      "primary_official_packet_page_label": "Adult Adoption",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Adult Adoption (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/unyodcvo/pbaa1z.pdf"
+        },
+        {
+          "display_label": "Adult Adoption (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vaqjo4pv/pbaa1sz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "adult adoption",
+        "formPosture": "New filing",
+        "formChildren": "adult",
+        "approvedPdfPacket": "Maricopa adult adoption",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-annulment-no-minor-children",
+      "packet_id": "maricopa-annulment-no-minor-children",
+      "packet_label": "Maricopa annulment - no minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "annulment",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "route_label": "Maricopa / annulment / New filing / no-minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_draa1/",
+      "primary_official_packet_page_label": "Marriage Annulment with No Minor Children",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Annulment Without Minor Children (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/lu0fzrip/draa1z.pdf"
+        },
+        {
+          "display_label": "Annulment Without Minor Children (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zd0gkjkx/draa1sz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "annulment",
+        "formPosture": "New filing",
+        "formChildren": "no-minor-children",
+        "approvedPdfPacket": "Maricopa annulment - no minor children",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
     {
       "route_start_id": "route-start-maricopa-consent-decree-agreement",
       "packet_id": "maricopa-consent-decree-agreement",
@@ -339,6 +497,47 @@
         "formPosture": "Register or enforce out-of-state order",
         "formChildren": "any",
         "approvedPdfPacket": "Maricopa registration of foreign family support order",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-grandparent-visitation",
+      "packet_id": "maricopa-grandparent-visitation",
+      "packet_label": "Maricopa grandparent visitation",
+      "route": {
+        "county": "Maricopa",
+        "issue": "grandparent visitation",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / grandparent visitation / New filing / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drgv1/",
+      "primary_official_packet_page_label": "Grandparent Visitation",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Grandparent Visitation (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/nsgbw0wj/drgv1z.pdf"
+        },
+        {
+          "display_label": "Grandparent Visitation (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/hmtfekyr/drgv1sz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "grandparent visitation",
+        "formPosture": "New filing",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa grandparent visitation",
         "sourceType": "Official court source / reviewed route start"
       }
     },
@@ -771,6 +970,76 @@
         "formPosture": "Safety planning",
         "formChildren": "any",
         "approvedPdfPacket": "Maricopa protective order resources",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-pima-notice-of-intent-to-relocate",
+      "packet_id": "pima-notice-of-intent-to-relocate",
+      "packet_label": "Pima notice of intent to relocate",
+      "route": {
+        "county": "Pima",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "route_label": "Pima / relocation / Notice of intent to relocate / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://www.sc.pima.gov/media/vkjby3n3/packet28_notice_of_intent_to_relocate.pdf",
+      "primary_official_packet_page_label": "Notice of Intent to Relocate (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Notice of Intent to Relocate (English)",
+          "language": "English",
+          "official_pdf_url": "https://www.sc.pima.gov/media/vkjby3n3/packet28_notice_of_intent_to_relocate.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Pima",
+        "formIssue": "relocation",
+        "formPosture": "Notice of intent to relocate",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Pima notice of intent to relocate",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-yavapai-relocation-modification-clarification",
+      "packet_id": "yavapai-relocation-modification-clarification",
+      "packet_label": "Yavapai petition for modification, relocation, and clarification",
+      "route": {
+        "county": "Yavapai",
+        "issue": "relocation",
+        "posture": "Modify / clarify",
+        "children": "minor-children"
+      },
+      "route_label": "Yavapai / relocation / Modify / clarify / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://courts.yavapaiaz.gov/files/sharedassets/courts/v/1/self-service-center/documents/drmcv11f.pdf",
+      "primary_official_packet_page_label": "Petition for Modification, Relocation, and Clarification (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Petition for Modification, Relocation, and Clarification (English)",
+          "language": "English",
+          "official_pdf_url": "https://courts.yavapaiaz.gov/files/sharedassets/courts/v/1/self-service-center/documents/drmcv11f.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Yavapai",
+        "formIssue": "relocation",
+        "formPosture": "Modify / clarify",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Yavapai petition for modification, relocation, and clarification",
         "sourceType": "Official court source / reviewed route start"
       }
     }

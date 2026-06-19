@@ -63,6 +63,18 @@ function routeFor(item) {
   if (item.packet_id === "maricopa-protective-order-resources") {
     return { county: "Maricopa", issue: "protective order / safety", posture: "Safety planning", children: "any" };
   }
+  if (item.packet_id === "maricopa-annulment-no-minor-children") {
+    return { county: "Maricopa", issue: "annulment", posture: "New filing", children: "no-minor-children" };
+  }
+  if (item.packet_id === "maricopa-grandparent-visitation") {
+    return { county: "Maricopa", issue: "grandparent visitation", posture: "New filing", children: "minor-children" };
+  }
+  if (item.packet_id === "maricopa-adult-adoption") {
+    return { county: "Maricopa", issue: "adult adoption", posture: "New filing", children: "adult" };
+  }
+  if (item.packet_id === "azcourts-limited-scope-representation") {
+    return { county: "Statewide", issue: "limited scope representation", posture: "Representation", children: "any" };
+  }
   return { county: "Maricopa", issue: "all", posture: "Any posture", children: "any" };
 }
 

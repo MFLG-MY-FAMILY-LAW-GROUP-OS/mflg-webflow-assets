@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-route-actions",
-  "built_at": "2026-06-15T15:44:43.451Z",
+  "built_at": "2026-06-19T14:08:37.631Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/form-packet-page-actions.json",
@@ -16,16 +16,198 @@
     "sensitive_public_collection_enabled": false
   },
   "summary": {
-    "route_actions": 20,
-    "routes_with_packet_pages": 16,
-    "routes_with_approved_pdfs": 13,
-    "official_packet_page_actions": 16,
-    "official_pdf_actions": 74,
+    "route_actions": 27,
+    "routes_with_packet_pages": 20,
+    "routes_with_approved_pdfs": 20,
+    "official_packet_page_actions": 20,
+    "official_pdf_actions": 85,
     "approved_same_origin_pdf_delivery_enabled": true,
     "public_pdf_view_download_enabled": true,
     "direct_cached_downloads_enabled": false
   },
   "routes": [
+    {
+      "packet_id": "azcourts-limited-scope-representation",
+      "packet_label": "Arizona limited scope representation",
+      "route": {
+        "county": "Statewide",
+        "issue": "limited scope representation",
+        "posture": "Representation",
+        "children": "any"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-032",
+          "label": "Limited Scope Representation",
+          "official_packet_page_url": "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
+          "review_id": "maricopa-review-032"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-085",
+          "display_label": "Limited Scope Representation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "1LimitedScopeRepresentationPacket.pdf",
+          "official_pdf_url": "https://www.azcourts.gov/Portals/0/34/1LimitedScopeRepresentationPacket.pdf?ver=2019-09-16-083706-363",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-085",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-085?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 1,
+        "languages": 1
+      },
+      "languages": [
+        "English"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "cochise-notice-of-intent-to-relocate",
+      "packet_label": "Cochise notice of intent to relocate",
+      "route": {
+        "county": "Cochise",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-cochise-pdf-review-001",
+          "display_label": "Notice of Intent to Relocate (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "Notice-of-Intent-to-Relocate-Minor-Child.pdf",
+          "official_pdf_url": "https://www.cochise.az.gov/DocumentCenter/View/20626/Notice-of-Intent-to-Relocate-Minor-Child-PDF",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-cochise-pdf-review-001",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-cochise-pdf-review-001?download=1"
+        },
+        {
+          "action_id": "official-pdf-cochise-pdf-review-002",
+          "display_label": "Notice of Intent to Relocate (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "Notice-of-Intent-to-Relocate-Minor-Child-Spanish.pdf",
+          "official_pdf_url": "https://www.cochise.az.gov/DocumentCenter/View/20627/Notice-of-Intent-to-Relocate-Minor-Child---Spanish-PDF",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-cochise-pdf-review-002",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-cochise-pdf-review-002?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 0,
+        "official_pdfs": 2,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-adult-adoption",
+      "packet_label": "Maricopa adult adoption",
+      "route": {
+        "county": "Maricopa",
+        "issue": "adult adoption",
+        "posture": "New filing",
+        "children": "adult"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-031",
+          "label": "Adult Adoption",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/prob_pbaa/",
+          "review_id": "maricopa-review-031"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-083",
+          "display_label": "Adult Adoption (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "pbaa1z.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/unyodcvo/pbaa1z.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-083",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-083?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-084",
+          "display_label": "Adult Adoption (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "pbaa1sz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vaqjo4pv/pbaa1sz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-084",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-084?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 2,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "maricopa-annulment-no-minor-children",
+      "packet_label": "Maricopa annulment - no minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "annulment",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-029",
+          "label": "Marriage Annulment with No Minor Children",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_draa1/",
+          "review_id": "maricopa-review-029"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-079",
+          "display_label": "Annulment Without Minor Children (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "draa1z.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/lu0fzrip/draa1z.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-079",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-079?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-080",
+          "display_label": "Annulment Without Minor Children (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "draa1sz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zd0gkjkx/draa1sz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-080",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-080?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 2,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
     {
       "packet_id": "maricopa-consent-decree-agreement",
       "packet_label": "Maricopa consent decree and agreement finalization",
@@ -675,6 +857,56 @@
       "public_status": "Packet page and reviewed official PDFs available"
     },
     {
+      "packet_id": "maricopa-grandparent-visitation",
+      "packet_label": "Maricopa grandparent visitation",
+      "route": {
+        "county": "Maricopa",
+        "issue": "grandparent visitation",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [
+        {
+          "action_id": "official-packet-page-maricopa-review-030",
+          "label": "Grandparent Visitation",
+          "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drgv1/",
+          "review_id": "maricopa-review-030"
+        }
+      ],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-081",
+          "display_label": "Grandparent Visitation (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drgv1z.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/nsgbw0wj/drgv1z.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-081",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-081?download=1"
+        },
+        {
+          "action_id": "official-pdf-maricopa-pdf-review-082",
+          "display_label": "Grandparent Visitation (Spanish)",
+          "source_label": "Descargar",
+          "language": "Spanish",
+          "file_name": "drgv1sz.pdf",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/hmtfekyr/drgv1sz.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-082",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-maricopa-pdf-review-082?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 1,
+        "official_pdfs": 2,
+        "languages": 2
+      },
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
       "packet_id": "maricopa-income-withholding-order",
       "packet_label": "Maricopa income withholding order forms",
       "route": {
@@ -1303,6 +1535,70 @@
       "languages": [
         "English",
         "Spanish"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "pima-notice-of-intent-to-relocate",
+      "packet_label": "Pima notice of intent to relocate",
+      "route": {
+        "county": "Pima",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-pima-pdf-review-001",
+          "display_label": "Notice of Intent to Relocate (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "packet28_notice_of_intent_to_relocate.pdf",
+          "official_pdf_url": "https://www.sc.pima.gov/media/vkjby3n3/packet28_notice_of_intent_to_relocate.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-pima-pdf-review-001",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-pima-pdf-review-001?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 0,
+        "official_pdfs": 1,
+        "languages": 1
+      },
+      "languages": [
+        "English"
+      ],
+      "public_status": "Packet page and reviewed official PDFs available"
+    },
+    {
+      "packet_id": "yavapai-relocation-modification-clarification",
+      "packet_label": "Yavapai petition for modification, relocation, and clarification",
+      "route": {
+        "county": "Yavapai",
+        "issue": "relocation",
+        "posture": "Modify / clarify",
+        "children": "minor-children"
+      },
+      "official_packet_pages": [],
+      "official_pdfs": [
+        {
+          "action_id": "official-pdf-yavapai-pdf-review-001",
+          "display_label": "Petition for Modification, Relocation, and Clarification (English)",
+          "source_label": "Download",
+          "language": "English",
+          "file_name": "drmcv11f.pdf",
+          "official_pdf_url": "https://courts.yavapaiaz.gov/files/sharedassets/courts/v/1/self-service-center/documents/drmcv11f.pdf",
+          "site_pdf_view_url": "/api/official-pdf/official-pdf-yavapai-pdf-review-001",
+          "site_pdf_download_url": "/api/official-pdf/official-pdf-yavapai-pdf-review-001?download=1"
+        }
+      ],
+      "counts": {
+        "official_packet_pages": 0,
+        "official_pdfs": 1,
+        "languages": 1
+      },
+      "languages": [
+        "English"
       ],
       "public_status": "Packet page and reviewed official PDFs available"
     }

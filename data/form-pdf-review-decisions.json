@@ -24,15 +24,15 @@
     ]
   },
   "summary": {
-    "explicit_decisions": 74,
-    "approved_official_pdf_actions": 74,
+    "explicit_decisions": 85,
+    "approved_official_pdf_actions": 85,
     "packet_page_only": 0,
     "rejected": 0,
     "pending": 0,
     "public_pdf_actions_enabled_after_validation": true,
     "direct_cached_downloads_enabled": false,
-    "total_decisions": 74,
-    "approved_official_pdf": 74
+    "total_decisions": 85,
+    "approved_official_pdf": 85
   },
   "decisions": [
     {
@@ -700,6 +700,105 @@
       "public_display_label": "Name Change for a Family - CVNCF1Z (English)",
       "form_purpose": "Maricopa name-change packet for a family group; official Maricopa County PDF cvncf1z.pdf.",
       "reason": "Official Maricopa name-change packet reviewed for public same-origin PDF viewing and guide routing."
+    },
+    {
+      "pdf_review_id": "pima-pdf-review-001",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-15T18:00:00.000Z",
+      "public_display_label": "Packet #28 - Notice of Intent to Relocate (English)",
+      "form_purpose": "Pima Packet #28 Notice of Intent to Relocate; official Pima County PDF packet28_notice_of_intent_to_relocate.pdf.",
+      "reason": "Official Pima relocation notice packet reviewed for public same-origin PDF viewing."
+    },
+    {
+      "pdf_review_id": "cochise-pdf-review-001",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-15T18:00:00.000Z",
+      "public_display_label": "Notice of Intent to Relocate Minor Child (English)",
+      "form_purpose": "Cochise Notice of Intent to Relocate Minor Child; official Cochise County PDF Notice-of-Intent-to-Relocate-Minor-Child-PDF.",
+      "reason": "Official Cochise relocation notice packet reviewed for public same-origin PDF viewing."
+    },
+    {
+      "pdf_review_id": "cochise-pdf-review-002",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-15T18:00:00.000Z",
+      "public_display_label": "Notice of Intent to Relocate Minor Child (Spanish)",
+      "form_purpose": "Cochise Notice of Intent to Relocate Minor Child Spanish version; official Cochise County PDF Notice-of-Intent-to-Relocate-Minor-Child---Spanish-PDF.",
+      "reason": "Official Cochise relocation notice packet reviewed for public same-origin PDF viewing."
+    },
+    {
+      "pdf_review_id": "yavapai-pdf-review-001",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-15T18:00:00.000Z",
+      "public_display_label": "Packet #34a - Petition for Modification, Relocation, and Clarification (English)",
+      "form_purpose": "Yavapai Packet 34a Petition for Modification, Relocation and Clarification; official Yavapai County PDF drmcv11f.pdf.",
+      "reason": "Official Yavapai relocation packet reviewed for public same-origin PDF viewing."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-079",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-16T02:51:22.598Z",
+      "public_display_label": "Annulment without minor children - DRAA1Z (English)",
+      "form_purpose": "Maricopa annulment packet for a new filing without minor children; official Maricopa County PDF draa1z.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-080",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-16T02:51:22.598Z",
+      "public_display_label": "Annulment without minor children - DRAA1SZ (Spanish)",
+      "form_purpose": "Maricopa annulment packet for a new filing without minor children; official Maricopa County PDF draa1sz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-081",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-16T02:51:22.598Z",
+      "public_display_label": "Grandparent visitation - DRGV1Z (English)",
+      "form_purpose": "Maricopa grandparent visitation packet; official Maricopa County PDF drgv1z.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-082",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-16T02:51:22.598Z",
+      "public_display_label": "Grandparent visitation - DRGV1SZ (Spanish)",
+      "form_purpose": "Maricopa grandparent visitation packet; official Maricopa County PDF drgv1sz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-083",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-16T02:51:22.598Z",
+      "public_display_label": "Adult adoption - PBAA1Z (English)",
+      "form_purpose": "Maricopa adult adoption packet; official Maricopa County PDF pbaa1z.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-084",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-16T02:51:22.598Z",
+      "public_display_label": "Adult adoption - PBAA1SZ (Spanish)",
+      "form_purpose": "Maricopa adult adoption packet; official Maricopa County PDF pbaa1sz.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-085",
+      "decision": "approve_official_pdf",
+      "reviewer": "Jeremy James Jack JD, LP",
+      "reviewed_at": "2026-06-16T02:51:22.598Z",
+      "public_display_label": "Limited scope representation - 1LIMITEDSCOPEREPRESENTATIONPACKET (English)",
+      "form_purpose": "Arizona statewide limited-scope representation notice packet; official Arizona Judicial Branch PDF 1LimitedScopeRepresentationPacket.pdf.",
+      "reason": "Human review completed; official PDF source, packet context, language, and source monitor status approved for public official-link action."
     }
   ]
 }

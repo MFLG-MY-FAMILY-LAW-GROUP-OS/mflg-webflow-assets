@@ -58,7 +58,8 @@ const reviewedCategoryFit = new Set([
   "Identity",
   "Jurisdiction",
   "Maintenance",
-  "Safety"
+  "Safety",
+  "Scope review"
 ]);
 
 const officialSourceByCategory = new Map([

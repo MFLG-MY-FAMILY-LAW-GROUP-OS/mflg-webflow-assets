@@ -85,6 +85,69 @@ function routeHintsForPacket(packetId) {
     };
   }
 
+  if (packetId === "maricopa-annulment-no-minor-children") {
+    return {
+      county: "Maricopa",
+      issue: "annulment",
+      posture: "New filing",
+      children: "no-minor-children"
+    };
+  }
+
+  if (packetId === "maricopa-grandparent-visitation") {
+    return {
+      county: "Maricopa",
+      issue: "grandparent visitation",
+      posture: "New filing",
+      children: "minor-children"
+    };
+  }
+
+  if (packetId === "maricopa-adult-adoption") {
+    return {
+      county: "Maricopa",
+      issue: "adult adoption",
+      posture: "New filing",
+      children: "adult"
+    };
+  }
+
+  if (packetId === "azcourts-limited-scope-representation") {
+    return {
+      county: "Statewide",
+      issue: "limited scope representation",
+      posture: "Representation",
+      children: "any"
+    };
+  }
+
+  if (packetId === "pima-notice-of-intent-to-relocate") {
+    return {
+      county: "Pima",
+      issue: "relocation",
+      posture: "Notice of intent to relocate",
+      children: "minor-children"
+    };
+  }
+
+  if (packetId === "cochise-notice-of-intent-to-relocate") {
+    return {
+      county: "Cochise",
+      issue: "relocation",
+      posture: "Notice of intent to relocate",
+      children: "minor-children"
+    };
+  }
+
+  if (packetId === "yavapai-relocation-modification-clarification") {
+    return {
+      county: "Yavapai",
+      issue: "relocation",
+      posture: "Modify / clarify",
+      children: "minor-children"
+    };
+  }
+
   return {
     county: "Maricopa",
     issue: "all",

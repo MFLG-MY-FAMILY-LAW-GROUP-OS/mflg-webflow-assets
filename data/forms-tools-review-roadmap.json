@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-review-roadmap",
-  "built_at": "2026-06-15T15:45:41.362Z",
+  "built_at": "2026-06-19T14:09:09.971Z",
   "source_manifests": [
     "data/form-review-queue.json",
     "data/form-pdf-promotion-audit.json",
@@ -20,10 +20,10 @@
     "sensitive_public_collection_enabled": false
   },
   "summary": {
-    "public_packet_page_actions": 16,
+    "public_packet_page_actions": 20,
     "packet_candidates_review_only": 12,
     "public_pdf_actions": 70,
-    "county_source_only": 15,
+    "county_source_only": 12,
     "official_sources_ok": 38,
     "formula_logic_enabled_on_site": true,
     "official_api_runtime_enabled": true,
@@ -36,7 +36,7 @@
       "item_id": "packet-pages-live",
       "label": "Official packet pages",
       "status": "public action available",
-      "count": 16,
+      "count": 20,
       "guidance": "Reviewed representative packets route users to the on-page PDF viewer."
     },
     {
@@ -57,7 +57,7 @@
       "item_id": "county-source-only",
       "label": "County sources without packet review",
       "status": "guided review only",
-      "count": 15,
+      "count": 12,
       "guidance": "Monitored county sources without packet-level review should use Guided Intake instead of sending visitors to an unreviewed packet path."
     },
     {

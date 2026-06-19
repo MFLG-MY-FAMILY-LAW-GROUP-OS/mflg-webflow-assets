@@ -1,0 +1,294 @@
+{
+  "version": "1.0.0-calculator-engine-scaffold",
+  "built_at": "2026-06-19T14:08:41.088Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "source_formula_map_version": "1.0.0-calculator-formula-map",
+  "source_regression_harness_version": "1.0.0-calculator-regression-harness",
+  "source_workbook_sha256": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_raw_formula_text": false,
+    "public_results_enabled": false,
+    "local_formula_engine_enabled": false,
+    "reviewer_approval_required": true,
+    "intended_use": "Internal child-support evaluator scaffold and test gating only."
+  },
+  "summary": {
+    "required_input_fields": 8,
+    "required_output_checks": 18,
+    "formula_cells_available": 1577,
+    "named_outputs_mapped": 18,
+    "excel_functions_used": 32,
+    "excel_functions_supported_in_scaffold": 32,
+    "unsupported_excel_functions": 0,
+    "approved_regression_fixtures": 0,
+    "executable_regression_tests": 0,
+    "material_mismatches": 0,
+    "public_unlock_ready": false
+  },
+  "evaluator_contract": {
+    "input_policy": "Use approved internal fixtures only until public collection and formula outputs are separately approved.",
+    "output_policy": "Do not return child-support dollar results publicly until every approved fixture passes and reviewer approval is recorded.",
+    "comparison_tolerance": {
+      "currency": "exact dollars unless reviewer approves rounding tolerance",
+      "percentage": "exact to workbook output unless reviewer approves rounding tolerance"
+    }
+  },
+  "required_inputs": [
+    {
+      "key": "parent_a_monthly_income",
+      "workbook_target_candidates": [
+        "Worksheet!J51",
+        "Worksheet!M51",
+        "Worksheet!P51",
+        "Worksheet!S51"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "parent_b_monthly_income",
+      "workbook_target_candidates": [
+        "Worksheet!J52",
+        "Worksheet!M52",
+        "Worksheet!P52",
+        "Worksheet!S52"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "children_count",
+      "workbook_target_candidates": [
+        "Worksheet!G64"
+      ],
+      "sensitive": false
+    },
+    {
+      "key": "parenting_plan_type",
+      "workbook_target_candidates": [
+        "DefinedNames!B15"
+      ],
+      "sensitive": false
+    },
+    {
+      "key": "parenting_time_value",
+      "workbook_target_candidates": [
+        "Worksheet!K74",
+        "Worksheet!O74"
+      ],
+      "sensitive": false
+    },
+    {
+      "key": "medical_insurance_cost",
+      "workbook_target_candidates": [
+        "Worksheet!U65",
+        "Worksheet!Y65"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "childcare_cost",
+      "workbook_target_candidates": [
+        "Worksheet!U66",
+        "Worksheet!Y66"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "other_children_adjustment",
+      "workbook_target_candidates": [
+        "Worksheet!G57",
+        "Worksheet!G58"
+      ],
+      "sensitive": true
+    }
+  ],
+  "required_outputs": [
+    {
+      "name": "AdjustedChildSupportIncomeA",
+      "target": "DefinedNames!$B$18",
+      "formula_hash": "3629ce32b4d5355e",
+      "dependency_count": 6,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "AdjustedChildSupportIncomeB",
+      "target": "DefinedNames!$B$19",
+      "formula_hash": "0c82e078611b7645",
+      "dependency_count": 6,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "CombinedAdjustedChildSupportIncome",
+      "target": "DefinedNames!$B$20",
+      "formula_hash": "9388b7f5517b193b",
+      "dependency_count": 2,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "BasicChildSupportObligation",
+      "target": "DefinedNames!$B$21",
+      "formula_hash": "303db47f1d1fb09e",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "CombinedChildSupportObligation",
+      "target": "DefinedNames!$B$25",
+      "formula_hash": "146f1ea118a95450",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ObligationPercentageA",
+      "target": "DefinedNames!$B$26",
+      "formula_hash": "50f8ff445190e7e6",
+      "dependency_count": 3,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ObligationPercentageB",
+      "target": "DefinedNames!$B$27",
+      "formula_hash": "25623852a1f8e9de",
+      "dependency_count": 3,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ObligationShareA",
+      "target": "DefinedNames!$B$28",
+      "formula_hash": "f798a4f1002eaa5a",
+      "dependency_count": 3,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ObligationShareB",
+      "target": "DefinedNames!$B$29",
+      "formula_hash": "4314b4a6df1991ec",
+      "dependency_count": 3,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ParentingTimePercentage",
+      "target": "DefinedNames!$B$31",
+      "formula_hash": "e2ac85197f2c3044",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ParentingTimeAdjustmentA",
+      "target": "DefinedNames!$B$32",
+      "formula_hash": "a85e21bfed49ea2f",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ParentingTimeAdjustmentB",
+      "target": "DefinedNames!$B$33",
+      "formula_hash": "e25e3a0da7011772",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ProportionateChildSupportObligationA",
+      "target": "DefinedNames!$B$34",
+      "formula_hash": "2a9d74c1a2f15beb",
+      "dependency_count": 4,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "ProportionateChildSupportObligationB",
+      "target": "DefinedNames!$B$35",
+      "formula_hash": "d54b5e8c425b021e",
+      "dependency_count": 4,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "SelfSupportReserveAdjustmentA",
+      "target": "DefinedNames!$B$41",
+      "formula_hash": "6484ffb5584fe0a5",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "SelfSupportReserveAdjustmentB",
+      "target": "DefinedNames!$B$42",
+      "formula_hash": "f51c51a7b2933888",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "FinalChildSupportObligationA",
+      "target": "DefinedNames!$B$45",
+      "formula_hash": "ee27555f23721623",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    },
+    {
+      "name": "FinalChildSupportObligationB",
+      "target": "DefinedNames!$B$46",
+      "formula_hash": "e81114ba60fa4636",
+      "dependency_count": 5,
+      "evaluator_status": "waiting_for_fixture"
+    }
+  ],
+  "excel_function_inventory": {
+    "supported": [
+      "ABS",
+      "ADDRESS",
+      "AND",
+      "CHAR",
+      "COLUMN",
+      "COUNTIF",
+      "DAY",
+      "IF",
+      "INDEX",
+      "INDIRECT",
+      "ISBLANK",
+      "ISEVEN",
+      "ISNUMBER",
+      "MATCH",
+      "MAX",
+      "MIN",
+      "MOD",
+      "MONTH",
+      "MROUND",
+      "NOT",
+      "OR",
+      "PROPER",
+      "ROUND",
+      "ROUNDDOWN",
+      "ROW",
+      "SUBSTITUTE",
+      "SUM",
+      "TEXT",
+      "TODAY",
+      "UPPER",
+      "VLOOKUP",
+      "YEAR"
+    ],
+    "unsupported": []
+  },
+  "gates": [
+    {
+      "key": "formula_map_ready",
+      "status": "pass"
+    },
+    {
+      "key": "regression_fixtures_approved",
+      "status": "blocked"
+    },
+    {
+      "key": "unsupported_excel_functions_resolved",
+      "status": "pass"
+    },
+    {
+      "key": "public_results_enabled",
+      "status": "blocked"
+    }
+  ],
+  "next_steps": [
+    "Enter reviewer-approved official-output fixtures into the internal harness.",
+    "Implement formula evaluator functions only for formulas needed by required outputs.",
+    "Run fixture comparisons and record mismatches internally.",
+    "Enable public MFLG results only after approved fixtures pass and reviewer approval is recorded."
+  ]
+}

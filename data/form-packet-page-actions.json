@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-public-packet-page-actions",
-  "built_at": "2026-06-12T03:59:44.092Z",
+  "built_at": "2026-06-16T03:00:21.144Z",
   "source_review_queue": "data/form-review-queue.json",
   "public_safety": {
     "contains_sensitive_user_data": false,
@@ -9,7 +9,7 @@
     "direct_cached_downloads_enabled": false
   },
   "summary": {
-    "official_packet_page_actions": 16,
+    "official_packet_page_actions": 20,
     "review_before_public_action": 12,
     "public_downloads_enabled": false,
     "direct_cached_downloads_enabled": false
@@ -342,6 +342,90 @@
         "county": "Maricopa",
         "issue": "protective order / safety",
         "posture": "Safety planning",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-029",
+      "review_id": "maricopa-review-029",
+      "action_type": "official_packet_page",
+      "label": "Marriage Annulment with No Minor Children",
+      "packet_id": "maricopa-annulment-no-minor-children",
+      "packet_label": "Maricopa annulment - no minor children",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_draa1/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "annulment",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-030",
+      "review_id": "maricopa-review-030",
+      "action_type": "official_packet_page",
+      "label": "Grandparent Visitation",
+      "packet_id": "maricopa-grandparent-visitation",
+      "packet_label": "Maricopa grandparent visitation",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drgv1/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "grandparent visitation",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-031",
+      "review_id": "maricopa-review-031",
+      "action_type": "official_packet_page",
+      "label": "Adult Adoption",
+      "packet_id": "maricopa-adult-adoption",
+      "packet_label": "Maricopa adult adoption",
+      "official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/prob_pbaa/",
+      "route": {
+        "county": "Maricopa",
+        "issue": "adult adoption",
+        "posture": "New filing",
+        "children": "adult"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "direct_cached_download_enabled": false,
+        "public_download_enabled": false
+      }
+    },
+    {
+      "action_id": "official-packet-page-maricopa-review-032",
+      "review_id": "maricopa-review-032",
+      "action_type": "official_packet_page",
+      "label": "Limited Scope Representation",
+      "packet_id": "azcourts-limited-scope-representation",
+      "packet_label": "Arizona limited scope representation",
+      "official_packet_page_url": "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
+      "route": {
+        "county": "Statewide",
+        "issue": "limited scope representation",
+        "posture": "Representation",
         "children": "any"
       },
       "public_safety": {

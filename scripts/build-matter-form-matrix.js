@@ -83,6 +83,13 @@ const P = {
   enforcement: packet("maricopa-enforcement-existing-order", "Enforcement or contempt for existing orders", { issue: "enforcement", posture: "Existing order" }),
   disclosure: packet("maricopa-disclosure-and-hearing-readiness", "Disclosure, exhibit, and hearing readiness", { issue: "disclosure", posture: "Hearing / disclosure" }),
   nameAddress: packet("maricopa-name-address-update", "Name or address update in a court record", { issue: "name or address update", posture: "Existing order" }),
+  annulmentNoChildren: packet("maricopa-annulment-no-minor-children", "Annulment without minor children", { issue: "annulment", posture: "New filing", children: "no-minor-children" }),
+  grandparentVisitation: packet("maricopa-grandparent-visitation", "Grandparent visitation", { issue: "grandparent visitation", posture: "New filing", children: "minor-children" }),
+  adultAdoption: packet("maricopa-adult-adoption", "Adult adoption", { issue: "adoption", posture: "New filing", children: "adult" }),
+  limitedScopeRepresentation: packet("azcourts-limited-scope-representation", "Limited scope representation", { county: "Statewide", issue: "special scope", posture: "Representation", children: "any" }),
+  pimaRelocation: packet("pima-notice-of-intent-to-relocate", "Pima notice of intent to relocate", { county: "Pima", issue: "relocation", posture: "Notice of intent to relocate", children: "minor-children" }),
+  cochiseRelocation: packet("cochise-notice-of-intent-to-relocate", "Cochise notice of intent to relocate", { county: "Cochise", issue: "relocation", posture: "Notice of intent to relocate", children: "minor-children" }),
+  yavapaiRelocation: packet("yavapai-relocation-modification-clarification", "Yavapai petition for modification, relocation, and clarification", { county: "Yavapai", issue: "relocation", posture: "Modify / clarify", children: "minor-children" }),
   foreignSupport: packet("maricopa-foreign-support-order", "Register or enforce foreign support order", { issue: "child support", posture: "Existing order", children: "minor-children" }),
   foreignCustody: packet("maricopa-foreign-custody-order", "Register foreign custody or UCCJEA order", { issue: "parenting", posture: "Existing order", children: "minor-children" }),
   foreignHearing: packet("maricopa-foreign-order-hearing", "Hearing request for registered foreign order", { issue: "foreign order", posture: "Existing order" }),
@@ -110,19 +117,18 @@ function configFor(item) {
   });
 
   if (title.includes("annulment")) {
-    return intakeRequired(
-      "Annulment has its own official packet path. Confirm county and annulment facts before using divorce or separation forms.",
-      "https://superiorcourt.maricopa.gov/llrc/fc_group_28/",
-      P.divorceNoChildren
-    );
+    return standard(P.annulmentNoChildren);
   }
   if (title.includes("relocation")) {
-    return intakeRequired(
-      "Relocation depends on existing orders, distance, timing, and the A.R.S. 25-408 notice rules. Do not guess from a generic parenting packet.",
-      "https://www.azleg.gov/ars/25/00408.htm",
-      P.parenting,
-      P.modification
-    );
+    return {
+      confidence: "county-exact",
+      exact_packets: [P.pimaRelocation, P.cochiseRelocation, P.yavapaiRelocation, P.modification, P.postDecreeTemporary],
+      county_controls_forms: true,
+      default_county: "Maricopa",
+      official_source_url: "https://azcourthelp.org/forms/custody-forms",
+      public_guidance: "Relocation is county-specific. Use the notice packet if your county provides one, or the modification/temporary-order packet path when your county uses that route for relocation.",
+      safety_note: "If this does not sound like your situation, use Guided Intake before choosing forms."
+    };
   }
   if (title.includes("name change")) return standard(P.adultNameNoChild, P.adultNameWithChild, P.minorName, P.familyName, P.nameAddress);
   if (title.includes("divorce") || title.includes("dissolution") || title.includes("legal separation")) return standard(P.divorceNoChildren, P.divorceWithChildren, P.agreement);
@@ -130,7 +136,7 @@ function configFor(item) {
   if (title.includes("temporary orders")) return standard(P.postDecreeTemporary, P.disclosure);
   if (title.includes("property") || title.includes("debt") || title.includes("real estate") || title.includes("home")) return standard(P.agreement, P.propertyEnforcement);
   if (title.includes("uccjea") || title.includes("interstate")) return standard(P.foreignCustody, P.outOfStateCustodyEnforcement, P.foreignHearing);
-  if (title.includes("grandparent") || title.includes("third-party")) return relatedOnly("Grandparent and third-party rights can require specialized pleadings. Use parenting forms only after confirming the correct posture.", P.parenting, P.modification);
+  if (title.includes("grandparent") || title.includes("third-party")) return standard(P.grandparentVisitation);
   if (title.includes("withheld") || title.includes("missed time")) return standard(P.enforcement, P.modification, P.parenting);
   if (category.includes("parenting") || title.includes("legal decision") || title.includes("parenting plan")) return standard(P.parenting, P.modification, P.enforcement);
   if (category.includes("child support") || title.includes("child support") || title.includes("support worksheet") || title.includes("arrears")) return standard(P.parenting, P.foreignSupport, P.withholding, P.enforcement);
@@ -146,7 +152,15 @@ function configFor(item) {
   if (title.includes("filing") || title.includes("service")) return standard(P.response, P.divorceNoChildren, P.divorceWithChildren, P.parenting);
   if (title.includes("hearing") || title.includes("court appearance")) return standard(P.disclosure, P.postDecreeTemporary);
   if (title.includes("financial") || title.includes("exhibit")) return standard(P.disclosure, P.agreement);
-  if (title.includes("adoption") || title.includes("scope") || title.includes("referral")) return intakeRequired("This issue can fall outside standard public family-law packets. Use Guided Intake before choosing forms.", "https://www.azcourts.gov/selfservicecenter/forms");
+  if (title.includes("adoption")) return standard(P.adultAdoption);
+  if (title.includes("scope") || title.includes("referral")) return {
+    confidence: "statewide-generic",
+    exact_packets: [P.limitedScopeRepresentation],
+    county_controls_forms: false,
+    default_county: "Statewide",
+    official_source_url: "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
+    public_guidance: "Limited scope representation uses the statewide court notice packet. Open the packet and confirm whether the attorney will appear for a limited purpose."
+  };
   if (title.includes("not sure")) return { confidence: "statewide-generic", exact_packets: [P.divorceNoChildren, P.divorceWithChildren, P.parenting, P.response], public_guidance: "Use this as a starting point only. Guided Intake is the safest path if the issue is unclear." };
   return intakeRequired("Use Guided Intake before choosing forms for this issue.", "https://www.azcourts.gov/selfservicecenter/forms");
 }

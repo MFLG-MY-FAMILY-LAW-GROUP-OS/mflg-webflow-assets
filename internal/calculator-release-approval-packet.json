@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0-calculator-release-approval-packet",
+  "built_at": "2026-06-19T14:09:04.873Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "contains_internal_engine_outputs": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal calculator release approval packet for n8n and CRM OS only."
+  },
+  "release_decision": {
+    "public_results_enabled": false,
+    "release_packet_complete": true,
+    "blocked_release_items": 0,
+    "reviewer_final_approval_required": false
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Poll after fixture approval, regression comparison, and final-review updates.",
+    "allowed_public_fetches": [
+      "/data/calculator-release-readiness.json",
+      "/data/calculator-public-unlock-status.json",
+      "/data/calculator-operations-alerts.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-release-approval-packet.json",
+      "/internal/calculator-public-unlock-decision.json",
+      "/internal/calculator-regression-comparison-plan.json",
+      "/internal/calculator-formula-map.json"
+    ],
+    "crm_os_fields": {
+      "calculator_release_packet_complete": "data.calculator-release-readiness.summary.release_packet_complete",
+      "calculator_blocked_gates": "data.calculator-release-readiness.summary.blocked_gates",
+      "calculator_blocking_alerts": "data.calculator-release-readiness.summary.blocking_alerts",
+      "calculator_public_results_enabled": "data.calculator-release-readiness.summary.public_results_enabled"
+    }
+  },
+  "required_release_evidence": [
+    "Approved official-output fixture records are complete.",
+    "Regression comparisons are complete with zero material mismatches.",
+    "Final reviewer approval is recorded before any public MFLG-branded result appears.",
+    "Official Arizona calculators remain available as fallback until release approval is complete."
+  ],
+  "blocked_release_items": []
+}

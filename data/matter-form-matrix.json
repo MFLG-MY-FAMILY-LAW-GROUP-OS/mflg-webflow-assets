@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-matter-form-matrix",
-  "built_at": "2026-06-15T15:45:41.837Z",
+  "built_at": "2026-06-19T14:09:10.196Z",
   "source_manifests": [
     "js/mflg-public-site.js",
     "data/form-pdf-public-actions.json",
@@ -14,16 +14,14 @@
   },
   "summary": {
     "matters": 50,
-    "exact_or_county_exact": 43,
-    "statewide_generic": 2,
-    "related_only": 1,
-    "intake_required": 4,
-    "direct_pdf_available": 43,
+    "exact_or_county_exact": 47,
+    "statewide_generic": 3,
+    "related_only": 0,
+    "intake_required": 0,
+    "direct_pdf_available": 48,
     "confidence_counts": {
-      "county-exact": 43,
-      "intake-required": 4,
-      "related-only": 1,
-      "statewide-generic": 2
+      "county-exact": 47,
+      "statewide-generic": 3
     }
   },
   "records": [
@@ -125,29 +123,29 @@
       "matter_id": "annulment",
       "title": "Annulment",
       "category": "Marriage",
-      "confidence": "intake-required",
-      "exact_packet_available": false,
-      "direct_pdf_available": false,
+      "confidence": "county-exact",
+      "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
       "children": "unknown",
       "posture": "unknown",
-      "exact_packets": [],
-      "related_packets": [
+      "exact_packets": [
         {
-          "packet_id": "maricopa-divorce-new-no-children",
-          "label": "Divorce or legal separation without minor children",
+          "packet_id": "maricopa-annulment-no-minor-children",
+          "label": "Annulment without minor children",
           "county": "Maricopa",
-          "issue": "divorce",
+          "issue": "annulment",
           "posture": "New filing",
           "children": "no-minor-children",
           "has_approved_pdf_actions": true
         }
       ],
-      "official_source_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_28/",
+      "related_packets": [],
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
       "official_source_label": "Arizona and county family-law forms",
-      "public_guidance": "Annulment has its own official packet path. Confirm county and annulment facts before using divorce or separation forms.",
-      "intake_fallback_required": true,
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
       "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
@@ -662,21 +660,38 @@
       "matter_id": "relocation",
       "title": "Relocation",
       "category": "Parenting",
-      "confidence": "intake-required",
-      "exact_packet_available": false,
-      "direct_pdf_available": false,
+      "confidence": "county-exact",
+      "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
       "children": "unknown",
       "posture": "unknown",
-      "exact_packets": [],
-      "related_packets": [
+      "exact_packets": [
         {
-          "packet_id": "maricopa-parenting-parentage-support",
-          "label": "Parenting, parentage, and support orders",
-          "county": "Maricopa",
-          "issue": "parenting",
-          "posture": "New filing",
+          "packet_id": "pima-notice-of-intent-to-relocate",
+          "label": "Pima notice of intent to relocate",
+          "county": "Pima",
+          "issue": "relocation",
+          "posture": "Notice of intent to relocate",
+          "children": "minor-children",
+          "has_approved_pdf_actions": true
+        },
+        {
+          "packet_id": "cochise-notice-of-intent-to-relocate",
+          "label": "Cochise notice of intent to relocate",
+          "county": "Cochise",
+          "issue": "relocation",
+          "posture": "Notice of intent to relocate",
+          "children": "minor-children",
+          "has_approved_pdf_actions": true
+        },
+        {
+          "packet_id": "yavapai-relocation-modification-clarification",
+          "label": "Yavapai petition for modification, relocation, and clarification",
+          "county": "Yavapai",
+          "issue": "relocation",
+          "posture": "Modify / clarify",
           "children": "minor-children",
           "has_approved_pdf_actions": true
         },
@@ -688,12 +703,22 @@
           "posture": "Existing order",
           "children": "any",
           "has_approved_pdf_actions": false
+        },
+        {
+          "packet_id": "maricopa-post-decree-temporary-orders",
+          "label": "Post-decree temporary orders",
+          "county": "Maricopa",
+          "issue": "modification",
+          "posture": "Existing order",
+          "children": "any",
+          "has_approved_pdf_actions": true
         }
       ],
-      "official_source_url": "https://www.azleg.gov/ars/25/00408.htm",
+      "related_packets": [],
+      "official_source_url": "https://azcourthelp.org/forms/custody-forms",
       "official_source_label": "Arizona and county family-law forms",
-      "public_guidance": "Relocation depends on existing orders, distance, timing, and the A.R.S. 25-408 notice rules. Do not guess from a generic parenting packet.",
-      "intake_fallback_required": true,
+      "public_guidance": "Relocation is county-specific. Use the notice packet if your county provides one, or the modification/temporary-order packet path when your county uses that route for relocation.",
+      "intake_fallback_required": false,
       "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
@@ -747,38 +772,29 @@
       "matter_id": "grandparent-third-party-rights",
       "title": "Grandparent / Third-Party Rights",
       "category": "Parenting",
-      "confidence": "related-only",
-      "exact_packet_available": false,
-      "direct_pdf_available": false,
+      "confidence": "county-exact",
+      "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
       "children": "unknown",
       "posture": "unknown",
-      "exact_packets": [],
-      "related_packets": [
+      "exact_packets": [
         {
-          "packet_id": "maricopa-parenting-parentage-support",
-          "label": "Parenting, parentage, and support orders",
+          "packet_id": "maricopa-grandparent-visitation",
+          "label": "Grandparent visitation",
           "county": "Maricopa",
-          "issue": "parenting",
+          "issue": "grandparent visitation",
           "posture": "New filing",
           "children": "minor-children",
           "has_approved_pdf_actions": true
-        },
-        {
-          "packet_id": "maricopa-modification-existing-order",
-          "label": "Modification of existing family-court orders",
-          "county": "Maricopa",
-          "issue": "modification",
-          "posture": "Existing order",
-          "children": "any",
-          "has_approved_pdf_actions": false
         }
       ],
+      "related_packets": [],
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
       "official_source_label": "Arizona and county family-law forms",
-      "public_guidance": "Grandparent and third-party rights can require specialized pleadings. Use parenting forms only after confirming the correct posture.",
-      "intake_fallback_required": true,
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
       "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
@@ -2296,38 +2312,58 @@
       "matter_id": "adoption-family-formation-review",
       "title": "Adoption / Family Formation Review",
       "category": "Scope review",
-      "confidence": "intake-required",
-      "exact_packet_available": false,
-      "direct_pdf_available": false,
+      "confidence": "county-exact",
+      "exact_packet_available": true,
+      "direct_pdf_available": true,
       "county_controls_forms": true,
       "default_county": "Maricopa",
       "children": "unknown",
       "posture": "unknown",
-      "exact_packets": [],
+      "exact_packets": [
+        {
+          "packet_id": "maricopa-adult-adoption",
+          "label": "Adult adoption",
+          "county": "Maricopa",
+          "issue": "adoption",
+          "posture": "New filing",
+          "children": "adult",
+          "has_approved_pdf_actions": true
+        }
+      ],
       "related_packets": [],
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
       "official_source_label": "Arizona and county family-law forms",
-      "public_guidance": "This issue can fall outside standard public family-law packets. Use Guided Intake before choosing forms.",
-      "intake_fallback_required": true,
+      "public_guidance": "Use the matched forms only after confirming county, case stage, and whether children are involved.",
+      "intake_fallback_required": false,
       "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },
     {
       "matter_id": "special-scope-referral-review",
       "title": "Special Scope / Referral Review",
       "category": "Scope review",
-      "confidence": "intake-required",
-      "exact_packet_available": false,
-      "direct_pdf_available": false,
-      "county_controls_forms": true,
-      "default_county": "Maricopa",
+      "confidence": "statewide-generic",
+      "exact_packet_available": true,
+      "direct_pdf_available": true,
+      "county_controls_forms": false,
+      "default_county": "Statewide",
       "children": "unknown",
       "posture": "unknown",
-      "exact_packets": [],
+      "exact_packets": [
+        {
+          "packet_id": "azcourts-limited-scope-representation",
+          "label": "Limited scope representation",
+          "county": "Statewide",
+          "issue": "special scope",
+          "posture": "Representation",
+          "children": "any",
+          "has_approved_pdf_actions": true
+        }
+      ],
       "related_packets": [],
-      "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "official_source_url": "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
       "official_source_label": "Arizona and county family-law forms",
-      "public_guidance": "This issue can fall outside standard public family-law packets. Use Guided Intake before choosing forms.",
-      "intake_fallback_required": true,
+      "public_guidance": "Limited scope representation uses the statewide court notice packet. Open the packet and confirm whether the attorney will appear for a limited purpose.",
+      "intake_fallback_required": false,
       "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     }
   ]

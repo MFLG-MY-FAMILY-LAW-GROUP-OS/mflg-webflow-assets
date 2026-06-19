@@ -8,9 +8,9 @@
     "sensitive_public_collection_enabled": false
   },
   "summary": {
-    "total_review_items": 28,
-    "source_ok": 18,
-    "open_official_page_allowed": 16,
+    "total_review_items": 32,
+    "source_ok": 22,
+    "open_official_page_allowed": 20,
     "review_before_public_action": 12,
     "public_downloads_enabled": false
   },
@@ -682,6 +682,106 @@
         "content_type": "text/html; charset=utf-8",
         "sha256": "3124a5985e1f12bfcc11c93d6af9724454f702705bf3fae518d2317e30ace92d"
       }
+    },
+    {
+      "review_id": "maricopa-review-029",
+      "packet_id": "maricopa-annulment-no-minor-children",
+      "packet_label": "Maricopa annulment - no minor children",
+      "candidate_label": "Marriage Annulment with No Minor Children",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_draa1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "monitor": {
+        "checked_at": "2026-06-16T02:58:04.807Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_draa1/",
+        "content_type": "text/html; charset=utf-8"
+      },
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ]
+    },
+    {
+      "review_id": "maricopa-review-030",
+      "packet_id": "maricopa-grandparent-visitation",
+      "packet_label": "Maricopa grandparent visitation",
+      "candidate_label": "Grandparent Visitation",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/fc_drgv1/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "monitor": {
+        "checked_at": "2026-06-16T02:58:04.807Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/fc_drgv1/",
+        "content_type": "text/html; charset=utf-8"
+      },
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ]
+    },
+    {
+      "review_id": "maricopa-review-031",
+      "packet_id": "maricopa-adult-adoption",
+      "packet_label": "Maricopa adult adoption",
+      "candidate_label": "Adult Adoption",
+      "candidate_url": "https://superiorcourt.maricopa.gov/llrc/prob_pbaa/",
+      "source_page_url": "https://superiorcourt.maricopa.gov/llrc/probate-court-forms/",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "monitor": {
+        "checked_at": "2026-06-16T02:58:04.807Z",
+        "http_status": 200,
+        "final_url": "https://superiorcourt.maricopa.gov/llrc/prob_pbaa/",
+        "content_type": "text/html; charset=utf-8"
+      },
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ]
+    },
+    {
+      "review_id": "maricopa-review-032",
+      "packet_id": "azcourts-limited-scope-representation",
+      "packet_label": "Arizona limited scope representation",
+      "candidate_label": "Limited Scope Representation",
+      "candidate_url": "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
+      "source_page_url": "https://www.azcourts.gov/selfservicecenter/forms",
+      "source_status": "source_ok",
+      "public_action_status": "open_official_page_allowed",
+      "public_download_enabled": false,
+      "direct_cached_download_enabled": false,
+      "human_review_status": "pending",
+      "monitor": {
+        "checked_at": "2026-06-16T02:58:04.807Z",
+        "http_status": 200,
+        "final_url": "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
+        "content_type": "text/html; charset=utf-8"
+      },
+      "review_checklist": [
+        "Confirm this page matches the packet group and filing posture.",
+        "Confirm children/no-children, response, agreement, or post-decree routing fit.",
+        "Confirm no stale, duplicate, or misleading packet page is being promoted.",
+        "Confirm whether packet page can be public action while PDF downloads remain disabled."
+      ]
     }
   ]
 }

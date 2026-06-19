@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0-calculator-promotion-control-internal",
+  "built_at": "2026-06-19T14:09:05.098Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "contains_internal_engine_outputs": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal calculator promotion control for n8n and CRM OS only."
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Poll before any calculator promotion toggle is created or changed.",
+    "allowed_public_fetches": [
+      "/data/calculator-promotion-control.json",
+      "/data/calculator-launch-monitoring.json",
+      "/data/calculator-launch-guardrails.json",
+      "/data/calculator-public-unlock-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-promotion-control.json",
+      "/internal/calculator-launch-monitoring-runbook.json",
+      "/internal/calculator-launch-guardrails-runbook.json",
+      "/internal/calculator-formula-map.json"
+    ],
+    "crm_os_fields": {
+      "calculator_promotion_allowed": "data.calculator-promotion-control.summary.promotion_allowed",
+      "calculator_blocked_promotion_checks": "data.calculator-promotion-control.summary.blocked_promotion_checks",
+      "calculator_official_fallback_available": "data.calculator-promotion-control.summary.official_fallback_available",
+      "calculator_public_results_enabled": "data.calculator-promotion-control.summary.public_results_enabled"
+    }
+  },
+  "promotion_decision": {
+    "promotion_allowed": true,
+    "public_results_enabled": false,
+    "blocked_promotion_checks": 0,
+    "final_reviewer_approval_required": true
+  },
+  "promotion_checks": [
+    {
+      "key": "public_unlock_ready",
+      "status": "pass",
+      "required_before_public_release": true,
+      "public_results_enabled": false
+    },
+    {
+      "key": "release_packet_complete",
+      "status": "pass",
+      "required_before_public_release": true,
+      "public_results_enabled": false
+    },
+    {
+      "key": "release_evidence_complete",
+      "status": "pass",
+      "required_before_public_release": true,
+      "public_results_enabled": false
+    },
+    {
+      "key": "launch_guardrails_clear",
+      "status": "pass",
+      "required_before_public_release": true,
+      "public_results_enabled": false
+    },
+    {
+      "key": "monitoring_attention_clear",
+      "status": "pass",
+      "required_before_public_release": true,
+      "public_results_enabled": false
+    },
+    {
+      "key": "official_fallback_available",
+      "status": "pass",
+      "required_before_public_release": true,
+      "public_results_enabled": false
+    }
+  ]
+}

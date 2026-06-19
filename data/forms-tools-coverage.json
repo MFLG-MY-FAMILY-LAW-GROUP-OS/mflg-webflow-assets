@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-coverage",
-  "built_at": "2026-06-15T15:44:43.375Z",
+  "built_at": "2026-06-19T14:08:37.572Z",
   "source_manifests": [
     "data/source-health-public.json",
     "data/form-packet-page-actions.json",
@@ -20,16 +20,72 @@
     "official_sources_checked": 38,
     "official_sources_ok": 38,
     "official_sources_broken": 0,
-    "official_packet_page_actions": 16,
+    "official_packet_page_actions": 20,
     "packet_candidates_review_only": 12,
-    "approved_pdf_actions": 74,
-    "pdf_route_packets": 13,
-    "covered_packet_routes": 20,
+    "approved_pdf_actions": 85,
+    "pdf_route_packets": 20,
+    "covered_packet_routes": 27,
     "approved_same_origin_pdf_delivery_enabled": true,
     "public_downloads_enabled": true,
     "direct_cached_downloads_enabled": false
   },
   "routes": [
+    {
+      "packet_id": "azcourts-limited-scope-representation",
+      "packet_label": "Arizona limited scope representation",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 1,
+      "route": {
+        "county": "Statewide",
+        "issue": "limited scope representation",
+        "posture": "Representation",
+        "children": "any"
+      }
+    },
+    {
+      "packet_id": "cochise-notice-of-intent-to-relocate",
+      "packet_label": "Cochise notice of intent to relocate",
+      "has_official_packet_page": false,
+      "official_packet_page_actions": 0,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 2,
+      "route": {
+        "county": "Cochise",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "maricopa-adult-adoption",
+      "packet_label": "Maricopa adult adoption",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 2,
+      "route": {
+        "county": "Maricopa",
+        "issue": "adult adoption",
+        "posture": "New filing",
+        "children": "adult"
+      }
+    },
+    {
+      "packet_id": "maricopa-annulment-no-minor-children",
+      "packet_label": "Maricopa annulment - no minor children",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 2,
+      "route": {
+        "county": "Maricopa",
+        "issue": "annulment",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      }
+    },
     {
       "packet_id": "maricopa-consent-decree-agreement",
       "packet_label": "Maricopa consent decree and agreement finalization",
@@ -140,6 +196,20 @@
         "issue": "foreign support order",
         "posture": "Register or enforce out-of-state order",
         "children": "any"
+      }
+    },
+    {
+      "packet_id": "maricopa-grandparent-visitation",
+      "packet_label": "Maricopa grandparent visitation",
+      "has_official_packet_page": true,
+      "official_packet_page_actions": 1,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 2,
+      "route": {
+        "county": "Maricopa",
+        "issue": "grandparent visitation",
+        "posture": "New filing",
+        "children": "minor-children"
       }
     },
     {
@@ -308,6 +378,34 @@
         "issue": "protective order / safety",
         "posture": "Safety planning",
         "children": "any"
+      }
+    },
+    {
+      "packet_id": "pima-notice-of-intent-to-relocate",
+      "packet_label": "Pima notice of intent to relocate",
+      "has_official_packet_page": false,
+      "official_packet_page_actions": 0,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 1,
+      "route": {
+        "county": "Pima",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      }
+    },
+    {
+      "packet_id": "yavapai-relocation-modification-clarification",
+      "packet_label": "Yavapai petition for modification, relocation, and clarification",
+      "has_official_packet_page": false,
+      "official_packet_page_actions": 0,
+      "has_approved_pdf_actions": true,
+      "approved_pdf_actions": 1,
+      "route": {
+        "county": "Yavapai",
+        "issue": "relocation",
+        "posture": "Modify / clarify",
+        "children": "minor-children"
       }
     }
   ],

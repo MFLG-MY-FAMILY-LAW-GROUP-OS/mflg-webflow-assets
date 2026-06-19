@@ -57,17 +57,20 @@ for (const record of records) {
   }
 }
 
-if (requireRecord("annulment").confidence !== "intake-required") fail("annulment must remain intake-required");
-if (requireRecord("relocation").confidence !== "intake-required") fail("relocation must remain intake-required");
+if (requireRecord("relocation").confidence !== "county-exact") fail("relocation must remain county-exact");
 if (requireRecord("family-case-name-change").confidence !== "county-exact") fail("name change must remain county-exact");
-if (requireRecord("grandparent-third-party-rights").confidence !== "related-only") fail("grandparent/third-party rights must remain related-only");
+if (requireRecord("grandparent-third-party-rights").confidence !== "county-exact") fail("grandparent/third-party rights must now be county-exact");
+if (requireRecord("adoption-family-formation-review").confidence !== "county-exact") fail("adoption/family formation must now be county-exact");
+if (requireRecord("special-scope-referral-review").confidence !== "statewide-generic") fail("special-scope/referral must now be statewide-generic");
+if (requireRecord("annulment").confidence !== "county-exact") fail("annulment must now be county-exact");
 
 [
-  "Maricopa County forms",
+  "Open reviewed court forms here.",
   "Check first",
-  "guide-county-gate",
-  "data-guide-county-choice",
-  "data-guide-county-confirm"
+  "Forms bridge",
+  "Open matched forms",
+  "data-guide-forms-route",
+  "data-guide-packet-label"
 ].forEach((marker) => {
   if (!publicJs.includes(marker)) fail(`public JS missing marker: ${marker}`);
 });
@@ -102,12 +105,10 @@ if (jurisdiction.summary?.unique_arizona_counties !== 15) {
 }
 
 [
-  "data-guide-county-source",
-  "County forms will update after you choose.",
-  "data-guide-county-intake",
-  "Confirm ${value} County in Intake",
-  "officialCountySourceFor",
-  "[data-guide-pdf-title]"
+  "Open matched forms",
+  "Forms & Calculators",
+  "form flow stays in one place.",
+  "data-guide-packet-label"
 ].forEach((marker) => {
   if (!publicJs.includes(marker)) fail(`public JS missing marker: ${marker}`);
 });

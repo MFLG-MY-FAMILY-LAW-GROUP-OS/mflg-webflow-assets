@@ -58,10 +58,11 @@
       "filing_posture": "unknown",
       "children_required": "unknown",
       "label": "AZCourtHelp AZ Forms",
-      "official_url": "https://azcourthelp.org/forms",
-      "source_page_url": "https://azcourthelp.org/forms",
+      "official_url": "https://azcourthelp.org/forms/custody-forms",
+      "source_page_url": "https://azcourthelp.org/forms/custody-forms",
       "cached_file_url": null,
       "status": "fallback",
+      "monitoring_status": "access_restricted",
       "last_checked_at": null,
       "last_verified_at": null,
       "hash": null
@@ -79,6 +80,7 @@
       "source_page_url": "https://www.azcourts.gov/selfservicecenter/forms",
       "cached_file_url": null,
       "status": "fallback",
+      "monitoring_status": "access_restricted",
       "last_checked_at": null,
       "last_verified_at": null,
       "hash": null
@@ -111,10 +113,11 @@
       "filing_posture": "unknown",
       "children_required": "unknown",
       "label": "AZCourtHelp AZ Forms",
-      "official_url": "https://azcourthelp.org/forms",
-      "source_page_url": "https://azcourthelp.org/forms",
+      "official_url": "https://azcourthelp.org/forms/custody-forms",
+      "source_page_url": "https://azcourthelp.org/forms/custody-forms",
       "cached_file_url": null,
       "status": "fallback",
+      "monitoring_status": "access_restricted",
       "last_checked_at": null,
       "last_verified_at": null,
       "hash": null
@@ -383,6 +386,7 @@
       "source_page_url": "https://www.mohavecourts.com/forms-form-kits-page/families-children-forms-kits",
       "cached_file_url": null,
       "status": "fallback",
+      "monitoring_status": "access_restricted",
       "last_checked_at": null,
       "last_verified_at": null,
       "hash": null

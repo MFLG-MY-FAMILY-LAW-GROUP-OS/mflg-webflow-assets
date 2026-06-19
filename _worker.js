@@ -101,11 +101,19 @@ async function officialPdf(request, env, actionId) {
     });
   }
 
-  const sourceResponse = await fetch(action.official_pdf_url, {
-    headers: { "user-agent": "MFLG approved court PDF viewer" }
-  });
+  let sourceResponse;
+  try {
+    sourceResponse = await fetch(action.official_pdf_url, {
+      headers: { "user-agent": "MFLG approved court PDF viewer" }
+    });
+  } catch (_) {
+    return new Response(JSON.stringify({ error: "official_pdf_source_unavailable" }), {
+      status: 502,
+      headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
+    });
+  }
   if (!sourceResponse.ok) {
-    return new Response(JSON.stringify({ error: "pdf_source_unavailable" }), {
+    return new Response(JSON.stringify({ error: "official_pdf_source_unavailable" }), {
       status: 502,
       headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
     });

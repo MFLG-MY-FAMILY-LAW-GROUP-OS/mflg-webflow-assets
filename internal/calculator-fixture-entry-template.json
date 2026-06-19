@@ -1,0 +1,915 @@
+{
+  "version": "1.0.0-calculator-fixture-entry-template",
+  "built_at": "2026-06-19T14:08:41.142Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "source_regression_harness_version": "1.0.0-calculator-regression-harness",
+  "source_engine_scaffold_version": "1.0.0-calculator-engine-scaffold",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_raw_formula_text": false,
+    "contains_real_fixture_values": false,
+    "public_results_enabled": false,
+    "local_formula_engine_enabled": false,
+    "reviewer_approval_required": true,
+    "intended_use": "Internal official-output fixture entry template only."
+  },
+  "summary": {
+    "fixture_templates": 4,
+    "required_input_fields": 8,
+    "required_output_fields": 18,
+    "approved_fixture_values": 0,
+    "ready_for_public_results": false
+  },
+  "fixture_templates": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "status": "needs_official_output",
+      "purpose": "Basic one-child worksheet path with both parents' monthly income and no special adjustments.",
+      "reviewer": {
+        "reviewed_by": "",
+        "reviewed_at": "",
+        "official_calculator_version": "",
+        "official_calculator_source": "Arizona official child-support calculator",
+        "approval_status": "not_approved"
+      },
+      "inputs": {
+        "parent_a_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J51",
+            "Worksheet!M51",
+            "Worksheet!P51",
+            "Worksheet!S51"
+          ]
+        },
+        "parent_b_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J52",
+            "Worksheet!M52",
+            "Worksheet!P52",
+            "Worksheet!S52"
+          ]
+        },
+        "children_count": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!G64"
+          ]
+        },
+        "parenting_plan_type": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "DefinedNames!B15"
+          ]
+        },
+        "parenting_time_value": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!K74",
+            "Worksheet!O74"
+          ]
+        },
+        "medical_insurance_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U65",
+            "Worksheet!Y65"
+          ]
+        },
+        "childcare_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U66",
+            "Worksheet!Y66"
+          ]
+        },
+        "other_children_adjustment": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!G57",
+            "Worksheet!G58"
+          ]
+        }
+      },
+      "expected_outputs": {
+        "AdjustedChildSupportIncomeA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$18",
+          "formula_hash": "3629ce32b4d5355e",
+          "reviewer_note": ""
+        },
+        "AdjustedChildSupportIncomeB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$19",
+          "formula_hash": "0c82e078611b7645",
+          "reviewer_note": ""
+        },
+        "CombinedAdjustedChildSupportIncome": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$20",
+          "formula_hash": "9388b7f5517b193b",
+          "reviewer_note": ""
+        },
+        "BasicChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$21",
+          "formula_hash": "303db47f1d1fb09e",
+          "reviewer_note": ""
+        },
+        "CombinedChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$25",
+          "formula_hash": "146f1ea118a95450",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageA": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$26",
+          "formula_hash": "50f8ff445190e7e6",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageB": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$27",
+          "formula_hash": "25623852a1f8e9de",
+          "reviewer_note": ""
+        },
+        "ObligationShareA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$28",
+          "formula_hash": "f798a4f1002eaa5a",
+          "reviewer_note": ""
+        },
+        "ObligationShareB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$29",
+          "formula_hash": "4314b4a6df1991ec",
+          "reviewer_note": ""
+        },
+        "ParentingTimePercentage": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$31",
+          "formula_hash": "e2ac85197f2c3044",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$32",
+          "formula_hash": "a85e21bfed49ea2f",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$33",
+          "formula_hash": "e25e3a0da7011772",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$34",
+          "formula_hash": "2a9d74c1a2f15beb",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$35",
+          "formula_hash": "d54b5e8c425b021e",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$41",
+          "formula_hash": "6484ffb5584fe0a5",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$42",
+          "formula_hash": "f51c51a7b2933888",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$45",
+          "formula_hash": "ee27555f23721623",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$46",
+          "formula_hash": "e81114ba60fa4636",
+          "reviewer_note": ""
+        }
+      },
+      "acceptance": {
+        "required_output_checks": 18,
+        "allowed_material_mismatches": 0,
+        "notes": "Enter only reviewer-approved official calculator values. Do not place real client identifiers in this file."
+      }
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path where parenting-time adjustment changes the proportional obligation.",
+      "reviewer": {
+        "reviewed_by": "",
+        "reviewed_at": "",
+        "official_calculator_version": "",
+        "official_calculator_source": "Arizona official child-support calculator",
+        "approval_status": "not_approved"
+      },
+      "inputs": {
+        "parent_a_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J51",
+            "Worksheet!M51",
+            "Worksheet!P51",
+            "Worksheet!S51"
+          ]
+        },
+        "parent_b_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J52",
+            "Worksheet!M52",
+            "Worksheet!P52",
+            "Worksheet!S52"
+          ]
+        },
+        "children_count": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!G64"
+          ]
+        },
+        "parenting_plan_type": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "DefinedNames!B15"
+          ]
+        },
+        "parenting_time_value": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!K74",
+            "Worksheet!O74"
+          ]
+        },
+        "medical_insurance_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U65",
+            "Worksheet!Y65"
+          ]
+        },
+        "childcare_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U66",
+            "Worksheet!Y66"
+          ]
+        },
+        "other_children_adjustment": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!G57",
+            "Worksheet!G58"
+          ]
+        }
+      },
+      "expected_outputs": {
+        "AdjustedChildSupportIncomeA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$18",
+          "formula_hash": "3629ce32b4d5355e",
+          "reviewer_note": ""
+        },
+        "AdjustedChildSupportIncomeB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$19",
+          "formula_hash": "0c82e078611b7645",
+          "reviewer_note": ""
+        },
+        "CombinedAdjustedChildSupportIncome": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$20",
+          "formula_hash": "9388b7f5517b193b",
+          "reviewer_note": ""
+        },
+        "BasicChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$21",
+          "formula_hash": "303db47f1d1fb09e",
+          "reviewer_note": ""
+        },
+        "CombinedChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$25",
+          "formula_hash": "146f1ea118a95450",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageA": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$26",
+          "formula_hash": "50f8ff445190e7e6",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageB": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$27",
+          "formula_hash": "25623852a1f8e9de",
+          "reviewer_note": ""
+        },
+        "ObligationShareA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$28",
+          "formula_hash": "f798a4f1002eaa5a",
+          "reviewer_note": ""
+        },
+        "ObligationShareB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$29",
+          "formula_hash": "4314b4a6df1991ec",
+          "reviewer_note": ""
+        },
+        "ParentingTimePercentage": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$31",
+          "formula_hash": "e2ac85197f2c3044",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$32",
+          "formula_hash": "a85e21bfed49ea2f",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$33",
+          "formula_hash": "e25e3a0da7011772",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$34",
+          "formula_hash": "2a9d74c1a2f15beb",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$35",
+          "formula_hash": "d54b5e8c425b021e",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$41",
+          "formula_hash": "6484ffb5584fe0a5",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$42",
+          "formula_hash": "f51c51a7b2933888",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$45",
+          "formula_hash": "ee27555f23721623",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$46",
+          "formula_hash": "e81114ba60fa4636",
+          "reviewer_note": ""
+        }
+      },
+      "acceptance": {
+        "required_output_checks": 18,
+        "allowed_material_mismatches": 0,
+        "notes": "Enter only reviewer-approved official calculator values. Do not place real client identifiers in this file."
+      }
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path that exercises the self-support reserve branch.",
+      "reviewer": {
+        "reviewed_by": "",
+        "reviewed_at": "",
+        "official_calculator_version": "",
+        "official_calculator_source": "Arizona official child-support calculator",
+        "approval_status": "not_approved"
+      },
+      "inputs": {
+        "parent_a_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J51",
+            "Worksheet!M51",
+            "Worksheet!P51",
+            "Worksheet!S51"
+          ]
+        },
+        "parent_b_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J52",
+            "Worksheet!M52",
+            "Worksheet!P52",
+            "Worksheet!S52"
+          ]
+        },
+        "children_count": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!G64"
+          ]
+        },
+        "parenting_plan_type": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "DefinedNames!B15"
+          ]
+        },
+        "parenting_time_value": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!K74",
+            "Worksheet!O74"
+          ]
+        },
+        "medical_insurance_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U65",
+            "Worksheet!Y65"
+          ]
+        },
+        "childcare_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U66",
+            "Worksheet!Y66"
+          ]
+        },
+        "other_children_adjustment": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!G57",
+            "Worksheet!G58"
+          ]
+        }
+      },
+      "expected_outputs": {
+        "AdjustedChildSupportIncomeA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$18",
+          "formula_hash": "3629ce32b4d5355e",
+          "reviewer_note": ""
+        },
+        "AdjustedChildSupportIncomeB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$19",
+          "formula_hash": "0c82e078611b7645",
+          "reviewer_note": ""
+        },
+        "CombinedAdjustedChildSupportIncome": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$20",
+          "formula_hash": "9388b7f5517b193b",
+          "reviewer_note": ""
+        },
+        "BasicChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$21",
+          "formula_hash": "303db47f1d1fb09e",
+          "reviewer_note": ""
+        },
+        "CombinedChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$25",
+          "formula_hash": "146f1ea118a95450",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageA": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$26",
+          "formula_hash": "50f8ff445190e7e6",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageB": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$27",
+          "formula_hash": "25623852a1f8e9de",
+          "reviewer_note": ""
+        },
+        "ObligationShareA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$28",
+          "formula_hash": "f798a4f1002eaa5a",
+          "reviewer_note": ""
+        },
+        "ObligationShareB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$29",
+          "formula_hash": "4314b4a6df1991ec",
+          "reviewer_note": ""
+        },
+        "ParentingTimePercentage": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$31",
+          "formula_hash": "e2ac85197f2c3044",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$32",
+          "formula_hash": "a85e21bfed49ea2f",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$33",
+          "formula_hash": "e25e3a0da7011772",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$34",
+          "formula_hash": "2a9d74c1a2f15beb",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$35",
+          "formula_hash": "d54b5e8c425b021e",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$41",
+          "formula_hash": "6484ffb5584fe0a5",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$42",
+          "formula_hash": "f51c51a7b2933888",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$45",
+          "formula_hash": "ee27555f23721623",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$46",
+          "formula_hash": "e81114ba60fa4636",
+          "reviewer_note": ""
+        }
+      },
+      "acceptance": {
+        "required_output_checks": 18,
+        "allowed_material_mismatches": 0,
+        "notes": "Enter only reviewer-approved official calculator values. Do not place real client identifiers in this file."
+      }
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path that exercises other-children adjustment fields.",
+      "reviewer": {
+        "reviewed_by": "",
+        "reviewed_at": "",
+        "official_calculator_version": "",
+        "official_calculator_source": "Arizona official child-support calculator",
+        "approval_status": "not_approved"
+      },
+      "inputs": {
+        "parent_a_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J51",
+            "Worksheet!M51",
+            "Worksheet!P51",
+            "Worksheet!S51"
+          ]
+        },
+        "parent_b_monthly_income": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!J52",
+            "Worksheet!M52",
+            "Worksheet!P52",
+            "Worksheet!S52"
+          ]
+        },
+        "children_count": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!G64"
+          ]
+        },
+        "parenting_plan_type": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "DefinedNames!B15"
+          ]
+        },
+        "parenting_time_value": {
+          "value": null,
+          "source_note": "",
+          "sensitive": false,
+          "workbook_target_candidates": [
+            "Worksheet!K74",
+            "Worksheet!O74"
+          ]
+        },
+        "medical_insurance_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U65",
+            "Worksheet!Y65"
+          ]
+        },
+        "childcare_cost": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!U66",
+            "Worksheet!Y66"
+          ]
+        },
+        "other_children_adjustment": {
+          "value": null,
+          "source_note": "",
+          "sensitive": true,
+          "workbook_target_candidates": [
+            "Worksheet!G57",
+            "Worksheet!G58"
+          ]
+        }
+      },
+      "expected_outputs": {
+        "AdjustedChildSupportIncomeA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$18",
+          "formula_hash": "3629ce32b4d5355e",
+          "reviewer_note": ""
+        },
+        "AdjustedChildSupportIncomeB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$19",
+          "formula_hash": "0c82e078611b7645",
+          "reviewer_note": ""
+        },
+        "CombinedAdjustedChildSupportIncome": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$20",
+          "formula_hash": "9388b7f5517b193b",
+          "reviewer_note": ""
+        },
+        "BasicChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$21",
+          "formula_hash": "303db47f1d1fb09e",
+          "reviewer_note": ""
+        },
+        "CombinedChildSupportObligation": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$25",
+          "formula_hash": "146f1ea118a95450",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageA": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$26",
+          "formula_hash": "50f8ff445190e7e6",
+          "reviewer_note": ""
+        },
+        "ObligationPercentageB": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$27",
+          "formula_hash": "25623852a1f8e9de",
+          "reviewer_note": ""
+        },
+        "ObligationShareA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$28",
+          "formula_hash": "f798a4f1002eaa5a",
+          "reviewer_note": ""
+        },
+        "ObligationShareB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$29",
+          "formula_hash": "4314b4a6df1991ec",
+          "reviewer_note": ""
+        },
+        "ParentingTimePercentage": {
+          "official_value": null,
+          "output_type": "percentage",
+          "workbook_target": "DefinedNames!$B$31",
+          "formula_hash": "e2ac85197f2c3044",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$32",
+          "formula_hash": "a85e21bfed49ea2f",
+          "reviewer_note": ""
+        },
+        "ParentingTimeAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$33",
+          "formula_hash": "e25e3a0da7011772",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$34",
+          "formula_hash": "2a9d74c1a2f15beb",
+          "reviewer_note": ""
+        },
+        "ProportionateChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$35",
+          "formula_hash": "d54b5e8c425b021e",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$41",
+          "formula_hash": "6484ffb5584fe0a5",
+          "reviewer_note": ""
+        },
+        "SelfSupportReserveAdjustmentB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$42",
+          "formula_hash": "f51c51a7b2933888",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationA": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$45",
+          "formula_hash": "ee27555f23721623",
+          "reviewer_note": ""
+        },
+        "FinalChildSupportObligationB": {
+          "official_value": null,
+          "output_type": "currency_or_number",
+          "workbook_target": "DefinedNames!$B$46",
+          "formula_hash": "e81114ba60fa4636",
+          "reviewer_note": ""
+        }
+      },
+      "acceptance": {
+        "required_output_checks": 18,
+        "allowed_material_mismatches": 0,
+        "notes": "Enter only reviewer-approved official calculator values. Do not place real client identifiers in this file."
+      }
+    }
+  ],
+  "next_steps": [
+    "Run each scenario in the official Arizona child-support calculator.",
+    "Enter official outputs into a reviewed internal fixture file.",
+    "Record official calculator version/source and reviewer approval.",
+    "Run local engine comparisons only after fixture approval."
+  ]
+}

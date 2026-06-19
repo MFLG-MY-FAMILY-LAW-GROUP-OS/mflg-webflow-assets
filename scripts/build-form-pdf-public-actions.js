@@ -96,6 +96,41 @@ const publicNameByFile = {
     stage: "Children",
     description: "Court order form connected to parenting time and legal decision-making."
   },
+  "draa1z.pdf": {
+    name: "Annulment Without Minor Children",
+    stage: "Start here",
+    description: "Maricopa annulment packet for a new filing without minor children."
+  },
+  "draa1sz.pdf": {
+    name: "Annulment Without Minor Children",
+    stage: "Start here",
+    description: "Maricopa annulment packet for a new filing without minor children."
+  },
+  "drgv1z.pdf": {
+    name: "Grandparent Visitation",
+    stage: "Start here",
+    description: "Maricopa packet to establish grandparent visitation."
+  },
+  "drgv1sz.pdf": {
+    name: "Grandparent Visitation",
+    stage: "Start here",
+    description: "Maricopa packet to establish grandparent visitation."
+  },
+  "pbaa1z.pdf": {
+    name: "Adult Adoption",
+    stage: "Start here",
+    description: "Maricopa packet to request adoption of an adult."
+  },
+  "pbaa1sz.pdf": {
+    name: "Adult Adoption",
+    stage: "Start here",
+    description: "Maricopa packet to request adoption of an adult."
+  },
+  "1limitedscoperepresentationpacket.pdf": {
+    name: "Limited Scope Representation",
+    stage: "Start here",
+    description: "Arizona packet for notice of limited scope representation."
+  },
   "drdsc30pz.pdf": {
     name: "Summary Consent Decree Packet Instructions",
     stage: "Agreement",
@@ -165,6 +200,26 @@ const publicNameByFile = {
     name: "Family Name Change Packet",
     stage: "Family name change",
     description: "Maricopa packet for changing names for more than one family member."
+  },
+  "packet28_notice_of_intent_to_relocate.pdf": {
+    name: "Notice of Intent to Relocate",
+    stage: "Start here",
+    description: "Pima County packet for relocating a minor child."
+  },
+  "notice-of-intent-to-relocate-minor-child.pdf": {
+    name: "Notice of Intent to Relocate",
+    stage: "Start here",
+    description: "Cochise County packet for relocating a minor child."
+  },
+  "notice-of-intent-to-relocate-minor-child-spanish.pdf": {
+    name: "Notice of Intent to Relocate",
+    stage: "Start here",
+    description: "Cochise County Spanish packet for relocating a minor child."
+  },
+  "drmcv11f.pdf": {
+    name: "Petition for Modification, Relocation, and Clarification",
+    stage: "File with court",
+    description: "Yavapai County packet for modification, relocation, and clarification of legal decision-making or parenting time."
   }
 };
 

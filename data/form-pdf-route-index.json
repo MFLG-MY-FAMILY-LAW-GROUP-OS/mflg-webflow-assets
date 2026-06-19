@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-pdf-route-index",
-  "built_at": "2026-06-15T15:44:43.180Z",
+  "built_at": "2026-06-19T14:08:37.451Z",
   "source_manifest": "data/form-pdf-public-actions.json",
   "public_safety": {
     "contains_sensitive_user_data": false,
@@ -10,14 +10,124 @@
     "cached_downloads_enabled": false
   },
   "summary": {
-    "route_packets": 13,
-    "official_pdf_actions": 74,
+    "route_packets": 20,
+    "official_pdf_actions": 85,
     "public_pdf_actions_enabled": true,
     "same_origin_pdf_delivery_enabled": true,
     "public_pdf_view_download_enabled": true,
     "direct_cached_downloads_enabled": false
   },
   "packets": [
+    {
+      "packet_id": "azcourts-limited-scope-representation",
+      "packet_label": "Arizona limited scope representation",
+      "page_label": "Limited Scope Representation",
+      "route_key": "forms-tools-statewide-limited-scope-representation-representation-any",
+      "route": {
+        "county": "Statewide",
+        "issue": "limited scope representation",
+        "posture": "Representation",
+        "children": "any"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-085"
+      ],
+      "languages": [
+        "English"
+      ]
+    },
+    {
+      "packet_id": "cochise-notice-of-intent-to-relocate",
+      "packet_label": "Cochise notice of intent to relocate",
+      "page_label": "Notice of Intent to Relocate Minor Child",
+      "route_key": "forms-tools-cochise-relocation-notice-of-intent-to-relocate-minor-children",
+      "route": {
+        "county": "Cochise",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-cochise-pdf-review-001",
+        "official-pdf-cochise-pdf-review-002"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-adult-adoption",
+      "packet_label": "Maricopa adult adoption",
+      "page_label": "Adult Adoption",
+      "route_key": "forms-tools-maricopa-adult-adoption-new-filing-adult",
+      "route": {
+        "county": "Maricopa",
+        "issue": "adult adoption",
+        "posture": "New filing",
+        "children": "adult"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-083",
+        "official-pdf-maricopa-pdf-review-084"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-annulment-no-minor-children",
+      "packet_label": "Maricopa annulment - no minor children",
+      "page_label": "Marriage Annulment with No Minor Children",
+      "route_key": "forms-tools-maricopa-annulment-new-filing-no-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "annulment",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-079",
+        "official-pdf-maricopa-pdf-review-080"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
     {
       "packet_id": "maricopa-consent-decree-agreement",
       "packet_label": "Maricopa consent decree and agreement finalization",
@@ -184,6 +294,34 @@
         "official-pdf-maricopa-pdf-review-046",
         "official-pdf-maricopa-pdf-review-047",
         "official-pdf-maricopa-pdf-review-048"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ]
+    },
+    {
+      "packet_id": "maricopa-grandparent-visitation",
+      "packet_label": "Maricopa grandparent visitation",
+      "page_label": "Grandparent Visitation",
+      "route_key": "forms-tools-maricopa-grandparent-visitation-new-filing-minor-children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "grandparent visitation",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-maricopa-pdf-review-081",
+        "official-pdf-maricopa-pdf-review-082"
       ],
       "languages": [
         "English",
@@ -424,6 +562,58 @@
       "languages": [
         "English",
         "Spanish"
+      ]
+    },
+    {
+      "packet_id": "pima-notice-of-intent-to-relocate",
+      "packet_label": "Pima notice of intent to relocate",
+      "page_label": "Packet #28 - Notice of Intent to Relocate",
+      "route_key": "forms-tools-pima-relocation-notice-of-intent-to-relocate-minor-children",
+      "route": {
+        "county": "Pima",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-pima-pdf-review-001"
+      ],
+      "languages": [
+        "English"
+      ]
+    },
+    {
+      "packet_id": "yavapai-relocation-modification-clarification",
+      "packet_label": "Yavapai petition for modification, relocation, and clarification",
+      "page_label": "Packet #34a",
+      "route_key": "forms-tools-yavapai-relocation-modify-clarify-minor-children",
+      "route": {
+        "county": "Yavapai",
+        "issue": "relocation",
+        "posture": "Modify / clarify",
+        "children": "minor-children"
+      },
+      "public_safety": {
+        "safe_route_metadata_only": true,
+        "sensitive_public_collection_enabled": false,
+        "official_pdf_urls_only": false,
+        "approved_same_origin_pdf_delivery_enabled": true,
+        "public_pdf_view_download_enabled": true,
+        "cached_downloads_enabled": false
+      },
+      "official_pdf_action_ids": [
+        "official-pdf-yavapai-pdf-review-001"
+      ],
+      "languages": [
+        "English"
       ]
     }
   ]

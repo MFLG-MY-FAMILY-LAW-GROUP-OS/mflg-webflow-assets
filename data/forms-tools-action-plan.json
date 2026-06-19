@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-action-plan",
-  "built_at": "2026-06-15T15:45:41.286Z",
+  "built_at": "2026-06-19T14:09:09.914Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/form-route-actions.json",
@@ -19,8 +19,8 @@
   "summary": {
     "official_sources_ok": 38,
     "official_sources_checked": 38,
-    "reviewed_routes": 20,
-    "approved_pdf_actions": 74,
+    "reviewed_routes": 27,
+    "approved_pdf_actions": 85,
     "same_origin_pdf_delivery_enabled": true,
     "official_formula_sources_ok": 2,
     "safe_planning_tools": 1,
@@ -42,14 +42,14 @@
       "step_id": "use-reviewed-route",
       "label": "Use a reviewed route when available",
       "status": "ready for reviewed Maricopa routes",
-      "metric": "20 reviewed routes",
+      "metric": "27 reviewed routes",
       "guidance": "Reviewed routes open approved PDFs in the on-page viewer without collecting sensitive facts."
     },
     {
       "step_id": "keep-other-counties-source-only",
       "label": "Keep non-reviewed counties source-only",
       "status": "source-only",
-      "metric": "15 county sources only",
+      "metric": "12 county sources only",
       "guidance": "For monitored counties without packet review, use Guided Intake instead of guessing."
     },
     {

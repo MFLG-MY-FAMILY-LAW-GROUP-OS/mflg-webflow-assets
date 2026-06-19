@@ -428,6 +428,75 @@
       "last_verified_at": null,
       "source_hash": null,
       "packet_hash": null
+    },
+    {
+      "packet_id": "pima-notice-of-intent-to-relocate",
+      "label": "Pima notice of intent to relocate",
+      "matter_keys": [
+        "relocation",
+        "parenting",
+        "notice",
+        "move"
+      ],
+      "jurisdiction": "county",
+      "county": "Pima",
+      "filing_posture": "notice",
+      "children_required": "yes",
+      "source_page_url": "https://www.sc.pima.gov/judges-courts/family-court/family-court-forms",
+      "official_packet_url": "https://www.sc.pima.gov/media/vkjby3n3/packet28_notice_of_intent_to_relocate.pdf",
+      "cached_file_url": null,
+      "public_status": "needs_review",
+      "maintenance_status": "not_checked",
+      "last_checked_at": null,
+      "last_verified_at": null,
+      "source_hash": null,
+      "packet_hash": null
+    },
+    {
+      "packet_id": "cochise-notice-of-intent-to-relocate",
+      "label": "Cochise notice of intent to relocate",
+      "matter_keys": [
+        "relocation",
+        "parenting",
+        "notice",
+        "move"
+      ],
+      "jurisdiction": "county",
+      "county": "Cochise",
+      "filing_posture": "notice",
+      "children_required": "yes",
+      "source_page_url": "https://www.cochise.az.gov/518/Miscellaneous-Forms",
+      "official_packet_url": "https://www.cochise.az.gov/DocumentCenter/View/20626/Notice-of-Intent-to-Relocate-Minor-Child-PDF",
+      "cached_file_url": null,
+      "public_status": "needs_review",
+      "maintenance_status": "not_checked",
+      "last_checked_at": null,
+      "last_verified_at": null,
+      "source_hash": null,
+      "packet_hash": null
+    },
+    {
+      "packet_id": "yavapai-relocation-modification-clarification",
+      "label": "Yavapai petition for modification, relocation, and clarification",
+      "matter_keys": [
+        "relocation",
+        "modification",
+        "parenting",
+        "clarification"
+      ],
+      "jurisdiction": "county",
+      "county": "Yavapai",
+      "filing_posture": "modification",
+      "children_required": "yes",
+      "source_page_url": "https://courts.yavapaiaz.gov/Departments/Law-Library/Self-Service-Center/Domestic/Legal-Decision-Making",
+      "official_packet_url": "https://courts.yavapaiaz.gov/files/sharedassets/courts/v/1/self-service-center/documents/drmcv11f.pdf",
+      "cached_file_url": null,
+      "public_status": "needs_review",
+      "maintenance_status": "not_checked",
+      "last_checked_at": null,
+      "last_verified_at": null,
+      "source_hash": null,
+      "packet_hash": null
     }
   ]
 }

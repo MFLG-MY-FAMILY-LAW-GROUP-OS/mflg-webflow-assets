@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260615-tooltipfix}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260615-forms-packet-rewire}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -83,6 +83,20 @@ echo "Verifying public website route mapper..."
 route_verified=0
 for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
   public_site_js="$(curl -fsSL "https://myfamilylawgroup.com/js/mflg-public-site.js?verify-route=${attempt}-$(date +%s)" || true)"
+  if [[ "$public_site_js" == *"function intakeRouteForService"* ]] &&
+     [[ "$public_site_js" == *"data-intake-route"* ]] &&
+     [[ "$public_site_js" == *"Question 1 of 5"* ]] &&
+     [[ "$public_site_js" == *"rememberFormsQualifierAnswers"* ]] &&
+     [[ "$public_site_js" == *"mflgFormsRouteContext"* ]] &&
+     [[ "$public_site_js" == *"Open official PDF"* ]] &&
+     [[ "$public_site_js" == *"Open same-site PDF"* ]] &&
+     [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&
+     [[ "$public_site_js" != *"handoff"* ]] &&
+     [[ "$public_site_js" != *"safe route metadata"* ]] &&
+     [[ "$public_site_js" != *'return "GREEN"'* ]]; then
+    route_verified=1
+    break
+  fi
   if [[ "$public_site_js" == *"function intakeRouteForService"* ]] &&
      [[ "$public_site_js" == *"data-intake-route"* ]] &&
      [[ "$public_site_js" == *"case \"Divorce / Dissolution\""* ]] &&
@@ -230,7 +244,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-forms-packet-state"* ]] &&
 	     [[ "$public_site_js" == *"Ready to start"* ]] &&
 	     [[ "$public_site_js" == *"In progress"* ]] &&
-	     [[ "$public_site_js" == *"Preview PDF only"* ]] &&
+	     [[ "$public_site_js" == *"Preview on this page"* ]] &&
+	     [[ "$public_site_js" == *"Open official court PDF"* ]] &&
 	     [[ "$public_site_js" == *"Reviewed court PDF"* ]] &&
 	     [[ "$public_site_js" == *"Do not add private facts, case numbers, or financial information to this public checklist"* ]] &&
 	     [[ "$public_site_js" != *"Official court PDF source"* ]] &&
@@ -261,7 +276,6 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"wireFormsToolsMatterCoverage"* ]] &&
 	     [[ "$public_site_js" == *"forms-tools-matter-coverage.json"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-tools-matter-coverage"* ]] &&
-	     [[ "$public_site_js" == *"data-forms-matter-card-intake"* ]] &&
 	     [[ "$public_site_js" == *"wireFormsToolsCompletionStatus"* ]] &&
 	     [[ "$public_site_js" == *"forms-tools-completion-status.json"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-tools-completion-status"* ]] &&
@@ -345,7 +359,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"ABA Family Advocate client manuals"* ]] &&
 	     [[ "$public_site_js" == *"feeRoute"* ]] &&
 	     [[ "$public_site_js" == *"Initial Strategy Session"* ]] &&
-	     [[ "$public_site_js" == *"Uncontested Divorce with Kids"* ]] &&
+	     [[ "$public_site_js" == *"Uncontested Divorce with Minor Children"* ]] &&
 	     [[ "$public_site_js" == *"Court Hearing Modules"* ]] &&
 	     [[ "$public_site_js" == *"Complex asset exclusion"* ]] &&
 	     [[ "$public_site_js" == *"Contested conversion"* ]] &&
@@ -382,6 +396,24 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	  public_site_js="$(curl -fsSL "https://myfamilylawgroup.com/js/mflg-public-site.js?verify-public-js=${attempt}-$(date +%s)" || true)"
 	  public_intake_css="$(curl -fsSL "https://myfamilylawgroup.com/css/mflg-intake.css?verify-intake-css=${attempt}-$(date +%s)" || true)"
 	  public_intake_js="$(curl -fsSL "https://myfamilylawgroup.com/js/mflg-intake.js?verify-intake=${attempt}-$(date +%s)" || true)"
+
+  if [[ "$public_html" == *"$EXPECTED_ASSET_KEY"* ]] &&
+     [[ "$public_html" == *"DIY Guides"* ]] &&
+     [[ "$public_html" == *"Forms &amp; Calculators"* ]] &&
+     [[ "$public_css" == *"forms-privacy-strip"* ]] &&
+     [[ "$public_css" == *"body:not(.forms-showing-all-sections) .proof-tools"* ]] &&
+     [[ "$public_css" == *"official-pdf-direct-download"* ]] &&
+     [[ "$public_site_js" == *"Question 1 of 5"* ]] &&
+     [[ "$public_site_js" == *"Open official PDF"* ]] &&
+     [[ "$public_site_js" == *"Open same-site PDF"* ]] &&
+     [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&
+     [[ "$public_site_js" == *"Choose a path, open the exact packet"* ]] &&
+     [[ "$public_site_js" != *"handoff"* ]] &&
+     [[ "$public_intake_js" == *"Your Forms & Tools selections were carried into Intake"* ]] &&
+     [[ "$public_intake_js" != *"safe route metadata"* ]]; then
+    html_verified=1
+    break
+  fi
 
   if [[ "$public_html" == *"$EXPECTED_ASSET_KEY"* ]] &&
      [[ "$public_html" == *"$EXPECTED_FAVICON_KEY"* ]] &&
@@ -669,7 +701,7 @@ forms_tools_route_intake_map_json="$(curl -fsSL "https://myfamilylawgroup.com/da
 forms_tools_matter_coverage_json="$(curl -fsSL "https://myfamilylawgroup.com/data/forms-tools-matter-coverage.json?verify-matter-coverage=$(date +%s)" || true)"
 forms_tools_completion_status_json="$(curl -fsSL "https://myfamilylawgroup.com/data/forms-tools-completion-status.json?verify-completion-status=$(date +%s)" || true)"
 if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
-	   [[ "$pdf_actions_json" != *'"approved_official_pdf_actions": 74'* ]] ||
+	   [[ "$pdf_actions_json" != *'"approved_official_pdf_actions": 85'* ]] ||
 	   [[ "$pdf_actions_json" != *'"display_label"'* ]] ||
 	   [[ "$pdf_actions_json" != *'"public_name"'* ]] ||
 	   [[ "$pdf_actions_json" != *"Petition for Divorce or Legal Separation"* ]] ||
@@ -680,7 +712,7 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$pdf_actions_json" != *'"public_pdf_actions_enabled": true'* ]] ||
    [[ "$pdf_actions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$pdf_decisions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
-   [[ "$pdf_decisions_json" != *'"approved_official_pdf_actions": 74'* ]] ||
+   [[ "$pdf_decisions_json" != *'"approved_official_pdf_actions": 85'* ]] ||
    [[ "$pdf_decisions_json" != *'"pending": 0'* ]] ||
    [[ "$pdf_decisions_json" != *'"public_pdf_actions_enabled_after_validation": true'* ]] ||
    [[ "$pdf_decisions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
@@ -701,8 +733,8 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$pdf_audit_json" != *'"public_pdf_actions_enabled": true'* ]] ||
    [[ "$pdf_audit_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$pdf_route_index_json" != *"1.0.0-pdf-route-index"* ]] ||
-   [[ "$pdf_route_index_json" != *'"route_packets": 13'* ]] ||
-   [[ "$pdf_route_index_json" != *'"official_pdf_actions": 74'* ]] ||
+   [[ "$pdf_route_index_json" != *'"route_packets": 20'* ]] ||
+   [[ "$pdf_route_index_json" != *'"official_pdf_actions": 85'* ]] ||
    [[ "$pdf_route_index_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$pdf_route_index_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$source_health_json" != *"1.0.0-public-source-health"* ]] ||
@@ -712,24 +744,24 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$source_health_json" != *"Reference indexes"* ]] ||
    [[ "$source_health_json" != *'"public_downloads_enabled": false'* ]] ||
    [[ "$packet_page_actions_json" != *"1.0.0-public-packet-page-actions"* ]] ||
-   [[ "$packet_page_actions_json" != *'"official_packet_page_actions": 16'* ]] ||
+   [[ "$packet_page_actions_json" != *'"official_packet_page_actions": 20'* ]] ||
    [[ "$packet_page_actions_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$packet_page_actions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$forms_tools_coverage_json" != *"1.0.0-forms-tools-coverage"* ]] ||
-   [[ "$forms_tools_coverage_json" != *'"covered_packet_routes": 20'* ]] ||
-   [[ "$forms_tools_coverage_json" != *'"approved_pdf_actions": 74'* ]] ||
+   [[ "$forms_tools_coverage_json" != *'"covered_packet_routes": 27'* ]] ||
+   [[ "$forms_tools_coverage_json" != *'"approved_pdf_actions": 85'* ]] ||
    [[ "$forms_tools_coverage_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$forms_tools_coverage_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$form_route_actions_json" != *"1.0.0-route-actions"* ]] ||
-   [[ "$form_route_actions_json" != *'"route_actions": 20'* ]] ||
-   [[ "$form_route_actions_json" != *'"official_pdf_actions": 74'* ]] ||
+   [[ "$form_route_actions_json" != *'"route_actions": 27'* ]] ||
+   [[ "$form_route_actions_json" != *'"official_pdf_actions": 85'* ]] ||
    [[ "$form_route_actions_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$form_route_actions_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$jurisdiction_readiness_json" != *"1.0.0-jurisdiction-readiness"* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"official_jurisdictions": 20'* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"monitored_sources_total": 38'* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"unique_arizona_counties": 15'* ]] ||
-   [[ "$jurisdiction_readiness_json" != *'"jurisdictions_with_reviewed_packet_actions": 2'* ]] ||
+   [[ "$jurisdiction_readiness_json" != *'"jurisdictions_with_reviewed_packet_actions": 8'* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$jurisdiction_readiness_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$calculator_readiness_json" != *"1.0.0-calculator-readiness"* ]] ||
@@ -1005,13 +1037,13 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$calculator_internal_status_json" != *'"public_url_status": "blocked_404"'* ]] ||
    [[ "$calculator_internal_status_json" != *'"public_results_enabled": false'* ]] ||
    [[ "$forms_tools_action_plan_json" != *"1.0.0-forms-tools-action-plan"* ]] ||
-   [[ "$forms_tools_action_plan_json" != *'"reviewed_routes": 20'* ]] ||
-   [[ "$forms_tools_action_plan_json" != *'"approved_pdf_actions": 74'* ]] ||
+   [[ "$forms_tools_action_plan_json" != *'"reviewed_routes": 27'* ]] ||
+   [[ "$forms_tools_action_plan_json" != *'"approved_pdf_actions": 85'* ]] ||
    [[ "$forms_tools_action_plan_json" != *'"formula_logic_enabled_on_site": true'* ]] ||
    [[ "$forms_tools_action_plan_json" != *'"mflg_calculators_enabled_on_site": true'* ]] ||
    [[ "$forms_tools_action_plan_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$forms_tools_review_roadmap_json" != *"1.0.0-forms-tools-review-roadmap"* ]] ||
-   [[ "$forms_tools_review_roadmap_json" != *'"public_packet_page_actions": 16'* ]] ||
+   [[ "$forms_tools_review_roadmap_json" != *'"public_packet_page_actions": 20'* ]] ||
    [[ "$forms_tools_review_roadmap_json" != *'"packet_candidates_review_only": 12'* ]] ||
    [[ "$forms_tools_review_roadmap_json" != *'"formula_logic_enabled_on_site": true'* ]] ||
    [[ "$forms_tools_review_roadmap_json" != *'"mflg_calculators_enabled_on_site": true'* ]] ||
@@ -1022,21 +1054,21 @@ if [[ "$pdf_actions_json" != *"0.8.0-pdf-promotion-control"* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *'"raw_hashes_exposed": false'* ]] ||
    [[ "$forms_tools_maintenance_status_json" != *'"direct_cached_downloads_enabled": false'* ]] ||
    [[ "$form_download_readiness_json" != *"1.0.0-form-download-readiness"* ]] ||
-   [[ "$form_download_readiness_json" != *'"official_pdf_actions": 74'* ]] ||
+   [[ "$form_download_readiness_json" != *'"official_pdf_actions": 85'* ]] ||
    [[ "$form_download_readiness_json" != *'"hosted_downloads_enabled": true'* ]] ||
    [[ "$form_download_readiness_json" != *'"same_origin_pdf_delivery_enabled": true'* ]] ||
    [[ "$form_download_readiness_json" != *'"human_review_required_before_hosting": false'* ]] ||
    [[ "$form_download_readiness_json" != *'"public_runner_exposed": false'* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *"1.0.0-forms-tools-intake-readiness"* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *'"safe_start_options": 6'* ]] ||
-   [[ "$forms_tools_intake_readiness_json" != *'"reviewed_routes": 20'* ]] ||
-   [[ "$forms_tools_intake_readiness_json" != *'"approved_pdf_actions": 74'* ]] ||
+   [[ "$forms_tools_intake_readiness_json" != *'"reviewed_routes": 27'* ]] ||
+   [[ "$forms_tools_intake_readiness_json" != *'"approved_pdf_actions": 85'* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$forms_tools_intake_readiness_json" != *'"sensitive_public_collection_enabled": false'* ]] ||
    [[ "$forms_tools_route_intake_map_json" != *"1.0.0-forms-tools-route-intake-map"* ]] ||
-   [[ "$forms_tools_route_intake_map_json" != *'"reviewed_route_starts": 20'* ]] ||
-   [[ "$forms_tools_route_intake_map_json" != *'"routes_with_approved_pdfs": 13'* ]] ||
-   [[ "$forms_tools_route_intake_map_json" != *'"approved_pdf_actions": 74'* ]] ||
+   [[ "$forms_tools_route_intake_map_json" != *'"reviewed_route_starts": 27'* ]] ||
+   [[ "$forms_tools_route_intake_map_json" != *'"routes_with_approved_pdfs": 20'* ]] ||
+   [[ "$forms_tools_route_intake_map_json" != *'"approved_pdf_actions": 85'* ]] ||
    [[ "$forms_tools_route_intake_map_json" != *'"exact_route_intake_enabled": true'* ]] ||
    [[ "$forms_tools_route_intake_map_json" != *'"safe_route_metadata_only": true'* ]] ||
    [[ "$forms_tools_matter_coverage_json" != *"1.0.0-forms-tools-matter-coverage"* ]] ||

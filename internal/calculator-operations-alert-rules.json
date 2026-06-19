@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0-calculator-operations-alert-rules",
+  "built_at": "2026-06-19T14:09:04.819Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal calculator alert routing for n8n and CRM OS only."
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Poll after calculator source-monitoring, fixture review, or comparison jobs finish.",
+    "allowed_public_fetches": [
+      "/data/calculator-operations-status.json",
+      "/data/calculator-operations-alerts.json",
+      "/data/calculator-public-unlock-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-operations-alert-rules.json",
+      "/internal/calculator-operations-runbook.json",
+      "/internal/calculator-formula-map.json",
+      "/internal/calculator-regression-comparison-plan.json"
+    ],
+    "crm_os_fields": {
+      "calculator_alert_count": "data.calculator-operations-alerts.summary.alert_count",
+      "calculator_blocking_alerts": "data.calculator-operations-alerts.summary.blocking_alerts",
+      "calculator_next_public_status": "data.calculator-operations-alerts.summary.next_public_status",
+      "calculator_public_results_enabled": "data.calculator-operations-alerts.summary.public_results_enabled"
+    }
+  },
+  "alert_rules": [
+    {
+      "key": "approved_fixtures_needed",
+      "severity": "watch",
+      "public_status": "in_review",
+      "route_to_staff_review": false,
+      "public_results_enabled": false
+    },
+    {
+      "key": "regression_comparisons_waiting",
+      "severity": "watch",
+      "public_status": "in_review",
+      "route_to_staff_review": false,
+      "public_results_enabled": false
+    },
+    {
+      "key": "public_unlock_blocked",
+      "severity": "watch",
+      "public_status": "ready",
+      "route_to_staff_review": false,
+      "public_results_enabled": false
+    }
+  ]
+}
