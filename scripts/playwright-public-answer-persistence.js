@@ -244,13 +244,108 @@ async function clickCalculatorReadinessAction(page) {
       children: "any",
       pdfPacket: "maricopa-divorce-new-no-children"
     });
-    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
-    state = await toolsState(page);
-    assert(state.formCounty === "Not sure", `default-like legacy county should remain missing, got ${state.formCounty}`);
-    assert(state.formPosture === "Any posture", `default-like legacy posture should remain missing, got ${state.formPosture}`);
-    assert(state.formChildren === "any", `default-like legacy children should remain missing, got ${state.formChildren}`);
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    state = await toolsState(page);
+	    assert(state.formCounty === "Not sure", `default-like legacy county should remain missing, got ${state.formCounty}`);
+	    assert(state.formPosture === "Any posture", `default-like legacy posture should remain missing, got ${state.formPosture}`);
+	    assert(state.formChildren === "any", `default-like legacy children should remain missing, got ${state.formChildren}`);
 
-	    const mediationState = await openMediationPracticeArea(page);
+	    await seedState(page, {}, {
+	      county: "Maricopa",
+	      issue: "divorce",
+	      posture: "Finalizing agreement",
+	      children: "any",
+	      pdfPacket: "maricopa-consent-decree-agreement",
+	      packetLabel: "Maricopa consent decree and agreement finalization",
+	      sourcePathway: "packet-metadata"
+	    });
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    state = await toolsState(page);
+	    assert(state.publicAnswers.county !== "Maricopa", "stale packet metadata migrated Maricopa into canonical county");
+	    assert(state.formCounty !== "Maricopa", `stale packet metadata rendered as user county: ${state.formCounty}`);
+	    assert(!state.publicAnswers.confirmedFields?.county, "stale packet metadata confirmed county");
+	    assert(state.publicAnswers.packetSourceCounty === "Maricopa", `packet metadata did not migrate to packetSourceCounty, got ${state.publicAnswers.packetSourceCounty || ""}`);
+	    assert(state.publicAnswers.fieldSources?.packetSourceCounty === "legacy-packet-metadata", "packet source metadata provenance missing");
+
+	    await seedState(page, {
+	      county: "Pima",
+	      issue: "parenting",
+	      posture: "Existing order",
+	      children: "minor-children",
+	      confirmedFields: { county: true, issue: true, posture: true, children: true },
+	      fieldSources: { county: "seed", issue: "seed", posture: "seed", children: "seed" }
+	    }, {
+	      county: "Maricopa",
+	      issue: "divorce",
+	      posture: "Finalizing agreement",
+	      children: "any",
+	      pdfPacket: "maricopa-consent-decree-agreement",
+	      sourcePathway: "packet-metadata"
+	    });
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    state = await toolsState(page);
+	    assert(state.publicAnswers.county === "Pima", "packet metadata overwrote confirmed Pima county");
+	    assert(state.publicAnswers.packetSourceCounty === "Maricopa", "packet source county not preserved with confirmed Pima");
+
+	    await seedState(page, {
+	      county: "Not sure",
+	      explicitUnknownFields: { county: true },
+	      confirmedFields: { county: true },
+	      fieldSources: { county: "forms-router" }
+	    }, {
+	      county: "Maricopa",
+	      pdfPacket: "maricopa-consent-decree-agreement",
+	      sourcePathway: "packet-metadata"
+	    });
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    state = await toolsState(page);
+	    assert(state.publicAnswers.county === "Not sure", "packet metadata overwrote explicit unknown county");
+	    assert(state.publicAnswers.explicitUnknownFields?.county === true, "explicit unknown provenance lost after packet metadata hydration");
+
+	    await seedState(page, {
+	      county: "",
+	      resetFields: { county: true },
+	      fieldSources: { county: "forms-router-reset" }
+	    }, {
+	      county: "Maricopa",
+	      pdfPacket: "maricopa-consent-decree-agreement",
+	      sourcePathway: "packet-metadata"
+	    });
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    state = await toolsState(page);
+	    assert(state.publicAnswers.county !== "Maricopa", "packet metadata rehydrated reset county");
+	    assert(state.publicAnswers.resetFields?.county === true, "packet metadata cleared county reset tombstone");
+
+	    await seedState(page, {}, {
+	      county: "Maricopa",
+	      issue: "divorce",
+	      posture: "Existing order",
+	      children: "minor-children",
+	      userConfirmed: true,
+	      sourcePathway: "forms-router"
+	    });
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    state = await toolsState(page);
+	    assert(state.publicAnswers.county === "Maricopa", "legitimate confirmed legacy Maricopa did not migrate");
+	    assert(state.publicAnswers.fieldSources?.county === "legacy-confirmed-migration", "confirmed legacy Maricopa provenance missing");
+
+	    await seedState(page, {}, {
+	      county: "Maricopa",
+	      issue: "divorce",
+	      posture: "Finalizing agreement",
+	      children: "any",
+	      pdfPacket: "maricopa-consent-decree-agreement",
+	      sourcePathway: "packet-metadata"
+	    });
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    await page.goto(`${baseUrl}/guides/`, { waitUntil: "networkidle" });
+	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+	    await page.reload({ waitUntil: "networkidle" });
+	    state = await toolsState(page);
+	    assert(state.publicAnswers.county !== "Maricopa", "repeated hydration restored packet metadata as county");
+	    assert(state.publicAnswers.packetSourceCounty === "Maricopa", "repeated hydration lost packet source metadata");
+
+		    const mediationState = await openMediationPracticeArea(page);
 	    assert(mediationState.issue === "Mediation / ADR", `Mediation issue label leaked taxonomy: ${mediationState.issue}`);
 	    assert(!/Issue\\s+all\\b/i.test(mediationState.text), "Mediation panel visibly contains Issue all");
 

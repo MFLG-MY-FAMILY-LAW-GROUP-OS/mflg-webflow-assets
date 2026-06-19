@@ -2504,9 +2504,21 @@
     if (value && typeof value === "object") return Object.keys(value).filter((key) => value[key]);
     return fallbackFields;
   }
-  function publicAnswerSource(options = {}) {
-    return options.source || options.sourcePathway || (options.explicitReset ? "explicit-reset" : options.userAction ? "user" : options.confirmed ? "confirmed-carry-forward" : options.suggested ? "suggested" : "route");
-  }
+	  function publicAnswerSource(options = {}) {
+	    return options.source || options.sourcePathway || (options.explicitReset ? "explicit-reset" : options.userAction ? "user" : options.confirmed ? "confirmed-carry-forward" : options.suggested ? "suggested" : "route");
+	  }
+	  function isPacketMetadataSource(value) {
+	    const source = String(value || "").trim().toLowerCase();
+	    return [
+	      "packet-metadata",
+	      "legacy-packet-metadata",
+	      "route-action-packet",
+	      "route-action-pdf",
+	      "official-packet-action",
+	      "official-pdf-action",
+	      "forms-router-packet"
+	    ].includes(source);
+	  }
 	  function clearPublicAnswerMeta(meta, field) {
 	    if (!meta || !field) return;
 	    if (meta.confirmedFields) delete meta.confirmedFields[field];
@@ -2565,12 +2577,12 @@
     const confirmedFieldsFromOptions = publicAnswerFieldsFromOption(options.confirmedFields, options.userAction || options.confirmed ? protectedFields : []);
     const suggestedFieldsFromOptions = publicAnswerFieldsFromOption(options.suggestedFields, []);
     const resetFieldsFromOptions = publicAnswerFieldsFromOption(options.resetFields, ["issue", "county", "posture", "children", "selectedPacket", "selectedCalculator"]);
-    const meta = {
-      confirmedFields: { ...(existingRaw.confirmedFields || {}) },
-      fieldSources: { ...(existingRaw.fieldSources || {}) },
-      suggestedFields: { ...(existingRaw.suggestedFields || {}) },
-      explicitUnknownFields: { ...(existingRaw.explicitUnknownFields || {}) },
-      resetFields: { ...(existingRaw.resetFields || {}) }
+	    const meta = {
+	      confirmedFields: { ...(existingRaw.confirmedFields || {}) },
+	      fieldSources: { ...(existingRaw.fieldSources || {}), ...(incomingRaw.fieldSources || {}) },
+	      suggestedFields: { ...(existingRaw.suggestedFields || {}) },
+	      explicitUnknownFields: { ...(existingRaw.explicitUnknownFields || {}) },
+	      resetFields: { ...(existingRaw.resetFields || {}) }
     };
     const source = publicAnswerSource(options);
     const next = {
@@ -2607,7 +2619,7 @@
 	    });
 	    if (!isPublicAnswerDefault("packetSourceCounty", incoming.packetSourceCounty)) {
 	      next.packetSourceCounty = incoming.packetSourceCounty;
-	      meta.fieldSources.packetSourceCounty = source;
+	      meta.fieldSources.packetSourceCounty = incomingRaw.fieldSources?.packetSourceCounty || source;
 	      delete meta.confirmedFields.packetSourceCounty;
 	      delete meta.suggestedFields.packetSourceCounty;
 	      delete meta.explicitUnknownFields.packetSourceCounty;
@@ -2633,12 +2645,13 @@
     window.MFLGPublicAnswers = { ...next };
     return next;
   }
-  function legacyValueAllowed(field, value, legacy = {}) {
-    if (isPublicAnswerDefault(field, value)) return false;
-    if (field === "county" && normalizeFormsCounty(value) === "Maricopa" && legacy.confirmed !== true && legacy.userConfirmed !== true && legacy.sourcePathway !== "packet-metadata") return false;
-    if (field === "posture" && normalizeFormsPosture(value) === "New filing" && legacy.confirmed !== true && legacy.userConfirmed !== true && legacy.sourcePathway !== "packet-metadata") return false;
-    return true;
-  }
+	  function legacyValueAllowed(field, value, legacy = {}) {
+	    if (isPublicAnswerDefault(field, value)) return false;
+	    if (field === "county" && isPacketMetadataSource(legacy.sourcePathway || legacy.source || legacy.entrySource)) return false;
+	    if (field === "county" && normalizeFormsCounty(value) === "Maricopa" && legacy.confirmed !== true && legacy.userConfirmed !== true) return false;
+	    if (field === "posture" && normalizeFormsPosture(value) === "New filing" && legacy.confirmed !== true && legacy.userConfirmed !== true && legacy.sourcePathway !== "packet-metadata") return false;
+	    return true;
+	  }
 	  function mergePublicAnswersWithLegacy(canonicalInput, legacyInput) {
 	    const canonicalRaw = canonicalInput || {};
 	    const legacyRaw = legacyInput || {};
@@ -2652,6 +2665,10 @@
 	    const resetFields = canonicalRaw.resetFields || {};
 	    const explicitUnknownFields = canonicalRaw.explicitUnknownFields || {};
 	    const fieldSources = { ...(canonicalRaw.fieldSources || {}) };
+	    if (isPacketMetadataSource(legacyRaw.sourcePathway || legacyRaw.source || legacyRaw.entrySource) && !resetFields.county && !explicitUnknownFields.county && !confirmedPublicValue("packetSourceCounty", merged.packetSourceCounty) && !isPublicAnswerDefault("packetSourceCounty", legacy.county)) {
+	      merged.packetSourceCounty = legacy.county;
+	      fieldSources.packetSourceCounty = "legacy-packet-metadata";
+	    }
 	    [
 	      ["county", "county"],
 	      ["issue", "issue"],
