@@ -10,6 +10,10 @@
     "test:matter-form-matrix": "node scripts/validate-matter-form-matrix.js",
     "test:forms-tools": "node scripts/playwright-forms-tools-guided-flow.js",
     "test:guide-county-gate": "node scripts/playwright-guide-county-gate.js",
+    "test:practice-area-matrix": "node scripts/playwright-practice-area-matrix.js",
+    "test:diy-guide-matrix": "node scripts/playwright-diy-guide-matrix.js",
+    "test:public-answer-persistence": "node scripts/playwright-public-answer-persistence.js",
+    "test:packet-route-action": "node scripts/playwright-packet-route-action.js",
     "test:public-completion": "node scripts/playwright-public-completion-audit.js",
     "test:public-surface": "node scripts/validate-public-surface.js"
   },

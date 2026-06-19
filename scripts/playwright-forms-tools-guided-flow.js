@@ -27,8 +27,18 @@ async function pageState(page) {
     activeCalc: document.body.classList.contains("forms-active-need-calculator"),
     activeDeadline: document.body.classList.contains("forms-active-need-deadline"),
     action: document.querySelector("[data-guided-result-action]")?.textContent?.trim(),
+    progressLabel: document.querySelector("[data-guided-progress-label]")?.textContent?.trim() || "",
+    guidedCopy: document.querySelector("[data-guided-copy]")?.textContent?.trim() || "",
+    resultCopy: document.querySelector("[data-guided-result-copy]")?.textContent?.trim() || "",
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
     exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
+    sameSiteOfficialPdfHrefs: Array.from(document.querySelectorAll(".official-pdf-source"))
+      .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
+      .map((link) => link.getAttribute("href") || "")
+      .filter((href) => href.startsWith("/api/official-pdf/")),
+    publicExternalHrefs: Array.from(document.querySelectorAll("a[href]"))
+      .map((link) => link.getAttribute("href") || "")
+      .filter((href) => /^https?:\/\//i.test(href)),
     externalPdfHrefs: Array.from(document.querySelectorAll("[data-guide-pdf-download], [data-official-pdf-download]"))
       .map((link) => link.getAttribute("href") || "")
       .filter((href) => /^https?:\/\//i.test(href)),
@@ -52,7 +62,8 @@ async function pageState(page) {
       assert(initial.laneVisible, `${viewport.name}: four quick-start cards should be visible`);
       assert(initial.fakeLinks.length === 0, `${viewport.name}: page should not render fake href=# links: ${initial.fakeLinks.join(", ")}`);
       assert(initial.exposedSourceAttributes.length === 0, `${viewport.name}: page should not expose raw source URL attributes`);
-      assert(initial.externalPdfHrefs.length === 0, `${viewport.name}: PDF actions should not render external hrefs`);
+      assert(initial.sameSiteOfficialPdfHrefs.length === 0, `${viewport.name}: same-site PDF links should not render before forms are shown`);
+      assert(initial.publicExternalHrefs.length === 0, `${viewport.name}: page should not render external public hrefs: ${initial.publicExternalHrefs.join(", ")}`);
       assert(initial.legalHelpCount > 0, `${viewport.name}: legal-term help should render`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
@@ -68,18 +79,59 @@ async function pageState(page) {
       assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);
       assert(forms.exposedSourceAttributes.length === 0, `${viewport.name}: forms path should not expose raw source URL attributes`);
-      assert(forms.externalPdfHrefs.length === 0, `${viewport.name}: forms path should not render external PDF hrefs`);
+      assert(forms.sameSiteOfficialPdfHrefs.length > 0, `${viewport.name}: forms path should render same-site official PDF hrefs`);
+      assert(forms.publicExternalHrefs.length === 0, `${viewport.name}: forms path should not render external public hrefs: ${forms.publicExternalHrefs.join(", ")}`);
       assert(!forms.overflow, `${viewport.name}: forms path has horizontal overflow`);
-      await page.click("[data-forms-packet-view]");
+      await page.locator(".official-pdf-link:not([hidden]) [data-official-pdf-preview]").first().click();
       const viewerState = await page.evaluate(() => ({
         officialPdfFrameSrc: document.querySelector("[data-official-pdf-frame]")?.getAttribute("src") || "",
         guidePdfFrameSrc: document.querySelector("[data-guide-pdf-frame]")?.getAttribute("src") || "",
-        packetDownloadHrefs: Array.from(document.querySelectorAll("[data-guide-pdf-download], [data-official-pdf-download]")).map((link) => link.getAttribute("href") || "")
+        packetDownloadHrefs: Array.from(document.querySelectorAll("[data-guide-pdf-download], [data-official-pdf-download]")).map((link) => link.getAttribute("href") || ""),
+        officialFallbackHrefs: Array.from(document.querySelectorAll("[data-official-pdf-source-fallback], .official-pdf-source")).map((link) => link.getAttribute("href") || "").filter(Boolean)
       }));
       const activeFrameSrc = viewerState.officialPdfFrameSrc || viewerState.guidePdfFrameSrc;
       assert(activeFrameSrc.startsWith("/api/official-pdf/"), `${viewport.name}: PDF viewer should use same-origin official PDF route, got ${activeFrameSrc}`);
-      assert(viewerState.packetDownloadHrefs.every((href) => !href || href.startsWith("/api/official-pdf/")), `${viewport.name}: PDF downloads should use same-origin official PDF routes`);
+      assert(viewerState.officialFallbackHrefs.some((href) => href.startsWith("/api/official-pdf/")), `${viewport.name}: PDF viewer should expose same-site PDF fallback links`);
       await capture(page, viewport, "forms-path");
+
+      await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+      const transferredAnswers = await page.evaluate(() => ({
+        smartCounty: document.querySelector("[data-smart-county]")?.value || "",
+        smartChildren: document.querySelector("[data-smart-children]")?.value || "",
+        smartPosture: document.querySelector("[data-smart-posture]")?.value || "",
+        formCounty: document.querySelector("[data-form-county]")?.value || "",
+        formChildren: document.querySelector("[data-form-children]")?.value || "",
+        formPosture: document.querySelector("[data-form-posture]")?.value || "",
+        formIssue: document.querySelector("[data-form-issue]")?.value || "",
+        progressLabel: document.querySelector("[data-guided-progress-label]")?.textContent?.trim() || "",
+        resultTitle: document.querySelector("[data-guided-result-title]")?.textContent?.trim() || "",
+        resultAction: document.querySelector("[data-guided-result-action]")?.textContent?.trim() || "",
+        changeAnswersVisible: document.querySelector("[data-guided-change-answers]")?.hidden === false,
+        resumeActive: document.querySelector("[data-forms-smart-path]")?.classList.contains("forms-guided-resume") || false,
+        guidedComplete: document.querySelector("[data-forms-smart-path]")?.classList.contains("forms-guided-complete") || false,
+        storedRoute: JSON.parse(window.sessionStorage.getItem("mflgFormsRouteContext") || "{}")
+      }));
+      assert(transferredAnswers.smartCounty === "Maricopa", `${viewport.name}: smart path should retain county on /forms, got ${transferredAnswers.smartCounty}`);
+      assert(transferredAnswers.smartChildren === "minor-children", `${viewport.name}: smart path should retain children on /forms, got ${transferredAnswers.smartChildren}`);
+      assert(transferredAnswers.smartPosture === "New filing", `${viewport.name}: smart path should retain posture on /forms, got ${transferredAnswers.smartPosture}`);
+      assert(transferredAnswers.formCounty === "Maricopa", `${viewport.name}: form finder should retain county on /forms, got ${transferredAnswers.formCounty}`);
+      assert(transferredAnswers.formChildren === "minor-children", `${viewport.name}: form finder should retain children on /forms, got ${transferredAnswers.formChildren}`);
+      assert(transferredAnswers.formPosture === "New filing", `${viewport.name}: form finder should retain posture on /forms, got ${transferredAnswers.formPosture}`);
+      assert(transferredAnswers.formIssue === "divorce", `${viewport.name}: form finder should retain issue on /forms, got ${transferredAnswers.formIssue}`);
+      assert(transferredAnswers.resumeActive, `${viewport.name}: transferred answers should show saved-answer resume state`);
+      assert(/Saved answers applied/i.test(transferredAnswers.progressLabel), `${viewport.name}: progress label should show saved answers, got ${transferredAnswers.progressLabel}`);
+      assert(/Saved answers applied/i.test(transferredAnswers.resultTitle), `${viewport.name}: result title should show saved answers, got ${transferredAnswers.resultTitle}`);
+      assert(/Use these answers/i.test(transferredAnswers.resultAction), `${viewport.name}: resume CTA should use saved answers, got ${transferredAnswers.resultAction}`);
+      assert(transferredAnswers.changeAnswersVisible, `${viewport.name}: resume state should expose Change answers`);
+      assert(!transferredAnswers.guidedComplete, `${viewport.name}: transferred answers should wait for saved-answer confirmation on /forms`);
+      assert(transferredAnswers.storedRoute.county === "Maricopa", `${viewport.name}: session route should retain county`);
+      await page.click("[data-guided-result-action]");
+      const resumedForms = await pageState(page);
+      assert(!resumedForms.routerHidden, `${viewport.name}: using saved answers should reveal form router`);
+      assert(!resumedForms.packetsHidden, `${viewport.name}: using saved answers should reveal packets`);
+      assert(/Open matched forms/i.test(resumedForms.action || ""), `${viewport.name}: saved-answer CTA should become matched forms CTA`);
+      assert(/Answers confirmed/i.test(resumedForms.progressLabel || ""), `${viewport.name}: confirmed saved answers should not return to Question 1, got ${resumedForms.progressLabel}`);
+      await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
 
       await page.click("[data-smart-reset]");
       await page.click('[data-smart-lane="calculator"]');
@@ -88,6 +140,8 @@ async function pageState(page) {
       assert(calc.packetsHidden, `${viewport.name}: packets should stay hidden on calculator path`);
       assert(!calc.calculatorHidden, `${viewport.name}: calculator hub should reveal`);
       assert(calc.activeCalc, `${viewport.name}: calculator body state should be active`);
+      assert(/Answers confirmed/i.test(calc.progressLabel || ""), `${viewport.name}: calculator path should show confirmed answers, got ${calc.progressLabel}`);
+      assert(/Calculator tools will use only the fields that apply/i.test(calc.guidedCopy || ""), `${viewport.name}: calculator path should explain carried context, got ${calc.guidedCopy}`);
       assert(!calc.overflow, `${viewport.name}: calculator path has horizontal overflow`);
       await capture(page, viewport, "calculator-path");
 

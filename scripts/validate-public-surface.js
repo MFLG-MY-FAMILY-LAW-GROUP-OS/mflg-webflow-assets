@@ -80,6 +80,22 @@ function checkPublicLanguage() {
   ["legalTermDefinitions", "enhanceLegalTerms", "data-legal-definition"].forEach((marker) => {
     if (!publicJs.includes(marker)) fail(`legal glossary marker missing: ${marker}`);
   });
+  const blockedFeeTitlePhrases = [
+    "No-kids",
+    "No-Kids",
+    "No Kids",
+    "with Kids",
+    "With Kids"
+  ];
+  blockedFeeTitlePhrases.forEach((phrase) => {
+    if (publicJs.includes(phrase)) fail(`public fee/service label still contains casual shorthand: ${phrase}`);
+  });
+  [
+    "Uncontested Divorce without Minor Children",
+    "Uncontested Divorce with Minor Children"
+  ].forEach((phrase) => {
+    if (!publicJs.includes(phrase)) fail(`professional fee label missing: ${phrase}`);
+  });
 }
 
 [
