@@ -17,7 +17,11 @@
     "test:public-completion": "node scripts/playwright-public-completion-audit.js",
     "test:public-surface": "node scripts/validate-public-surface.js",
     "test:county-form-coverage": "node scripts/audit-county-form-coverage.js",
-    "test:new-user-scenarios": "node scripts/playwright-new-user-scenarios.js"
+    "test:new-user-scenarios": "node scripts/playwright-new-user-scenarios.js",
+    "test:unique-route-coverage": "node scripts/audit-unique-route-coverage.js",
+    "test:three-path-parity": "node scripts/audit-three-path-parity.js",
+    "test:source-specificity": "node scripts/audit-source-specificity.js",
+    "test:result-semantics": "node scripts/playwright-result-semantics.js"
   },
   "repository": {
     "type": "git",

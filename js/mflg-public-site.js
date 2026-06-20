@@ -1985,10 +1985,16 @@
 
   function formConfidenceLabel(confidence, county) {
     const publicCounty = normalizeFormsCounty(county);
-    if (confidence === "exact") return "Forms matched";
-    if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `${publicCounty} County forms` : "Exact county forms";
+    if (confidence === "exact") return "Matched forms";
+    if (confidence === "exact-county-direct-packet") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Matched forms for ${publicCounty} County` : "Matched county forms";
+    if (confidence === "exact-county-packet-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Official ${publicCounty} County packet` : "Official county packet";
+    if (confidence === "verified-statewide-direct-packet" || confidence === "verified-statewide-packet-page") return "Arizona statewide forms";
+    if (confidence === "issue-specific-county-source-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Official ${publicCounty} County forms source for this issue` : "Official county forms source for this issue";
+    if (confidence === "general-county-forms-index") return "General county forms directory";
+    if (confidence === "no-verified-form") return "No verified form packet";
+    if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Matched forms for ${publicCounty} County` : "Matched county forms";
     if (confidence === "intake-required") return "Check first";
-    if (confidence === "statewide-generic") return "Statewide forms";
+    if (confidence === "statewide-generic") return "Arizona statewide forms";
     if (confidence === "related-only") return "Related forms";
     return "Related forms";
   }
@@ -1996,7 +2002,13 @@
   function formConfidenceCopy(confidence, county) {
     const publicCounty = normalizeFormsCounty(county);
     if (confidence === "exact") return "These forms are matched to the selected issue.";
-    if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These are ${publicCounty} County forms. Use them only if that is your case county.` : "These are exact county forms. Confirm your case county before relying on them.";
+    if (confidence === "exact-county-direct-packet") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These direct forms are matched for ${publicCounty} County. Use them only if that is your case county.` : "These direct forms are matched to a confirmed county.";
+    if (confidence === "exact-county-packet-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `This is an official ${publicCounty} County packet page for the selected issue. Review the page before choosing forms.` : "This is an official county packet page for the selected issue.";
+    if (confidence === "verified-statewide-direct-packet" || confidence === "verified-statewide-packet-page") return "These are Arizona statewide forms. Confirm whether your county also requires a local form.";
+    if (confidence === "issue-specific-county-source-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `This official ${publicCounty} County source is specific to this issue, but individual PDFs have not all been matched on this page.` : "This official county source is specific to this issue, but individual PDFs have not all been matched on this page.";
+    if (confidence === "general-county-forms-index") return "This is a general county forms directory, not an issue-specific packet. Do not treat it as matched forms.";
+    if (confidence === "no-verified-form") return "No verified form packet is currently available for these answers.";
+    if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These forms are matched for ${publicCounty} County. Use them only if that is your case county.` : "These forms are matched to a confirmed county.";
     if (confidence === "intake-required") return "Use Guided Intake before choosing forms. This issue depends on timing, court orders, county, or case stage.";
     if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires local forms.";
     if (confidence === "related-only") return "Related forms exist, but this may not be the exact form group for your issue.";
@@ -3096,7 +3108,7 @@
               <p data-guided-copy>Start with what you need. The page will update the choices below for you.</p>
             </div>
             <div class="forms-guided-progress" aria-label="Guided Forms and Tools steps">
-              <span data-guided-progress-label>Step 1 of 5</span>
+              <span data-guided-progress-label>A few questions to match your result</span>
               <button type="button" data-guided-jump="0" aria-current="true">1</button>
               <button type="button" data-guided-jump="1">2</button>
               <button type="button" data-guided-jump="2">3</button>
@@ -6911,7 +6923,7 @@
           ? "Saved answers applied"
           : guidedComplete
           ? "Answers confirmed"
-          : `Step ${guidedStep + 1} of ${guidedSteps.length}`
+          : `Step ${guidedStep + 1}`
       ));
       updateGuidedResult();
     }

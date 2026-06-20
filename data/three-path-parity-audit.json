@@ -1,0 +1,3174 @@
+{
+  "version": "1.0.0-three-path-parity",
+  "built_at": "2026-06-20T16:57:06.242Z",
+  "entry_paths": [
+    "practice-area",
+    "diy-guide",
+    "forms-calculators-direct"
+  ],
+  "summary": {
+    "matters": 50,
+    "entry_paths": 3,
+    "parity_rows": 150,
+    "parity_scenarios": 50,
+    "mismatches": 0,
+    "classification_counts": {
+      "exact-county-direct-packet": 42,
+      "exact-county-packet-page": 7,
+      "verified-statewide-direct-packet": 1
+    }
+  },
+  "scenarios": [
+    {
+      "matter_id": "divorce-dissolution",
+      "title": "Divorce / Dissolution",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "divorce-dissolution",
+          "title": "Divorce / Dissolution",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "divorce-dissolution",
+          "title": "Divorce / Dissolution",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "divorce-dissolution",
+          "title": "Divorce / Dissolution",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "legal-separation",
+      "title": "Legal Separation",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "legal-separation",
+          "title": "Legal Separation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "legal-separation",
+          "title": "Legal Separation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "legal-separation",
+          "title": "Legal Separation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "annulment",
+      "title": "Annulment",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "annulment",
+          "title": "Annulment",
+          "canonical_answers": {
+            "issue": "annulment",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-annulment-no-minor-children",
+          "public_packet_title": "Maricopa annulment - no minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "annulment",
+          "title": "Annulment",
+          "canonical_answers": {
+            "issue": "annulment",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-annulment-no-minor-children",
+          "public_packet_title": "Maricopa annulment - no minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "annulment",
+          "title": "Annulment",
+          "canonical_answers": {
+            "issue": "annulment",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-annulment-no-minor-children",
+          "public_packet_title": "Maricopa annulment - no minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "consent-decrees",
+      "title": "Consent Decrees",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "consent-decrees",
+          "title": "Consent Decrees",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "consent-decrees",
+          "title": "Consent Decrees",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "consent-decrees",
+          "title": "Consent Decrees",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "settlement-agreements",
+      "title": "Settlement Agreements",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "settlement-agreements",
+          "title": "Settlement Agreements",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "settlement-agreements",
+          "title": "Settlement Agreements",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "settlement-agreements",
+          "title": "Settlement Agreements",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "temporary-orders",
+      "title": "Temporary Orders",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "temporary-orders",
+          "title": "Temporary Orders",
+          "canonical_answers": {
+            "issue": "post-decree temporary orders",
+            "county": "Maricopa",
+            "posture": "Post-decree temporary relief",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-post-decree-temporary-orders",
+          "public_packet_title": "Maricopa post-decree temporary orders",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "temporary-orders",
+          "title": "Temporary Orders",
+          "canonical_answers": {
+            "issue": "post-decree temporary orders",
+            "county": "Maricopa",
+            "posture": "Post-decree temporary relief",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-post-decree-temporary-orders",
+          "public_packet_title": "Maricopa post-decree temporary orders",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "temporary-orders",
+          "title": "Temporary Orders",
+          "canonical_answers": {
+            "issue": "post-decree temporary orders",
+            "county": "Maricopa",
+            "posture": "Post-decree temporary relief",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-post-decree-temporary-orders",
+          "public_packet_title": "Maricopa post-decree temporary orders",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "property-and-debt-division",
+      "title": "Property & Debt Division",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "property-and-debt-division",
+          "title": "Property & Debt Division",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "property-and-debt-division",
+          "title": "Property & Debt Division",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "property-and-debt-division",
+          "title": "Property & Debt Division",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "real-estate-marital-home",
+      "title": "Real Estate / Marital Home",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "real-estate-marital-home",
+          "title": "Real Estate / Marital Home",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "real-estate-marital-home",
+          "title": "Real Estate / Marital Home",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "real-estate-marital-home",
+          "title": "Real Estate / Marital Home",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "family-case-name-change",
+      "title": "Family-Case Name Change",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "family-case-name-change",
+          "title": "Family-Case Name Change",
+          "canonical_answers": {
+            "issue": "name change",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-name-change-adult-no-minor-children",
+          "public_packet_title": "Maricopa adult name change - no minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "family-case-name-change",
+          "title": "Family-Case Name Change",
+          "canonical_answers": {
+            "issue": "name change",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-name-change-adult-no-minor-children",
+          "public_packet_title": "Maricopa adult name change - no minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "family-case-name-change",
+          "title": "Family-Case Name Change",
+          "canonical_answers": {
+            "issue": "name change",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-name-change-adult-no-minor-children",
+          "public_packet_title": "Maricopa adult name change - no minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "parenting-time",
+      "title": "Parenting Time",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "parenting-time",
+          "title": "Parenting Time",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "parenting-time",
+          "title": "Parenting Time",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "parenting-time",
+          "title": "Parenting Time",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "legal-decision-making",
+      "title": "Legal Decision-Making",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "legal-decision-making",
+          "title": "Legal Decision-Making",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "legal-decision-making",
+          "title": "Legal Decision-Making",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "legal-decision-making",
+          "title": "Legal Decision-Making",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "parenting-plans",
+      "title": "Parenting Plans",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "parenting-plans",
+          "title": "Parenting Plans",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "parenting-plans",
+          "title": "Parenting Plans",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "parenting-plans",
+          "title": "Parenting Plans",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "supervised-parenting-time",
+      "title": "Supervised Parenting Time",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "supervised-parenting-time",
+          "title": "Supervised Parenting Time",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "supervised-parenting-time",
+          "title": "Supervised Parenting Time",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "supervised-parenting-time",
+          "title": "Supervised Parenting Time",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "child-withheld-missed-time",
+      "title": "Child Withheld / Missed Time",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "child-withheld-missed-time",
+          "title": "Child Withheld / Missed Time",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "child-withheld-missed-time",
+          "title": "Child Withheld / Missed Time",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "child-withheld-missed-time",
+          "title": "Child Withheld / Missed Time",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        }
+      ]
+    },
+    {
+      "matter_id": "relocation",
+      "title": "Relocation",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "relocation",
+          "title": "Relocation",
+          "canonical_answers": {
+            "issue": "relocation",
+            "county": "Pima",
+            "posture": "Notice of intent to relocate",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "pima-notice-of-intent-to-relocate",
+          "public_packet_title": "Pima notice of intent to relocate",
+          "county_status": "Pima",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Matched direct forms for Pima County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "relocation",
+          "title": "Relocation",
+          "canonical_answers": {
+            "issue": "relocation",
+            "county": "Pima",
+            "posture": "Notice of intent to relocate",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "pima-notice-of-intent-to-relocate",
+          "public_packet_title": "Pima notice of intent to relocate",
+          "county_status": "Pima",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Matched direct forms for Pima County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "relocation",
+          "title": "Relocation",
+          "canonical_answers": {
+            "issue": "relocation",
+            "county": "Pima",
+            "posture": "Notice of intent to relocate",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "pima-notice-of-intent-to-relocate",
+          "public_packet_title": "Pima notice of intent to relocate",
+          "county_status": "Pima",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Matched direct forms for Pima County."
+        }
+      ]
+    },
+    {
+      "matter_id": "uccjea-interstate-custody",
+      "title": "UCCJEA / Interstate Custody",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "uccjea-interstate-custody",
+          "title": "UCCJEA / Interstate Custody",
+          "canonical_answers": {
+            "issue": "foreign custody / UCCJEA order",
+            "county": "Maricopa",
+            "posture": "Register out-of-state custody order",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-foreign-custody-order",
+          "public_packet_title": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 8,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "uccjea-interstate-custody",
+          "title": "UCCJEA / Interstate Custody",
+          "canonical_answers": {
+            "issue": "foreign custody / UCCJEA order",
+            "county": "Maricopa",
+            "posture": "Register out-of-state custody order",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-foreign-custody-order",
+          "public_packet_title": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 8,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "uccjea-interstate-custody",
+          "title": "UCCJEA / Interstate Custody",
+          "canonical_answers": {
+            "issue": "foreign custody / UCCJEA order",
+            "county": "Maricopa",
+            "posture": "Register out-of-state custody order",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-foreign-custody-order",
+          "public_packet_title": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 8,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "grandparent-third-party-rights",
+      "title": "Grandparent / Third-Party Rights",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "grandparent-third-party-rights",
+          "title": "Grandparent / Third-Party Rights",
+          "canonical_answers": {
+            "issue": "grandparent visitation",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-grandparent-visitation",
+          "public_packet_title": "Maricopa grandparent visitation",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "grandparent-third-party-rights",
+          "title": "Grandparent / Third-Party Rights",
+          "canonical_answers": {
+            "issue": "grandparent visitation",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-grandparent-visitation",
+          "public_packet_title": "Maricopa grandparent visitation",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "grandparent-third-party-rights",
+          "title": "Grandparent / Third-Party Rights",
+          "canonical_answers": {
+            "issue": "grandparent visitation",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-grandparent-visitation",
+          "public_packet_title": "Maricopa grandparent visitation",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "child-support-establishment",
+      "title": "Child Support Establishment",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "child-support-establishment",
+          "title": "Child Support Establishment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "child-support-establishment",
+          "title": "Child Support Establishment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "child-support-establishment",
+          "title": "Child Support Establishment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "child-support-modification",
+      "title": "Child Support Modification",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "child-support-modification",
+          "title": "Child Support Modification",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "child-support-modification",
+          "title": "Child Support Modification",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "child-support-modification",
+          "title": "Child Support Modification",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "child-support-enforcement",
+      "title": "Child Support Enforcement",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "child-support-enforcement",
+          "title": "Child Support Enforcement",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "child-support-enforcement",
+          "title": "Child Support Enforcement",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "child-support-enforcement",
+          "title": "Child Support Enforcement",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "support-worksheet-review",
+      "title": "Support Worksheet Review",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "support-worksheet-review",
+          "title": "Support Worksheet Review",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "support-worksheet-review",
+          "title": "Support Worksheet Review",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "support-worksheet-review",
+          "title": "Support Worksheet Review",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "arrears-back-support",
+      "title": "Arrears / Back Support",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "arrears-back-support",
+          "title": "Arrears / Back Support",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "arrears-back-support",
+          "title": "Arrears / Back Support",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "arrears-back-support",
+          "title": "Arrears / Back Support",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "spousal-maintenance-requests",
+      "title": "Spousal Maintenance Requests",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "spousal-maintenance-requests",
+          "title": "Spousal Maintenance Requests",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "spousal-maintenance-requests",
+          "title": "Spousal Maintenance Requests",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "spousal-maintenance-requests",
+          "title": "Spousal Maintenance Requests",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "spousal-maintenance-modification",
+      "title": "Spousal Maintenance Modification",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "spousal-maintenance-modification",
+          "title": "Spousal Maintenance Modification",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "spousal-maintenance-modification",
+          "title": "Spousal Maintenance Modification",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "spousal-maintenance-modification",
+          "title": "Spousal Maintenance Modification",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "spousal-maintenance-enforcement",
+      "title": "Spousal Maintenance Enforcement",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "spousal-maintenance-enforcement",
+          "title": "Spousal Maintenance Enforcement",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "spousal-maintenance-enforcement",
+          "title": "Spousal Maintenance Enforcement",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "spousal-maintenance-enforcement",
+          "title": "Spousal Maintenance Enforcement",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "paternity-parentage",
+      "title": "Paternity / Parentage",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "paternity-parentage",
+          "title": "Paternity / Parentage",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "paternity-parentage",
+          "title": "Paternity / Parentage",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "paternity-parentage",
+          "title": "Paternity / Parentage",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "dna-testing-parentage-establishment",
+      "title": "DNA Testing / Parentage Establishment",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "dna-testing-parentage-establishment",
+          "title": "DNA Testing / Parentage Establishment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "dna-testing-parentage-establishment",
+          "title": "DNA Testing / Parentage Establishment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "dna-testing-parentage-establishment",
+          "title": "DNA Testing / Parentage Establishment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "birth-certificate-acknowledgment",
+      "title": "Birth Certificate / Acknowledgment",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "birth-certificate-acknowledgment",
+          "title": "Birth Certificate / Acknowledgment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "birth-certificate-acknowledgment",
+          "title": "Birth Certificate / Acknowledgment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "birth-certificate-acknowledgment",
+          "title": "Birth Certificate / Acknowledgment",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "same-sex-parentage",
+      "title": "Same-Sex Parentage",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "same-sex-parentage",
+          "title": "Same-Sex Parentage",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "same-sex-parentage",
+          "title": "Same-Sex Parentage",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "same-sex-parentage",
+          "title": "Same-Sex Parentage",
+          "canonical_answers": {
+            "issue": "paternity / parenting time / child support",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-parenting-parentage-support",
+          "public_packet_title": "Maricopa parenting, parentage, and child-support packets",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "modification-of-existing-orders",
+      "title": "Modification of Existing Orders",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "modification-of-existing-orders",
+          "title": "Modification of Existing Orders",
+          "canonical_answers": {
+            "issue": "modification",
+            "county": "Maricopa",
+            "posture": "Modify existing order",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-modification-existing-order",
+          "public_packet_title": "Maricopa modification of existing family-court orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "modification-of-existing-orders",
+          "title": "Modification of Existing Orders",
+          "canonical_answers": {
+            "issue": "modification",
+            "county": "Maricopa",
+            "posture": "Modify existing order",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-modification-existing-order",
+          "public_packet_title": "Maricopa modification of existing family-court orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "modification-of-existing-orders",
+          "title": "Modification of Existing Orders",
+          "canonical_answers": {
+            "issue": "modification",
+            "county": "Maricopa",
+            "posture": "Modify existing order",
+            "children": "minor-children"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-modification-existing-order",
+          "public_packet_title": "Maricopa modification of existing family-court orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        }
+      ]
+    },
+    {
+      "matter_id": "enforcement-of-existing-orders",
+      "title": "Enforcement of Existing Orders",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "enforcement-of-existing-orders",
+          "title": "Enforcement of Existing Orders",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "enforcement-of-existing-orders",
+          "title": "Enforcement of Existing Orders",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "enforcement-of-existing-orders",
+          "title": "Enforcement of Existing Orders",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        }
+      ]
+    },
+    {
+      "matter_id": "contempt-noncompliance-review",
+      "title": "Contempt / Noncompliance Review",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "contempt-noncompliance-review",
+          "title": "Contempt / Noncompliance Review",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "contempt-noncompliance-review",
+          "title": "Contempt / Noncompliance Review",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "contempt-noncompliance-review",
+          "title": "Contempt / Noncompliance Review",
+          "canonical_answers": {
+            "issue": "enforcement",
+            "county": "Maricopa",
+            "posture": "Enforce existing order",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-enforcement-existing-order",
+          "public_packet_title": "Maricopa enforcement or contempt review for existing orders",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        }
+      ]
+    },
+    {
+      "matter_id": "protective-orders-safety-terms",
+      "title": "Protective Orders / Safety Terms",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "protective-orders-safety-terms",
+          "title": "Protective Orders / Safety Terms",
+          "canonical_answers": {
+            "issue": "protective order / safety",
+            "county": "Maricopa",
+            "posture": "Safety planning",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-protective-order-resources",
+          "public_packet_title": "Maricopa protective order resources",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 4,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "protective-orders-safety-terms",
+          "title": "Protective Orders / Safety Terms",
+          "canonical_answers": {
+            "issue": "protective order / safety",
+            "county": "Maricopa",
+            "posture": "Safety planning",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-protective-order-resources",
+          "public_packet_title": "Maricopa protective order resources",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 4,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "protective-orders-safety-terms",
+          "title": "Protective Orders / Safety Terms",
+          "canonical_answers": {
+            "issue": "protective order / safety",
+            "county": "Maricopa",
+            "posture": "Safety planning",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-protective-order-resources",
+          "public_packet_title": "Maricopa protective order resources",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 4,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "mediation-preparation",
+      "title": "Mediation Preparation",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "mediation-preparation",
+          "title": "Mediation Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "mediation-preparation",
+          "title": "Mediation Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "mediation-preparation",
+          "title": "Mediation Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "arbitration-adr-preparation",
+      "title": "Arbitration / ADR Preparation",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "arbitration-adr-preparation",
+          "title": "Arbitration / ADR Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "arbitration-adr-preparation",
+          "title": "Arbitration / ADR Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "arbitration-adr-preparation",
+          "title": "Arbitration / ADR Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "negotiation-support",
+      "title": "Negotiation Support",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "negotiation-support",
+          "title": "Negotiation Support",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "negotiation-support",
+          "title": "Negotiation Support",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "negotiation-support",
+          "title": "Negotiation Support",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "settlement-conference-preparation",
+      "title": "Settlement Conference Preparation",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "settlement-conference-preparation",
+          "title": "Settlement Conference Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "settlement-conference-preparation",
+          "title": "Settlement Conference Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "settlement-conference-preparation",
+          "title": "Settlement Conference Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "agreement-review",
+      "title": "Agreement Review",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "agreement-review",
+          "title": "Agreement Review",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "agreement-review",
+          "title": "Agreement Review",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "agreement-review",
+          "title": "Agreement Review",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "Finalizing agreement",
+            "children": "any"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-consent-decree-agreement",
+          "public_packet_title": "Maricopa consent decree and agreement finalization",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "document-preparation",
+      "title": "Document Preparation",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "document-preparation",
+          "title": "Document Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "document-preparation",
+          "title": "Document Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "document-preparation",
+          "title": "Document Preparation",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "document-review",
+      "title": "Document Review",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "document-review",
+          "title": "Document Review",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "document-review",
+          "title": "Document Review",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "document-review",
+          "title": "Document Review",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "petition-new-filing",
+      "title": "Petition / New Filing",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "petition-new-filing",
+          "title": "Petition / New Filing",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "petition-new-filing",
+          "title": "Petition / New Filing",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "petition-new-filing",
+          "title": "Petition / New Filing",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "response-to-served-papers",
+      "title": "Response to Served Papers",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "response-to-served-papers",
+          "title": "Response to Served Papers",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "response-to-served-papers",
+          "title": "Response to Served Papers",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "response-to-served-papers",
+          "title": "Response to Served Papers",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "filing-and-service-coordination",
+      "title": "Filing & Service Coordination",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "filing-and-service-coordination",
+          "title": "Filing & Service Coordination",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "filing-and-service-coordination",
+          "title": "Filing & Service Coordination",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "filing-and-service-coordination",
+          "title": "Filing & Service Coordination",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "hearing-preparation",
+      "title": "Hearing Preparation",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "hearing-preparation",
+          "title": "Hearing Preparation",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "hearing-preparation",
+          "title": "Hearing Preparation",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "hearing-preparation",
+          "title": "Hearing Preparation",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        }
+      ]
+    },
+    {
+      "matter_id": "court-appearance-within-licensed-scope",
+      "title": "Court Appearance Within Licensed Scope",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "court-appearance-within-licensed-scope",
+          "title": "Court Appearance Within Licensed Scope",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "court-appearance-within-licensed-scope",
+          "title": "Court Appearance Within Licensed Scope",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "court-appearance-within-licensed-scope",
+          "title": "Court Appearance Within Licensed Scope",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        }
+      ]
+    },
+    {
+      "matter_id": "financial-disclosure",
+      "title": "Financial Disclosure",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "financial-disclosure",
+          "title": "Financial Disclosure",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "financial-disclosure",
+          "title": "Financial Disclosure",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "financial-disclosure",
+          "title": "Financial Disclosure",
+          "canonical_answers": {
+            "issue": "temporary orders / court readiness",
+            "county": "Maricopa",
+            "posture": "Prepare for court",
+            "children": "any"
+          },
+          "classification": "exact-county-packet-page",
+          "packet_id": "maricopa-disclosure-and-hearing-readiness",
+          "public_packet_title": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+          "county_status": "Maricopa",
+          "source_type": "packet-page",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 0,
+          "limitation_explanation": "Official Maricopa County packet page for this route."
+        }
+      ]
+    },
+    {
+      "matter_id": "exhibit-document-organization",
+      "title": "Exhibit / Document Organization",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "exhibit-document-organization",
+          "title": "Exhibit / Document Organization",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "exhibit-document-organization",
+          "title": "Exhibit / Document Organization",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "exhibit-document-organization",
+          "title": "Exhibit / Document Organization",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "not-sure-where-to-start",
+      "title": "Not Sure Where to Start",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "not-sure-where-to-start",
+          "title": "Not Sure Where to Start",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "not-sure-where-to-start",
+          "title": "Not Sure Where to Start",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "not-sure-where-to-start",
+          "title": "Not Sure Where to Start",
+          "canonical_answers": {
+            "issue": "divorce",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "no-minor-children"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-divorce-new-no-children",
+          "public_packet_title": "Maricopa divorce or separation - new filing without minor children",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 10,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "adoption-family-formation-review",
+      "title": "Adoption / Family Formation Review",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "adoption-family-formation-review",
+          "title": "Adoption / Family Formation Review",
+          "canonical_answers": {
+            "issue": "adult adoption",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "adult"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-adult-adoption",
+          "public_packet_title": "Maricopa adult adoption",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "adoption-family-formation-review",
+          "title": "Adoption / Family Formation Review",
+          "canonical_answers": {
+            "issue": "adult adoption",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "adult"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-adult-adoption",
+          "public_packet_title": "Maricopa adult adoption",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "adoption-family-formation-review",
+          "title": "Adoption / Family Formation Review",
+          "canonical_answers": {
+            "issue": "adult adoption",
+            "county": "Maricopa",
+            "posture": "New filing",
+            "children": "adult"
+          },
+          "classification": "exact-county-direct-packet",
+          "packet_id": "maricopa-adult-adoption",
+          "public_packet_title": "Maricopa adult adoption",
+          "county_status": "Maricopa",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 2,
+          "limitation_explanation": "Matched direct forms for Maricopa County."
+        }
+      ]
+    },
+    {
+      "matter_id": "special-scope-referral-review",
+      "title": "Special Scope / Referral Review",
+      "rows": [
+        {
+          "entry_path": "practice-area",
+          "matter_id": "special-scope-referral-review",
+          "title": "Special Scope / Referral Review",
+          "canonical_answers": {
+            "issue": "limited scope representation",
+            "county": "Statewide",
+            "posture": "Representation",
+            "children": "any"
+          },
+          "classification": "verified-statewide-direct-packet",
+          "packet_id": "azcourts-limited-scope-representation",
+          "public_packet_title": "Arizona limited scope representation",
+          "county_status": "Statewide",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Arizona statewide direct forms verified for this route."
+        },
+        {
+          "entry_path": "diy-guide",
+          "matter_id": "special-scope-referral-review",
+          "title": "Special Scope / Referral Review",
+          "canonical_answers": {
+            "issue": "limited scope representation",
+            "county": "Statewide",
+            "posture": "Representation",
+            "children": "any"
+          },
+          "classification": "verified-statewide-direct-packet",
+          "packet_id": "azcourts-limited-scope-representation",
+          "public_packet_title": "Arizona limited scope representation",
+          "county_status": "Statewide",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Arizona statewide direct forms verified for this route."
+        },
+        {
+          "entry_path": "forms-calculators-direct",
+          "matter_id": "special-scope-referral-review",
+          "title": "Special Scope / Referral Review",
+          "canonical_answers": {
+            "issue": "limited scope representation",
+            "county": "Statewide",
+            "posture": "Representation",
+            "children": "any"
+          },
+          "classification": "verified-statewide-direct-packet",
+          "packet_id": "azcourts-limited-scope-representation",
+          "public_packet_title": "Arizona limited scope representation",
+          "county_status": "Statewide",
+          "source_type": "direct-pdf",
+          "primary_action": "Open matched result",
+          "verified_pdf_count": 1,
+          "limitation_explanation": "Arizona statewide direct forms verified for this route."
+        }
+      ]
+    }
+  ],
+  "mismatches": []
+}
