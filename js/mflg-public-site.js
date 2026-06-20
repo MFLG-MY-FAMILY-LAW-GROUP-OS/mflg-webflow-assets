@@ -840,7 +840,7 @@
 		      { title: "Parenting time or support is not being followed", action: "Start Intake with enforcement context", route: routeForServiceTitle("Enforcement of Existing Orders") },
 		      { title: "Safety or protective-order issue", action: "Start Intake with safety context", route: routeForServiceTitle("Protective Orders / Safety Terms") }
 		    ];
-		    return `<div class="urgency-router" aria-label="Fast routes for urgent family-law situations">
+		    return `<div class="urgency-router" aria-label="Fast paths for urgent family-law situations">
 		      <div class="urgency-router-copy">
 		        <p class="eyebrow">Deadline or pressure?</p>
 		        <h3>If something is time-sensitive, start there.</h3>
@@ -882,7 +882,7 @@
 		      {
 		        label: "Urgency",
 		        title: "Is there a deadline, hearing, or safety issue?",
-		        copy: "Time-sensitive facts route the matter toward the right next step, including referral when ordinary intake is not enough."
+		        copy: "Time-sensitive facts point the matter toward the right next step, including referral when ordinary intake is not enough."
 		      },
 		      {
 		        label: "Fee & fit",
@@ -1019,7 +1019,7 @@
 		        </a>
 		        <a class="decision-option" href="/start" data-link data-intake-route='${esc(JSON.stringify(urgentRoute))}'>
 		          <span>I was served or have a deadline</span>
-		          <strong>Route the deadline, hearing, service, or urgent next step first.</strong>
+		          <strong>Start with the deadline, hearing, service, or urgent next step first.</strong>
 		          <b>Start Deadline Review →</b>
 		        </a>
 		        <a class="decision-option" href="/start" data-link data-intake-route='${esc(JSON.stringify(triageRoute))}'>
@@ -1212,7 +1212,7 @@
       <div class="guide-forms-viewer service-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(item.calculatorChoice || "")}" data-guide-pdf-packet="${esc(item.formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(item.title)}" data-guide-title="${esc(item.title)}" data-guide-route='${esc(JSON.stringify(item.formsRoute))}'>
         <div class="guide-forms-viewer-head guide-forms-bridge-head">
           <div>
-            <span>Forms bridge</span>
+            <span>Forms & Calculators</span>
             <strong>Open the matching forms in Forms & Calculators.</strong>
             <p>This guide narrows the packet. The PDF viewer itself lives in Forms & Calculators so the form flow stays in one place.</p>
           </div>
@@ -1319,7 +1319,7 @@
     return hero(
       "Clear Family Law Guidance. A More Affordable Path Forward.",
       "Arizona family law help from a licensed Legal Paraprofessional for divorce, parenting time, child support, legal decision-making, and related family court matters.",
-      `${link("/start", "Begin Review", "primary")} ${link("/practice-areas", "See Practice Areas", "outline")}`
+      `${link("/forms", "Find forms", "primary")} ${link("/calculators", "Use calculator", "outline")} ${link("/guides", "Read DIY guide", "outline")} ${link("/start", "Start Guided Intake", "outline")}`
     ) + section(
       "Start with review, then choose the right service path.",
       "Submitting information does not create a client relationship. The first job is to understand whether the matter fits conflicts, licensed scope, urgency, and practical service needs.",
@@ -1330,7 +1330,7 @@
 	        [
 	          { label: "Conflict", title: "Names and parties are screened first", copy: "The office checks whether it can review the matter before advice or engagement terms are discussed." },
 	          { label: "Scope", title: "The requested task is matched to LP authority", copy: "The issue, documents, and requested help are compared against licensed family-law scope before service is offered." },
-	          { label: "Urgency", title: "Deadlines and hearings move to the front", copy: "Response dates, court notices, and safety concerns route the next step before routine review." },
+	          { label: "Urgency", title: "Deadlines and hearings move to the front", copy: "Response dates, court notices, and safety concerns should guide the next step before routine review." },
 	          { label: "Next step", title: "The result is a path, not a vague promise", copy: "The office may recommend forms, a consult, a limited task, or a referral when that is the honest fit." }
 	        ],
 	        "proof-home"
@@ -1356,7 +1356,7 @@
 	  }
 
   function practiceAreas() {
-    return section("Practice Areas", "Choose the issue that is closest to your situation. Each card opens forms, tools, next steps, and Guided Intake if you are unsure.", `${pageCommand("Issue router", "Choose the issue first. Then pick forms, a guide, or Intake.", "This page should help visitors name the family-law problem before they choose paperwork or office review.", [
+    return section("Practice Areas", "Choose the issue that is closest to your situation. Each card opens forms, tools, next steps, and Guided Intake if you are unsure.", `${pageCommand("Issue finder", "Choose the issue first. Then pick forms, a guide, or Intake.", "This page should help visitors name the family-law problem before they choose paperwork or office review.", [
       { label: "Start Guided Intake", href: "/start", className: "primary", route: routeForServiceTitle("Not Sure Where to Start") },
       { label: "Open Forms & Calculators", href: "/tools", className: "outline" },
       { label: "Use DIY Guides", href: "/guides", className: "outline" }
@@ -1364,11 +1364,11 @@
       { label: "New case", title: "Divorce, parentage, support, or first orders", copy: "Start with the case type if no order exists yet.", href: "#service-search", linkLabel: "Browse issues" },
       { label: "Existing order", title: "Modification, enforcement, or missed parenting time", copy: "Use the post-order paths when a signed order already controls the issue.", href: "#service-search", linkLabel: "Find post-order help" },
       { label: "Deadline", title: "Served papers, hearing, or urgent timing", copy: "Use Intake when timing can change the safest next step.", href: "/start", linkLabel: "Start timing review" }
-    ], "practice-command")}${proofBand("Route clarity", "Pick the closest issue and let the site do the sorting.", "The cards are arranged to reduce guessing. The right path should be obvious before anyone starts collecting documents.", [
+    ], "practice-command")}${proofBand("Path clarity", "Pick the closest issue and let the site do the sorting.", "The cards are arranged to reduce guessing. The right path should be obvious before anyone starts collecting documents.", [
       { label: "Closest issue", title: "Start with the problem you actually have", copy: "Select the path that is most like your matter, even if the legal label is not perfect." },
       { label: "Forms or tools", title: "Open the right helper without extra steps", copy: "Each card links to forms, checklists, calculators, or the office review path that fits the issue." },
       { label: "Unsure", title: "Use Guided Intake instead of guessing", copy: "When the issue is mixed or the facts are unclear, the intake path is the cleaner next step." },
-      { label: "Boundary", title: "Some matters will be routed out", copy: "If the issue needs attorney-only work, the page should not pretend otherwise." }
+      { label: "Boundary", title: "Some matters need another professional", copy: "If the issue needs attorney-only work, the page should not pretend otherwise." }
     ], "proof-practice")}${reviewFitBand()}${intakeReadinessPanel("compact")}${serviceCards()}`, true, "Family law services");
   }
 
@@ -1983,18 +1983,20 @@
     });
   }
 
-  function formConfidenceLabel(confidence) {
+  function formConfidenceLabel(confidence, county) {
+    const publicCounty = normalizeFormsCounty(county);
     if (confidence === "exact") return "Forms matched";
-    if (confidence === "county-exact") return "Maricopa County forms";
+    if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `${publicCounty} County forms` : "Exact county forms";
     if (confidence === "intake-required") return "Check first";
     if (confidence === "statewide-generic") return "Statewide forms";
     if (confidence === "related-only") return "Related forms";
     return "Related forms";
   }
 
-  function formConfidenceCopy(confidence) {
+  function formConfidenceCopy(confidence, county) {
+    const publicCounty = normalizeFormsCounty(county);
     if (confidence === "exact") return "These forms are matched to the selected issue.";
-    if (confidence === "county-exact") return "These are Maricopa County forms. Confirm your county before relying on them.";
+    if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These are ${publicCounty} County forms. Use them only if that is your case county.` : "These are exact county forms. Confirm your case county before relying on them.";
     if (confidence === "intake-required") return "Use Guided Intake before choosing forms. This issue depends on timing, court orders, county, or case stage.";
     if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires local forms.";
     if (confidence === "related-only") return "Related forms exist, but this may not be the exact form group for your issue.";
@@ -2014,7 +2016,7 @@
     "Use only issue type, county, case status, deadline yes/no, children yes/no, and filing posture before Guided Intake.",
     "Do not ask for full opposing-party names, child names, birth dates, account numbers, full financial disclosures, uploads, or detailed allegations in public tools.",
     "Treat every public tool output as a planning summary, not a legal opinion, client record, or confirmed representation.",
-    "If the user needs forms or calculators, preserve only non-sensitive routing context until conflict, scope, and engagement review are complete."
+    "If the user needs forms or calculators, preserve only non-sensitive public answer context until conflict, scope, and engagement review are complete."
   ];
 
   const jurisdictionQuestions = [
@@ -2022,10 +2024,10 @@
     ["Are minor children involved?", "Children change the packet, especially for parenting time, legal decision-making, support, and relocation."],
     ["Is this a new filing or an existing case?", "New cases use a different packet family than responses, modifications, enforcement, or post-decree requests."],
     ["Is there already an agreement or final order?", "Agreement packets and final-order packets are different from contested filing packets."],
-    ["Has someone been served or is there a deadline?", "Timing can move the route to response, temporary, or deadline-readiness materials."],
-    ["Do current court orders already exist?", "Existing orders can move the route to modification, enforcement, contempt, or clarification forms."],
+    ["Has someone been served or is there a deadline?", "Timing can change whether response, temporary-order, or deadline-readiness materials are the safest starting point."],
+    ["Do current court orders already exist?", "Existing orders can change whether modification, enforcement, contempt, or clarification forms are the right starting point."],
     ["Is safety involved?", "Safety issues should be screened before general forms so the next step does not miss urgent options."],
-    ["County unknown?", "Use statewide Arizona resources first, then route to the correct superior court once county can be identified."]
+    ["County unknown?", "Use statewide Arizona resources first, then choose the correct superior court once county can be identified."]
   ];
 
   const formsPlanningCatalog = [
@@ -2085,7 +2087,7 @@
       status: "Statewide source",
       source: "AZCourtHelp",
       url: "https://azcourthelp.org/forms",
-      note: "Central Arizona forms directory that helps bridge statewide resources and county-specific requirements."
+      note: "Central Arizona forms directory that connects statewide resources with county-specific requirements."
     },
     {
       title: "Maricopa Family Court Forms Library",
@@ -2115,7 +2117,7 @@
       status: "County packet source",
       source: "Maricopa County Superior Court",
       url: "https://superiorcourt.maricopa.gov/llrc/family-court-forms/",
-      note: "Route by children involved, agreement status, service, property, debt, and support issues before choosing a packet."
+      note: "Choose by children involved, agreement status, service, property, debt, and support issues before choosing a packet."
     },
     {
       title: "Respond to Family-Court Papers",
@@ -2369,7 +2371,7 @@
     "Yavapai",
     "Yuma"
   ];
-  const formRouterCounties = ["Not sure", ...arizonaCountyOptions, "Statewide"];
+  const formRouterCounties = ["Not sure", ...arizonaCountyOptions];
   function normalizeFormsCounty(value) {
     const county = String(value || "").trim();
     if (!county || county === "Choose county") return "Not sure";
@@ -2821,11 +2823,11 @@
       entrySource: "Forms & Tools",
       entryLabel: selectedPdfLabel
         ? `Approved official PDF: ${selectedPdfLabel}`
-        : packetLabel ? `Approved PDF packet: ${packetLabel}` : "Forms & Tools route",
+        : packetLabel ? `Approved PDF packet: ${packetLabel}` : "Forms & Tools starting point",
       issuePathway: "Forms & Tools",
       issueDetail: labelParts.join(" / ") || "Official forms and PDF planning",
       serviceInterest: "",
-      contextNote: "Public planning route only. No sensitive facts, uploads, allegations, financial details, or opposing-party information were collected in Forms & Tools.",
+      contextNote: "Public planning selection only. No sensitive facts, uploads, allegations, financial details, or opposing-party information were collected in Forms & Tools.",
       presetAnswers: {
         formCounty: route.county || "Statewide",
         formIssue: route.issue || "all",
@@ -2855,7 +2857,7 @@
     const baseRoute = {
       routeKey: `forms-tools-route-decision-${slugify([route.county, selectedIssue, selectedPosture, route.children].filter(Boolean).join("-"))}`,
       entrySource: "Forms & Tools",
-      entryLabel: "Forms & Tools route decision",
+      entryLabel: "Forms & Tools next-step decision",
       issuePathway: "Forms & Tools",
 	      issueDetail: [route.county, selectedIssue, selectedPosture, displayFormsChildren(route.children)].filter(Boolean).join(" / "),
       serviceInterest: "",
@@ -2868,7 +2870,7 @@
         approvedPdfPacket: hasReviewedPdfPacket ? route.pdfPacket : "",
         officialSourceTitle: firstResource.title || "",
         officialSourceStatus: firstResource.status || "",
-        sourceType: "Forms & Tools route decision / public planning"
+        sourceType: "Forms & Tools next-step decision / public planning"
       }
     };
     const baseMeta = [
@@ -2956,7 +2958,7 @@
     const intake = panel.querySelector("[data-form-route-decision-intake]");
     panel.dataset.routeTone = decision.tone || "neutral";
     if (kicker) kicker.textContent = decision.kicker || "Recommended next action";
-    if (title) title.textContent = decision.title || "Choose a route to see the safest next step.";
+    if (title) title.textContent = decision.title || "Choose answers to see the safest next step.";
     if (copy) copy.textContent = decision.copy || "Use reviewed forms first and Guided Intake when facts require review.";
     if (meta) {
       const items = Array.isArray(decision.meta) && decision.meta.length
@@ -3056,7 +3058,7 @@
         copy: "Choose what you need. The page will show a safe next step without asking for private details."
     };
     const initialToolMode = routeIntent.mode;
-    const toolsProofBand = proofBand("How to use this page", "Pick the next safe step without private details.", "The forms and calculator hub is built to route people quickly while keeping the page usable for self-help and deadline triage.", [
+    const toolsProofBand = proofBand("How to use this page", "Pick the next safe step without private details.", "The forms and calculator hub helps people choose quickly while keeping the page usable for self-help and deadline triage.", [
       { label: "No private facts", title: "Keep the search generic", copy: "Use labels like divorce, parenting, support, or deadline instead of typing sensitive case narrative." },
       { label: "Forms", title: "Open the reviewed form path first", copy: "If you need court papers, the page should point to the closest reviewed form group before anything else." },
       { label: "Calculators", title: "Use the planning tool when numbers matter", copy: "Support, parenting time, and deadline-related helpers stay available without forcing a full intake." },
@@ -3075,12 +3077,12 @@
           </div>
           <div class="forms-guide-bridge" data-guide-bridge hidden>
             <div class="forms-guide-bridge-main">
-              <span>DIY Guide bridge</span>
+              <span>DIY Guide context</span>
               <strong data-guide-bridge-title>Guide context carried forward.</strong>
-              <p data-guide-bridge-copy>The matching forms, calculator path, and intake route are ready.</p>
+              <p data-guide-bridge-copy>The matching forms, calculator option, and Guided Intake link are ready.</p>
               <div class="forms-guide-bridge-chips" data-guide-bridge-chips></div>
             </div>
-            <div class="forms-guide-bridge-actions" aria-label="DIY Guide bridge actions">
+            <div class="forms-guide-bridge-actions" aria-label="DIY Guide next actions">
               <button class="button primary" type="button" data-guide-bridge-action="forms">Open matched forms</button>
               <button class="button outline" type="button" data-guide-bridge-action="calculator">Use calculator</button>
               <a class="button outline" href="/start" data-link data-guide-bridge-intake>Start Guided Intake</a>
@@ -3094,7 +3096,7 @@
               <p data-guided-copy>Start with what you need. The page will update the choices below for you.</p>
             </div>
             <div class="forms-guided-progress" aria-label="Guided Forms and Tools steps">
-              <span data-guided-progress-label>Question 1 of 5</span>
+              <span data-guided-progress-label>Step 1 of 5</span>
               <button type="button" data-guided-jump="0" aria-current="true">1</button>
               <button type="button" data-guided-jump="1">2</button>
               <button type="button" data-guided-jump="2">3</button>
@@ -3123,20 +3125,24 @@
           </div>
           <div class="forms-entry-lanes" aria-label="Beginner Forms and Tools starting points">
             <a href="#forms-official-router" data-smart-lane="forms">
-              <span>Court forms</span>
-              <strong>I need court forms.</strong>
+              <span>Find forms</span>
+              <strong>Find forms</strong>
             </a>
             <a href="#forms-calculator-hub" data-smart-lane="calculator">
-              <span>Calculators</span>
-              <strong>I need a calculator.</strong>
+              <span>Calculator</span>
+              <strong>Use a calculator</strong>
+            </a>
+            <a href="/guides" data-link data-smart-lane="guide">
+              <span>DIY guide</span>
+              <strong>Read a DIY guide</strong>
             </a>
             <a href="#deadline-readiness-planner" data-smart-lane="deadline">
-              <span>Deadline</span>
-              <strong>I was served or have a deadline.</strong>
+              <span>Help me choose</span>
+              <strong>Help me choose</strong>
             </a>
             <a href="/start" data-link data-smart-lane="intake" data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>
-              <span>Not sure</span>
-              <strong>I am not sure.</strong>
+              <span>Guided Intake</span>
+              <strong>Start Guided Intake</strong>
             </a>
           </div>
         </div>
@@ -3151,7 +3157,7 @@
               <option value="deadline">Respond to served papers or a deadline</option>
               <option value="issue">Search by family-law issue</option>
               <option value="calculator"${initialToolMode === "calculator" ? " selected" : ""}>Use a calculator</option>
-              <option value="intake">Ask the office to route me</option>
+              <option value="intake">Ask the office to help me choose</option>
               <option value="guide">Understand the process first</option>
             </select>
           </label>
@@ -3487,7 +3493,7 @@
             <div class="official-calculator-embed-head">
               <span data-official-calculator-embed-label>Official court calculator</span>
               <strong data-official-calculator-embed-title>Child support worksheet interview</strong>
-              <p data-official-calculator-embed-copy>Use this court calculator only if the on-site calculator does not fit. If the frame does not load, use Intake so the office can help route the next step.</p>
+              <p data-official-calculator-embed-copy>Use this court calculator only if the on-site calculator does not fit. If the frame does not load, use Intake so the office can help choose the next step.</p>
             </div>
             <iframe title="Arizona child support calculator" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-official-calculator-frame></iframe>
           </div>
@@ -3645,7 +3651,7 @@
       `Confirm the ${item.title} issue and current court status`,
       "Gather orders, notices, deadlines, facts, and supporting records",
       `Check scope, urgency, service needs, and ${issuePathway} fit`,
-      "Open Guided Intake with the matter issue and route context saved"
+      "Open Guided Intake with the matter issue and answer context saved"
     ];
   }
 
@@ -3888,7 +3894,7 @@
       <div class="guide-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(calculatorChoice || "")}" data-guide-pdf-packet="${esc(formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(guide.title)}" data-guide-title="${esc(guide.title)}" data-guide-route='${esc(JSON.stringify(formsRoute))}'>
         <div class="guide-forms-viewer-head guide-forms-bridge-head">
           <div>
-            <span>Forms bridge</span>
+            <span>Forms & Calculators</span>
             <strong>Open the matching forms in Forms & Calculators.</strong>
             <p>This guide only recommends the packet. The viewer and checklist live in Forms & Calculators.</p>
           </div>
@@ -3963,13 +3969,13 @@
     ], "proof-about")}
     ${lpScopeClarityPanel()}
     <div class="about-proof-grid">
-      <article class="card"><h3>Family-law focus</h3><p>Divorce, parenting, child support, parentage, maintenance, enforcement, agreements, disclosure, filings, hearings, and settlement support are routed through issue-specific intake paths.</p></article>
+      <article class="card"><h3>Family-law focus</h3><p>Divorce, parenting, child support, parentage, maintenance, enforcement, agreements, disclosure, filings, hearings, and settlement support each keep their issue context in Intake.</p></article>
       <article class="card"><h3>Scope-first review</h3><p>Some matters need attorney involvement, emergency resources, or referral. The intake flow is designed to surface those concerns before representation is confirmed.</p></article>
       <article class="card"><h3>Document-centered process</h3><p>Forms, orders, agreements, worksheets, exhibits, service issues, and deadlines are gathered early so the first review starts with usable information.</p></article>
     </div>
     <div class="about-process" aria-label="About intake process">
       ${[
-        ["01", "Choose the closest issue", "Practice areas and Guides both route into Intake with the selected matter issue preserved."],
+        ["01", "Choose the closest issue", "Practice areas and Guides both carry the selected issue into Intake."],
         ["02", "Build the review record", "The form captures county, case stage, deadline, children, support, documents, and service needs."],
         ["03", "Check fit and scope", "The office reviews conflicts, licensed-scope limits, urgency, safety, and whether another resource is needed."],
         ["04", "Move to the right next step", "Guided Intake remains the public starting point. Accepted matters can later move into a secure client workspace when that access is available."]
@@ -4183,7 +4189,7 @@
       <div class="contact-router-head">
         <p class="eyebrow">Choose the right contact path</p>
         <h3>New matters, existing clients, and urgent timing need different next steps.</h3>
-        <p>Use the route that matches your situation so the office gets the right context without unnecessary confidential detail.</p>
+        <p>Use the path that matches your situation so the office gets the right context without unnecessary confidential detail.</p>
       </div>
       <div class="contact-router-grid">
         <article>
@@ -4229,7 +4235,7 @@
       <div class="client-access-head">
         <p class="eyebrow">Access status</p>
         <h3>Use this page to choose the right access path without exposing unnecessary case details.</h3>
-        <p>The public website is not a case-management portal. Until secure access is assigned directly by the office, use the route below that matches your status.</p>
+        <p>The public website is not a case-management portal. Until secure access is assigned directly by the office, use the path below that matches your status.</p>
       </div>
       <div class="client-access-grid">
         <article>
@@ -4307,7 +4313,7 @@
       },
       accessibility: {
         label: "Access next steps",
-        title: "If the website gets in the way, use a direct access route.",
+        title: "If the website gets in the way, use a direct access path.",
         copy: "The goal is practical access to intake and family-law information, not forcing every visitor through one online path.",
         actions: [
           ["Start Guided Intake", "/start", "primary"],
@@ -5472,7 +5478,7 @@
         issuePathway: "Forms & Tools",
         issueDetail: "Official sources / reviewed routes / calculator readiness",
         serviceInterest: "",
-        contextNote: "Public Forms & Tools action plan only. Only safe source, county, route, packet, and calculator metadata should carry forward before conflict and scope review.",
+        contextNote: "Public Forms & Tools action plan only. Only safe source, county, form, packet, and calculator details should carry forward before conflict and scope review.",
         presetAnswers: {
           formsToolsActionPlan: "Use on-page reviewed forms first; use reviewed routes when available; use calculator guidance without entering private facts.",
           sourceType: "Forms & Tools action plan / public planning"
@@ -5536,7 +5542,7 @@
         issuePathway: "Forms & Tools",
         issueDetail: "Public review status / source-only limits",
         serviceInterest: "",
-        contextNote: "Public Forms & Tools review-roadmap route only. Review status and source-only limits were carried forward; no sensitive facts were collected.",
+        contextNote: "Public Forms & Tools review status only. Source-only limits were carried forward; no sensitive facts were collected.",
         presetAnswers: {
           formsToolsReviewRoadmap: "Use the on-page forms first; anything unclear should be confirmed through Guided Intake before relying on it.",
           sourceType: "Forms & Tools review roadmap / public planning"
@@ -5607,7 +5613,7 @@
         issuePathway: "Forms & Tools",
         issueDetail: "Official-source checks / safe form access",
         serviceInterest: "",
-        contextNote: "Public Forms & Tools form-safety route only. Source health and safe-access status were carried forward; no sensitive facts were collected.",
+        contextNote: "Public Forms & Tools source-safety status only. Source health and safe-access status were carried forward; no sensitive facts were collected.",
         presetAnswers: {
           formsToolsMaintenanceStatus: "Official court source and safe form-access status reviewed in public planning.",
           sourceType: "Forms & Tools form safety / public planning"
@@ -6378,7 +6384,7 @@
         issuePathway: "Forms & Tools",
         issueDetail: option.public_status || option.label || "Safe public planning selection",
         serviceInterest: "",
-        contextNote: "Public Forms & Tools start option only. Only non-sensitive source, route, county, packet, or calculator metadata was selected before Guided Intake.",
+        contextNote: "Public Forms & Tools start option only. Only non-sensitive source, form, county, packet, or calculator details were selected before Guided Intake.",
         presetAnswers: {
           formsToolsStartOption: option.label || "",
           formsToolsStartType: option.option_type || "",
@@ -6487,10 +6493,11 @@
     const flowSections = Array.from(document.querySelectorAll("[data-flow-section]"));
     const initialStoredFormsRoute = storedFormsRoute();
     const presetRoute = window.MFLGLatestFormsRoute || initialStoredFormsRoute || {};
-    const presetNeed = window.MFLGGuideCalculatorChoice ? "calculator" : "forms";
+    const initialSmartPath = `/${String(window.location.pathname || "").replace(/^\/+|\/+$/g, "")}`;
+    const presetNeed = window.MFLGGuideCalculatorChoice || initialSmartPath === "/calculators" ? "calculator" : "forms";
     let showAllSections = false;
     let guidedStep = 0;
-    let guidedComplete = false;
+    let guidedComplete = presetNeed === "calculator";
     const hasSavedQualifierAnswers = Boolean(initialStoredFormsRoute && (
       (initialStoredFormsRoute.county && initialStoredFormsRoute.county !== "Not sure" && initialStoredFormsRoute.county !== "Statewide") ||
       (initialStoredFormsRoute.issue && normalizeFormsIssue(initialStoredFormsRoute.issue) !== "all") ||
@@ -6618,10 +6625,11 @@
         copy: "Pick the closest answer. You can change it later.",
         key: "need",
         options: [
-          ["forms", "I need court forms"],
-          ["deadline", "I was served or have a deadline"],
-          ["calculator", "I need a calculator"],
-          ["intake", "I am not sure"]
+          ["forms", "Find forms"],
+          ["calculator", "Use a calculator"],
+          ["guide", "Read a DIY guide"],
+          ["deadline", "Help me choose"],
+          ["intake", "Start Guided Intake"]
         ]
       },
       {
@@ -6903,7 +6911,7 @@
           ? "Saved answers applied"
           : guidedComplete
           ? "Answers confirmed"
-          : `Question ${guidedStep + 1} of ${guidedSteps.length}`
+          : `Step ${guidedStep + 1} of ${guidedSteps.length}`
       ));
       updateGuidedResult();
     }
@@ -7027,6 +7035,9 @@
         if (value === "deadline") {
           guidedAnswers.posture = "Served / response";
           setSelectValue(posture, "Served / response");
+        }
+        if (value === "calculator" || value === "guide") {
+          guidedComplete = true;
         }
       }
       if (step.key === "issue") guidedAnswers.issue = value;
@@ -7232,7 +7243,7 @@
         }
         return route;
       };
-      const matterConfidenceLabel = (matter) => formConfidenceLabel(matter.form_confidence || (matter.direct_pdf_available ? "county-exact" : "intake-required"));
+      const matterConfidenceLabel = (matter) => formConfidenceLabel(matter.form_confidence || (matter.direct_pdf_available ? "county-exact" : "intake-required"), matter.default_county);
       const matterCardCopy = (matter) => {
         const exactPacket = pickExactPacket(matter);
         const relatedPacket = !exactPacket ? pickRelatedPacket(matter) : null;
@@ -7693,7 +7704,7 @@
             <button class="button primary" type="submit">Calculate</button>
           </div>
           <div class="mflg-child-support-grid">
-            <label><span>County</span><select name="county">${["Apache", "Cochise", "Coconino", "Gila", "Graham", "Greenlee", "La Paz", "Maricopa", "Mohave", "Navajo", "Pima", "Pinal", "Santa Cruz", "Yavapai", "Yuma"].map((county) => `<option${county === "Maricopa" ? " selected" : ""}>${county}</option>`).join("")}</select></label>
+            <label><span>County</span><select name="county">${["Not sure", "Apache", "Cochise", "Coconino", "Gila", "Graham", "Greenlee", "La Paz", "Maricopa", "Mohave", "Navajo", "Pima", "Pinal", "Santa Cruz", "Yavapai", "Yuma"].map((county) => `<option${county === "Not sure" ? " selected" : ""}>${county}</option>`).join("")}</select></label>
             <label><span>Requesting party</span><select name="partyRequestingMaintenance"><option>Petitioner</option><option selected>Respondent</option></select></label>
             <label><span>Marriage date</span><input type="text" name="dateOfMarriage" placeholder="MM/DD/YYYY"></label>
             <label><span>Service date</span><input type="text" name="dateOfServiceOfProcess" placeholder="MM/DD/YYYY"></label>
@@ -8451,13 +8462,17 @@
           <article><span>Form pages</span><strong>${esc(String(summary.official_packet_page_actions || 0))}</strong></article>
           <article><span>Viewable PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
         </div>
-        <div class="forms-coverage-routes" aria-label="Forms and Tools covered routes">
-          ${routes.map((route) => `<article>
-            <span>${esc(route.route?.county || "Official source")}</span>
+        <div class="forms-coverage-routes" aria-label="Forms and Tools covered starting points">
+          ${routes.map((route) => {
+            const routeDetail = route.route || {};
+            const summaryParts = routeSummaryParts(routeDetail);
+            return `<article>
+            <span>${esc(displayFormsCounty(routeDetail.county || route.county || ""))}</span>
             <strong>${esc(route.packet_label || route.packet_id)}</strong>
-            <p>${esc([route.route?.issue, route.route?.posture, route.route?.children].filter(Boolean).join(" / "))}</p>
+            <p>${esc(summaryParts.length ? summaryParts.join(" / ") : "Choose answers to narrow the result")}</p>
             <small>${route.has_approved_pdf_actions ? `${esc(String(route.approved_pdf_actions))} PDF${route.approved_pdf_actions === 1 ? "" : "s"} ready to view` : "Use Guided Intake to confirm forms"}</small>
-          </article>`).join("")}
+          </article>`;
+          }).join("")}
         </div>
       `;
     } catch (error) {
@@ -8499,13 +8514,13 @@
           <strong>Choose one starting point, then open the matching forms.</strong>
             <p>${esc(manifest.public_message || "Choose a starting point to see reviewed forms.")}</p>
           </div>
-          <a class="button outline" href="/start" data-link data-route-action-intake>Use Selected Route in Intake</a>
+          <a class="button outline" href="/start" data-link data-route-action-intake>Use selected starting point in Intake</a>
         </div>
-        <div class="route-action-controls" aria-label="Filter reviewed packet routes">
+        <div class="route-action-controls" aria-label="Filter form starting points">
           <label>Search
             <input type="search" placeholder="Search divorce, parenting, support, agreement..." data-route-action-search>
           </label>
-          <label>Route
+          <label>Starting point
             <select data-route-action-select>
               <option value="all">Show every starting point</option>
               ${routes.map((route) => `<option value="${esc(route.packet_id)}">${esc(route.packet_label)}</option>`).join("")}
@@ -8725,7 +8740,7 @@
       host.innerHTML = `
         <div class="packet-action-empty">
           <strong>Official packet-page actions could not load.</strong>
-          <p>Use the form finder above while the packet-page manifest is unavailable.</p>
+          <p>Use the form finder above while the packet-page information is unavailable.</p>
         </div>
       `;
     }
@@ -8758,7 +8773,7 @@
         <div class="section-head compact">
           <p class="eyebrow">Reviewed forms</p>
           <h2>Reviewed forms are not available right now.</h2>
-          <p>The packet manifest could not load. Reload the page or try again in a moment.</p>
+          <p>The packet information could not load. Reload the page or try again in a moment.</p>
         </div>
       `;
         return;
@@ -8950,9 +8965,9 @@
         }
         if (intakeCopy) {
           intakeCopy.textContent = packetLabel && packetRoute
-            ? "Packet metadata is loaded and ready for the viewer."
+            ? "Packet source information is ready for the viewer."
             : packetLabel
-            ? "Packet metadata is loaded."
+            ? "Packet source information is ready."
             : "Packet details are ready.";
         }
       };

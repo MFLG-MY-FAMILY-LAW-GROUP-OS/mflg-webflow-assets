@@ -15,7 +15,9 @@
     "test:public-answer-persistence": "node scripts/playwright-public-answer-persistence.js",
     "test:packet-route-action": "node scripts/playwright-packet-route-action.js",
     "test:public-completion": "node scripts/playwright-public-completion-audit.js",
-    "test:public-surface": "node scripts/validate-public-surface.js"
+    "test:public-surface": "node scripts/validate-public-surface.js",
+    "test:county-form-coverage": "node scripts/audit-county-form-coverage.js",
+    "test:new-user-scenarios": "node scripts/playwright-new-user-scenarios.js"
   },
   "repository": {
     "type": "git",
