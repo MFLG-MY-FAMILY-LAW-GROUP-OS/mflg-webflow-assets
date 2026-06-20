@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260615-forms-packet-rewire}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260620-091305-new-user-path-simplicity}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -1096,7 +1096,7 @@ grep -q "data-guided-summary" "$PUBLIC_JS_FILE" || fail "Forms & Tools guided su
 grep -q "syncFormsFinder" "$PUBLIC_JS_FILE" || fail "Forms & Tools guided sync missing from public JS"
 grep -q "Answer one question at a time" "$PUBLIC_JS_FILE" || fail "Forms & Tools guided public copy missing from public JS"
 grep -q "Start with one simple choice" "$PUBLIC_JS_FILE" || fail "Forms & Tools guided helper first-start copy missing from public JS"
-grep -q "I need court forms" "$PUBLIC_JS_FILE" || fail "Forms & Tools secondary lane copy missing from public JS"
+grep -q "Find forms" "$PUBLIC_JS_FILE" || fail "Forms & Tools secondary lane copy missing from public JS"
 grep -q "Fine tune the result" "$PUBLIC_JS_FILE" || fail "Forms & Tools optional fine-tune copy missing from public JS"
 grep -q "Tell us what you need" "$PUBLIC_JS_FILE" || fail "Forms & Tools plain-language path strip missing from public JS"
 grep -q "Choose the questions above to get a next step." "$PUBLIC_JS_FILE" || fail "Forms & Tools plain-language court-packet copy missing from public JS"

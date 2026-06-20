@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260615-forms-packet-rewire}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260620-091305-new-user-path-simplicity}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -85,7 +85,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
   public_site_js="$(curl -fsSL "https://myfamilylawgroup.com/js/mflg-public-site.js?verify-route=${attempt}-$(date +%s)" || true)"
   if [[ "$public_site_js" == *"function intakeRouteForService"* ]] &&
      [[ "$public_site_js" == *"data-intake-route"* ]] &&
-     [[ "$public_site_js" == *"Question 1 of 5"* ]] &&
+     [[ "$public_site_js" == *"Step 1 of 5"* ]] &&
      [[ "$public_site_js" == *"rememberFormsQualifierAnswers"* ]] &&
      [[ "$public_site_js" == *"mflgFormsRouteContext"* ]] &&
      [[ "$public_site_js" == *"Open official PDF"* ]] &&
@@ -403,11 +403,11 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
      [[ "$public_css" == *"forms-privacy-strip"* ]] &&
      [[ "$public_css" == *"body:not(.forms-showing-all-sections) .proof-tools"* ]] &&
      [[ "$public_css" == *"official-pdf-direct-download"* ]] &&
-     [[ "$public_site_js" == *"Question 1 of 5"* ]] &&
+     [[ "$public_site_js" == *"Step 1 of 5"* ]] &&
      [[ "$public_site_js" == *"Open official PDF"* ]] &&
      [[ "$public_site_js" == *"Open same-site PDF"* ]] &&
      [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&
-     [[ "$public_site_js" == *"Choose a path, open the exact packet"* ]] &&
+     [[ "$public_site_js" == *"Choose path"* ]] &&
      [[ "$public_site_js" != *"handoff"* ]] &&
      [[ "$public_intake_js" == *"Your Forms & Tools selections were carried into Intake"* ]] &&
      [[ "$public_intake_js" != *"safe route metadata"* ]]; then
@@ -579,10 +579,10 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 			     [[ "$public_site_js" == *"syncFormsFinder"* ]] &&
 			     [[ "$public_site_js" == *"Answer one question at a time"* ]] &&
 			     [[ "$public_site_js" == *"Start with one simple choice"* ]] &&
-			     [[ "$public_site_js" == *"I need court forms"* ]] &&
+			     [[ "$public_site_js" == *"Find forms"* ]] &&
 			     [[ "$public_site_js" == *"Fine tune the result"* ]] &&
 			     [[ "$public_site_js" == *"Tell us what you need"* ]] &&
-			     [[ "$public_site_js" == *"Choose the form group that sounds closest"* ]] &&
+			     [[ "$public_site_js" == *"Choose answers to see the safest next step"* ]] &&
 			     [[ "$public_site_js" == *"Open the next safe step"* ]] &&
 			     [[ "$public_site_js" == *"Recommended path shown first"* ]] &&
 			     [[ "$public_site_js" == *"Open calculator tools"* ]] &&

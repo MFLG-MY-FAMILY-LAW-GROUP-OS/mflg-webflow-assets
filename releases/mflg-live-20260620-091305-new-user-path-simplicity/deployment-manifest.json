@@ -1,0 +1,10 @@
+{
+  "release": "mflg-live-20260620-091305-new-user-path-simplicity",
+  "asset_key": "mflg-live-20260620-091305-new-user-path-simplicity",
+  "feature_commit": "b07b3fcb6f2e29b1908c80e45e3a2b73ee66c1ca",
+  "live_public_js_sha256": "9c7ccd6370dca996f87df67dd39f8e4327c8daead8d0e5290bf282e25cd49986",
+  "cloudflare_deployments": {
+    "mflg-webflow-assets": "86932b32-ea07-4bf6-9a3c-9b5020bda59d",
+    "mflg-public-website": "4daee475-12b4-4c8a-80c6-ad3b43843353"
+  }
+}
