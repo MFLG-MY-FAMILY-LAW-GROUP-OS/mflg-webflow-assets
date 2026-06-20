@@ -174,7 +174,7 @@ function resourceClassificationForUserCounty(variant, userCounty, resourceRecord
       publicExplanation: hasDirectPdf
         ? `Matched forms for ${userCounty} County`
         : `Official ${userCounty} County packet`,
-      primaryAction: hasDirectPdf ? "Open matched forms" : "Open official packet page",
+      primaryAction: hasDirectPdf ? "Open matched forms" : `Open official ${userCounty} packet`,
       secondaryAction: "Start Guided Intake if unsure",
       directPdfCount: Number(resourceRecord.verified_pdf_count || 0)
     };

@@ -6598,6 +6598,27 @@
         route: true
       }
     };
+    const guidedExactPdfPacket = () => pdfPacketForFormsRoute(
+      normalizeFormsCounty(guidedAnswers.county),
+      guidedAnswers.issue || "all",
+      normalizeFormsPosture(guidedAnswers.posture),
+      normalizeFormsChildren(guidedAnswers.children)
+    );
+    const recommendationForGuidedAnswers = () => {
+      const active = guidedAnswers.need || "forms";
+      if (active === "forms" && guidedExactPdfPacket() === "all") {
+        return {
+          label: "What happens next",
+          title: "Use Intake or adjust answers before opening forms.",
+          copy: "No exact issue-specific form packet is verified for these answers yet. Change answers if another county or stage applies, or use Guided Intake for help confirming the next step.",
+          href: "/start",
+          text: "Start Guided Intake",
+          link: true,
+          route: true
+        };
+      }
+      return recommendations[active] || recommendations.forms;
+    };
     const labelFor = (value, fallback = "") => {
       const text = String(value || fallback || "").trim();
       if (!text) return "";
@@ -6724,7 +6745,7 @@
 	      guidedAnswers.posture = normalizeFormsPosture(posture?.value || guidedAnswers.posture);
 	      guidedAnswers.children = normalizeFormsChildren(children?.value || guidedAnswers.children);
 	      rememberSmartPathAnswers(publicAnswerOptions);
-      const recommendation = recommendations[need?.value || "forms"] || recommendations.forms;
+      const recommendation = recommendationForGuidedAnswers();
       const activeNeed = need?.value || "forms";
       const pathReady = showAllSections || guidedComplete || activeNeed === "intake";
       host.classList.toggle("user-showing-all", showAllSections);
@@ -6796,7 +6817,7 @@
       formCounty?.dispatchEvent(new Event("change", { bubbles: true }));
     };
     const updateGuidedResult = () => {
-      const recommendation = recommendations[guidedAnswers.need || "forms"] || recommendations.forms;
+      const recommendation = recommendationForGuidedAnswers();
       const needLabels = {
         forms: "Court forms",
         deadline: "Deadline or served papers",
@@ -8960,6 +8981,7 @@
         pdfPacket: "all"
       };
       let expandFocusedPdfGroup = false;
+      let allowUnmatchedPdfBrowse = false;
       const updateIntakePanel = () => {
         const packetValue = packet?.value || "all";
         const packetLabel = packetValue !== "all"
@@ -9065,12 +9087,13 @@
         const q = (search?.value || "").trim().toLowerCase();
         const packetValue = packet?.value || "all";
         const languageValue = language?.value || "all";
+        const allowPdfLinks = packetValue !== "all" || allowUnmatchedPdfBrowse;
         let visible = 0;
         links.forEach((link) => {
           const matchesSearch = !q || (link.dataset.search || "").includes(q);
           const matchesPacket = packetValue === "all" || link.dataset.packet === packetValue;
           const matchesLanguage = languageValue === "all" || link.dataset.language === languageValue;
-          const show = matchesSearch && matchesPacket && matchesLanguage;
+          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage;
           link.hidden = !show;
           if (show) visible += 1;
         });
@@ -9092,17 +9115,23 @@
         if (spotlightTitle) {
           spotlightTitle.textContent = selectedRoute
             ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended form group selected"
+            : !allowUnmatchedPdfBrowse
+            ? "No exact form packet is selected for these answers."
             : "Choose a form group only if the recommendation does not fit.";
         }
         if (spotlightCopy) {
           spotlightCopy.textContent = selectedRoute
             ? "Start here if this form group sounds like your situation. Open the forms in order."
+            : !allowUnmatchedPdfBrowse
+            ? "Use Guided Intake or change answers before opening a packet. Browse other form groups only if you already know the court packet title."
             : "Use search, form group, and language filters only if you know what you are looking for. Otherwise, start Guided Intake.";
         }
         if (status) {
           status.textContent = visible
             ? "Forms are ready."
-            : "No forms match these filters.";
+            : allowUnmatchedPdfBrowse
+            ? "No forms match these filters."
+            : "No exact issue-specific form packet is selected for these answers.";
         }
         updateIntakePanel();
         updateItemIntakeLinks();
@@ -9121,6 +9150,7 @@
       });
       const clearOfficialPdfFilters = () => {
         expandFocusedPdfGroup = false;
+        allowUnmatchedPdfBrowse = false;
         if (search) search.value = "";
         if (packet) packet.value = "all";
         if (language) language.value = "English";
@@ -9145,7 +9175,9 @@
       });
       showAll?.addEventListener("click", () => {
         if (routeIndexDisclosure) routeIndexDisclosure.open = true;
+        allowUnmatchedPdfBrowse = true;
         clearOfficialPdfFilters();
+        allowUnmatchedPdfBrowse = true;
         update();
         routeIndexDisclosure?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
@@ -9166,7 +9198,8 @@
         expandFocusedPdfGroup = detail?.expandPdfGroup === true;
         const hasExplicitPacket = detail && Object.prototype.hasOwnProperty.call(detail, "pdfPacket");
         const explicitPacket = hasExplicitPacket ? detail.pdfPacket || "all" : "";
-        const nextPacket = explicitPacket && explicitPacket !== "all" ? explicitPacket : recommendedPacketId;
+        const nextPacket = hasExplicitPacket ? explicitPacket : recommendedPacketId;
+        allowUnmatchedPdfBrowse = false;
         if (packet && Array.from(packet.options).some((option) => option.value === nextPacket)) {
           packet.value = nextPacket;
           update();

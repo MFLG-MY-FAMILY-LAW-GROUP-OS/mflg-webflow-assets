@@ -11,7 +11,10 @@ const writeJSON = (file, value) => {
 const commands = [
   ["npm", ["run", "test:all-county-user-outcomes"]],
   ["npm", ["run", "test:all-county-three-path-parity"]],
+  ["npm", ["run", "test:fallback-action-contract"]],
   ["npm", ["run", "test:result-semantics"]],
+  ["npm", ["run", "test:fallback-rendered-outcomes"]],
+  ["npm", ["run", "test:all-county-scenarios"]],
   ["npm", ["run", "test:new-user-scenarios"]],
   ["npm", ["run", "test:practice-area-matrix"]],
   ["npm", ["run", "test:diy-guide-matrix"]]

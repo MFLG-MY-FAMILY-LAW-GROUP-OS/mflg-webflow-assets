@@ -25,7 +25,9 @@
     "test:all-county-user-outcomes": "node scripts/audit-all-county-user-outcomes.js",
     "test:all-county-three-path-parity": "node scripts/audit-all-county-user-outcomes.js",
     "test:all-county-scenarios": "node scripts/playwright-all-county-scenarios.js",
-    "test:all-county-production-stability": "node scripts/run-all-county-production-stability.js"
+    "test:all-county-production-stability": "node scripts/run-all-county-production-stability.js",
+    "test:fallback-action-contract": "node scripts/audit-fallback-action-contract.js",
+    "test:fallback-rendered-outcomes": "node scripts/playwright-fallback-rendered-outcomes.js"
   },
   "repository": {
     "type": "git",

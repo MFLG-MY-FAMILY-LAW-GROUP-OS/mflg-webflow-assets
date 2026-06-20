@@ -1,0 +1,934 @@
+{
+  "version": "1.0.0-fallback-rendered-outcomes",
+  "built_at": "2026-06-20T20:06:55.874Z",
+  "base_url": "http://127.0.0.1:4173",
+  "summary": {
+    "rendered_outcomes": 18,
+    "counties_checked": 16,
+    "exact_county_direct_packet": 1,
+    "verified_related_resource": 14,
+    "no_verified_issue_specific_form": 1,
+    "calculator_no_county_required": 1,
+    "unsupported_matched_claims": 0,
+    "visible_external_pdf_anchors": 0,
+    "owner_screenshots": 6
+  },
+  "outcomes": [
+    {
+      "county": "Apache",
+      "classification": "verified-related-resource",
+      "userCounty": "Apache",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Cochise",
+      "classification": "verified-related-resource",
+      "userCounty": "Cochise",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Coconino",
+      "classification": "verified-related-resource",
+      "userCounty": "Coconino",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Gila",
+      "classification": "verified-related-resource",
+      "userCounty": "Gila",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Graham",
+      "classification": "verified-related-resource",
+      "userCounty": "Graham",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Greenlee",
+      "classification": "verified-related-resource",
+      "userCounty": "Greenlee",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "La Paz",
+      "classification": "verified-related-resource",
+      "userCounty": "La Paz",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Maricopa",
+      "classification": "exact-county-direct-packet",
+      "userCounty": "Maricopa",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Open matched forms",
+          "href": "",
+          "target": "#forms-approved-pdfs",
+          "packet": ""
+        },
+        {
+          "text": "Open exact forms",
+          "href": "#forms-approved-pdfs",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open exact forms",
+          "href": "#forms-approved-pdfs",
+          "target": "",
+          "packet": "maricopa-divorce-new-no-children"
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist: Divorce with No Minor Children",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 5,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Mohave",
+      "classification": "verified-related-resource",
+      "userCounty": "Mohave",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Navajo",
+      "classification": "verified-related-resource",
+      "userCounty": "Navajo",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Pima",
+      "classification": "verified-related-resource",
+      "userCounty": "Pima",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Pinal",
+      "classification": "verified-related-resource",
+      "userCounty": "Pinal",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Santa Cruz",
+      "classification": "verified-related-resource",
+      "userCounty": "Santa Cruz",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Yavapai",
+      "classification": "verified-related-resource",
+      "userCounty": "Yavapai",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Yuma",
+      "classification": "verified-related-resource",
+      "userCounty": "Yuma",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Not sure",
+      "classification": "no-verified-issue-specific-form",
+      "userCounty": "Not sure",
+      "packetSourceCounty": "Not sure",
+      "primaryActions": [
+        {
+          "text": "Start Guided Intake",
+          "href": "",
+          "target": "/start",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Open form chooser",
+          "href": "#forms-official-router",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "secondaryActions": [
+        "Not sure? Start Guided Intake",
+        "Advanced: show all sections",
+        "Reset choices",
+        "Start Guided Intake",
+        "Not sure? Start Guided Intake",
+        "Reset",
+        "Open packet checklist",
+        "Start Guided Intake instead",
+        "Start Guided Intake",
+        "Browse other form groups",
+        "Reset",
+        "Contact Office"
+      ],
+      "visiblePdfCount": 0,
+      "externalPdfAnchors": [],
+      "overflow": false,
+      "pass": true
+    },
+    {
+      "county": "Not applicable",
+      "classification": "calculator-no-county-required",
+      "selectedCalculator": "support",
+      "primaryActions": [
+        {
+          "text": "Open calculator tools",
+          "href": "",
+          "target": "#forms-calculator-hub",
+          "packet": ""
+        },
+        {
+          "text": "Open calculator",
+          "href": "",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Calculate",
+          "href": "",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Calculate",
+          "href": "",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Add this count to Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Use count in Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "visiblePdfCount": 0,
+      "pass": true
+    },
+    {
+      "classification": "reset-fallback",
+      "userCounty": "Not sure",
+      "resetFields": {
+        "agreementStatus": true,
+        "existingOrders": true,
+        "timing": true,
+        "safety": true,
+        "selectedPacket": true,
+        "selectedCalculator": true,
+        "issue": true,
+        "county": true,
+        "posture": true,
+        "children": true,
+        "selectedGuide": true,
+        "selectedPracticeArea": true,
+        "need": true
+      },
+      "primaryActions": [
+        {
+          "text": "Continue to next question",
+          "href": "",
+          "target": "",
+          "packet": ""
+        },
+        {
+          "text": "Start Guided Intake",
+          "href": "/start",
+          "target": "",
+          "packet": ""
+        }
+      ],
+      "visiblePdfCount": 0,
+      "pass": true
+    }
+  ],
+  "owner_package": {
+    "markdown": "reports/world-class-owner-acceptance.md",
+    "json": "data/world-class-owner-acceptance.json",
+    "screenshots": [
+      "reports/world-class-owner-acceptance-assets/homepage-task-choice.png",
+      "reports/world-class-owner-acceptance-assets/practice-area-forms.png",
+      "reports/world-class-owner-acceptance-assets/diy-guide-forms.png",
+      "reports/world-class-owner-acceptance-assets/forms-direct.png",
+      "reports/world-class-owner-acceptance-assets/calculator-first.png",
+      "reports/world-class-owner-acceptance-assets/mobile-first-viewport.png"
+    ]
+  },
+  "not_applicable_rendered_classes": [
+    {
+      "classification": "verified-statewide-direct-packet",
+      "reason": "The current direct Forms guided path does not expose the special-scope statewide route as a first-level county-driven result; data contract remains verified."
+    },
+    {
+      "classification": "exact-county-packet-page",
+      "reason": "Packet-page-only routes are route-evidence verified but are not first-level direct guided issue buttons in the current public Forms wizard."
+    },
+    {
+      "classification": "general-county-forms-index",
+      "reason": "No primary all-county outcome currently uses general-index-only as its primary classification."
+    },
+    {
+      "classification": "no-official-resource",
+      "reason": "No-official-resource outcomes are data-verified and fallback actions are contract-checked; the direct guided public issue set does not expose the response route as a first-level issue."
+    }
+  ]
+}

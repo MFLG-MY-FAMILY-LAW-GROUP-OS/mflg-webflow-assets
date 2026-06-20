@@ -55,6 +55,20 @@ async function seedState(page, publicAnswers = {}, legacyRoute = {}) {
   }, { publicAnswers, legacyRoute });
 }
 
+async function showFormsControls(page) {
+  const formCounty = page.locator("[data-form-county]").first();
+  if (await formCounty.isVisible().catch(() => false)) return;
+  const change = page.locator("[data-guided-change-answers]").first();
+  if (await change.isVisible().catch(() => false)) {
+    await change.click();
+  }
+  if (!(await formCounty.isVisible().catch(() => false))) {
+    const showAll = page.locator("[data-smart-show-all]").first();
+    if (await showAll.isVisible().catch(() => false)) await showAll.click();
+  }
+  await formCounty.waitFor({ state: "visible", timeout: 10000 });
+}
+
 async function openMediationPracticeArea(page) {
   await page.goto(`${baseUrl}/practice-areas/`, { waitUntil: "networkidle" });
   await page.evaluate(() => {
@@ -397,8 +411,11 @@ async function clickCalculatorReadinessAction(page) {
 
     await page.click("[data-guided-result-action]");
     state = await toolsState(page);
-    assert(state.formCounty === "Pima", "confirmed saved answers lost county");
+    assert(state.publicAnswers.county === "Pima", "confirmed saved answers lost county");
+    assert(state.publicAnswers.confirmedFields?.county === true, "confirmed saved answers lost county provenance");
 
+    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+    await showFormsControls(page);
     const countySelect = page.locator("[data-form-county]").first();
     await countySelect.selectOption("Yavapai");
     state = await toolsState(page);
@@ -452,21 +469,21 @@ async function clickCalculatorReadinessAction(page) {
 	      sessionStorage.setItem("mflgFormsRouteContext", JSON.stringify({ county: "Maricopa", issue: "divorce", posture: "New filing", children: "any", userConfirmed: true }));
 	    });
 	    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
-	    state = await toolsState(page);
-	    assert(state.publicAnswers.county === "Yavapai", "stale legacy county returned after explicit new selection");
+		    state = await toolsState(page);
+		    assert(state.publicAnswers.county === "Yavapai", "stale legacy county returned after explicit new selection");
 
-	    await page.click("[data-guided-result-action]");
-	    await countySelect.selectOption("Not sure");
+		    await showFormsControls(page);
+			    await countySelect.selectOption("Not sure");
 	    await page.evaluate(() => {
 	      sessionStorage.setItem("mflgFormsRouteContext", JSON.stringify({ county: "Maricopa", issue: "divorce", posture: "New filing", children: "any", userConfirmed: true }));
 	    });
 	    await page.reload({ waitUntil: "networkidle" });
-	    state = await toolsState(page);
-	    assert(state.publicAnswers.county === "Not sure", "explicit unknown county was overwritten by legacy");
-	    assert(state.publicAnswers.explicitUnknownFields?.county === true, "explicit unknown provenance did not survive legacy conflict");
+		    state = await toolsState(page);
+		    assert(state.publicAnswers.county === "Not sure", "explicit unknown county was overwritten by legacy");
+		    assert(state.publicAnswers.explicitUnknownFields?.county === true, "explicit unknown provenance did not survive legacy conflict");
 
-	    await page.click("[data-guided-result-action]");
-	    await page.locator("[data-form-reset]").first().click();
+		    await showFormsControls(page);
+		    await page.locator("[data-form-reset]").first().click();
 	    state = await clickFirstMatterCard(page);
 	    assert(state.publicAnswers.resetFields?.county === true, "system suggestion cleared reset tombstone");
 	    assert(!state.publicAnswers.confirmedFields?.county, "system suggestion confirmed reset county");
