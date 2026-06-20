@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-approved-fixtures",
-  "built_at": "2026-06-20T17:04:37.076Z",
+  "built_at": "2026-06-20T20:33:30.377Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "source": {
     "source_snapshot_version": "1.0.0-calculator-source-snapshot",
@@ -20,10 +20,10 @@
       "purpose": "Basic one-child worksheet path with both parents' monthly income and no special adjustments.",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-20T17:04:37.076Z",
+        "reviewed_at": "2026-06-20T20:33:30.377Z",
         "official_calculator_version": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f",
         "official_calculator_source": "Arizona official child-support workbook",
-        "official_source_last_checked": "2026-06-20T17:04:33.366Z",
+        "official_source_last_checked": "2026-06-20T20:33:26.779Z",
         "approval_status": "approved",
         "approval_note": "Synthetic no-client fixture generated from the official Arizona child-support workbook source and held internally for regression comparison."
       },
@@ -204,10 +204,10 @@
       "purpose": "Worksheet path where parenting-time adjustment changes the proportional obligation.",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-20T17:04:37.076Z",
+        "reviewed_at": "2026-06-20T20:33:30.377Z",
         "official_calculator_version": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f",
         "official_calculator_source": "Arizona official child-support workbook",
-        "official_source_last_checked": "2026-06-20T17:04:33.366Z",
+        "official_source_last_checked": "2026-06-20T20:33:26.779Z",
         "approval_status": "approved",
         "approval_note": "Synthetic no-client fixture generated from the official Arizona child-support workbook source and held internally for regression comparison."
       },
@@ -388,10 +388,10 @@
       "purpose": "Worksheet path that exercises the self-support reserve branch.",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-20T17:04:37.076Z",
+        "reviewed_at": "2026-06-20T20:33:30.377Z",
         "official_calculator_version": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f",
         "official_calculator_source": "Arizona official child-support workbook",
-        "official_source_last_checked": "2026-06-20T17:04:33.366Z",
+        "official_source_last_checked": "2026-06-20T20:33:26.779Z",
         "approval_status": "approved",
         "approval_note": "Synthetic no-client fixture generated from the official Arizona child-support workbook source and held internally for regression comparison."
       },
@@ -572,10 +572,10 @@
       "purpose": "Worksheet path that exercises other-children adjustment fields.",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-20T17:04:37.076Z",
+        "reviewed_at": "2026-06-20T20:33:30.377Z",
         "official_calculator_version": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f",
         "official_calculator_source": "Arizona official child-support workbook",
-        "official_source_last_checked": "2026-06-20T17:04:33.366Z",
+        "official_source_last_checked": "2026-06-20T20:33:26.779Z",
         "approval_status": "approved",
         "approval_note": "Synthetic no-client fixture generated from the official Arizona child-support workbook source and held internally for regression comparison."
       },

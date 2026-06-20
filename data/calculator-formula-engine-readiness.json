@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-formula-engine-readiness",
-  "built_at": "2026-06-20T17:04:36.811Z",
+  "built_at": "2026-06-20T20:33:30.138Z",
   "public_safety": {
     "raw_formula_text_exposed": false,
     "contains_sensitive_user_data": false,
