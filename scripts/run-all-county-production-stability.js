@@ -19,6 +19,7 @@ const commands = [
   ["npm", ["run", "test:practice-area-matrix"]],
   ["npm", ["run", "test:diy-guide-matrix"]]
 ];
+const COMMAND_TIMEOUT_MS = Number(process.env.MFLG_STABILITY_COMMAND_TIMEOUT_MS || 15 * 60 * 1000);
 
 const runs = [];
 for (let run = 1; run <= 3; run += 1) {
@@ -29,7 +30,9 @@ for (let run = 1; run <= 3; run += 1) {
       cwd: ROOT,
       env: { ...process.env, MFLG_TEST_BASE_URL: process.env.MFLG_TEST_BASE_URL || "https://myfamilylawgroup.com" },
       encoding: "utf8",
-      maxBuffer: 1024 * 1024 * 20
+      maxBuffer: 1024 * 1024 * 20,
+      timeout: COMMAND_TIMEOUT_MS,
+      killSignal: "SIGTERM"
     });
     const durationMs = Date.now() - started;
     const output = `${result.stdout || ""}\n${result.stderr || ""}`;
@@ -39,7 +42,8 @@ for (let run = 1; run <= 3; run += 1) {
       startedAt,
       durationMs,
       exitCode: result.status,
-      failure: result.status === 0 ? "" : output.slice(-4000),
+      failure: result.status === 0 ? "" : `${result.error?.message || ""}\n${output}`.trim().slice(-4000),
+      timedOut: result.error?.code === "ETIMEDOUT",
       timeoutMentioned: /timeout/i.test(output),
       consoleOrNetworkMentioned: /console|network|ERR_|failed to fetch/i.test(output)
     };
