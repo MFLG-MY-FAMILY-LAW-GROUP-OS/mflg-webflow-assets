@@ -1,8 +1,8 @@
 # MFLG New User Path Simplicity Release
 
-Release name: `mflg-live-20260620-091305-new-user-path-simplicity`
+Release name: `mflg-live-20260620-095749-county-form-evidence-closure`
 Deployment date/time: 2026-06-20 09:13 America/Phoenix
-Deployed asset key: `mflg-live-20260620-091305-new-user-path-simplicity`
+Deployed asset key: `mflg-live-20260620-095749-county-form-evidence-closure`
 Feature commit: `b07b3fcb6f2e29b1908c80e45e3a2b73ee66c1ca`
 Live public JavaScript SHA-256: `9c7ccd6370dca996f87df67dd39f8e4327c8daead8d0e5290bf282e25cd49986`
 

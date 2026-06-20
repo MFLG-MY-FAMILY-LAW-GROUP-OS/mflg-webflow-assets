@@ -1,0 +1,14 @@
+{
+  "release": "mflg-live-20260620-095749-county-form-evidence-closure",
+  "asset_key": "mflg-live-20260620-095749-county-form-evidence-closure",
+  "feature_commit": "fcf29a58df5028af95d4a0517b34a6cc420c0dd0",
+  "live_public_js_sha256": "d16b101aa7ab9e12ddef3f6c846db4cef979c27c19dd1abc974a1238a013fc46",
+  "cloudflare_deployments": {
+    "mflg-webflow-assets": "c54df604-9e51-42f6-ba91-12f21d7b4633",
+    "mflg-public-website": "c6e3d5df-4511-4c7b-90c6-f0b95862ab3c"
+  },
+  "rollback_deployments": {
+    "mflg-webflow-assets": "86932b32-ea07-4bf6-9a3c-9b5020bda59d",
+    "mflg-public-website": "4daee475-12b4-4c8a-80c6-ad3b43843353"
+  }
+}

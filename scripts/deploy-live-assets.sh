@@ -46,6 +46,7 @@ rsync -a --delete \
   --exclude "scripts/" \
   --exclude "rollback-snapshots/" \
   --exclude "test-results/" \
+  --exclude "node_modules/" \
   --exclude "docs/" \
   --exclude "js/releases/" \
   --exclude "css/releases/" \
