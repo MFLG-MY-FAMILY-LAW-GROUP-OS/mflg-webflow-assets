@@ -21,7 +21,11 @@
     "test:unique-route-coverage": "node scripts/audit-unique-route-coverage.js",
     "test:three-path-parity": "node scripts/audit-three-path-parity.js",
     "test:source-specificity": "node scripts/audit-source-specificity.js",
-    "test:result-semantics": "node scripts/playwright-result-semantics.js"
+    "test:result-semantics": "node scripts/playwright-result-semantics.js",
+    "test:all-county-user-outcomes": "node scripts/audit-all-county-user-outcomes.js",
+    "test:all-county-three-path-parity": "node scripts/audit-all-county-user-outcomes.js",
+    "test:all-county-scenarios": "node scripts/playwright-all-county-scenarios.js",
+    "test:all-county-production-stability": "node scripts/run-all-county-production-stability.js"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,83 @@
+{
+  "version": "1.0.0-resource-jurisdiction-inventory",
+  "built_at": "2026-06-20T19:12:23.263Z",
+  "summary": {
+    "resource_jurisdictions": 6,
+    "counts_by_resource_jurisdiction": {
+      "Maricopa": 2288,
+      "Pima": 16,
+      "Cochise": 16,
+      "Yavapai": 16,
+      "None": 32,
+      "Statewide": 1
+    },
+    "counts_by_user_county": {
+      "Apache": 148,
+      "Cochise": 148,
+      "Coconino": 148,
+      "Gila": 148,
+      "Graham": 148,
+      "Greenlee": 148,
+      "La Paz": 148,
+      "Maricopa": 148,
+      "Mohave": 148,
+      "Navajo": 148,
+      "Pima": 148,
+      "Pinal": 148,
+      "Santa Cruz": 148,
+      "Yavapai": 148,
+      "Yuma": 148,
+      "Not sure": 148,
+      "Not applicable": 1
+    }
+  },
+  "records": [
+    {
+      "resourceJurisdiction": "Maricopa",
+      "count": 2288,
+      "classifications": {
+        "verified-related-resource": 2145,
+        "exact-county-direct-packet": 93,
+        "exact-county-packet-page": 50
+      }
+    },
+    {
+      "resourceJurisdiction": "Pima",
+      "count": 16,
+      "classifications": {
+        "verified-related-resource": 15,
+        "exact-county-direct-packet": 1
+      }
+    },
+    {
+      "resourceJurisdiction": "Cochise",
+      "count": 16,
+      "classifications": {
+        "verified-related-resource": 15,
+        "exact-county-direct-packet": 1
+      }
+    },
+    {
+      "resourceJurisdiction": "Yavapai",
+      "count": 16,
+      "classifications": {
+        "verified-related-resource": 15,
+        "exact-county-direct-packet": 1
+      }
+    },
+    {
+      "resourceJurisdiction": "None",
+      "count": 32,
+      "classifications": {
+        "no-official-resource": 32
+      }
+    },
+    {
+      "resourceJurisdiction": "Statewide",
+      "count": 1,
+      "classifications": {
+        "verified-statewide-direct-packet": 1
+      }
+    }
+  ]
+}
