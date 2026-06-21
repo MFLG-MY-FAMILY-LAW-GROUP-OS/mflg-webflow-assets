@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-fallback-rendered-outcomes",
-  "built_at": "2026-06-20T22:10:29.730Z",
+  "built_at": "2026-06-21T01:33:41.917Z",
   "base_url": "https://myfamilylawgroup.com",
   "summary": {
     "rendered_outcomes": 18,
@@ -11,7 +11,7 @@
     "calculator_no_county_required": 1,
     "unsupported_matched_claims": 0,
     "visible_external_pdf_anchors": 0,
-    "owner_screenshots": 6
+    "owner_screenshots": 10
   },
   "outcomes": [
     {
@@ -910,7 +910,11 @@
       "reports/world-class-owner-acceptance-assets/diy-guide-forms.png",
       "reports/world-class-owner-acceptance-assets/forms-direct.png",
       "reports/world-class-owner-acceptance-assets/calculator-first.png",
-      "reports/world-class-owner-acceptance-assets/mobile-first-viewport.png"
+      "reports/world-class-owner-acceptance-assets/mobile-first-viewport.png",
+      "reports/world-class-owner-acceptance-assets/exact-county-packet.png",
+      "reports/world-class-owner-acceptance-assets/related-resource.png",
+      "reports/world-class-owner-acceptance-assets/no-verified-resource-intake.png",
+      "reports/world-class-owner-acceptance-assets/change-answers.png"
     ]
   },
   "not_applicable_rendered_classes": [

@@ -10,6 +10,10 @@ Status: Pending owner sign-off
 - reports/world-class-owner-acceptance-assets/forms-direct.png
 - reports/world-class-owner-acceptance-assets/calculator-first.png
 - reports/world-class-owner-acceptance-assets/mobile-first-viewport.png
+- reports/world-class-owner-acceptance-assets/exact-county-packet.png
+- reports/world-class-owner-acceptance-assets/related-resource.png
+- reports/world-class-owner-acceptance-assets/no-verified-resource-intake.png
+- reports/world-class-owner-acceptance-assets/change-answers.png
 
 ## Checklist
 

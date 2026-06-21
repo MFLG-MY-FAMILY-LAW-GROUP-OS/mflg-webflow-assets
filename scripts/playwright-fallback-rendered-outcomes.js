@@ -181,6 +181,40 @@ async function createOwnerPackage(browser) {
     shots.push(path.relative(ROOT, file));
     await context.close();
   }
+  const scenarioShots = [
+    {
+      name: "exact-county-packet",
+      values: ["forms", "Maricopa", "New filing", "divorce", "no-minor-children"]
+    },
+    {
+      name: "related-resource",
+      values: ["forms", "Apache", "New filing", "divorce", "no-minor-children"]
+    },
+    {
+      name: "no-verified-resource-intake",
+      values: ["forms", "Not sure", "New filing", "divorce", "no-minor-children"]
+    },
+    {
+      name: "change-answers",
+      values: ["forms", "Pima", "Existing order", "parenting", "minor-children"],
+      changeAnswers: true
+    }
+  ];
+  for (const scenario of scenarioShots) {
+    const { context, page } = await freshPage(browser, { width: 1365, height: 900 });
+    await page.goto(`${BASE_URL}/forms/`, { waitUntil: "networkidle" });
+    await clearStorage(page);
+    await page.reload({ waitUntil: "networkidle" });
+    for (const value of scenario.values) await choose(page, value);
+    if (scenario.changeAnswers) {
+      const change = page.locator("[data-guided-change-answers]").first();
+      if (await change.isVisible().catch(() => false)) await change.click();
+    }
+    const file = path.join(SHOT_DIR, `${scenario.name}.png`);
+    await page.screenshot({ path: file, fullPage: false });
+    shots.push(path.relative(ROOT, file));
+    await context.close();
+  }
   const checklist = [
     "Is the first action obvious?",
     "Is there only one dominant action?",
@@ -201,6 +235,16 @@ async function createOwnerPackage(browser) {
     built_at: new Date().toISOString(),
     status: "pending",
     screenshots: shots,
+    not_applicable_screenshots: [
+      {
+        requested: "Arizona statewide packet",
+        reason: "The current first-level rendered Forms flow does not expose the special-scope statewide route as a primary county-driven result."
+      },
+      {
+        requested: "General directory",
+        reason: "No current user-outcome primary classification is general-county-forms-index."
+      }
+    ],
     checklist,
     signoff_options: ["Accepted", "Accepted with changes", "Rejected"],
     notes: ""

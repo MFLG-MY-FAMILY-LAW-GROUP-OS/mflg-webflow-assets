@@ -85,7 +85,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
   public_site_js="$(curl -fsSL "https://myfamilylawgroup.com/js/mflg-public-site.js?verify-route=${attempt}-$(date +%s)" || true)"
   if [[ "$public_site_js" == *"function intakeRouteForService"* ]] &&
      [[ "$public_site_js" == *"data-intake-route"* ]] &&
-     [[ "$public_site_js" == *"Step 1 of 5"* ]] &&
+     [[ "$public_site_js" == *"Saved answers applied"* ]] &&
      [[ "$public_site_js" == *"rememberFormsQualifierAnswers"* ]] &&
      [[ "$public_site_js" == *"mflgFormsRouteContext"* ]] &&
      [[ "$public_site_js" == *"Open official PDF"* ]] &&
@@ -403,7 +403,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
      [[ "$public_css" == *"forms-privacy-strip"* ]] &&
      [[ "$public_css" == *"body:not(.forms-showing-all-sections) .proof-tools"* ]] &&
      [[ "$public_css" == *"official-pdf-direct-download"* ]] &&
-     [[ "$public_site_js" == *"Step 1 of 5"* ]] &&
+     [[ "$public_site_js" == *"Saved answers applied"* ]] &&
      [[ "$public_site_js" == *"Open official PDF"* ]] &&
      [[ "$public_site_js" == *"Open same-site PDF"* ]] &&
      [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&

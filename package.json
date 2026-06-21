@@ -27,7 +27,9 @@
     "test:all-county-scenarios": "node scripts/playwright-all-county-scenarios.js",
     "test:all-county-production-stability": "node scripts/run-all-county-production-stability.js",
     "test:fallback-action-contract": "node scripts/audit-fallback-action-contract.js",
-    "test:fallback-rendered-outcomes": "node scripts/playwright-fallback-rendered-outcomes.js"
+    "test:fallback-rendered-outcomes": "node scripts/playwright-fallback-rendered-outcomes.js",
+    "test:primary-action-matrix": "node scripts/audit-primary-action-matrix.js",
+    "test:non-maricopa-resource-metadata": "node scripts/audit-non-maricopa-resource-metadata.js"
   },
   "repository": {
     "type": "git",

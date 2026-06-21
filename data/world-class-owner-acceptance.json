@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-owner-acceptance",
-  "built_at": "2026-06-20T22:10:29.727Z",
+  "built_at": "2026-06-21T01:33:41.915Z",
   "status": "pending",
   "screenshots": [
     "reports/world-class-owner-acceptance-assets/homepage-task-choice.png",
@@ -8,7 +8,21 @@
     "reports/world-class-owner-acceptance-assets/diy-guide-forms.png",
     "reports/world-class-owner-acceptance-assets/forms-direct.png",
     "reports/world-class-owner-acceptance-assets/calculator-first.png",
-    "reports/world-class-owner-acceptance-assets/mobile-first-viewport.png"
+    "reports/world-class-owner-acceptance-assets/mobile-first-viewport.png",
+    "reports/world-class-owner-acceptance-assets/exact-county-packet.png",
+    "reports/world-class-owner-acceptance-assets/related-resource.png",
+    "reports/world-class-owner-acceptance-assets/no-verified-resource-intake.png",
+    "reports/world-class-owner-acceptance-assets/change-answers.png"
+  ],
+  "not_applicable_screenshots": [
+    {
+      "requested": "Arizona statewide packet",
+      "reason": "The current first-level rendered Forms flow does not expose the special-scope statewide route as a primary county-driven result."
+    },
+    {
+      "requested": "General directory",
+      "reason": "No current user-outcome primary classification is general-county-forms-index."
+    }
   ],
   "checklist": [
     "Is the first action obvious?",
