@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-approved-fixture-promotion-status",
-  "built_at": "2026-06-20T20:33:53.834Z",
+  "built_at": "2026-06-21T03:31:12.406Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,
