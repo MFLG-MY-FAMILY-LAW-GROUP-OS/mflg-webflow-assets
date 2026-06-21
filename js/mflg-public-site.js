@@ -1267,7 +1267,7 @@
       </div>
       </div>
       <div class="guide-panel-actions service-panel-actions" aria-label="Practice area follow-up actions">
-        <button class="button primary" type="button" data-service-action="forms">Open matched forms</button>
+        <button class="button outline" type="button" data-service-action="forms">Review form path</button>
         <button class="button outline" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
         <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Use this issue in Intake</a>
         <button class="button ghost guide-panel-close-inline" type="button" data-service-panel-close>Close this issue</button>
@@ -3960,7 +3960,7 @@
         </div>
       </div>
       <div class="guide-panel-actions">
-        <button class="button primary" type="button" data-guide-scroll-forms>Open matched forms</button>
+        <button class="button outline" type="button" data-guide-scroll-forms>Review form path</button>
         ${calculatorChoice ? `<a class="button outline" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(calculatorChooserLabel)}</a>` : ""}
         <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>${esc(guide.leadCta || "Start guided intake")}</a>
         <button class="button ghost guide-panel-close-inline" type="button" data-guide-panel-close>Close guide</button>
