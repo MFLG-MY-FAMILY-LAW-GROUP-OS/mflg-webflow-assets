@@ -289,7 +289,7 @@ grep -q "data-forms-packet-next-status" "$PUBLIC_JS_FILE" || fail "Packet builde
 grep -q "data-forms-packet-state" "$PUBLIC_JS_FILE" || fail "Packet builder plain-language status summary missing"
 grep -q "Ready to start" "$PUBLIC_JS_FILE" || fail "Packet builder ready-state copy missing"
 grep -q "In progress" "$PUBLIC_JS_FILE" || fail "Packet builder in-progress copy missing"
-grep -q "Preview PDF only" "$PUBLIC_JS_FILE" || fail "Packet builder PDF preview action missing"
+grep -q "Download PDF" "$PUBLIC_JS_FILE" || fail "Packet builder PDF download action missing"
 grep -q "Reviewed court PDF" "$PUBLIC_JS_FILE" || fail "Packet builder reviewed PDF note missing"
 grep -q "Do not add private facts, case numbers, or financial information to this public checklist" "$PUBLIC_JS_FILE" || fail "Packet builder public checklist privacy note missing"
 if grep -q "Official court PDF source" "$PUBLIC_JS_FILE"; then
@@ -1107,7 +1107,7 @@ grep -q "data-forms-unified-result" "$PUBLIC_JS_FILE" || fail "Forms & Tools uni
 grep -q "Why this recommendation" "$PUBLIC_JS_FILE" || fail "Forms & Tools collapsed recommendation explanation missing from public JS"
 grep -q "Advanced: search or switch form groups" "$PUBLIC_JS_FILE" || fail "Forms & Tools collapsible form-group browser copy missing from public JS"
 grep -q "data-official-pdf-viewer" "$PUBLIC_JS_FILE" || fail "On-site official PDF viewer missing from public JS"
-grep -q "Open court form PDF" "$PUBLIC_JS_FILE" || fail "On-site official PDF view action missing from public JS"
+grep -q "View form" "$PUBLIC_JS_FILE" || fail "On-site official PDF view action missing from public JS"
 grep -q "Confirm this form in Intake" "$PUBLIC_JS_FILE" || fail "Official PDF intake fallback action missing from public JS"
 grep -q "Download PDF" "$PUBLIC_JS_FILE" || fail "On-site PDF download action missing from public JS"
 grep -q "setUnifiedFormsResult" "$PUBLIC_JS_FILE" || fail "Forms & Tools unified result updater missing from public JS"

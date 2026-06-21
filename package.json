@@ -27,7 +27,10 @@
     "test:all-county-scenarios": "node scripts/playwright-all-county-scenarios.js",
     "test:all-county-production-stability": "node scripts/run-all-county-production-stability.js",
     "test:fallback-action-contract": "node scripts/audit-fallback-action-contract.js",
-    "test:fallback-rendered-outcomes": "node scripts/playwright-fallback-rendered-outcomes.js"
+    "test:fallback-rendered-outcomes": "node scripts/playwright-fallback-rendered-outcomes.js",
+    "test:navigation-progressive-disclosure": "node scripts/playwright-navigation-progressive-disclosure.js",
+    "test:action-integrity": "node scripts/playwright-navigation-progressive-disclosure.js",
+    "test:unified-viewer": "node scripts/playwright-navigation-progressive-disclosure.js"
   },
   "repository": {
     "type": "git",

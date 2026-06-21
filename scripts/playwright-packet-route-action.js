@@ -65,11 +65,12 @@ async function readState(page) {
     publicAnswers: JSON.parse(sessionStorage.getItem("mflgPublicAnswers") || "{}"),
     formsRoute: JSON.parse(sessionStorage.getItem("mflgFormsRouteContext") || "{}"),
     latestRoute: window.MFLGLatestFormsRoute || {},
-    sameSitePdfLinks: Array.from(document.querySelectorAll(".official-pdf-source"))
+    sameSitePdfLinks: Array.from(document.querySelectorAll("[data-official-pdf-preview], [data-official-pdf-download], [data-forms-packet-view], [data-forms-packet-download]"))
       .filter((item) => !!(item.offsetWidth || item.offsetHeight || item.getClientRects().length))
-      .map((item) => item.getAttribute("href") || ""),
-    externalPdfHrefs: Array.from(document.querySelectorAll(".official-pdf-source, [data-official-pdf-download], [data-forms-packet-view], [data-forms-packet-download]"))
-      .map((item) => item.getAttribute("href") || item.dataset.sitePdfViewUrl || "")
+      .map((item) => item.getAttribute("href") || item.dataset.sitePdfViewUrl || item.closest("[data-official-pdf-link]")?.dataset.sitePdfViewUrl || "")
+      .filter(Boolean),
+    externalPdfHrefs: Array.from(document.querySelectorAll("[data-official-pdf-preview], [data-official-pdf-download], [data-forms-packet-view], [data-forms-packet-download]"))
+      .map((item) => item.getAttribute("href") || item.dataset.sitePdfViewUrl || item.closest("[data-official-pdf-link]")?.dataset.sitePdfViewUrl || "")
       .filter((href) => /^https?:\/\//i.test(href)),
     previewVisible: Boolean(document.querySelector("[data-official-pdf-preview]")),
     intakeLinks: Array.from(document.querySelectorAll("[data-official-pdf-item-intake], [data-route-action-card-intake], [data-route-action-intake]"))

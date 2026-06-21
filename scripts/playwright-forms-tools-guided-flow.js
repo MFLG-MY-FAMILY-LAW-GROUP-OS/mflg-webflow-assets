@@ -32,7 +32,10 @@ async function pageState(page) {
     resultCopy: document.querySelector("[data-guided-result-copy]")?.textContent?.trim() || "",
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
     exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
-    sameSiteOfficialPdfHrefs: Array.from(document.querySelectorAll(".official-pdf-source"))
+    sameSiteOfficialPdfActions: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview]"))
+      .filter((button) => button.offsetParent !== null && getComputedStyle(button).visibility !== "hidden")
+      .map((button) => button.textContent.trim()),
+    sameSiteOfficialPdfDownloads: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) .official-pdf-direct-download"))
       .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
       .map((link) => link.getAttribute("href") || "")
       .filter((href) => href.startsWith("/api/official-pdf/")),
@@ -62,7 +65,7 @@ async function pageState(page) {
       assert(initial.laneVisible, `${viewport.name}: four quick-start cards should be visible`);
       assert(initial.fakeLinks.length === 0, `${viewport.name}: page should not render fake href=# links: ${initial.fakeLinks.join(", ")}`);
       assert(initial.exposedSourceAttributes.length === 0, `${viewport.name}: page should not expose raw source URL attributes`);
-      assert(initial.sameSiteOfficialPdfHrefs.length === 0, `${viewport.name}: same-site PDF links should not render before forms are shown`);
+      assert(initial.sameSiteOfficialPdfActions.length === 0, `${viewport.name}: same-site PDF actions should not render before forms are shown`);
       assert(initial.publicExternalHrefs.length === 0, `${viewport.name}: page should not render external public hrefs: ${initial.publicExternalHrefs.join(", ")}`);
       assert(initial.legalHelpCount > 0, `${viewport.name}: legal-term help should render`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
@@ -79,7 +82,9 @@ async function pageState(page) {
       assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);
       assert(forms.exposedSourceAttributes.length === 0, `${viewport.name}: forms path should not expose raw source URL attributes`);
-      assert(forms.sameSiteOfficialPdfHrefs.length > 0, `${viewport.name}: forms path should render same-site official PDF hrefs`);
+      assert(forms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: forms path should render same-site official PDF actions`);
+      assert(forms.sameSiteOfficialPdfActions.every((label) => /View form/i.test(label)), `${viewport.name}: primary PDF action should be View form`);
+      assert(forms.sameSiteOfficialPdfDownloads.length > 0, `${viewport.name}: forms path should render same-site PDF download links`);
       assert(forms.publicExternalHrefs.length === 0, `${viewport.name}: forms path should not render external public hrefs: ${forms.publicExternalHrefs.join(", ")}`);
       assert(!forms.overflow, `${viewport.name}: forms path has horizontal overflow`);
       await page.locator(".official-pdf-link:not([hidden]) [data-official-pdf-preview]").first().click();
@@ -87,7 +92,7 @@ async function pageState(page) {
         officialPdfFrameSrc: document.querySelector("[data-official-pdf-frame]")?.getAttribute("src") || "",
         guidePdfFrameSrc: document.querySelector("[data-guide-pdf-frame]")?.getAttribute("src") || "",
         packetDownloadHrefs: Array.from(document.querySelectorAll("[data-guide-pdf-download], [data-official-pdf-download]")).map((link) => link.getAttribute("href") || ""),
-        officialFallbackHrefs: Array.from(document.querySelectorAll("[data-official-pdf-source-fallback], .official-pdf-source")).map((link) => link.getAttribute("href") || "").filter(Boolean)
+        officialFallbackHrefs: Array.from(document.querySelectorAll("[data-official-pdf-source-fallback], [data-official-pdf-download]")).map((link) => link.getAttribute("href") || "").filter(Boolean)
       }));
       const activeFrameSrc = viewerState.officialPdfFrameSrc || viewerState.guidePdfFrameSrc;
       assert(activeFrameSrc.startsWith("/api/official-pdf/"), `${viewport.name}: PDF viewer should use same-origin official PDF route, got ${activeFrameSrc}`);

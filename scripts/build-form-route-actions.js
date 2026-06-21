@@ -41,7 +41,7 @@ for (const action of officialPdfActions) {
   pdfByPacket.get(packetId).push({
     action_id: action.action_id,
     display_label: action.display_label || action.label || action.file_name || "Official court PDF",
-    source_label: action.source_label || "Open official PDF",
+    source_label: action.source_label || "View form",
     language: action.language || "Official source",
     file_name: action.file_name || "",
     official_pdf_url: action.official_pdf_url || "",

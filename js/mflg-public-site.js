@@ -381,6 +381,52 @@
     });
   }
 
+  function stickyHeaderOffset() {
+    const rect = header?.getBoundingClientRect?.();
+    const height = rect?.height || 0;
+    return Math.max(72, Math.ceil(height + 18));
+  }
+
+  function setHiddenInert(element, hidden) {
+    if (!element) return;
+    element.hidden = Boolean(hidden);
+    element.toggleAttribute("inert", Boolean(hidden));
+    element.setAttribute("aria-hidden", hidden ? "true" : "false");
+  }
+
+  function revealAndFocus(target, options = {}) {
+    const element = typeof target === "string" ? document.querySelector(target) : target;
+    if (!element) return;
+    let current = element;
+    while (current && current !== document.body) {
+      if (current.hidden) current.hidden = false;
+      if (current.hasAttribute("inert")) current.removeAttribute("inert");
+      if (current.getAttribute("aria-hidden") === "true") current.removeAttribute("aria-hidden");
+      if (current.tagName === "DETAILS") current.open = true;
+      current = current.parentElement;
+    }
+    if (options.history && options.hash && window.location.hash !== options.hash) {
+      history.pushState({ reveal: options.hash }, "", options.hash);
+    }
+    const focusTarget = element.matches("h1,h2,h3,h4,[tabindex],button,a,input,select,textarea")
+      ? element
+      : element.querySelector("h1,h2,h3,h4,[data-reveal-focus],button:not([hidden]),a[href]:not([hidden]),input:not([hidden]),select:not([hidden]),textarea:not([hidden])") || element;
+    if (!focusTarget.hasAttribute("tabindex") && !focusTarget.matches("button,a[href],input,select,textarea")) {
+      focusTarget.setAttribute("tabindex", "-1");
+    }
+    window.requestAnimationFrame(() => {
+      const y = element.getBoundingClientRect().top + window.scrollY - stickyHeaderOffset();
+      window.scrollTo({ top: Math.max(0, y), behavior: options.instant ? "auto" : "smooth" });
+      window.setTimeout(() => {
+        try {
+          focusTarget.focus({ preventScroll: true });
+        } catch (error) {
+          /* Focus is enhancement-only. */
+        }
+      }, options.instant ? 0 : 240);
+    });
+  }
+
   function scheduleLegalTermEnhancement(container) {
     window.requestAnimationFrame(() => enhanceLegalTerms(container || root));
     window.setTimeout(() => enhanceLegalTerms(container || root), 250);
@@ -2900,7 +2946,7 @@
         kicker: "Recommended next click",
         title: `This looks like the ${packetLabel} path.`,
         copy: "Open the viewer first. If the forms do not look like your situation, choose a different packet instead of guessing.",
-        primaryLabel: "Open exact forms",
+        primaryLabel: "Open matched forms",
         primaryHref: "#forms-approved-pdfs",
         pdfPacket: route.pdfPacket,
         meta: ["Form match found", ...baseMeta.slice(1)],
@@ -2926,8 +2972,8 @@
         tone: "review",
         kicker: "Court source found",
         title: "Open the reviewed on-site forms.",
-        copy: "This is the safest starting point for this selection. Open the exact packet viewer first, then use the checklist if you need the packet sequence.",
-        primaryLabel: "Open exact forms",
+        copy: "This is the safest starting point for this selection. Open the verified packet viewer first, then use the checklist if you need the packet sequence.",
+        primaryLabel: "Open matched forms",
         primaryHref: "#forms-approved-pdfs",
         meta: ["Reviewed forms first", ...baseMeta.slice(1)],
         route: baseRoute
@@ -3084,8 +3130,8 @@
           <p>You do not need legal terms. Pick what sounds closest and this page will point you to forms, a calculator, or Guided Intake.</p>
           <div class="forms-start-steps" aria-label="Forms and Tools start steps">
             <article><span>Choose path</span><strong>Forms, calculator, deadline, or Intake</strong></article>
-            <article><span>Open exact packet</span><strong>Use the matched court PDFs first</strong></article>
-            <article><span>Optional help</span><strong>Preview, calculate, or start Intake</strong></article>
+            <article><span>Open verified result</span><strong>Use the matched result only when verified</strong></article>
+            <article><span>Optional help</span><strong>View, calculate, or start Intake</strong></article>
           </div>
           <div class="forms-guide-bridge" data-guide-bridge hidden>
             <div class="forms-guide-bridge-main">
@@ -3299,7 +3345,7 @@
               </div>
             </div>
             <div class="forms-route-decision-actions">
-              <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>Open exact forms</a>
+              <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>Open matched forms</a>
               <a class="button outline" href="/start" data-link data-form-route-decision-intake>Start Guided Intake</a>
             </div>
           </div>
@@ -4801,7 +4847,7 @@
       wireGuidePdfPanel(panel);
       panel.querySelectorAll("[data-guide-scroll-forms]").forEach((button) => {
         button.addEventListener("click", () => {
-          panel.querySelector("[data-guide-pdf-panel]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          revealAndFocus(panel.querySelector("[data-guide-pdf-panel]"), { hash: "#guide-forms", history: false });
         });
       });
       panel.querySelectorAll("[data-guide-packet-choice]").forEach((button) => {
@@ -4840,7 +4886,7 @@
         });
       });
       requestAnimationFrame(() => {
-        panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        revealAndFocus(panel, { hash: "#guide-detail", history: false });
       });
     };
 
@@ -5047,7 +5093,7 @@
       const revealServiceSection = (sectionName, shouldScroll = true) => {
         const sections = Array.from(panel.querySelectorAll("[data-service-panel-section]"));
         sections.forEach((section) => {
-          section.hidden = section.getAttribute("data-service-panel-section") !== sectionName;
+          setHiddenInert(section, section.getAttribute("data-service-panel-section") !== sectionName);
         });
         panel.querySelectorAll("[data-service-action]").forEach((button) => {
           const active = button.getAttribute("data-service-action") === sectionName;
@@ -5060,7 +5106,7 @@
         }
         if (shouldScroll) {
           requestAnimationFrame(() => {
-            target?.scrollIntoView({ behavior: "smooth", block: "start" });
+            revealAndFocus(target, { hash: `#practice-${sectionName}`, history: false });
           });
         }
       };
@@ -5072,7 +5118,7 @@
       panel.querySelectorAll("[data-guide-scroll-forms]").forEach((button) => {
         button.addEventListener("click", () => {
           revealServiceSection("forms", false);
-          panel.querySelector("[data-guide-pdf-panel]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          revealAndFocus(panel.querySelector("[data-guide-pdf-panel]"), { hash: "#practice-forms", history: false });
         });
       });
       panel.querySelectorAll("[data-guide-packet-choice]").forEach((button) => {
@@ -5100,9 +5146,7 @@
         });
       });
       revealServiceSection(panel.querySelector("[data-service-default-section]")?.getAttribute("data-service-default-section") || item.primaryAction || "forms", false);
-      requestAnimationFrame(() => {
-        panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
-      });
+      revealAndFocus(panel, { hash: "#practice-issue-detail", history: false });
     };
 	
 	    const defaultVisibleCount = () => {
@@ -5212,7 +5256,7 @@
 	      }
 	      update();
 	      window.requestAnimationFrame(() => {
-	        document.querySelector("[data-service-tools]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+	        revealAndFocus(document.querySelector("[data-service-tools]"), { hash: "#practice-tools", history: false });
 	      });
 	    };
 	    reset?.addEventListener("click", () => {
@@ -5225,7 +5269,7 @@
 	      revealed = !revealed;
 	      update();
 	      window.requestAnimationFrame(() => {
-	        document.querySelector("[data-service-list]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+	        revealAndFocus(document.querySelector("[data-service-list]"), { hash: "#practice-issues", history: false });
 	      });
 	    });
 	    cards.forEach((card) => {
@@ -5873,8 +5917,8 @@
                 <small>${esc(file.file_name || "")}</small>
               </div>
               <div class="forms-packet-file-actions">
-                <button class="button primary" type="button" data-forms-packet-view>Open court form PDF</button>
-                <button class="button outline" type="button" data-forms-packet-download>Preview PDF only</button>
+                <button class="button primary" type="button" data-forms-packet-view>View form</button>
+                <button class="button outline" type="button" data-forms-packet-download>Download PDF</button>
                 <small class="forms-packet-source-note">Reviewed court PDF</small>
                 <a class="card-link" href="/start" data-link data-forms-packet-file-intake>Add this form to Intake →</a>
               </div>
@@ -6272,7 +6316,7 @@
             openFirstVisiblePacketCard(packetId);
           }
           if (shouldScroll) {
-            host.querySelector("[data-forms-packet-builder]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            revealAndFocus(host.querySelector("[data-forms-packet-builder]"), { hash: "#forms-packet-builder", history: true });
           }
         }
       };
@@ -6762,6 +6806,8 @@
         const visible = pathReady && (showAllSections || sectionTargets.includes(activeNeed));
         section.classList.toggle("forms-flow-hidden", !visible);
         section.classList.toggle("forms-flow-active", visible && !showAllSections && sectionTargets.includes(activeNeed));
+        section.toggleAttribute("inert", !visible);
+        section.setAttribute("aria-hidden", visible ? "false" : "true");
       });
       if (modeCopy) {
         const isStillAnswering = !guidedComplete && !savedResumeActive && guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
@@ -6894,6 +6940,10 @@
       if (guidedChangeAnswers) {
         guidedChangeAnswers.hidden = !(savedResumeActive && !guidedComplete);
       }
+      const answering = !savedResumeActive && !guidedComplete;
+      guidedOptions?.toggleAttribute("inert", !answering);
+      guidedOptions?.setAttribute("aria-hidden", answering ? "false" : "true");
+      guidedResultAction?.classList.toggle("primary", true);
       if (guidedIntakeFallback) guidedIntakeFallback.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
 	      if (guidedSummary) {
 	        const chips = [
@@ -6935,9 +6985,13 @@
         const pressed = guidedAnswers[step.key] === value;
         return `<button type="button" data-guided-answer="${esc(value)}" aria-pressed="${pressed ? "true" : "false"}">${esc(text)}</button>`;
       }).join("");
-      guidedOptions.hidden = savedResumeActive && !guidedComplete;
+      guidedOptions.hidden = savedResumeActive && !guidedComplete || guidedComplete;
+      guidedOptions.toggleAttribute("inert", guidedOptions.hidden);
+      guidedOptions.setAttribute("aria-hidden", guidedOptions.hidden ? "true" : "false");
       guidedJumps.forEach((jump, index) => {
         jump.setAttribute("aria-current", index === guidedStep ? "true" : "false");
+        jump.toggleAttribute("inert", guidedComplete || savedResumeActive);
+        jump.setAttribute("aria-disabled", guidedComplete || savedResumeActive ? "true" : "false");
       });
       host.querySelector("[data-guided-progress-label]")?.replaceChildren(document.createTextNode(
         savedResumeActive && !guidedComplete
@@ -6978,7 +7032,7 @@
 		          update({ userAction: true, confirmed: true, confirmedFields: laneNeed === "deadline" ? ["need", "posture"] : ["need"], source: "smart-path-lane" });
           if (lane.getAttribute("href")?.startsWith("#")) {
             event.preventDefault();
-            document.querySelector(lane.getAttribute("href"))?.scrollIntoView({ behavior: "smooth", block: "start" });
+            revealAndFocus(document.querySelector(lane.getAttribute("href")), { hash: lane.getAttribute("href"), history: true });
           }
         }
       });
@@ -6997,7 +7051,7 @@
             detail: { choice: window.MFLGGuideCalculatorChoice || "support" }
           }));
           if (window.location.hash !== "#forms-calculator-hub") history.replaceState(history.state, "", "#forms-calculator-hub");
-          document.querySelector("#forms-calculator-hub")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          revealAndFocus("#forms-calculator-hub", { hash: "#forms-calculator-hub", history: true });
           return;
         }
         setSelectValue(need, "forms");
@@ -7008,7 +7062,7 @@
       update({ userAction: true, confirmed: true, confirmedFields: ["need"], source: "guide-bridge-forms" });
         window.dispatchEvent(new CustomEvent("mflg:forms-route-change", { detail: window.MFLGLatestFormsRoute || presetRoute }));
         if (window.location.hash !== "#forms-approved-pdfs") history.replaceState(history.state, "", "#forms-approved-pdfs");
-        document.querySelector("#forms-approved-pdfs")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        revealAndFocus("#forms-approved-pdfs", { hash: "#forms-approved-pdfs", history: true });
       });
     });
     document.querySelectorAll('a[href^="#forms-"]').forEach((link) => {
@@ -7047,7 +7101,7 @@
       showAllSections = false;
       syncFormsFinder();
 	      update({ explicitReset: true, reset: true, resetFields: ["need", "county", "posture", "issue", "children", "selectedPacket", "selectedCalculator"], source: "smart-path-reset" });
-      host.scrollIntoView({ behavior: "smooth", block: "start" });
+      revealAndFocus(host, { hash: "#forms-task-workspace", history: false });
     });
     guidedChangeAnswers?.addEventListener("click", () => {
       savedResumeActive = false;
@@ -7055,7 +7109,7 @@
       guidedStep = 0;
       showAllSections = false;
 	        update();
-      guidedQuestion?.scrollIntoView({ behavior: "smooth", block: "center" });
+      revealAndFocus(guidedQuestion || host, { hash: "#forms-task-workspace", history: false });
     });
     guidedOptions?.addEventListener("click", (event) => {
       const button = event.target.closest("[data-guided-answer]");
@@ -7096,7 +7150,7 @@
         event.preventDefault();
         guidedStep = Math.min(guidedStep + 1, guidedSteps.length - 1);
         update();
-        guidedQuestion?.scrollIntoView({ behavior: "smooth", block: "center" });
+        revealAndFocus(guidedQuestion || host, { hash: "#forms-task-workspace", history: false });
         return;
       }
       if (savedResumeActive && !guidedComplete) {
@@ -7122,7 +7176,7 @@
       const target = document.querySelector(href);
       if (!target) return;
       event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      revealAndFocus(target, { hash: href, history: true });
       if (href === "#forms-calculator-hub") {
         window.dispatchEvent(new CustomEvent("mflg:calculator-workspace", { detail: { choice: "support" } }));
       }
@@ -7320,7 +7374,7 @@
               <p>${esc(matterCardCopy(matter))}</p>
             </div>
             <div class="forms-matter-actions">
-              <a class="card-link" href="#forms-official-router" data-forms-matter-open data-forms-matter-id="${esc(matter.matter_id || "")}">${esc(matter.form_confidence === "statewide-generic" ? "Open state packet" : Array.isArray(matter.exact_packets) && matter.exact_packets.length === 1 ? "Open exact packet" : matter.form_confidence === "related-only" ? "Open related packet" : "Open packet")} →</a>
+              <a class="card-link" href="#forms-official-router" data-forms-matter-open data-forms-matter-id="${esc(matter.matter_id || "")}">${esc(matter.form_confidence === "statewide-generic" ? "View statewide forms" : Array.isArray(matter.exact_packets) && matter.exact_packets.length === 1 ? "View verified forms" : matter.form_confidence === "related-only" ? "View related resource" : "View result")} →</a>
             </div>
           </article>`).join("")}
         </div>
@@ -8183,9 +8237,9 @@
       intake?.setAttribute("data-intake-route", JSON.stringify(routeFor(item)));
       if (scrollToTarget) {
         if (item.workspaceChoice) {
-          workspace?.scrollIntoView({ behavior: "smooth", block: "start" });
+          revealAndFocus(workspace, { hash: "#calculator-workspace", history: true });
         } else {
-          document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          revealAndFocus(document.querySelector(item.href), { hash: item.href, history: true });
         }
       }
 	    };
@@ -8214,7 +8268,7 @@
 	      }
       if (href.startsWith("#")) {
         event.preventDefault();
-        document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        revealAndFocus(document.querySelector(href), { hash: href, history: true });
       }
 	    });
 	    window.addEventListener("mflg:calculator-workspace", (event) => {
@@ -8829,7 +8883,7 @@
         <div class="section-head compact">
           <p class="eyebrow">Step 2</p>
           <h2>Open the exact packet for that issue.</h2>
-          <p>Start with the recommended packet. Keep the forms on-site, use the viewer, and move through the packet in order.</p>
+            <p>Start with the recommended packet. View each form on this site, then download only when needed.</p>
         </div>
         <div class="official-pdf-spotlight" data-official-pdf-spotlight>
           <div>
@@ -8837,7 +8891,7 @@
             <strong data-official-pdf-spotlight-title>Finding the closest form group...</strong>
             <p data-official-pdf-spotlight-copy>Start here. The packet below should match the choices you made above.</p>
             <ol class="forms-next-mini-list">
-              <li>Open the first form or instruction sheet.</li>
+              <li>View the first form or instruction sheet.</li>
               <li>Check that the title matches your situation.</li>
               <li>Keep moving through the packet without leaving the site.</li>
             </ol>
@@ -8890,15 +8944,15 @@
                     data-site-pdf-view-url="${esc(sitePdfViewUrlFor(action))}"
                     data-site-pdf-download-url="${esc(sitePdfDownloadUrlFor(action))}"
                     data-search="${esc([action.public_name, action.public_description, action.public_stage, action.display_label, action.label, action.source_label, action.file_name, action.packet_label, action.page_label, action.language].filter(Boolean).join(" ").toLowerCase())}">
-                    <a class="official-pdf-source" href="${esc(sitePdfViewUrlFor(action) || "#")}" target="_blank" rel="noopener">
+                    <button class="official-pdf-source" type="button" data-official-pdf-preview>
                       <span>${esc(action.public_stage || action.language || "Court form")}</span>
                       <strong>${esc(action.public_name || action.display_label || action.label || action.file_name || "Official PDF")}</strong>
                       <p>${esc(action.public_description || "Official court PDF from the reviewed packet.")}</p>
                       <small>${esc(officialPdfSourceLabel(action))}</small>
                       <em>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</em>
-                      <b>Open official PDF</b>
-                    </a>
-                    <button class="official-pdf-direct-download" type="button" data-official-pdf-preview>Preview on this page</button>
+                      <b>View form</b>
+                    </button>
+                    <a class="official-pdf-direct-download" href="${esc(sitePdfDownloadUrlFor(action) || sitePdfViewUrlFor(action) || "#")}" download="${esc(action.file_name || "official-court-form.pdf")}">Download PDF</a>
                     <a class="official-pdf-intake-link" href="/start" data-link data-official-pdf-item-intake>Add this form to Intake</a>
                   </article>
                 `).join("")}
@@ -9076,7 +9130,7 @@
           viewerSourceFallback.removeAttribute("aria-disabled");
         }
         viewerIntake?.setAttribute("data-intake-route", JSON.stringify(routeForPdfLink(link)));
-        viewer.scrollIntoView({ behavior: "smooth", block: "start" });
+        revealAndFocus(viewer, { hash: "#forms-pdf-viewer", history: true });
       };
       window.addEventListener("mflg:official-pdf-open", (event) => {
         const url = event.detail?.sitePdfViewUrl || event.detail?.officialUrl || "";
@@ -9168,7 +9222,7 @@
             update();
             closePdfViewer();
             window.requestAnimationFrame(() => {
-              host.querySelector(`[data-official-pdf-group="${CSS.escape(packetValue)}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+              revealAndFocus(host.querySelector(`[data-official-pdf-group="${CSS.escape(packetValue)}"]`), { hash: "#forms-approved-pdfs", history: true });
             });
           }
         });
@@ -9179,7 +9233,7 @@
         clearOfficialPdfFilters();
         allowUnmatchedPdfBrowse = true;
         update();
-        routeIndexDisclosure?.scrollIntoView({ behavior: "smooth", block: "start" });
+        revealAndFocus(routeIndexDisclosure, { hash: "#forms-other-packets", history: true });
       });
       reset?.addEventListener("click", () => {
         clearOfficialPdfFilters();
@@ -9205,7 +9259,7 @@
           update();
           const label = packet.options[packet.selectedIndex]?.textContent || "approved packets";
           if (status && nextPacket !== "all") {
-            status.textContent = `${status.textContent} Showing the form group that matches your answers: ${label}. Open a court PDF directly, or preview it here when needed.`;
+            status.textContent = `${status.textContent} Showing the form group that matches your answers: ${label}. Use View form to keep the PDF on this page.`;
           }
           if (detail?.expandPdfGroup === true || hasExplicitPacket) closePdfViewer();
         }
@@ -9224,7 +9278,7 @@
       if (window.location.hash === "#forms-approved-pdfs") {
         window.setTimeout(() => {
           const selectedGroup = host.querySelector(".official-pdf-group[open]") || host;
-          selectedGroup.scrollIntoView({ behavior: "smooth", block: "start" });
+          revealAndFocus(selectedGroup, { hash: "#forms-approved-pdfs", history: false });
         }, 120);
       }
     } catch (error) {
@@ -9282,7 +9336,7 @@
 
 	    if (nextPath === activePath) {
 	      if (url.hash) {
-	        document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+	        revealAndFocus(document.querySelector(url.hash), { hash: url.hash, history: false });
 	      } else {
 	        window.scrollTo({ top: 0, behavior: "smooth" });
 	      }
@@ -9295,14 +9349,14 @@
 	    await render({ restoreScroll: false });
 	    requestAnimationFrame(() => {
 	      if (url.hash) {
-	        document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+	        revealAndFocus(document.querySelector(url.hash), { hash: url.hash, history: false });
 	      } else {
 	        jumpToTop();
 	      }
 	      updateHeaderState();
 	      requestAnimationFrame(() => {
 	        if (url.hash) {
-	          document.querySelector(url.hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+	          revealAndFocus(document.querySelector(url.hash), { hash: url.hash, history: false });
 	        } else {
 	          jumpToTop();
 	        }

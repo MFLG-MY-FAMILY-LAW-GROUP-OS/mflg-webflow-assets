@@ -85,10 +85,10 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
   public_site_js="$(curl -fsSL "https://myfamilylawgroup.com/js/mflg-public-site.js?verify-route=${attempt}-$(date +%s)" || true)"
   if [[ "$public_site_js" == *"function intakeRouteForService"* ]] &&
      [[ "$public_site_js" == *"data-intake-route"* ]] &&
-     [[ "$public_site_js" == *"Step 1 of 5"* ]] &&
+     [[ "$public_site_js" == *"Saved answers applied"* ]] &&
      [[ "$public_site_js" == *"rememberFormsQualifierAnswers"* ]] &&
      [[ "$public_site_js" == *"mflgFormsRouteContext"* ]] &&
-     [[ "$public_site_js" == *"Open official PDF"* ]] &&
+     [[ "$public_site_js" == *"View form"* ]] &&
      [[ "$public_site_js" == *"Open same-site PDF"* ]] &&
      [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&
      [[ "$public_site_js" != *"handoff"* ]] &&
@@ -244,8 +244,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-forms-packet-state"* ]] &&
 	     [[ "$public_site_js" == *"Ready to start"* ]] &&
 	     [[ "$public_site_js" == *"In progress"* ]] &&
-	     [[ "$public_site_js" == *"Preview on this page"* ]] &&
-	     [[ "$public_site_js" == *"Open official court PDF"* ]] &&
+	     [[ "$public_site_js" == *"View form"* ]] &&
+	     [[ "$public_site_js" == *"Download PDF"* ]] &&
 	     [[ "$public_site_js" == *"Reviewed court PDF"* ]] &&
 	     [[ "$public_site_js" == *"Do not add private facts, case numbers, or financial information to this public checklist"* ]] &&
 	     [[ "$public_site_js" != *"Official court PDF source"* ]] &&
@@ -332,7 +332,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-official-pdf-intake"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-item-intake"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-viewer"* ]] &&
-	     [[ "$public_site_js" == *"Open court form PDF"* ]] &&
+	     [[ "$public_site_js" == *"View form"* ]] &&
 	     [[ "$public_site_js" == *"Confirm this form in Intake"* ]] &&
 	     [[ "$public_site_js" == *"Download PDF"* ]] &&
 	     [[ "$public_site_js" == *"display_label"* ]] &&
@@ -403,8 +403,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
      [[ "$public_css" == *"forms-privacy-strip"* ]] &&
      [[ "$public_css" == *"body:not(.forms-showing-all-sections) .proof-tools"* ]] &&
      [[ "$public_css" == *"official-pdf-direct-download"* ]] &&
-     [[ "$public_site_js" == *"Step 1 of 5"* ]] &&
-     [[ "$public_site_js" == *"Open official PDF"* ]] &&
+     [[ "$public_site_js" == *"Saved answers applied"* ]] &&
+     [[ "$public_site_js" == *"View form"* ]] &&
      [[ "$public_site_js" == *"Open same-site PDF"* ]] &&
      [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&
      [[ "$public_site_js" == *"Choose path"* ]] &&
