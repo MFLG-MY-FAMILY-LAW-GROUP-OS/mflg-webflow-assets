@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-release-approval-packet",
-  "built_at": "2026-06-21T03:31:11.836Z",
+  "built_at": "2026-06-21T04:15:53.041Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

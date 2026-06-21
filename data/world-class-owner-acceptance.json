@@ -3,13 +3,13 @@
   "status": "pending",
   "assetKey": "mflg-live-20260620-211200-current-release-action-integrity",
   "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
-  "generatedAt": "2026-06-21T04:14:42.054Z",
-  "baseUrl": "http://127.0.0.1:4173",
+  "generatedAt": "2026-06-21T04:28:10.835Z",
+  "baseUrl": "https://myfamilylawgroup.com",
   "records": [
     {
       "scenario": "Homepage task choices",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/",
+      "url": "https://myfamilylawgroup.com/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Task choices visible before proof/process material",
@@ -32,12 +32,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/homepage-task-choice.png",
-      "timestamp": "2026-06-21T04:14:16.979Z"
+      "timestamp": "2026-06-21T04:27:47.403Z"
     },
     {
       "scenario": "Mobile first viewport",
       "viewport": "mobile",
-      "url": "http://127.0.0.1:4173/",
+      "url": "https://myfamilylawgroup.com/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Hero pills one row and useful first action visible",
@@ -60,12 +60,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/mobile-first-viewport.png",
-      "timestamp": "2026-06-21T04:14:18.254Z"
+      "timestamp": "2026-06-21T04:27:48.827Z"
     },
     {
       "scenario": "Practice Area issue selection",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/practice-areas/",
+      "url": "https://myfamilylawgroup.com/practice-areas/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Issue cards/search are primary",
@@ -83,12 +83,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/practice-area-issue-selection.png",
-      "timestamp": "2026-06-21T04:14:19.674Z"
+      "timestamp": "2026-06-21T04:27:50.334Z"
     },
     {
       "scenario": "Practice Area forms qualification",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/practice-areas/",
+      "url": "https://myfamilylawgroup.com/practice-areas/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Selected issue panel begins below sticky header",
@@ -116,12 +116,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/practice-area-forms-qualification.png",
-      "timestamp": "2026-06-21T04:14:20.812Z"
+      "timestamp": "2026-06-21T04:27:51.472Z"
     },
     {
       "scenario": "Practice Area actual forms result",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/practice-areas/",
+      "url": "https://myfamilylawgroup.com/practice-areas/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Forms action reveals result/workspace, not a small scroll",
@@ -143,12 +143,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/practice-area-forms-result.png",
-      "timestamp": "2026-06-21T04:14:21.601Z"
+      "timestamp": "2026-06-21T04:27:52.290Z"
     },
     {
       "scenario": "Practice Area actual steps result",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/practice-areas/",
+      "url": "https://myfamilylawgroup.com/practice-areas/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Steps/guide section visibly starts at heading",
@@ -164,12 +164,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/practice-area-steps-result.png",
-      "timestamp": "2026-06-21T04:14:22.380Z"
+      "timestamp": "2026-06-21T04:27:53.115Z"
     },
     {
       "scenario": "DIY Guide selected state",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/guides/",
+      "url": "https://myfamilylawgroup.com/guides/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Guide panel opens at beginning with next action",
@@ -197,12 +197,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/diy-guide-selected.png",
-      "timestamp": "2026-06-21T04:14:24.285Z"
+      "timestamp": "2026-06-21T04:27:55.181Z"
     },
     {
       "scenario": "DIY Guide actual forms result",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/guides/",
+      "url": "https://myfamilylawgroup.com/guides/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Guide forms result is visible at top",
@@ -230,12 +230,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/diy-guide-forms-result.png",
-      "timestamp": "2026-06-21T04:14:25.048Z"
+      "timestamp": "2026-06-21T04:27:55.982Z"
     },
     {
       "scenario": "Forms direct first state",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/forms/",
+      "url": "https://myfamilylawgroup.com/forms/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Initial form finder state has one primary path",
@@ -262,12 +262,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/forms-direct-first-state.png",
-      "timestamp": "2026-06-21T04:14:26.297Z"
+      "timestamp": "2026-06-21T04:27:57.408Z"
     },
     {
       "scenario": "Exact county direct packet result",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/tools/#forms-packet-builder",
+      "url": "https://myfamilylawgroup.com/tools/#forms-packet-builder",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Matched forms show active same-site form actions",
@@ -298,12 +298,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/exact-county-direct-packet.png",
-      "timestamp": "2026-06-21T04:14:29.383Z"
+      "timestamp": "2026-06-21T04:28:00.717Z"
     },
     {
       "scenario": "Unified viewer",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/tools/#forms-pdf-viewer",
+      "url": "https://myfamilylawgroup.com/tools/#forms-pdf-viewer",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "One View form model opens same-site viewer",
@@ -323,12 +323,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/unified-viewer.png",
-      "timestamp": "2026-06-21T04:14:30.228Z"
+      "timestamp": "2026-06-21T04:28:01.602Z"
     },
     {
       "scenario": "Explicit County Not sure final result",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/tools/",
+      "url": "https://myfamilylawgroup.com/tools/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Not sure remains user county and fallback is honest",
@@ -348,12 +348,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/county-not-sure-result.png",
-      "timestamp": "2026-06-21T04:14:32.989Z"
+      "timestamp": "2026-06-21T04:28:04.502Z"
     },
     {
       "scenario": "DIY Guide or direct calculator workspace",
       "viewport": "desktop",
-      "url": "http://127.0.0.1:4173/tools/",
+      "url": "https://myfamilylawgroup.com/tools/",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Calculator path avoids county unless needed",
@@ -373,12 +373,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/calculator-workspace.png",
-      "timestamp": "2026-06-21T04:14:34.962Z"
+      "timestamp": "2026-06-21T04:28:06.781Z"
     },
     {
       "scenario": "Mobile exact packet result",
       "viewport": "mobile",
-      "url": "http://127.0.0.1:4173/tools/#forms-packet-builder",
+      "url": "https://myfamilylawgroup.com/tools/#forms-packet-builder",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Mobile result has useful action in first viewport",
@@ -409,12 +409,12 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/mobile-exact-packet.png",
-      "timestamp": "2026-06-21T04:14:41.195Z"
+      "timestamp": "2026-06-21T04:28:09.965Z"
     },
     {
       "scenario": "Mobile unified viewer",
       "viewport": "mobile",
-      "url": "http://127.0.0.1:4173/tools/#forms-pdf-viewer",
+      "url": "https://myfamilylawgroup.com/tools/#forms-pdf-viewer",
       "capturedAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
       "publicJsHash": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
       "expectedState": "Mobile viewer remains same-site and preserves context",
@@ -434,7 +434,7 @@
         "externalPdfHrefs": []
       },
       "screenshot": "reports/world-class-owner-acceptance-assets/mobile-viewer.png",
-      "timestamp": "2026-06-21T04:14:42.015Z"
+      "timestamp": "2026-06-21T04:28:10.798Z"
     }
   ],
   "summary": {
