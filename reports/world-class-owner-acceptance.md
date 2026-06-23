@@ -1,34 +1,45 @@
 # World-Class Owner Acceptance
 
 Status: Pending owner sign-off
+Asset key: `mflg-live-20260623-163035-lead-magnet-reveal-flow`
+Public JavaScript SHA-256: `53b932965f1802626504db1b93d631cb1c547fb313a526c20b2ab730a35f497d`
+
+## Product Reality
+
+The website never substitutes another county's forms as an exact match. When a verified exact or statewide packet is available, the site opens it. When no verified issue-specific packet is available, the site recommends the safest next step rather than showing a potentially incorrect form.
 
 ## Screenshot Set
 
-- reports/world-class-owner-acceptance-assets/homepage-task-choice.png
-- reports/world-class-owner-acceptance-assets/practice-area-forms.png
-- reports/world-class-owner-acceptance-assets/diy-guide-forms.png
-- reports/world-class-owner-acceptance-assets/forms-direct.png
-- reports/world-class-owner-acceptance-assets/calculator-first.png
-- reports/world-class-owner-acceptance-assets/mobile-first-viewport.png
+- reports/world-class-owner-acceptance-assets/homepage-task-choice.png - Homepage task choices (desktop)
+- reports/world-class-owner-acceptance-assets/mobile-first-viewport.png - Mobile first viewport (mobile)
+- reports/world-class-owner-acceptance-assets/practice-area-issue-selection.png - Practice Area issue selection (desktop)
+- reports/world-class-owner-acceptance-assets/practice-area-forms-qualification.png - Practice Area forms qualification (desktop)
+- reports/world-class-owner-acceptance-assets/practice-area-steps-result.png - Practice Area actual steps result (desktop)
+- reports/world-class-owner-acceptance-assets/practice-area-forms-result.png - Practice Area actual forms result (desktop)
+- reports/world-class-owner-acceptance-assets/diy-guide-selected.png - DIY Guide selected state (desktop)
+- reports/world-class-owner-acceptance-assets/forms-direct-first-state.png - Forms direct first state (desktop)
+- reports/world-class-owner-acceptance-assets/exact-county-direct-packet.png - Exact county direct packet result (desktop)
+- reports/world-class-owner-acceptance-assets/unified-viewer.png - Unified viewer (desktop)
+- reports/world-class-owner-acceptance-assets/county-not-sure-result.png - Explicit County Not sure final result (desktop)
+- reports/world-class-owner-acceptance-assets/calculator-workspace.png - DIY Guide or direct calculator workspace (desktop)
+- reports/world-class-owner-acceptance-assets/mobile-exact-packet.png - Mobile exact packet result (mobile)
+- reports/world-class-owner-acceptance-assets/mobile-viewer.png - Mobile unified viewer (mobile)
 
-## Checklist
+## Owner Questions
 
-- [ ] Is the first action obvious?
-- [ ] Is there only one dominant action?
-- [ ] Does the result clearly say exact, statewide, related, or unavailable?
-- [ ] Is your selected county clearly different from the packet source?
-- [ ] Does any result appear to promise a form that is not actually matched?
-- [ ] Is Guided Intake help rather than an unnecessary detour?
-- [ ] Is Change answers easy to find?
-- [ ] Is any screen too crowded?
-- [ ] Is any wording technical or administrative?
-- [ ] Can you open the result without understanding the site architecture?
+- Is the first action obvious?
+- Is there only one dominant action?
+- Does the result clearly distinguish exact, statewide, related, directory-only, or unavailable status?
+- Is the selected county distinct from the source jurisdiction?
+- Does any result promise a form that is not actually matched?
+- Is Guided Intake appropriate help rather than a forced detour?
+- Is Change answers easy to find?
+- Is anything too crowded?
+- Is any wording administrative or confusing?
+- Can the result be opened without understanding the site architecture?
 
-## Sign-Off
+## Required Owner Response
 
-- [ ] Accepted
-- [ ] Accepted with changes
-- [ ] Rejected
-
-Notes:
-
+- `ACCEPTED`
+- `ACCEPTED WITH CHANGES: <notes>`
+- `REJECTED: <notes>`

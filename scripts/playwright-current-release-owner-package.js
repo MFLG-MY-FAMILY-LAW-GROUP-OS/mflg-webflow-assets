@@ -5,7 +5,7 @@ const { chromium } = require("playwright");
 
 const baseUrl = process.env.MFLG_TEST_BASE_URL || "https://myfamilylawgroup.com";
 const expectedAssetKey = "mflg-live-20260623-163035-lead-magnet-reveal-flow";
-const expectedJsHash = "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91";
+const expectedJsHash = "53b932965f1802626504db1b93d631cb1c547fb313a526c20b2ab730a35f497d";
 const reportDir = path.join("reports", "world-class-owner-acceptance-assets");
 const tmpReviewDir = "/private/tmp/mflg-owner-acceptance-review-current";
 
@@ -200,12 +200,16 @@ async function run() {
     await divorce.locator("[data-service-detail-toggle]").click();
     await session.page.waitForTimeout(800);
     records.push(await screenshotRecord(session.page, "Practice Area forms qualification", "desktop", "Selected issue panel begins below sticky header", "practice-area-forms-qualification", ".service-row-panel"));
+    await session.page.locator('.service-row-panel [data-service-action="steps"]').first().click();
+    await session.page.waitForTimeout(600);
+    records.push(await screenshotRecord(session.page, "Practice Area actual steps result", "desktop", "Steps/guide section visibly starts at heading", "practice-area-steps-result", ".service-row-panel [data-service-panel-section='steps']"));
+    await divorce.locator("[data-service-detail-toggle]").click();
+    await session.page.waitForTimeout(300);
+    await divorce.locator("[data-service-detail-toggle]").click();
+    await session.page.waitForTimeout(600);
     await session.page.locator('.service-row-panel [data-service-action="forms"]').first().click();
     await session.page.waitForTimeout(600);
     records.push(await screenshotRecord(session.page, "Practice Area actual forms result", "desktop", "Forms action reveals result/workspace, not a small scroll", "practice-area-forms-result", ".service-row-panel [data-service-panel-section='forms']"));
-    await session.page.locator('.service-row-panel [data-service-action="guide"], .service-row-panel [data-service-action="steps"]').first().click();
-    await session.page.waitForTimeout(600);
-    records.push(await screenshotRecord(session.page, "Practice Area actual steps result", "desktop", "Steps/guide section visibly starts at heading", "practice-area-steps-result", ".service-row-panel [data-service-panel-section='guide'], .service-row-panel [data-service-panel-section='steps']"));
     await session.context.close();
 
     session = await newPage(browser, { width: 1365, height: 900 });
