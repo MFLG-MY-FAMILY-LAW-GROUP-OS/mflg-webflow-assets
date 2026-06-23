@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-action-plan",
-  "built_at": "2026-06-23T05:56:19.910Z",
+  "built_at": "2026-06-23T06:08:27.788Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/form-route-actions.json",
