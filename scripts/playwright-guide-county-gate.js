@@ -19,6 +19,7 @@ function assert(condition, message) {
       return Boolean(button);
     });
     assert(opened, "No guide card could be opened");
+    await page.locator("[data-guide-next-choice='forms']").first().click();
 
     const bridge = page.locator("[data-guide-pdf-panel]").first();
     await bridge.waitFor({ state: "visible", timeout: 10000 });
@@ -38,6 +39,9 @@ function assert(condition, message) {
 
     const packetChoice = page.locator("[data-guide-packet-choice]");
     if ((await packetChoice.count()) > 1) {
+      await page.locator("[data-guide-packet-chooser]").first().evaluate((node) => {
+        if (node.tagName === "DETAILS") node.open = true;
+      });
       const firstChoice = packetChoice.first();
       const beforeLabel = await page.locator("[data-guide-pdf-panel]").first().getAttribute("data-guide-packet-label");
       await packetChoice.nth(1).click();
@@ -54,6 +58,7 @@ function assert(condition, message) {
       return Boolean(card);
     });
     assert(annulmentOpened, "Annulment practice-area card could not be opened");
+    await page.locator("[data-service-action='forms']").first().click();
     await page.locator("[data-guide-pdf-panel]").first().waitFor({ state: "visible", timeout: 10000 });
     const annulmentState = await page.evaluate(() => {
       const panel = document.querySelector("[data-guide-pdf-panel]");

@@ -105,6 +105,7 @@ async function clickMediationFormsDataLink(page) {
     card?.scrollIntoView({ block: "center" });
     card?.querySelector("[data-service-detail-toggle]")?.click();
   });
+  await page.locator('.service-row-panel [data-service-action="forms"]').first().click();
   await page.locator('.service-row-panel a[data-guide-forms-route]').first().waitFor({ state: "visible", timeout: 10000 });
   await page.locator('.service-row-panel a[data-guide-forms-route]').first().click();
   await page.waitForTimeout(400);
@@ -145,7 +146,8 @@ async function clickGuideCalculatorLink(page) {
   let opened = false;
   for (let index = 0; index < count; index += 1) {
     await cards.nth(index).scrollIntoViewIfNeeded();
-    await cards.nth(index).click();
+    const openButton = cards.nth(index).locator("[data-guide-open]");
+    if ((await openButton.count()) > 0) await openButton.click();
     await page.waitForTimeout(80);
     if ((await page.locator('.guide-row-panel [data-guide-next-choice="calculator"]').count()) > 0) {
       opened = true;
@@ -154,7 +156,7 @@ async function clickGuideCalculatorLink(page) {
   }
   assert(opened, "no visible guide calculator path found");
   await page.locator('.guide-row-panel [data-guide-next-choice="calculator"]').first().click();
-  await page.locator(".guide-row-panel [data-guide-calculator-choice]").first().click();
+  await page.locator('.guide-row-panel a[href*="forms-calculator-hub"][data-guide-calculator-choice], .guide-row-panel button[data-guide-calculator-choice]').first().click();
   await page.waitForTimeout(400);
   return toolsState(page);
 }

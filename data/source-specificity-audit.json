@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-source-specificity",
-  "built_at": "2026-06-21T04:10:30.272Z",
+  "built_at": "2026-06-22T03:51:41.678Z",
   "summary": {
     "unique_urls": 27,
     "records": 27,
@@ -14,7 +14,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:24.744Z"
+      "last_verified_at": "2026-06-22T03:51:36.114Z"
     },
     {
       "url": "https://www.cochise.az.gov/DocumentCenter/View/20626/Notice-of-Intent-to-Relocate-Minor-Child-PDF",
@@ -22,7 +22,7 @@
       "status": 200,
       "content_type": "application/pdf",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:25.421Z"
+      "last_verified_at": "2026-06-22T03:51:36.435Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/prob_pbaa/",
@@ -30,7 +30,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:25.647Z"
+      "last_verified_at": "2026-06-22T03:51:36.685Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_draa1/",
@@ -38,7 +38,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:25.778Z"
+      "last_verified_at": "2026-06-22T03:51:36.833Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
@@ -46,7 +46,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:25.956Z"
+      "last_verified_at": "2026-06-22T03:51:37.014Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
@@ -54,7 +54,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:26.132Z"
+      "last_verified_at": "2026-06-22T03:51:37.210Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
@@ -62,7 +62,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:26.319Z"
+      "last_verified_at": "2026-06-22T03:51:37.391Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
@@ -70,7 +70,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:26.559Z"
+      "last_verified_at": "2026-06-22T03:51:37.585Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
@@ -78,7 +78,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:26.745Z"
+      "last_verified_at": "2026-06-22T03:51:37.774Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
@@ -86,7 +86,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:26.924Z"
+      "last_verified_at": "2026-06-22T03:51:37.962Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
@@ -94,7 +94,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:27.105Z"
+      "last_verified_at": "2026-06-22T03:51:38.150Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
@@ -102,7 +102,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:27.289Z"
+      "last_verified_at": "2026-06-22T03:51:38.341Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drgv1/",
@@ -110,7 +110,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:27.470Z"
+      "last_verified_at": "2026-06-22T03:51:38.530Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
@@ -118,7 +118,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:27.664Z"
+      "last_verified_at": "2026-06-22T03:51:38.709Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
@@ -126,7 +126,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:27.859Z"
+      "last_verified_at": "2026-06-22T03:51:38.887Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
@@ -134,7 +134,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:28.042Z"
+      "last_verified_at": "2026-06-22T03:51:39.072Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/media/gowfskuf/cvnca1z.pdf",
@@ -142,7 +142,7 @@
       "status": 200,
       "content_type": "application/pdf",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:28.229Z"
+      "last_verified_at": "2026-06-22T03:51:39.246Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/media/wtflhqgz/cvncc1z.pdf",
@@ -150,7 +150,7 @@
       "status": 200,
       "content_type": "application/pdf",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:28.394Z"
+      "last_verified_at": "2026-06-22T03:51:39.434Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/media/amileztz/cvncf1z.pdf",
@@ -158,7 +158,7 @@
       "status": 200,
       "content_type": "application/pdf",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:28.573Z"
+      "last_verified_at": "2026-06-22T03:51:39.611Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/media/3yto52or/cvncm1z.pdf",
@@ -166,7 +166,7 @@
       "status": 200,
       "content_type": "application/pdf",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:28.755Z"
+      "last_verified_at": "2026-06-22T03:51:39.785Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
@@ -174,7 +174,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:28.930Z"
+      "last_verified_at": "2026-06-22T03:51:39.965Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
@@ -182,7 +182,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:29.116Z"
+      "last_verified_at": "2026-06-22T03:51:40.166Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
@@ -190,7 +190,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:29.288Z"
+      "last_verified_at": "2026-06-22T03:51:40.361Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
@@ -198,7 +198,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:29.474Z"
+      "last_verified_at": "2026-06-22T03:51:40.552Z"
     },
     {
       "url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
@@ -206,7 +206,7 @@
       "status": 200,
       "content_type": "text/html; charset=utf-8",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:29.677Z"
+      "last_verified_at": "2026-06-22T03:51:40.730Z"
     },
     {
       "url": "https://www.sc.pima.gov/media/vkjby3n3/packet28_notice_of_intent_to_relocate.pdf",
@@ -214,7 +214,7 @@
       "status": 200,
       "content_type": "application/pdf",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:30.012Z"
+      "last_verified_at": "2026-06-22T03:51:41.071Z"
     },
     {
       "url": "https://courts.yavapaiaz.gov/files/sharedassets/courts/v/1/self-service-center/documents/drmcv11f.pdf",
@@ -222,7 +222,7 @@
       "status": 200,
       "content_type": "application/pdf",
       "ok": true,
-      "last_verified_at": "2026-06-21T04:10:30.272Z"
+      "last_verified_at": "2026-06-22T03:51:41.678Z"
     }
   ],
   "records": [

@@ -639,15 +639,12 @@
 
 		  const initialServiceCount = 15;
 		  const publicCategoryGroups = [
-		    { label: "All", categories: null },
-		    { label: "Divorce / Separation", categories: ["Marriage", "Agreements", "Property", "Maintenance"] },
-		    { label: "Children & Parenting", categories: ["Parenting", "Jurisdiction", "Parentage"] },
-		    { label: "Support & Money", categories: ["Child support", "Maintenance", "Property", "Disclosure"] },
-		    { label: "Orders After Court", categories: ["Post-decree", "Court requests"] },
-		    { label: "Documents & Filing", categories: ["Documents", "Procedure", "Disclosure"] },
-		    { label: "Court / Hearing Help", categories: ["Court", "Resolution"] },
-		    { label: "Safety / Urgent Issues", categories: ["Safety", "Court requests", "Post-decree"] },
-		    { label: "Not Sure / Scope Review", categories: ["Triage", "Scope review"] }
+		    { label: "Browse all", categories: null },
+		    { label: "Divorce & agreements", categories: ["Marriage", "Agreements", "Property", "Maintenance"] },
+		    { label: "Children & parenting", categories: ["Parenting", "Jurisdiction", "Parentage"] },
+		    { label: "Support & money", categories: ["Child support", "Maintenance", "Property", "Disclosure"] },
+		    { label: "Orders & court", categories: ["Post-decree", "Court requests", "Court", "Resolution"] },
+		    { label: "Documents & safety", categories: ["Documents", "Procedure", "Disclosure", "Safety", "Triage", "Scope review"] }
 		  ];
 		  const publicCategoryLabels = new Map(
 		    publicCategoryGroups.flatMap((group) => (group.categories || []).map((category) => [category, group.label]))
@@ -657,7 +654,7 @@
 		  );
 
 		  function publicCategoryFor(item) {
-		    return publicCategoryLabels.get(item.category) || item.category || "Not Sure / Scope Review";
+		    return publicCategoryLabels.get(item.category) || item.category || "Documents & safety";
 		  }
 
 	  function intakeRouteForService(item) {
@@ -1197,6 +1194,65 @@
         primary: false
       }
     ].sort((a, b) => Number(b.primary) - Number(a.primary));
+    return `<div class="guide-row-panel-inner service-row-panel-inner task-workspace" data-service-default-section="choose" data-task-workspace data-workspace-state="choose">
+      <button class="guide-panel-close" type="button" data-service-panel-close aria-label="Close practice area details">Close</button>
+      <div class="guide-panel-heading service-panel-heading">
+        <p class="eyebrow">${esc(item.category)}</p>
+        <h3>${esc(item.title)}</h3>
+        <p>${esc(item.copy)}</p>
+      </div>
+      <section class="task-workspace-state" data-service-panel-section="choose">
+        <p class="eyebrow">Choose</p>
+        <h4>What would you like to do?</h4>
+        <p class="muted">Start with one task. The issue is already carried forward.</p>
+        <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
+          ${serviceActions.map((action) => `<button class="button ${action.primary ? "primary" : "outline"}" type="button" data-service-action="${esc(action.key)}">${esc(action.label)}</button>`).join("")}
+          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+        </div>
+      </section>
+      <section class="task-workspace-state" data-service-panel-section="forms" hidden inert aria-hidden="true">
+        <p class="eyebrow">Answer</p>
+        <h4>Confirm only missing details.</h4>
+        ${packetChoices.length ? `<details class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
+          <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
+          <div class="guide-packet-options" role="list">
+            ${packetChoices.map((choice) => `<button type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-label="${esc(choice.label)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
+              <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
+              <span>${esc(choice.label)}</span>
+              <small>${esc(choice.helper)}</small>
+            </button>`).join("")}
+          </div>
+        </details>` : ""}
+        <div class="guide-forms-viewer service-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(item.calculatorChoice || "")}" data-guide-pdf-packet="${esc(item.formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(item.title)}" data-guide-title="${esc(item.title)}" data-guide-route='${esc(JSON.stringify(item.formsRoute))}'></div>
+      </section>
+      <section class="task-workspace-state" data-service-panel-section="calculator" hidden inert aria-hidden="true">
+        <p class="eyebrow">Result</p>
+        <h4>${esc(item.calculatorLabel)}</h4>
+        <p class="muted">Use planning numbers only. Do not enter names, case numbers, addresses, allegations, or private facts.</p>
+        <div class="service-calculator-options">
+          ${calculatorChoices.map((choice, choiceIndex) => `<a class="service-calculator-option${choiceIndex === 0 && calculatorOpen ? " recommended" : ""}" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(choice.key)}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>
+            <span>${choiceIndex === 0 && calculatorOpen ? "Suggested" : "Option"}</span>
+            <strong>${esc(choice.title)}</strong>
+            <p>${esc(choice.copy)}</p>
+            <b>${esc(choice.cta)} <span aria-hidden="true">→</span></b>
+          </a>`).join("")}
+        </div>
+      </section>
+      <section class="task-workspace-state" data-service-panel-section="steps" hidden inert aria-hidden="true">
+        <p class="eyebrow">Confirm</p>
+        <h4>Understand the steps for this issue.</h4>
+        <div class="guide-card-grid service-panel-grid">
+          <div>
+            <h5>What this usually involves</h5>
+            <ul class="list">${checklist.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+          </div>
+          <div>
+            <h5>Your answers being used</h5>
+            <p class="service-card-fallback">${esc(readiness)}</p>
+          </div>
+        </div>
+      </section>
+    </div>`;
     return `<div class="guide-row-panel-inner service-row-panel-inner" data-service-default-section="${esc(primaryAction)}">
       <button class="guide-panel-close" type="button" data-service-panel-close aria-label="Close practice area details">Close</button>
       <div class="guide-panel-heading service-panel-heading">
@@ -1277,7 +1333,7 @@
 
   function serviceCards() {
 	    const items = serviceItems.map(serviceViewModelForItem);
-				    const categories = publicCategoryGroups.filter((group) => group.label === "All" || items.some((item) => group.categories?.includes(item.category)));
+				    const categories = publicCategoryGroups.filter((group) => group.label === "Browse all" || items.some((item) => group.categories?.includes(item.category)));
 		    return `<div class="service-tools" data-service-tools>
 	      <label class="service-search-label" for="service-search">Start by choosing your issue</label>
 	      <div class="service-search-row">
@@ -1294,13 +1350,13 @@
 		        <p class="service-search-label">Browse by situation</p>
 		        <button class="service-category-reset" type="button" data-service-category-reset>Reset</button>
 		      </div>
-		      <div class="service-category-list" role="group" aria-label="Pathway categories">
+		      <div class="service-category-list" role="group" aria-label="Issue filters">
 		        ${categories.map((group, index) => `<button class="service-category-chip${index === 0 ? " active" : ""}" type="button" data-service-category-filter="${esc(group.label)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(group.label)}</button>`).join("")}
 		      </div>
 		    </div>
 			    <div class="grid service-grid" data-service-grid data-service-list>${items.map((item, index) => {
 			      return `
-				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} role="button" tabindex="0" aria-label="Review details for ${esc(item.title)}" data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
+				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
 			      <div class="service-heading">
 			        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
 		        <p class="service-kicker">${esc(item.category)}</p>
@@ -1311,7 +1367,7 @@
 		      </div>
 		      <div class="service-detail">
 		        <p>${item.copy}</p>
-		        <button class="card-link service-detail-toggle" type="button" data-service-detail-toggle aria-expanded="false">Open this issue →</button>
+		        <button class="card-link service-detail-toggle" type="button" data-service-detail-toggle aria-expanded="false">Choose this issue</button>
 		      </div>
 		    </article>`;
 			    }).join("")}</div>
@@ -1361,13 +1417,25 @@
 	    </div>`;
 	  }
 
-  function home() {
-    return hero(
-      "Clear Family Law Guidance. A More Affordable Path Forward.",
-      "Arizona family law help from a licensed Legal Paraprofessional for divorce, parenting time, child support, legal decision-making, and related family court matters.",
-      `${link("/forms", "Find forms", "primary")} ${link("/calculators", "Use calculator", "outline")} ${link("/guides", "Read DIY guide", "outline")} ${link("/start", "Start Guided Intake", "outline")}`
-    ) + section(
-      "Start with review, then choose the right service path.",
+	  function home() {
+	    return hero(
+	      "Clear Family Law Guidance. A More Affordable Path Forward.",
+	      "Arizona family law help from a licensed Legal Paraprofessional for divorce, parenting time, child support, legal decision-making, and related family court matters.",
+	      `<div class="hero-task-grid" id="choose-task" aria-label="Choose a task">
+	        <a class="hero-task-pill primary" href="/forms" data-link>Find forms</a>
+	        <a class="hero-task-pill" href="/calculators" data-link>Use calculator</a>
+	        <a class="hero-task-pill" href="/guides" data-link>Read DIY guide</a>
+	        <a class="hero-task-pill" href="/start" data-link data-intake-route='${esc(JSON.stringify(routeForServiceTitle("Not Sure Where to Start")))}'>Start Guided Intake</a>
+	      </div>`
+	    ) + section(
+      "Find your issue.",
+      "Choose the closest public issue card. Each card has one action, and the workspace asks only for missing details.",
+	      `${serviceCards()}`,
+	      true,
+	      "Issue finder",
+	      "service-section"
+	    ) + section(
+      "Before services begin.",
       "Submitting information does not create a client relationship. The first job is to understand whether the matter fits conflicts, licensed scope, urgency, and practical service needs.",
 	      proofBand(
 	        "Process proof",
@@ -1384,13 +1452,6 @@
 	      true,
 	      "Intake review",
 	      "review-section"
-	    ) + section(
-      "Practical help for Arizona family law matters.",
-      "Family-law help for moments when documents, deadlines, parenting terms, support, and court expectations need to be handled clearly. Every path begins with conflict, scope, timing, and fit review.",
-	      `${intakeReadinessPanel("compact")}${serviceCards()}`,
-	      true,
-	      "Family law services",
-	      "service-section"
 	    ) + section(
 	      "From many issues to one clear next step.",
 	      "If you know the issue, start there. If you do not, use triage. If you want to understand the process first, open the DIY guide path.",
@@ -1717,10 +1778,15 @@
       </div>
       <div class="guide-tools" id="guide-resource-start">
         <input type="search" placeholder="Search guides" aria-label="Search guides" data-guide-search>
-        <select aria-label="Filter guides by category" data-guide-category>
-          <option value="">All categories</option>
-          ${Array.from(new Set(guides.map((guide) => guide.category))).map((category) => `<option>${esc(category)}</option>`).join("")}
-        </select>
+        <button class="service-category-reset" type="button" data-guide-category-reset>Clear filters</button>
+      </div>
+      <div class="service-category-panel guide-category-panel" aria-label="Filter DIY guides by situation">
+        <div class="service-category-head">
+          <p class="service-search-label">Browse by situation</p>
+        </div>
+        <div class="service-category-list" role="group" aria-label="Guide filters">
+          ${publicCategoryGroups.map((group, index) => `<button class="service-category-chip${index === 0 ? " active" : ""}" type="button" data-guide-category-filter="${esc(group.label)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(group.label)}</button>`).join("")}
+        </div>
       </div>
       <div class="guide-status-row" aria-live="polite">
         <span data-guide-count>Showing ${Math.min(initialServiceCount, guides.length)} of ${guides.length} DIY guides</span>
@@ -3836,8 +3902,7 @@
   function renderGuides(guides) {
     if (!guides.length) return `<article class="card"><h3>Guides unavailable</h3><p>Please contact the office if you need help choosing where to start.</p></article>`;
     return guides.map((guide, index) => {
-      const route = guideRoute(guide);
-      return `<article class="card guide-card"${index >= initialServiceCount ? ` hidden data-guide-extra` : ""} data-guide-card data-category="${esc(guide.category)}" data-guide-index="${index}" data-guide-title="${esc(guide.title.toLowerCase())}" data-guide-category="${esc(guide.category.toLowerCase())}" data-title="${esc(`${guide.title} ${guide.category} ${guide.summary} ${guide.level || ""} ${(guide.items || []).join(" ")} ${(guide.phases || []).join(" ")} ${(guide.listener || []).join(" ")}`.toLowerCase())}">
+      return `<article class="card guide-card"${index >= initialServiceCount ? ` hidden data-guide-extra` : ""} data-guide-card data-category="${esc(guide.category)}" data-guide-group="${esc(publicCategoryFor(guide))}" data-guide-index="${index}" data-guide-title="${esc(guide.title.toLowerCase())}" data-guide-category="${esc(guide.category.toLowerCase())}" data-guide-group-text="${esc(publicCategoryFor(guide).toLowerCase())}" data-title="${esc(`${guide.title} ${guide.category} ${publicCategoryFor(guide)} ${guide.summary} ${guide.level || ""} ${(guide.items || []).join(" ")} ${(guide.phases || []).join(" ")} ${(guide.listener || []).join(" ")}`.toLowerCase())}">
       <div class="guide-card-head">
         <div>
           <p class="service-kicker">${esc(guide.category)}</p>
@@ -3845,11 +3910,7 @@
         </div>
       </div>
       <p>${esc(guide.summary)}</p>
-      <button class="guide-detail-trigger" type="button" data-guide-open="${index}" aria-expanded="false">View Forms & Calculator</button>
-      <div class="guide-lead">
-        <p>${esc(guide.leadMagnet || "Readiness review")}</p>
-        <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>${esc(guide.leadCta || "Start guided intake")}</a>
-      </div>
+      <button class="guide-detail-trigger" type="button" data-guide-open="${index}" aria-expanded="false">Open guide</button>
     </article>`;
     }).join("");
   }
@@ -3879,6 +3940,60 @@
             ? "Open deadline-readiness planner"
             : "Choose calculator or planner";
     const calculatorChooserLabel = "Choose calculator or planner";
+    return `<div class="guide-row-panel-inner task-workspace" data-guide-default-section="choose" data-task-workspace data-workspace-state="choose">
+      <button class="guide-panel-close" type="button" data-guide-panel-close aria-label="Close guide details">Close</button>
+      <div class="guide-panel-heading">
+        <p class="eyebrow">${esc(guide.category)}</p>
+        <h3>${esc(guide.title)}</h3>
+        <p>${esc(guide.summary)}</p>
+      </div>
+      <section class="task-workspace-state" data-guide-panel-section="choose">
+        <p class="eyebrow">Choose</p>
+        <h4>What would you like to do?</h4>
+        <p class="muted">Use this guide for one task at a time.</p>
+        <div class="guide-next-options" role="group" aria-label="Choose a guide task">
+          <button class="active" type="button" data-guide-next-choice="forms">Find forms</button>
+          ${calculatorChoice ? `<button type="button" data-guide-next-choice="calculator">Use calculator</button>` : ""}
+          <button type="button" data-guide-next-choice="steps">Understand the steps</button>
+          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Start Guided Intake</a>
+        </div>
+      </section>
+      <section class="task-workspace-state" data-guide-panel-section="steps" hidden inert aria-hidden="true">
+        <p class="eyebrow">Answer</p>
+        <h4>Use these steps for this guide.</h4>
+        <div class="guide-card-grid">
+          <div>
+            <h5>Collect first</h5>
+            <ul class="list">${(guide.items || []).map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
+          </div>
+          <div>
+            <h5>Court-readiness check</h5>
+            <ul class="list">${(guide.listener || []).map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
+          </div>
+        </div>
+      </section>
+      <section class="task-workspace-state" data-guide-panel-section="forms" hidden inert aria-hidden="true">
+        <p class="eyebrow">Confirm</p>
+        <h4>Review the answers being used.</h4>
+        ${packetChoices.length ? `<details class="guide-packet-chooser" data-guide-packet-chooser>
+          <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
+          <div class="guide-packet-options" role="list">
+            ${packetChoices.map((choice) => `<button type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-label="${esc(choice.label)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
+              <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
+              <span>${esc(choice.label)}</span>
+              <small>${esc(choice.helper)}</small>
+            </button>`).join("")}
+          </div>
+        </details>` : ""}
+        <div class="guide-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(calculatorChoice || "")}" data-guide-pdf-packet="${esc(formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(guide.title)}" data-guide-title="${esc(guide.title)}" data-guide-route='${esc(JSON.stringify(formsRoute))}'></div>
+      </section>
+      ${calculatorChoice ? `<section class="task-workspace-state" data-guide-panel-section="calculator" hidden inert aria-hidden="true">
+        <p class="eyebrow">Result</p>
+        <h4>${esc(calculatorChooserLabel)}</h4>
+        <p class="muted">Use planning numbers only. Do not enter names, case numbers, addresses, allegations, or private facts.</p>
+        <a class="button primary" href="/tools#forms-calculator-hub" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(calculatorLabel)}</a>
+      </section>` : ""}
+    </div>`;
     return `<div class="guide-row-panel-inner">
       <button class="guide-panel-close" type="button" data-guide-panel-close aria-label="Close guide details">Close</button>
       <div class="guide-panel-heading">
@@ -4785,16 +4900,18 @@
 
   function wireGuideFilters() {
     const search = document.querySelector("[data-guide-search]");
-    const category = document.querySelector("[data-guide-category]");
+    const categoryButtons = Array.from(document.querySelectorAll("[data-guide-category-filter]"));
+    const reset = document.querySelector("[data-guide-category-reset]");
     const list = document.querySelector("[data-guide-list]");
     const button = document.querySelector("[data-guide-reveal]");
     const reveal = document.querySelector(".guide-reveal");
     const count = document.querySelector("[data-guide-count]");
     const note = document.querySelector("[data-guide-note]");
-    if (!search || !category || !list) return;
+    if (!search || !list) return;
     const cards = Array.from(list.querySelectorAll("[data-guide-card]"));
     const guideData = serviceItems.map(guideFromServiceItem);
     let revealed = false;
+    let activeCategory = "Browse all";
     let activeGuideIndex = null;
     const panel = document.createElement("div");
     panel.className = "guide-row-panel";
@@ -4876,15 +4993,32 @@
       });
       const choiceButtons = Array.from(panel.querySelectorAll("[data-guide-next-choice]"));
       const resultPanels = Array.from(panel.querySelectorAll("[data-guide-next-result]"));
+      const workspaceSections = Array.from(panel.querySelectorAll("[data-guide-panel-section]"));
+      const revealGuideSection = (sectionName, shouldScroll = true) => {
+        workspaceSections.forEach((section) => {
+          setHiddenInert(section, section.getAttribute("data-guide-panel-section") !== sectionName);
+        });
+        choiceButtons.forEach((item) => {
+          const active = item.getAttribute("data-guide-next-choice") === sectionName;
+          item.classList.toggle("active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+        const target = panel.querySelector(`[data-guide-panel-section="${sectionName}"]`);
+        if (shouldScroll) requestAnimationFrame(() => revealAndFocus(target, { hash: `#guide-${sectionName}`, history: false }));
+      };
       choiceButtons.forEach((button) => {
         button.addEventListener("click", () => {
           const choice = button.getAttribute("data-guide-next-choice") || "forms";
-          choiceButtons.forEach((item) => item.classList.toggle("active", item === button));
-          resultPanels.forEach((item) => {
-            item.hidden = item.getAttribute("data-guide-next-result") !== choice;
-          });
+          if (workspaceSections.length) revealGuideSection(choice);
+          else {
+            choiceButtons.forEach((item) => item.classList.toggle("active", item === button));
+            resultPanels.forEach((item) => {
+              item.hidden = item.getAttribute("data-guide-next-result") !== choice;
+            });
+          }
         });
       });
+      if (workspaceSections.length) revealGuideSection(panel.querySelector("[data-guide-default-section]")?.getAttribute("data-guide-default-section") || "choose", false);
       requestAnimationFrame(() => {
         revealAndFocus(panel, { hash: "#guide-detail", history: false });
       });
@@ -4899,28 +5033,31 @@
     };
     const filter = () => {
       const term = search.value.trim().toLowerCase();
-      const cat = category.value;
+      const activeGroup = publicCategoryIndex.get(activeCategory);
       const hasPrimaryMatch = !!term && cards.some((card) => {
         const title = card.dataset.guideTitle || "";
         const guideCategory = card.dataset.guideCategory || "";
-        return title.includes(term) || guideCategory.includes(term);
+        const guideGroup = card.dataset.guideGroupText || "";
+        return title.includes(term) || guideCategory.includes(term) || guideGroup.includes(term);
       });
-      const categoryActive = !!cat;
+      const categoryActive = activeCategory !== "Browse all";
       const limit = defaultVisibleCount();
       let visible = 0;
       let matchesTotal = 0;
       cards.forEach((card) => {
         const title = card.dataset.guideTitle || "";
         const guideCategory = card.dataset.guideCategory || "";
+        const guideGroup = card.dataset.guideGroupText || "";
         const haystack = card.dataset.title.toLowerCase();
-        const primaryMatch = title.includes(term) || guideCategory.includes(term);
+        const primaryMatch = title.includes(term) || guideCategory.includes(term) || guideGroup.includes(term);
         const matchesTerm = !term || (hasPrimaryMatch ? primaryMatch : haystack.includes(term));
-        const matchesCat = !cat || card.dataset.category === cat;
+        const matchesCat = !categoryActive || activeGroup?.has(card.dataset.category);
         let rank = 4;
         if (term && title === term) rank = 0;
         else if (term && title.startsWith(term)) rank = 1;
         else if (term && title.includes(term)) rank = 2;
         else if (term && guideCategory.includes(term)) rank = 3;
+        else if (term && guideGroup.includes(term)) rank = 3;
         card.style.order = term ? String(rank) : "";
         const matches = matchesTerm && matchesCat;
         if (matches) matchesTotal += 1;
@@ -4953,9 +5090,27 @@
       if (reveal) {
         reveal.classList.toggle("revealed", revealed || !!term || categoryActive);
       }
+      categoryButtons.forEach((categoryButton) => {
+        const active = categoryButton.dataset.guideCategoryFilter === activeCategory;
+        categoryButton.classList.toggle("active", active);
+        categoryButton.setAttribute("aria-pressed", String(active));
+      });
     };
     search.addEventListener("input", filter);
-    category.addEventListener("change", filter);
+    categoryButtons.forEach((categoryButton) => {
+      categoryButton.addEventListener("click", () => {
+        activeCategory = categoryButton.dataset.guideCategoryFilter || "Browse all";
+        filter();
+      });
+    });
+    reset?.addEventListener("click", () => {
+      activeCategory = "Browse all";
+      revealed = false;
+      search.value = "";
+      clearPanel();
+      filter();
+      search.focus();
+    });
     button?.addEventListener("click", () => {
       revealed = true;
       filter();
@@ -5032,7 +5187,7 @@
 	    if (!cards.length) return;
 	
 	    let revealed = false;
-	    let activeCategory = "All";
+	    let activeCategory = "Browse all";
 	    let activeServiceIndex = null;
 	    const serviceData = serviceItems.map(serviceViewModelForItem);
 	    const panel = document.createElement("div");
@@ -5044,7 +5199,7 @@
 	      card.classList.toggle("is-expanded", active);
 	      if (!toggle) return;
 	      toggle.setAttribute("aria-expanded", String(active));
-	      toggle.textContent = active ? "Close this issue" : "Open this issue \u2192";
+	      toggle.textContent = active ? "Selected issue" : "Choose this issue";
 	    };
 	
 	    const clearServicePanel = () => {
@@ -5159,7 +5314,7 @@
 	    const update = (commitOptions = {}) => {
 	      const term = (search?.value || "").trim().toLowerCase();
 		      const activeGroup = publicCategoryIndex.get(activeCategory);
-		      const categoryActive = activeCategory !== "All";
+		      const categoryActive = activeCategory !== "Browse all";
 	      const limit = defaultVisibleCount();
 	      let visible = 0;
 	      let matchesTotal = 0;
@@ -5242,12 +5397,12 @@
 	    search?.addEventListener("input", update);
 	    categoryButtons.forEach((categoryButton) => {
 	      categoryButton.addEventListener("click", () => {
-	        activeCategory = categoryButton.dataset.serviceCategoryFilter || "All";
+	        activeCategory = categoryButton.dataset.serviceCategoryFilter || "Browse all";
 	        update();
 	      });
 	    });
 	    const resetServiceFilters = (shouldFocusSearch = false) => {
-	      activeCategory = "All";
+	      activeCategory = "Browse all";
 	      revealed = false;
 	      clearServicePanel();
 	      if (search) {
@@ -5273,15 +5428,6 @@
 	      });
 	    });
 	    cards.forEach((card) => {
-	      card.addEventListener("click", (event) => {
-	        if (event.target.closest("a, button")) return;
-	        openServicePanel(card);
-	      });
-	      card.addEventListener("keydown", (event) => {
-	        if (event.key !== "Enter" && event.key !== " ") return;
-	        event.preventDefault();
-	        openServicePanel(card);
-	      });
 	      card.querySelector("[data-service-detail-toggle]")?.addEventListener("click", () => openServicePanel(card));
 	    });
 	    window.addEventListener("resize", update, { passive: true });

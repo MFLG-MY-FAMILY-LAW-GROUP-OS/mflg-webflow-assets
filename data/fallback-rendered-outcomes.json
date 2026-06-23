@@ -1,7 +1,7 @@
 {
   "version": "1.0.0-fallback-rendered-outcomes",
-  "built_at": "2026-06-21T04:27:44.744Z",
-  "base_url": "https://myfamilylawgroup.com",
+  "built_at": "2026-06-22T03:51:25.583Z",
+  "base_url": "http://127.0.0.1:4173",
   "summary": {
     "rendered_outcomes": 18,
     "counties_checked": 16,

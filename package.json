@@ -31,7 +31,8 @@
     "test:navigation-progressive-disclosure": "node scripts/playwright-navigation-progressive-disclosure.js",
     "test:action-integrity": "node scripts/playwright-navigation-progressive-disclosure.js",
     "test:unified-viewer": "node scripts/playwright-navigation-progressive-disclosure.js",
-    "test:current-release-owner-package": "node scripts/playwright-current-release-owner-package.js"
+    "test:current-release-owner-package": "node scripts/playwright-current-release-owner-package.js",
+    "test:simple-public-workflow": "node scripts/playwright-simple-public-workflow-audit.js"
   },
   "repository": {
     "type": "git",
