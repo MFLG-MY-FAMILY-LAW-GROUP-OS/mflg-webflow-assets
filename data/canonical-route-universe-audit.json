@@ -1,6 +1,6 @@
 {
   "version": "2.0.0-all-county-user-outcomes",
-  "built_at": "2026-06-22T03:51:34.365Z",
+  "built_at": "2026-06-23T23:28:44.942Z",
   "denominator_method": "Expected route variants are generated from the 50 public matter definitions and modeled qualifier route shapes before any unique route/source/PDF inventory is joined. The independence check rebuilds the same expected variants with resource matches hidden and keeps all outcomes as explicit gaps.",
   "summary": {
     "denominator_independent_of_resource_inventory": true,

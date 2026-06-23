@@ -474,7 +474,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260615-forms-packet-rewire">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260623-163035-lead-magnet-reveal-flow">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -495,6 +495,22 @@
         <b aria-hidden="true"></b>
       </a>
     </section>`;
+  }
+
+  function wireHeroVideoLoop() {
+    const video = document.querySelector(".hero-video");
+    if (!video || video.dataset.loopGuard === "true") return;
+    video.dataset.loopGuard = "true";
+    const cleanLoopStart = 0.04;
+    const cleanLoopBuffer = 0.18;
+    video.addEventListener("timeupdate", () => {
+      if (!Number.isFinite(video.duration) || video.duration <= 1) return;
+      if (video.currentTime >= video.duration - cleanLoopBuffer) {
+        video.currentTime = cleanLoopStart;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
+      }
+    });
   }
 
   function sectionNavigator(path) {
@@ -1112,6 +1128,43 @@
 	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice, calculatorLabel, neutralCalculator, primaryAction };
   }
 
+  function issuePrerequisitesForTitle(value) {
+    const title = String(value || "").toLowerCase();
+    if (title.includes("relocation")) {
+      return [
+        "Is there an existing parenting plan, legal decision-making order, or court order?",
+        "Has relocation notice been given, and is there a deadline or hearing date?",
+        "Does the other parent agree, object, or need more information before forms are chosen?"
+      ];
+    }
+    if (title.includes("child support") || title.includes("support")) {
+      return [
+        "Are you starting, changing, enforcing, or calculating support?",
+        "Do income, childcare, insurance, parenting-time days, or arrears records affect the answer?",
+        "County is asked only when the form path needs a county-specific source."
+      ];
+    }
+    if (title.includes("temporary order")) {
+      return [
+        "Is a case already filed, or do temporary orders need to be requested with a new case?",
+        "What temporary help is needed: parenting, support, property, bills, safety, or exclusive use?",
+        "Is there a deadline, hearing, service issue, or urgent timing concern?"
+      ];
+    }
+    if (title.includes("consent decree")) {
+      return [
+        "Do both parties agree on every term before final paperwork is chosen?",
+        "Are minor children, property, debts, support, or maintenance part of the agreement?",
+        "Is the case already filed, and does the decree need supporting forms or worksheets?"
+      ];
+    }
+    return [
+      "County, case stage, children, agreement, existing orders, and timing can change the form path.",
+      "Answer only the missing checks before opening a packet or PDF viewer.",
+      "If the checks do not fit, use office review instead of guessing with a broad packet."
+    ];
+  }
+
   function serviceAvailabilityTags(item) {
     const tags = ["Forms", "Steps", "Intake"];
     if (!item.neutralCalculator) {
@@ -1168,6 +1221,7 @@
     const checklist = guideChecklistFor(item).slice(0, 3);
     const readiness = guideReadinessFor(item)[0] || "If the next step is unclear, use Guided Intake before choosing forms.";
     const packetChoices = guidePacketChoicesFor(item.guide);
+    const prerequisiteChecks = issuePrerequisitesForTitle(item.title);
     const calculatorChoices = calculatorQuickChoices(item.calculatorChoice);
     const calculatorOpen = !item.neutralCalculator;
     const primaryAction = item.primaryAction || "forms";
@@ -1180,7 +1234,7 @@
     const serviceActions = [
       {
         key: "forms",
-        label: "View forms for this issue",
+        label: "Find the right forms",
         primary: primaryAction === "forms"
       },
       {
@@ -1207,12 +1261,16 @@
         <p class="muted">Start with one task. The issue is already carried forward.</p>
         <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
           ${serviceActions.map((action) => `<button class="button ${action.primary ? "primary" : "outline"}" type="button" data-service-action="${esc(action.key)}">${esc(action.label)}</button>`).join("")}
-          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Start Guided Intake</a>
+          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Ask for office review</a>
         </div>
       </section>
       <section class="task-workspace-state" data-service-panel-section="forms" hidden inert aria-hidden="true">
         <p class="eyebrow">Answer</p>
-        <h4>Confirm only missing details.</h4>
+        <h4>Find the right forms for this issue.</h4>
+        <div class="forms-prereq-panel">
+          <strong>Answer these before viewing a form.</strong>
+          <ul class="list">${prerequisiteChecks.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+        </div>
         ${packetChoices.length ? `<details class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
           <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
           <div class="guide-packet-options" role="list">
@@ -3930,6 +3988,7 @@
       suggestedConfidence: suggestedPacket.confidence || "",
       officialSourceUrl: suggestedPacket.sourceUrl || ""
     };
+    const prerequisiteChecks = issuePrerequisitesForTitle(guide.title);
     const calculatorLabel = calculatorChoice === "support"
       ? "Open child support calculator"
       : calculatorChoice === "parenting"
@@ -3955,7 +4014,7 @@
           <button class="active" type="button" data-guide-next-choice="forms">Find forms</button>
           ${calculatorChoice ? `<button type="button" data-guide-next-choice="calculator">Use calculator</button>` : ""}
           <button type="button" data-guide-next-choice="steps">Understand the steps</button>
-          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Start Guided Intake</a>
+          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Ask for office review</a>
         </div>
       </section>
       <section class="task-workspace-state" data-guide-panel-section="steps" hidden inert aria-hidden="true">
@@ -3974,7 +4033,11 @@
       </section>
       <section class="task-workspace-state" data-guide-panel-section="forms" hidden inert aria-hidden="true">
         <p class="eyebrow">Confirm</p>
-        <h4>Review the answers being used.</h4>
+        <h4>Find the right forms for this guide.</h4>
+        <div class="forms-prereq-panel">
+          <strong>Answer these before viewing a form.</strong>
+          <ul class="list">${prerequisiteChecks.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+        </div>
         ${packetChoices.length ? `<details class="guide-packet-chooser" data-guide-packet-chooser>
           <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
           <div class="guide-packet-options" role="list">
@@ -4128,7 +4191,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260615-forms-packet-rewire" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260623-163035-lead-magnet-reveal-flow" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -4659,6 +4722,7 @@
 	    renderIntakeIfNeeded(path);
 	    updateNav(path);
 	    scheduleLegalTermEnhancement(root);
+      wireHeroVideoLoop();
 		    if (opts.restoreScroll) {
 	      window.scrollTo({ top: scrollPositions.get(path) || 0, behavior: "instant" in window ? "instant" : "auto" });
 	    } else {
@@ -5136,10 +5200,13 @@
       ? `Recommended packet: ${packetLabel}.`
       : "Choose the packet that best fits your county, issue, and case stage.";
     const packetCopy = formsRoute.formConfidence === "statewide-generic"
-      ? "This is a statewide starting point. Open Forms & Calculators to review the reviewed packet and narrow by county if needed."
+      ? "This is a statewide starting point. Continue to the form questions to review the packet and narrow by county if needed."
       : formsRoute.formConfidence === "related-only"
-        ? "This guide points to related forms only. Open Forms & Calculators to compare the packet titles before continuing."
-        : "Open Forms & Calculators to keep the packet and PDF viewer in one place.";
+        ? "This guide points to related forms only. Continue to compare packet titles before opening anything."
+        : "Continue to the form questions. The PDF viewer appears after the form path is ready.";
+    const bridgeCta = packetId && packetId !== "all" && formsRoute.formConfidence !== "related-only"
+      ? "Continue to form viewer"
+      : "Answer questions to find forms";
 
     host.innerHTML = `
       <div class="guide-forms-viewer-head guide-forms-bridge-head">
@@ -5148,7 +5215,7 @@
           <strong>${esc(packetLabel)}</strong>
           <p>${esc(packetHint)} ${esc(packetCopy)}</p>
         </div>
-        <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Open matched forms</a>
+        <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(bridgeCta)}</a>
       </div>
       <div class="guide-forms-bridge-grid">
         <article>
@@ -5168,7 +5235,7 @@
           <strong>${esc(displayFormsChildren(formsRoute.children))}</strong>
         </article>
       </div>
-      <p class="guide-forms-bridge-note">The guide narrows the choice. Forms & Calculators owns the PDF viewer and checklist.</p>
+      <p class="guide-forms-bridge-note">The selected guide carries forward. Answer checks first; the viewer appears only after a form path is ready.</p>
     `;
     scheduleLegalTermEnhancement(host);
   }
@@ -9264,16 +9331,14 @@
           viewerDownload.setAttribute("download", fileName || "official-court-form.pdf");
           viewerDownload.removeAttribute("aria-disabled");
         }
-        if (viewerSourceFallback && isUsableHref(siteViewUrl)) {
-          viewerSourceFallback.textContent = "Open same-site PDF";
-          viewerSourceFallback.setAttribute("href", siteViewUrl);
+        if (viewerSourceFallback) {
+          viewerSourceFallback.hidden = true;
+          viewerSourceFallback.setAttribute("aria-hidden", "true");
+          viewerSourceFallback.setAttribute("aria-disabled", "true");
+          viewerSourceFallback.removeAttribute("href");
           viewerSourceFallback.removeAttribute("target");
           viewerSourceFallback.removeAttribute("rel");
-          viewerSourceFallback.removeAttribute("data-link");
-          viewerSourceFallback.setAttribute("data-source-url", siteViewUrl);
-          viewerSourceFallback.hidden = false;
-          viewerSourceFallback.removeAttribute("aria-hidden");
-          viewerSourceFallback.removeAttribute("aria-disabled");
+          viewerSourceFallback.removeAttribute("data-source-url");
         }
         viewerIntake?.setAttribute("data-intake-route", JSON.stringify(routeForPdfLink(link)));
         revealAndFocus(viewer, { hash: "#forms-pdf-viewer", history: true });
