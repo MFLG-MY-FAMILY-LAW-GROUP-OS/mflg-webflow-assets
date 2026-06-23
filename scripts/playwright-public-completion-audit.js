@@ -26,10 +26,9 @@ const viewports = [
   { name: "mobile", width: 390, height: 844 }
 ];
 const requiredNavLabels = [
-  "Practice Areas",
+  "Services",
+  "Forms & Guides",
   "Fees",
-  "DIY Guides",
-  "Forms & Calculators",
   "About",
   "FAQ",
   "Contact",

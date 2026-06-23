@@ -74,7 +74,7 @@ async function openMediationPracticeArea(page) {
   await page.evaluate(() => {
     document.querySelector("[data-service-category-reset]")?.click();
     const reveal = document.querySelector("[data-service-reveal]");
-    if (reveal?.getAttribute("aria-expanded") !== "true") reveal.click();
+    if (reveal && reveal.getAttribute("aria-expanded") !== "true") reveal.click();
     const card = Array.from(document.querySelectorAll("[data-service-card]"))
       .find((item) => /^Mediation Preparation$/i.test(item.querySelector("h3")?.textContent?.trim() || ""));
     card?.scrollIntoView({ block: "center" });
@@ -99,7 +99,7 @@ async function clickMediationFormsDataLink(page) {
   await page.evaluate(() => {
     document.querySelector("[data-service-category-reset]")?.click();
     const reveal = document.querySelector("[data-service-reveal]");
-    if (reveal?.getAttribute("aria-expanded") !== "true") reveal.click();
+    if (reveal && reveal.getAttribute("aria-expanded") !== "true") reveal.click();
     const card = Array.from(document.querySelectorAll("[data-service-card]"))
       .find((item) => /^Mediation Preparation$/i.test(item.querySelector("h3")?.textContent?.trim() || ""));
     card?.scrollIntoView({ block: "center" });

@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260622-213314-hero-pill-refine}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260622-225157-simple-navigation}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -78,8 +78,9 @@ grep -R '<summary>Login</summary>' "$ROOT_DIR" --include='*.html' >/dev/null || 
 if grep -R '<summary>Access</summary>' "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' --exclude-dir='rollback-snapshots' --exclude-dir='test-results' >/dev/null; then
   fail "Old Access navigation label found in public HTML"
 fi
-grep -R "DIY Guides" "$ROOT_DIR" --include='*.html' >/dev/null || fail "DIY Guides navigation label missing from HTML"
-grep -R "Forms &amp; Calculators" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Forms & Calculators navigation label missing from HTML"
+grep -R 'href="/practice-areas" data-link>Services</a>' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Services navigation label missing from HTML"
+grep -R "DIY Guides" "$ROOT_DIR" --include='*.html' >/dev/null || fail "DIY Guides footer or contextual label missing from HTML"
+grep -R "Forms &amp; Guides" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Forms & Guides navigation label missing from HTML"
 if grep -R "Forms &amp; Tools" "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' >/dev/null; then
   fail "Old Forms & Tools navigation label found in HTML"
 fi
@@ -174,10 +175,8 @@ grep -q "Register an out-of-state custody order" "$PUBLIC_JS_FILE" || fail "DIY 
 grep -q "Register an out-of-state support order" "$PUBLIC_JS_FILE" || fail "DIY guide support packet choice missing"
 grep -q "Use Guided Intake instead of guessing" "$PUBLIC_JS_FILE" || fail "DIY guide uncertainty fallback copy missing"
 grep -q '"/tools": tools' "$PUBLIC_JS_FILE" || fail "Forms & Tools route missing from public JS"
-grep -q "Calculators & Planning Tools" "$PUBLIC_JS_FILE" || fail "Calculator route title copy missing from public JS"
-grep -q "Court Forms Finder" "$PUBLIC_JS_FILE" || fail "Forms route title copy missing from public JS"
-grep -q "Use safe planning tools and official Arizona calculator sources" "$PUBLIC_JS_FILE" || fail "Calculator route public lead copy missing from public JS"
-grep -q "Find the right reviewed forms, court-source backup, or Intake path" "$PUBLIC_JS_FILE" || fail "Forms route public lead copy missing from public JS"
+grep -q "Forms & Guides" "$PUBLIC_JS_FILE" || fail "Unified Forms & Guides route title copy missing from public JS"
+grep -q "Choose forms, a DIY guide, a calculator, or Guided Intake from one public workspace" "$PUBLIC_JS_FILE" || fail "Unified Forms & Guides public lead copy missing from public JS"
 grep -q "Privacy note" "$PUBLIC_JS_FILE" || fail "Forms & Tools public privacy note missing from public JS"
 grep -q "Do not type private details on this page" "$PUBLIC_JS_FILE" || fail "Forms & Tools public privacy copy missing from public JS"
 grep -q "jurisdictionQuestions" "$PUBLIC_JS_FILE" || fail "Jurisdiction routing framework missing from public JS"

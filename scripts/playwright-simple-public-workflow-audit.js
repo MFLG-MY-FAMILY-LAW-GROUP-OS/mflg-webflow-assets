@@ -41,6 +41,11 @@ async function auditHero(page) {
         const style = getComputedStyle(node);
         return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
       }).length,
+      homepageIssueCards: Array.from(document.querySelectorAll("[data-service-card]")).filter((node) => {
+        const rect = node.getBoundingClientRect();
+        const style = getComputedStyle(node);
+        return !node.hidden && style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+      }).length,
       overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
       firstSections: Array.from(document.querySelectorAll("[data-page-root] > section")).slice(0, 4).map((section) => section.querySelector("h1,h2")?.textContent?.trim() || "")
     };
@@ -57,6 +62,7 @@ async function auditHero(page) {
   assert(!state.overflow, "homepage has horizontal overflow");
   assert(/Find your issue/i.test(state.firstSections[1] || ""), `issue finder does not immediately follow hero: ${state.firstSections.join(" / ")}`);
   assert(/Before services begin/i.test(state.firstSections[2] || ""), `process proof order wrong: ${state.firstSections.join(" / ")}`);
+  assert(state.homepageIssueCards > 0 && state.homepageIssueCards <= 8, `homepage exposes too many issue cards early: ${state.homepageIssueCards}`);
 }
 
 async function auditCatalog(page, path, cardSelector, ctaSelector, expectedLabel, filterSelector, resetSelector, searchSelector, countSelector) {
@@ -103,7 +109,8 @@ async function auditCatalog(page, path, cardSelector, ctaSelector, expectedLabel
 
 async function auditWorkspace(page) {
   await page.goto(`${baseUrl}/practice-areas/`, { waitUntil: "networkidle" });
-  await page.locator("[data-service-reveal]").click();
+  const reveal = page.locator("[data-service-reveal]");
+  if (await reveal.count()) await reveal.click();
   await page.locator("[data-service-card] [data-service-detail-toggle]").first().click();
   await page.locator("[data-task-workspace]").waitFor({ state: "visible" });
   let visibleStates = await visibleCount(page.locator("[data-task-workspace] .task-workspace-state"));

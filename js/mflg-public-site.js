@@ -12,10 +12,9 @@
 
   const sectionFlow = [
     { path: "/", label: "Home" },
-    { path: "/practice-areas", label: "Practice Areas" },
+    { path: "/practice-areas", label: "Services" },
+    { path: "/tools", label: "Forms & Guides" },
     { path: "/fees", label: "Fees" },
-    { path: "/guides", label: "DIY Guides" },
-    { path: "/tools", label: "Forms & Calculators" },
     { path: "/about", label: "About" },
     { path: "/faq", label: "FAQ" },
     { path: "/contact", label: "Contact" }
@@ -55,7 +54,7 @@
       description: "Arizona family law help from a licensed Legal Paraprofessional for divorce, parenting time, child support, legal decision-making, forms, and guided intake."
     },
     "/practice-areas": {
-      title: "Practice Areas | MY FAMILY LAW GROUP PLLC",
+      title: "Services | MY FAMILY LAW GROUP PLLC",
       description: "Choose the Arizona family law issue closest to your situation, including divorce, parenting time, child support, paternity, modification, enforcement, and court preparation."
     },
     "/fees": {
@@ -67,16 +66,16 @@
       description: "Use plain-language Arizona family-law DIY guides for forms, process orientation, and next-step planning before choosing guided intake or office review."
     },
     "/tools": {
-      title: "Forms & Calculators | MY FAMILY LAW GROUP PLLC",
-      description: "Find Arizona family-law forms, safe planning tools, deadline helpers, and calculator paths without entering private facts."
+      title: "Forms & Guides | MY FAMILY LAW GROUP PLLC",
+      description: "Choose family-law forms, DIY guides, calculator paths, or Guided Intake from one simple public workspace."
     },
     "/forms": {
-      title: "Court Forms Finder | MY FAMILY LAW GROUP PLLC",
-      description: "Find reviewed Arizona family-court form groups, court-source backup links, and guided intake paths without guessing."
+      title: "Forms & Guides | MY FAMILY LAW GROUP PLLC",
+      description: "Find reviewed Arizona family-court form groups, DIY guides, calculator paths, and Guided Intake without guessing."
     },
     "/calculators": {
-      title: "Calculators & Planning Tools | MY FAMILY LAW GROUP PLLC",
-      description: "Use safe Arizona family-law planning tools and calculator sources for support, parenting-time, deadlines, and next-step review."
+      title: "Forms & Guides | MY FAMILY LAW GROUP PLLC",
+      description: "Use safe Arizona family-law planning tools, forms, DIY guides, and calculator sources from one public workspace."
     },
     "/about": {
       title: "About | MY FAMILY LAW GROUP PLLC",
@@ -1331,14 +1330,21 @@
     </div>`;
   }
 
-  function serviceCards() {
+  function serviceCards(options = {}) {
 	    const items = serviceItems.map(serviceViewModelForItem);
+      const initialCount = options.initialCount || initialServiceCount;
+      const fullCatalog = options.fullCatalog === true;
+      const showReveal = options.showReveal !== false && !fullCatalog;
+      const includeSupport = options.includeSupport !== false;
+      const toolsLabel = options.toolsLabel || "Start by choosing your issue";
+      const toolsIntro = options.toolsIntro || "Issue filters";
+      const note = options.note || `Showing the first ${initialCount} pathways. Search any topic, browse a situation, or reveal the remaining ${Math.max(items.length - initialCount, 0)}. Some matters may need attorney review or another professional.`;
 				    const categories = publicCategoryGroups.filter((group) => group.label === "Browse all" || items.some((item) => group.categories?.includes(item.category)));
-		    return `<div class="service-tools" data-service-tools>
-	      <label class="service-search-label" for="service-search">Start by choosing your issue</label>
+		    return `<div class="service-tools" data-service-tools data-service-initial-count="${esc(String(initialCount))}" data-service-full-catalog="${fullCatalog ? "true" : "false"}">
+	      <label class="service-search-label" for="service-search">${esc(toolsLabel)}</label>
 	      <div class="service-search-row">
 	        <input id="service-search" class="service-search" type="search" placeholder="Search divorce, parenting, support, paternity, enforcement..." data-service-search>
-	        <span class="service-count" data-service-count>Showing ${initialServiceCount} of ${items.length} pathways</span>
+	        <span class="service-count" data-service-count>Showing ${fullCatalog ? items.length : Math.min(initialCount, items.length)} of ${items.length} pathways</span>
 	      </div>
 	      <div class="service-quick-fallback" aria-label="Fallback if the issue is unclear">
 	        <span>Not sure what to choose?</span>
@@ -1350,19 +1356,19 @@
 		        <p class="service-search-label">Browse by situation</p>
 		        <button class="service-category-reset" type="button" data-service-category-reset>Reset</button>
 		      </div>
-		      <div class="service-category-list" role="group" aria-label="Issue filters">
+		      <div class="service-category-list" role="group" aria-label="${esc(toolsIntro)}">
 		        ${categories.map((group, index) => `<button class="service-category-chip${index === 0 ? " active" : ""}" type="button" data-service-category-filter="${esc(group.label)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(group.label)}</button>`).join("")}
 		      </div>
 		    </div>
 			    <div class="grid service-grid" data-service-grid data-service-list>${items.map((item, index) => {
 			      return `
-				    <article class="card service-card"${index >= initialServiceCount ? ` hidden data-service-extra` : ""} data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
+				    <article class="card service-card"${!fullCatalog && index >= initialCount ? ` hidden data-service-extra` : ""} data-service-card data-service-index="${index}" data-service-category="${esc(item.category)}" data-service-group="${esc(publicCategoryFor(item))}" data-service-title="${esc(item.title.toLowerCase())}" data-service-category-text="${esc(item.category.toLowerCase())}" data-service-group-text="${esc(publicCategoryFor(item).toLowerCase())}" data-service-text="${esc(`${item.title} ${item.category} ${publicCategoryFor(item)} ${item.copy}`.toLowerCase())}">
 			      <div class="service-heading">
 			        <div class="card-icon service-icon" aria-hidden="true">${item.icon}</div>
 		        <p class="service-kicker">${esc(item.category)}</p>
 		        <h3>${esc(item.title)}</h3>
 		        <div class="service-card-tools" aria-label="Available options for ${esc(item.title)}">
-		          ${serviceAvailabilityTags(item).map((tag) => `<span>${esc(tag)}</span>`).join("")}
+		          <span>${serviceAvailabilityTags(item).join(" and ")} available</span>
 		        </div>
 		      </div>
 		      <div class="service-detail">
@@ -1380,11 +1386,12 @@
 	        <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>Use Guided Intake</a>
 	      </div>
 	    </div>
-	    <div class="service-reveal">
+	    ${showReveal ? `<div class="service-reveal">
 	      <button class="button primary service-reveal-button" type="button" data-service-reveal aria-expanded="false">View All Family Law Pathways</button>
-		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} pathways. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some matters may need attorney review or another professional.</p>
-	    </div>
-	    ${urgencyRouter()}
+		      <p class="service-note" data-service-note>${esc(note)}</p>
+	    </div>` : ""}
+	    ${includeSupport ? urgencyRouter() : ""}
+	    ${includeSupport ? `
 	    <div class="service-methods" aria-label="Choose a focused intake path">
 	      <div class="service-methods-intro">
 	        <p class="eyebrow">Not sure where to start?</p>
@@ -1414,8 +1421,22 @@
 	        </a>`).join("")}
 	      </div>
 	      </div>
-	    </div>`;
+	    </div>` : ""}`;
 	  }
+
+    function homeIssueFinder() {
+      return `${serviceCards({
+        initialCount: 8,
+        showReveal: false,
+        includeSupport: false,
+        toolsLabel: "Search common family-law issues",
+        toolsIntro: "Homepage issue filters"
+      })}
+      <div class="home-browse-all">
+        <a class="button primary" href="/practice-areas" data-link>Browse all Practice Areas</a>
+        <a class="button outline" href="/tools" data-link>Open Forms & Guides</a>
+      </div>`;
+    }
 
 	  function home() {
 	    return hero(
@@ -1429,14 +1450,14 @@
 	      </div>`
 	    ) + section(
       "Find your issue.",
-      "Choose the closest public issue card. Each card has one action, and the workspace asks only for missing details.",
-	      `${serviceCards()}`,
+      "Search common paths first. If the issue is not obvious, browse the full Services catalog or start Guided Intake.",
+	      `${homeIssueFinder()}`,
 	      true,
 	      "Issue finder",
 	      "service-section"
 	    ) + section(
       "Before services begin.",
-      "Submitting information does not create a client relationship. The first job is to understand whether the matter fits conflicts, licensed scope, urgency, and practical service needs.",
+      "Before services begin, the office checks conflict, scope, timing, and fit.",
 	      proofBand(
 	        "Process proof",
 	        "What the review covers before anything is accepted.",
@@ -1463,9 +1484,9 @@
 	  }
 
   function practiceAreas() {
-    return section("Practice Areas", "Choose the issue that is closest to your situation. Each card opens forms, tools, next steps, and Guided Intake if you are unsure.", `${pageCommand("Issue finder", "Choose the issue first. Then pick forms, a guide, or Intake.", "This page should help visitors name the family-law problem before they choose paperwork or office review.", [
+    return section("Services", "Choose the issue that is closest to your situation. Each card has one action and opens the shared workspace with that issue carried forward.", `${pageCommand("Issue finder", "Choose the issue first.", "This page helps visitors name the family-law problem before choosing forms, a guide, a calculator, or office review.", [
       { label: "Start Guided Intake", href: "/start", className: "primary", route: routeForServiceTitle("Not Sure Where to Start") },
-      { label: "Open Forms & Calculators", href: "/tools", className: "outline" },
+      { label: "Open Forms & Guides", href: "/tools", className: "outline" },
       { label: "Use DIY Guides", href: "/guides", className: "outline" }
     ], [
       { label: "New case", title: "Divorce, parentage, support, or first orders", copy: "Start with the case type if no order exists yet.", href: "#service-search", linkLabel: "Browse issues" },
@@ -1476,7 +1497,7 @@
       { label: "Forms or tools", title: "Open the right helper without extra steps", copy: "Each card links to forms, checklists, calculators, or the office review path that fits the issue." },
       { label: "Unsure", title: "Use Guided Intake instead of guessing", copy: "When the issue is mixed or the facts are unclear, the intake path is the cleaner next step." },
       { label: "Boundary", title: "Some matters need another professional", copy: "If the issue needs attorney-only work, the page should not pretend otherwise." }
-    ], "proof-practice")}${reviewFitBand()}${intakeReadinessPanel("compact")}${serviceCards()}`, true, "Family law services");
+    ], "proof-practice")}${reviewFitBand()}${intakeReadinessPanel("compact")}${serviceCards({ initialCount: 50, fullCatalog: true, showReveal: false })}`, true, "Family law services");
   }
 
   function feeRoute(title, serviceInterest, budgetConcern, presetAnswers) {
@@ -1699,17 +1720,34 @@
     </article>`;
   }
 
+  function feeDecisionPanel() {
+    const intakeRoute = feeRoute("Fee-fit review", "Not sure", "Not sure yet");
+    const options = [
+      ["I need advice.", "#hourly-intake-fees", "Strategy session or hourly review"],
+      ["I need document help.", "#document-review-drafting", "Document preparation, review, or filing readiness"],
+      ["I have a hearing.", "#court-hearing-modules", "Hearing preparation or eligible court help"],
+      ["I need a flat-fee option.", "#flat-fee-service-bundles", "Routine uncontested or packet-based help"],
+      ["I am not sure.", "/start", "Use Guided Intake before choosing a fee path"]
+    ];
+    return `<div class="fee-routing-panel contact-router" aria-label="Choose a fee path">
+      <div class="contact-router-head">
+        <p class="eyebrow">Fee path</p>
+        <h3>What kind of help do you need?</h3>
+        <p>Choose the closest need first. Pricing still depends on conflict, scope, timing, documents, and written engagement review.</p>
+      </div>
+      <div class="contact-router-grid">
+        ${options.map(([label, href, copy]) => `<article>
+          <span>${esc(label)}</span>
+          <strong>${esc(copy)}</strong>
+          <a class="button ${href === "/start" ? "primary" : "outline"}" href="${esc(href)}"${href.startsWith("/") ? " data-link" : ""}${href === "/start" ? ` data-intake-route='${esc(JSON.stringify(intakeRoute))}'` : ""}>Choose this path</a>
+        </article>`).join("")}
+      </div>
+    </div>`;
+  }
+
   function fees() {
     return section("Fees", "Published planning fees for Arizona family-law LP services. Exact terms are confirmed only after conflict, licensed-scope, urgency, document, and service-fit review.", `
-      ${pageCommand("Fee path", "Find the price range by case stage, not by guessing.", "Choose whether you need planning advice, a flat-fee packet, document-only help, or hearing preparation. Final terms still require conflict, scope, and written engagement review.", [
-        { label: "Check Fee Fit", href: "/start", className: "primary", route: feeRoute("Fee-fit review", "Not sure", "Not sure yet") },
-        { label: "Compare Form Paths", href: "/tools", className: "outline" },
-        { label: "Use DIY Guides First", href: "/guides", className: "outline" }
-      ], [
-        { label: "Review", title: "Strategy session or hourly review", copy: "Use this when you need a focused review before choosing forms or representation." },
-        { label: "Flat fee", title: "Standard uncontested or packet-based help", copy: "Use this when the matter is routine enough for a defined bundle." },
-        { label: "Court", title: "Hearing or trial module", copy: "Use this only after the hearing type and LP scope are reviewed." }
-      ], "fees-command")}
+      ${feeDecisionPanel()}
       ${proofBand("Fee proof", "Pricing is confirmed by review, not by guesswork.", "The fee page explains how pricing is narrowed before any engagement is offered. It is intentionally specific about what is included and what is not.", [
         { label: "Conflict", title: "Fee-fit starts with case fit", copy: "No price should be read as a quote until the matter itself is eligible for review." },
         { label: "Scope", title: "Service boundaries stay visible", copy: "If the work moves outside LP authority, the page should point that out rather than bury it." },
@@ -1735,7 +1773,7 @@
       <div class="fee-steps" aria-label="How fees are confirmed">
         ${["Intake", "Conflict check", "Scope review", "Written quote", "Engagement"].map((step, index) => `<span><b>0${index + 1}</b>${esc(step)}</span>`).join("")}
       </div>
-      ${feeSections.map((group) => `<section class="fee-section">
+      ${feeSections.map((group) => `<section class="fee-section" id="${esc(slugify(group.title))}">
         <div class="fee-section-head">
           <h3>${esc(group.title)}</h3>
           <p>${esc(group.intro)}</p>
@@ -3167,18 +3205,18 @@
     const routeIntent = toolPath === "/calculators"
       ? {
         mode: "calculator",
-        title: "Calculators & Planning Tools",
-        copy: "Use safe planning tools and official Arizona calculator sources without entering private facts."
+        title: "Forms & Guides",
+        copy: "Choose forms, a DIY guide, a calculator, or Guided Intake from one public workspace."
       }
       : toolPath === "/forms"
       ? {
         mode: "forms",
-        title: "Court Forms Finder",
-        copy: "Find the right reviewed forms, court-source backup, or Intake path without guessing or entering private details."
+        title: "Forms & Guides",
+        copy: "Find reviewed forms, DIY guides, calculator paths, or Intake without guessing or entering private details."
       }
       : {
         mode: "forms",
-        title: "Forms & Calculators",
+        title: "Forms & Guides",
         copy: "Choose what you need. The page will show a safe next step without asking for private details."
     };
     const initialToolMode = routeIntent.mode;
@@ -3195,7 +3233,7 @@
           <h3>Start with one simple choice.</h3>
           <p>You do not need legal terms. Pick what sounds closest and this page will point you to forms, a calculator, or Guided Intake.</p>
           <div class="forms-start-steps" aria-label="Forms and Tools start steps">
-            <article><span>Choose path</span><strong>Forms, calculator, deadline, or Intake</strong></article>
+            <article><span>Choose path</span><strong>Forms, guide, calculator, or Intake</strong></article>
             <article><span>Open verified result</span><strong>Use the matched result only when verified</strong></article>
             <article><span>Optional help</span><strong>View, calculate, or start Intake</strong></article>
           </div>
@@ -4342,27 +4380,11 @@
   }
 
   function contact() {
-    return section("Contact", "Use the guided intake for structured review, or contact the office directly for urgent timing issues.", `${pageCommand("Contact router", "Choose the contact path that matches the situation.", "New matters, existing-client support, deadlines, and access issues should not all use the same first step.", [
-      { label: "Start Guided Intake", href: "/start", className: "primary", route: serviceMethodFallbackRoute },
-      { label: "Email Office", href: "mailto:info@myfamilylawgroup.com", className: "outline", dataLink: false },
-      { label: "Call Office", href: "tel:+18888706354", className: "outline", dataLink: false }
-    ], [
-      { label: "New matter", title: "Use Guided Intake", copy: "Best for unreviewed divorce, parenting, support, forms, or court-preparation questions." },
-      { label: "Existing client", title: "Use direct office contact", copy: "Best for case status, scheduling, document access, billing, or pending follow-up." },
-      { label: "Deadline", title: "Put the date first", copy: "If there is a hearing, service date, response deadline, or safety issue, lead with timing." }
-    ], "contact-command")}${proofBand("Contact proof", "Choose the contact path that matches the work.", "The site should not make every visitor do the same thing. New matters, existing clients, and urgent timing all need different next steps.", [
-      { label: "New matter", title: "Start with Guided Intake", copy: "The office can review conflict, scope, urgency, and service fit from a structured record." },
-      { label: "Existing client", title: "Use direct office contact", copy: "Case status, documents, scheduling, and follow-up work belong on the existing-client path." },
-      { label: "Deadline", title: "Put timing first", copy: "If there is a hearing, service date, or response deadline, say that immediately." },
-      { label: "Access", title: "Report barriers plainly", copy: "If the website is difficult to use, send the page URL and describe the obstacle." }
-    ], "proof-contact")}<div class="grid two">
-      <article class="card"><h3>Office</h3><p><a href="tel:+18888706354">(888) 870-6354</a><br><a href="mailto:info@myfamilylawgroup.com">info@myfamilylawgroup.com</a><br>Fax: 602-782-8114</p><p>Jeremy James Jack JD, LP<br>Arizona Supreme Court Licensed Legal Paraprofessional — Family Law<br>License No. 500094</p></article>
-      <article class="card"><h3>Before sending details</h3><p>Please do not send confidential facts until the office confirms whether services can be provided.</p><p>Guided Intake is the best path for new matters because it creates the structured record needed for conflict, scope, urgency, and service-fit review.</p></article>
-    </div><div class="contact-router" aria-label="Choose the best contact path">
+    return section("Contact", "Use the guided intake for structured review, or contact the office directly for urgent timing issues.", `<div class="contact-router" aria-label="Choose the best contact path">
       <div class="contact-router-head">
-        <p class="eyebrow">Choose the right contact path</p>
-        <h3>New matters, existing clients, and urgent timing need different next steps.</h3>
-        <p>Use the path that matches your situation so the office gets the right context without unnecessary confidential detail.</p>
+        <p class="eyebrow">Contact path</p>
+        <h3>How can we help?</h3>
+        <p>Choose the situation first so the office gets the right context without unnecessary confidential detail.</p>
       </div>
       <div class="contact-router-grid">
         <article>
@@ -4383,7 +4405,16 @@
           <p>If there is a hearing, response deadline, service date, or safety concern, include the date and court notice in Intake or your office message.</p>
           <a class="button outline" href="tel:+18888706354">Call Office</a>
         </article>
+        <article>
+          <span>Access or billing</span>
+          <strong>Use direct office contact</strong>
+          <p>Best for portal access, billing questions, scheduling, accessibility needs, or document-delivery questions.</p>
+          <a class="button outline" href="mailto:info@myfamilylawgroup.com">Email Office</a>
+        </article>
       </div>
+    </div><div class="grid two">
+      <article class="card"><h3>Office</h3><p><a href="tel:+18888706354">(888) 870-6354</a><br><a href="mailto:info@myfamilylawgroup.com">info@myfamilylawgroup.com</a><br>Fax: 602-782-8114</p><p>Jeremy James Jack JD, LP<br>Arizona Supreme Court Licensed Legal Paraprofessional — Family Law<br>License No. 500094</p></article>
+      <article class="card"><h3>Before sending details</h3><p>Please do not send confidential facts until the office confirms whether services can be provided.</p><p>Guided Intake is the best path for new matters because it creates the structured record needed for conflict, scope, urgency, and service-fit review.</p></article>
     </div><div class="grid two contact-recommendations">
       <article class="card"><h3>What not to send first</h3><p>Do not send long confidential narratives, evidence dumps, passwords, or sensitive third-party records until the office confirms how information should be submitted.</p></article>
       <article class="card"><h3>Official social channels</h3><p>No public social media links are published here until official, maintained channels are confirmed. This avoids sending visitors to inactive or unofficial accounts.</p></article>
@@ -4400,7 +4431,7 @@
         <span><b>02</b> Urgency</span>
         <span><b>03</b> Next step</span>
       </div>
-    </div></section><section class="intake-prep-section">${intakeReadinessPanel()}</section><section class="intake-shell intake-shell-start"><div id="mflg-intake-root"></div></section>`;
+    </div></section><section class="intake-shell intake-shell-start"><div id="mflg-intake-root"></div></section><section class="intake-prep-section"><details class="intake-prep-disclosure"><summary>Before you start</summary>${intakeReadinessPanel()}</details></section>`;
   }
 
   function clientLogin() {
@@ -5187,6 +5218,8 @@
 	    if (!cards.length) return;
 	
 	    let revealed = false;
+      const requestedInitialCount = Number(document.querySelector("[data-service-tools]")?.dataset.serviceInitialCount || initialServiceCount);
+      const isFullCatalog = document.querySelector("[data-service-tools]")?.dataset.serviceFullCatalog === "true";
 	    let activeCategory = "Browse all";
 	    let activeServiceIndex = null;
 	    const serviceData = serviceItems.map(serviceViewModelForItem);
@@ -5305,11 +5338,12 @@
     };
 	
 	    const defaultVisibleCount = () => {
+        if (isFullCatalog) return cards.length;
 	      const width = window.innerWidth || document.documentElement.clientWidth || 1200;
-		      if (width <= 520) return 6;
-	      if (width <= 900) return 10;
-	      if (width <= 1100) return 12;
-	      return initialServiceCount;
+		      if (width <= 520) return Math.min(requestedInitialCount, 6);
+	      if (width <= 900) return Math.min(requestedInitialCount, 10);
+	      if (width <= 1100) return Math.min(requestedInitialCount, 12);
+	      return requestedInitialCount;
 	    };
 	    const update = (commitOptions = {}) => {
 	      const term = (search?.value || "").trim().toLowerCase();

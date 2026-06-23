@@ -1015,23 +1015,26 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
   margin: 0 0 14px;
 }
 .service-card-tools span {
-  display: inline-flex;
-  min-height: 24px;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 8px;
-  border: 1px solid rgba(33, 85, 141, 0.12);
-  border-radius: 6px;
-  background: rgba(33, 85, 141, 0.035);
-  color: var(--blue);
-  font-size: 0.58rem;
-  font-weight: 950;
-  letter-spacing: 0.08em;
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
   line-height: 1.12;
-  text-align: center;
-  text-transform: uppercase;
+  text-transform: none;
   white-space: normal;
   overflow-wrap: anywhere;
+}
+.home-browse-all {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
 }
 .guide-packet-options button > span {
   display: block;
@@ -1683,6 +1686,24 @@ body:not(.has-hero) [data-page-root] { padding-top: 92px; }
 .intake-prep-section {
   padding: clamp(28px, 4vw, 52px) max(24px, calc((100vw - var(--max)) / 2)) 0;
   background: var(--paper);
+}
+.intake-prep-disclosure {
+  width: min(1600px, calc(100vw - 64px));
+  margin: 0 auto;
+}
+.intake-prep-disclosure > summary {
+  cursor: pointer;
+  padding: 18px 20px;
+  border: 1px solid rgba(33, 85, 141, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--navy);
+  font-weight: 900;
+}
+.intake-prep-disclosure .intake-readiness {
+  width: 100%;
+  margin-left: 0;
+  transform: none;
 }
 .intake-readiness {
   width: min(1600px, calc(100vw - 64px));

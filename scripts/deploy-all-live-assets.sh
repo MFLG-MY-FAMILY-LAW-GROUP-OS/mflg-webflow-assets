@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260622-213314-hero-pill-refine}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260622-225157-simple-navigation}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -139,10 +139,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"Register an out-of-state support order"* ]] &&
 	     [[ "$public_site_js" == *"Use Guided Intake instead of guessing"* ]] &&
 	     [[ "$public_site_js" == *"site_pdf_view_url"* ]] &&
-	     [[ "$public_site_js" == *"Calculators & Planning Tools"* ]] &&
-	     [[ "$public_site_js" == *"Court Forms Finder"* ]] &&
-	     [[ "$public_site_js" == *"Use safe planning tools and official Arizona calculator sources"* ]] &&
-	     [[ "$public_site_js" == *"Find the right reviewed forms, court-source backup, or Intake path"* ]] &&
+	     [[ "$public_site_js" == *"Forms & Guides"* ]] &&
+	     [[ "$public_site_js" == *"Choose forms, a DIY guide, a calculator, or Guided Intake from one public workspace"* ]] &&
 	     [[ "$public_site_js" == *"forms-command-center"* ]] &&
 	     [[ "$public_site_js" == *"Continue to recommended forms"* ]] &&
 	     [[ "$public_site_js" == *"What are you trying to do?"* ]] &&
@@ -399,7 +397,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 
   if [[ "$public_html" == *"$EXPECTED_ASSET_KEY"* ]] &&
      [[ "$public_html" == *"DIY Guides"* ]] &&
-     [[ "$public_html" == *"Forms &amp; Calculators"* ]] &&
+     [[ "$public_html" == *"Forms &amp; Guides"* ]] &&
      [[ "$public_css" == *"forms-privacy-strip"* ]] &&
      [[ "$public_css" == *"body:not(.forms-showing-all-sections) .proof-tools"* ]] &&
      [[ "$public_css" == *"official-pdf-direct-download"* ]] &&
@@ -420,7 +418,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
      [[ "$public_html" == *"favicon-light-32x32.png"* ]] &&
      [[ "$public_html" == *"favicon-dark-32x32.png"* ]] &&
 	     [[ "$public_html" == *"DIY Guides"* ]] &&
-	     [[ "$public_html" == *"Forms &amp; Calculators"* ]] &&
+	     [[ "$public_html" == *"Forms &amp; Guides"* ]] &&
 	     [[ "$public_html" != *"Forms &amp; Tools"* ]] &&
 	     [[ "$public_html" != *'href="/guides" data-link>Guides</a>'* ]] &&
 	     [[ "$public_html" == *"nav-access"* ]] &&
