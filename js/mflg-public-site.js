@@ -474,7 +474,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" data-video-loop="guarded video loop" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260623-172421-visible-lead-magnet">
+      <video class="hero-video" data-video-loop="guarded video loop" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260623-185532-form-reveal-priority">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1130,6 +1130,13 @@
 
   function issuePrerequisitesForTitle(value) {
     const title = String(value || "").toLowerCase();
+    if (title.includes("adoption") || title.includes("family formation")) {
+      return [
+        "Is this an adoption or family-formation issue that may require attorney, agency, or court-specific review?",
+        "Has a verified adoption-specific packet been confirmed for the county and exact adoption type?",
+        "Do not use parenting, guardianship, paternity, or general family-law packets as adoption forms."
+      ];
+    }
     if (title.includes("relocation")) {
       return [
         "Is there an existing parenting plan, legal decision-making order, or court order?",
@@ -1984,9 +1991,24 @@
   function guideFormsRouteFor(guide) {
     const title = `${guide?.title || ""}`.toLowerCase();
     const category = `${guide?.category || ""}`.toLowerCase();
+    const text = `${category} ${title}`;
     let issue = "all";
     let posture = "";
     let children = "";
+
+    if (text.includes("adoption") || text.includes("family formation")) {
+      return {
+        county: "",
+        issue: "adoption starting point",
+        posture: "",
+        children: "",
+        pdfPacket: "all",
+        formConfidence: "no-verified-form",
+        expandPdfGroup: false,
+        focusPacketBuilder: true,
+        fromGuide: guide?.title || "Adoption Starting Point"
+      };
+    }
 
     if (title.includes("annulment")) {
       issue = "annulment";
@@ -2084,6 +2106,9 @@
     const countyExact = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "county-exact", sourceUrl);
     const related = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "related", sourceUrl);
     const intakeRequired = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "intake-required", sourceUrl);
+    const adoptionChoices = [
+      intakeRequired("adoption-office-review", "Adoption or family-formation review", "Adoption is not mapped to parenting, guardianship, paternity, or generic family-law packets. Use office review to confirm scope and any verified county-specific source before relying on forms.", "all", "adoption starting point", "", "")
+    ];
     const divorceChoices = [
       countyExact("divorce-no-children", "Divorce or separation, no minor children", "Use this when the case starts a divorce or legal separation and no minor children are involved.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children"),
       countyExact("divorce-with-children", "Divorce or separation, with minor children", "Use this when the case starts a divorce or legal separation and parenting or support must also be addressed.", "maricopa-divorce-new-with-children", "divorce", "New filing", "minor-children"),
@@ -2137,6 +2162,7 @@
     ];
 
     if (title.includes("name change")) return nameChangeChoices;
+    if (text.includes("adoption") || text.includes("family formation")) return adoptionChoices;
     if (title.includes("annulment")) return annulmentChoices;
     if (title.includes("relocation")) return relocationChoices;
     if (text.includes("divorce") || text.includes("dissolution") || text.includes("legal separation") || text.includes("annulment")) return divorceChoices;
@@ -4249,7 +4275,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260623-172421-visible-lead-magnet" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260623-185532-form-reveal-priority" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5254,16 +5280,20 @@
     const formConfidence = formsRoute.formConfidence || "related";
     const packetLabel = host.getAttribute("data-guide-packet-label") || guideTitle;
     const packetSummary = formsRoute.formConfidence || "related";
-    const packetHint = packetId && packetId !== "all"
-      ? `Recommended packet: ${packetLabel}.`
-      : "Choose the packet that best fits your county, issue, and case stage.";
+    const packetHint = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
+      ? "No verified issue-specific packet is opened from this card before review."
+      : packetId && packetId !== "all"
+        ? `Recommended packet: ${packetLabel}.`
+        : "Choose the packet that best fits your county, issue, and case stage.";
     const packetCopy = formsRoute.formConfidence === "statewide-generic"
       ? "This is a statewide starting point. Continue to the form questions to review the packet and narrow by county if needed."
       : formsRoute.formConfidence === "related-only"
         ? "This guide points to related forms only. Continue to compare packet titles before opening anything."
+        : formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
+          ? "Answer the checks first. If no verified packet fits, use office review instead of guessing with another family-law packet."
         : "Continue to the form questions. The PDF viewer appears after the form path is ready.";
-    const bridgeCta = packetId && packetId !== "all" && formsRoute.formConfidence !== "related-only"
-      ? "Continue to form viewer"
+    const bridgeCta = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
+      ? "Check form availability"
       : "Answer questions to find forms";
 
     host.innerHTML = `

@@ -52,19 +52,56 @@ async function checkPracticeReveal(page) {
   await openFresh(page, "/practice-areas/");
   const revealAll = page.locator("[data-service-reveal]").first();
   if (await revealAll.isVisible().catch(() => false)) await revealAll.click();
-  const relocationCard = page.locator("[data-service-card]").filter({ hasText: /Relocation/i }).first();
-  await relocationCard.locator("[data-service-detail-toggle]").click();
-  await belowHeader(page, ".service-row-panel", "Practice Area reveal");
-  const chooseText = await page.locator(".service-row-panel").innerText();
-  assert(/Find the right forms/i.test(chooseText), "Practice reveal should ask users to find the right forms first");
-  assert(!/View forms for this issue/i.test(chooseText), "Practice reveal promises forms before prerequisites");
-  await page.locator('.service-row-panel [data-service-action="forms"]').first().click();
-  await belowHeader(page, '.service-row-panel [data-service-panel-section="forms"]', "Practice Area forms state");
-  const formsText = await page.locator('.service-row-panel [data-service-panel-section="forms"]').innerText();
-  assert(/Answer these before viewing a form/i.test(formsText), "Practice reveal does not show prerequisites before forms");
-  assert(/relocation notice/i.test(formsText), "Relocation reveal does not show relocation-specific prerequisite logic");
-  const prematureViewForm = await page.locator('.service-row-panel [data-service-panel-section="forms"] >> text=/^View form$/i').count();
-  assert(prematureViewForm === 0, "Practice reveal shows View form before prerequisites/result");
+  const cases = [
+    {
+      label: "Relocation",
+      title: "Relocation",
+      expected: /relocation notice/i,
+      forbidden: /generic parenting packet first/i
+    },
+    {
+      label: "Child Support",
+      title: "Child Support Establishment",
+      expected: /income, childcare, insurance, parenting-time days, or arrears/i,
+      forbidden: /divorce packet as primary/i
+    },
+    {
+      label: "Temporary Orders",
+      title: "Temporary Orders",
+      expected: /temporary help is needed/i
+    },
+    {
+      label: "Consent Decrees",
+      title: "Consent Decrees",
+      expected: /both parties agree/i
+    },
+    {
+      label: "Adoption Starting Point",
+      title: "Adoption / Family Formation Review",
+      expected: /Do not use parenting,\s*guardianship,\s*paternity\s*,?\s*or general family-law packets as adoption forms/i,
+      forbidden: /Maricopa adult adoption|parenting, parentage, or support orders/i
+    }
+  ];
+
+  for (const item of cases) {
+    const card = page.locator(`[data-service-card][data-service-title="${item.title.toLowerCase()}"]`).first();
+    await card.locator("[data-service-detail-toggle]").click();
+    await belowHeader(page, ".service-row-panel", `${item.label} Practice Area reveal`);
+    const chooseText = await page.locator(".service-row-panel").innerText();
+    assert(/Find the right forms/i.test(chooseText), `${item.label}: reveal should ask users to find the right forms first`);
+    assert(!/^View form$/im.test(chooseText), `${item.label}: reveal shows View form before prerequisites`);
+    assert(!/Open matched forms|View matched forms/i.test(chooseText), `${item.label}: reveal promises matched forms before prerequisites`);
+    await page.locator('.service-row-panel [data-service-action="forms"]').first().click();
+    await belowHeader(page, '.service-row-panel [data-service-panel-section="forms"]', `${item.label} Practice Area forms state`);
+    const formsText = await page.locator('.service-row-panel [data-service-panel-section="forms"]').innerText();
+    assert(/Answer these before viewing a form/i.test(formsText), `${item.label}: reveal does not show prerequisites before forms`);
+    assert(item.expected.test(formsText), `${item.label}: reveal does not show issue-specific prerequisite logic`);
+    assert(!/^View form$/im.test(formsText), `${item.label}: forms state shows View form before prerequisites/result`);
+    assert(!/Open matched forms|View matched forms/i.test(formsText), `${item.label}: forms state promises matched forms before prerequisites`);
+    if (item.forbidden) {
+      assert(!item.forbidden.test(formsText), `${item.label}: forms state includes a disallowed broad or misleading packet`);
+    }
+  }
 }
 
 async function checkGuideReveal(page) {

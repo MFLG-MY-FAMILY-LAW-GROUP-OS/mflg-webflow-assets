@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-unlock-phase-workflow-runbook",
-  "built_at": "2026-06-24T00:27:39.720Z",
+  "built_at": "2026-06-24T01:56:27.061Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,
