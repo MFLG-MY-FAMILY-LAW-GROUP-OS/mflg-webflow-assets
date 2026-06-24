@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const { chromium } = require("playwright");
 
 const baseUrl = process.env.MFLG_TEST_BASE_URL || "https://myfamilylawgroup.com";
-const expectedAssetKey = "mflg-live-20260623-163035-lead-magnet-reveal-flow";
+const expectedAssetKey = "mflg-live-20260623-172421-visible-lead-magnet";
 const expectedJsHash = "53b932965f1802626504db1b93d631cb1c547fb313a526c20b2ab730a35f497d";
 const reportDir = path.join("reports", "world-class-owner-acceptance-assets");
 const tmpReviewDir = "/private/tmp/mflg-owner-acceptance-review-current";

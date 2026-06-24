@@ -474,7 +474,7 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260623-163035-lead-magnet-reveal-flow">
+      <video class="hero-video" data-video-loop="guarded video loop" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260623-172421-visible-lead-magnet">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1475,17 +1475,75 @@
 	    </div>`;
 	  }
 
+  function leadMagnetTaskEntry() {
+    const fallbackRoute = esc(JSON.stringify(routeForServiceTitle("Not Sure Where to Start")));
+    const tasks = [
+      {
+        label: "Find forms",
+        title: "Answer a few checks, then open the right form path.",
+        copy: "Start here when you want court paperwork. The site asks prerequisites first so View form appears only when a viewer can open.",
+        href: "/forms",
+        cta: "Find the right forms",
+        primary: true
+      },
+      {
+        label: "Understand steps",
+        title: "Read the plain-language guide for your issue.",
+        copy: "Use this when you need the process, checklist, and likely next step before choosing paperwork.",
+        href: "/guides",
+        cta: "Read a DIY guide"
+      },
+      {
+        label: "Use calculator",
+        title: "Check whether a calculator applies before forms.",
+        copy: "Use support, parenting-time, maintenance, or deadline tools only when the required inputs make sense.",
+        href: "/calculators",
+        cta: "Use calculator"
+      },
+      {
+        label: "Office review",
+        title: "Save answers for review when the safe path is unclear.",
+        copy: "Use office review after you get oriented, when no verified form packet fits, or when timing/scope needs review.",
+        href: "/start",
+        cta: "Ask for office review",
+        route: fallbackRoute
+      }
+    ];
+    return `<div class="lead-magnet-entry" data-lead-magnet-flow aria-label="Lead magnet task entry">
+      <div class="lead-magnet-head">
+        <p class="eyebrow">Choose what you need today</p>
+        <h2>Start with one useful task, not a legal maze.</h2>
+        <p>Pick forms, steps, calculator, or office review. If forms need prerequisites, the question block appears before any View form button.</p>
+      </div>
+      <div class="lead-magnet-grid">
+        ${tasks.map((task) => `<a class="lead-magnet-card${task.primary ? " primary" : ""}" href="${esc(task.href)}" data-link${task.route ? ` data-intake-route='${task.route}'` : ""}>
+          <span>${esc(task.label)}</span>
+          <strong>${esc(task.title)}</strong>
+          <p>${esc(task.copy)}</p>
+          <b>${esc(task.cta)} <span aria-hidden="true">→</span></b>
+        </a>`).join("")}
+      </div>
+    </div>`;
+  }
+
 	  function home() {
 	    return hero(
-	      "Clear Family Law Guidance. A More Affordable Path Forward.",
-	      "Arizona family law help from a licensed Legal Paraprofessional for divorce, parenting time, child support, legal decision-making, and related family court matters.",
+	      "Find the Right Arizona Family Law Starting Point.",
+	      "Choose the issue, answer only what is missing, then see a verified form path, DIY guide, calculator, or office-review next step.",
 	      `<div class="hero-task-grid" id="choose-task" aria-label="Choose a task">
-	        <a class="hero-task-pill primary" href="/forms" data-link>Find forms</a>
-	        <a class="hero-task-pill" href="/calculators" data-link>Use calculator</a>
-	        <a class="hero-task-pill" href="/guides" data-link>Read DIY guide</a>
-	        <a class="hero-task-pill" href="/start" data-link data-intake-route='${esc(JSON.stringify(routeForServiceTitle("Not Sure Where to Start")))}'>Start Guided Intake</a>
+	        <a class="hero-task-pill hero-pill primary" href="/forms" data-link>Find forms</a>
+	        <a class="hero-task-pill hero-pill" href="/calculators" data-link>Use calculator</a>
+	        <a class="hero-task-pill hero-pill" href="/guides" data-link>Read DIY guide</a>
+	        <a class="hero-task-pill hero-pill" href="/start" data-link data-intake-route='${esc(JSON.stringify(routeForServiceTitle("Not Sure Where to Start")))}'>Office review</a>
 	      </div>`
 	    ) + section(
+      "Choose what you need today.",
+      "This is the lead magnet entry point: get useful self-help first, then use office review when it is the safest next step.",
+      leadMagnetTaskEntry(),
+      true,
+      "Lead magnet",
+      "lead-magnet-section"
+    ) + section(
       "Find your issue.",
       "Choose the closest public issue card. Each card has one action, and the workspace asks only for missing details.",
 	      `${serviceCards()}`,
@@ -4191,7 +4249,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260623-163035-lead-magnet-reveal-flow" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260623-172421-visible-lead-magnet" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
