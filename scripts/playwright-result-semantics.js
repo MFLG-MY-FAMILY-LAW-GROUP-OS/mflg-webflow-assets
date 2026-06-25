@@ -35,12 +35,12 @@ async function text(page, selector) {
   const browser = await chromium.launch();
   const context = await browser.newContext({ viewport: { width: 1365, height: 900 } });
   const page = await context.newPage();
-  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "domcontentloaded" });
   await page.evaluate(() => {
     localStorage.clear();
     sessionStorage.clear();
   });
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
 
   const progress = await text(page, "[data-guided-progress-label]");
   assert(!/of\\s+5/i.test(progress), `fixed guided step total visible: ${progress}`);
@@ -50,7 +50,7 @@ async function text(page, selector) {
   assert(!/General county forms directory\\s*[\\s\\S]{0,80}Open exact/i.test(body), "general directory presented as exact forms");
   assert(!/Open exact forms/i.test(body), "unsupported exact form CTA visible by default");
 
-  await page.goto(`${BASE_URL}/calculators/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/calculators/`, { waitUntil: "domcontentloaded" });
   const calculatorFirstViewport = await page.locator("body").innerText();
   assert(!/Step 1 of 5/i.test(calculatorFirstViewport), "calculator path shows fixed question total");
   assert(!/Choose county[\\s\\S]{0,120}Use calculator/i.test(calculatorFirstViewport), "calculator-first path appears to require county before calculator");

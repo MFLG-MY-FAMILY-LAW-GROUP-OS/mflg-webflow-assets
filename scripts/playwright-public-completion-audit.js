@@ -62,7 +62,7 @@ function assert(condition, message) {
       const page = await browser.newPage({ viewport });
       for (const route of routes) {
         try {
-          await page.goto(`${baseUrl}${route}`, { waitUntil: "networkidle" });
+          await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
           const state = await page.evaluate(({ requiredNavLabels, blockedText, route }) => {
             const main = document.querySelector("#main");
             const header = document.querySelector("[data-header]");

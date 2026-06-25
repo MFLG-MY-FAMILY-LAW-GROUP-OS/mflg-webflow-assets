@@ -96,9 +96,9 @@ async function assertNoUnsupportedExactClaim(page, county, label) {
 }
 
 async function runFormsScenario(page, county, scenario) {
-  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "domcontentloaded" });
   await clearStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
 
   assert((await optionValues(page, "[data-form-county]")).includes(county), `${scenario.name}/${county}: county option missing`);
   await chooseGuided(page, "forms", `${scenario.name}/${county}`);
@@ -122,9 +122,9 @@ async function runFormsScenario(page, county, scenario) {
 }
 
 async function runCalculatorScenario(page, county) {
-  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "domcontentloaded" });
   await clearStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   await page.click('[data-smart-lane="calculator"]');
   await page.waitForTimeout(100);
   await page.locator("[data-calculator-precheck-action]").first().click();

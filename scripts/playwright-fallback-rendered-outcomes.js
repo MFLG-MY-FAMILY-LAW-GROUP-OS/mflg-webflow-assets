@@ -80,9 +80,9 @@ async function visibleState(page) {
 }
 
 async function renderFormsOutcome(page, county) {
-  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "domcontentloaded" });
   await clearStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   for (const value of ["forms", county, "New filing", "divorce", "no-minor-children"]) {
     await choose(page, value);
   }
@@ -116,9 +116,9 @@ async function renderFormsOutcome(page, county) {
 }
 
 async function renderCalculatorOutcome(page) {
-  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "domcontentloaded" });
   await clearStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   await choose(page, "calculator");
   await page.locator("[data-calculator-precheck-action]").first().click();
   await page.waitForTimeout(100);
@@ -139,9 +139,9 @@ async function renderCalculatorOutcome(page) {
 }
 
 async function renderResetOutcome(page) {
-  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${BASE_URL}/forms/`, { waitUntil: "domcontentloaded" });
   await clearStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   for (const value of ["forms", "Apache", "New filing", "divorce", "no-minor-children"]) await choose(page, value);
   await page.locator("[data-smart-reset]").first().click();
   await page.waitForTimeout(120);
@@ -173,9 +173,9 @@ async function createOwnerPackage(browser) {
   ];
   for (const [name, route, viewport] of pages) {
     const { context, page } = await freshPage(browser, viewport);
-    await page.goto(`${BASE_URL}${route}`, { waitUntil: "networkidle" });
+    await page.goto(`${BASE_URL}${route}`, { waitUntil: "domcontentloaded" });
     await clearStorage(page);
-    await page.reload({ waitUntil: "networkidle" });
+    await page.reload({ waitUntil: "domcontentloaded" });
     const file = path.join(SHOT_DIR, `${name}.png`);
     await page.screenshot({ path: file, fullPage: false });
     shots.push(path.relative(ROOT, file));

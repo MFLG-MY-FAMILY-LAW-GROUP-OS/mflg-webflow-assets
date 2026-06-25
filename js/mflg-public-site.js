@@ -5,6 +5,7 @@
   const header = document.querySelector("[data-header]");
   const scrollPositions = new Map();
   let activeRenderPath = "/";
+  let afterHeroAnchorAvailable = false;
 
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
@@ -187,7 +188,7 @@
     response: "The court paper filed after someone receives a petition or other request.",
     served: "When court papers are formally delivered to someone in the way court rules require.",
     "service-of-process": "The formal delivery of court papers to another person in the way court rules require.",
-    filing: "Giving a document to the court so it becomes part of the court record.",
+    filing: "Giving a document to the court so it becomes part of the case file.",
     decree: "The final court order that resolves a divorce, legal separation, or similar family-law matter.",
     disclosure: "The required exchange of financial or case information between parties.",
     affidavit: "A written statement signed under oath or penalty of perjury.",
@@ -474,10 +475,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260624-233508-hero-reveal-intelligence">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260625-101441-final-yolo-stabilization">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260624-233508-hero-reveal-intelligence">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260625-101441-final-yolo-stabilization">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -612,7 +613,9 @@
 
   function section(title, copy, body, band, eyebrow, className) {
     const headingTag = activeRenderPath === "/" ? "h2" : "h1";
-    return `<section class="section ${band ? "band" : ""} ${className || ""}"${band ? ` id="after-hero"` : ""}>
+    const afterHeroId = band && afterHeroAnchorAvailable ? ` id="after-hero"` : "";
+    if (afterHeroId) afterHeroAnchorAvailable = false;
+    return `<section class="section ${band ? "band" : ""} ${className || ""}"${afterHeroId}>
       <div class="inner">
         <p class="eyebrow">${eyebrow || "MY FAMILY LAW GROUP PLLC"}</p>
         <${headingTag}>${title}</${headingTag}>
@@ -734,7 +737,7 @@
 	      entrySource: "service-pathway",
 	      entryLabel: title,
 	      issueDetail: title,
-	      contextNote: `Your ${title} selection was carried into Intake. The closest issue is preselected below, and you can change it if another option fits better.`,
+	      contextNote: `Using your selected issue: ${title}. The closest issue is preselected below, and you can change it if another option fits better.`,
 	      presetAnswers: {
 	        primaryHelpNeeded: "Understand my options"
 	      }
@@ -879,7 +882,7 @@
 		      issueDetail: title,
 		      issuePathway,
 		      serviceInterest,
-		      contextNote: `Your ${title} selection was carried into Intake. The closest issue and service focus are prefilled below, and you can change anything that does not fit.`,
+		      contextNote: `Using your selected service: ${title}. The closest issue and service focus are prefilled below, and you can change anything that does not fit.`,
 		      presetAnswers: {
 		        primaryHelpNeeded: "Understand my options",
 		        ...(presetAnswers || {})
@@ -1100,7 +1103,7 @@
 		    return `<aside class="lp-scope-panel" aria-label="Legal Paraprofessional scope clarity">
 		      <div class="lp-scope-head">
 		        <p class="eyebrow">LP scope clarity</p>
-		        <h3>Not every family-law problem should use the same service model.</h3>
+		        <h3>Not every family-law problem should use the same kind of help.</h3>
 		        <p>Arizona Legal Paraprofessional services can be a practical fit for defined family-law work. Intake exists to decide whether the request fits licensed scope, risk, urgency, and client goals.</p>
 		      </div>
 		      <div class="lp-scope-grid">
@@ -1433,7 +1436,7 @@
       <section class="task-workspace-state" data-service-panel-section="choose">
         <p class="eyebrow">Choose</p>
         <h4>What would you like to do?</h4>
-        <p class="muted">Start with one task. The issue is already carried forward.</p>
+        <p class="muted">Start with one task. Using your selected issue: ${esc(item.title)}.</p>
         <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
           ${serviceActions.map((action) => `<button class="button ${action.primary ? "primary" : "outline"}" type="button" data-service-action="${esc(action.key)}">${esc(action.key === "forms" ? profile.formsActionLabel : action.key === "steps" ? profile.guideActionLabel : action.label)}</button>`).join("")}
           <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Ask for office review</a>
@@ -1781,7 +1784,7 @@
       issueDetail: title,
       issuePathway: "Not Sure",
       serviceInterest,
-      contextNote: `Your ${title} fee selection was carried into Intake. Share the issue, timing, documents, and service needs so fee fit can be reviewed before any agreement is confirmed.`,
+      contextNote: `Using your selected fee option: ${title}. Share the issue, timing, documents, and service needs so fee fit can be reviewed before any agreement is confirmed.`,
       presetAnswers: {
         primaryHelpNeeded: "Understand my options",
         budgetOrPaymentConcern: budgetConcern,
@@ -3300,7 +3303,7 @@
       issuePathway: "Forms & Tools",
 	      issueDetail: [route.county, selectedIssue, selectedPosture, displayFormsChildren(route.children)].filter(Boolean).join(" / "),
       serviceInterest: "",
-      contextNote: "Public Forms & Tools selection only. County, issue, case stage, and child-involved status were carried forward; no sensitive facts were collected.",
+      contextNote: "Using your Forms & Tools answers. County, issue, case stage, and child-involved status were saved on this site; no sensitive facts were collected.",
       presetAnswers: {
         formCounty: route.county || "Statewide",
         formIssue: route.issue || "all",
@@ -3517,7 +3520,7 @@
           <div class="forms-guide-bridge" data-guide-bridge hidden>
             <div class="forms-guide-bridge-main">
               <span>DIY Guide context</span>
-              <strong data-guide-bridge-title>Guide context carried forward.</strong>
+              <strong data-guide-bridge-title>Using your selected guide.</strong>
               <p data-guide-bridge-copy>The matching forms, calculator option, and Guided Intake link are ready.</p>
               <div class="forms-guide-bridge-chips" data-guide-bridge-chips></div>
             </div>
@@ -3918,7 +3921,7 @@
         <div class="official-calculator-workspace is-fallback-collapsed" id="official-calculator-source-viewer" data-official-calculator-workspace>
           <div class="official-calculator-workspace-head">
             <div>
-              <span>Official fallback workspace</span>
+              <span>Official calculator workspace</span>
               <strong data-official-calculator-title>Arizona Child Support Calculator</strong>
               <p data-official-calculator-copy>Use this official workspace only as a fallback. The on-site calculators appear above when available.</p>
             </div>
@@ -4418,7 +4421,7 @@
       issueDetail: "DIY guide match",
       issuePathway: "Not Sure",
       serviceInterest: "Not sure",
-      contextNote: "Your DIY guide selection was carried into Intake. Use the questions below to confirm the issue, timing, court-form needs, and next step.",
+      contextNote: "Using your selected DIY guide. Use the questions below to confirm the issue, timing, court-form needs, and next step.",
       presetAnswers: {
         primaryHelpNeeded: "Understand my options",
         serviceNeed: "DIY guide match"
@@ -4434,7 +4437,7 @@
       issueDetail: guide.leadMagnet || guide.title,
       issuePathway: guide.issuePathway || "Not Sure",
       serviceInterest: guide.serviceInterest || "",
-      contextNote: `Your ${guide.title} DIY guide selection was carried into Intake. The guide path and readiness focus are saved below, and you can update anything that does not fit.`,
+      contextNote: `Using your selected guide: ${guide.title}. The guide path and readiness focus are saved below, and you can update anything that does not fit.`,
       presetAnswers: {
         primaryHelpNeeded: "Understand my options",
         serviceNeed: guide.leadMagnet || "DIY guide review",
@@ -4452,18 +4455,18 @@
         <dl>
           <div><dt>License</dt><dd>Arizona Supreme Court Licensed Legal Paraprofessional - Family Law, License No. 500094</dd></div>
           <div><dt>Review standard</dt><dd>Conflict, scope, urgency, service fit, and referral concerns are reviewed before services are accepted.</dd></div>
-          <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
+          <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260624-233508-hero-reveal-intelligence" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260625-101441-final-yolo-stabilization" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
       </div>
     </div>
-    ${proofBand("Practice proof", "The practice starts with a review record, not a vague promise.", "This page explains how the office works, what it screens, and why the site keeps emphasizing fit before service.", [
+    ${proofBand("Practice proof", "The practice starts with the facts that control next steps.", "This page explains how the office works, what it screens, and why the site keeps emphasizing fit before service.", [
       { label: "Issue first", title: "The matter is named before any service is discussed", copy: "Practice areas and intake routes are designed to capture the actual issue instead of a buzzword." },
-      { label: "Documents", title: "Forms, orders, and deadlines come early", copy: "The review record starts with the papers that determine the next procedural step." },
+      { label: "Documents", title: "Forms, orders, and deadlines come early", copy: "Review starts with the papers that determine the next procedural step." },
       { label: "Boundary", title: "Scope and referral concerns stay visible", copy: "The site says when a matter needs another professional instead of forcing a fit." },
       { label: "Outcome", title: "The result is a clear next step", copy: "The goal is to leave the visitor with a concrete path, not just a broad description of services." }
     ], "proof-about")}
@@ -4476,7 +4479,7 @@
     <div class="about-process" aria-label="About intake process">
       ${[
         ["01", "Choose the closest issue", "Practice areas and Guides both carry the selected issue into Intake."],
-        ["02", "Build the review record", "The form captures county, case stage, deadline, children, support, documents, and service needs."],
+        ["02", "Share the key details", "The form captures county, case stage, deadline, children, support, documents, and service needs."],
         ["03", "Check fit and scope", "The office reviews conflicts, licensed-scope limits, urgency, safety, and whether another resource is needed."],
         ["04", "Move to the right next step", "Guided Intake remains the public starting point. Accepted matters can later move into a secure client workspace when that access is available."]
       ].map(([number, title, copy]) => `<article><b>${number}</b><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join("")}
@@ -4490,7 +4493,7 @@
       items: [
         ["Where should I start if I do not know what I need?", "Start with Guided Intake. It captures the issue, county, case stage, urgency, documents, and preferred help so the office can review conflict, licensed scope, and fit before recommending next steps."],
         ["Does submitting intake make me a client?", "No. Submitting intake, sending documents, reading a guide, or calling the office does not create a client relationship or confirm representation. Services require conflict review, scope review, and written engagement terms."],
-        ["Can I call instead of using Guided Intake?", "Yes, but Guided Intake is the best first step for new matters because it creates the structured record needed for conflict, scope, urgency, and service-fit review."],
+        ["Can I call instead of using Guided Intake?", "Yes, but Guided Intake is the best first step for new matters because it gives the office the details needed for conflict, scope, urgency, and service-fit review."],
         ["What should I have ready before intake?", "Helpful items include filed papers, court orders, hearing notices, service documents, deadlines, county, case number, party names, income information, child-related facts, and a short timeline of what happened."],
         ["What if I have a hearing or deadline soon?", "Use Guided Intake and contact the office directly. A deadline, hearing, service problem, or safety concern should not wait for ordinary website review."],
         ["Can the office help if I was just served?", "Possibly. Intake should identify the date served, response deadline, county, case number, what papers were served, and whether temporary orders, parenting, support, property, or safety issues are involved."],
@@ -4678,13 +4681,13 @@
       { label: "Existing client", title: "Use direct office contact", copy: "Best for case status, scheduling, document access, billing, or pending follow-up." },
       { label: "Deadline", title: "Put the date first", copy: "If there is a hearing, service date, response deadline, or safety issue, lead with timing." }
     ], "contact-command")}${proofBand("Contact proof", "Choose the contact path that matches the work.", "The site should not make every visitor do the same thing. New matters, existing clients, and urgent timing all need different next steps.", [
-      { label: "New matter", title: "Start with Guided Intake", copy: "The office can review conflict, scope, urgency, and service fit from a structured record." },
+      { label: "New matter", title: "Start with Guided Intake", copy: "The office can review conflict, scope, urgency, and service fit from your submitted details." },
       { label: "Existing client", title: "Use direct office contact", copy: "Case status, documents, scheduling, and follow-up work belong on the existing-client path." },
       { label: "Deadline", title: "Put timing first", copy: "If there is a hearing, service date, or response deadline, say that immediately." },
       { label: "Access", title: "Report barriers plainly", copy: "If the website is difficult to use, send the page URL and describe the obstacle." }
     ], "proof-contact")}<div class="grid two">
       <article class="card"><h3>Office</h3><p><a href="tel:+18888706354">(888) 870-6354</a><br><a href="mailto:info@myfamilylawgroup.com">info@myfamilylawgroup.com</a><br>Fax: 602-782-8114</p><p>Jeremy James Jack JD, LP<br>Arizona Supreme Court Licensed Legal Paraprofessional — Family Law<br>License No. 500094</p></article>
-      <article class="card"><h3>Before sending details</h3><p>Please do not send confidential facts until the office confirms whether services can be provided.</p><p>Guided Intake is the best path for new matters because it creates the structured record needed for conflict, scope, urgency, and service-fit review.</p></article>
+      <article class="card"><h3>Before sending details</h3><p>Please do not send confidential facts until the office confirms whether services can be provided.</p><p>Guided Intake is the best path for new matters because it gives the office the details needed for conflict, scope, urgency, and service-fit review.</p></article>
     </div><div class="contact-router" aria-label="Choose the best contact path">
       <div class="contact-router-head">
         <p class="eyebrow">Choose the right contact path</p>
@@ -4741,7 +4744,7 @@
         <article>
           <span>New matters</span>
           <strong>Start with Guided Intake</strong>
-          <p>Guided Intake creates the structured review record used for conflict, licensed-scope, urgency, and service-fit review.</p>
+          <p>Guided Intake collects the details used for conflict, licensed-scope, urgency, and service-fit review.</p>
           <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>Start Guided Intake</a>
         </article>
         <article>
@@ -4946,6 +4949,7 @@
 	    const path = window.location.pathname.replace(/\/$/, "") || "/";
     const view = routes[path] || notFound;
     activeRenderPath = routes[path] ? path : "/404";
+    afterHeroAnchorAvailable = activeRenderPath === "/";
     updateDocumentMeta(activeRenderPath);
     document.body.classList.toggle("has-hero", path === "/");
     document.body.classList.remove(
@@ -6079,7 +6083,7 @@
         issuePathway: "Forms & Tools",
         issueDetail: "Public review status / source-only limits",
         serviceInterest: "",
-        contextNote: "Public Forms & Tools review status only. Source-only limits were carried forward; no sensitive facts were collected.",
+        contextNote: "Using your Forms & Tools review status. Source-only limits were saved on this site; no sensitive facts were collected.",
         presetAnswers: {
           formsToolsReviewRoadmap: "Use the on-page forms first; anything unclear should be confirmed through Guided Intake before relying on it.",
           sourceType: "Forms & Tools review roadmap / public planning"
@@ -6150,7 +6154,7 @@
         issuePathway: "Forms & Tools",
         issueDetail: "Official-source checks / safe form access",
         serviceInterest: "",
-        contextNote: "Public Forms & Tools source-safety status only. Source health and safe-access status were carried forward; no sensitive facts were collected.",
+        contextNote: "Using your Forms & Tools source-safety status. Safe-access status was saved on this site; no sensitive facts were collected.",
         presetAnswers: {
           formsToolsMaintenanceStatus: "Official court source and safe form-access status reviewed in public planning.",
           sourceType: "Forms & Tools form safety / public planning"
@@ -7783,7 +7787,7 @@
           issuePathway: matter.title || "Forms & Tools",
           issueDetail: nextStep,
           serviceInterest: "",
-          contextNote: "Public Forms & Tools issue selection only. The selected issue title and category were carried forward on-site.",
+          contextNote: "Using your selected Forms & Tools issue. The selected issue title and category were saved on this site.",
           presetAnswers: {
             formsToolsMatterTitle: matter.title || "",
             formsToolsMatterCategory: matter.category || "",
@@ -8297,7 +8301,7 @@
             <strong>${esc(item.branded_calculator_name || item.public_name || "MFLG calculator")}</strong>
             <p>${item.public_result_enabled
               ? "Use this calculator here and confirm the result before filing or signing anything."
-              : "Use the official fallback workspace. The MFLG-branded version will appear here only after testing and approval."}</p>
+              : "Use the official calculator source. The MFLG-branded version will appear here only after testing and approval."}</p>
             <small>${esc(item.public_name || "Official Arizona calculator")} remains the source to use today.</small>
           </article>`).join("")}
         </div>
@@ -8415,7 +8419,7 @@
         if (!engine?.spousalMaintenance) throw new Error("Maintenance runtime unavailable");
         render(await engine.spousalMaintenance(readInput()));
       } catch (error) {
-        result.innerHTML = `<span>Review needed</span><strong>The on-site maintenance calculator could not load.</strong><p>Use Guided Intake for routing help or use the official fallback workspace below.</p>`;
+        result.innerHTML = `<span>Review needed</span><strong>The on-site maintenance calculator could not load.</strong><p>Use Guided Intake for routing help or use the official calculator source below.</p>`;
       }
     });
   }
@@ -8528,7 +8532,7 @@
       issuePathway: "Forms & Tools",
       issueDetail: `Calculator pre-check / ${item.intakeLabel}`,
       serviceInterest: "",
-      contextNote: "Public calculator pre-check route only. The website carried forward calculator category, readiness level, and existing-order uncertainty only; no private calculation facts or values were collected.",
+        contextNote: "Using your calculator pre-check answers. The website saved calculator category, readiness level, and existing-order uncertainty only; no private calculation facts or values were collected.",
       presetAnswers: {
         selectedCalculator: item.intakeLabel,
         calculatorReadiness: numbers,
@@ -8600,7 +8604,7 @@
       support: {
         kicker: "Planning tool",
         title: "Use the child-support calculator here.",
-        copy: "The on-site calculator appears above the official fallback workspace. It does not submit your numbers and should be confirmed before filing, signing, or relying on the result.",
+        copy: "The on-site calculator appears above the official calculator workspace. It does not submit your numbers and should be confirmed before filing, signing, or relying on the result.",
         primaryText: "Open calculator",
         href: "#mflg-child-support-calculator",
         workspaceChoice: false,
@@ -8647,7 +8651,7 @@
       issuePathway: "Forms & Tools",
       issueDetail: `Calculator choice / ${item.intakeLabel}`,
       serviceInterest: "",
-      contextNote: "Public calculator chooser route only. The website carried forward only the selected tool type, not private calculation facts or values.",
+      contextNote: "Using your calculator choice. The website saved only the selected tool type, not private calculation facts or values.",
       presetAnswers: {
         selectedCalculator: item.intakeLabel,
         sourceType: "Calculator chooser / public planning"
@@ -8660,7 +8664,7 @@
       issuePathway: "Forms & Tools",
       issueDetail: "Calculator routing help requested",
       serviceInterest: "",
-      contextNote: "Public calculator path route only. The website carried forward only that the user was unsure which calculator or next step applied.",
+      contextNote: "Using your calculator path. The website saved only that you were unsure which calculator or next step applied.",
       presetAnswers: {
         selectedCalculator: "Not sure",
 	        sourceType: "Calculator path / public planning"

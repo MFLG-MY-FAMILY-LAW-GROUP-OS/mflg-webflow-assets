@@ -22,7 +22,7 @@ function assert(condition, message) {
 }
 
 async function openAllPracticeCards(page) {
-  await page.goto(`${baseUrl}/practice-areas/`, { waitUntil: "networkidle" });
+  await page.goto(`${baseUrl}/practice-areas/`, { waitUntil: "domcontentloaded" });
   const reveal = page.locator("[data-service-reveal]").first();
   if (await reveal.isVisible().catch(() => false)) await reveal.click();
   await page.waitForFunction(() => Array.from(document.querySelectorAll("[data-service-card]")).every((card) => !card.hidden));
@@ -63,13 +63,13 @@ async function openPractice(page, title) {
       assert(/You are|You need|You may|You have|An existing|Safety-sensitive/i.test(text), `${title}: issue-specific problem statement missing`);
     }
 
-    await page.goto(`${baseUrl}/guides/`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/guides/`, { waitUntil: "domcontentloaded" });
     const guideReveal = page.locator("[data-guide-reveal]").first();
     if (await guideReveal.isVisible().catch(() => false)) await guideReveal.click();
     await page.waitForFunction(() => Array.from(document.querySelectorAll("[data-guide-card]")).every((card) => !card.hidden));
     assert(await page.locator("[data-guide-card]").count() === 50, "DIY Guide count is not 50");
     for (let index = 0; index < 50; index += 1) {
-      await page.goto(`${baseUrl}/guides/`, { waitUntil: "networkidle" });
+      await page.goto(`${baseUrl}/guides/`, { waitUntil: "domcontentloaded" });
       const revealAgain = page.locator("[data-guide-reveal]").first();
       if (await revealAgain.isVisible().catch(() => false)) await revealAgain.click();
       const title = await page.evaluate((cardIndex) => {
@@ -97,7 +97,7 @@ async function openPractice(page, title) {
       assert(!/^View form$/im.test(text), `${title}: View form appears before high-risk qualifiers`);
     }
 
-    await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/forms/`, { waitUntil: "domcontentloaded" });
     const formsText = await page.locator("body").innerText();
     assert(/Choose issue|question|answer/i.test(formsText), "Forms direct path does not show question/readiness language");
 

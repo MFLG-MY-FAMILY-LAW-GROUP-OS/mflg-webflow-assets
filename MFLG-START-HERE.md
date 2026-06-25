@@ -4,13 +4,13 @@ Production reference:
 `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
 
 Release tag:
-`mflg-live-20260624-233508-hero-reveal-intelligence`
+`mflg-live-20260625-101441-final-yolo-stabilization`
 
 Release commit:
-`see release tag mflg-live-20260624-233508-hero-reveal-intelligence`
+`see release tag mflg-live-20260625-101441-final-yolo-stabilization`
 
 Production asset key:
-`mflg-live-20260624-233508-hero-reveal-intelligence`
+`mflg-live-20260625-101441-final-yolo-stabilization`
 
 Public JavaScript SHA-256:
 `5ecd1b6345557dcbd7b4915a17639043a2c9bf7de903a184624903a7635db4dd`

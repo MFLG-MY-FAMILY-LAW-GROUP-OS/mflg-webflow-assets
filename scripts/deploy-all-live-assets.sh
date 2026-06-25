@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260624-233508-hero-reveal-intelligence}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260625-101441-final-yolo-stabilization}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -172,10 +172,10 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"What are you trying to figure out?"* ]] &&
 	     [[ "$public_site_js" == *"mflg-spousal-maintenance-calculator"* ]] &&
 	     [[ "$public_site_js" == *"Use the spousal-maintenance calculator"* ]] &&
-	     [[ "$public_site_js" == *"carried forward only the selected tool type"* ]] &&
+	     [[ "$public_site_js" == *"Using your calculator choice"* ]] &&
 	     [[ "$public_site_js" == *"data-official-calculator-workspace"* ]] &&
 	     [[ "$public_site_js" == *"Open calculators"* ]] &&
-	     [[ "$public_site_js" == *"Official fallback workspace"* ]] &&
+	     [[ "$public_site_js" == *"Official calculator workspace"* ]] &&
 	     [[ "$public_site_js" == *"data-official-calculator-frame"* ]] &&
 	     [[ "$public_site_js" == *"Open calculator"* ]] &&
 	     [[ "$public_site_js" == *"After the calculator"* ]] &&

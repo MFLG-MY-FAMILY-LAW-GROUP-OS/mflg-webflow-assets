@@ -109,9 +109,9 @@ async function canonicalAnswers(page) {
 }
 
 async function runFormsScenario(page, scenario) {
-  await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${baseUrl}/forms/`, { waitUntil: "domcontentloaded" });
   await resetStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   await assertCountyOptions(page, "[data-smart-county]", `${scenario.name} smart county`);
   await assertCountyOptions(page, "[data-form-county]", `${scenario.name} form county`);
   await chooseGuided(page, "forms", scenario.name);
@@ -134,9 +134,9 @@ async function runFormsScenario(page, scenario) {
 }
 
 async function runDirectFormControlsScenario(page, scenario) {
-  await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${baseUrl}/forms/`, { waitUntil: "domcontentloaded" });
   await resetStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   await page.locator(".forms-smart-path-controls summary").click();
   await page.selectOption("[data-smart-county]", scenario.county);
   await page.selectOption("[data-smart-posture]", scenario.posture);
@@ -159,9 +159,9 @@ async function runDirectFormControlsScenario(page, scenario) {
 }
 
 async function verifyFirstViewport(page, path, label) {
-  await page.goto(`${baseUrl}${path}`, { waitUntil: "networkidle" });
+  await page.goto(`${baseUrl}${path}`, { waitUntil: "domcontentloaded" });
   await resetStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   const snapshot = await page.evaluate(() => {
     const viewportBottom = window.innerHeight;
     const visibleButtons = Array.from(document.querySelectorAll("a,button"))
@@ -199,9 +199,9 @@ async function verifyFirstViewport(page, path, label) {
 }
 
 async function verifyPathwayClick(page, path, cardText, expectedIssue, label) {
-  await page.goto(`${baseUrl}${path}`, { waitUntil: "networkidle" });
+  await page.goto(`${baseUrl}${path}`, { waitUntil: "domcontentloaded" });
   await resetStorage(page);
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   const openedTitle = await page.evaluate(({ path, cardText }) => {
     if (path.includes("practice-areas")) {
       document.querySelector("[data-service-category-reset]")?.click();
@@ -234,7 +234,7 @@ async function verifyPathwayClick(page, path, cardText, expectedIssue, label) {
 }
 
 async function verifyPacketSourceSeparation(page) {
-  await page.goto(`${baseUrl}/forms/`, { waitUntil: "networkidle" });
+  await page.goto(`${baseUrl}/forms/`, { waitUntil: "domcontentloaded" });
   await resetStorage(page);
   await page.evaluate(() => {
     sessionStorage.setItem("mflgPublicAnswers", JSON.stringify({
@@ -251,7 +251,7 @@ async function verifyPacketSourceSeparation(page) {
       pdfPacket: "maricopa-divorce-new-no-children"
     }));
   });
-  await page.reload({ waitUntil: "networkidle" });
+  await page.reload({ waitUntil: "domcontentloaded" });
   const answers = await canonicalAnswers(page);
   assert(answers.county === "Pima", `packet source separation: Pima county overwritten by ${answers.county}`);
   assert(answers.packetSourceCounty === "Maricopa", `packet source separation: Maricopa source county not preserved separately (${answers.packetSourceCounty})`);
