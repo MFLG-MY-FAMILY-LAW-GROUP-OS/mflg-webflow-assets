@@ -13,11 +13,11 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260625-101441-final-yolo-stabilization`
-- Tag: `mflg-live-20260625-101441-final-yolo-stabilization`
+- Live key: `mflg-live-20260625-113245-hero-loop-smooth`
+- Tag: `mflg-live-20260625-113245-hero-loop-smooth`
 - Release commit: the commit pointed to by the tag in the durable checkout. Verify with `git rev-parse HEAD` and `git describe --exact-match --tags HEAD`.
-- Public JS SHA-256: `f6066bedf397127016dd4339ad6135ce1d392abaadf699dec00d2fc8329f48cf`
-- Public CSS SHA-256: `264befff1b2d6db260d8e96346640a11c1be5b9360d164983bd11a3f327e18c8`
+- Public JS SHA-256: `ad93e915d77f2c9700aec95b480d10367cb6294571c196aef1ab34e934a79e34`
+- Public CSS SHA-256: `17d80bf4e6faa24e2cd0dc34f54a9037f1d1da0eb5933a673ee286832ffbb376`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
 - Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260625-final-yolo-stabilization-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
@@ -37,7 +37,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260625-101441-final-yolo-stabilization`
+- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260625-113245-hero-loop-smooth`
 
 ## Never Use
 

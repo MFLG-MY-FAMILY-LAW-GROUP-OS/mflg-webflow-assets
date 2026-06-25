@@ -1,11 +1,11 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260625-101441-final-yolo-stabilization
+## Public Website Release: mflg-live-20260625-113245-hero-loop-smooth
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260625-101441-final-yolo-stabilization`
-- Public JS SHA-256: `f6066bedf397127016dd4339ad6135ce1d392abaadf699dec00d2fc8329f48cf`
-- Public CSS SHA-256: `264befff1b2d6db260d8e96346640a11c1be5b9360d164983bd11a3f327e18c8`
+- Asset key: `mflg-live-20260625-113245-hero-loop-smooth`
+- Public JS SHA-256: `ad93e915d77f2c9700aec95b480d10367cb6294571c196aef1ab34e934a79e34`
+- Public CSS SHA-256: `17d80bf4e6faa24e2cd0dc34f54a9037f1d1da0eb5933a673ee286832ffbb376`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
 - Scope: public copy cleanup, internal-language cleanup, duplicate `after-hero` ID fix, footer email wrapping fix, final public text/layout QA, reproducible checkout cleanup.

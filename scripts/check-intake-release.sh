@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260625-101441-final-yolo-stabilization}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260625-113245-hero-loop-smooth}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -67,59 +67,59 @@ if grep -Eq 'const (divorce|parenting|support|maintenance|paternity|modification
 fi
 pass "Public pathway-to-intake routing found"
 
-if grep -R "service-grid-3ddf54d" "$ROOT_DIR" --include='*.html' >/dev/null; then
+if rg -q "service-grid-3ddf54d" "$ROOT_DIR" -g '*.html'; then
   fail "Stale static asset cache key service-grid-3ddf54d found in HTML"
 fi
 
-grep -R "$EXPECTED_ASSET_KEY" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Expected static asset cache key $EXPECTED_ASSET_KEY not found in HTML"
-grep -R "$EXPECTED_FAVICON_KEY" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Expected favicon cache key $EXPECTED_FAVICON_KEY not found in HTML"
-grep -R "nav-access" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Access navigation menu missing from HTML"
-grep -R '<summary>Login</summary>' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Login navigation label missing from HTML"
-if grep -R '<summary>Access</summary>' "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' --exclude-dir='rollback-snapshots' --exclude-dir='test-results' >/dev/null; then
+rg -q "$EXPECTED_ASSET_KEY" "$ROOT_DIR" -g '*.html' || fail "Expected static asset cache key $EXPECTED_ASSET_KEY not found in HTML"
+rg -q "$EXPECTED_FAVICON_KEY" "$ROOT_DIR" -g '*.html' || fail "Expected favicon cache key $EXPECTED_FAVICON_KEY not found in HTML"
+rg -q "nav-access" "$ROOT_DIR" -g '*.html' || fail "Access navigation menu missing from HTML"
+rg -q '<summary>Login</summary>' "$ROOT_DIR" -g '*.html' || fail "Login navigation label missing from HTML"
+if rg -q '<summary>Access</summary>' "$ROOT_DIR" -g '*.html' -g '!.wrangler/**' -g '!rollback-snapshots/**' -g '!test-results/**'; then
   fail "Old Access navigation label found in public HTML"
 fi
-grep -R "DIY Guides" "$ROOT_DIR" --include='*.html' >/dev/null || fail "DIY Guides navigation label missing from HTML"
-grep -R "Forms &amp; Calculators" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Forms & Calculators navigation label missing from HTML"
-if grep -R "Forms &amp; Tools" "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' >/dev/null; then
+rg -q "DIY Guides" "$ROOT_DIR" -g '*.html' || fail "DIY Guides navigation label missing from HTML"
+rg -q "Forms &amp; Calculators" "$ROOT_DIR" -g '*.html' || fail "Forms & Calculators navigation label missing from HTML"
+if rg -q "Forms &amp; Tools" "$ROOT_DIR" -g '*.html' -g '!.wrangler/**'; then
   fail "Old Forms & Tools navigation label found in HTML"
 fi
-if grep -R 'href="/guides" data-link>Guides</a>' "$ROOT_DIR" --include='*.html' >/dev/null; then
+if rg -q 'href="/guides" data-link>Guides</a>' "$ROOT_DIR" -g '*.html'; then
   fail "Old Guides navigation label found in HTML"
 fi
-grep -R 'href="/client" data-link>Client Portal</a>' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Client Portal link missing from HTML"
-grep -R 'href="/staff" data-link>Staff Login</a>' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Staff Login link missing from HTML"
-if grep -R '<span>Client portal access</span>' "$ROOT_DIR" --include='*.html' --exclude-dir='.wrangler' --exclude-dir='rollback-snapshots' --exclude-dir='test-results' >/dev/null; then
+rg -q 'href="/client" data-link>Client Portal</a>' "$ROOT_DIR" -g '*.html' || fail "Client Portal link missing from HTML"
+rg -q 'href="/staff" data-link>Staff Login</a>' "$ROOT_DIR" -g '*.html' || fail "Staff Login link missing from HTML"
+if rg -q '<span>Client portal access</span>' "$ROOT_DIR" -g '*.html' -g '!.wrangler/**' -g '!rollback-snapshots/**' -g '!test-results/**'; then
   fail "Inactive Client portal access nav row found in public HTML"
 fi
-if grep -R "Secure client portal pending" "$ROOT_DIR" --include='*.html' >/dev/null; then
+if rg -q "Secure client portal pending" "$ROOT_DIR" -g '*.html'; then
   fail "Unpolished pending client portal label found in public HTML"
 fi
-if grep -R "CRM OS pending\|Client Portal / CRM OS\|Staff Access / CRM OS" "$ROOT_DIR" --include='*.html' >/dev/null; then
+if rg -q "CRM OS pending|Client Portal / CRM OS|Staff Access / CRM OS" "$ROOT_DIR" -g '*.html'; then
   fail "Internal CRM OS labels must not appear in public HTML"
 fi
-grep -R "footer-office" "$ROOT_DIR" --include='*.html' >/dev/null || fail "World-class office footer panel missing from HTML"
-grep -R "2325 E Camelback Rd, Suite 400" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Footer office address missing from HTML"
-grep -R "Office visits by appointment only. No walk-ins." "$ROOT_DIR" --include='*.html' >/dev/null || fail "Appointment-only footer notice missing from HTML"
-if grep -R "New matters begin with Guided Intake" "$ROOT_DIR" --include='*.html' >/dev/null; then
+rg -q "footer-office" "$ROOT_DIR" -g '*.html' || fail "World-class office footer panel missing from HTML"
+rg -q "2325 E Camelback Rd, Suite 400" "$ROOT_DIR" -g '*.html' || fail "Footer office address missing from HTML"
+rg -q "Office visits by appointment only. No walk-ins." "$ROOT_DIR" -g '*.html' || fail "Appointment-only footer notice missing from HTML"
+if rg -q "New matters begin with Guided Intake" "$ROOT_DIR" -g '*.html'; then
   fail "Removed footer new-matter line found in HTML"
 fi
-grep -R "footer-map-band" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Footer Google map band missing from HTML"
-grep -R "maps.google.com/maps" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Footer Google map iframe missing from HTML"
-grep -R "data-map-business-status" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Footer map business-name status hook missing from HTML"
-grep -R "footer-map-label" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Footer map business-name placeholder missing from HTML"
-if grep -R "Guided intake handoff" "$ROOT_DIR" --include='*.html' --include='*.js' --include='*.css' >/dev/null; then
+rg -q "footer-map-band" "$ROOT_DIR" -g '*.html' || fail "Footer Google map band missing from HTML"
+rg -q "maps.google.com/maps" "$ROOT_DIR" -g '*.html' || fail "Footer Google map iframe missing from HTML"
+rg -q "data-map-business-status" "$ROOT_DIR" -g '*.html' || fail "Footer map business-name status hook missing from HTML"
+rg -q "footer-map-label" "$ROOT_DIR" -g '*.html' || fail "Footer map business-name placeholder missing from HTML"
+if rg -q "Guided intake handoff" "$ROOT_DIR" -g '*.html' -g '*.js' -g '*.css'; then
   fail "Internal handoff language must not appear in public-facing site assets"
 fi
 if grep -R "handoff" "$PUBLIC_JS_FILE" "$ROOT_DIR/css/mflg-public-site.css" >/dev/null; then
   fail "Internal handoff terminology must not ship in public JS/CSS"
 fi
-if grep -R "footer-intake-card" "$ROOT_DIR" --include='*.html' --include='*.css' >/dev/null; then
+if rg -q "footer-intake-card" "$ROOT_DIR" -g '*.html' -g '*.css'; then
   fail "Incorrect footer intake card must not appear in public-facing site assets"
 fi
-grep -R 'class="footer-logo" src="/assets/images/mflg-logo-footer-horizontal-tagline.png' "$ROOT_DIR" --include='*.html' >/dev/null || fail "Footer must use visually cropped horizontal tagline logo asset"
-grep -R "Copyright &copy;" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Footer copyright missing from HTML"
-grep -R "Jeremy James Jack JD, LP" "$ROOT_DIR" --include='*.html' >/dev/null || fail "Locked name format missing from HTML"
-if grep -R "Jeremy James Jack, JD, LP" "$ROOT_DIR" --include='*.html' --include='*.js' >/dev/null; then
+rg -q 'class="footer-logo" src="/assets/images/mflg-logo-footer-horizontal-tagline.png' "$ROOT_DIR" -g '*.html' || fail "Footer must use visually cropped horizontal tagline logo asset"
+rg -q "Copyright &copy;" "$ROOT_DIR" -g '*.html' || fail "Footer copyright missing from HTML"
+rg -q "Jeremy James Jack JD, LP" "$ROOT_DIR" -g '*.html' || fail "Locked name format missing from HTML"
+if rg -q "Jeremy James Jack, JD, LP" "$ROOT_DIR" -g '*.html' -g '*.js'; then
   fail "Old comma name format found"
 fi
 grep -q "Client portal access is coordinated through the office" "$PUBLIC_JS_FILE" || fail "Client portal status language missing from public JS"
@@ -135,7 +135,7 @@ if grep -q "bioProofPanel" "$PUBLIC_JS_FILE"; then
   fail "Shared bio proof panel must not appear outside About"
 fi
 
-if grep -R "favicon-adaptive.svg" "$ROOT_DIR" --include='*.html' >/dev/null; then
+if rg -q "favicon-adaptive.svg" "$ROOT_DIR" -g '*.html'; then
   fail "Temporary adaptive M favicon reference found in HTML"
 fi
 

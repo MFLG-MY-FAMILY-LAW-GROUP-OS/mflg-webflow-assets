@@ -35,7 +35,8 @@
     "test:simple-public-workflow": "node scripts/playwright-simple-public-workflow-audit.js",
     "test:lead-magnet-reveal-flow": "node scripts/playwright-lead-magnet-reveal-flow.js",
     "test:hero-reveal-intelligence": "node scripts/playwright-hero-reveal-intelligence.js",
-    "test:public-text-layout-qa": "node scripts/playwright-public-text-layout-qa.js"
+    "test:public-text-layout-qa": "node scripts/playwright-public-text-layout-qa.js",
+    "test:hero-loop-smoothness": "node scripts/playwright-hero-loop-smoothness.js"
   },
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 {
-  "asset_key": "mflg-live-20260625-101441-final-yolo-stabilization",
-  "tag": "mflg-live-20260625-101441-final-yolo-stabilization",
-  "public_js_sha256": "f6066bedf397127016dd4339ad6135ce1d392abaadf699dec00d2fc8329f48cf",
-  "public_css_sha256": "264befff1b2d6db260d8e96346640a11c1be5b9360d164983bd11a3f327e18c8",
+  "asset_key": "mflg-live-20260625-113245-hero-loop-smooth",
+  "tag": "mflg-live-20260625-113245-hero-loop-smooth",
+  "public_js_sha256": "ad93e915d77f2c9700aec95b480d10367cb6294571c196aef1ab34e934a79e34",
+  "public_css_sha256": "17d80bf4e6faa24e2cd0dc34f54a9037f1d1da0eb5933a673ee286832ffbb376",
   "cloudflare_deployments": {
     "mflg_public_website": "058c6a0a-6402-4fc8-aa78-ae31a9e774ad",
     "mflg_webflow_assets": "6a7d209e-6acb-42e1-a890-4c5a18e01954"
