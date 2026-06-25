@@ -16,7 +16,7 @@ Base URL for local regression: `http://127.0.0.1:4174`
 - `npm run test:fallback-action-contract`: pass
 - `npm run test:fallback-rendered-outcomes`: pass, 18 rendered outcomes / 0 visible external PDF anchors
 - `npm run test:hero-reveal-intelligence`: pass, practice=50 / guides=50 / highRisk=10 / responsive=12
-- `npm run test:public-text-layout-qa`: pass, 50,905 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920
+- `npm run test:public-text-layout-qa`: pass locally and on the live custom domain, 50,870 live text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920
 - `npm run test:matter-form-matrix`: pass
 - `npm run test:county-form-coverage`: pass
 - `npm run test:unique-route-coverage`: pass

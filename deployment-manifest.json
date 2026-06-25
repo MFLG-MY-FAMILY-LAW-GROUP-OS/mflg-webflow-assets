@@ -4,14 +4,18 @@
   "public_js_sha256": "f6066bedf397127016dd4339ad6135ce1d392abaadf699dec00d2fc8329f48cf",
   "public_css_sha256": "264befff1b2d6db260d8e96346640a11c1be5b9360d164983bd11a3f327e18c8",
   "cloudflare_deployments": {
+    "mflg_public_website": "058c6a0a-6402-4fc8-aa78-ae31a9e774ad",
+    "mflg_webflow_assets": "6a7d209e-6acb-42e1-a890-4c5a18e01954"
+  },
+  "rollback_deployments": {
     "mflg_public_website": "3f56de2f-d233-47a9-a9fd-21e231335769",
     "mflg_webflow_assets": "cc1b036f-afee-4a30-9ac8-a6016709f268"
   },
-  "rollback_deployments": {
-    "mflg_public_website": "76f0902c-4433-49db-8f69-056778b46bda",
-    "mflg_webflow_assets": "6266d8b0-6860-43fb-b355-aba1ebd3c01a"
-  },
   "live_url": "https://myfamilylawgroup.com",
   "evidence_contact_sheet": "reports/final-public-text-layout-qa/screenshot-contact-sheet.html",
-  "hero_loop_results": "reports/live-hero-loop-proof/live-hero-loop-results.json"
+  "hero_loop_results": "reports/live-hero-loop-proof/live-hero-loop-results.json",
+  "cloudflare_source_label": {
+    "mflg_public_website": "main / 0694c91",
+    "mflg_webflow_assets": "main / 0694c91"
+  }
 }

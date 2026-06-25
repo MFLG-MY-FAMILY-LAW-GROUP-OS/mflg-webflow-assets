@@ -8774,7 +8774,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Start with the calculator that matches your question.",
+    "visibleText": "Loading calculators...",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8784,357 +8784,7 @@
     "viewport": "390",
     "component": "p",
     "state": "initial",
-    "visibleText": "Use the on-site child-support calculator and maintenance calculator for planning. Use Intake if the numbers, dates, existing orders, or required forms are unclear.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "a.button",
-    "state": "initial",
-    "visibleText": "Start Guided Intake to confirm",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Planning tool",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Estimate Arizona child support",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Enter only planning numbers. Do not enter names, case numbers, addresses, allegations, or private documents.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Calculate",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Parent A monthly income",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Parent B monthly income",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Children",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Parenting plan",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Parenting time",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Health insurance",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Childcare",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Other-child adjustment",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Enter numbers and calculate.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "This calculator gives a planning result only.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Planning tool",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Estimate Arizona spousal maintenance",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Enter planning numbers only. Do not enter names, case numbers, addresses, allegations, or private documents.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Calculate",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "County",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Requesting party",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Marriage date",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Service date",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Petitioner annual income",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Respondent annual income",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Petitioner attributed income",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Respondent attributed income",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Family size",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Mortgage principal",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Petitioner DOB",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Respondent DOB",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Enter numbers and calculate.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "This calculator is powered by the official Arizona maintenance API and gives a planning result only.",
+    "visibleText": "The calculator that matches your answer will appear here.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -19554,7 +19204,17 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-0",
-    "visibleText": "Arizona divorce help for petitions, responses, disclosure, agreements, , parenting, support, and decree-related next steps.",
+    "visibleText": "Arizona divorce help for petitions, responses, , agreements, , parenting, support, and decree-related next steps.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/practice-areas/",
+    "viewport": "390",
+    "component": "span.legal-term",
+    "state": "practice-card-0",
+    "visibleText": "disclosure",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -32984,7 +32644,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-2",
-    "visibleText": "Scope review and document help for annulment questions, required facts, , and related family-court paperwork.",
+    "visibleText": "Scope review and document help for annulment questions, required facts, posture, and related family-court paperwork.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -32995,16 +32655,6 @@
     "component": "span.legal-term",
     "state": "practice-card-2",
     "visibleText": "filing",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/practice-areas/",
-    "viewport": "390",
-    "component": "span.legal-term",
-    "state": "practice-card-2",
-    "visibleText": "posture",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
