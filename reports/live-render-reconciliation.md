@@ -1,7 +1,7 @@
 # Live Render Reconciliation
 
 Base: https://myfamilylawgroup.com
-Asset key: mflg-live-20260623-172421-visible-lead-magnet
+Asset key: mflg-live-20260624-233508-hero-reveal-intelligence
 
 ## 01-homepage-first-viewport
 

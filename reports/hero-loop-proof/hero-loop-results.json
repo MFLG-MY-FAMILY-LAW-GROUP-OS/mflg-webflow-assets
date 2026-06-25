@@ -1,0 +1,72 @@
+[
+  {
+    "width": 390,
+    "height": 844,
+    "duration": 19.64,
+    "seconds": "62.9",
+    "swaps": 3,
+    "loopsObserved": 3,
+    "cropStable": true,
+    "pauses": 0,
+    "blackFrame": false,
+    "fit": "contain",
+    "screenshot": "reports/hero-loop-proof/hero-390.png",
+    "samples": 121
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "duration": 19.64,
+    "seconds": "62.9",
+    "swaps": 3,
+    "loopsObserved": 3,
+    "cropStable": true,
+    "pauses": 0,
+    "blackFrame": false,
+    "fit": "contain",
+    "screenshot": "reports/hero-loop-proof/hero-768.png",
+    "samples": 121
+  },
+  {
+    "width": 1280,
+    "height": 1080,
+    "duration": 19.64,
+    "seconds": "62.9",
+    "swaps": 3,
+    "loopsObserved": 3,
+    "cropStable": true,
+    "pauses": 0,
+    "blackFrame": false,
+    "fit": "cover",
+    "screenshot": "reports/hero-loop-proof/hero-1280.png",
+    "samples": 121
+  },
+  {
+    "width": 1440,
+    "height": 1080,
+    "duration": 19.64,
+    "seconds": "62.9",
+    "swaps": 3,
+    "loopsObserved": 3,
+    "cropStable": true,
+    "pauses": 0,
+    "blackFrame": false,
+    "fit": "cover",
+    "screenshot": "reports/hero-loop-proof/hero-1440.png",
+    "samples": 121
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "duration": 19.64,
+    "seconds": "63.2",
+    "swaps": 3,
+    "loopsObserved": 3,
+    "cropStable": true,
+    "pauses": 0,
+    "blackFrame": false,
+    "fit": "cover",
+    "screenshot": "reports/hero-loop-proof/hero-1920.png",
+    "samples": 121
+  }
+]

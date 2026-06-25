@@ -474,7 +474,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video" data-video-loop="guarded video loop" autoplay muted loop playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260623-185532-form-reveal-priority">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260624-233508-hero-reveal-intelligence">
+        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
+      </video>
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260624-233508-hero-reveal-intelligence">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -498,19 +501,70 @@
   }
 
   function wireHeroVideoLoop() {
-    const video = document.querySelector(".hero-video");
-    if (!video || video.dataset.loopGuard === "true") return;
-    video.dataset.loopGuard = "true";
-    const cleanLoopStart = 0.04;
-    const cleanLoopBuffer = 0.18;
-    video.addEventListener("timeupdate", () => {
-      if (!Number.isFinite(video.duration) || video.duration <= 1) return;
-      if (video.currentTime >= video.duration - cleanLoopBuffer) {
-        video.currentTime = cleanLoopStart;
-        const playPromise = video.play();
-        if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
-      }
+    const videos = Array.from(document.querySelectorAll(".hero-video"));
+    if (!videos.length || videos[0].dataset.loopGuard === "true") return;
+    videos.forEach((video) => {
+      video.dataset.loopGuard = "true";
+      video.muted = true;
+      video.playsInline = true;
+      video.loop = false;
     });
+    if (videos.length < 2) {
+      const single = videos[0];
+      single.loop = true;
+      const playPromise = single.play();
+      if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
+      return;
+    }
+    const cleanStart = 0.08;
+    const crossfadeSeconds = 0.62;
+    let activeIndex = 0;
+    let swapping = false;
+    const setActive = (nextIndex) => {
+      videos.forEach((video, index) => {
+        const active = index === nextIndex;
+        video.classList.toggle("is-active", active);
+        video.setAttribute("aria-hidden", active ? "false" : "true");
+      });
+      activeIndex = nextIndex;
+    };
+    const play = (video) => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
+    };
+    videos.forEach((video) => {
+      video.addEventListener("loadedmetadata", () => {
+        if (video.currentTime < cleanStart) video.currentTime = cleanStart;
+      }, { once: true });
+      video.addEventListener("ended", () => {
+        if (videos[activeIndex] === video) video.currentTime = cleanStart;
+      });
+    });
+    setActive(0);
+    play(videos[0]);
+    const tick = () => {
+      const active = videos[activeIndex];
+      if (!active || swapping || !Number.isFinite(active.duration) || active.duration <= 1) return;
+      if (active.currentTime >= active.duration - crossfadeSeconds) {
+        swapping = true;
+        const nextIndex = activeIndex === 0 ? 1 : 0;
+        const next = videos[nextIndex];
+        try {
+          next.pause();
+          next.currentTime = cleanStart;
+        } catch (error) {}
+        play(next);
+        requestAnimationFrame(() => setActive(nextIndex));
+        window.setTimeout(() => {
+          try {
+            active.pause();
+            active.currentTime = cleanStart;
+          } catch (error) {}
+          swapping = false;
+        }, Math.round((crossfadeSeconds + 0.12) * 1000));
+      }
+    };
+    window.setInterval(tick, 120);
   }
 
   function sectionNavigator(path) {
@@ -1098,6 +1152,7 @@
 
   function serviceViewModelForItem(item) {
 	      const route = intakeRouteForService(item);
+	      const issueProfile = issueProfileFor(item.title, item.category);
 	      const guide = guideFromServiceItem(item);
 	      const packetChoices = guidePacketChoicesFor(guide);
 	      const primaryPacket = packetChoices[0];
@@ -1125,7 +1180,7 @@
 	            ? "Open maintenance calculator"
 	            : "Open deadline planner";
 	      const primaryAction = neutralCalculator ? "forms" : "calculator";
-	      return { ...item, href: "/start", route, guide, formsRoute, calculatorChoice, calculatorLabel, neutralCalculator, primaryAction };
+	      return { ...item, href: "/start", route, issueProfile, guide, formsRoute, calculatorChoice, calculatorLabel, neutralCalculator, primaryAction };
   }
 
   function issuePrerequisitesForTitle(value) {
@@ -1170,6 +1225,114 @@
       "Answer only the missing checks before opening a packet or PDF viewer.",
       "If the checks do not fit, use office review instead of guessing with a broad packet."
     ];
+  }
+
+  function issueProfileFor(value, categoryValue) {
+    const title = String(value || "").trim();
+    const category = String(categoryValue || "").trim();
+    const text = `${category} ${title}`.toLowerCase();
+    const base = {
+      id: slugify(title || category || "family-law-issue"),
+      publicLabel: title || "Family law issue",
+      userProblem: `You are trying to choose the next Arizona family-law step for ${title || "this issue"} without opening the wrong court packet.`,
+      firstStep: `Confirm the county, case stage, children, agreement status, existing orders, and timing that control ${title || "this issue"}.`,
+      formsActionLabel: "Find the right forms",
+      guideActionLabel: "Understand the steps",
+      calculatorLabel: "",
+      officeReviewTrigger: "Use office review if the facts do not match the listed form path or a deadline, safety issue, or LP-scope limit is present.",
+      safestFallback: "Ask for office review instead of guessing with a broad packet.",
+      disallowedBroadPackets: ["generic family-law packet", "unrelated divorce packet", "unrelated parenting packet"]
+    };
+    const exact = {
+      "Relocation": {
+        userProblem: "You are dealing with a move that may affect an existing parenting plan, notice rights, objections, deadlines, or temporary orders.",
+        firstStep: "Confirm whether a parenting plan or order exists, whether notice has been given, whether a hearing or deadline is pending, and whether the move is agreed or disputed.",
+        disallowedBroadPackets: ["broad parenting packet first", "new parenting packet before relocation notice or order status"]
+      },
+      "Child Support Establishment": {
+        userProblem: "You need to start or calculate child support without being routed into a divorce packet unless divorce is actually the case type.",
+        firstStep: "Confirm whether support is new, tied to parentage or parenting time, and whether income, childcare, insurance, parenting-time days, or arrears records are ready.",
+        calculatorLabel: "Open support calculator",
+        disallowedBroadPackets: ["divorce packet as primary", "parenting packet without support qualifiers"]
+      },
+      "Child Support Modification": {
+        userProblem: "You need to know whether changed income, parenting time, insurance, childcare, or other support facts justify changing an existing order.",
+        firstStep: "Confirm what support order exists, what changed, and whether calculation inputs are ready before any modification forms appear.",
+        calculatorLabel: "Open support calculator",
+        disallowedBroadPackets: ["new divorce packet", "enforcement packet unless nonpayment is selected"]
+      },
+      "Child Support Enforcement": {
+        userProblem: "An existing child-support order may not be followed and the next step depends on the order, payment history, and enforcement goal.",
+        firstStep: "Confirm what order exists, what is not being followed, payment or arrears records, and whether you are enforcing rather than changing support.",
+        calculatorLabel: "Open support calculator",
+        disallowedBroadPackets: ["modification packet as primary", "divorce packet as primary"]
+      },
+      "Temporary Orders": {
+        userProblem: "You need short-term court help while a family-law case is pending or being filed.",
+        firstStep: "Confirm whether a case is already filed, what temporary relief is needed, and whether a hearing, service issue, deadline, or urgent fact controls the request.",
+        disallowedBroadPackets: ["generic family packet first", "final decree packet as primary"]
+      },
+      "Consent Decrees": {
+        userProblem: "You have or are working toward an agreed final order and need to avoid contested-divorce routing.",
+        firstStep: "Confirm whether both parties agree on every term, and whether children, property, debts, support, or maintenance require supporting forms.",
+        disallowedBroadPackets: ["contested divorce packet as primary", "new petition packet before agreement status"]
+      },
+      "Adoption / Family Formation Review": {
+        userProblem: "You need careful scope screening for adoption or family formation before any court form is treated as safe.",
+        firstStep: "Identify adult, minor, stepchild, relative, DCS, consent, missing-consent, ICWA, agency, tribal, or other special requirements before any adoption form appears.",
+        formsActionLabel: "Find the right forms after adoption readiness",
+        officeReviewTrigger: "Office review is primary when the adoption type is minor, DCS, ICWA, missing consent, agency, tribal, or not clearly within verified form coverage.",
+        safestFallback: "Do not use parenting, guardianship, paternity, or generic family-law packets as adoption forms.",
+        disallowedBroadPackets: ["parenting packet", "guardianship packet", "paternity packet", "generic family-law packet"]
+      },
+      "Enforcement of Existing Orders": {
+        userProblem: "An existing family-court order may not be followed, and enforcement should not be confused with changing the order.",
+        firstStep: "Confirm what order exists, which term is not being followed, proof of noncompliance, and whether you need enforcement rather than modification.",
+        disallowedBroadPackets: ["modification packet unless change is selected", "new filing packet"]
+      },
+      "Modification of Existing Orders": {
+        userProblem: "You may need to change an existing order because facts have changed.",
+        firstStep: "Confirm what order exists, what changed, whether the change affects parenting, support, maintenance, or relocation, and whether enforcement is a separate issue.",
+        disallowedBroadPackets: ["enforcement packet unless noncompliance is selected", "new filing packet"]
+      },
+      "Paternity / Parentage": {
+        userProblem: "You need to establish or clarify legal parentage before parenting-time or support forms are treated as the right path.",
+        firstStep: "Confirm whether paternity or parentage is already established, whether DNA or acknowledgment is involved, and whether parenting or support orders are also needed.",
+        disallowedBroadPackets: ["parenting packet before parentage status", "divorce packet as primary"]
+      },
+      "Property & Debt Division": {
+        userProblem: "You need to divide, enforce, disclose, settle, or revisit property and debt issues without being pushed into an unrelated divorce packet.",
+        firstStep: "Confirm whether this is division, enforcement, disclosure, settlement, decree language, real estate, debt allocation, or post-decree compliance.",
+        disallowedBroadPackets: ["unrelated divorce packet for narrow post-decree property issue", "support packet"]
+      },
+      "Protective Orders / Safety Terms": {
+        userProblem: "Safety-sensitive facts may require emergency resources, protective-order review, or referral before ordinary form prep.",
+        firstStep: "Confirm immediate safety needs, children, existing family-court orders, hearing status, and whether emergency or protective-order resources are safer than ordinary intake.",
+        formsActionLabel: "Review safety resources",
+        officeReviewTrigger: "Office review, emergency resources, or referral can be primary when safety, jurisdiction, or LP-scope limits require it.",
+        safestFallback: "Use emergency resources for immediate danger; do not rely on ordinary form-prep routing for urgent safety facts.",
+        disallowedBroadPackets: ["ordinary family packet as safety answer", "intake-only path for emergency danger"]
+      }
+    };
+    let profile = { ...base, ...(exact[title] || {}) };
+    if (!exact[title]) {
+      if (text.includes("enforcement") || text.includes("contempt") || text.includes("noncompliance") || text.includes("withheld") || text.includes("missed")) {
+        profile = { ...profile, userProblem: `You need to respond to an existing order not being followed for ${title}.`, firstStep: "Confirm the exact order, the term not being followed, proof, timing, and whether you need enforcement rather than a change.", disallowedBroadPackets: ["modification packet as primary unless change is selected", "new filing packet"] };
+      } else if (text.includes("modification")) {
+        profile = { ...profile, userProblem: `You need to decide whether ${title} fits a change to an existing order.`, firstStep: "Confirm the existing order, the changed facts, the affected terms, and whether enforcement is a separate problem.", disallowedBroadPackets: ["enforcement packet as primary unless noncompliance is selected", "new filing packet"] };
+      } else if (text.includes("support") || text.includes("arrears") || text.includes("worksheet")) {
+        profile = { ...profile, userProblem: `You need support-specific routing for ${title}, not a generic divorce path.`, firstStep: "Confirm support status, order status, calculation inputs, payment records, and whether the issue is new, modified, enforced, or estimated.", calculatorLabel: "Open support calculator", disallowedBroadPackets: ["divorce packet as primary", "parenting packet without support qualifiers"] };
+      } else if (text.includes("parenting") || text.includes("custody") || text.includes("decision-making") || text.includes("uccjea")) {
+        profile = { ...profile, userProblem: `You need parenting-specific routing for ${title}.`, firstStep: "Confirm existing orders, children, schedule or decision-making issue, jurisdiction, safety, and whether the next step is new orders, change, enforcement, or planning.", calculatorLabel: "Open parenting-time counter", disallowedBroadPackets: ["divorce packet as primary unless divorce is selected", "support packet before parenting context"] };
+      } else if (text.includes("agreement") || text.includes("settlement") || text.includes("decree")) {
+        profile = { ...profile, userProblem: `You need agreement-focused routing for ${title}.`, firstStep: "Confirm whether all terms are agreed, whether children, property, debts, support, or maintenance are included, and whether the case is already filed.", disallowedBroadPackets: ["contested packet as primary", "new petition packet before agreement status"] };
+      } else if (text.includes("property") || text.includes("debt") || text.includes("real estate") || text.includes("home") || text.includes("disclosure")) {
+        profile = { ...profile, userProblem: `You need property, debt, or disclosure routing for ${title}.`, firstStep: "Confirm whether the issue is division, disclosure, settlement, enforcement, post-decree compliance, home sale, refinance, or separate-property documentation.", disallowedBroadPackets: ["unrelated support packet", "generic divorce packet for narrow post-decree property issue"] };
+      } else if (text.includes("document") || text.includes("filing") || text.includes("response") || text.includes("service") || text.includes("hearing") || text.includes("court")) {
+        profile = { ...profile, userProblem: `You need procedure and document-readiness routing for ${title}.`, firstStep: "Confirm the document type, deadline, hearing, service status, case stage, county, and whether a broader issue must be selected first.", disallowedBroadPackets: ["random packet library result", "generic family packet as primary"] };
+      }
+    }
+    return profile;
   }
 
   function serviceAvailabilityTags(item) {
@@ -1225,6 +1388,7 @@
   }
 
   function renderServicePanel(item) {
+    const profile = item.issueProfile || issueProfileFor(item.title, item.category);
     const checklist = guideChecklistFor(item).slice(0, 3);
     const readiness = guideReadinessFor(item)[0] || "If the next step is unclear, use Guided Intake before choosing forms.";
     const packetChoices = guidePacketChoicesFor(item.guide);
@@ -1261,22 +1425,28 @@
         <p class="eyebrow">${esc(item.category)}</p>
         <h3>${esc(item.title)}</h3>
         <p>${esc(item.copy)}</p>
+        <div class="issue-profile-summary" data-issue-profile="${esc(profile.id)}">
+          <strong>${esc(profile.userProblem)}</strong>
+          <p>${esc(profile.firstStep)}</p>
+        </div>
       </div>
       <section class="task-workspace-state" data-service-panel-section="choose">
         <p class="eyebrow">Choose</p>
         <h4>What would you like to do?</h4>
         <p class="muted">Start with one task. The issue is already carried forward.</p>
         <div class="service-decision-actions" role="group" aria-label="Choose what to do next">
-          ${serviceActions.map((action) => `<button class="button ${action.primary ? "primary" : "outline"}" type="button" data-service-action="${esc(action.key)}">${esc(action.label)}</button>`).join("")}
+          ${serviceActions.map((action) => `<button class="button ${action.primary ? "primary" : "outline"}" type="button" data-service-action="${esc(action.key)}">${esc(action.key === "forms" ? profile.formsActionLabel : action.key === "steps" ? profile.guideActionLabel : action.label)}</button>`).join("")}
           <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Ask for office review</a>
         </div>
       </section>
       <section class="task-workspace-state" data-service-panel-section="forms" hidden inert aria-hidden="true">
         <p class="eyebrow">Answer</p>
-        <h4>Find the right forms for this issue.</h4>
+        <h4>${esc(profile.formsActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="forms-prereq-panel">
           <strong>Answer these before viewing a form.</strong>
+          <p>${esc(profile.firstStep)}</p>
           <ul class="list">${prerequisiteChecks.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+          <p><strong>Do not use as the primary result:</strong> ${esc(profile.disallowedBroadPackets.join(", "))}.</p>
         </div>
         ${packetChoices.length ? `<details class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
           <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
@@ -1305,7 +1475,7 @@
       </section>
       <section class="task-workspace-state" data-service-panel-section="steps" hidden inert aria-hidden="true">
         <p class="eyebrow">Confirm</p>
-        <h4>Understand the steps for this issue.</h4>
+        <h4>${esc(profile.guideActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="guide-card-grid service-panel-grid">
           <div>
             <h5>What this usually involves</h5>
@@ -1314,6 +1484,7 @@
           <div>
             <h5>Your answers being used</h5>
             <p class="service-card-fallback">${esc(readiness)}</p>
+            <p class="service-card-fallback">${esc(profile.officeReviewTrigger)}</p>
           </div>
         </div>
       </section>
@@ -1931,11 +2102,13 @@
     const category = item.category || "Family law";
     const issuePathway = route.issuePathway || "Not Sure";
     const forms = formsResourceForGuide(item);
+    const issueProfile = issueProfileFor(item.title, category);
     return {
       slug: slugify(item.title),
       category,
       title: item.title,
-      summary: item.copy,
+      summary: issueProfile.userProblem || item.copy,
+      issueProfile,
       level: `${category} guide`,
       issuePathway,
       serviceInterest: route.serviceInterest || "",
@@ -4059,6 +4232,7 @@
 
   function renderGuidePanel(guide, index) {
     const route = guideRoute(guide);
+    const profile = guide.issueProfile || issueProfileFor(guide.title, guide.category);
     const calculatorChoice = guideCalculatorChoiceFor(guide);
     const packetChoices = guidePacketChoicesFor(guide);
     const suggestedPacket = packetChoices[0] || {};
@@ -4089,6 +4263,10 @@
         <p class="eyebrow">${esc(guide.category)}</p>
         <h3>${esc(guide.title)}</h3>
         <p>${esc(guide.summary)}</p>
+        <div class="issue-profile-summary" data-issue-profile="${esc(profile.id)}">
+          <strong>${esc(profile.firstStep)}</strong>
+          <p>${esc(profile.officeReviewTrigger)}</p>
+        </div>
       </div>
       <section class="task-workspace-state" data-guide-panel-section="choose">
         <p class="eyebrow">Choose</p>
@@ -4097,13 +4275,13 @@
         <div class="guide-next-options" role="group" aria-label="Choose a guide task">
           <button class="active" type="button" data-guide-next-choice="forms">Find forms</button>
           ${calculatorChoice ? `<button type="button" data-guide-next-choice="calculator">Use calculator</button>` : ""}
-          <button type="button" data-guide-next-choice="steps">Understand the steps</button>
+          <button type="button" data-guide-next-choice="steps">${esc(profile.guideActionLabel)}</button>
           <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Ask for office review</a>
         </div>
       </section>
       <section class="task-workspace-state" data-guide-panel-section="steps" hidden inert aria-hidden="true">
         <p class="eyebrow">Answer</p>
-        <h4>Use these steps for this guide.</h4>
+        <h4>${esc(profile.guideActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="guide-card-grid">
           <div>
             <h5>Collect first</h5>
@@ -4117,10 +4295,12 @@
       </section>
       <section class="task-workspace-state" data-guide-panel-section="forms" hidden inert aria-hidden="true">
         <p class="eyebrow">Confirm</p>
-        <h4>Find the right forms for this guide.</h4>
+        <h4>${esc(profile.formsActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="forms-prereq-panel">
           <strong>Answer these before viewing a form.</strong>
+          <p>${esc(profile.firstStep)}</p>
           <ul class="list">${prerequisiteChecks.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
+          <p><strong>Do not use as the primary result:</strong> ${esc(profile.disallowedBroadPackets.join(", "))}.</p>
         </div>
         ${packetChoices.length ? `<details class="guide-packet-chooser" data-guide-packet-chooser>
           <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
@@ -4275,7 +4455,7 @@
           <div><dt>Operating model</dt><dd>Guided Intake creates a structured review record so the office can check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260623-185532-form-reveal-priority" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260624-233508-hero-reveal-intelligence" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}

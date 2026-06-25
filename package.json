@@ -33,7 +33,8 @@
     "test:unified-viewer": "node scripts/playwright-navigation-progressive-disclosure.js",
     "test:current-release-owner-package": "node scripts/playwright-current-release-owner-package.js",
     "test:simple-public-workflow": "node scripts/playwright-simple-public-workflow-audit.js",
-    "test:lead-magnet-reveal-flow": "node scripts/playwright-lead-magnet-reveal-flow.js"
+    "test:lead-magnet-reveal-flow": "node scripts/playwright-lead-magnet-reveal-flow.js",
+    "test:hero-reveal-intelligence": "node scripts/playwright-hero-reveal-intelligence.js"
   },
   "repository": {
     "type": "git",

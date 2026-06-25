@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260623-172421-visible-lead-magnet}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260624-233508-hero-reveal-intelligence}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"

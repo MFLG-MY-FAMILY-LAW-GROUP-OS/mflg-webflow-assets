@@ -1,7 +1,7 @@
 {
   "version": "1.0.0-fallback-rendered-outcomes",
-  "built_at": "2026-06-23T23:35:52.609Z",
-  "base_url": "https://myfamilylawgroup.com",
+  "built_at": "2026-06-25T06:32:33.850Z",
+  "base_url": "http://127.0.0.1:4173",
   "summary": {
     "rendered_outcomes": 18,
     "counties_checked": 16,
@@ -39,8 +39,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -57,7 +57,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -89,8 +93,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -107,7 +111,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -139,8 +147,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -157,7 +165,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -189,8 +201,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -207,7 +219,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -239,8 +255,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -257,7 +273,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -289,8 +309,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -307,7 +327,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -339,8 +363,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -357,7 +381,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -389,8 +417,8 @@
           "packet": "maricopa-divorce-new-no-children"
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -407,7 +435,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 5,
       "externalPdfAnchors": [],
@@ -439,8 +471,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -457,7 +489,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -489,8 +525,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -507,7 +543,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -539,8 +579,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -557,7 +597,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -589,8 +633,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -607,7 +651,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -639,8 +687,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -657,7 +705,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -689,8 +741,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -707,7 +759,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -739,8 +795,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -757,7 +813,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -789,8 +849,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -807,7 +867,11 @@
         "Start Guided Intake",
         "Browse other form groups",
         "Reset",
-        "Contact Office"
+        "Use calculator",
+        "Read DIY guide",
+        "Browse Practice Areas",
+        "Start Intake",
+        "Office review"
       ],
       "visiblePdfCount": 0,
       "externalPdfAnchors": [],
@@ -856,8 +920,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
@@ -891,8 +955,8 @@
           "packet": ""
         },
         {
-          "text": "Start Guided Intake",
-          "href": "/start",
+          "text": "Find forms",
+          "href": "/forms",
           "target": "",
           "packet": ""
         }
