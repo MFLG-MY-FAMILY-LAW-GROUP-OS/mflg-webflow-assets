@@ -37,7 +37,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: create or verify after branch and tag push if safe authenticated tooling is available.
+- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260625-101441-final-yolo-stabilization`
 
 ## Never Use
 
