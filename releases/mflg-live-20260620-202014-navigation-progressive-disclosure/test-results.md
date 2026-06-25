@@ -1,0 +1,22 @@
+# Test Results
+
+- node --check js/mflg-public-site.js: PASS
+- npm run test:public-surface: PASS
+- Practice Area matrix: expected=50, discovered=50, opened=50, asserted=50, skipped=0
+- DIY Guide matrix: expected=50, discovered=50, opened=50, asserted=50, skipped=0
+- public answer persistence: PASS
+- packet route action: PASS
+- Forms & Tools guided flow: PASS
+- guide county gate: PASS
+- public completion: PASS
+- new-user scenarios: PASS
+- result semantics: PASS
+- all-county user outcomes: PASS
+- fallback action contract: PASS
+- fallback rendered outcomes: PASS
+- navigation progressive disclosure: PASS
+- action integrity: PASS
+- unified viewer: PASS
+- production live asset-key verification: PASS
+- production same-site PDF content-type sample: application/pdf
+- production external public PDF anchors: none detected by tests

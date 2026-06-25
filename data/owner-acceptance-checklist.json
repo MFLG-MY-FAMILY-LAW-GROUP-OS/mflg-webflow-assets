@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0-owner-acceptance-checklist",
+  "built_at": "2026-06-23T23:28:45.049Z",
+  "checklist": [
+    "Can I tell where to start on the homepage without knowing the site architecture?",
+    "Does Practice Area to Forms keep my selected topic and ask only missing questions?",
+    "Does DIY Guide to Forms keep my selected topic and show a clear next action?",
+    "Does DIY Guide to Calculator open the calculator path without asking irrelevant county questions?",
+    "Does Forms & Calculators direct show my answers and the result being used?",
+    "Does an exact county packet say it is matched for my county?",
+    "Does a statewide result clearly say Arizona statewide forms?",
+    "Does a general directory clearly say it is not an issue-specific packet?",
+    "Does a no-verified-form result explain that no issue-specific packet is verified?",
+    "Can I find Change answers easily?",
+    "Does the mobile first viewport show a useful action?",
+    "Is Intake presented as help rather than a forced detour?",
+    "Is my case county clearly separate from packet or resource jurisdiction?",
+    "Are there too many competing primary actions?",
+    "Is any wording confusing, administrative, or internal?"
+  ]
+}

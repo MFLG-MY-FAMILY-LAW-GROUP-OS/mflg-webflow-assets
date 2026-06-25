@@ -1,0 +1,450 @@
+{
+  "productionUrl": "https://myfamilylawgroup.com",
+  "previewUrl": "https://68d22b81.mflg-public-website.pages.dev",
+  "productionAssetKey": "mflg-live-20260620-211200-current-release-action-integrity",
+  "previewAssetKey": "mflg-live-20260622-213314-hero-pill-refine",
+  "records": [
+    {
+      "label": "production",
+      "name": "hero",
+      "route": "/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-hero.png"
+    },
+    {
+      "label": "production",
+      "name": "post-hero-order",
+      "route": "/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-post-hero-order.png"
+    },
+    {
+      "label": "production",
+      "name": "practice-catalog",
+      "route": "/practice-areas/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/practice-areas/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-practice-catalog.png"
+    },
+    {
+      "label": "production",
+      "name": "practice-filtered",
+      "route": "/practice-areas/",
+      "action": "filter click",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/practice-areas/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-practice-filtered.png"
+    },
+    {
+      "label": "production",
+      "name": "practice-selected-issue",
+      "route": "/practice-areas/",
+      "action": "choose first issue and forms task",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/practice-areas/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-practice-selected-issue.png"
+    },
+    {
+      "label": "production",
+      "name": "diy-guide-catalog",
+      "route": "/guides/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/guides/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-diy-guide-catalog.png"
+    },
+    {
+      "label": "production",
+      "name": "diy-guide-selected",
+      "route": "/guides/",
+      "action": "open guide and choose forms",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/guides/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-diy-guide-selected.png"
+    },
+    {
+      "label": "production",
+      "name": "exact-result",
+      "route": "/forms/",
+      "action": "guided Maricopa divorce no children",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/forms/#forms-approved-pdfs",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-exact-result.png"
+    },
+    {
+      "label": "production",
+      "name": "viewer-desktop",
+      "route": "/forms/",
+      "action": "open first same-site PDF",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/forms/#forms-pdf-viewer",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-viewer-desktop.png"
+    },
+    {
+      "label": "production",
+      "name": "fallback-result",
+      "route": "/forms/",
+      "action": "guided Apache divorce no children",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/start/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-fallback-result.png"
+    },
+    {
+      "label": "production",
+      "name": "calculator",
+      "route": "/calculators/",
+      "action": "choose calculator task",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/calculators/#forms-calculator-hub",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-calculator.png"
+    },
+    {
+      "label": "production",
+      "name": "mobile-first-viewport",
+      "route": "/",
+      "action": "fresh load",
+      "viewport": "390x844",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-mobile-first-viewport.png"
+    },
+    {
+      "label": "production",
+      "name": "viewer-mobile",
+      "route": "/forms/",
+      "action": "guided result then open viewer",
+      "viewport": "390x844",
+      "identity": {
+        "url": "https://myfamilylawgroup.com/forms/#forms-pdf-viewer",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260620-211200-current-release-action-integrity"
+        ],
+        "js": "https://myfamilylawgroup.com/js/mflg-public-site.js?v=mflg-live-20260620-211200-current-release-action-integrity",
+        "css": "https://myfamilylawgroup.com/css/mflg-public-site.css?v=mflg-live-20260620-211200-current-release-action-integrity"
+      },
+      "file": "production-viewer-mobile.png"
+    },
+    {
+      "label": "preview",
+      "name": "hero",
+      "route": "/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-hero.png"
+    },
+    {
+      "label": "preview",
+      "name": "post-hero-order",
+      "route": "/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-post-hero-order.png"
+    },
+    {
+      "label": "preview",
+      "name": "practice-catalog",
+      "route": "/practice-areas/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/practice-areas/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-practice-catalog.png"
+    },
+    {
+      "label": "preview",
+      "name": "practice-filtered",
+      "route": "/practice-areas/",
+      "action": "filter click",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/practice-areas/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-practice-filtered.png"
+    },
+    {
+      "label": "preview",
+      "name": "practice-selected-issue",
+      "route": "/practice-areas/",
+      "action": "choose first issue and forms task",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/practice-areas/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-practice-selected-issue.png"
+    },
+    {
+      "label": "preview",
+      "name": "diy-guide-catalog",
+      "route": "/guides/",
+      "action": "fresh load",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/guides/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-diy-guide-catalog.png"
+    },
+    {
+      "label": "preview",
+      "name": "diy-guide-selected",
+      "route": "/guides/",
+      "action": "open guide and choose forms",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/guides/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-diy-guide-selected.png"
+    },
+    {
+      "label": "preview",
+      "name": "exact-result",
+      "route": "/forms/",
+      "action": "guided Maricopa divorce no children",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/forms/#forms-approved-pdfs",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-exact-result.png"
+    },
+    {
+      "label": "preview",
+      "name": "viewer-desktop",
+      "route": "/forms/",
+      "action": "open first same-site PDF",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/forms/#forms-pdf-viewer",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-viewer-desktop.png"
+    },
+    {
+      "label": "preview",
+      "name": "fallback-result",
+      "route": "/forms/",
+      "action": "guided Apache divorce no children",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/start/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-fallback-result.png"
+    },
+    {
+      "label": "preview",
+      "name": "calculator",
+      "route": "/calculators/",
+      "action": "choose calculator task",
+      "viewport": "1440x900",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/calculators/#forms-calculator-hub",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-calculator.png"
+    },
+    {
+      "label": "preview",
+      "name": "mobile-first-viewport",
+      "route": "/",
+      "action": "fresh load",
+      "viewport": "390x844",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-mobile-first-viewport.png"
+    },
+    {
+      "label": "preview",
+      "name": "viewer-mobile",
+      "route": "/forms/",
+      "action": "guided result then open viewer",
+      "viewport": "390x844",
+      "identity": {
+        "url": "https://68d22b81.mflg-public-website.pages.dev/forms/#forms-pdf-viewer",
+        "assetKeys": [
+          "mflg-brand-favicon-5",
+          "mflg-live-20260622-213314-hero-pill-refine"
+        ],
+        "js": "https://68d22b81.mflg-public-website.pages.dev/js/mflg-public-site.js?v=mflg-live-20260622-213314-hero-pill-refine",
+        "css": "https://68d22b81.mflg-public-website.pages.dev/css/mflg-public-site.css?v=mflg-live-20260622-213314-hero-pill-refine"
+      },
+      "file": "preview-viewer-mobile.png"
+    }
+  ]
+}

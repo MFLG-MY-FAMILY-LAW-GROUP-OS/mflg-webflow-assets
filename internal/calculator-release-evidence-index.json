@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0-calculator-release-evidence-index",
+  "built_at": "2026-06-24T02:00:50.111Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "contains_internal_engine_outputs": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal calculator release evidence index for n8n and CRM OS only."
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Poll after fixture entry, QA, comparison, and final-review updates.",
+    "allowed_public_fetches": [
+      "/data/calculator-release-evidence-status.json",
+      "/data/calculator-release-readiness.json",
+      "/data/calculator-public-unlock-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-release-evidence-index.json",
+      "/internal/calculator-release-approval-packet.json",
+      "/internal/calculator-regression-comparison-plan.json",
+      "/internal/calculator-formula-map.json"
+    ],
+    "crm_os_fields": {
+      "calculator_release_evidence_items": "data.calculator-release-evidence-status.summary.evidence_items",
+      "calculator_release_evidence_complete": "data.calculator-release-evidence-status.summary.complete_evidence_items",
+      "calculator_release_evidence_pending": "data.calculator-release-evidence-status.summary.pending_evidence_items",
+      "calculator_public_results_enabled": "data.calculator-release-evidence-status.summary.public_results_enabled"
+    }
+  },
+  "evidence_requirements": [
+    {
+      "key": "approved_official_fixtures",
+      "status": "complete",
+      "public_results_enabled": false,
+      "required_before_public_release": true
+    },
+    {
+      "key": "fixture_quality_review",
+      "status": "complete",
+      "public_results_enabled": false,
+      "required_before_public_release": true
+    },
+    {
+      "key": "regression_comparison_results",
+      "status": "complete",
+      "public_results_enabled": false,
+      "required_before_public_release": true
+    },
+    {
+      "key": "final_reviewer_approval",
+      "status": "complete",
+      "public_results_enabled": false,
+      "required_before_public_release": true
+    }
+  ],
+  "release_packet_complete": true
+}

@@ -1,0 +1,53 @@
+{
+  "name": "mflg-webflow-assets",
+  "version": "1.0.0",
+  "description": "External Webflow CSS, JavaScript, and static front-end assets for MY FAMILY LAW GROUP PLLC.",
+  "main": "_worker.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test:matter-form-matrix": "node scripts/validate-matter-form-matrix.js",
+    "test:forms-tools": "node scripts/playwright-forms-tools-guided-flow.js",
+    "test:guide-county-gate": "node scripts/playwright-guide-county-gate.js",
+    "test:practice-area-matrix": "node scripts/playwright-practice-area-matrix.js",
+    "test:diy-guide-matrix": "node scripts/playwright-diy-guide-matrix.js",
+    "test:public-answer-persistence": "node scripts/playwright-public-answer-persistence.js",
+    "test:packet-route-action": "node scripts/playwright-packet-route-action.js",
+    "test:public-completion": "node scripts/playwright-public-completion-audit.js",
+    "test:public-surface": "node scripts/validate-public-surface.js",
+    "test:county-form-coverage": "node scripts/audit-county-form-coverage.js",
+    "test:new-user-scenarios": "node scripts/playwright-new-user-scenarios.js",
+    "test:unique-route-coverage": "node scripts/audit-unique-route-coverage.js",
+    "test:three-path-parity": "node scripts/audit-three-path-parity.js",
+    "test:source-specificity": "node scripts/audit-source-specificity.js",
+    "test:result-semantics": "node scripts/playwright-result-semantics.js",
+    "test:all-county-user-outcomes": "node scripts/audit-all-county-user-outcomes.js",
+    "test:all-county-three-path-parity": "node scripts/audit-all-county-user-outcomes.js",
+    "test:all-county-scenarios": "node scripts/playwright-all-county-scenarios.js",
+    "test:all-county-production-stability": "node scripts/run-all-county-production-stability.js",
+    "test:fallback-action-contract": "node scripts/audit-fallback-action-contract.js",
+    "test:fallback-rendered-outcomes": "node scripts/playwright-fallback-rendered-outcomes.js",
+    "test:navigation-progressive-disclosure": "node scripts/playwright-navigation-progressive-disclosure.js",
+    "test:action-integrity": "node scripts/playwright-navigation-progressive-disclosure.js",
+    "test:unified-viewer": "node scripts/playwright-navigation-progressive-disclosure.js",
+    "test:current-release-owner-package": "node scripts/playwright-current-release-owner-package.js",
+    "test:simple-public-workflow": "node scripts/playwright-simple-public-workflow-audit.js",
+    "test:lead-magnet-reveal-flow": "node scripts/playwright-lead-magnet-reveal-flow.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/issues"
+  },
+  "homepage": "https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets#readme",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

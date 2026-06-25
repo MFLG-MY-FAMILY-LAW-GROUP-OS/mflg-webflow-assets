@@ -1,0 +1,194 @@
+{
+  "version": "1.0.0-all-county-production-stability",
+  "built_at": "2026-06-20T19:14:51.314Z",
+  "base_url": "https://myfamilylawgroup.com",
+  "summary": {
+    "runs_completed": 18,
+    "failures": 0,
+    "retries_hidden": 0,
+    "timeout_mentions": 0,
+    "console_or_network_mentions": 0
+  },
+  "runs": [
+    {
+      "run": 1,
+      "command": "npm run test:all-county-user-outcomes",
+      "startedAt": "2026-06-20T19:07:23.780Z",
+      "durationMs": 394,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 1,
+      "command": "npm run test:all-county-three-path-parity",
+      "startedAt": "2026-06-20T19:07:24.175Z",
+      "durationMs": 375,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 1,
+      "command": "npm run test:result-semantics",
+      "startedAt": "2026-06-20T19:07:24.550Z",
+      "durationMs": 4714,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 1,
+      "command": "npm run test:new-user-scenarios",
+      "startedAt": "2026-06-20T19:07:29.264Z",
+      "durationMs": 86515,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 1,
+      "command": "npm run test:practice-area-matrix",
+      "startedAt": "2026-06-20T19:08:55.779Z",
+      "durationMs": 3890,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 1,
+      "command": "npm run test:diy-guide-matrix",
+      "startedAt": "2026-06-20T19:08:59.669Z",
+      "durationMs": 53543,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 2,
+      "command": "npm run test:all-county-user-outcomes",
+      "startedAt": "2026-06-20T19:09:53.212Z",
+      "durationMs": 597,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 2,
+      "command": "npm run test:all-county-three-path-parity",
+      "startedAt": "2026-06-20T19:09:53.809Z",
+      "durationMs": 432,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 2,
+      "command": "npm run test:result-semantics",
+      "startedAt": "2026-06-20T19:09:54.241Z",
+      "durationMs": 4771,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 2,
+      "command": "npm run test:new-user-scenarios",
+      "startedAt": "2026-06-20T19:09:59.012Z",
+      "durationMs": 86097,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 2,
+      "command": "npm run test:practice-area-matrix",
+      "startedAt": "2026-06-20T19:11:25.109Z",
+      "durationMs": 4023,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 2,
+      "command": "npm run test:diy-guide-matrix",
+      "startedAt": "2026-06-20T19:11:29.133Z",
+      "durationMs": 53458,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 3,
+      "command": "npm run test:all-county-user-outcomes",
+      "startedAt": "2026-06-20T19:12:22.591Z",
+      "durationMs": 384,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 3,
+      "command": "npm run test:all-county-three-path-parity",
+      "startedAt": "2026-06-20T19:12:22.975Z",
+      "durationMs": 370,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 3,
+      "command": "npm run test:result-semantics",
+      "startedAt": "2026-06-20T19:12:23.345Z",
+      "durationMs": 4728,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 3,
+      "command": "npm run test:new-user-scenarios",
+      "startedAt": "2026-06-20T19:12:28.073Z",
+      "durationMs": 85310,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 3,
+      "command": "npm run test:practice-area-matrix",
+      "startedAt": "2026-06-20T19:13:53.383Z",
+      "durationMs": 4124,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    },
+    {
+      "run": 3,
+      "command": "npm run test:diy-guide-matrix",
+      "startedAt": "2026-06-20T19:13:57.507Z",
+      "durationMs": 53807,
+      "exitCode": 0,
+      "failure": "",
+      "timeoutMentioned": false,
+      "consoleOrNetworkMentioned": false
+    }
+  ]
+}

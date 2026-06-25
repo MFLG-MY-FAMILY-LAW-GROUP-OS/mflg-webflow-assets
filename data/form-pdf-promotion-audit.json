@@ -1,0 +1,672 @@
+{
+  "version": "1.1.0-pdf-promotion-audit",
+  "built_at": "2026-06-12T04:02:45.990Z",
+  "source_files": [
+    "data/form-pdf-review-queue.json",
+    "data/form-pdf-review-decisions.json",
+    "data/form-pdf-public-actions.json"
+  ],
+  "public_safety": {
+    "dry_run_only": true,
+    "public_pdf_actions_enabled": true,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false,
+    "audit_does_not_promote_actions": true
+  },
+  "summary": {
+    "total_review_items": 70,
+    "explicit_decisions": 70,
+    "promotion_ready": 70,
+    "blocked_promotions": 0,
+    "packet_page_only": 0,
+    "rejected": 0,
+    "explicit_pending": 0,
+    "pending_by_default": 0,
+    "public_manifest_actions": 70,
+    "public_pdf_actions_enabled": true,
+    "direct_cached_downloads_enabled": false
+  },
+  "promotion_ready": [
+    {
+      "pdf_review_id": "maricopa-pdf-review-001",
+      "file_name": "dv-lsprocess.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DV LSPROCESS (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF dv-lsprocess.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-002",
+      "file_name": "dv-lsprocesssp.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DV LSPROCESSSP (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF dv-lsprocesssp.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-003",
+      "file_name": "drds10fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRDS10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drds10fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-004",
+      "file_name": "drds10fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRDS10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drds10fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-005",
+      "file_name": "drmcr10fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRMCR10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drmcr10fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-006",
+      "file_name": "drmcr10fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRMCR10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drmcr10fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-007",
+      "file_name": "drtp4.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRTP4 (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp4.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-008",
+      "file_name": "drtp4s.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRTP4S (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp4s.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-009",
+      "file_name": "drtp42fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRTP42FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp42fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-010",
+      "file_name": "drtp42fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "public_display_label": "Divorce with Minor Children - DRTP42FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing with minor children; official Maricopa County PDF drtp42fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-011",
+      "file_name": "dv-lsprocess.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DV LSPROCESS (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF dv-lsprocess.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-012",
+      "file_name": "dv-lsprocesssp.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DV LSPROCESSSP (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF dv-lsprocesssp.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-013",
+      "file_name": "drds10fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRDS10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drds10fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-014",
+      "file_name": "drds10fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRDS10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drds10fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-015",
+      "file_name": "drmcr10fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRMCR10FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drmcr10fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytsjgm0s/drmcr10fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-016",
+      "file_name": "drmcr10fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRMCR10FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drmcr10fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ytujk2yd/drmcr10fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-017",
+      "file_name": "drtp4.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRTP4 (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp4.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-018",
+      "file_name": "drtp4s.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRTP4S (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp4s.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-019",
+      "file_name": "drtp42fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRTP42FZ (English)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp42fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-020",
+      "file_name": "drtp42fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "public_display_label": "Divorce with No Minor Children - DRTP42FSZ (Spanish)",
+      "form_purpose": "Maricopa divorce or separation - new filing without minor children; official Maricopa County PDF drtp42fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-021",
+      "file_name": "drdsc30pz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30PZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30pz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/oqcd3aat/drdsc30pz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-022",
+      "file_name": "drdsc30psz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30PSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30psz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/fgfkjrbn/drdsc30psz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-023",
+      "file_name": "drdsc30p-f.pdf",
+      "language": "English",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30P (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30p-f.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/4trladzi/drdsc30p-f.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-024",
+      "file_name": "drdsc30p-fs.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC30P FS (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc30p-fs.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/yygftbuf/drdsc30p-fs.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-025",
+      "file_name": "drdsc31fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC31FZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc31fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ducnkzkl/drdsc31fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-026",
+      "file_name": "drdsc31fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRDSC31FSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drdsc31fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/fx3hv1rn/drdsc31fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-027",
+      "file_name": "drsd10fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRSD10FZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drsd10fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vfeh5oz3/drsd10fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-028",
+      "file_name": "drsd10fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DRSD10FSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF drsd10fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ot4drwyl/drsd10fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-029",
+      "file_name": "dr70fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DR70FZ (English)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF dr70fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/lzuner3g/dr70fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-030",
+      "file_name": "dr70fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "public_display_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation) - DR70FSZ (Spanish)",
+      "form_purpose": "Maricopa consent decree and agreement finalization; official Maricopa County PDF dr70fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/frcb03uf/dr70fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-031",
+      "file_name": "pt-ldmprocess.pdf",
+      "language": "English",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - PT LDMPROCESS (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF pt-ldmprocess.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/my3bounx/pt-ldmprocess.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-032",
+      "file_name": "pt-ldmprocesssp.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - PT LDMPROCESSSP (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF pt-ldmprocesssp.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/cc4pm3ic/pt-ldmprocesssp.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-033",
+      "file_name": "drds10fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRDS10FZ (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drds10fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-034",
+      "file_name": "drds10fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRDS10FSZ (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drds10fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3ekaexzu/drds10fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-035",
+      "file_name": "drpr10fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRPR10FZ (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drpr10fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/0v0cjqhc/drpr10fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-036",
+      "file_name": "drpr10fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRPR10FSZ (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drpr10fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/iuqppays/drpr10fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-037",
+      "file_name": "drtp4.pdf",
+      "language": "English",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP4 (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp4.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtldle1k/drtp4.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-038",
+      "file_name": "drtp4s.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP4S (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp4s.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gagfxsw4/drtp4s.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-039",
+      "file_name": "drtp42fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP42FZ (English)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp42fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zxfligh3/drtp42fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-040",
+      "file_name": "drtp42fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "public_display_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support - DRTP42FSZ (Spanish)",
+      "form_purpose": "Maricopa parenting, parentage, and child-support packets; official Maricopa County PDF drtp42fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vxngapmn/drtp42fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-041",
+      "file_name": "pb13fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-name-address-update",
+      "public_display_label": "Update Name or Address with the Court - PB13FZ (English)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb13fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ymlhveok/pb13fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-042",
+      "file_name": "pb13fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-name-address-update",
+      "public_display_label": "Update Name or Address with the Court - PB13FSZ (Spanish)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb13fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/51abiqhc/pb13fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-043",
+      "file_name": "pb14fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-name-address-update",
+      "public_display_label": "Update Name or Address with the Court - PB14FZ (English)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb14fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/22ifipjf/pb14fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-044",
+      "file_name": "pb14fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-name-address-update",
+      "public_display_label": "Update Name or Address with the Court - PB14FSZ (Spanish)",
+      "form_purpose": "Maricopa court name or address update forms; official Maricopa County PDF pb14fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/nn3eihwj/pb14fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-045",
+      "file_name": "drfos10pz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-foreign-support-order",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS10PZ (English)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos10pz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/31gf0w30/drfos10pz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-046",
+      "file_name": "drfos10psz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-foreign-support-order",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS10PSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos10psz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/namc20hn/drfos10psz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-047",
+      "file_name": "drfos12fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-foreign-support-order",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS12FZ (English)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos12fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/i5xbe3er/drfos12fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-048",
+      "file_name": "drfos12fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-foreign-support-order",
+      "public_display_label": "Register a Foreign (Out of State) Family Support Order - DRFOS12FSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign family support order; official Maricopa County PDF drfos12fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/crfflw3q/drfos12fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-049",
+      "file_name": "drfoc10pz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC10PZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc10pz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/pc2kxmjg/drfoc10pz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-050",
+      "file_name": "drfoc10psz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC10PSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc10psz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/yuug4pox/drfoc10psz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-051",
+      "file_name": "drfoc12fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC12FZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc12fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/10ipdynd/drfoc12fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-052",
+      "file_name": "drfoc12fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC12FSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc12fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/tswagq4y/drfoc12fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-053",
+      "file_name": "drfoc13fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13FZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/a4mje2io/drfoc13fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-054",
+      "file_name": "drfoc13fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13FSZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/mcsjvtw4/drfoc13fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-055",
+      "file_name": "drfoc13f-bz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13F BZ (English)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13f-bz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/4f0lmdwl/drfoc13f-bz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-056",
+      "file_name": "drfoc13fs-bz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-foreign-custody-order",
+      "public_display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation - DRFOC13FS BZ (Spanish)",
+      "form_purpose": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order; official Maricopa County PDF drfoc13fs-bz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/agqhnz0i/drfoc13fs-bz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-057",
+      "file_name": "drmce11pz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCE11PZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmce11pz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ppkpczei/drmce11pz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-058",
+      "file_name": "drmce11psz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCE11PSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmce11psz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zpejrlwq/drmce11psz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-059",
+      "file_name": "drosc14fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC14FZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc14fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/heicfxcm/drosc14fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-060",
+      "file_name": "drosc14fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC14FSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc14fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/xlqfel2d/drosc14fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-061",
+      "file_name": "drosc11fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC11FZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc11fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/bn5hhhlw/drosc11fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-062",
+      "file_name": "drosc11fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DROSC11FSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drosc11fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/xqdcpufc/drosc11fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-063",
+      "file_name": "drmcn11pz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCN11PZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmcn11pz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rihnw255/drmcn11pz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-064",
+      "file_name": "drmcn11psz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRMCN11PSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drmcn11psz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/uc4lvuxd/drmcn11psz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-065",
+      "file_name": "drt12fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRT12FZ (English)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drt12fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/hjtjq1gx/drt12fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-066",
+      "file_name": "drt12fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "public_display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party - DRT12FSZ (Spanish)",
+      "form_purpose": "Maricopa post-decree temporary orders; official Maricopa County PDF drt12fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/crhaswsg/drt12fsz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-067",
+      "file_name": "lay-legal-english.pdf",
+      "language": "English",
+      "packet_id": "maricopa-protective-order-resources",
+      "public_display_label": "Protective Orders - LAY LEGAL ENGLISH (English)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF lay-legal-english.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/dnif03fz/lay-legal-english.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-068",
+      "file_name": "lay-legal-spanish.pdf",
+      "language": "English",
+      "packet_id": "maricopa-protective-order-resources",
+      "public_display_label": "Protective Orders - LAY LEGAL SPANISH (English)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF lay-legal-spanish.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/c0djw0cz/lay-legal-spanish.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-069",
+      "file_name": "dvop30fz.pdf",
+      "language": "English",
+      "packet_id": "maricopa-protective-order-resources",
+      "public_display_label": "Protective Orders - DVOP30FZ (English)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF dvop30fz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/iiyhvkpn/dvop30fz.pdf"
+    },
+    {
+      "pdf_review_id": "maricopa-pdf-review-070",
+      "file_name": "dvop30fsz.pdf",
+      "language": "Spanish",
+      "packet_id": "maricopa-protective-order-resources",
+      "public_display_label": "Protective Orders - DVOP30FSZ (Spanish)",
+      "form_purpose": "Maricopa protective order resources; official Maricopa County PDF dvop30fsz.pdf.",
+      "official_pdf_url": "https://superiorcourt.maricopa.gov/media/uutgomn5/dvop30fsz.pdf"
+    }
+  ],
+  "blocked": [],
+  "packet_page_only": [],
+  "rejected": [],
+  "explicit_pending": [],
+  "unknown_review_ids": [],
+  "next_steps": [
+    "Keep public PDF actions disabled until review decisions are intentional and validated.",
+    "Resolve blocked approvals before rebuilding public PDF actions.",
+    "Run scripts/validate-form-pdf-review-decisions.js before every promotion build.",
+    "Run scripts/build-form-pdf-public-actions.js only after the audit output matches the intended promotion result."
+  ]
+}

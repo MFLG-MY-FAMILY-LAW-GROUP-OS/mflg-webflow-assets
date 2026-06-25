@@ -1,0 +1,3650 @@
+{
+  "version": "1.0.0-calculator-formula-workbench",
+  "built_at": "2026-06-24T02:00:27.619Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "sources": {
+    "child_support_workbook": {
+      "source_url": "https://superiorcourt.maricopa.gov/media/pktkahu4/cs_calculator.xlsx",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "content_length": "389766",
+      "last_modified": "Wed, 29 Apr 2026 14:31:33 GMT",
+      "workbook": {
+        "worksheet_count": 15,
+        "formula_count": 1577,
+        "defined_name_count": 98,
+        "sheet_names": [
+          "Worksheet",
+          "AppendixA",
+          "ChildSupportOrder",
+          "Paternity Judgment &amp; Order",
+          "IWO",
+          "Schedule",
+          "Parenting Time",
+          "2011 Schedule",
+          "County",
+          "DefinedNames",
+          "Order of Assignment",
+          "Paragraphs",
+          "PTD",
+          "Tax",
+          "TaxAB"
+        ],
+        "defined_names": [
+          {
+            "name": "ActualTaxDeductionsA",
+            "target_hash": "41c50eb8111b0e94"
+          },
+          {
+            "name": "ActualTaxDeductionsB",
+            "target_hash": "160b1d35bdbf11dd"
+          },
+          {
+            "name": "AdjustedChildSupportIncomeA",
+            "target_hash": "4851db5b6e16eb8b"
+          },
+          {
+            "name": "AdjustedChildSupportIncomeB",
+            "target_hash": "53684615bd412179"
+          },
+          {
+            "name": "AppAAlimony",
+            "target_hash": "d79793610ceaafef"
+          },
+          {
+            "name": "AppAAttributed",
+            "target_hash": "973c36f480c573d4"
+          },
+          {
+            "name": "AppACAGI",
+            "target_hash": "3d4aa4acb88ddc4c"
+          },
+          {
+            "name": "AppACAGIShare",
+            "target_hash": "90efa39ac3bc9643"
+          },
+          {
+            "name": "AppAChildCare",
+            "target_hash": "1f8e550d0f7731b0"
+          },
+          {
+            "name": "AppAEducation",
+            "target_hash": "9f0a571f1bed10dc"
+          },
+          {
+            "name": "AppAExtraordinary",
+            "target_hash": "fa0b2f2410e78c3d"
+          },
+          {
+            "name": "AppAIncome",
+            "target_hash": "1ce87ccc46e0be39"
+          },
+          {
+            "name": "AppAMedical",
+            "target_hash": "33cb888d136e1a2c"
+          },
+          {
+            "name": "AppAObligation",
+            "target_hash": "00e02fb71ae35cf1"
+          },
+          {
+            "name": "AppAOver12",
+            "target_hash": "a47f15534410268d"
+          },
+          {
+            "name": "AppAParentingTime",
+            "target_hash": "fce6aee39920f834"
+          },
+          {
+            "name": "AppASSRT",
+            "target_hash": "52bd96132cd61d7a"
+          },
+          {
+            "name": "AppASupport",
+            "target_hash": "46f6b14aad95d0a2"
+          },
+          {
+            "name": "AppASupportOther",
+            "target_hash": "59e9f64e9b190117"
+          },
+          {
+            "name": "AppATotalAdjustments",
+            "target_hash": "6faa459a86b80047"
+          },
+          {
+            "name": "AppendixABody",
+            "target_hash": "f6f9771caad42d2c"
+          },
+          {
+            "name": "BasicChildSupportObligation",
+            "target_hash": "0cc45cf99a651a61"
+          },
+          {
+            "name": "BasicChildSupportObligationAdjustmentsA",
+            "target_hash": "767b6821206325fa"
+          },
+          {
+            "name": "BasicChildSupportObligationAdjustmentsB",
+            "target_hash": "22613021c55c395e"
+          },
+          {
+            "name": "CaseNumber",
+            "target_hash": "5166a584682d6b49"
+          },
+          {
+            "name": "ChildChildren",
+            "target_hash": "2ad346a3c3f73fd2"
+          },
+          {
+            "name": "ChildDobExists",
+            "target_hash": "5b35ba20adea4fff"
+          },
+          {
+            "name": "Children",
+            "target_hash": "3cb34e6abb4f2f0b"
+          },
+          {
+            "name": "Children12Over",
+            "target_hash": "af40f0165550b3fd"
+          },
+          {
+            "name": "Children12Under",
+            "target_hash": "a0412a97b8630f24"
+          },
+          {
+            "name": "ChildrenOtherA",
+            "target_hash": "dda68d7311d66f26"
+          },
+          {
+            "name": "ChildrenOtherB",
+            "target_hash": "9ef761a3abafbf56"
+          },
+          {
+            "name": "ChildSupportIncomeA",
+            "target_hash": "70206c2ce4a30fbd"
+          },
+          {
+            "name": "ChildSupportIncomeB",
+            "target_hash": "3ed18b5fc9acb928"
+          },
+          {
+            "name": "ChildSupportObligationA",
+            "target_hash": "58498ad5eaae051b"
+          },
+          {
+            "name": "ChildSupportObligationB",
+            "target_hash": "7523f69edde8f937"
+          },
+          {
+            "name": "CombinedAdjustedChildSupportIncome",
+            "target_hash": "08e02a8983bfe6f6"
+          },
+          {
+            "name": "CombinedChildSupportObligation",
+            "target_hash": "32413438291ac017"
+          },
+          {
+            "name": "County",
+            "target_hash": "2f062b5f3200df03"
+          },
+          {
+            "name": "CustodyAdjA",
+            "target_hash": "39e4f6712ab740af"
+          },
+          {
+            "name": "CustodyAdjB",
+            "target_hash": "9f01b37c7c667957"
+          },
+          {
+            "name": "CustodyCountA",
+            "target_hash": "09875913332bf051"
+          },
+          {
+            "name": "CustodyCountB",
+            "target_hash": "199780ec87ee2eae"
+          },
+          {
+            "name": "CustomTaxDeduction",
+            "target_hash": "ea3e4ff749e668a7"
+          },
+          {
+            "name": "EmployerFEIN",
+            "target_hash": "2100c0b807a41d95"
+          },
+          {
+            "name": "EqualTimeA",
+            "target_hash": "5529accbdde9b499"
+          },
+          {
+            "name": "EqualTimeB",
+            "target_hash": "f534745c0e364c34"
+          },
+          {
+            "name": "ExpectedTaxDeductionsA",
+            "target_hash": "297d30121c48b2a8"
+          },
+          {
+            "name": "ExpectedTaxDeductionsB",
+            "target_hash": "8e70d1c1b7547352"
+          },
+          {
+            "name": "FinalChildSupportObligationA",
+            "target_hash": "43d04fb72fdad696"
+          },
+          {
+            "name": "FinalChildSupportObligationB",
+            "target_hash": "226eb4121577d272"
+          },
+          {
+            "name": "IVD",
+            "target_hash": "cd9324bb94b6ac34"
+          },
+          {
+            "name": "MaxCAGI",
+            "target_hash": "d265243ff2bf88fd"
+          },
+          {
+            "name": "MinCAGI",
+            "target_hash": "424dd8c4cf1f33b8"
+          },
+          {
+            "name": "ObligationForOtherChildrenA",
+            "target_hash": "536aaaf21ccaf2fb"
+          },
+          {
+            "name": "ObligationForOtherChildrenB",
+            "target_hash": "7373529b073add79"
+          },
+          {
+            "name": "ObligationMax",
+            "target_hash": "fd932f917544ac10"
+          },
+          {
+            "name": "ObligationPercentageA",
+            "target_hash": "98bf74c24c743ecc"
+          },
+          {
+            "name": "ObligationPercentageB",
+            "target_hash": "9048c51b7f2069d8"
+          },
+          {
+            "name": "Obligations",
+            "target_hash": "e539181f57b12295"
+          },
+          {
+            "name": "ObligationShareA",
+            "target_hash": "ec2e41e0c162e619"
+          },
+          {
+            "name": "ObligationShareB",
+            "target_hash": "f00f14e62c5a673e"
+          },
+          {
+            "name": "Obligee",
+            "target_hash": "d61743239f72f2a2"
+          },
+          {
+            "name": "Obligor",
+            "target_hash": "2b7fc8fabd1f42d2"
+          },
+          {
+            "name": "ObligorACSI",
+            "target_hash": "b13c94f0907805fd"
+          },
+          {
+            "name": "ObligorName",
+            "target_hash": "7db88128f72877e9"
+          },
+          {
+            "name": "OlderChildAdjustment",
+            "target_hash": "cae0f777760271cb"
+          },
+          {
+            "name": "OlderChildAdjustmentRate",
+            "target_hash": "f7e430b62c53287e"
+          },
+          {
+            "name": "OrderDate",
+            "target_hash": "199e96364fe28c15"
+          },
+          {
+            "name": "paraContested",
+            "target_hash": "46f6b14aad95d0a2"
+          },
+          {
+            "name": "ParentingPlan",
+            "target_hash": "ffd66e9cf513debc"
+          },
+          {
+            "name": "ParentingTime",
+            "target_hash": "9e6a4d5f5d118b27"
+          },
+          {
+            "name": "ParentingTimeAdjustmentA",
+            "target_hash": "935a77d7c687d9aa"
+          },
+          {
+            "name": "ParentingTimeAdjustmentB",
+            "target_hash": "8208a58ffe95da49"
+          },
+          {
+            "name": "ParentingTimePercentage",
+            "target_hash": "e0ef406b30744c3a"
+          },
+          {
+            "name": "Petitioner",
+            "target_hash": "7134fcf970b3c373"
+          },
+          {
+            "name": "PetitionerCaption",
+            "target_hash": "95830fbbdd83052b"
+          },
+          {
+            "name": "PetitionerCaptionPrefix",
+            "target_hash": "8e0512ff90ee3c1c"
+          },
+          {
+            "name": "_xlnm.Print_Area",
+            "target_hash": "821475ac13190d51"
+          },
+          {
+            "name": "_xlnm.Print_Area",
+            "target_hash": "975963705dd0a6b0"
+          },
+          {
+            "name": "_xlnm.Print_Area",
+            "target_hash": "ec4ec397cf8526f1"
+          },
+          {
+            "name": "_xlnm.Print_Area",
+            "target_hash": "e2a42b73b5e58ba0"
+          },
+          {
+            "name": "_xlnm.Print_Area",
+            "target_hash": "52508427b5e4bfd2"
+          },
+          {
+            "name": "_xlnm.Print_Area",
+            "target_hash": "aaa642bb3e6d2076"
+          },
+          {
+            "name": "_xlnm.Print_Area",
+            "target_hash": "45ab53a58d5effa4"
+          },
+          {
+            "name": "_xlnm.Print_Titles",
+            "target_hash": "7f8f8b34c527e7a1"
+          },
+          {
+            "name": "ProportionateChildSupportObligationA",
+            "target_hash": "57e4f6404c351027"
+          },
+          {
+            "name": "ProportionateChildSupportObligationB",
+            "target_hash": "bf90b59b9cdb7959"
+          },
+          {
+            "name": "Ready",
+            "target_hash": "8a9bc3974dac7bee"
+          },
+          {
+            "name": "Respondent",
+            "target_hash": "b92889e68cd7e2ec"
+          },
+          {
+            "name": "SelfSupportReserve",
+            "target_hash": "165a9049eee9143a"
+          },
+          {
+            "name": "SelfSupportReserveAdjustmentA",
+            "target_hash": "7fc193fcc68cf29c"
+          },
+          {
+            "name": "SelfSupportReserveAdjustmentB",
+            "target_hash": "b818596380d2e4e3"
+          },
+          {
+            "name": "SelfSupportReserveTest",
+            "target_hash": "31fe338d01304bef"
+          },
+          {
+            "name": "Stipulation",
+            "target_hash": "1f89184a08c76dc7"
+          },
+          {
+            "name": "Version",
+            "target_hash": "bfc9d6b402961875"
+          },
+          {
+            "name": "WorksheetDate",
+            "target_hash": "90db236185a3fcd7"
+          },
+          {
+            "name": "WorksheetYear",
+            "target_hash": "856849df5f96c568"
+          }
+        ],
+        "sheets": [
+          {
+            "sheet_entry": "xl/worksheets/sheet1.xml",
+            "sheet_name": "Worksheet",
+            "formula_count": 241,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "e42327b9c0f40b93",
+                "length": 24
+              },
+              {
+                "cell": "N1",
+                "hash": "24ebafb1d9581a7a",
+                "length": 394
+              },
+              {
+                "cell": "V18",
+                "hash": "d8ee86bed68850fd",
+                "length": 394
+              },
+              {
+                "cell": "V19",
+                "hash": "6ad6c81823f96596",
+                "length": 394
+              },
+              {
+                "cell": "V20",
+                "hash": "3e37676fd02d978c",
+                "length": 394
+              },
+              {
+                "cell": "V21",
+                "hash": "04b1d656f6180636",
+                "length": 394
+              },
+              {
+                "cell": "V22",
+                "hash": "b2b4644ac23d4a29",
+                "length": 394
+              },
+              {
+                "cell": "V23",
+                "hash": "ae20021583a22f0e",
+                "length": 107
+              },
+              {
+                "cell": "N24",
+                "hash": "8e219b97f5e84d7c",
+                "length": 41
+              },
+              {
+                "cell": "T24",
+                "hash": "a7da5e64a04b5448",
+                "length": 333
+              },
+              {
+                "cell": "V24",
+                "hash": "01b2f2d3816e56fb",
+                "length": 30
+              },
+              {
+                "cell": "S31",
+                "hash": "7193f9cb3dedd419",
+                "length": 13
+              },
+              {
+                "cell": "M35",
+                "hash": "0ee246a55b0b2760",
+                "length": 30
+              },
+              {
+                "cell": "B36",
+                "hash": "1a60bb4c75e3ea81",
+                "length": 23
+              },
+              {
+                "cell": "C37",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "T37",
+                "hash": "7b48385f3636c2ee",
+                "length": 17
+              },
+              {
+                "cell": "C38",
+                "hash": "73e8cfe67c448097",
+                "length": 23
+              },
+              {
+                "cell": "Q42",
+                "hash": "7dde3b9d12602ffd",
+                "length": 23
+              },
+              {
+                "cell": "S42",
+                "hash": "8b900c8b77e4f18f",
+                "length": 23
+              },
+              {
+                "cell": "U42",
+                "hash": "468b802d0a4577de",
+                "length": 23
+              },
+              {
+                "cell": "W42",
+                "hash": "8451842a8b63f8af",
+                "length": 23
+              },
+              {
+                "cell": "Y42",
+                "hash": "206572db555d69aa",
+                "length": 23
+              },
+              {
+                "cell": "AA42",
+                "hash": "bd9ab9282eca4f9b",
+                "length": 10
+              },
+              {
+                "cell": "C43",
+                "hash": "152e797a2054483e",
+                "length": 34
+              },
+              {
+                "cell": "Q43",
+                "hash": "47cccb2205f0a6a1",
+                "length": 34
+              },
+              {
+                "cell": "S43",
+                "hash": "77bf21810905fe01",
+                "length": 34
+              },
+              {
+                "cell": "U43",
+                "hash": "97b72110317b9b68",
+                "length": 34
+              },
+              {
+                "cell": "W43",
+                "hash": "e08e9dd356ff077c",
+                "length": 34
+              },
+              {
+                "cell": "Y43",
+                "hash": "e3b70aa8e9f779af",
+                "length": 34
+              },
+              {
+                "cell": "AA43",
+                "hash": "0eb3eb08fb33cefe",
+                "length": 25
+              },
+              {
+                "cell": "Q44",
+                "hash": "d27e9bc9a130f2a4",
+                "length": 25
+              },
+              {
+                "cell": "S44",
+                "hash": "31aa482eb1c01e51",
+                "length": 25
+              },
+              {
+                "cell": "U44",
+                "hash": "921be6e523f94d06",
+                "length": 25
+              },
+              {
+                "cell": "W44",
+                "hash": "a2b6e396ebe45ca9",
+                "length": 25
+              },
+              {
+                "cell": "Y44",
+                "hash": "218f9aa30657ce01",
+                "length": 25
+              },
+              {
+                "cell": "AA44",
+                "hash": "b7a092495e455666",
+                "length": 458
+              },
+              {
+                "cell": "U45",
+                "hash": "348df18a27b57043",
+                "length": 24
+              },
+              {
+                "cell": "AA45",
+                "hash": "4ca7370ddac112e5",
+                "length": 565
+              },
+              {
+                "cell": "W46",
+                "hash": "03192ed82f838d45",
+                "length": 686
+              },
+              {
+                "cell": "AA46",
+                "hash": "047054acef452a0c",
+                "length": 28
+              },
+              {
+                "cell": "C47",
+                "hash": "cbfa604d712b0d92",
+                "length": 26
+              },
+              {
+                "cell": "V47",
+                "hash": "5675f95935abcfd1",
+                "length": 32
+              },
+              {
+                "cell": "AB47",
+                "hash": "98d6f3484a07d900",
+                "length": 438
+              },
+              {
+                "cell": "G49",
+                "hash": "8ff08eb1334921bd",
+                "length": 68
+              },
+              {
+                "cell": "U51",
+                "hash": "b5b780a476e79152",
+                "length": 19
+              },
+              {
+                "cell": "V51",
+                "hash": "9d78c762e09ed944",
+                "length": 68
+              },
+              {
+                "cell": "Y51",
+                "hash": "f3f19a7215404db8",
+                "length": 19
+              },
+              {
+                "cell": "Z51",
+                "hash": "24a83a37cf445aca",
+                "length": 38
+              },
+              {
+                "cell": "Y54",
+                "hash": "892f3a8a7ce7f24c",
+                "length": 83
+              },
+              {
+                "cell": "I57",
+                "hash": "18e8899440dfbf25",
+                "length": 27
+              },
+              {
+                "cell": "V57",
+                "hash": "637faab657d550ee",
+                "length": 83
+              },
+              {
+                "cell": "I58",
+                "hash": "fb4076cba1797147",
+                "length": 27
+              },
+              {
+                "cell": "Z58",
+                "hash": "cbe2e5b4535f7c4c",
+                "length": 29
+              },
+              {
+                "cell": "U59",
+                "hash": "559296614cded52a",
+                "length": 27
+              },
+              {
+                "cell": "V59",
+                "hash": "1e49bed9b779f960",
+                "length": 29
+              },
+              {
+                "cell": "Y59",
+                "hash": "25e2c29e806eb420",
+                "length": 27
+              },
+              {
+                "cell": "Z59",
+                "hash": "a0c775b64ddf5d38",
+                "length": 52
+              },
+              {
+                "cell": "W60",
+                "hash": "a43f979b9f62ac01",
+                "length": 34
+              },
+              {
+                "cell": "X60",
+                "hash": "cef1dd297c48e50e",
+                "length": 222
+              },
+              {
+                "cell": "C61",
+                "hash": "6461a57793681df3",
+                "length": 24
+              },
+              {
+                "cell": "W61",
+                "hash": "11826063363b0bb2",
+                "length": 27
+              },
+              {
+                "cell": "X61",
+                "hash": "4ad7f938b89c3be7",
+                "length": 20
+              },
+              {
+                "cell": "X62",
+                "hash": "2fef1f1d5ae13f9e",
+                "length": 24
+              },
+              {
+                "cell": "G63",
+                "hash": "9147b33b27664a2b",
+                "length": 36
+              },
+              {
+                "cell": "H64",
+                "hash": "a466744816211994",
+                "length": 95
+              },
+              {
+                "cell": "I64",
+                "hash": "a8ed2f5fda52605c",
+                "length": 158
+              },
+              {
+                "cell": "D65",
+                "hash": "2c1d1f08d5539798",
+                "length": 24
+              },
+              {
+                "cell": "I66",
+                "hash": "7b44dc0e119bc9e3",
+                "length": 33
+              },
+              {
+                "cell": "J67",
+                "hash": "b73a093034e85400",
+                "length": 144
+              },
+              {
+                "cell": "K67",
+                "hash": "9e92841d1ea15154",
+                "length": 227
+              },
+              {
+                "cell": "D68",
+                "hash": "dd6ff497820823fd",
+                "length": 29
+              },
+              {
+                "cell": "W70",
+                "hash": "44e5892f18c3214d",
+                "length": 30
+              },
+              {
+                "cell": "X70",
+                "hash": "c2cee54e6b012aea",
+                "length": 21
+              },
+              {
+                "cell": "V71",
+                "hash": "2c9c7fa5a75398df",
+                "length": 21
+              },
+              {
+                "cell": "Z71",
+                "hash": "047cc33064d07161",
+                "length": 52
+              },
+              {
+                "cell": "U72",
+                "hash": "b57aa370f1e966bc",
+                "length": 16
+              },
+              {
+                "cell": "V72",
+                "hash": "938a6c3b6fb9f1cb",
+                "length": 52
+              },
+              {
+                "cell": "Y72",
+                "hash": "4b81830cc8ed506e",
+                "length": 16
+              },
+              {
+                "cell": "Z72",
+                "hash": "3e686e0db8340c94",
+                "length": 136
+              },
+              {
+                "cell": "D73",
+                "hash": "c2e677c86f538d62",
+                "length": 24
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet2.xml",
+            "sheet_name": "AppendixA",
+            "formula_count": 2,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "b261b64ea9b4ece9",
+                "length": 187
+              },
+              {
+                "cell": "C5",
+                "hash": "94754437436f3c96",
+                "length": 1987
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet3.xml",
+            "sheet_name": "ChildSupportOrder",
+            "formula_count": 168,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "d6d16f185422d73f",
+                "length": 30
+              },
+              {
+                "cell": "C2",
+                "hash": "1a60bb4c75e3ea81",
+                "length": 23
+              },
+              {
+                "cell": "C4",
+                "hash": "cb3eb33e7c436ddb",
+                "length": 38
+              },
+              {
+                "cell": "M4",
+                "hash": "7b48385f3636c2ee",
+                "length": 17
+              },
+              {
+                "cell": "C5",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "O5",
+                "hash": "9562f9959bc7c893",
+                "length": 45
+              },
+              {
+                "cell": "O7",
+                "hash": "3bf6b186803adcb6",
+                "length": 48
+              },
+              {
+                "cell": "C9",
+                "hash": "8dffe11a218a98f3",
+                "length": 255
+              },
+              {
+                "cell": "D17",
+                "hash": "ade112846d914fc4",
+                "length": 328
+              },
+              {
+                "cell": "M18",
+                "hash": "cf761aa45e82140d",
+                "length": 48
+              },
+              {
+                "cell": "E19",
+                "hash": "4fc32c0715f2311e",
+                "length": 72
+              },
+              {
+                "cell": "M19",
+                "hash": "20cb9a42744562e8",
+                "length": 43
+              },
+              {
+                "cell": "N19",
+                "hash": "e40e1c6d8c938b7d",
+                "length": 48
+              },
+              {
+                "cell": "E20",
+                "hash": "5caa8c43a2b581fb",
+                "length": 72
+              },
+              {
+                "cell": "M20",
+                "hash": "c98436a53b3c972a",
+                "length": 43
+              },
+              {
+                "cell": "N20",
+                "hash": "486710f4a75a46d6",
+                "length": 48
+              },
+              {
+                "cell": "E21",
+                "hash": "e45dc0eadfd9a790",
+                "length": 72
+              },
+              {
+                "cell": "M21",
+                "hash": "f538f1313c56245d",
+                "length": 43
+              },
+              {
+                "cell": "N21",
+                "hash": "a08998298662d3f3",
+                "length": 48
+              },
+              {
+                "cell": "E22",
+                "hash": "be1270195a064691",
+                "length": 72
+              },
+              {
+                "cell": "M22",
+                "hash": "24e8bc635aad1ebb",
+                "length": 43
+              },
+              {
+                "cell": "N22",
+                "hash": "d79f61b4f4fdb706",
+                "length": 48
+              },
+              {
+                "cell": "E23",
+                "hash": "ac984c82a80fa58a",
+                "length": 72
+              },
+              {
+                "cell": "M23",
+                "hash": "158818c194b5751d",
+                "length": 43
+              },
+              {
+                "cell": "N23",
+                "hash": "dad2c66674cac5cf",
+                "length": 48
+              },
+              {
+                "cell": "E24",
+                "hash": "295f5b9f555e506e",
+                "length": 72
+              },
+              {
+                "cell": "M24",
+                "hash": "4e5fdf3726959994",
+                "length": 43
+              },
+              {
+                "cell": "N24",
+                "hash": "5d21565fb6454b34",
+                "length": 188
+              },
+              {
+                "cell": "G30",
+                "hash": "8850664b0fab7d43",
+                "length": 29
+              },
+              {
+                "cell": "D31",
+                "hash": "8dd4cf5fc8d04be9",
+                "length": 127
+              },
+              {
+                "cell": "J31",
+                "hash": "81f199f139c5e337",
+                "length": 259
+              },
+              {
+                "cell": "M31",
+                "hash": "b8c945dc9a0a58ba",
+                "length": 355
+              },
+              {
+                "cell": "D32",
+                "hash": "f070269180b13157",
+                "length": 269
+              },
+              {
+                "cell": "D33",
+                "hash": "21faa6237cfcd35e",
+                "length": 105
+              },
+              {
+                "cell": "O33",
+                "hash": "e950b99b55ceaeb4",
+                "length": 127
+              },
+              {
+                "cell": "P33",
+                "hash": "63c826574e51d3da",
+                "length": 365
+              },
+              {
+                "cell": "D34",
+                "hash": "151b280f0f1a0b0a",
+                "length": 297
+              },
+              {
+                "cell": "H35",
+                "hash": "8cdd43907779b51e",
+                "length": 50
+              },
+              {
+                "cell": "P35",
+                "hash": "df57cbcb10090e4e",
+                "length": 47
+              },
+              {
+                "cell": "Q35",
+                "hash": "284eb4a5848e9bba",
+                "length": 54
+              },
+              {
+                "cell": "D36",
+                "hash": "4101389c2064c4d9",
+                "length": 105
+              },
+              {
+                "cell": "I36",
+                "hash": "e58a22ee0e7295c4",
+                "length": 45
+              },
+              {
+                "cell": "M36",
+                "hash": "e288b82bb34a9646",
+                "length": 105
+              },
+              {
+                "cell": "N36",
+                "hash": "8daf5bd668b996e1",
+                "length": 92
+              },
+              {
+                "cell": "P36",
+                "hash": "e39c627217ca7bc4",
+                "length": 105
+              },
+              {
+                "cell": "D37",
+                "hash": "aa991f6853eebc85",
+                "length": 80
+              },
+              {
+                "cell": "L37",
+                "hash": "78664c55eb249d55",
+                "length": 126
+              },
+              {
+                "cell": "N37",
+                "hash": "e3d926451a9b9787",
+                "length": 109
+              },
+              {
+                "cell": "P37",
+                "hash": "48debcb0c29d9838",
+                "length": 387
+              },
+              {
+                "cell": "G39",
+                "hash": "8cbca2c0b775360d",
+                "length": 50
+              },
+              {
+                "cell": "D40",
+                "hash": "0adad71784f11cd0",
+                "length": 650
+              },
+              {
+                "cell": "G40",
+                "hash": "69d0670ecc76895c",
+                "length": 228
+              },
+              {
+                "cell": "G44",
+                "hash": "de03ee53a5e64e15",
+                "length": 43
+              },
+              {
+                "cell": "P44",
+                "hash": "1dbe72a19d981878",
+                "length": 46
+              },
+              {
+                "cell": "N45",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "P48",
+                "hash": "2382353b75306173",
+                "length": 319
+              },
+              {
+                "cell": "I50",
+                "hash": "8cdd43907779b51e",
+                "length": 50
+              },
+              {
+                "cell": "P50",
+                "hash": "89a4b82f024f6771",
+                "length": 45
+              },
+              {
+                "cell": "Q50",
+                "hash": "2791590d6a12d862",
+                "length": 84
+              },
+              {
+                "cell": "D51",
+                "hash": "7537b27567865973",
+                "length": 28
+              },
+              {
+                "cell": "M51",
+                "hash": "e58a22ee0e7295c4",
+                "length": 45
+              },
+              {
+                "cell": "O51",
+                "hash": "32b2db11ab884fd7",
+                "length": 28
+              },
+              {
+                "cell": "P51",
+                "hash": "188e840ae9048f93",
+                "length": 298
+              },
+              {
+                "cell": "D52",
+                "hash": "becdfb2d062b2265",
+                "length": 118
+              },
+              {
+                "cell": "D53",
+                "hash": "888e6321fecf38e1",
+                "length": 211
+              },
+              {
+                "cell": "M53",
+                "hash": "e2a5e66951ef5ca7",
+                "length": 124
+              },
+              {
+                "cell": "N53",
+                "hash": "e3d926451a9b9787",
+                "length": 109
+              },
+              {
+                "cell": "P53",
+                "hash": "9335948cc9513e43",
+                "length": 293
+              },
+              {
+                "cell": "D54",
+                "hash": "66421dc246bbe3cf",
+                "length": 84
+              },
+              {
+                "cell": "O54",
+                "hash": "c9107a6045f8be76",
+                "length": 60
+              },
+              {
+                "cell": "P54",
+                "hash": "c896c04abd9541ae",
+                "length": 93
+              },
+              {
+                "cell": "D55",
+                "hash": "e4932003665c8266",
+                "length": 84
+              },
+              {
+                "cell": "N55",
+                "hash": "f15a6c32bb59938f",
+                "length": 57
+              },
+              {
+                "cell": "P55",
+                "hash": "d9515746b9805a2c",
+                "length": 353
+              },
+              {
+                "cell": "J57",
+                "hash": "7353e7eec1e6d8ad",
+                "length": 70
+              },
+              {
+                "cell": "D58",
+                "hash": "890e3c80981b9e58",
+                "length": 114
+              },
+              {
+                "cell": "G58",
+                "hash": "2aa64898a1c213c5",
+                "length": 84
+              },
+              {
+                "cell": "N58",
+                "hash": "24a5706dbf34c95f",
+                "length": 70
+              },
+              {
+                "cell": "O58",
+                "hash": "4a4553cc02798a94",
+                "length": 93
+              },
+              {
+                "cell": "D59",
+                "hash": "0a494ab718524c56",
+                "length": 84
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet4.xml",
+            "sheet_name": "Paternity Judgment &amp; Order",
+            "formula_count": 213,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "d6d16f185422d73f",
+                "length": 30
+              },
+              {
+                "cell": "C3",
+                "hash": "1a60bb4c75e3ea81",
+                "length": 23
+              },
+              {
+                "cell": "C5",
+                "hash": "cb3eb33e7c436ddb",
+                "length": 38
+              },
+              {
+                "cell": "M5",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "P5",
+                "hash": "7b48385f3636c2ee",
+                "length": 17
+              },
+              {
+                "cell": "C6",
+                "hash": "9562f9959bc7c893",
+                "length": 45
+              },
+              {
+                "cell": "P7",
+                "hash": "bd9ab9282eca4f9b",
+                "length": 10
+              },
+              {
+                "cell": "C10",
+                "hash": "52cbe42fa64bf743",
+                "length": 124
+              },
+              {
+                "cell": "M10",
+                "hash": "b44342160d9018bf",
+                "length": 607
+              },
+              {
+                "cell": "C15",
+                "hash": "4e5cfe08bf6dee9f",
+                "length": 316
+              },
+              {
+                "cell": "D20",
+                "hash": "ade112846d914fc4",
+                "length": 328
+              },
+              {
+                "cell": "L21",
+                "hash": "d7ea42459f9e398d",
+                "length": 328
+              },
+              {
+                "cell": "R21",
+                "hash": "cf761aa45e82140d",
+                "length": 48
+              },
+              {
+                "cell": "F22",
+                "hash": "4fc32c0715f2311e",
+                "length": 72
+              },
+              {
+                "cell": "L22",
+                "hash": "20cb9a42744562e8",
+                "length": 43
+              },
+              {
+                "cell": "N22",
+                "hash": "878a69cc5611a4d3",
+                "length": 72
+              },
+              {
+                "cell": "R22",
+                "hash": "e40e1c6d8c938b7d",
+                "length": 48
+              },
+              {
+                "cell": "F23",
+                "hash": "5caa8c43a2b581fb",
+                "length": 72
+              },
+              {
+                "cell": "L23",
+                "hash": "c98436a53b3c972a",
+                "length": 43
+              },
+              {
+                "cell": "N23",
+                "hash": "3070558d014a8d22",
+                "length": 72
+              },
+              {
+                "cell": "R23",
+                "hash": "486710f4a75a46d6",
+                "length": 48
+              },
+              {
+                "cell": "F24",
+                "hash": "e45dc0eadfd9a790",
+                "length": 72
+              },
+              {
+                "cell": "L24",
+                "hash": "f538f1313c56245d",
+                "length": 43
+              },
+              {
+                "cell": "N24",
+                "hash": "40803f708f7655b5",
+                "length": 72
+              },
+              {
+                "cell": "R24",
+                "hash": "a08998298662d3f3",
+                "length": 48
+              },
+              {
+                "cell": "F25",
+                "hash": "be1270195a064691",
+                "length": 72
+              },
+              {
+                "cell": "L25",
+                "hash": "24e8bc635aad1ebb",
+                "length": 43
+              },
+              {
+                "cell": "N25",
+                "hash": "0988991cc69da5eb",
+                "length": 72
+              },
+              {
+                "cell": "R25",
+                "hash": "d79f61b4f4fdb706",
+                "length": 48
+              },
+              {
+                "cell": "F26",
+                "hash": "ac984c82a80fa58a",
+                "length": 72
+              },
+              {
+                "cell": "L26",
+                "hash": "158818c194b5751d",
+                "length": 43
+              },
+              {
+                "cell": "N26",
+                "hash": "1a062d555c3530b7",
+                "length": 72
+              },
+              {
+                "cell": "R26",
+                "hash": "dad2c66674cac5cf",
+                "length": 48
+              },
+              {
+                "cell": "F27",
+                "hash": "295f5b9f555e506e",
+                "length": 72
+              },
+              {
+                "cell": "L27",
+                "hash": "4e5fdf3726959994",
+                "length": 43
+              },
+              {
+                "cell": "N27",
+                "hash": "3d9cadb4004eb9c2",
+                "length": 72
+              },
+              {
+                "cell": "R27",
+                "hash": "349eb372db6b62af",
+                "length": 50
+              },
+              {
+                "cell": "F29",
+                "hash": "cc4794323dec6142",
+                "length": 93
+              },
+              {
+                "cell": "L29",
+                "hash": "07ffb621b85d6062",
+                "length": 58
+              },
+              {
+                "cell": "I30",
+                "hash": "a7a85a0a52f34521",
+                "length": 145
+              },
+              {
+                "cell": "M30",
+                "hash": "3bc3c761aa9ad7b6",
+                "length": 330
+              },
+              {
+                "cell": "D31",
+                "hash": "29d15c5af86c27ef",
+                "length": 50
+              },
+              {
+                "cell": "F33",
+                "hash": "3355560fac7953f6",
+                "length": 3
+              },
+              {
+                "cell": "L33",
+                "hash": "ed275e79e56523fa",
+                "length": 58
+              },
+              {
+                "cell": "I34",
+                "hash": "894cc35564c9d83f",
+                "length": 145
+              },
+              {
+                "cell": "M34",
+                "hash": "3a4a02cdc9b8c29b",
+                "length": 330
+              },
+              {
+                "cell": "D35",
+                "hash": "82179544203a6a99",
+                "length": 76
+              },
+              {
+                "cell": "D37",
+                "hash": "a58ee973fa2aaa2b",
+                "length": 790
+              },
+              {
+                "cell": "H37",
+                "hash": "69fba60a806b9f49",
+                "length": 120
+              },
+              {
+                "cell": "P37",
+                "hash": "744b5d81a03f5e8c",
+                "length": 594
+              },
+              {
+                "cell": "D38",
+                "hash": "6ba51d7867857a35",
+                "length": 221
+              },
+              {
+                "cell": "I40",
+                "hash": "c4fc14b191465440",
+                "length": 247
+              },
+              {
+                "cell": "D41",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "R42",
+                "hash": "39441e1949297188",
+                "length": 117
+              },
+              {
+                "cell": "G46",
+                "hash": "ee61854d25eeb25c",
+                "length": 51
+              },
+              {
+                "cell": "K47",
+                "hash": "7c9a06f6052f7a26",
+                "length": 100
+              },
+              {
+                "cell": "N47",
+                "hash": "1146c3b2f200863b",
+                "length": 572
+              },
+              {
+                "cell": "D48",
+                "hash": "c3c9a2dc7ea1c328",
+                "length": 153
+              },
+              {
+                "cell": "D49",
+                "hash": "3482447399402119",
+                "length": 113
+              },
+              {
+                "cell": "G49",
+                "hash": "78edbed710761f7a",
+                "length": 231
+              },
+              {
+                "cell": "J49",
+                "hash": "c49c99d5cae007c0",
+                "length": 280
+              },
+              {
+                "cell": "D50",
+                "hash": "8d9bf1097cb7275e",
+                "length": 195
+              },
+              {
+                "cell": "G51",
+                "hash": "713760b567d0c8d2",
+                "length": 45
+              },
+              {
+                "cell": "D52",
+                "hash": "0adad71784f11cd0",
+                "length": 650
+              },
+              {
+                "cell": "G52",
+                "hash": "2cf2f346767a9bc9",
+                "length": 260
+              },
+              {
+                "cell": "G55",
+                "hash": "8cdd43907779b51e",
+                "length": 50
+              },
+              {
+                "cell": "S55",
+                "hash": "e61479dc64a632ea",
+                "length": 60
+              },
+              {
+                "cell": "D56",
+                "hash": "b5bff45653159430",
+                "length": 84
+              },
+              {
+                "cell": "H56",
+                "hash": "e58a22ee0e7295c4",
+                "length": 45
+              },
+              {
+                "cell": "L56",
+                "hash": "293c142185d721a3",
+                "length": 84
+              },
+              {
+                "cell": "N56",
+                "hash": "beeec0886ffb3ac7",
+                "length": 89
+              },
+              {
+                "cell": "R56",
+                "hash": "1da3f5120fdb4b50",
+                "length": 108
+              },
+              {
+                "cell": "D57",
+                "hash": "aa991f6853eebc85",
+                "length": 80
+              },
+              {
+                "cell": "K57",
+                "hash": "3ff96063725c0719",
+                "length": 115
+              },
+              {
+                "cell": "N57",
+                "hash": "e3d926451a9b9787",
+                "length": 109
+              },
+              {
+                "cell": "Q57",
+                "hash": "ab7621af93fefac5",
+                "length": 379
+              },
+              {
+                "cell": "H59",
+                "hash": "acddd598f07fba08",
+                "length": 50
+              },
+              {
+                "cell": "D60",
+                "hash": "bf9a3e061dfd7e95",
+                "length": 129
+              },
+              {
+                "cell": "G60",
+                "hash": "e89846bc9e4007bb",
+                "length": 239
+              },
+              {
+                "cell": "G64",
+                "hash": "e16e72432bb6038a",
+                "length": 257
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet5.xml",
+            "sheet_name": "IWO",
+            "formula_count": 94,
+            "formula_cells": [
+              {
+                "cell": "B1",
+                "hash": "7fabb2fc4423b971",
+                "length": 7
+              },
+              {
+                "cell": "R3",
+                "hash": "02c4f56fceee5241",
+                "length": 40
+              },
+              {
+                "cell": "E5",
+                "hash": "1a8d523ad03a28b1",
+                "length": 40
+              },
+              {
+                "cell": "T5",
+                "hash": "cd73525b3153c75a",
+                "length": 40
+              },
+              {
+                "cell": "E7",
+                "hash": "07873fbc0dee053a",
+                "length": 40
+              },
+              {
+                "cell": "T7",
+                "hash": "ef4099d19429967e",
+                "length": 40
+              },
+              {
+                "cell": "D10",
+                "hash": "2731270a38b9053d",
+                "length": 40
+              },
+              {
+                "cell": "N10",
+                "hash": "138786e06260d42f",
+                "length": 40
+              },
+              {
+                "cell": "P10",
+                "hash": "a81bebc67d0e9bee",
+                "length": 40
+              },
+              {
+                "cell": "R10",
+                "hash": "2779af1f4dfdab9b",
+                "length": 42
+              },
+              {
+                "cell": "I13",
+                "hash": "8ce8b9c0f4abe5f3",
+                "length": 50
+              },
+              {
+                "cell": "T13",
+                "hash": "4b4234f185ed0895",
+                "length": 42
+              },
+              {
+                "cell": "I14",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "P14",
+                "hash": "fa49fa75ef67b410",
+                "length": 71
+              },
+              {
+                "cell": "D15",
+                "hash": "181939a8dbc63084",
+                "length": 98
+              },
+              {
+                "cell": "I15",
+                "hash": "8ce8b9c0f4abe5f3",
+                "length": 50
+              },
+              {
+                "cell": "P15",
+                "hash": "24b6c02d236540ef",
+                "length": 50
+              },
+              {
+                "cell": "D17",
+                "hash": "997743ba71b458cf",
+                "length": 98
+              },
+              {
+                "cell": "P17",
+                "hash": "46b3d3e1d80627d9",
+                "length": 50
+              },
+              {
+                "cell": "D19",
+                "hash": "e94edc6016b2ab51",
+                "length": 50
+              },
+              {
+                "cell": "P19",
+                "hash": "f5b3532a4221aab6",
+                "length": 50
+              },
+              {
+                "cell": "D21",
+                "hash": "361e5756d53dd89c",
+                "length": 50
+              },
+              {
+                "cell": "P21",
+                "hash": "c5f71c38219e73d8",
+                "length": 98
+              },
+              {
+                "cell": "P23",
+                "hash": "23eb840238a6bb8f",
+                "length": 12
+              },
+              {
+                "cell": "L25",
+                "hash": "cf761aa45e82140d",
+                "length": 48
+              },
+              {
+                "cell": "D27",
+                "hash": "6d005d40ece53190",
+                "length": 48
+              },
+              {
+                "cell": "N27",
+                "hash": "e40e1c6d8c938b7d",
+                "length": 48
+              },
+              {
+                "cell": "D28",
+                "hash": "730a5edfdd86092a",
+                "length": 48
+              },
+              {
+                "cell": "N28",
+                "hash": "486710f4a75a46d6",
+                "length": 48
+              },
+              {
+                "cell": "D29",
+                "hash": "9892bd410fef51ac",
+                "length": 48
+              },
+              {
+                "cell": "N29",
+                "hash": "a08998298662d3f3",
+                "length": 48
+              },
+              {
+                "cell": "D30",
+                "hash": "18d82f4104a7070c",
+                "length": 48
+              },
+              {
+                "cell": "N30",
+                "hash": "d79f61b4f4fdb706",
+                "length": 48
+              },
+              {
+                "cell": "D31",
+                "hash": "b03a06f92fd97454",
+                "length": 48
+              },
+              {
+                "cell": "N31",
+                "hash": "dad2c66674cac5cf",
+                "length": 48
+              },
+              {
+                "cell": "D32",
+                "hash": "85a639242549ab35",
+                "length": 48
+              },
+              {
+                "cell": "N32",
+                "hash": "56a7980b83705e19",
+                "length": 198
+              },
+              {
+                "cell": "D35",
+                "hash": "f5932bade382edc1",
+                "length": 77
+              },
+              {
+                "cell": "D36",
+                "hash": "fcc4bbc78bed8424",
+                "length": 28
+              },
+              {
+                "cell": "I36",
+                "hash": "56f08dcf400a2026",
+                "length": 125
+              },
+              {
+                "cell": "D37",
+                "hash": "db4224142d5e3bf6",
+                "length": 308
+              },
+              {
+                "cell": "T37",
+                "hash": "f86875f2fd0272d3",
+                "length": 50
+              },
+              {
+                "cell": "V37",
+                "hash": "e1969f7d8f6c2a78",
+                "length": 77
+              },
+              {
+                "cell": "D38",
+                "hash": "84ea329e391f07b2",
+                "length": 561
+              },
+              {
+                "cell": "D39",
+                "hash": "a5ba2b7285939809",
+                "length": 561
+              },
+              {
+                "cell": "D40",
+                "hash": "b1c7b536ae93ca7a",
+                "length": 561
+              },
+              {
+                "cell": "D41",
+                "hash": "ec7a463bbf127208",
+                "length": 531
+              },
+              {
+                "cell": "D42",
+                "hash": "071f4a2c3cdc4f65",
+                "length": 49
+              },
+              {
+                "cell": "I42",
+                "hash": "9abf3a0947c93b80",
+                "length": 51
+              },
+              {
+                "cell": "N42",
+                "hash": "dc0a3a893f947860",
+                "length": 96
+              },
+              {
+                "cell": "K43",
+                "hash": "27d468144e5ff8e8",
+                "length": 38
+              },
+              {
+                "cell": "N43",
+                "hash": "faff117c6fd19734",
+                "length": 36
+              },
+              {
+                "cell": "D47",
+                "hash": "211a95477d29d2dd",
+                "length": 32
+              },
+              {
+                "cell": "O47",
+                "hash": "58c39b39e841572e",
+                "length": 36
+              },
+              {
+                "cell": "D48",
+                "hash": "a924e3c7031e8f41",
+                "length": 30
+              },
+              {
+                "cell": "O48",
+                "hash": "33c4e8a322cba51e",
+                "length": 84
+              },
+              {
+                "cell": "D49",
+                "hash": "5cfa34afd816a6b6",
+                "length": 5
+              },
+              {
+                "cell": "L51",
+                "hash": "23eb840238a6bb8f",
+                "length": 12
+              },
+              {
+                "cell": "V51",
+                "hash": "1dba679868424214",
+                "length": 5
+              },
+              {
+                "cell": "J52",
+                "hash": "bba540f8f1f4487b",
+                "length": 6
+              },
+              {
+                "cell": "T52",
+                "hash": "58602b377df7a565",
+                "length": 5
+              },
+              {
+                "cell": "H53",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "S53",
+                "hash": "7c2513ba9c884b33",
+                "length": 862
+              },
+              {
+                "cell": "D55",
+                "hash": "23da457247fb6917",
+                "length": 53
+              },
+              {
+                "cell": "I61",
+                "hash": "0c4df21fc89d89b9",
+                "length": 52
+              },
+              {
+                "cell": "E62",
+                "hash": "cfff9f1de1f50a06",
+                "length": 42
+              },
+              {
+                "cell": "V63",
+                "hash": "bc1a788f0b093fc5",
+                "length": 50
+              },
+              {
+                "cell": "K72",
+                "hash": "03736ac603bd43a2",
+                "length": 50
+              },
+              {
+                "cell": "K73",
+                "hash": "7fabb2fc4423b971",
+                "length": 7
+              },
+              {
+                "cell": "K74",
+                "hash": "95e95a346d23899a",
+                "length": 39
+              },
+              {
+                "cell": "D78",
+                "hash": "5cfa34afd816a6b6",
+                "length": 5
+              },
+              {
+                "cell": "L79",
+                "hash": "23eb840238a6bb8f",
+                "length": 12
+              },
+              {
+                "cell": "V79",
+                "hash": "1dba679868424214",
+                "length": 5
+              },
+              {
+                "cell": "J80",
+                "hash": "bba540f8f1f4487b",
+                "length": 6
+              },
+              {
+                "cell": "T80",
+                "hash": "58602b377df7a565",
+                "length": 5
+              },
+              {
+                "cell": "H81",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "S81",
+                "hash": "3277054a1b7edc54",
+                "length": 253
+              },
+              {
+                "cell": "D87",
+                "hash": "275479bab9b2423c",
+                "length": 255
+              },
+              {
+                "cell": "D92",
+                "hash": "55ef903db42d632e",
+                "length": 254
+              },
+              {
+                "cell": "D97",
+                "hash": "5cfa34afd816a6b6",
+                "length": 5
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet6.xml",
+            "sheet_name": "Schedule",
+            "formula_count": 0,
+            "formula_cells": []
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet7.xml",
+            "sheet_name": "Parenting Time",
+            "formula_count": 0,
+            "formula_cells": []
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet8.xml",
+            "sheet_name": "2011 Schedule",
+            "formula_count": 0,
+            "formula_cells": []
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet9.xml",
+            "sheet_name": "County",
+            "formula_count": 11,
+            "formula_cells": [
+              {
+                "cell": "A2",
+                "hash": "408e9fe913bb4e04",
+                "length": 13
+              },
+              {
+                "cell": "E2",
+                "hash": "f979ecdd6f95515d",
+                "length": 40
+              },
+              {
+                "cell": "E11",
+                "hash": "2265f5336d7b6037",
+                "length": 2
+              },
+              {
+                "cell": "E12",
+                "hash": "e4524a97215c4271",
+                "length": 40
+              },
+              {
+                "cell": "E14",
+                "hash": "61f9ea1d25c9fb3e",
+                "length": 40
+              },
+              {
+                "cell": "E15",
+                "hash": "f4372704f3ac38c0",
+                "length": 5161
+              },
+              {
+                "cell": "E23",
+                "hash": "5729e111e421969c",
+                "length": 49
+              },
+              {
+                "cell": "E24",
+                "hash": "08a606a20e219972",
+                "length": 49
+              },
+              {
+                "cell": "E25",
+                "hash": "074e4ce8fd341c47",
+                "length": 40
+              },
+              {
+                "cell": "E26",
+                "hash": "3a7d7d4d489527ad",
+                "length": 2495
+              },
+              {
+                "cell": "E30",
+                "hash": "b8539571b601b728",
+                "length": 49
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet10.xml",
+            "sheet_name": "DefinedNames",
+            "formula_count": 65,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "37241a86d245b57b",
+                "length": 87
+              },
+              {
+                "cell": "C8",
+                "hash": "5ccbd700181b9a33",
+                "length": 616
+              },
+              {
+                "cell": "C9",
+                "hash": "90f6437bf9483bbe",
+                "length": 372
+              },
+              {
+                "cell": "C10",
+                "hash": "ac53f02f50e918dd",
+                "length": 690
+              },
+              {
+                "cell": "C11",
+                "hash": "79af0d1ec58da008",
+                "length": 720
+              },
+              {
+                "cell": "C12",
+                "hash": "0832f3b6ec86d19f",
+                "length": 67
+              },
+              {
+                "cell": "C13",
+                "hash": "e3a495eac656feba",
+                "length": 67
+              },
+              {
+                "cell": "C14",
+                "hash": "208084ab48643434",
+                "length": 281
+              },
+              {
+                "cell": "C15",
+                "hash": "a6536e6a024c7f8f",
+                "length": 152
+              },
+              {
+                "cell": "C16",
+                "hash": "7981703278ac35de",
+                "length": 152
+              },
+              {
+                "cell": "C17",
+                "hash": "3629ce32b4d5355e",
+                "length": 101
+              },
+              {
+                "cell": "C18",
+                "hash": "0c82e078611b7645",
+                "length": 101
+              },
+              {
+                "cell": "C19",
+                "hash": "9388b7f5517b193b",
+                "length": 148
+              },
+              {
+                "cell": "C20",
+                "hash": "06442c90034ed726",
+                "length": 152
+              },
+              {
+                "cell": "C21",
+                "hash": "4fd8d55969b282ad",
+                "length": 203
+              },
+              {
+                "cell": "C22",
+                "hash": "1cb86f22006c79ea",
+                "length": 40
+              },
+              {
+                "cell": "C23",
+                "hash": "d3afb3365c2fe744",
+                "length": 40
+              },
+              {
+                "cell": "C24",
+                "hash": "146f1ea118a95450",
+                "length": 151
+              },
+              {
+                "cell": "C25",
+                "hash": "50f8ff445190e7e6",
+                "length": 90
+              },
+              {
+                "cell": "C26",
+                "hash": "25623852a1f8e9de",
+                "length": 90
+              },
+              {
+                "cell": "C27",
+                "hash": "708017c9410865cd",
+                "length": 293
+              },
+              {
+                "cell": "C28",
+                "hash": "61464ead9f4b57b7",
+                "length": 293
+              },
+              {
+                "cell": "C29",
+                "hash": "f8257dde13363254",
+                "length": 13
+              },
+              {
+                "cell": "C30",
+                "hash": "cad6abfc4143fb6f",
+                "length": 206
+              },
+              {
+                "cell": "C31",
+                "hash": "a85e21bfed49ea2f",
+                "length": 200
+              },
+              {
+                "cell": "C32",
+                "hash": "e25e3a0da7011772",
+                "length": 200
+              },
+              {
+                "cell": "C33",
+                "hash": "2a9d74c1a2f15beb",
+                "length": 147
+              },
+              {
+                "cell": "C34",
+                "hash": "d54b5e8c425b021e",
+                "length": 147
+              },
+              {
+                "cell": "C35",
+                "hash": "6daea4ea9b246170",
+                "length": 853
+              },
+              {
+                "cell": "C36",
+                "hash": "dc37f55f95fdde93",
+                "length": 81
+              },
+              {
+                "cell": "C37",
+                "hash": "bfb69970cf196343",
+                "length": 104
+              },
+              {
+                "cell": "C38",
+                "hash": "8be1713b5a3a1d3a",
+                "length": 140
+              },
+              {
+                "cell": "C39",
+                "hash": "5bb0b38dc77a5998",
+                "length": 107
+              },
+              {
+                "cell": "C40",
+                "hash": "38969624f4bc0c5b",
+                "length": 270
+              },
+              {
+                "cell": "C41",
+                "hash": "732a88fa83b4116a",
+                "length": 270
+              },
+              {
+                "cell": "C42",
+                "hash": "f329763fc0e628b7",
+                "length": 263
+              },
+              {
+                "cell": "C43",
+                "hash": "57bd02f69eb2fe22",
+                "length": 263
+              },
+              {
+                "cell": "C44",
+                "hash": "682dc1441c3d1b9b",
+                "length": 193
+              },
+              {
+                "cell": "C45",
+                "hash": "b22e10396f614c84",
+                "length": 193
+              },
+              {
+                "cell": "C46",
+                "hash": "b04f8d9ac6532d3b",
+                "length": 163
+              },
+              {
+                "cell": "C49",
+                "hash": "7134ab8127434964",
+                "length": 163
+              },
+              {
+                "cell": "C50",
+                "hash": "9a1984e0ae6444b3",
+                "length": 39
+              },
+              {
+                "cell": "C51",
+                "hash": "65201aa27d5e2c71",
+                "length": 39
+              },
+              {
+                "cell": "C52",
+                "hash": "7e4cb966c117acc2",
+                "length": 86
+              },
+              {
+                "cell": "C53",
+                "hash": "557ca22202611f7a",
+                "length": 86
+              },
+              {
+                "cell": "C54",
+                "hash": "a801bfe2c676a148",
+                "length": 42
+              },
+              {
+                "cell": "C55",
+                "hash": "97ba53f81f4e3454",
+                "length": 163
+              },
+              {
+                "cell": "C56",
+                "hash": "b78a26abff6cea39",
+                "length": 158
+              },
+              {
+                "cell": "C57",
+                "hash": "98f09c2e3d2635e6",
+                "length": 37
+              },
+              {
+                "cell": "C58",
+                "hash": "7f753156e2e29bef",
+                "length": 80
+              },
+              {
+                "cell": "C59",
+                "hash": "66ef9c68a2169a69",
+                "length": 80
+              },
+              {
+                "cell": "C60",
+                "hash": "b6a60280573c716b",
+                "length": 207
+              },
+              {
+                "cell": "C61",
+                "hash": "215fd89eec87092f",
+                "length": 207
+              },
+              {
+                "cell": "C62",
+                "hash": "239237211f6703b4",
+                "length": 38
+              },
+              {
+                "cell": "C63",
+                "hash": "79ad50d08b893d18",
+                "length": 43
+              },
+              {
+                "cell": "C67",
+                "hash": "55c284c9b8f9b5d4",
+                "length": 33
+              },
+              {
+                "cell": "C68",
+                "hash": "cd3f53852cea959b",
+                "length": 45
+              },
+              {
+                "cell": "C69",
+                "hash": "fc292687fc752817",
+                "length": 51
+              },
+              {
+                "cell": "C70",
+                "hash": "08d8f308d59b9271",
+                "length": 75
+              },
+              {
+                "cell": "C71",
+                "hash": "6b6e0fb0d3fb293b",
+                "length": 43
+              },
+              {
+                "cell": "C72",
+                "hash": "8a3a63b4dee5591f",
+                "length": 72
+              },
+              {
+                "cell": "C73",
+                "hash": "5bfd977537b825f3",
+                "length": 76
+              },
+              {
+                "cell": "C74",
+                "hash": "e70562dc8f4282a3",
+                "length": 43
+              },
+              {
+                "cell": "C75",
+                "hash": "9b0265b4995992af",
+                "length": 49
+              },
+              {
+                "cell": "C76",
+                "hash": "f336df31d4ec120f",
+                "length": 19
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet11.xml",
+            "sheet_name": "Order of Assignment",
+            "formula_count": 27,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "1d4d37341fe37334",
+                "length": 23
+              },
+              {
+                "cell": "B3",
+                "hash": "1a60bb4c75e3ea81",
+                "length": 23
+              },
+              {
+                "cell": "B4",
+                "hash": "56824d8ba9c6fa09",
+                "length": 40
+              },
+              {
+                "cell": "F5",
+                "hash": "7b48385f3636c2ee",
+                "length": 17
+              },
+              {
+                "cell": "B7",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "J7",
+                "hash": "9562f9959bc7c893",
+                "length": 45
+              },
+              {
+                "cell": "J10",
+                "hash": "bd9ab9282eca4f9b",
+                "length": 10
+              },
+              {
+                "cell": "B11",
+                "hash": "ccb68f88eb8a4592",
+                "length": 28
+              },
+              {
+                "cell": "I17",
+                "hash": "e7bb9ce95388bc00",
+                "length": 102
+              },
+              {
+                "cell": "C18",
+                "hash": "94deba211d0fddf5",
+                "length": 68
+              },
+              {
+                "cell": "I18",
+                "hash": "9cacee63eab03fa2",
+                "length": 46
+              },
+              {
+                "cell": "G22",
+                "hash": "f5bfd0e52e102bd7",
+                "length": 130
+              },
+              {
+                "cell": "G23",
+                "hash": "5f5702688c19c48c",
+                "length": 46
+              },
+              {
+                "cell": "G24",
+                "hash": "0d2617f38b9364c5",
+                "length": 46
+              },
+              {
+                "cell": "G25",
+                "hash": "31fa31e7baeab5a1",
+                "length": 46
+              },
+              {
+                "cell": "G26",
+                "hash": "a7c74d0365ff7a53",
+                "length": 46
+              },
+              {
+                "cell": "G27",
+                "hash": "a93d08a90814a82f",
+                "length": 36
+              },
+              {
+                "cell": "G29",
+                "hash": "a4ed97d1617670ab",
+                "length": 28
+              },
+              {
+                "cell": "D33",
+                "hash": "4f8051bee8107845",
+                "length": 28
+              },
+              {
+                "cell": "I33",
+                "hash": "c67722ca0fa7ee36",
+                "length": 120
+              },
+              {
+                "cell": "E34",
+                "hash": "6f3be803b9d95971",
+                "length": 87
+              },
+              {
+                "cell": "H34",
+                "hash": "e7cce74aeedb827b",
+                "length": 28
+              },
+              {
+                "cell": "B43",
+                "hash": "a05efd2f66b9080f",
+                "length": 9
+              },
+              {
+                "cell": "B45",
+                "hash": "dbd87ac247203f70",
+                "length": 10
+              },
+              {
+                "cell": "C53",
+                "hash": "9562f9959bc7c893",
+                "length": 45
+              },
+              {
+                "cell": "I53",
+                "hash": "186b1be70cebf9e6",
+                "length": 27
+              },
+              {
+                "cell": "C55",
+                "hash": "58134baa8ecd05a1",
+                "length": 45
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet12.xml",
+            "sheet_name": "Paragraphs",
+            "formula_count": 8,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "b1bbf02f4a6779c8",
+                "length": 88
+              },
+              {
+                "cell": "B13",
+                "hash": "5a2ad33aa5cf01b1",
+                "length": 88
+              },
+              {
+                "cell": "B14",
+                "hash": "a0606d8119517266",
+                "length": 95
+              },
+              {
+                "cell": "B15",
+                "hash": "9773513d15ce9f3a",
+                "length": 12
+              },
+              {
+                "cell": "B16",
+                "hash": "080c37ba368d6d3e",
+                "length": 5
+              },
+              {
+                "cell": "B17",
+                "hash": "c97ab8ecde7cd948",
+                "length": 5
+              },
+              {
+                "cell": "B18",
+                "hash": "9c4cbdd98e1279ba",
+                "length": 5
+              },
+              {
+                "cell": "B19",
+                "hash": "35bb2bf61134dece",
+                "length": 5
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet13.xml",
+            "sheet_name": "PTD",
+            "formula_count": 18,
+            "formula_cells": [
+              {
+                "cell": "B2",
+                "hash": "34db7854bfc1fc23",
+                "length": 3
+              },
+              {
+                "cell": "H11",
+                "hash": "0bc066aabf4b5141",
+                "length": 3
+              },
+              {
+                "cell": "H12",
+                "hash": "7d6f554d7054e805",
+                "length": 4694
+              },
+              {
+                "cell": "D24",
+                "hash": "a0ab3f38a8a34d45",
+                "length": 841
+              },
+              {
+                "cell": "C25",
+                "hash": "7314ad01266f66f4",
+                "length": 34
+              },
+              {
+                "cell": "E29",
+                "hash": "51510d4fea3436bb",
+                "length": 9
+              },
+              {
+                "cell": "C33",
+                "hash": "a9f2ed7c14087278",
+                "length": 5
+              },
+              {
+                "cell": "C34",
+                "hash": "f8808d3dede7de42",
+                "length": 5
+              },
+              {
+                "cell": "C35",
+                "hash": "8e8a6f6d991bca51",
+                "length": 910
+              },
+              {
+                "cell": "G39",
+                "hash": "f645348a3f6c91c3",
+                "length": 212
+              },
+              {
+                "cell": "E40",
+                "hash": "b114fe4898702cc6",
+                "length": 3
+              },
+              {
+                "cell": "G40",
+                "hash": "60409378e56f609b",
+                "length": 89
+              },
+              {
+                "cell": "E41",
+                "hash": "e8f8ffdb3d0f7891",
+                "length": 5
+              },
+              {
+                "cell": "G41",
+                "hash": "900d3f16bfa08d24",
+                "length": 105
+              },
+              {
+                "cell": "E42",
+                "hash": "2e63df8bc45f1919",
+                "length": 2778
+              },
+              {
+                "cell": "G51",
+                "hash": "13bb85942a77f950",
+                "length": 100
+              },
+              {
+                "cell": "E52",
+                "hash": "f3f46a2e3e09aa01",
+                "length": 13
+              },
+              {
+                "cell": "F53",
+                "hash": "98f54b2336f57b5a",
+                "length": 13
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet14.xml",
+            "sheet_name": "Tax",
+            "formula_count": 365,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "61f7aea552ac2241",
+                "length": 27
+              },
+              {
+                "cell": "E2",
+                "hash": "fe26a8ef6d032aa8",
+                "length": 39
+              },
+              {
+                "cell": "E3",
+                "hash": "de4b3e2e13c6726c",
+                "length": 32
+              },
+              {
+                "cell": "F3",
+                "hash": "7849568088afbed9",
+                "length": 32
+              },
+              {
+                "cell": "G3",
+                "hash": "b189a930d82bd659",
+                "length": 32
+              },
+              {
+                "cell": "F4",
+                "hash": "8f757dc833650a9c",
+                "length": 32
+              },
+              {
+                "cell": "G4",
+                "hash": "342f6c50fea258ec",
+                "length": 13
+              },
+              {
+                "cell": "E5",
+                "hash": "fecc87ad9bd9337d",
+                "length": 32
+              },
+              {
+                "cell": "F5",
+                "hash": "5108afcb0d3f5f21",
+                "length": 32
+              },
+              {
+                "cell": "G5",
+                "hash": "7f9ace632d0a4a00",
+                "length": 32
+              },
+              {
+                "cell": "F6",
+                "hash": "0645671b08e7cdef",
+                "length": 32
+              },
+              {
+                "cell": "G6",
+                "hash": "c529a8d2a7197b24",
+                "length": 13
+              },
+              {
+                "cell": "E7",
+                "hash": "e57139afeec55090",
+                "length": 32
+              },
+              {
+                "cell": "F7",
+                "hash": "93a455d218b01ed8",
+                "length": 32
+              },
+              {
+                "cell": "G7",
+                "hash": "1c92cff351f83f8a",
+                "length": 32
+              },
+              {
+                "cell": "F8",
+                "hash": "f8a89fe8f508c92a",
+                "length": 32
+              },
+              {
+                "cell": "G8",
+                "hash": "866e4d681fe7cf89",
+                "length": 51
+              },
+              {
+                "cell": "E9",
+                "hash": "c561980ec198f474",
+                "length": 32
+              },
+              {
+                "cell": "F9",
+                "hash": "2fafee0a48bddbbf",
+                "length": 32
+              },
+              {
+                "cell": "G9",
+                "hash": "259a44663a35ca80",
+                "length": 35
+              },
+              {
+                "cell": "F10",
+                "hash": "01964420e6c0705a",
+                "length": 35
+              },
+              {
+                "cell": "G10",
+                "hash": "960fc145852f5486",
+                "length": 67
+              },
+              {
+                "cell": "E11",
+                "hash": "7425b31d82af5646",
+                "length": 35
+              },
+              {
+                "cell": "F11",
+                "hash": "0bae3bbb6e269c1c",
+                "length": 35
+              },
+              {
+                "cell": "G11",
+                "hash": "adcfd07e16cf557c",
+                "length": 35
+              },
+              {
+                "cell": "F12",
+                "hash": "f61d1541452ced3a",
+                "length": 35
+              },
+              {
+                "cell": "G12",
+                "hash": "c4bcb1670876deef",
+                "length": 23
+              },
+              {
+                "cell": "E13",
+                "hash": "b155d53f780dce4b",
+                "length": 35
+              },
+              {
+                "cell": "F13",
+                "hash": "714cfeed06410615",
+                "length": 35
+              },
+              {
+                "cell": "G13",
+                "hash": "e5ea42c6a3a78c2e",
+                "length": 11
+              },
+              {
+                "cell": "F14",
+                "hash": "64894260890ce6dc",
+                "length": 11
+              },
+              {
+                "cell": "G14",
+                "hash": "51ef4566c3e086bc",
+                "length": 3
+              },
+              {
+                "cell": "K14",
+                "hash": "5e9c3247233de653",
+                "length": 29
+              },
+              {
+                "cell": "F15",
+                "hash": "de72a9206d9dff6a",
+                "length": 39
+              },
+              {
+                "cell": "G17",
+                "hash": "a0638fdefac20e62",
+                "length": 70
+              },
+              {
+                "cell": "H17",
+                "hash": "3655b6f59125ef9b",
+                "length": 82
+              },
+              {
+                "cell": "I17",
+                "hash": "b7e85cff9d204539",
+                "length": 98
+              },
+              {
+                "cell": "J17",
+                "hash": "fb24e58de69b8d2d",
+                "length": 116
+              },
+              {
+                "cell": "K17",
+                "hash": "859ca0906b2b8ce5",
+                "length": 66
+              },
+              {
+                "cell": "B18",
+                "hash": "22f8bf85e9710f46",
+                "length": 22
+              },
+              {
+                "cell": "E18",
+                "hash": "7a7b7e9331bd508f",
+                "length": 20
+              },
+              {
+                "cell": "F18",
+                "hash": "6a010c83c389dd13",
+                "length": 101
+              },
+              {
+                "cell": "G18",
+                "hash": "842f9ec89f3c0152",
+                "length": 101
+              },
+              {
+                "cell": "H18",
+                "hash": "68ca5764a3d2c996",
+                "length": 101
+              },
+              {
+                "cell": "I18",
+                "hash": "29d8e3450a9fd509",
+                "length": 101
+              },
+              {
+                "cell": "J18",
+                "hash": "de758ce724088dbf",
+                "length": 101
+              },
+              {
+                "cell": "K18",
+                "hash": "66a539e3e3657bd3",
+                "length": 66
+              },
+              {
+                "cell": "B19",
+                "hash": "1a207a915b404ecd",
+                "length": 22
+              },
+              {
+                "cell": "E19",
+                "hash": "d5605021d63fc780",
+                "length": 150
+              },
+              {
+                "cell": "G19",
+                "hash": "c3870dded912154b",
+                "length": 103
+              },
+              {
+                "cell": "H19",
+                "hash": "1891b693fdc32d82",
+                "length": 103
+              },
+              {
+                "cell": "I19",
+                "hash": "634a052b50a2a68a",
+                "length": 103
+              },
+              {
+                "cell": "J19",
+                "hash": "5bef1858a00cd148",
+                "length": 103
+              },
+              {
+                "cell": "K19",
+                "hash": "04ea59d2d673eabf",
+                "length": 66
+              },
+              {
+                "cell": "B20",
+                "hash": "2244f1cf043a7ab6",
+                "length": 22
+              },
+              {
+                "cell": "E20",
+                "hash": "913e4d45daed5dad",
+                "length": 150
+              },
+              {
+                "cell": "G20",
+                "hash": "1cfa330a886d8133",
+                "length": 103
+              },
+              {
+                "cell": "H20",
+                "hash": "b9258cbe08304665",
+                "length": 103
+              },
+              {
+                "cell": "I20",
+                "hash": "332b0894a4fdc786",
+                "length": 103
+              },
+              {
+                "cell": "J20",
+                "hash": "e3cb395bcff31a49",
+                "length": 103
+              },
+              {
+                "cell": "K20",
+                "hash": "538c5b721174ffaf",
+                "length": 66
+              },
+              {
+                "cell": "B21",
+                "hash": "daf64fc2364daa49",
+                "length": 22
+              },
+              {
+                "cell": "E21",
+                "hash": "b427f167d2bf8d29",
+                "length": 150
+              },
+              {
+                "cell": "G21",
+                "hash": "c08aa8df1544c8a7",
+                "length": 103
+              },
+              {
+                "cell": "H21",
+                "hash": "f51a6c9e7b1ee539",
+                "length": 103
+              },
+              {
+                "cell": "I21",
+                "hash": "0a3ff313a0bc5065",
+                "length": 103
+              },
+              {
+                "cell": "J21",
+                "hash": "db7714e793b154f8",
+                "length": 103
+              },
+              {
+                "cell": "K21",
+                "hash": "568623849129e8a1",
+                "length": 66
+              },
+              {
+                "cell": "B22",
+                "hash": "be39f98c0d5979f7",
+                "length": 22
+              },
+              {
+                "cell": "E22",
+                "hash": "45ad5d9db0839d67",
+                "length": 150
+              },
+              {
+                "cell": "G22",
+                "hash": "a586094f0b44660c",
+                "length": 103
+              },
+              {
+                "cell": "H22",
+                "hash": "7e00af50e217a780",
+                "length": 103
+              },
+              {
+                "cell": "I22",
+                "hash": "85c87cbd6ac2598b",
+                "length": 103
+              },
+              {
+                "cell": "J22",
+                "hash": "2facbc1b81faf0d4",
+                "length": 103
+              },
+              {
+                "cell": "K22",
+                "hash": "e84068c223adf93e",
+                "length": 66
+              },
+              {
+                "cell": "B23",
+                "hash": "68cfa8bab356e5e7",
+                "length": 22
+              },
+              {
+                "cell": "E23",
+                "hash": "e69711330f67407b",
+                "length": 150
+              },
+              {
+                "cell": "G23",
+                "hash": "dc0ea0a5541f5d2f",
+                "length": 103
+              },
+              {
+                "cell": "H23",
+                "hash": "ea307bfe92b77c2e",
+                "length": 103
+              },
+              {
+                "cell": "I23",
+                "hash": "0344e25cfffebc9d",
+                "length": 103
+              }
+            ]
+          },
+          {
+            "sheet_entry": "xl/worksheets/sheet15.xml",
+            "sheet_name": "TaxAB",
+            "formula_count": 365,
+            "formula_cells": [
+              {
+                "cell": "A1",
+                "hash": "61f7aea552ac2241",
+                "length": 27
+              },
+              {
+                "cell": "E2",
+                "hash": "fe26a8ef6d032aa8",
+                "length": 39
+              },
+              {
+                "cell": "E3",
+                "hash": "de4b3e2e13c6726c",
+                "length": 32
+              },
+              {
+                "cell": "F3",
+                "hash": "7849568088afbed9",
+                "length": 32
+              },
+              {
+                "cell": "G3",
+                "hash": "b189a930d82bd659",
+                "length": 32
+              },
+              {
+                "cell": "F4",
+                "hash": "8f757dc833650a9c",
+                "length": 32
+              },
+              {
+                "cell": "G4",
+                "hash": "342f6c50fea258ec",
+                "length": 13
+              },
+              {
+                "cell": "E5",
+                "hash": "fecc87ad9bd9337d",
+                "length": 32
+              },
+              {
+                "cell": "F5",
+                "hash": "5108afcb0d3f5f21",
+                "length": 32
+              },
+              {
+                "cell": "G5",
+                "hash": "7f9ace632d0a4a00",
+                "length": 32
+              },
+              {
+                "cell": "F6",
+                "hash": "0645671b08e7cdef",
+                "length": 32
+              },
+              {
+                "cell": "G6",
+                "hash": "c529a8d2a7197b24",
+                "length": 13
+              },
+              {
+                "cell": "E7",
+                "hash": "e57139afeec55090",
+                "length": 32
+              },
+              {
+                "cell": "F7",
+                "hash": "93a455d218b01ed8",
+                "length": 32
+              },
+              {
+                "cell": "G7",
+                "hash": "1c92cff351f83f8a",
+                "length": 32
+              },
+              {
+                "cell": "F8",
+                "hash": "f8a89fe8f508c92a",
+                "length": 32
+              },
+              {
+                "cell": "G8",
+                "hash": "866e4d681fe7cf89",
+                "length": 51
+              },
+              {
+                "cell": "E9",
+                "hash": "c561980ec198f474",
+                "length": 32
+              },
+              {
+                "cell": "F9",
+                "hash": "2fafee0a48bddbbf",
+                "length": 32
+              },
+              {
+                "cell": "G9",
+                "hash": "259a44663a35ca80",
+                "length": 35
+              },
+              {
+                "cell": "F10",
+                "hash": "01964420e6c0705a",
+                "length": 35
+              },
+              {
+                "cell": "G10",
+                "hash": "960fc145852f5486",
+                "length": 67
+              },
+              {
+                "cell": "E11",
+                "hash": "7425b31d82af5646",
+                "length": 35
+              },
+              {
+                "cell": "F11",
+                "hash": "0bae3bbb6e269c1c",
+                "length": 35
+              },
+              {
+                "cell": "G11",
+                "hash": "adcfd07e16cf557c",
+                "length": 35
+              },
+              {
+                "cell": "F12",
+                "hash": "f61d1541452ced3a",
+                "length": 35
+              },
+              {
+                "cell": "G12",
+                "hash": "c4bcb1670876deef",
+                "length": 23
+              },
+              {
+                "cell": "E13",
+                "hash": "b155d53f780dce4b",
+                "length": 35
+              },
+              {
+                "cell": "F13",
+                "hash": "714cfeed06410615",
+                "length": 35
+              },
+              {
+                "cell": "G13",
+                "hash": "e5ea42c6a3a78c2e",
+                "length": 11
+              },
+              {
+                "cell": "F14",
+                "hash": "64894260890ce6dc",
+                "length": 11
+              },
+              {
+                "cell": "G14",
+                "hash": "51ef4566c3e086bc",
+                "length": 3
+              },
+              {
+                "cell": "K14",
+                "hash": "5e9c3247233de653",
+                "length": 29
+              },
+              {
+                "cell": "F15",
+                "hash": "de72a9206d9dff6a",
+                "length": 39
+              },
+              {
+                "cell": "G17",
+                "hash": "a0638fdefac20e62",
+                "length": 70
+              },
+              {
+                "cell": "H17",
+                "hash": "3655b6f59125ef9b",
+                "length": 82
+              },
+              {
+                "cell": "I17",
+                "hash": "b7e85cff9d204539",
+                "length": 98
+              },
+              {
+                "cell": "J17",
+                "hash": "fb24e58de69b8d2d",
+                "length": 116
+              },
+              {
+                "cell": "K17",
+                "hash": "859ca0906b2b8ce5",
+                "length": 66
+              },
+              {
+                "cell": "B18",
+                "hash": "22f8bf85e9710f46",
+                "length": 22
+              },
+              {
+                "cell": "E18",
+                "hash": "7a7b7e9331bd508f",
+                "length": 20
+              },
+              {
+                "cell": "F18",
+                "hash": "6a010c83c389dd13",
+                "length": 101
+              },
+              {
+                "cell": "G18",
+                "hash": "842f9ec89f3c0152",
+                "length": 101
+              },
+              {
+                "cell": "H18",
+                "hash": "68ca5764a3d2c996",
+                "length": 101
+              },
+              {
+                "cell": "I18",
+                "hash": "29d8e3450a9fd509",
+                "length": 101
+              },
+              {
+                "cell": "J18",
+                "hash": "de758ce724088dbf",
+                "length": 101
+              },
+              {
+                "cell": "K18",
+                "hash": "66a539e3e3657bd3",
+                "length": 66
+              },
+              {
+                "cell": "B19",
+                "hash": "1a207a915b404ecd",
+                "length": 22
+              },
+              {
+                "cell": "E19",
+                "hash": "d5605021d63fc780",
+                "length": 150
+              },
+              {
+                "cell": "G19",
+                "hash": "c3870dded912154b",
+                "length": 103
+              },
+              {
+                "cell": "H19",
+                "hash": "1891b693fdc32d82",
+                "length": 103
+              },
+              {
+                "cell": "I19",
+                "hash": "634a052b50a2a68a",
+                "length": 103
+              },
+              {
+                "cell": "J19",
+                "hash": "5bef1858a00cd148",
+                "length": 103
+              },
+              {
+                "cell": "K19",
+                "hash": "04ea59d2d673eabf",
+                "length": 66
+              },
+              {
+                "cell": "B20",
+                "hash": "2244f1cf043a7ab6",
+                "length": 22
+              },
+              {
+                "cell": "E20",
+                "hash": "913e4d45daed5dad",
+                "length": 150
+              },
+              {
+                "cell": "G20",
+                "hash": "1cfa330a886d8133",
+                "length": 103
+              },
+              {
+                "cell": "H20",
+                "hash": "b9258cbe08304665",
+                "length": 103
+              },
+              {
+                "cell": "I20",
+                "hash": "332b0894a4fdc786",
+                "length": 103
+              },
+              {
+                "cell": "J20",
+                "hash": "e3cb395bcff31a49",
+                "length": 103
+              },
+              {
+                "cell": "K20",
+                "hash": "538c5b721174ffaf",
+                "length": 66
+              },
+              {
+                "cell": "B21",
+                "hash": "daf64fc2364daa49",
+                "length": 22
+              },
+              {
+                "cell": "E21",
+                "hash": "b427f167d2bf8d29",
+                "length": 150
+              },
+              {
+                "cell": "G21",
+                "hash": "c08aa8df1544c8a7",
+                "length": 103
+              },
+              {
+                "cell": "H21",
+                "hash": "f51a6c9e7b1ee539",
+                "length": 103
+              },
+              {
+                "cell": "I21",
+                "hash": "0a3ff313a0bc5065",
+                "length": 103
+              },
+              {
+                "cell": "J21",
+                "hash": "db7714e793b154f8",
+                "length": 103
+              },
+              {
+                "cell": "K21",
+                "hash": "568623849129e8a1",
+                "length": 66
+              },
+              {
+                "cell": "B22",
+                "hash": "be39f98c0d5979f7",
+                "length": 22
+              },
+              {
+                "cell": "E22",
+                "hash": "45ad5d9db0839d67",
+                "length": 150
+              },
+              {
+                "cell": "G22",
+                "hash": "a586094f0b44660c",
+                "length": 103
+              },
+              {
+                "cell": "H22",
+                "hash": "7e00af50e217a780",
+                "length": 103
+              },
+              {
+                "cell": "I22",
+                "hash": "85c87cbd6ac2598b",
+                "length": 103
+              },
+              {
+                "cell": "J22",
+                "hash": "2facbc1b81faf0d4",
+                "length": 103
+              },
+              {
+                "cell": "K22",
+                "hash": "e84068c223adf93e",
+                "length": 66
+              },
+              {
+                "cell": "B23",
+                "hash": "68cfa8bab356e5e7",
+                "length": 22
+              },
+              {
+                "cell": "E23",
+                "hash": "ec329766ed4f9e04",
+                "length": 151
+              },
+              {
+                "cell": "G23",
+                "hash": "dc0ea0a5541f5d2f",
+                "length": 103
+              },
+              {
+                "cell": "H23",
+                "hash": "ea307bfe92b77c2e",
+                "length": 103
+              },
+              {
+                "cell": "I23",
+                "hash": "0344e25cfffebc9d",
+                "length": 103
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "spousal_maintenance_calculator": {
+      "source_url": "https://www.superiorcourt.maricopa.gov/app/selfsuffcalc/",
+      "status": 200,
+      "current_api_detected": true,
+      "api_versions_detected": [
+        "1.18",
+        "2.6",
+        "current"
+      ],
+      "effective_dates_detected": [
+        "1/1/26"
+      ],
+      "candidate_input_count": 40,
+      "candidate_inputs": [
+        "Amount",
+        "AmountPrint",
+        "AmountPrintWholeLine",
+        "AmountSubjectToGuidelinesMessage",
+        "AmountType",
+        "AmountType1",
+        "CaseNumberPrint",
+        "CaseNumberPrintPage1",
+        "DateOfMarriage",
+        "DateOfMarriagePrint",
+        "DurationAwarded",
+        "DurationAwardedPrint",
+        "DurationPaidToParty",
+        "DurationType",
+        "IncomeDisparity",
+        "PaidToParty",
+        "PaidToParty1",
+        "PartyRequestingMaintenance",
+        "PartyRequestingMaintenancePrint",
+        "StepDown1Amount",
+        "StepDown1AmountPrint",
+        "StepDown1Duration",
+        "StepDown1DurationPrint",
+        "StepDown2Amount",
+        "StepDown2AmountPrint",
+        "StepDown2Duration",
+        "StepDown2DurationPrint",
+        "caseNumber",
+        "caseNumberPrint",
+        "footerSpanCaseNumber",
+        "petitionerActualIncome",
+        "petitionerActualIncomePrint",
+        "petitionerAttributedIncome",
+        "petitionerAttributedIncomePrint",
+        "respondentActualIncome",
+        "respondentActualIncomePrint",
+        "respondentAttributedIncome",
+        "respondentAttributedIncomePrint",
+        "selVersion",
+        "selVersionPrint"
+      ]
+    }
+  },
+  "next_steps": [
+    "Map child-support worksheet formulas to named calculation functions.",
+    "Create official-output regression fixtures before any public local result is enabled.",
+    "Map maintenance API request and response behavior for the current effective version.",
+    "Keep public local calculator results locked until reviewer approval is recorded."
+  ]
+}

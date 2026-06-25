@@ -1,0 +1,12 @@
+{
+  "release_tag": "mflg-live-20260620-202014-navigation-progressive-disclosure",
+  "asset_key": "mflg-live-20260620-202014-navigation-progressive-disclosure",
+  "current_deployments": {
+    "mflg-webflow-assets": "732b0a0d-026a-4b4e-9b6b-b45f76828302",
+    "mflg-public-website": "1423fab1-93c3-4688-aa57-998c932911e7"
+  },
+  "rollback_deployments": {
+    "mflg-webflow-assets": "115fca0c-bd1b-4ad9-ae0c-6a3d024c95c2",
+    "mflg-public-website": "8aec3dc0-f1a4-476a-a13a-dceb4101a9ba"
+  }
+}

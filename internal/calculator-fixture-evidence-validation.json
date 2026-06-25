@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0-calculator-fixture-evidence-validation",
+  "built_at": "2026-06-24T02:00:50.508Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "source_evidence_entry_version": "1.0.0-calculator-fixture-evidence-entry",
+  "source_evidence_status_version": "1.0.0-calculator-fixture-evidence-status",
+  "intended_input_path": "internal/calculator-fixture-evidence.json",
+  "intended_output_path": "internal/calculator-approved-fixtures.json",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal fixture evidence validation and approved-fixture promotion checkpoint for n8n and CRM OS only."
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Run after fixture evidence is entered and before approved fixtures are generated.",
+    "allowed_public_fetches": [
+      "/data/calculator-fixture-evidence-validation-status.json",
+      "/data/calculator-fixture-evidence-status.json",
+      "/data/calculator-approved-fixtures-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-fixture-evidence-validation.json",
+      "/internal/calculator-fixture-evidence.json",
+      "/internal/calculator-approved-fixtures.json",
+      "/internal/calculator-formula-map.json"
+    ],
+    "crm_os_fields": {
+      "calculator_fixture_evidence_validated": "data.calculator-fixture-evidence-validation-status.summary.validated_evidence_packets",
+      "calculator_fixture_evidence_pending_validation": "data.calculator-fixture-evidence-validation-status.summary.pending_evidence_validation",
+      "calculator_public_results_enabled": "data.calculator-fixture-evidence-validation-status.summary.public_results_enabled"
+    }
+  },
+  "validation_items": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "evidence_record_present": true,
+      "reviewer_metadata_complete": true,
+      "input_values_present": 8,
+      "required_input_values": 8,
+      "output_values_present": 18,
+      "required_output_values": 18,
+      "evidence_validated": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "evidence_record_present": true,
+      "reviewer_metadata_complete": true,
+      "input_values_present": 8,
+      "required_input_values": 8,
+      "output_values_present": 18,
+      "required_output_values": 18,
+      "evidence_validated": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "evidence_record_present": true,
+      "reviewer_metadata_complete": true,
+      "input_values_present": 8,
+      "required_input_values": 8,
+      "output_values_present": 18,
+      "required_output_values": 18,
+      "evidence_validated": true,
+      "public_values_exposed": false
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "evidence_record_present": true,
+      "reviewer_metadata_complete": true,
+      "input_values_present": 8,
+      "required_input_values": 8,
+      "output_values_present": 18,
+      "required_output_values": 18,
+      "evidence_validated": true,
+      "public_values_exposed": false
+    }
+  ],
+  "promotion_policy": {
+    "can_generate_approved_fixtures": true,
+    "public_results_enabled": false,
+    "final_reviewer_approval_required": true
+  }
+}

@@ -1,0 +1,3 @@
+# Cloudflare Pages redirect rules intentionally left empty.
+# Private/generated paths and legacy asset URLs are blocked by _worker.js
+# with real 404 responses. Public routes have static index.html entries.

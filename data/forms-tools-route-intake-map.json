@@ -1,0 +1,1048 @@
+{
+  "version": "1.0.0-forms-tools-route-intake-map",
+  "built_at": "2026-06-24T02:00:54.717Z",
+  "source_manifests": [
+    "data/form-route-actions.json",
+    "data/forms-tools-coverage.json",
+    "data/source-health-public.json",
+    "data/forms-tools-intake-readiness.json"
+  ],
+  "public_safety": {
+    "contains_sensitive_user_data": false,
+    "safe_route_metadata_only": true,
+    "exact_route_intake_enabled": true,
+    "sensitive_public_collection_enabled": false,
+    "formula_logic_enabled_on_site": false,
+    "direct_cached_downloads_enabled": false,
+    "official_source_urls_only": true,
+    "raw_hashes_exposed": false,
+    "raw_etags_exposed": false
+  },
+  "summary": {
+    "reviewed_route_starts": 27,
+    "routes_with_packet_pages": 20,
+    "routes_with_approved_pdfs": 20,
+    "official_packet_page_actions": 20,
+    "approved_pdf_actions": 85,
+    "official_sources_ok": 38,
+    "official_sources_checked": 38,
+    "safe_start_options": 6,
+    "direct_cached_downloads_enabled": false,
+    "sensitive_public_collection_enabled": false
+  },
+  "routes": [
+    {
+      "route_start_id": "route-start-azcourts-limited-scope-representation",
+      "packet_id": "azcourts-limited-scope-representation",
+      "packet_label": "Arizona limited scope representation",
+      "route": {
+        "county": "Statewide",
+        "issue": "limited scope representation",
+        "posture": "Representation",
+        "children": "any"
+      },
+      "route_label": "Statewide / limited scope representation / Representation / any",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
+      "primary_official_packet_page_label": "Limited Scope Representation",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Limited Scope Representation (English)",
+          "language": "English",
+          "official_pdf_url": "https://www.azcourts.gov/Portals/0/34/1LimitedScopeRepresentationPacket.pdf?ver=2019-09-16-083706-363"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Statewide",
+        "formIssue": "limited scope representation",
+        "formPosture": "Representation",
+        "formChildren": "any",
+        "approvedPdfPacket": "Arizona limited scope representation",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-cochise-notice-of-intent-to-relocate",
+      "packet_id": "cochise-notice-of-intent-to-relocate",
+      "packet_label": "Cochise notice of intent to relocate",
+      "route": {
+        "county": "Cochise",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "route_label": "Cochise / relocation / Notice of intent to relocate / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://www.cochise.az.gov/DocumentCenter/View/20626/Notice-of-Intent-to-Relocate-Minor-Child-PDF",
+      "primary_official_packet_page_label": "Notice of Intent to Relocate (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Notice of Intent to Relocate (English)",
+          "language": "English",
+          "official_pdf_url": "https://www.cochise.az.gov/DocumentCenter/View/20626/Notice-of-Intent-to-Relocate-Minor-Child-PDF"
+        },
+        {
+          "display_label": "Notice of Intent to Relocate (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://www.cochise.az.gov/DocumentCenter/View/20627/Notice-of-Intent-to-Relocate-Minor-Child---Spanish-PDF"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Cochise",
+        "formIssue": "relocation",
+        "formPosture": "Notice of intent to relocate",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Cochise notice of intent to relocate",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-adult-adoption",
+      "packet_id": "maricopa-adult-adoption",
+      "packet_label": "Maricopa adult adoption",
+      "route": {
+        "county": "Maricopa",
+        "issue": "adult adoption",
+        "posture": "New filing",
+        "children": "adult"
+      },
+      "route_label": "Maricopa / adult adoption / New filing / adult",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/prob_pbaa/",
+      "primary_official_packet_page_label": "Adult Adoption",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Adult Adoption (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/unyodcvo/pbaa1z.pdf"
+        },
+        {
+          "display_label": "Adult Adoption (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/vaqjo4pv/pbaa1sz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "adult adoption",
+        "formPosture": "New filing",
+        "formChildren": "adult",
+        "approvedPdfPacket": "Maricopa adult adoption",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-annulment-no-minor-children",
+      "packet_id": "maricopa-annulment-no-minor-children",
+      "packet_label": "Maricopa annulment - no minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "annulment",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "route_label": "Maricopa / annulment / New filing / no-minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_draa1/",
+      "primary_official_packet_page_label": "Marriage Annulment with No Minor Children",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Annulment Without Minor Children (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/lu0fzrip/draa1z.pdf"
+        },
+        {
+          "display_label": "Annulment Without Minor Children (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zd0gkjkx/draa1sz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "annulment",
+        "formPosture": "New filing",
+        "formChildren": "no-minor-children",
+        "approvedPdfPacket": "Maricopa annulment - no minor children",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-consent-decree-agreement",
+      "packet_id": "maricopa-consent-decree-agreement",
+      "packet_label": "Maricopa consent decree and agreement finalization",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "Finalizing agreement",
+        "children": "any"
+      },
+      "route_label": "Maricopa / divorce / Finalizing agreement / any",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 10,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/drscd/",
+      "primary_official_packet_page_label": "Summary Consent Decree Process (when there is full agreement on Divorce/Legal Separation)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Summary Consent Decree Packet Instructions (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/oqcd3aat/drdsc30pz.pdf"
+        },
+        {
+          "display_label": "Summary Consent Decree Packet Instructions (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/fgfkjrbn/drdsc30psz.pdf"
+        },
+        {
+          "display_label": "Summary Consent Decree Forms Packet (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/4trladzi/drdsc30p-f.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "divorce",
+        "formPosture": "Finalizing agreement",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa consent decree and agreement finalization",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-disclosure-and-hearing-readiness",
+      "packet_id": "maricopa-disclosure-and-hearing-readiness",
+      "packet_label": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+      "route": {
+        "county": "Maricopa",
+        "issue": "temporary orders / court readiness",
+        "posture": "Prepare for court",
+        "children": "any"
+      },
+      "route_label": "Maricopa / temporary orders / court readiness / Prepare for court / any",
+      "public_status": "Packet page available; PDF review pending",
+      "official_packet_pages": 1,
+      "approved_pdfs": 0,
+      "languages": [],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_5/",
+      "primary_official_packet_page_label": "Temporary Orders (Pre-Decree)",
+      "sample_approved_pdfs": [],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "temporary orders / court readiness",
+        "formPosture": "Prepare for court",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa disclosure, exhibit, and hearing-readiness resources",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-divorce-new-no-children",
+      "packet_id": "maricopa-divorce-new-no-children",
+      "packet_label": "Maricopa divorce or separation - new filing without minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "route_label": "Maricopa / divorce / New filing / no-minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 10,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_3/",
+      "primary_official_packet_page_label": "Divorce with No Minor Children",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Before You File: Divorce or Legal Separation Process (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf"
+        },
+        {
+          "display_label": "Before You File: Divorce or Legal Separation Process (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf"
+        },
+        {
+          "display_label": "Family Department Sensitive Data Cover Sheet (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "divorce",
+        "formPosture": "New filing",
+        "formChildren": "no-minor-children",
+        "approvedPdfPacket": "Maricopa divorce or separation - new filing without minor children",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-divorce-new-with-children",
+      "packet_id": "maricopa-divorce-new-with-children",
+      "packet_label": "Maricopa divorce or separation - new filing with minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "divorce",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / divorce / New filing / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 10,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_4/",
+      "primary_official_packet_page_label": "Divorce with Minor Children",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Before You File: Divorce or Legal Separation Process (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/rklbghv1/dv-lsprocess.pdf"
+        },
+        {
+          "display_label": "Before You File: Divorce or Legal Separation Process (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/in3pdt20/dv-lsprocesssp.pdf"
+        },
+        {
+          "display_label": "Family Department Sensitive Data Cover Sheet (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "divorce",
+        "formPosture": "New filing",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa divorce or separation - new filing with minor children",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-enforcement-existing-order",
+      "packet_id": "maricopa-enforcement-existing-order",
+      "packet_label": "Maricopa enforcement or contempt review for existing orders",
+      "route": {
+        "county": "Maricopa",
+        "issue": "enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      },
+      "route_label": "Maricopa / enforcement / Enforce existing order / any",
+      "public_status": "Packet page available; PDF review pending",
+      "official_packet_pages": 1,
+      "approved_pdfs": 0,
+      "languages": [],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_11/",
+      "primary_official_packet_page_label": "Enforce a Support Order",
+      "sample_approved_pdfs": [],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "enforcement",
+        "formPosture": "Enforce existing order",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa enforcement or contempt review for existing orders",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-foreign-custody-order",
+      "packet_id": "maricopa-foreign-custody-order",
+      "packet_label": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign custody / UCCJEA order",
+        "posture": "Register out-of-state custody order",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / foreign custody / UCCJEA order / Register out-of-state custody order / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 8,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfoc1/",
+      "primary_official_packet_page_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/pc2kxmjg/drfoc10pz.pdf"
+        },
+        {
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/yuug4pox/drfoc10psz.pdf"
+        },
+        {
+          "display_label": "Register a Foreign (Out of State) Court Order for Custody, Legal Decision Making, Parenting Time or Visitation (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/10ipdynd/drfoc12fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "foreign custody / UCCJEA order",
+        "formPosture": "Register out-of-state custody order",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa registration of foreign custody, legal decision-making, parenting time, or visitation order",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-foreign-order-hearing",
+      "packet_id": "maricopa-foreign-order-hearing",
+      "packet_label": "Maricopa hearing request for a registered foreign family-court order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign family-court order",
+        "posture": "Request hearing",
+        "children": "any"
+      },
+      "route_label": "Maricopa / foreign family-court order / Request hearing / any",
+      "public_status": "Packet page available; PDF review pending",
+      "official_packet_pages": 1,
+      "approved_pdfs": 0,
+      "languages": [],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfo3/",
+      "primary_official_packet_page_label": "Request a Hearing on a Registered Foreign (Out of State) Family Court Order",
+      "sample_approved_pdfs": [],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "foreign family-court order",
+        "formPosture": "Request hearing",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa hearing request for a registered foreign family-court order",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-foreign-support-order",
+      "packet_id": "maricopa-foreign-support-order",
+      "packet_label": "Maricopa registration of foreign family support order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "foreign support order",
+        "posture": "Register or enforce out-of-state order",
+        "children": "any"
+      },
+      "route_label": "Maricopa / foreign support order / Register or enforce out-of-state order / any",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 4,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drfos/",
+      "primary_official_packet_page_label": "Register a Foreign (Out of State) Family Support Order",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Register a Foreign (Out of State) Family Support Order (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/31gf0w30/drfos10pz.pdf"
+        },
+        {
+          "display_label": "Register a Foreign (Out of State) Family Support Order (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/namc20hn/drfos10psz.pdf"
+        },
+        {
+          "display_label": "Register a Foreign (Out of State) Family Support Order (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/i5xbe3er/drfos12fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "foreign support order",
+        "formPosture": "Register or enforce out-of-state order",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa registration of foreign family support order",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-grandparent-visitation",
+      "packet_id": "maricopa-grandparent-visitation",
+      "packet_label": "Maricopa grandparent visitation",
+      "route": {
+        "county": "Maricopa",
+        "issue": "grandparent visitation",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / grandparent visitation / New filing / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 2,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drgv1/",
+      "primary_official_packet_page_label": "Grandparent Visitation",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Grandparent Visitation (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/nsgbw0wj/drgv1z.pdf"
+        },
+        {
+          "display_label": "Grandparent Visitation (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/hmtfekyr/drgv1sz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "grandparent visitation",
+        "formPosture": "New filing",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa grandparent visitation",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-income-withholding-order",
+      "packet_id": "maricopa-income-withholding-order",
+      "packet_label": "Maricopa income withholding order forms",
+      "route": {
+        "county": "Maricopa",
+        "issue": "income withholding / support",
+        "posture": "Request or update withholding",
+        "children": "any"
+      },
+      "route_label": "Maricopa / income withholding / support / Request or update withholding / any",
+      "public_status": "Packet page available; PDF review pending",
+      "official_packet_pages": 1,
+      "approved_pdfs": 0,
+      "languages": [],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_19/",
+      "primary_official_packet_page_label": "Request an Income Withholding Order",
+      "sample_approved_pdfs": [],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "income withholding / support",
+        "formPosture": "Request or update withholding",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa income withholding order forms",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-modification-existing-order",
+      "packet_id": "maricopa-modification-existing-order",
+      "packet_label": "Maricopa modification of existing family-court orders",
+      "route": {
+        "county": "Maricopa",
+        "issue": "modification",
+        "posture": "Modify existing order",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / modification / Modify existing order / minor-children",
+      "public_status": "Packet page available; PDF review pending",
+      "official_packet_pages": 1,
+      "approved_pdfs": 0,
+      "languages": [],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_14/",
+      "primary_official_packet_page_label": "Modify Legal Decision-Making, Parenting Time and Child Support",
+      "sample_approved_pdfs": [],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "modification",
+        "formPosture": "Modify existing order",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa modification of existing family-court orders",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-name-address-update",
+      "packet_id": "maricopa-name-address-update",
+      "packet_label": "Maricopa court name or address update forms",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name or address update",
+        "posture": "Update court record",
+        "children": "any"
+      },
+      "route_label": "Maricopa / name or address update / Update court record / any",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 4,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_gn9/",
+      "primary_official_packet_page_label": "Update Name or Address with the Court",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Update Name or Address with the Court (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ymlhveok/pb13fz.pdf"
+        },
+        {
+          "display_label": "Update Name or Address with the Court (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/51abiqhc/pb13fsz.pdf"
+        },
+        {
+          "display_label": "Update Name or Address with the Court (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/22ifipjf/pb14fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "name or address update",
+        "formPosture": "Update court record",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa court name or address update forms",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-name-change-adult-no-minor-children",
+      "packet_id": "maricopa-name-change-adult-no-minor-children",
+      "packet_label": "Maricopa adult name change - no minor children",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "no-minor-children"
+      },
+      "route_label": "Maricopa / name change / New filing / no-minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/media/gowfskuf/cvnca1z.pdf",
+      "primary_official_packet_page_label": "Adult Name Change - No Minor Children (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Adult Name Change - No Minor Children (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/gowfskuf/cvnca1z.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "name change",
+        "formPosture": "New filing",
+        "formChildren": "no-minor-children",
+        "approvedPdfPacket": "Maricopa adult name change - no minor children",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-name-change-adult-with-minor-child",
+      "packet_id": "maricopa-name-change-adult-with-minor-child",
+      "packet_label": "Maricopa adult name change - adult has minor child",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / name change / New filing / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/media/wtflhqgz/cvncc1z.pdf",
+      "primary_official_packet_page_label": "Adult Name Change - Adult Has Minor Child (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Adult Name Change - Adult Has Minor Child (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/wtflhqgz/cvncc1z.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "name change",
+        "formPosture": "New filing",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa adult name change - adult has minor child",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-name-change-family",
+      "packet_id": "maricopa-name-change-family",
+      "packet_label": "Maricopa name change for a family",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / name change / New filing / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/media/amileztz/cvncf1z.pdf",
+      "primary_official_packet_page_label": "Family Name Change Packet (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Family Name Change Packet (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/amileztz/cvncf1z.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "name change",
+        "formPosture": "New filing",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa name change for a family",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-name-change-minor-child",
+      "packet_id": "maricopa-name-change-minor-child",
+      "packet_label": "Maricopa minor child name change",
+      "route": {
+        "county": "Maricopa",
+        "issue": "name change",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / name change / New filing / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/media/3yto52or/cvncm1z.pdf",
+      "primary_official_packet_page_label": "Minor Child Name Change (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Minor Child Name Change (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/3yto52or/cvncm1z.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "name change",
+        "formPosture": "New filing",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa minor child name change",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-out-of-state-custody-enforcement",
+      "packet_id": "maricopa-out-of-state-custody-enforcement",
+      "packet_label": "Maricopa enforcement of out-of-state physical custody order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "out-of-state custody enforcement",
+        "posture": "Enforce existing order",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / out-of-state custody enforcement / Enforce existing order / minor-children",
+      "public_status": "Packet page available; PDF review pending",
+      "official_packet_pages": 1,
+      "approved_pdfs": 0,
+      "languages": [],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_17/",
+      "primary_official_packet_page_label": "Enforce Out-of-State Physical Custody Order",
+      "sample_approved_pdfs": [],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "out-of-state custody enforcement",
+        "formPosture": "Enforce existing order",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa enforcement of out-of-state physical custody order",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-parenting-parentage-support",
+      "packet_id": "maricopa-parenting-parentage-support",
+      "packet_label": "Maricopa parenting, parentage, and child-support packets",
+      "route": {
+        "county": "Maricopa",
+        "issue": "paternity / parenting time / child support",
+        "posture": "New filing",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / paternity / parenting time / child support / New filing / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 10,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_6/",
+      "primary_official_packet_page_label": "Establish Paternity and Legal Decision-Making, Parenting Time and Child Support",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Before You File: Paternity, Parenting Time, and Child Support Process (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/my3bounx/pt-ldmprocess.pdf"
+        },
+        {
+          "display_label": "Before You File: Paternity, Parenting Time, and Child Support Process (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/cc4pm3ic/pt-ldmprocesssp.pdf"
+        },
+        {
+          "display_label": "Family Department Sensitive Data Cover Sheet (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/jxdbivfd/drds10fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "paternity / parenting time / child support",
+        "formPosture": "New filing",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa parenting, parentage, and child-support packets",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-post-decree-temporary-orders",
+      "packet_id": "maricopa-post-decree-temporary-orders",
+      "packet_label": "Maricopa post-decree temporary orders",
+      "route": {
+        "county": "Maricopa",
+        "issue": "post-decree temporary orders",
+        "posture": "Post-decree temporary relief",
+        "children": "minor-children"
+      },
+      "route_label": "Maricopa / post-decree temporary orders / Post-decree temporary relief / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 10,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_drmcn1/",
+      "primary_official_packet_page_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/ppkpczei/drmce11pz.pdf"
+        },
+        {
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (Spanish)",
+          "language": "Spanish",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/zpejrlwq/drmce11psz.pdf"
+        },
+        {
+          "display_label": "Temporary Orders (Post-Decree) for Legal Decision-Making and Parenting Time WITH Notice to the Other Party (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/heicfxcm/drosc14fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "post-decree temporary orders",
+        "formPosture": "Post-decree temporary relief",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Maricopa post-decree temporary orders",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-property-division-enforcement",
+      "packet_id": "maricopa-property-division-enforcement",
+      "packet_label": "Maricopa enforcement of property division order",
+      "route": {
+        "county": "Maricopa",
+        "issue": "property division enforcement",
+        "posture": "Enforce existing order",
+        "children": "any"
+      },
+      "route_label": "Maricopa / property division enforcement / Enforce existing order / any",
+      "public_status": "Packet page available; PDF review pending",
+      "official_packet_pages": 1,
+      "approved_pdfs": 0,
+      "languages": [],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/fc_group_12/",
+      "primary_official_packet_page_label": "Enforce Property Division Order",
+      "sample_approved_pdfs": [],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "property division enforcement",
+        "formPosture": "Enforce existing order",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa enforcement of property division order",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-maricopa-protective-order-resources",
+      "packet_id": "maricopa-protective-order-resources",
+      "packet_label": "Maricopa protective order resources",
+      "route": {
+        "county": "Maricopa",
+        "issue": "protective order / safety",
+        "posture": "Safety planning",
+        "children": "any"
+      },
+      "route_label": "Maricopa / protective order / safety / Safety planning / any",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 1,
+      "approved_pdfs": 4,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "primary_official_packet_page_url": "https://superiorcourt.maricopa.gov/llrc/protective-orders/",
+      "primary_official_packet_page_label": "Protective Orders",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Protective Orders (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/dnif03fz/lay-legal-english.pdf"
+        },
+        {
+          "display_label": "Protective Orders (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/c0djw0cz/lay-legal-spanish.pdf"
+        },
+        {
+          "display_label": "Protective Orders (English)",
+          "language": "English",
+          "official_pdf_url": "https://superiorcourt.maricopa.gov/media/iiyhvkpn/dvop30fz.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Maricopa",
+        "formIssue": "protective order / safety",
+        "formPosture": "Safety planning",
+        "formChildren": "any",
+        "approvedPdfPacket": "Maricopa protective order resources",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-pima-notice-of-intent-to-relocate",
+      "packet_id": "pima-notice-of-intent-to-relocate",
+      "packet_label": "Pima notice of intent to relocate",
+      "route": {
+        "county": "Pima",
+        "issue": "relocation",
+        "posture": "Notice of intent to relocate",
+        "children": "minor-children"
+      },
+      "route_label": "Pima / relocation / Notice of intent to relocate / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://www.sc.pima.gov/media/vkjby3n3/packet28_notice_of_intent_to_relocate.pdf",
+      "primary_official_packet_page_label": "Notice of Intent to Relocate (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Notice of Intent to Relocate (English)",
+          "language": "English",
+          "official_pdf_url": "https://www.sc.pima.gov/media/vkjby3n3/packet28_notice_of_intent_to_relocate.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Pima",
+        "formIssue": "relocation",
+        "formPosture": "Notice of intent to relocate",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Pima notice of intent to relocate",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    },
+    {
+      "route_start_id": "route-start-yavapai-relocation-modification-clarification",
+      "packet_id": "yavapai-relocation-modification-clarification",
+      "packet_label": "Yavapai petition for modification, relocation, and clarification",
+      "route": {
+        "county": "Yavapai",
+        "issue": "relocation",
+        "posture": "Modify / clarify",
+        "children": "minor-children"
+      },
+      "route_label": "Yavapai / relocation / Modify / clarify / minor-children",
+      "public_status": "Packet page and reviewed official PDFs available",
+      "official_packet_pages": 0,
+      "approved_pdfs": 1,
+      "languages": [
+        "English"
+      ],
+      "primary_official_packet_page_url": "https://courts.yavapaiaz.gov/files/sharedassets/courts/v/1/self-service-center/documents/drmcv11f.pdf",
+      "primary_official_packet_page_label": "Petition for Modification, Relocation, and Clarification (English)",
+      "sample_approved_pdfs": [
+        {
+          "display_label": "Petition for Modification, Relocation, and Clarification (English)",
+          "language": "English",
+          "official_pdf_url": "https://courts.yavapaiaz.gov/files/sharedassets/courts/v/1/self-service-center/documents/drmcv11f.pdf"
+        }
+      ],
+      "safe_intake_payload": {
+        "formCounty": "Yavapai",
+        "formIssue": "relocation",
+        "formPosture": "Modify / clarify",
+        "formChildren": "minor-children",
+        "approvedPdfPacket": "Yavapai petition for modification, relocation, and clarification",
+        "sourceType": "Official court source / reviewed route start"
+      }
+    }
+  ],
+  "public_message": "Each reviewed route can start Guided Intake with only county, issue, posture, children category, packet, and official-source metadata."
+}

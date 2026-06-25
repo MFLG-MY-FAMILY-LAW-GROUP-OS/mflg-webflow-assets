@@ -1,0 +1,19 @@
+{
+  "asset_key": "mflg-live-20260623-185532-form-reveal-priority",
+  "release_commit": "72cce7c12ceec8e0dc69868f40b52b0637e95c2b",
+  "deployed_source_commit": "429c19a",
+  "tag": "mflg-live-20260623-185532-form-reveal-priority",
+  "tag_object": "e9a8a5d051bc6aa40fdafd0a70a7144077bf01d9",
+  "public_js_sha256": "ee0f2b77ea2579add8aa41205cf0043fb2d45362362b8cac084c70c529ad0009",
+  "public_css_sha256": "cb2bbb9026c3a9f59e7af3e65dd6b87bd0c2de0527ada5f08b59bc88191044f0",
+  "cloudflare_deployments": {
+    "mflg_public_website": "76f0902c-4433-49db-8f69-056778b46bda",
+    "mflg_webflow_assets": "6266d8b0-6860-43fb-b355-aba1ebd3c01a"
+  },
+  "rollback_deployments": {
+    "mflg_public_website": "e16b0ae2-2d6a-4491-939a-c8c2d4716d31",
+    "mflg_webflow_assets": "ecbfe130-3433-47c4-a997-fa31c0d54373"
+  },
+  "live_url": "https://myfamilylawgroup.com",
+  "evidence_contact_sheet": "reports/live-form-reveal-priority-contact-sheet.html"
+}

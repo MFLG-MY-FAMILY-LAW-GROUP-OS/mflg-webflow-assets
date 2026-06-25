@@ -1,0 +1,508 @@
+{
+  "version": "1.0.0-calculator-regression-harness",
+  "built_at": "2026-06-24T02:00:28.272Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "source_formula_map_version": "1.0.0-calculator-formula-map",
+  "source_workbook_sha256": "7e875b07be83b6c17e4c8dd86c728ed87db0feab2bee11c7944366b195d58a1f",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_raw_formula_text": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": true,
+    "intended_use": "Internal official-output regression test planning only."
+  },
+  "required_inputs": [
+    {
+      "key": "parent_a_monthly_income",
+      "public_label": "Parent A monthly income",
+      "workbook_target_candidates": [
+        "Worksheet!J51",
+        "Worksheet!M51",
+        "Worksheet!P51",
+        "Worksheet!S51"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "parent_b_monthly_income",
+      "public_label": "Parent B monthly income",
+      "workbook_target_candidates": [
+        "Worksheet!J52",
+        "Worksheet!M52",
+        "Worksheet!P52",
+        "Worksheet!S52"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "children_count",
+      "public_label": "Number of children in this worksheet",
+      "workbook_target_candidates": [
+        "Worksheet!G64"
+      ],
+      "sensitive": false
+    },
+    {
+      "key": "parenting_plan_type",
+      "public_label": "Parenting plan type",
+      "workbook_target_candidates": [
+        "DefinedNames!B15"
+      ],
+      "sensitive": false
+    },
+    {
+      "key": "parenting_time_value",
+      "public_label": "Parenting time count or percentage",
+      "workbook_target_candidates": [
+        "Worksheet!K74",
+        "Worksheet!O74"
+      ],
+      "sensitive": false
+    },
+    {
+      "key": "medical_insurance_cost",
+      "public_label": "Monthly medical insurance cost for children",
+      "workbook_target_candidates": [
+        "Worksheet!U65",
+        "Worksheet!Y65"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "childcare_cost",
+      "public_label": "Monthly childcare cost",
+      "workbook_target_candidates": [
+        "Worksheet!U66",
+        "Worksheet!Y66"
+      ],
+      "sensitive": true
+    },
+    {
+      "key": "other_children_adjustment",
+      "public_label": "Adjustment for other children, if applicable",
+      "workbook_target_candidates": [
+        "Worksheet!G57",
+        "Worksheet!G58"
+      ],
+      "sensitive": true
+    }
+  ],
+  "required_outputs": [
+    {
+      "name": "AdjustedChildSupportIncomeA",
+      "target": "DefinedNames!$B$18",
+      "formula_hash": "3629ce32b4d5355e",
+      "dependencies": [
+        "ChildSupportIncomeA",
+        "U51",
+        "U54",
+        "U55",
+        "U56",
+        "U58"
+      ]
+    },
+    {
+      "name": "AdjustedChildSupportIncomeB",
+      "target": "DefinedNames!$B$19",
+      "formula_hash": "0c82e078611b7645",
+      "dependencies": [
+        "ChildSupportIncomeB",
+        "Y51",
+        "Y54",
+        "Y55",
+        "Y56",
+        "Y58"
+      ]
+    },
+    {
+      "name": "CombinedAdjustedChildSupportIncome",
+      "target": "DefinedNames!$B$20",
+      "formula_hash": "9388b7f5517b193b",
+      "dependencies": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB"
+      ]
+    },
+    {
+      "name": "BasicChildSupportObligation",
+      "target": "DefinedNames!$B$21",
+      "formula_hash": "303db47f1d1fb09e",
+      "dependencies": [
+        "Children",
+        "CombinedAdjustedChildSupportIncome",
+        "MinCAGI",
+        "Obligations",
+        "Ready"
+      ]
+    },
+    {
+      "name": "CombinedChildSupportObligation",
+      "target": "DefinedNames!$B$25",
+      "formula_hash": "146f1ea118a95450",
+      "dependencies": [
+        "BasicChildSupportObligation",
+        "BasicChildSupportObligationAdjustmentsA",
+        "BasicChildSupportObligationAdjustmentsB",
+        "OlderChildAdjustment",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ObligationPercentageA",
+      "target": "DefinedNames!$B$26",
+      "formula_hash": "50f8ff445190e7e6",
+      "dependencies": [
+        "AdjustedChildSupportIncomeA",
+        "CombinedAdjustedChildSupportIncome",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ObligationPercentageB",
+      "target": "DefinedNames!$B$27",
+      "formula_hash": "25623852a1f8e9de",
+      "dependencies": [
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ObligationShareA",
+      "target": "DefinedNames!$B$28",
+      "formula_hash": "f798a4f1002eaa5a",
+      "dependencies": [
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ObligationShareB",
+      "target": "DefinedNames!$B$29",
+      "formula_hash": "4314b4a6df1991ec",
+      "dependencies": [
+        "CombinedChildSupportObligation",
+        "ObligationPercentageB",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ParentingTimePercentage",
+      "target": "DefinedNames!$B$31",
+      "formula_hash": "e2ac85197f2c3044",
+      "dependencies": [
+        "A3",
+        "C14",
+        "O74",
+        "ParentingPlan",
+        "ParentingTime"
+      ]
+    },
+    {
+      "name": "ParentingTimeAdjustmentA",
+      "target": "DefinedNames!$B$32",
+      "formula_hash": "a85e21bfed49ea2f",
+      "dependencies": [
+        "BasicChildSupportObligation",
+        "OlderChildAdjustment",
+        "ParentingPlan",
+        "ParentingTimePercentage",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ParentingTimeAdjustmentB",
+      "target": "DefinedNames!$B$33",
+      "formula_hash": "e25e3a0da7011772",
+      "dependencies": [
+        "BasicChildSupportObligation",
+        "OlderChildAdjustment",
+        "ParentingPlan",
+        "ParentingTimePercentage",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ProportionateChildSupportObligationA",
+      "target": "DefinedNames!$B$34",
+      "formula_hash": "2a9d74c1a2f15beb",
+      "dependencies": [
+        "BasicChildSupportObligationAdjustmentsA",
+        "ObligationShareA",
+        "ParentingTimeAdjustmentA",
+        "Ready"
+      ]
+    },
+    {
+      "name": "ProportionateChildSupportObligationB",
+      "target": "DefinedNames!$B$35",
+      "formula_hash": "d54b5e8c425b021e",
+      "dependencies": [
+        "BasicChildSupportObligationAdjustmentsB",
+        "ObligationShareB",
+        "ParentingTimeAdjustmentB",
+        "Ready"
+      ]
+    },
+    {
+      "name": "SelfSupportReserveAdjustmentA",
+      "target": "DefinedNames!$B$41",
+      "formula_hash": "6484ffb5584fe0a5",
+      "dependencies": [
+        "L80",
+        "Obligor",
+        "ProportionateChildSupportObligationA",
+        "Ready",
+        "SelfSupportReserveTest"
+      ]
+    },
+    {
+      "name": "SelfSupportReserveAdjustmentB",
+      "target": "DefinedNames!$B$42",
+      "formula_hash": "f51c51a7b2933888",
+      "dependencies": [
+        "L80",
+        "Obligor",
+        "ProportionateChildSupportObligationB",
+        "Ready",
+        "SelfSupportReserveTest"
+      ]
+    },
+    {
+      "name": "FinalChildSupportObligationA",
+      "target": "DefinedNames!$B$45",
+      "formula_hash": "ee27555f23721623",
+      "dependencies": [
+        "ChildSupportObligationA",
+        "ChildSupportObligationB",
+        "County",
+        "D34",
+        "Ready"
+      ]
+    },
+    {
+      "name": "FinalChildSupportObligationB",
+      "target": "DefinedNames!$B$46",
+      "formula_hash": "e81114ba60fa4636",
+      "dependencies": [
+        "ChildSupportObligationA",
+        "ChildSupportObligationB",
+        "County",
+        "D34",
+        "Ready"
+      ]
+    }
+  ],
+  "scenario_templates": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "status": "needs_official_output",
+      "purpose": "Basic one-child worksheet path with both parents' monthly income and no special adjustments.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path where parenting-time adjustment changes the proportional obligation.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path that exercises the self-support reserve branch.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path that exercises other-children adjustment fields.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    }
+  ],
+  "approved_fixtures": [],
+  "pending_fixtures": [
+    {
+      "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
+      "status": "needs_official_output",
+      "purpose": "Basic one-child worksheet path with both parents' monthly income and no special adjustments.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    },
+    {
+      "fixture_id": "az-cs-review-002-parenting-time-adjustment",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path where parenting-time adjustment changes the proportional obligation.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    },
+    {
+      "fixture_id": "az-cs-review-003-self-support-reserve",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path that exercises the self-support reserve branch.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    },
+    {
+      "fixture_id": "az-cs-review-004-other-children-adjustment",
+      "status": "needs_official_output",
+      "purpose": "Worksheet path that exercises other-children adjustment fields.",
+      "required_official_outputs": [
+        "AdjustedChildSupportIncomeA",
+        "AdjustedChildSupportIncomeB",
+        "CombinedAdjustedChildSupportIncome",
+        "BasicChildSupportObligation",
+        "CombinedChildSupportObligation",
+        "ObligationPercentageA",
+        "ObligationPercentageB",
+        "ObligationShareA",
+        "ObligationShareB",
+        "ParentingTimePercentage",
+        "ParentingTimeAdjustmentA",
+        "ParentingTimeAdjustmentB",
+        "ProportionateChildSupportObligationA",
+        "ProportionateChildSupportObligationB",
+        "SelfSupportReserveAdjustmentA",
+        "SelfSupportReserveAdjustmentB",
+        "FinalChildSupportObligationA",
+        "FinalChildSupportObligationB"
+      ]
+    }
+  ],
+  "next_steps": [
+    "Enter official calculator outputs for each scenario template after reviewer confirmation.",
+    "Build local evaluator tests that compare MFLG engine outputs to official worksheet outputs.",
+    "Require zero material mismatches before enabling public MFLG child-support results.",
+    "Keep sensitive fixture values out of public data files."
+  ]
+}

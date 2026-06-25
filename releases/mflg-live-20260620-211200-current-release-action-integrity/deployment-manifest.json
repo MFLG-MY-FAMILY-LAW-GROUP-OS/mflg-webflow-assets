@@ -1,0 +1,18 @@
+{
+  "release": "mflg-live-20260620-211200-current-release-action-integrity",
+  "asset_key": "mflg-live-20260620-211200-current-release-action-integrity",
+  "release_commit": "63e9168e8d70a7f2d6b9ad3164e6915f1291ab8c",
+  "feature_commit": "eec00ea58293e7913e5660a83348d0e2b8e4fcc3",
+  "public_js_sha256": "20a8013ce8afed938831b12ed9e9a38b0262d1bb4557d4be915451d011c77d91",
+  "intentional_changes": [
+    "Practice Area lower forms shortcut relabeled to Review form path and demoted from primary to outline",
+    "DIY Guide lower forms shortcut relabeled to Review form path and demoted from primary to outline",
+    "Owner acceptance package regenerated from the current live asset key and hash",
+    "Cache key references updated for the successor release"
+  ],
+  "cloudflare_deployments": {
+    "mflg-webflow-assets": "0a01b7dc-bc0d-429e-af4e-762a7880af24",
+    "mflg-public-website": "dc9ba6f5-f4d3-4224-a55f-5ccc670aea0f"
+  }
+}
+

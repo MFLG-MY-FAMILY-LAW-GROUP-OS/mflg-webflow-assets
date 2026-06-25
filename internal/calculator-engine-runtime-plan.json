@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0-calculator-engine-runtime-plan",
+  "built_at": "2026-06-24T02:00:53.891Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "contains_internal_engine_outputs": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal runtime readiness and implementation plan for calculator release control."
+  },
+  "runtime_contract": {
+    "public_runtime_path": "js/mflg-calculator-engine.js",
+    "required_before_enablement": [
+      "Reviewed runtime bundle present.",
+      "Approved official-output fixtures complete.",
+      "Regression comparison results complete.",
+      "Zero material mismatches.",
+      "Final reviewer unlock approval recorded."
+    ],
+    "prohibited_before_enablement": [
+      "Do not expose workbook formulas.",
+      "Do not expose fixture values.",
+      "Do not calculate public support or maintenance outputs from unapproved formulas.",
+      "Do not mark public results enabled from status files alone."
+    ]
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Run after formula-map, fixture, and regression-comparison builds.",
+    "allowed_public_fetches": [
+      "/data/calculator-engine-runtime-status.json",
+      "/data/calculator-source-snapshot-status.json",
+      "/data/calculator-regression-evidence-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-engine-runtime-plan.json",
+      "/internal/calculator-formula-map.json",
+      "/internal/calculator-approved-fixtures.json",
+      "/internal/calculator-regression-comparison-results.json"
+    ],
+    "crm_os_fields": {
+      "calculator_runtime_ready": "data.calculator-engine-runtime-status.summary.runtime_ready",
+      "calculator_blocked_runtime_checks": "data.calculator-engine-runtime-status.summary.blocked_runtime_checks",
+      "calculator_local_formula_engine_enabled": "data.calculator-engine-runtime-status.summary.local_formula_engine_enabled",
+      "calculator_public_results_enabled": "data.calculator-engine-runtime-status.summary.public_results_enabled"
+    }
+  },
+  "runtime_checks": [
+    {
+      "key": "source_snapshot_ready",
+      "status": "pass",
+      "required_before_public_release": true
+    },
+    {
+      "key": "formula_map_ready",
+      "status": "pass",
+      "required_before_public_release": true
+    },
+    {
+      "key": "unsupported_functions_resolved",
+      "status": "pass",
+      "required_before_public_release": true
+    },
+    {
+      "key": "runtime_bundle_present",
+      "status": "pass",
+      "required_before_public_release": true
+    },
+    {
+      "key": "approved_fixtures_complete",
+      "status": "pass",
+      "required_before_public_release": true
+    },
+    {
+      "key": "regression_evidence_complete",
+      "status": "pass",
+      "required_before_public_release": true
+    },
+    {
+      "key": "comparisons_passed",
+      "status": "pass",
+      "required_before_public_release": true
+    }
+  ]
+}

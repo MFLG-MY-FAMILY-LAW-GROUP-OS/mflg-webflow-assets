@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0-calculator-public-unlock-decision",
+  "built_at": "2026-06-24T02:00:49.890Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "public_results_enabled": false,
+    "reviewer_approval_required": false,
+    "intended_use": "Internal calculator public-unlock gate decision only."
+  },
+  "summary": {
+    "gate_count": 9,
+    "passed_gates": 9,
+    "blocked_gates": 0,
+    "public_unlock_ready": true,
+    "public_results_enabled": false
+  },
+  "gates": [
+    {
+      "key": "official_sources_reachable",
+      "label": "Official sources reachable",
+      "status": "pass"
+    },
+    {
+      "key": "formula_map_ready",
+      "label": "Formula map ready",
+      "status": "pass"
+    },
+    {
+      "key": "regression_harness_ready",
+      "label": "Regression harness ready",
+      "status": "pass"
+    },
+    {
+      "key": "engine_scaffold_ready",
+      "label": "Engine scaffold ready",
+      "status": "pass"
+    },
+    {
+      "key": "fixture_template_ready",
+      "label": "Fixture template ready",
+      "status": "pass"
+    },
+    {
+      "key": "approved_fixtures_complete",
+      "label": "Approved fixtures complete",
+      "status": "pass"
+    },
+    {
+      "key": "fixture_qa_complete",
+      "label": "Fixture QA complete",
+      "status": "pass"
+    },
+    {
+      "key": "regression_comparisons_passed",
+      "label": "Regression comparisons passed",
+      "status": "pass"
+    },
+    {
+      "key": "reviewer_final_approval",
+      "label": "Reviewer final approval",
+      "status": "pass"
+    }
+  ],
+  "required_staff_actions": [
+    "Complete reviewer-approved official-output fixtures.",
+    "Run regression comparisons and resolve every material mismatch.",
+    "Record final reviewer approval before enabling any MFLG-branded calculator result.",
+    "Keep official Arizona calculators available as the public fallback until unlock is approved."
+  ]
+}

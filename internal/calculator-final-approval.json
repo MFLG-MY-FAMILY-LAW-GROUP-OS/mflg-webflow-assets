@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0-calculator-final-approval-internal",
+  "built_at": "2026-06-24T02:00:46.504Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "contains_internal_engine_outputs": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal final calculator approval record for release control only."
+  },
+  "approval_basis": {
+    "source": "generated_from_approved_official_fixture_and_regression_status",
+    "approved_by": "Jeremy James Jack JD, LP",
+    "approval_scope": "Release gate approval only; public result engine enablement remains a separate technical phase.",
+    "final_approval_recorded": true
+  },
+  "checks": [
+    {
+      "key": "approved_official_fixtures_complete",
+      "public_label": "Official test records complete",
+      "status": "pass"
+    },
+    {
+      "key": "fixture_quality_review_complete",
+      "public_label": "Test record review complete",
+      "status": "pass"
+    },
+    {
+      "key": "regression_comparisons_complete",
+      "public_label": "Comparison checks complete",
+      "status": "pass"
+    },
+    {
+      "key": "zero_material_mismatches",
+      "public_label": "Zero material mismatches",
+      "status": "pass"
+    }
+  ]
+}

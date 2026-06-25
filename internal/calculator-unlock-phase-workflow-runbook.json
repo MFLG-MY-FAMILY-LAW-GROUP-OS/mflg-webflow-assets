@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0-calculator-unlock-phase-workflow-runbook",
+  "built_at": "2026-06-24T02:00:50.393Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "contains_internal_engine_outputs": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal calculator unlock phase workflow for n8n and CRM OS only."
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Poll after approved fixture, fixture QA, regression comparison, and final reviewer approval updates.",
+    "allowed_public_fetches": [
+      "/data/calculator-unlock-phase-workflow.json",
+      "/data/calculator-approved-fixtures-status.json",
+      "/data/calculator-fixture-qa-status.json",
+      "/data/calculator-regression-comparison-status.json",
+      "/data/calculator-public-unlock-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-unlock-phase-workflow-runbook.json",
+      "/internal/calculator-approved-fixtures.json",
+      "/internal/calculator-regression-comparison-results.json",
+      "/internal/calculator-formula-map.json"
+    ],
+    "crm_os_fields": {
+      "calculator_unlock_phase_workflow_ready": "data.calculator-unlock-phase-workflow.summary.unlock_phase_workflow_ready",
+      "calculator_complete_unlock_phases": "data.calculator-unlock-phase-workflow.summary.complete_unlock_phases",
+      "calculator_blocked_unlock_phases": "data.calculator-unlock-phase-workflow.summary.blocked_unlock_phases",
+      "calculator_public_results_enabled": "data.calculator-unlock-phase-workflow.summary.public_results_enabled"
+    }
+  },
+  "phase_order": [
+    {
+      "key": "approved_official_fixtures",
+      "order": 1,
+      "status": "complete",
+      "blocks_public_results": false
+    },
+    {
+      "key": "fixture_quality_review",
+      "order": 2,
+      "status": "complete",
+      "blocks_public_results": false
+    },
+    {
+      "key": "regression_comparison",
+      "order": 3,
+      "status": "complete",
+      "blocks_public_results": false
+    },
+    {
+      "key": "final_reviewer_approval",
+      "order": 4,
+      "status": "complete",
+      "blocks_public_results": false
+    }
+  ],
+  "unlock_decision": {
+    "public_unlock_ready": true,
+    "promotion_allowed": true,
+    "public_results_enabled": false,
+    "final_reviewer_approval_required": true
+  }
+}

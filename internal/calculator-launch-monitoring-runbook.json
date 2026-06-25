@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0-calculator-launch-monitoring-runbook",
+  "built_at": "2026-06-24T02:00:50.224Z",
+  "public_exposure": "blocked by Worker /internal/ route",
+  "safety": {
+    "contains_sensitive_user_data": false,
+    "contains_real_fixture_values": false,
+    "contains_raw_formula_text": false,
+    "contains_internal_engine_outputs": false,
+    "public_results_enabled": false,
+    "intended_use": "Internal calculator launch monitoring runbook for n8n and CRM OS only."
+  },
+  "n8n_workflow_contract": {
+    "schedule": "Poll after each calculator release build and after each official-source monitoring run.",
+    "allowed_public_fetches": [
+      "/data/calculator-launch-monitoring.json",
+      "/data/calculator-launch-guardrails.json",
+      "/data/calculator-release-evidence-status.json",
+      "/data/calculator-operations-status.json"
+    ],
+    "do_not_fetch": [
+      "/internal/calculator-launch-monitoring-runbook.json",
+      "/internal/calculator-launch-guardrails-runbook.json",
+      "/internal/calculator-release-evidence-index.json",
+      "/internal/calculator-formula-map.json"
+    ],
+    "crm_os_fields": {
+      "calculator_launch_monitoring_ready": "data.calculator-launch-monitoring.summary.launch_monitoring_ready",
+      "calculator_attention_signals": "data.calculator-launch-monitoring.summary.attention_signals",
+      "calculator_official_fallback_available": "data.calculator-launch-monitoring.summary.official_fallback_available",
+      "calculator_public_results_enabled": "data.calculator-launch-monitoring.summary.public_results_enabled"
+    }
+  },
+  "rollback_triggers": [
+    "Public results enabled before final unlock.",
+    "Official fallback unavailable.",
+    "Release evidence or release packet becomes incomplete.",
+    "Any monitored signal changes to attention after launch."
+  ],
+  "monitored_signals": [
+    {
+      "key": "official_fallback",
+      "status": "healthy",
+      "public_results_enabled": false,
+      "route_to_review": false
+    },
+    {
+      "key": "public_results_lock",
+      "status": "healthy",
+      "public_results_enabled": false,
+      "route_to_review": false
+    },
+    {
+      "key": "release_packet",
+      "status": "healthy",
+      "public_results_enabled": false,
+      "route_to_review": false
+    },
+    {
+      "key": "release_evidence",
+      "status": "healthy",
+      "public_results_enabled": false,
+      "route_to_review": false
+    },
+    {
+      "key": "fallback_status",
+      "status": "healthy",
+      "public_results_enabled": false,
+      "route_to_review": false
+    }
+  ]
+}
