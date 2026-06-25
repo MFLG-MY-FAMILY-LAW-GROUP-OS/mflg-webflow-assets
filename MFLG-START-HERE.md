@@ -7,7 +7,7 @@ Release tag:
 `mflg-live-20260624-233508-hero-reveal-intelligence`
 
 Release commit:
-`undefined`
+`see release tag mflg-live-20260624-233508-hero-reveal-intelligence`
 
 Production asset key:
 `mflg-live-20260624-233508-hero-reveal-intelligence`
