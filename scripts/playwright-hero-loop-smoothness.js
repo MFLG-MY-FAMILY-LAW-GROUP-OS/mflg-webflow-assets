@@ -46,11 +46,10 @@ function assert(condition, message) {
       const previous = swap.videos.find((video) => video.layer === swap.from);
       return next &&
         previous &&
-        next.currentTime >= 0.65 &&
-        next.currentTime <= 1.05 &&
+        next.currentTime >= 0 &&
+        next.currentTime <= 0.3 &&
         next.readyState >= 2 &&
-        !next.paused &&
-        previous.currentTime >= 17.35 &&
+        previous.currentTime >= 16.85 &&
         previous.readyState >= 2;
     });
 

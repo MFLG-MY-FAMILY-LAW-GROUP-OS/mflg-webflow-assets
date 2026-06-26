@@ -475,11 +475,11 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="matched-cut video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-043601-hero-step-match">
-        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-step-match-1" type="video/mp4">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="matched-cut video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-044930-hero-trimmed-loop">
+        <source src="/assets/images/mflg-hero-adobestock-step-match.mp4?v=hero-trimmed-loop-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="matched-cut video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-043601-hero-step-match">
-        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-step-match-1" type="video/mp4">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="matched-cut video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-044930-hero-trimmed-loop">
+        <source src="/assets/images/mflg-hero-adobestock-step-match.mp4?v=hero-trimmed-loop-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
       <div class="hero-inner">
@@ -517,10 +517,9 @@
       if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
       return;
     }
-    const loopStart = 0.6;
-    const loopEnd = 17.6;
-    const preRollSeconds = 0.82;
-    const swapTrigger = loopEnd - preRollSeconds;
+    const loopStart = 0;
+    const loopEnd = 16.92;
+    const swapTrigger = loopEnd;
     let activeIndex = 0;
     let swapping = false;
     const setActive = (nextIndex) => {
@@ -541,15 +540,15 @@
         video.currentTime = loopStart;
       } catch (error) {}
     };
-    const waitForMatchedPreRoll = (video, startedAt, onReady) => {
+    const waitForLoopStartReady = (video, startedAt, onReady) => {
       const elapsed = (performance.now() - startedAt) / 1000;
       const decoded = video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA;
-      const matchedStart = video.currentTime >= loopStart + 0.08 && video.currentTime <= loopStart + 0.48;
-      if ((decoded && matchedStart) || elapsed >= preRollSeconds + 0.12) {
+      const atLoopStart = video.currentTime >= loopStart && video.currentTime <= loopStart + 0.12;
+      if ((decoded && atLoopStart) || elapsed >= 0.45) {
         onReady();
         return;
       }
-      requestAnimationFrame(() => waitForMatchedPreRoll(video, startedAt, onReady));
+      requestAnimationFrame(() => waitForLoopStartReady(video, startedAt, onReady));
     };
     videos.forEach((video) => {
       video.addEventListener("loadedmetadata", () => {
@@ -570,9 +569,9 @@
         const nextIndex = activeIndex === 0 ? 1 : 0;
         const next = videos[nextIndex];
         resetToLoopStart(next);
-        play(next);
-        waitForMatchedPreRoll(next, performance.now(), () => {
+        waitForLoopStartReady(next, performance.now(), () => {
           setActive(nextIndex);
+          play(next);
           window.setTimeout(() => {
             resetToLoopStart(active);
             swapping = false;
@@ -4473,7 +4472,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-043601-hero-step-match" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-044930-hero-trimmed-loop" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
