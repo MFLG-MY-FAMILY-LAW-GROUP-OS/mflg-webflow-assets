@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-operations-alert-rules",
-  "built_at": "2026-06-26T11:44:31.856Z",
+  "built_at": "2026-06-26T11:51:55.815Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

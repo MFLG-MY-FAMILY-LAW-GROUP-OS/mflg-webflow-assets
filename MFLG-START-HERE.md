@@ -25,13 +25,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Cloudflare
 
-- Current `mflg-public-website` deployment: `af87feaf-cfdf-43e0-a4f9-79b2c9caf522`
-- Current `mflg-webflow-assets` deployment: `3a89f0b7-c45f-407d-b197-6a62212e03f1`
-- Rollback `mflg-public-website` deployment: `ec14564a-4f20-4ac9-ab80-2ced1a42e787`
-- Rollback `mflg-webflow-assets` deployment: `2c9a9491-9c66-4927-a85c-df314632de2e`
+- Current `mflg-public-website` deployment: `582080d1-4250-4edb-bde2-82a38c86aeb6`
+- Current `mflg-webflow-assets` deployment: `fd3d1ffd-bb33-4af0-b259-e6e8d1f4cf0a`
+- Rollback `mflg-public-website` deployment: `af87feaf-cfdf-43e0-a4f9-79b2c9caf522`
+- Rollback `mflg-webflow-assets` deployment: `3a89f0b7-c45f-407d-b197-6a62212e03f1`
 - Prior rollback `mflg-public-website` deployment: `76f0902c-4433-49db-8f69-056778b46bda`
 - Prior rollback `mflg-webflow-assets` deployment: `6266d8b0-6860-43fb-b355-aba1ebd3c01a`
-- Source-label status: the prior live deployment was reported as `main / 778f63e` while the verified prior release tag peeled to `95ac303ffa561636c76ce1e549934cd18ec86552`. The new Cloudflare production deployments show `main / 15d1ed3`, created from the clean durable checkout above.
+- Source-label status: the prior live deployment was reported as `main / 778f63e` while the verified prior release tag peeled to `95ac303ffa561636c76ce1e549934cd18ec86552`. The new Cloudflare production deployments show `main / dc8b3d3`, created from the clean durable checkout above.
 
 ## GitHub
 

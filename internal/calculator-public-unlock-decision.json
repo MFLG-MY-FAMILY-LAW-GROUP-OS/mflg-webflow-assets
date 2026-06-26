@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-public-unlock-decision",
-  "built_at": "2026-06-26T11:44:31.739Z",
+  "built_at": "2026-06-26T11:51:55.696Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,
