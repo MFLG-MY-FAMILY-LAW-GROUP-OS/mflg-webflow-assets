@@ -27,9 +27,14 @@ async function pageState(page) {
     activeCalc: document.body.classList.contains("forms-active-need-calculator"),
     activeDeadline: document.body.classList.contains("forms-active-need-deadline"),
     action: document.querySelector("[data-guided-result-action]")?.textContent?.trim(),
+    actionDisabled: document.querySelector("[data-guided-result-action]")?.disabled || false,
     progressLabel: document.querySelector("[data-guided-progress-label]")?.textContent?.trim() || "",
     guidedCopy: document.querySelector("[data-guided-copy]")?.textContent?.trim() || "",
     resultCopy: document.querySelector("[data-guided-result-copy]")?.textContent?.trim() || "",
+    resultTier: document.querySelector("[data-guided-result-tier]")?.textContent?.replace(/\s+/g, " ").trim() || "",
+    resultReason: document.querySelector("[data-guided-reason]")?.textContent?.replace(/\s+/g, " ").trim() || "",
+    stepRail: Array.from(document.querySelectorAll("[data-guided-jump]")).map((button) => button.textContent.replace(/\s+/g, " ").trim()),
+    summaryChips: Array.from(document.querySelectorAll("[data-guided-summary] span")).map((chip) => chip.textContent.trim()),
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
     exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
     sameSiteOfficialPdfActions: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview]"))
@@ -68,6 +73,12 @@ async function pageState(page) {
       assert(initial.sameSiteOfficialPdfActions.length === 0, `${viewport.name}: same-site PDF actions should not render before forms are shown`);
       assert(initial.publicExternalHrefs.length === 0, `${viewport.name}: page should not render external public hrefs: ${initial.publicExternalHrefs.join(", ")}`);
       assert(initial.legalHelpCount === 0, `${viewport.name}: legal-term help should not render`);
+      assert(initial.action === "Choose one answer above", `${viewport.name}: initial CTA should point to the current question, got ${initial.action}`);
+      assert(initial.actionDisabled, `${viewport.name}: initial CTA should not skip unanswered questions`);
+      assert(initial.summaryChips.length === 0, `${viewport.name}: initial summary should not show default answers: ${initial.summaryChips.join(", ")}`);
+      assert(/Need|County|Stage|Issue|Children/i.test(initial.stepRail.join(" ")), `${viewport.name}: step rail labels should be visible: ${initial.stepRail.join(", ")}`);
+      assert(/One primary path/i.test(initial.resultTier), `${viewport.name}: initial result tier should explain primary path, got ${initial.resultTier}`);
+      assert(/No form result is selected/i.test(initial.resultReason), `${viewport.name}: initial reason should not imply a default result, got ${initial.resultReason}`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
       await page.click('[data-guided-answer="forms"]');
@@ -80,6 +91,10 @@ async function pageState(page) {
       assert(!forms.packetsHidden, `${viewport.name}: packets should reveal after forms path`);
       assert(forms.calculatorHidden, `${viewport.name}: calculator should remain hidden on forms path`);
       assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
+      assert(!forms.actionDisabled, `${viewport.name}: matched forms CTA should be enabled`);
+      assert(/Recommended form path/i.test(forms.resultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.resultTier}`);
+      assert(/because/i.test(forms.resultReason) && /Maricopa County/i.test(forms.resultReason), `${viewport.name}: forms result should explain why it appeared, got ${forms.resultReason}`);
+      assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);
       assert(forms.exposedSourceAttributes.length === 0, `${viewport.name}: forms path should not expose raw source URL attributes`);
       assert(forms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: forms path should render same-site official PDF actions`);

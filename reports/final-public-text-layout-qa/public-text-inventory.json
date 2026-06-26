@@ -6482,6 +6482,106 @@
   {
     "route": "/forms/",
     "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "1",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Need",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "2",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "County",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "3",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Stage",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "4",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Issue",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "5",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
     "component": "div.forms-guided-question",
     "state": "initial",
     "visibleText": "What do you need right now",
@@ -6564,7 +6664,7 @@
     "viewport": "390",
     "component": "p",
     "state": "initial",
-    "visibleText": "Keep going. The page will show the right forms, calculator, or intake option after the basic choices are answered.",
+    "visibleText": "Choose one answer above. The next step appears immediately after you choose.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6574,7 +6674,27 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Court forms",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "initial",
+    "visibleText": "One primary path will appear here.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "p",
+    "state": "initial",
+    "visibleText": "Optional resources stay hidden until the helper has enough answers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6584,7 +6704,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "County not selected",
+    "visibleText": "Why this result",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6592,29 +6712,9 @@
   {
     "route": "/forms/",
     "viewport": "390",
-    "component": "span",
+    "component": "p",
     "state": "initial",
-    "visibleText": "Stage not sure yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Issue not sure yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Children not sure yet",
+    "visibleText": "No form result is selected until you answer the current step.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6624,7 +6724,7 @@
     "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
-    "visibleText": "Keep going one question at a time. You can always choose Guided Intake if you are unsure.",
+    "visibleText": "Choose one answer in the current step. The next step appears automatically.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6634,7 +6734,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "initial",
-    "visibleText": "Continue to county",
+    "visibleText": "Choose one answer above",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7272,6 +7372,106 @@
   {
     "route": "/tools/",
     "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "1",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Need",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "2",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "County",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "3",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Stage",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "4",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Issue",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "5",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
     "component": "div.forms-guided-question",
     "state": "initial",
     "visibleText": "What do you need right now",
@@ -7354,7 +7554,7 @@
     "viewport": "390",
     "component": "p",
     "state": "initial",
-    "visibleText": "Keep going. The page will show the right forms, calculator, or intake option after the basic choices are answered.",
+    "visibleText": "Choose one answer above. The next step appears immediately after you choose.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7364,7 +7564,27 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Court forms",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "initial",
+    "visibleText": "One primary path will appear here.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "p",
+    "state": "initial",
+    "visibleText": "Optional resources stay hidden until the helper has enough answers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7374,7 +7594,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "County not selected",
+    "visibleText": "Why this result",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7382,29 +7602,9 @@
   {
     "route": "/tools/",
     "viewport": "390",
-    "component": "span",
+    "component": "p",
     "state": "initial",
-    "visibleText": "Stage not sure yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Issue not sure yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Children not sure yet",
+    "visibleText": "No form result is selected until you answer the current step.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7414,7 +7614,7 @@
     "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
-    "visibleText": "Keep going one question at a time. You can always choose Guided Intake if you are unsure.",
+    "visibleText": "Choose one answer in the current step. The next step appears automatically.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7424,7 +7624,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "initial",
-    "visibleText": "Continue to county",
+    "visibleText": "Choose one answer above",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8062,6 +8262,106 @@
   {
     "route": "/calculators/",
     "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "1",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Need",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "2",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "County",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "3",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Stage",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "4",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Issue",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "b",
+    "state": "initial",
+    "visibleText": "5",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
     "component": "div.forms-guided-question",
     "state": "initial",
     "visibleText": "What do you need right now",
@@ -8144,7 +8444,7 @@
     "viewport": "390",
     "component": "p",
     "state": "initial",
-    "visibleText": "Keep going. The page will show the right forms, calculator, or intake option after the basic choices are answered.",
+    "visibleText": "Choose one answer above. The next step appears immediately after you choose.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8154,7 +8454,27 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Calculator",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "initial",
+    "visibleText": "One primary path will appear here.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "p",
+    "state": "initial",
+    "visibleText": "Optional resources stay hidden until the helper has enough answers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8164,7 +8484,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "County not selected",
+    "visibleText": "Why this result",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8172,29 +8492,9 @@
   {
     "route": "/calculators/",
     "viewport": "390",
-    "component": "span",
+    "component": "p",
     "state": "initial",
-    "visibleText": "Stage not sure yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Issue not sure yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Children not sure yet",
+    "visibleText": "No form result is selected until you answer the current step.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8204,7 +8504,7 @@
     "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
-    "visibleText": "Keep going one question at a time. You can always choose Guided Intake if you are unsure.",
+    "visibleText": "Choose one answer in the current step. The next step appears automatically.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8214,7 +8514,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "initial",
-    "visibleText": "Continue to county",
+    "visibleText": "Choose one answer above",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497322,6 +497622,106 @@
   {
     "route": "/tools/",
     "viewport": "390",
+    "component": "b",
+    "state": "forms-ready",
+    "visibleText": "1",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Need",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "forms-ready",
+    "visibleText": "2",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "County",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "forms-ready",
+    "visibleText": "3",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Stage",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "forms-ready",
+    "visibleText": "4",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Issue",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "forms-ready",
+    "visibleText": "5",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
     "component": "div.forms-guided-question",
     "state": "forms-ready",
     "visibleText": "Your answers are confirmed.",
@@ -497354,7 +497754,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "The guided helper has selected the closest form group. Open the forms in order, and choose another packet if the title does not sound right.",
+    "visibleText": "The helper has enough answers to show one primary form path. Open the forms only if the title and source match what you selected.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497405,6 +497805,56 @@
     "component": "span",
     "state": "forms-ready",
     "visibleText": "Minor children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Recommended form path",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "forms-ready",
+    "visibleText": "Continue to the recommended forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "p",
+    "state": "forms-ready",
+    "visibleText": "Other official resources appear only after this primary path is available.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Why this result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "p",
+    "state": "forms-ready",
+    "visibleText": "This appears because you chose Open matched forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -499862,6 +500312,106 @@
   {
     "route": "/tools/",
     "viewport": "390",
+    "component": "b",
+    "state": "viewer",
+    "visibleText": "1",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Need",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "viewer",
+    "visibleText": "2",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "County",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "viewer",
+    "visibleText": "3",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Stage",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "viewer",
+    "visibleText": "4",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Issue",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "b",
+    "state": "viewer",
+    "visibleText": "5",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
     "component": "div.forms-guided-question",
     "state": "viewer",
     "visibleText": "Your answers are confirmed.",
@@ -499894,7 +500444,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "The guided helper has selected the closest form group. Open the forms in order, and choose another packet if the title does not sound right.",
+    "visibleText": "The helper has enough answers to show one primary form path. Open the forms only if the title and source match what you selected.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -499945,6 +500495,56 @@
     "component": "span",
     "state": "viewer",
     "visibleText": "Minor children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Recommended form path",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "viewer",
+    "visibleText": "Continue to the recommended forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "p",
+    "state": "viewer",
+    "visibleText": "Other official resources appear only after this primary path is available.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Why this result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "p",
+    "state": "viewer",
+    "visibleText": "This appears because you chose Open matched forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

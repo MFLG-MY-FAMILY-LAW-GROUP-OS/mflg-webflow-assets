@@ -13,11 +13,11 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260626-133242-guided-flow-clarity`
-- Tag: `mflg-live-20260626-133242-guided-flow-clarity`
+- Live key: `mflg-live-20260626-141751-decision-flow-clarity`
+- Tag: `mflg-live-20260626-141751-decision-flow-clarity`
 - Release commit: the commit pointed to by the tag in the durable checkout. Verify with `git rev-parse HEAD` and `git describe --exact-match --tags HEAD`.
-- Public JS SHA-256: `2c7395c18e76ce0ed556dc53eaed54e61784bc1c6459e4fdb1b5841eca12ec5b`
-- Public CSS SHA-256: `b4e788f7993c4a67ed98d1666497127831bd3470593ae04ea6606f6e3ec2bec4`
+- Public JS SHA-256: `80a1b506481f3c5c05b5055ae2b5cdce10dc0bf8d246a5d15557176c50d21daf`
+- Public CSS SHA-256: `ce69918eb056e8a3b89d70c14c4d6267b6659e17b60d055f1bec103691b33a28`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
 - Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260625-final-yolo-stabilization-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
@@ -25,19 +25,19 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Cloudflare
 
-- Current `mflg-public-website` deployment: `455e6160-ecab-4c24-a4d7-d610877ce5c8`
-- Current `mflg-webflow-assets` deployment: `d021916d-1e86-4c6c-adc5-255dbb08147d`
-- Rollback `mflg-public-website` deployment: `1fec866b-b076-4d29-b657-5d42d86d57bf`
-- Rollback `mflg-webflow-assets` deployment: `013ab080-e487-4379-a437-49f50a0736cb`
+- Current `mflg-public-website` deployment: `3ad0e7da-8e90-4afd-8aab-0b8bcaf73327`
+- Current `mflg-webflow-assets` deployment: `f74ea1d1-5493-4ef0-85ee-c839785e4d40`
+- Rollback `mflg-public-website` deployment: `2abd05d9-6068-40ba-9b98-403216edcff9`
+- Rollback `mflg-webflow-assets` deployment: `d39e9365-d186-4904-b066-e9233edd10d6`
 - Prior rollback `mflg-public-website` deployment: `76f0902c-4433-49db-8f69-056778b46bda`
 - Prior rollback `mflg-webflow-assets` deployment: `6266d8b0-6860-43fb-b355-aba1ebd3c01a`
-- Source-label status: the prior live deployment was reported as `main / 778f63e` while the verified prior release tag peeled to `95ac303ffa561636c76ce1e549934cd18ec86552`. The current Cloudflare production deployments show `main / 6004ba6` after clean redeploy. The custom-domain bytes and hashes above are verified.
+- Source-label status: current public bytes are verified. Final clean redeploy after the release commit should show the release commit short SHA for both Cloudflare production deployments.
 
 ## GitHub
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: not present as of June 26, 2026; branch and tag are pushed, and `gh` is not installed in the local shell.
+- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-141751-decision-flow-clarity` after tag push.
 
 ## Never Use
 

@@ -121,6 +121,14 @@ async function clickMediationFormsDataLink(page) {
 
 async function clickFirstPacketFocus(page) {
   await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
+  const actionDisabled = await page.locator("[data-guided-result-action]").first().evaluate((button) => button.disabled).catch(() => false);
+  if (actionDisabled) {
+    await page.click('[data-guided-answer="forms"]');
+    await page.click('[data-guided-answer="Pima"]');
+    await page.click('[data-guided-answer="Existing order"]');
+    await page.click('[data-guided-answer="parenting"]');
+    await page.click('[data-guided-answer="minor-children"]');
+  }
   await page.click("[data-guided-result-action]");
   await page.evaluate(() => {
     const group = document.querySelector(".official-pdf-group");

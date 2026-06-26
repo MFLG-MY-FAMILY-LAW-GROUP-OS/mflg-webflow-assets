@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-133242-guided-flow-clarity">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-141751-decision-flow-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-133242-guided-flow-clarity">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-141751-decision-flow-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3525,11 +3525,11 @@
             </div>
             <div class="forms-guided-progress" aria-label="Guided Forms and Tools steps">
               <span data-guided-progress-label>A few questions to match your result</span>
-              <button type="button" data-guided-jump="0" aria-current="true">1</button>
-              <button type="button" data-guided-jump="1">2</button>
-              <button type="button" data-guided-jump="2">3</button>
-              <button type="button" data-guided-jump="3">4</button>
-              <button type="button" data-guided-jump="4">5</button>
+              <button type="button" data-guided-jump="0" aria-current="true"><b>1</b><span>Need</span></button>
+              <button type="button" data-guided-jump="1"><b>2</b><span>County</span></button>
+              <button type="button" data-guided-jump="2"><b>3</b><span>Stage</span></button>
+              <button type="button" data-guided-jump="3"><b>4</b><span>Issue</span></button>
+              <button type="button" data-guided-jump="4"><b>5</b><span>Children</span></button>
             </div>
             <div class="forms-guided-question" data-guided-question>What sounds closest?</div>
             <div class="forms-guided-options" data-guided-options></div>
@@ -3538,6 +3538,15 @@
               <strong data-guided-result-title>Start with the form finder.</strong>
               <p data-guided-result-copy>Answer the questions above and use the blue button when you are ready.</p>
               <div class="forms-guided-summary" data-guided-summary></div>
+              <div class="forms-guided-tier" data-guided-result-tier>
+                <span>Recommended result</span>
+                <strong>Answer the helper to unlock one primary path.</strong>
+                <p>The page will keep optional resources out of the way until the main result is clear.</p>
+              </div>
+              <div class="forms-guided-reason" data-guided-reason>
+                <span>Why this result</span>
+                <p>No answer has been selected yet.</p>
+              </div>
               <div class="forms-guided-path-line" data-guided-path-line>Answer the next question. The page will keep the form choices hidden until they are useful.</div>
               <div class="forms-guided-result-actions">
                 <button class="button primary" type="button" data-guided-result-action data-guided-target="#forms-official-router">Continue to recommended forms</button>
@@ -4414,7 +4423,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-133242-guided-flow-clarity" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-141751-decision-flow-clarity" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -6984,6 +6993,8 @@
     const guidedChangeAnswers = host.querySelector("[data-guided-change-answers]");
     const guidedIntakeFallback = host.querySelector("[data-guided-intake-fallback]");
     const guidedSummary = host.querySelector("[data-guided-summary]");
+    const guidedResultTier = host.querySelector("[data-guided-result-tier]");
+    const guidedReason = host.querySelector("[data-guided-reason]");
     const guidedPathLine = host.querySelector("[data-guided-path-line]");
     const guideBridge = host.querySelector("[data-guide-bridge]");
     const guideBridgeTitle = host.querySelector("[data-guide-bridge-title]");
@@ -7007,7 +7018,7 @@
     const initialSmartPath = `/${String(window.location.pathname || "").replace(/^\/+|\/+$/g, "")}`;
     const presetNeed = window.location.hash === "#forms-calculator-hub" || (initialSmartPath === "/calculators" && window.MFLGGuideCalculatorChoice) ? "calculator" : "forms";
     let showAllSections = false;
-    let guidedStep = guideContextOnly && presetNeed === "forms" ? 1 : 0;
+    let guidedStep = 0;
     let guidedComplete = presetNeed === "calculator";
     const hasSavedQualifierAnswers = Boolean(initialStoredFormsRoute && hasConfirmedQualifierAnswers);
     let savedResumeActive = !guideContextOnly && hasSavedQualifierAnswers;
@@ -7019,6 +7030,12 @@
       issue: normalizeFormsIssue(presetRoute.issue || "all"),
       children: normalizeFormsChildren(presetRoute.children || children?.value)
     };
+    const answeredFields = new Set();
+    if (savedResumeActive) {
+      ["need", "county", "posture", "issue", "children"].forEach((field) => answeredFields.add(field));
+    } else if (presetNeed === "calculator") {
+      answeredFields.add("need");
+    }
 
     const routeForSmartPath = () => formsToolRouteFor({
       county: normalizeFormsCounty(county?.value),
@@ -7048,13 +7065,15 @@
     const recommendations = {
       forms: {
         label: "What happens next",
+        tier: "Recommended form path",
         title: "Continue to the recommended forms.",
-        copy: "The guided helper has selected the closest form group. Open the forms in order, and choose another packet if the title does not sound right.",
+        copy: "The helper has enough answers to show one primary form path. Open the forms only if the title and source match what you selected.",
         href: "#forms-approved-pdfs",
         text: "Open matched forms"
       },
       calculator: {
         label: "What happens next",
+        tier: "Recommended calculator",
         title: "Open the calculator tools.",
         copy: "Use only planning numbers. If you do not know which numbers belong in a field, use Guided Intake before relying on an estimate.",
         href: "#forms-calculator-hub",
@@ -7062,6 +7081,7 @@
       },
       deadline: {
         label: "What happens next",
+        tier: "Recommended deadline check",
         title: "Check the deadline path first.",
         copy: "If papers were served or a hearing is coming up, start with the deadline planner and use Guided Intake if timing is unclear.",
         href: "#deadline-readiness-planner",
@@ -7069,6 +7089,7 @@
       },
       issue: {
         label: "What happens next",
+        tier: "Recommended issue search",
         title: "Search by plain-language issue.",
         copy: "Use the matter list when you know the problem, but do not know which court packet or form name fits.",
         href: "#forms-matter-coverage",
@@ -7076,6 +7097,7 @@
       },
       guide: {
         label: "What happens next",
+        tier: "Recommended DIY guide",
         title: "Read the guide before choosing forms.",
         copy: "Use DIY Guides when you need the process, document checklist, and readiness questions first.",
         href: "/guides",
@@ -7084,6 +7106,7 @@
       },
       intake: {
         label: "What happens next",
+        tier: "Office review recommended",
         title: "Start Guided Intake instead of guessing.",
         copy: "Use this when the issue, county, deadline, or next step is unclear. Only answer what Intake asks for.",
         href: "/start",
@@ -7103,6 +7126,7 @@
       if (active === "forms" && guidedExactPdfPacket() === "all") {
         return {
           label: "What happens next",
+          tier: "Office review recommended",
           title: "Use Intake or adjust answers before opening forms.",
           copy: "No exact issue-specific form packet is verified for these answers yet. Change answers if another county or stage applies, or use Guided Intake for help confirming the next step.",
           href: "/start",
@@ -7112,6 +7136,24 @@
         };
       }
       return recommendations[active] || recommendations.forms;
+    };
+    const countyLabelsForReason = {
+      "Not sure": "not sure yet",
+      Statewide: "Arizona statewide",
+      Maricopa: "Maricopa County",
+      Pima: "Pima County",
+      Pinal: "Pinal County",
+      Yavapai: "Yavapai County"
+    };
+    const hasAnswered = (field) => answeredFields.has(field);
+    const selectedAnswerReasons = () => {
+      const parts = [];
+      if (hasAnswered("need")) parts.push(`you chose ${recommendations[guidedAnswers.need]?.text || "a starting path"}`);
+      if (hasAnswered("county")) parts.push(`county is ${countyLabelsForReason[guidedAnswers.county] || guidedAnswers.county}`);
+      if (hasAnswered("posture")) parts.push(`case stage is ${guidedAnswers.posture}`);
+      if (hasAnswered("issue")) parts.push(`issue is ${publicIssueLabelForRoute(guidedAnswers).toLowerCase()}`);
+      if (hasAnswered("children")) parts.push(guidedAnswers.children === "minor-children" ? "minor children are involved" : guidedAnswers.children === "no-minor-children" ? "minor children are not involved" : "children answer is not sure");
+      return parts;
     };
     const labelFor = (value, fallback = "") => {
       const text = String(value || fallback || "").trim();
@@ -7395,7 +7437,7 @@
         guidedResultCopy.textContent = savedResumeActive && !guidedComplete
           ? `These answers are already carrying through this site. Continue only if they still fit, or change them first.${calculatorContextNote}`
           : shouldContinueQuestions
-          ? "Keep going. The page will show the right forms, calculator, or intake option after the basic choices are answered."
+          ? "Choose one answer above. The next step appears immediately after you choose."
           : recommendation.copy || (guidedAnswers.need === "intake"
           ? "This is the safest choice when the court, issue, deadline, or next form is unclear."
           : guidedAnswers.need === "calculator"
@@ -7405,9 +7447,10 @@
       if (guidedResultAction) {
         guidedResultAction.textContent = savedResumeActive && !guidedComplete
           ? "Continue with saved answers"
-          : shouldContinueQuestions ? guidedContinueLabel() : recommendation.text || "Go to next step";
+          : shouldContinueQuestions ? "Choose one answer above" : recommendation.text || "Go to next step";
         guidedResultAction.dataset.guidedTarget = shouldContinueQuestions ? "" : recommendation.href || "#forms-approved-pdfs";
-        guidedResultAction.toggleAttribute("data-guided-continue", shouldContinueQuestions);
+        guidedResultAction.toggleAttribute("data-guided-continue", false);
+        guidedResultAction.disabled = shouldContinueQuestions;
         if (!shouldContinueQuestions && recommendation.route) {
           guidedResultAction.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
         } else {
@@ -7422,20 +7465,39 @@
       guidedOptions?.setAttribute("aria-hidden", answering ? "false" : "true");
       guidedResultAction?.classList.toggle("primary", true);
       if (guidedIntakeFallback) guidedIntakeFallback.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
-	      if (guidedSummary) {
+      if (guidedResultTier) {
+        const tierLabel = shouldContinueQuestions ? "Recommended result" : recommendation.tier || recommendation.label || "Recommended result";
+        const tierTitle = shouldContinueQuestions
+          ? "One primary path will appear here."
+          : recommendation.title || "Recommended next step";
+        const tierCopy = shouldContinueQuestions
+          ? "Optional resources stay hidden until the helper has enough answers."
+          : "Other official resources appear only after this primary path is available.";
+        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}</span><strong>${esc(tierTitle)}</strong><p>${esc(tierCopy)}</p>`;
+      }
+      if (guidedReason) {
+        const reasons = selectedAnswerReasons();
+        const reasonText = shouldContinueQuestions
+          ? (guideContextActive ? "Your selected guide is connected. Choose the next answer above before forms appear." : "No form result is selected until you answer the current step.")
+          : reasons.length
+          ? `This appears because ${reasons.join(", ")}.`
+          : "This appears because you chose a starting path.";
+        guidedReason.innerHTML = `<span>Why this result</span><p>${esc(reasonText)}</p>`;
+      }
+	    if (guidedSummary) {
 	        const chips = [
-	          needLabels[guidedAnswers.need] || "Forms",
-	          countyLabels[guidedAnswers.county] || guidedAnswers.county || "Court not sure yet",
-	          postureLabels[guidedAnswers.posture] || guidedAnswers.posture || "Stage not sure yet",
-	          publicIssueLabelForRoute(guidedAnswers) === "Choose issue" ? "Issue not sure yet" : publicIssueLabelForRoute(guidedAnswers),
-	          childrenLabels[guidedAnswers.children] || "Children not sure yet"
-	        ];
+	          hasAnswered("need") ? needLabels[guidedAnswers.need] || "Forms" : "",
+	          hasAnswered("county") ? countyLabels[guidedAnswers.county] || guidedAnswers.county || "County not selected" : "",
+	          hasAnswered("posture") ? postureLabels[guidedAnswers.posture] || guidedAnswers.posture || "Stage not selected" : "",
+	          hasAnswered("issue") ? (publicIssueLabelForRoute(guidedAnswers) === "Choose issue" ? "Issue not sure yet" : publicIssueLabelForRoute(guidedAnswers)) : "",
+	          hasAnswered("children") ? childrenLabels[guidedAnswers.children] || "Children not sure yet" : ""
+	        ].filter(Boolean);
         guidedSummary.innerHTML = chips.map((chip) => `<span>${esc(chip)}</span>`).join("");
         if (guidedPathLine) {
           guidedPathLine.textContent = savedResumeActive && !guidedComplete
             ? "Your previous choices are ready. Nothing is filed or sent by using them here."
             : shouldContinueQuestions
-            ? "Keep going one question at a time. You can always choose Guided Intake if you are unsure."
+            ? "Choose one answer in the current step. The next step appears automatically."
             : `Ready next step: ${recommendation.text}.`;
         }
       }
@@ -7469,7 +7531,7 @@
       guidedOptions.setAttribute("aria-hidden", guidedOptions.hidden ? "true" : "false");
       guidedJumps.forEach((jump, index) => {
         jump.setAttribute("aria-current", index === guidedStep ? "true" : "false");
-        jump.toggleAttribute("inert", guidedComplete || savedResumeActive);
+        jump.disabled = guidedComplete || savedResumeActive;
         jump.setAttribute("aria-disabled", guidedComplete || savedResumeActive ? "true" : "false");
       });
       host.querySelector("[data-guided-progress-label]")?.replaceChildren(document.createTextNode(
@@ -7494,6 +7556,7 @@
 	      guidedAnswers.county = normalizeFormsCounty(county?.value || guidedAnswers.county);
 	      guidedAnswers.posture = normalizeFormsPosture(posture?.value || guidedAnswers.posture);
 	      guidedAnswers.children = normalizeFormsChildren(children?.value || guidedAnswers.children);
+	      answeredFields.add(field);
 	      syncFormsFinder();
 	      update({ userAction: true, confirmed: true, confirmedFields: [field], source: "smart-path-control" });
 	    }));
@@ -7503,6 +7566,7 @@
         if (laneNeed && need && recommendations[laneNeed]) {
           need.value = laneNeed;
           guidedAnswers.need = laneNeed;
+          answeredFields.add("need");
           guidedComplete = laneNeed !== "intake";
           if (laneNeed === "deadline") {
             guidedAnswers.posture = "Served / response";
@@ -7522,9 +7586,10 @@
       button.addEventListener("click", () => {
         const action = button.getAttribute("data-guide-bridge-action") || "forms";
         if (action === "calculator") {
-          setSelectValue(need, "calculator");
-          guidedAnswers.need = "calculator";
-          guidedComplete = true;
+        setSelectValue(need, "calculator");
+        guidedAnswers.need = "calculator";
+        answeredFields.add("need");
+        guidedComplete = true;
           showAllSections = false;
           syncFormsFinder();
 		          update({ userAction: true, confirmed: true, confirmedFields: ["need", "selectedCalculator"], source: "guide-bridge-calculator" });
@@ -7537,6 +7602,7 @@
         }
         setSelectValue(need, "forms");
         guidedAnswers.need = "forms";
+        answeredFields.add("need");
         guidedComplete = false;
         savedResumeActive = false;
         guideContextActive = true;
@@ -7578,6 +7644,7 @@
       guidedAnswers.posture = "Any posture";
       guidedAnswers.issue = "all";
       guidedAnswers.children = "any";
+      answeredFields.clear();
       setSelectValue(need, "forms");
       setSelectValue(county, "Not sure");
       setSelectValue(children, "any");
@@ -7602,6 +7669,7 @@
       const value = button.getAttribute("data-guided-answer") || "";
       guideContextActive = false;
       guidedAnswers[step.key] = value;
+      answeredFields.add(step.key);
       if (step.key === "need") {
         setSelectValue(need, value);
         if (value === "deadline") {

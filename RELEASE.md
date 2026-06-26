@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-133242-guided-flow-clarity
+## Public Website Release: mflg-live-20260626-141751-decision-flow-clarity
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-133242-guided-flow-clarity`
-- Public JS SHA-256: `2c7395c18e76ce0ed556dc53eaed54e61784bc1c6459e4fdb1b5841eca12ec5b`
-- Public CSS SHA-256: `b4e788f7993c4a67ed98d1666497127831bd3470593ae04ea6606f6e3ec2bec4`
+- Asset key: `mflg-live-20260626-141751-decision-flow-clarity`
+- Public JS SHA-256: `80a1b506481f3c5c05b5055ae2b5cdce10dc0bf8d246a5d15557176c50d21daf`
+- Public CSS SHA-256: `ce69918eb056e8a3b89d70c14c4d6267b6659e17b60d055f1bec103691b33a28`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Guided flow clarity pass. `Understand the steps` now lands on a matching `Steps` panel with next actions, the form helper uses step-specific progress and CTA labels, saved-answer CTAs say `Continue with saved answers`, and first-pass advanced controls stay hidden.
+- Scope: Decision-flow clarity pass. The guided helper now has a visible step rail, no skip-through CTA before answering, no default answer chips, a primary result tier, and a plain-language explanation of why each result appears.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 
