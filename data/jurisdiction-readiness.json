@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-jurisdiction-readiness",
-  "built_at": "2026-06-26T21:39:05.046Z",
+  "built_at": "2026-06-26T22:04:38.493Z",
   "checked_at": "2026-06-12T18:19:26.926Z",
   "source_manifests": [
     "data/forms-catalog.json",
@@ -325,5 +325,5 @@
       "intake_guidance": "If this is the county for an existing case or likely new filing, carry the county into Guided Intake for review."
     }
   ],
-  "public_message": "County choice controls the safest starting point. Maricopa has reviewed packet-level actions now; other monitored county sources should route through Guided Intake until packet review is completed."
+  "public_message": "County choice controls the safest form path. Maricopa has reviewed packet-level actions now; other monitored county sources should route through Guided Intake until packet review is completed."
 }

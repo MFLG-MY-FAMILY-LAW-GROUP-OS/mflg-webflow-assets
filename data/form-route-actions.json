@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-route-actions",
-  "built_at": "2026-06-26T21:39:04.990Z",
+  "built_at": "2026-06-26T22:04:38.437Z",
   "source_manifests": [
     "data/forms-tools-coverage.json",
     "data/form-packet-page-actions.json",
@@ -1603,5 +1603,5 @@
       "public_status": "Packet page and reviewed official PDFs available"
     }
   ],
-  "public_message": "Choose the starting point that sounds closest, then view or download the reviewed forms on this site. No sensitive facts are collected here."
+  "public_message": "Choose the form path that sounds closest, then view or download the reviewed forms on this site. No sensitive facts are collected here."
 }

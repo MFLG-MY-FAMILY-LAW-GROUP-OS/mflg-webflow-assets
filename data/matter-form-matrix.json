@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-matter-form-matrix",
-  "built_at": "2026-06-26T21:39:52.595Z",
+  "built_at": "2026-06-26T22:05:12.238Z",
   "source_manifests": [
     "js/mflg-public-site.js",
     "data/form-pdf-public-actions.json",
@@ -2304,7 +2304,7 @@
       "related_packets": [],
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
       "official_source_label": "Arizona and county family-law forms",
-      "public_guidance": "Use this as a starting point only. Guided Intake is the safest path if the issue is unclear.",
+      "public_guidance": "Use this as a broad form path only. Guided Intake is the safest path if the issue is unclear.",
       "intake_fallback_required": false,
       "safety_note": "If this does not sound like your situation, use Guided Intake before choosing forms."
     },

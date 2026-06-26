@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-matter-coverage",
-  "built_at": "2026-06-26T21:39:52.703Z",
+  "built_at": "2026-06-26T22:05:12.292Z",
   "source_manifests": [
     "js/mflg-public-site.js",
     "data/forms-tools-route-intake-map.json",
@@ -2617,7 +2617,7 @@
         }
       ],
       "related_packets": [],
-      "public_guidance": "Use this as a starting point only. Guided Intake is the safest path if the issue is unclear.",
+      "public_guidance": "Use this as a broad form path only. Guided Intake is the safest path if the issue is unclear.",
       "official_source_label": "Arizona and county family-law forms",
       "official_source_url": "https://www.azcourts.gov/selfservicecenter/forms",
       "reviewed_route_available": false,

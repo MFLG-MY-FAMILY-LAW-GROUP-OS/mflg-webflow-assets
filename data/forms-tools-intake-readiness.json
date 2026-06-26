@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-forms-tools-intake-readiness",
-  "built_at": "2026-06-26T21:39:52.477Z",
+  "built_at": "2026-06-26T22:05:12.128Z",
   "source_manifests": [
     "data/forms-tools-action-plan.json",
     "data/forms-tools-review-roadmap.json",
@@ -46,7 +46,7 @@
       "label": "Reviewed form route",
       "option_type": "route",
       "count": 27,
-      "public_status": "Use a reviewed Forms & Tools route as the starting point.",
+      "public_status": "Use a reviewed Forms & Tools route as the form path.",
       "intake_value": "Reviewed route selected"
     },
     {
@@ -201,5 +201,5 @@
       "mflg_calculator_enabled_on_site": false
     }
   ],
-  "public_message": "Start from a public selection, then move to Guided Intake with only the issue, county, packet, or calculator starting point needed to stay organized."
+  "public_message": "Start from a public selection, then move to Guided Intake with only the issue, county, packet, or calculator path needed to stay organized."
 }
