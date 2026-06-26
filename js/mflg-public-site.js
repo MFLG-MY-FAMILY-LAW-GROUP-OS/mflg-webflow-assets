@@ -234,25 +234,11 @@
   ];
 
   function legalTerm(key, label) {
-    const definition = legalTermDefinitions[key] || legalTermDefinitions[String(key || "").toLowerCase()];
-    if (!definition) return esc(label || key);
-    return `<span class="legal-term" data-legal-term-key="${esc(key)}">${esc(label || key)}<button type="button" class="legal-term-help" aria-label="${esc(`${label || key}: ${definition}`)}" data-legal-definition="${esc(definition)}"></button></span>`;
+    return esc(label || key);
   }
 
   function legalGlossaryPanel() {
-    return `<section class="legal-glossary" aria-labelledby="legal-glossary-title">
-      <div class="legal-glossary-head">
-        <p class="eyebrow">Plain-language glossary</p>
-        <h3 id="legal-glossary-title">Legal terms used across this site</h3>
-        <p>Short definitions for common Arizona family-law words. These are orientation notes, not legal advice or a substitute for case-specific review.</p>
-      </div>
-      <div class="legal-glossary-grid">
-        ${legalGlossaryTerms.map(([key, label]) => `<article>
-          <h4>${esc(label)}</h4>
-          <p>${esc(legalTermDefinitions[key] || "")}</p>
-        </article>`).join("")}
-      </div>
-    </section>`;
+    return "";
   }
 
   const legalTermMatchers = [
@@ -285,77 +271,7 @@
   ];
 
   function enhanceLegalTerms(container) {
-    const host = container || root;
-    if (!host || !host.querySelectorAll) return;
-    if (autoLegalTermSuppressedRoutes.has(activeRenderPath)) {
-      alignLegalTermTooltips(host);
-      return;
-    }
-    const usedByBlock = new WeakMap();
-    const maxReplacements = 80;
-    const blockFor = (element) => element.closest([
-      ".guide-row-panel",
-      ".service-row-panel",
-      ".forms-matter-grid article",
-      ".forms-route-card",
-      ".forms-router-card",
-      ".official-pdf-link",
-      ".faq-item",
-      ".card",
-      "section",
-      "article"
-    ].join(", ")) || host;
-    const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        const text = node.nodeValue || "";
-        if (!text.trim()) return NodeFilter.FILTER_REJECT;
-        const parent = node.parentElement;
-        if (!parent) return NodeFilter.FILTER_REJECT;
-        if (parent.closest(".legal-term, .site-header, .footer, script, style, button, a, select, option, input, textarea, [data-guide-pdf-title], [data-official-pdf-viewer-title]")) return NodeFilter.FILTER_REJECT;
-        if (parent.closest("h1, h2, h3, h4, .eyebrow, .pill, .button, .card-link, summary, label, dt, strong, small")) return NodeFilter.FILTER_REJECT;
-        if (parent.closest(".card, .service-card, .guide-card, .fee-card, .official-pdf-link, .forms-route-card, .forms-router-card, .forms-matter-grid article, .about-proof-grid article, .review-fit-band, .lp-scope-card, .faq-index")) return NodeFilter.FILTER_REJECT;
-        if (!parent.closest("p, li, dd")) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    const replacements = [];
-    while (walker.nextNode()) {
-      const node = walker.currentNode;
-      const text = node.nodeValue || "";
-      const block = blockFor(node.parentElement);
-      const used = usedByBlock.get(block) || new Set(Array.from(block.querySelectorAll?.("[data-legal-term-key]") || []).map((item) => item.getAttribute("data-legal-term-key")));
-      usedByBlock.set(block, used);
-      const match = legalTermMatchers.find(([key, regex]) => !used.has(key) && regex.test(text));
-      if (!match) continue;
-      const [key, regex] = match;
-      const result = regex.exec(text);
-      if (!result || result.index < 0) continue;
-      replacements.push({ node, key, index: result.index, label: result[0] });
-      used.add(key);
-      if (replacements.length >= maxReplacements) break;
-    }
-    replacements.forEach(({ node, key, index, label }) => {
-      const text = node.nodeValue || "";
-      const before = text.slice(0, index);
-      const after = text.slice(index + label.length);
-      const wrapper = document.createElement("span");
-      wrapper.className = "legal-term";
-      wrapper.setAttribute("data-legal-term-key", key);
-      wrapper.textContent = label;
-      const help = document.createElement("button");
-      help.type = "button";
-      help.className = "legal-term-help";
-      const definition = legalTermDefinitions[key] || "";
-      help.setAttribute("aria-label", `${label}: ${definition}`);
-      help.setAttribute("data-legal-definition", definition);
-      wrapper.appendChild(help);
-      const fragment = document.createDocumentFragment();
-      if (before) fragment.appendChild(document.createTextNode(before));
-      fragment.appendChild(wrapper);
-      if (after) fragment.appendChild(document.createTextNode(after));
-      node.parentNode?.replaceChild(fragment, node);
-    });
-    alignLegalTermTooltips(host);
+    removePublicQuestionMarks(container || root);
   }
 
   function alignLegalTermTooltips(container) {
@@ -428,6 +344,51 @@
     });
   }
 
+  let publicTextCleanupObserver = null;
+
+  function removePublicQuestionMarks(container) {
+    const host = container || root;
+    if (!host || !host.querySelectorAll) return;
+    const scrub = (value) => String(value || "").replace(/\?/g, "");
+    const textHost = host.nodeType === Node.DOCUMENT_NODE ? host.body : host;
+    if (textHost) {
+      const walker = document.createTreeWalker(textHost, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.includes("?")) return NodeFilter.FILTER_REJECT;
+          const parent = node.parentElement;
+          if (!parent || parent.closest("script, style, noscript, svg, iframe, canvas")) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach((node) => {
+        node.nodeValue = scrub(node.nodeValue);
+      });
+    }
+    host.querySelectorAll("[aria-label], [title], [placeholder]").forEach((element) => {
+      ["aria-label", "title", "placeholder"].forEach((attribute) => {
+        const value = element.getAttribute(attribute);
+        if (value && value.includes("?")) element.setAttribute(attribute, scrub(value));
+      });
+    });
+  }
+
+  function schedulePublicTextCleanup(container) {
+    window.requestAnimationFrame(() => removePublicQuestionMarks(container || root));
+    window.setTimeout(() => removePublicQuestionMarks(container || root), 250);
+  }
+
+  function startPublicTextCleanupObserver() {
+    if (publicTextCleanupObserver || !window.MutationObserver) return;
+    publicTextCleanupObserver = new MutationObserver((records) => {
+      if (records.some((record) => record.type === "childList" || record.type === "characterData")) {
+        schedulePublicTextCleanup(root);
+      }
+    });
+    publicTextCleanupObserver.observe(root, { childList: true, subtree: true, characterData: true });
+  }
+
   function scheduleLegalTermEnhancement(container) {
     window.requestAnimationFrame(() => enhanceLegalTerms(container || root));
     window.setTimeout(() => enhanceLegalTerms(container || root), 250);
@@ -475,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-052746-public-copy-cleanup">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-061608-plain-public-text">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-052746-public-copy-cleanup">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-061608-plain-public-text">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -4473,7 +4434,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-052746-public-copy-cleanup" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-061608-plain-public-text" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5004,6 +4965,8 @@
     wireDeadlineReadinessPlanner();
 	    renderIntakeIfNeeded(path);
 	    updateNav(path);
+      startPublicTextCleanupObserver();
+      schedulePublicTextCleanup(root);
 	    scheduleLegalTermEnhancement(root);
       wireHeroVideoLoop();
 		    if (opts.restoreScroll) {

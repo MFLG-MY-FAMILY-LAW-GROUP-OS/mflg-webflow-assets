@@ -55,6 +55,7 @@ function assert(condition, message) {
 function issueFor(text) {
   const normalized = String(text || "").replace(/\s+/g, " ").trim();
   if (!normalized) return "";
+  if (normalized.includes("?")) return "question-mark";
   if (rawTokenPattern.test(normalized)) return "raw-token";
   const lower = normalized.toLowerCase();
   const found = forbiddenTerms.find((term) => {
@@ -168,7 +169,7 @@ async function layoutState(page, label) {
 
     const clipped = Array.from(document.querySelectorAll("a,button,.button,.pill"))
       .filter(isVisibleElement)
-      .filter((el) => !el.matches(".skip-link,.legal-term-help,.scroll-cue"))
+      .filter((el) => !el.matches(".skip-link,.scroll-cue"))
       .filter((el) => el.scrollWidth > el.clientWidth + 2 || el.scrollHeight > el.clientHeight + 2)
       .map((el) => ({ label, text: (el.innerText || el.textContent || el.getAttribute("aria-label") || "").replace(/\s+/g, " ").trim(), tag: el.tagName.toLowerCase(), scrollWidth: el.scrollWidth, clientWidth: el.clientWidth, scrollHeight: el.scrollHeight, clientHeight: el.clientHeight }));
 
@@ -180,6 +181,7 @@ async function layoutState(page, label) {
       emptyNames: Array.from(document.querySelectorAll(interactiveSelector)).filter((el) => isVisibleElement(el) && !el.closest("[aria-hidden='true'],[hidden],[inert]")).map((el) => ({ tag: el.tagName.toLowerCase(), text: (el.innerText || el.textContent || el.value || el.getAttribute("aria-label") || el.getAttribute("placeholder") || el.getAttribute("title") || "").replace(/\s+/g, " ").trim() })).filter((item) => !item.text),
       positiveTabindex: Array.from(document.querySelectorAll("[tabindex]")).map((el) => el.getAttribute("tabindex")).filter((value) => Number(value) > 0),
       hiddenInteractive: Array.from(document.querySelectorAll(interactiveSelector)).filter((el) => isVisibleElement(el) && (el.getAttribute("aria-hidden") === "true" || el.closest("[hidden],[inert]"))).map((el) => el.outerHTML.slice(0, 120)),
+      legalTermMarkers: Array.from(document.querySelectorAll(".legal-term, .legal-term-help, .legal-glossary")).filter(isVisibleElement).map((el) => el.outerHTML.slice(0, 120)),
       clipped,
       overlaps: overlaps.slice(0, 20)
     };
@@ -366,7 +368,7 @@ async function clickCardAndCollect(page, cardSelector, triggerSelector, index) {
   }
 
   const issues = inventory.filter((row) => row.issueType);
-  const layoutFailures = layout.filter((item) => item.horizontalOverflow || item.duplicateIds.length || item.emptyNames.length || item.positiveTabindex.length || item.hiddenInteractive.length || item.clipped.length || item.overlaps.length);
+  const layoutFailures = layout.filter((item) => item.horizontalOverflow || item.duplicateIds.length || item.emptyNames.length || item.positiveTabindex.length || item.hiddenInteractive.length || item.legalTermMarkers.length || item.clipped.length || item.overlaps.length);
   const practiceFailures = cardResults.practice.filter((item) => !item.title || !item.subtitle || !item.revealText.includes(item.title) || item.duplicateCtas.length);
   const guideFailures = cardResults.guides.filter((item) => !item.title || !item.subtitle || !item.revealText.includes(item.title) || item.duplicateCtas.length);
 

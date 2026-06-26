@@ -77,8 +77,9 @@ function checkPublicLanguage() {
   blockedPublicPhrases.forEach((phrase) => {
     if (publicJs.includes(phrase)) fail(`public JS still contains admin-facing phrase: ${phrase}`);
   });
-  ["legalTermDefinitions", "enhanceLegalTerms", "data-legal-definition"].forEach((marker) => {
-    if (!publicJs.includes(marker)) fail(`legal glossary marker missing: ${marker}`);
+  if (publicJs.includes("data-legal-definition")) fail("public JS still emits legal glossary help markers");
+  ["legalTermDefinitions", "enhanceLegalTerms"].forEach((marker) => {
+    if (!publicJs.includes(marker)) fail(`legal glossary cleanup guard missing: ${marker}`);
   });
   const blockedFeeTitlePhrases = [
     "No-kids",

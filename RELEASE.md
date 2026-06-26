@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-052746-public-copy-cleanup
+## Public Website Release: mflg-live-20260626-061608-plain-public-text
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-052746-public-copy-cleanup`
-- Public JS SHA-256: `ad93e915d77f2c9700aec95b480d10367cb6294571c196aef1ab34e934a79e34`
-- Public CSS SHA-256: `17d80bf4e6faa24e2cd0dc34f54a9037f1d1da0eb5933a673ee286832ffbb376`
+- Asset key: `mflg-live-20260626-061608-plain-public-text`
+- Public JS SHA-256: `828f086cea4c65acf443016088fc9f96db26910fda7ac153d99bcfcbf3887a1a`
+- Public CSS SHA-256: `2101dda7b726d62890b47d224982f477998fc4186cc0a195ebd9c23e1bf89f18`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: public copy cleanup, internal-language cleanup, duplicate `after-hero` ID fix, footer email wrapping fix, final public text/layout QA, reproducible checkout cleanup.
+- Scope: public copy cleanup, removal of public legal-term formatting/help markers, visible question-mark cleanup, internal-language cleanup, duplicate `after-hero` ID fix, footer email wrapping fix, final public text/layout QA, reproducible checkout cleanup.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

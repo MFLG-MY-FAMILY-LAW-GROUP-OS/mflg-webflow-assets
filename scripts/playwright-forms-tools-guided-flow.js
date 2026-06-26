@@ -45,7 +45,7 @@ async function pageState(page) {
     externalPdfHrefs: Array.from(document.querySelectorAll("[data-guide-pdf-download], [data-official-pdf-download]"))
       .map((link) => link.getAttribute("href") || "")
       .filter((href) => /^https?:\/\//i.test(href)),
-    legalHelpCount: document.querySelectorAll("[data-legal-definition]").length,
+    legalHelpCount: document.querySelectorAll("[data-legal-definition], .legal-term, .legal-term-help, .legal-glossary").length,
     overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
   }));
 }
@@ -67,7 +67,7 @@ async function pageState(page) {
       assert(initial.exposedSourceAttributes.length === 0, `${viewport.name}: page should not expose raw source URL attributes`);
       assert(initial.sameSiteOfficialPdfActions.length === 0, `${viewport.name}: same-site PDF actions should not render before forms are shown`);
       assert(initial.publicExternalHrefs.length === 0, `${viewport.name}: page should not render external public hrefs: ${initial.publicExternalHrefs.join(", ")}`);
-      assert(initial.legalHelpCount > 0, `${viewport.name}: legal-term help should render`);
+      assert(initial.legalHelpCount === 0, `${viewport.name}: legal-term help should not render`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
       await page.click('[data-guided-answer="forms"]');

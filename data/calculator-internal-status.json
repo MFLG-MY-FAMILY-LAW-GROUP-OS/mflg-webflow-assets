@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-internal-status",
-  "built_at": "2026-06-26T12:30:08.350Z",
+  "built_at": "2026-06-26T13:21:16.088Z",
   "public_safety": {
     "public_status_manifest_enabled": true,
     "internal_artifacts_publicly_exposed": false,
