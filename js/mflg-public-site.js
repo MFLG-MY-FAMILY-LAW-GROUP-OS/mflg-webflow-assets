@@ -475,11 +475,11 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260625-113245-hero-loop-smooth">
-        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="matched-cut video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-043601-hero-step-match">
+        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-step-match-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260625-113245-hero-loop-smooth">
-        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="matched-cut video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-043601-hero-step-match">
+        <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-step-match-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
       <div class="hero-inner">
@@ -517,10 +517,10 @@
       if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
       return;
     }
-    const cleanStart = 0.12;
-    const crossfadeSeconds = 1.45;
-    const preRollSeconds = 0.42;
-    const swapLeadSeconds = crossfadeSeconds + preRollSeconds;
+    const loopStart = 0.6;
+    const loopEnd = 17.6;
+    const preRollSeconds = 0.82;
+    const swapTrigger = loopEnd - preRollSeconds;
     let activeIndex = 0;
     let swapping = false;
     const setActive = (nextIndex) => {
@@ -535,52 +535,52 @@
       const playPromise = video.play();
       if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
     };
-    const resetToCleanStart = (video) => {
+    const resetToLoopStart = (video) => {
       try {
         video.pause();
-        video.currentTime = cleanStart;
+        video.currentTime = loopStart;
       } catch (error) {}
     };
-    const waitForPreRoll = (video, startedAt, onReady) => {
+    const waitForMatchedPreRoll = (video, startedAt, onReady) => {
       const elapsed = (performance.now() - startedAt) / 1000;
-      const advanced = video.currentTime > cleanStart + 0.08;
       const decoded = video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA;
-      if ((advanced && decoded) || elapsed >= preRollSeconds) {
+      const matchedStart = video.currentTime >= loopStart + 0.08 && video.currentTime <= loopStart + 0.48;
+      if ((decoded && matchedStart) || elapsed >= preRollSeconds + 0.12) {
         onReady();
         return;
       }
-      requestAnimationFrame(() => waitForPreRoll(video, startedAt, onReady));
+      requestAnimationFrame(() => waitForMatchedPreRoll(video, startedAt, onReady));
     };
     videos.forEach((video) => {
       video.addEventListener("loadedmetadata", () => {
-        if (video.currentTime < cleanStart) video.currentTime = cleanStart;
+        if (video.currentTime < loopStart) video.currentTime = loopStart;
       }, { once: true });
       video.addEventListener("ended", () => {
-        if (videos[activeIndex] === video) video.currentTime = cleanStart;
+        if (videos[activeIndex] === video) video.currentTime = loopStart;
       });
     });
-    videos.slice(1).forEach(resetToCleanStart);
+    videos.slice(1).forEach(resetToLoopStart);
     setActive(0);
     play(videos[0]);
     const tick = () => {
       const active = videos[activeIndex];
       if (!active || swapping || !Number.isFinite(active.duration) || active.duration <= 1) return;
-      if (active.currentTime >= active.duration - swapLeadSeconds) {
+      if (active.currentTime >= swapTrigger) {
         swapping = true;
         const nextIndex = activeIndex === 0 ? 1 : 0;
         const next = videos[nextIndex];
-        resetToCleanStart(next);
+        resetToLoopStart(next);
         play(next);
-        waitForPreRoll(next, performance.now(), () => {
+        waitForMatchedPreRoll(next, performance.now(), () => {
           setActive(nextIndex);
           window.setTimeout(() => {
-            resetToCleanStart(active);
+            resetToLoopStart(active);
             swapping = false;
-          }, Math.round((crossfadeSeconds + 0.18) * 1000));
+          }, 160);
         });
       }
     };
-    window.setInterval(tick, 80);
+    window.setInterval(tick, 40);
   }
 
   function sectionNavigator(path) {
@@ -4473,7 +4473,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260625-113245-hero-loop-smooth" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-043601-hero-step-match" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}

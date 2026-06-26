@@ -107,11 +107,11 @@ async function openPractice(page, title) {
       await Promise.all(videos.map((video) => video.readyState >= 2 ? Promise.resolve() : new Promise((resolve) => video.addEventListener("canplay", resolve, { once: true }))));
       return {
         count: videos.length,
-        crossfade: videos.every((video) => video.dataset.videoLoop === "crossfade video loop"),
+        matchedCut: videos.every((video) => video.dataset.videoLoop === "matched-cut video loop"),
         duration: videos[0]?.duration || 0
       };
     });
-    assert(heroInfo.count === 2 && heroInfo.crossfade && heroInfo.duration > 1, "Hero crossfade video loop is not active");
+    assert(heroInfo.count === 2 && heroInfo.matchedCut && heroInfo.duration > 1, "Hero matched-cut video loop is not active");
 
     for (const width of widths) {
       await page.setViewportSize({ width, height: width < 500 ? 844 : 1000 });
