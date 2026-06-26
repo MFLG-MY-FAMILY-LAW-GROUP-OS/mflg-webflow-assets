@@ -58,13 +58,20 @@ async function seedState(page, publicAnswers = {}, legacyRoute = {}) {
 async function showFormsControls(page) {
   const formCounty = page.locator("[data-form-county]").first();
   if (await formCounty.isVisible().catch(() => false)) return;
-  const change = page.locator("[data-guided-change-answers]").first();
-  if (await change.isVisible().catch(() => false)) {
-    await change.click();
-  }
   if (!(await formCounty.isVisible().catch(() => false))) {
     const showAll = page.locator("[data-smart-show-all]").first();
     if (await showAll.isVisible().catch(() => false)) await showAll.click();
+  }
+  if (!(await formCounty.isVisible().catch(() => false))) {
+    const resultAction = page.locator("[data-guided-result-action]").first();
+    const label = await resultAction.textContent().catch(() => "");
+    if (/Continue with saved answers/i.test(label || "") && await resultAction.isVisible().catch(() => false)) {
+      await resultAction.click();
+    }
+  }
+  if (!(await formCounty.isVisible().catch(() => false))) {
+    const change = page.locator("[data-guided-change-answers]").first();
+    if (await change.isVisible().catch(() => false)) await change.click();
   }
   await formCounty.waitFor({ state: "visible", timeout: 10000 });
 }
@@ -132,8 +139,17 @@ async function clickFirstPacketFocus(page) {
 
 async function clickFirstMatterCard(page) {
   await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
-  const showAll = page.locator("[data-smart-show-all]").first();
-  if ((await showAll.count()) > 0) await showAll.click();
+  const issueLane = page.locator('[data-smart-lane="issue"]').first();
+  if (await issueLane.isVisible().catch(() => false)) {
+    await issueLane.click();
+  } else {
+    const showAll = page.locator("[data-smart-show-all]").first();
+    if (await showAll.isVisible().catch(() => false)) await showAll.click();
+  }
+  if (!(await page.locator("[data-forms-matter-open]").first().isVisible().catch(() => false))) {
+    await page.evaluate(() => document.querySelector("[data-smart-show-all]")?.click());
+    await page.waitForTimeout(300);
+  }
   await page.locator("[data-forms-matter-open]").first().click();
   await page.waitForTimeout(400);
   return toolsState(page);
@@ -409,7 +425,7 @@ async function clickCalculatorReadinessAction(page) {
     state = await toolsState(page);
     assert(state.smartCounty === "Pima", `answers did not carry to /forms smart controls, got ${state.smartCounty}`);
     assert(state.formCounty === "Pima", `answers did not carry to /forms router, got ${state.formCounty}`);
-    assert(/Saved answers applied|Use these answers/i.test(`${state.resultTitle} ${state.resultAction}`), "carried answers are not exposed as saved state");
+    assert(/Saved answers applied|Using answers from this session|Continue with saved answers/i.test(`${state.resultTitle} ${state.resultAction}`), "carried answers are not exposed as saved state");
 
     await page.click("[data-guided-result-action]");
     state = await toolsState(page);

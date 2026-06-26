@@ -125,8 +125,8 @@ async function pageState(page) {
       assert(transferredAnswers.formIssue === "divorce", `${viewport.name}: form finder should retain issue on /forms, got ${transferredAnswers.formIssue}`);
       assert(transferredAnswers.resumeActive, `${viewport.name}: transferred answers should show saved-answer resume state`);
       assert(/Saved answers applied/i.test(transferredAnswers.progressLabel), `${viewport.name}: progress label should show saved answers, got ${transferredAnswers.progressLabel}`);
-      assert(/Saved answers applied/i.test(transferredAnswers.resultTitle), `${viewport.name}: result title should show saved answers, got ${transferredAnswers.resultTitle}`);
-      assert(/Use these answers/i.test(transferredAnswers.resultAction), `${viewport.name}: resume CTA should use saved answers, got ${transferredAnswers.resultAction}`);
+      assert(/Using answers from this session/i.test(transferredAnswers.resultTitle), `${viewport.name}: result title should show saved answers, got ${transferredAnswers.resultTitle}`);
+      assert(/Continue with saved answers/i.test(transferredAnswers.resultAction), `${viewport.name}: resume CTA should use saved answers, got ${transferredAnswers.resultAction}`);
       assert(transferredAnswers.changeAnswersVisible, `${viewport.name}: resume state should expose Change answers`);
       assert(!transferredAnswers.guidedComplete, `${viewport.name}: transferred answers should wait for saved-answer confirmation on /forms`);
       assert(transferredAnswers.storedRoute.county === "Maricopa", `${viewport.name}: session route should retain county`);

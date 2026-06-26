@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-release-readiness",
-  "built_at": "2026-06-26T19:29:26.712Z",
+  "built_at": "2026-06-26T20:48:30.118Z",
   "public_safety": {
     "internal_approval_packet_exposed": false,
     "sensitive_fixture_values_exposed": false,

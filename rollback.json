@@ -1,7 +1,7 @@
 {
   "rollback_deployments": {
-    "mflg_public_website": "2c4c5935-4b75-4e4e-a3ac-cae441e83781",
-    "mflg_webflow_assets": "af183df3-560a-4cf4-81f6-4518df416a76"
+    "mflg_public_website": "6e64384e-e306-49be-a933-a1977ceabf81",
+    "mflg_webflow_assets": "f891ad66-ddb0-4fe4-b9cc-51075294d323"
   },
-  "previous_asset_key": "mflg-live-20260626-100421-diy-guide-form-check"
+  "previous_asset_key": "mflg-live-20260626-122120-diy-guide-flow-reset"
 }

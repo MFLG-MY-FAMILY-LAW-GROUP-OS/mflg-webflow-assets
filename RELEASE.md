@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-122120-diy-guide-flow-reset
+## Public Website Release: mflg-live-20260626-133242-guided-flow-clarity
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-122120-diy-guide-flow-reset`
-- Public JS SHA-256: `f4e4288aee63029320005715aa44a8cbe4d38638a76f6c1574618e22ced1bf31`
-- Public CSS SHA-256: `620b26a7ae379fb55194cb82a1242f377a0c1e95bebef9fb8f6767e2fb96b144`
+- Asset key: `mflg-live-20260626-133242-guided-flow-clarity`
+- Public JS SHA-256: `2c7395c18e76ce0ed556dc53eaed54e61784bc1c6459e4fdb1b5841eca12ec5b`
+- Public CSS SHA-256: `b4e788f7993c4a67ed98d1666497127831bd3470593ae04ea6606f6e3ec2bec4`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: DIY Guide form flow reset. Guide reveals no longer show optional packet choices before questions, `Start form check` carries issue context only, calculator and packet state are not preselected, the form helper starts with missing questions, and the guide count row no longer tucks under the category panel.
+- Scope: Guided flow clarity pass. `Understand the steps` now lands on a matching `Steps` panel with next actions, the form helper uses step-specific progress and CTA labels, saved-answer CTAs say `Continue with saved answers`, and first-pass advanced controls stay hidden.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

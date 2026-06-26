@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-122120-diy-guide-flow-reset">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-133242-guided-flow-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-122120-diy-guide-flow-reset">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-133242-guided-flow-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1431,7 +1431,7 @@
         </div>
       </section>
       <section class="task-workspace-state" data-service-panel-section="steps" hidden inert aria-hidden="true">
-        <p class="eyebrow">Confirm</p>
+        <p class="eyebrow">Steps</p>
         <h4>${esc(profile.guideActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="guide-card-grid service-panel-grid">
           <div>
@@ -1443,6 +1443,11 @@
             <p class="service-card-fallback">${esc(readiness)}</p>
             <p class="service-card-fallback">${esc(profile.officeReviewTrigger)}</p>
           </div>
+        </div>
+        <div class="guide-panel-next-actions" aria-label="Next actions after reviewing steps">
+          <button class="button primary" type="button" data-service-action="forms">Find forms for this issue</button>
+          <button class="button outline" type="button" data-service-action="calculator">${esc(item.calculatorLabel)}</button>
+          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(item.route))}'>Ask for office review</a>
         </div>
       </section>
     </div>`;
@@ -4255,7 +4260,7 @@
         </div>
       </section>
       <section class="task-workspace-state" data-guide-panel-section="steps" hidden inert aria-hidden="true">
-        <p class="eyebrow">Answer</p>
+        <p class="eyebrow">Steps</p>
         <h4>${esc(profile.guideActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="guide-card-grid">
           <div>
@@ -4266,6 +4271,11 @@
             <h5>Court-readiness check</h5>
             <ul class="list">${(guide.listener || []).map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
           </div>
+        </div>
+        <div class="guide-panel-next-actions" aria-label="Next actions after reviewing steps">
+          <button class="button primary" type="button" data-guide-next-choice="forms">Find forms for this guide</button>
+          ${calculatorChoice ? `<button class="button outline" type="button" data-guide-next-choice="calculator">Use calculator</button>` : ""}
+          <a class="button outline" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Ask for office review</a>
         </div>
       </section>
       <section class="task-workspace-state" data-guide-panel-section="forms" hidden inert aria-hidden="true">
@@ -4404,7 +4414,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-122120-diy-guide-flow-reset" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-133242-guided-flow-clarity" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -6959,6 +6969,8 @@
     const children = host.querySelector("[data-smart-children]");
     const posture = host.querySelector("[data-smart-posture]");
     const modeCopy = host.querySelector("[data-smart-mode-copy]");
+    const smartControls = host.querySelector(".forms-smart-path-controls");
+    const smartMode = host.querySelector("[data-smart-mode]");
     const showAll = host.querySelector("[data-smart-show-all]");
     const reset = host.querySelector("[data-smart-reset]");
     const laneLinks = Array.from(host.querySelectorAll("[data-smart-lane]"));
@@ -7204,6 +7216,25 @@
         ]
       }
     ];
+    const guidedStepProgressLabel = (index) => {
+      const labels = [
+        "Step 1 of 5: Choose what you need",
+        "Step 2 of 5: Choose county",
+        "Step 3 of 5: Choose case stage",
+        "Step 4 of 5: Choose issue",
+        "Step 5 of 5: Choose children"
+      ];
+      return labels[Math.max(0, Math.min(index, labels.length - 1))] || "Step 1 of 5";
+    };
+    const guidedContinueLabel = () => {
+      const next = guidedSteps[Math.min(guidedStep + 1, guidedSteps.length - 1)];
+      if (!next) return "Continue";
+      if (next.key === "county") return "Continue to county";
+      if (next.key === "posture") return "Continue to case stage";
+      if (next.key === "issue") return "Continue to issue";
+      if (next.key === "children") return "Continue to children";
+      return "Continue to next step";
+    };
     const needForHash = (hash) => {
       if (hash === "#forms-calculator-hub") return "calculator";
       if (hash === "#deadline-readiness-planner") return "deadline";
@@ -7259,6 +7290,13 @@
           : !guidedComplete
           ? "Your recommended section will appear after you finish the guided helper."
           : `Showing the recommended path first: ${recommendation.text}.`;
+      }
+      const firstPassActive = !showAllSections && !savedResumeActive && !guidedComplete;
+      if (smartControls) {
+        setHiddenInert(smartControls, firstPassActive);
+      }
+      if (smartMode) {
+        setHiddenInert(smartMode, firstPassActive);
       }
       if (showAll) {
         showAll.textContent = showAllSections ? "Show recommended path" : "Advanced: show all sections";
@@ -7344,9 +7382,9 @@
         : "";
       if (guidedResultTitle) {
         guidedResultTitle.textContent = savedResumeActive && !guidedComplete
-          ? "Saved answers applied."
+          ? "Using answers from this session."
           : shouldContinueQuestions
-          ? "Answer the next question."
+          ? `Next: ${guidedSteps[Math.min(guidedStep + 1, guidedSteps.length - 1)]?.question || "next step"}`
           : recommendation.title || (guidedAnswers.need === "intake"
           ? "Use Guided Intake instead of guessing."
           : guidedAnswers.need === "calculator"
@@ -7355,7 +7393,7 @@
       }
       if (guidedResultCopy) {
         guidedResultCopy.textContent = savedResumeActive && !guidedComplete
-          ? `These answers are already carrying through this site. Use them to open the matched section, or change them first.${calculatorContextNote}`
+          ? `These answers are already carrying through this site. Continue only if they still fit, or change them first.${calculatorContextNote}`
           : shouldContinueQuestions
           ? "Keep going. The page will show the right forms, calculator, or intake option after the basic choices are answered."
           : recommendation.copy || (guidedAnswers.need === "intake"
@@ -7366,8 +7404,8 @@
       }
       if (guidedResultAction) {
         guidedResultAction.textContent = savedResumeActive && !guidedComplete
-          ? "Use these answers"
-          : shouldContinueQuestions ? "Continue to next question" : recommendation.text || "Go to next step";
+          ? "Continue with saved answers"
+          : shouldContinueQuestions ? guidedContinueLabel() : recommendation.text || "Go to next step";
         guidedResultAction.dataset.guidedTarget = shouldContinueQuestions ? "" : recommendation.href || "#forms-approved-pdfs";
         guidedResultAction.toggleAttribute("data-guided-continue", shouldContinueQuestions);
         if (!shouldContinueQuestions && recommendation.route) {
@@ -7437,11 +7475,11 @@
       host.querySelector("[data-guided-progress-label]")?.replaceChildren(document.createTextNode(
         savedResumeActive && !guidedComplete
           ? "Saved answers applied"
-          : guideContextActive && !guidedComplete
+        : guideContextActive && !guidedComplete
           ? "Guide context added"
-          : guidedComplete
+        : guidedComplete
           ? "Answers confirmed"
-          : `Step ${guidedStep + 1}`
+          : guidedStepProgressLabel(guidedStep)
       ));
       updateGuidedResult();
     }

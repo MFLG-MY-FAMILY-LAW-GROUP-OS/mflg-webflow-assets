@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-runtime-self-test",
-  "built_at": "2026-06-26T19:29:27.831Z",
+  "built_at": "2026-06-26T20:48:31.155Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "source_runtime_version": "1.2.0-public-calculator-runtime",
   "status": "pass",

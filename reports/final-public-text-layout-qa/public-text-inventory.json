@@ -6474,7 +6474,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Step 1",
+    "visibleText": "Step 1 of 5: Choose what you need",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6554,7 +6554,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Answer the next question.",
+    "visibleText": "Next: Which court or county sounds closest",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6634,7 +6634,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "initial",
-    "visibleText": "Continue to next question",
+    "visibleText": "Continue to county",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6745,96 +6745,6 @@
     "component": "strong",
     "state": "initial",
     "visibleText": "Start Guided Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Optional",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Fine tune the result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "What are you trying to do",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "County",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "Case stage",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "Are children involved",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Showing one guided question at a time.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Advanced: show all sections",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Reset choices",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7354,7 +7264,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Step 1",
+    "visibleText": "Step 1 of 5: Choose what you need",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7434,7 +7344,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Answer the next question.",
+    "visibleText": "Next: Which court or county sounds closest",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7514,7 +7424,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "initial",
-    "visibleText": "Continue to next question",
+    "visibleText": "Continue to county",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7625,96 +7535,6 @@
     "component": "strong",
     "state": "initial",
     "visibleText": "Start Guided Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Optional",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Fine tune the result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "What are you trying to do",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "County",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "Case stage",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "Are children involved",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Showing one guided question at a time.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Advanced: show all sections",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Reset choices",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8234,7 +8054,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Step 1",
+    "visibleText": "Step 1 of 5: Choose what you need",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8314,7 +8134,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Answer the next question.",
+    "visibleText": "Next: Which court or county sounds closest",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8394,7 +8214,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "initial",
-    "visibleText": "Continue to next question",
+    "visibleText": "Continue to county",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8505,96 +8325,6 @@
     "component": "strong",
     "state": "initial",
     "visibleText": "Start Guided Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Optional",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Fine tune the result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "What are you trying to do",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "County",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "Case stage",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "label",
-    "state": "initial",
-    "visibleText": "Are children involved",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Showing one guided question at a time.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Advanced: show all sections",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "Reset choices",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
