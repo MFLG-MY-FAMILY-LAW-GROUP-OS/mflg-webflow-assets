@@ -32,7 +32,7 @@ function assert(condition, message) {
       viewerFrameVisible: Boolean(document.querySelector("[data-guide-pdf-frame]"))
     }));
     assert(initialState.title.length > 0, "Guide bridge title did not render");
-    assert(/Answer questions to find forms|Continue to form viewer/i.test(initialState.cta), `Guide bridge CTA missing: ${initialState.cta}`);
+    assert(/Start form check|Continue to form viewer/i.test(initialState.cta), `Guide bridge CTA missing: ${initialState.cta}`);
     assert(initialState.route.length > 0, "Guide bridge did not carry a forms route");
     assert(initialState.countyGateVisible === false, "Old county gate should not render in the guide bridge");
     assert(initialState.viewerFrameVisible === false, "Guide bridge should not render an embedded PDF frame");
@@ -88,7 +88,7 @@ function assert(condition, message) {
     assert(/Choose stage|Not selected/i.test(annulmentState.stage), `Annulment stage should show missing qualifier, got ${annulmentState.stage}`);
     assert(!/^any$/i.test(annulmentState.children), `Annulment children should not show fake any value`);
     assert(/Choose one|Not selected/i.test(annulmentState.children), `Annulment children should show missing qualifier, got ${annulmentState.children}`);
-    assert(annulmentState.actions.some((text) => /Find the right forms|Answer questions to find forms|Continue to form viewer/i.test(text)), "Annulment should expose forms path");
+    assert(annulmentState.actions.some((text) => /Find the right forms|Start form check|Continue to form viewer/i.test(text)), "Annulment should expose forms path");
     assert(annulmentState.actions.some((text) => /office review|Intake/i.test(text)), "Annulment should expose office-review path");
     assert(annulmentState.intakePrimaryCount === 0, "Annulment forms path should not make Intake the only primary action");
     assert(!annulmentState.overflow, "Practice Areas Annulment view has horizontal overflow");

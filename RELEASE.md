@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-085600-choose-eyebrow-align
+## Public Website Release: mflg-live-20260626-100421-diy-guide-form-check
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-085600-choose-eyebrow-align`
-- Public JS SHA-256: `abf3f2eace306ee05921e2822a8f2561f61f4ef408d8b88163bae949dbaf7305`
-- Public CSS SHA-256: `968c0034ad8a582729b2abff2f7ad616fc6bd0a952afced93759d546a72a2fc8`
+- Asset key: `mflg-live-20260626-100421-diy-guide-form-check`
+- Public JS SHA-256: `06ccc48a71a90bc16c9803f1475c0f70ee0bfb990ddde4b5b191aa655a411366`
+- Public CSS SHA-256: `bcb0ca91343409144aef0691d2a19b4069aefa93d2e29865868c8307eb8354a4`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: reveal workspace `Choose` eyebrow alignment, retained desktop 10-card grid, mobile 6-card grid, legal-term marker cleanup, visible question-mark cleanup, and public text/layout QA protections.
+- Scope: DIY Guide `Find forms` now lands at the form-check workspace, guide suggestions no longer appear as confirmed answers, Step 2/PDF groups stay hidden until form questions are answered, reveal chooser spacing is tightened, and public text/layout QA protections remain green.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

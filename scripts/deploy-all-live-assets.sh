@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-085600-choose-eyebrow-align}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-100421-diy-guide-form-check}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -89,7 +89,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
      [[ "$public_site_js" == *"rememberFormsQualifierAnswers"* ]] &&
      [[ "$public_site_js" == *"mflgFormsRouteContext"* ]] &&
      [[ "$public_site_js" == *"View form"* ]] &&
-     [[ "$public_site_js" == *"Answer questions to find forms"* ]] &&
+     [[ "$public_site_js" == *"Start form check"* ]] &&
+     [[ "$public_site_js" == *"forms-task-workspace"* ]] &&
      [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&
      [[ "$public_site_js" != *"handoff"* ]] &&
      [[ "$public_site_js" != *"safe route metadata"* ]] &&
@@ -405,7 +406,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
      [[ "$public_css" == *"official-pdf-direct-download"* ]] &&
      [[ "$public_site_js" == *"Saved answers applied"* ]] &&
      [[ "$public_site_js" == *"View form"* ]] &&
-     [[ "$public_site_js" == *"Answer questions to find forms"* ]] &&
+     [[ "$public_site_js" == *"Start form check"* ]] &&
+     [[ "$public_site_js" == *"forms-task-workspace"* ]] &&
      [[ "$public_site_js" == *"Court source: Maricopa Superior Court"* ]] &&
      [[ "$public_site_js" == *"Choose path"* ]] &&
      [[ "$public_site_js" != *"handoff"* ]] &&

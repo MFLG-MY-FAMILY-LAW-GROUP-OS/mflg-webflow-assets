@@ -222,7 +222,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-085600-choose-eyebrow-align") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-100421-diy-guide-form-check") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -9056,7 +9056,15 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   gap: 5px;
   max-width: 860px;
 }
+.guide-packet-chooser summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  max-width: 860px;
+  cursor: pointer;
+}
 .guide-packet-chooser span {
+  display: block;
   color: var(--gold);
   font-size: 0.68rem;
   font-weight: 950;
@@ -9064,6 +9072,7 @@ body.forms-showing-all-sections .calculator-hub .official-calculator-workspace {
   text-transform: uppercase;
 }
 .guide-packet-chooser strong {
+  display: block;
   color: var(--ink);
   font-size: clamp(1.05rem, 1.5vw, 1.34rem);
   line-height: 1.16;

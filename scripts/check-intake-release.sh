@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-085600-choose-eyebrow-align}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-100421-diy-guide-form-check}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -395,6 +395,8 @@ grep -q "form-pdf-route-index.json" "$PUBLIC_JS_FILE" || fail "Official PDF rout
 grep -q "packetRoute?.route" "$PUBLIC_JS_FILE" || fail "Official PDF route-card Intake metadata sync missing from public JS"
 grep -q 'packet) packet.value = "all"' "$PUBLIC_JS_FILE" || fail "Official PDF reset must return to all packets"
 grep -q "Open the forms in order" "$PUBLIC_JS_FILE" || fail "Form reset/show-all public copy missing from public JS"
+grep -q "Start form check" "$PUBLIC_JS_FILE" || fail "Guide-to-forms bridge CTA copy missing from public JS"
+grep -q "forms-task-workspace" "$PUBLIC_JS_FILE" || fail "Guide-to-forms bridge must target the form-check workspace"
 [[ -f "$ROOT_DIR/data/form-pdf-route-index.json" ]] || fail "Official PDF route index missing"
 grep -q '"version": "1.0.0-pdf-route-index"' "$ROOT_DIR/data/form-pdf-route-index.json" || fail "Official PDF route index version missing"
 grep -q '"safe_route_metadata_only": true' "$ROOT_DIR/data/form-pdf-route-index.json" || fail "Official PDF route index safety flag missing"

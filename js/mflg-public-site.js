@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-085600-choose-eyebrow-align">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-100421-diy-guide-form-check">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-085600-choose-eyebrow-align">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-100421-diy-guide-form-check">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1530,10 +1530,10 @@
         <div class="guide-forms-viewer-head guide-forms-bridge-head">
           <div>
             <span>Forms & Calculators</span>
-            <strong>Open the matching forms in Forms & Calculators.</strong>
-            <p>This guide narrows the packet. The PDF viewer itself lives in Forms & Calculators so the form flow stays in one place.</p>
+            <strong>Start the form check in Forms & Calculators.</strong>
+            <p>This issue can start the form check, but the form questions still need your answers before any packet opens.</p>
           </div>
-          <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-calculator-choice="${esc(item.calculatorChoice || "")}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>Open matched forms</a>
+          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-calculator-choice="${esc(item.calculatorChoice || "")}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>Start form check</a>
         </div>
       </div>
       </div>
@@ -2442,8 +2442,8 @@
     if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Matched forms for ${publicCounty} County` : "Matched county forms";
     if (confidence === "intake-required") return "Check first";
     if (confidence === "statewide-generic") return "Arizona statewide forms";
-    if (confidence === "related-only") return "Related forms";
-    return "Related forms";
+    if (confidence === "related-only") return "Suggested form starting point";
+    return "Suggested form starting point";
   }
 
   function formConfidenceCopy(confidence, county) {
@@ -2458,8 +2458,8 @@
     if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These forms are matched for ${publicCounty} County. Use them only if that is your case county.` : "These forms are matched to a confirmed county.";
     if (confidence === "intake-required") return "Use Guided Intake before choosing forms. This issue depends on timing, court orders, county, or case stage.";
     if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires local forms.";
-    if (confidence === "related-only") return "Related forms exist, but this may not be the exact form group for your issue.";
-    return "These forms are related, but may not be the exact packet for the selected issue.";
+    if (confidence === "related-only") return "This guide can start the form check, but the form questions still need to be answered.";
+    return "Use this as a suggested starting point, not a confirmed packet match.";
   }
 
   function guideResourceSummaryFor(guide) {
@@ -3524,7 +3524,7 @@
       { label: "Unsure", title: "Use Intake when the label is unclear", copy: "If the issue does not fit cleanly, the office review path is the safest next step." }
     ], "proof-tools");
     return section(routeIntent.title, routeIntent.copy, `
-      <div class="forms-command-center forms-smart-path" data-forms-smart-path>
+      <div class="forms-command-center forms-smart-path" id="forms-task-workspace" data-forms-smart-path>
         <div class="forms-smart-path-copy">
           <p class="eyebrow">Start here</p>
           <h3>Start with one simple choice.</h3>
@@ -3542,7 +3542,7 @@
               <div class="forms-guide-bridge-chips" data-guide-bridge-chips></div>
             </div>
             <div class="forms-guide-bridge-actions" aria-label="DIY Guide next actions">
-              <button class="button primary" type="button" data-guide-bridge-action="forms">Open matched forms</button>
+              <button class="button primary" type="button" data-guide-bridge-action="forms">Start form check</button>
               <button class="button outline" type="button" data-guide-bridge-action="calculator">Use calculator</button>
               <a class="button outline" href="/start" data-link data-guide-bridge-intake>Start Guided Intake</a>
               <a class="button ghost" href="/guides" data-link>Back to guides</a>
@@ -4415,10 +4415,10 @@
         <div class="guide-forms-viewer-head guide-forms-bridge-head">
           <div>
             <span>Forms & Calculators</span>
-            <strong>Open the matching forms in Forms & Calculators.</strong>
-            <p>This guide only recommends the packet. The viewer and checklist live in Forms & Calculators.</p>
+            <strong>Start the form check in Forms & Calculators.</strong>
+            <p>This guide only suggests the issue. Answer the form questions before opening a packet or PDF viewer.</p>
           </div>
-          <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-calculator-choice="${esc(calculatorChoice || "")}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Open matched forms</a>
+          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-calculator-choice="${esc(calculatorChoice || "")}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Start form check</a>
         </div>
       </div>
       <div class="guide-panel-actions">
@@ -4475,7 +4475,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-085600-choose-eyebrow-align" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-100421-diy-guide-form-check" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5497,7 +5497,7 @@
         : "Continue to the form questions. The PDF viewer appears after the form path is ready.";
     const bridgeCta = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
       ? "Check form availability"
-      : "Answer questions to find forms";
+      : "Start form check";
 
     host.innerHTML = `
       <div class="guide-forms-viewer-head guide-forms-bridge-head">
@@ -5506,7 +5506,7 @@
           <strong>${esc(packetLabel)}</strong>
           <p>${esc(packetHint)} ${esc(packetCopy)}</p>
         </div>
-        <a class="button primary" href="/tools#forms-approved-pdfs" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(bridgeCta)}</a>
+        <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(bridgeCta)}</a>
       </div>
       <div class="guide-forms-bridge-grid">
         <article>
@@ -5526,7 +5526,7 @@
           <strong>${esc(displayFormsChildren(formsRoute.children))}</strong>
         </article>
       </div>
-      <p class="guide-forms-bridge-note">The selected guide carries forward. Answer checks first; the viewer appears only after a form path is ready.</p>
+      <p class="guide-forms-bridge-note">The selected guide only suggests the issue. Answer the form questions before opening a packet or PDF viewer.</p>
     `;
     scheduleLegalTermEnhancement(host);
   }
@@ -7053,19 +7053,24 @@
     const flowSections = Array.from(document.querySelectorAll("[data-flow-section]"));
     const initialStoredFormsRoute = storedFormsRoute();
     const presetRoute = window.MFLGLatestFormsRoute || initialStoredFormsRoute || {};
+    const publicAnswerState = storedPublicAnswers();
+    const publicConfirmedFields = publicAnswerState.confirmedFields || {};
+    const hasConfirmedQualifierAnswers = Boolean(
+      (publicConfirmedFields.county && confirmedPublicValue("county", publicAnswerState.county)) ||
+      (publicConfirmedFields.issue && confirmedPublicValue("issue", publicAnswerState.issue)) ||
+      (publicConfirmedFields.posture && confirmedPublicValue("posture", publicAnswerState.posture)) ||
+      (publicConfirmedFields.children && confirmedPublicValue("children", publicAnswerState.children)) ||
+      (publicConfirmedFields.selectedPacket && confirmedPublicValue("selectedPacket", publicAnswerState.selectedPacket))
+    );
+    const guideContextOnly = Boolean(presetRoute.fromGuide) && !hasConfirmedQualifierAnswers;
     const initialSmartPath = `/${String(window.location.pathname || "").replace(/^\/+|\/+$/g, "")}`;
-    const presetNeed = window.MFLGGuideCalculatorChoice || initialSmartPath === "/calculators" ? "calculator" : "forms";
+    const presetNeed = window.location.hash === "#forms-calculator-hub" || (initialSmartPath === "/calculators" && window.MFLGGuideCalculatorChoice) ? "calculator" : "forms";
     let showAllSections = false;
-    let guidedStep = 0;
+    let guidedStep = guideContextOnly && presetNeed === "forms" ? 1 : 0;
     let guidedComplete = presetNeed === "calculator";
-    const hasSavedQualifierAnswers = Boolean(initialStoredFormsRoute && (
-      (initialStoredFormsRoute.county && initialStoredFormsRoute.county !== "Not sure" && initialStoredFormsRoute.county !== "Statewide") ||
-      (initialStoredFormsRoute.issue && normalizeFormsIssue(initialStoredFormsRoute.issue) !== "all") ||
-      (initialStoredFormsRoute.posture && normalizeFormsPosture(initialStoredFormsRoute.posture) !== "Any posture") ||
-      (initialStoredFormsRoute.children && normalizeFormsChildren(initialStoredFormsRoute.children) !== "any") ||
-      (initialStoredFormsRoute.pdfPacket && initialStoredFormsRoute.pdfPacket !== "all")
-    ));
-    let savedResumeActive = hasSavedQualifierAnswers;
+    const hasSavedQualifierAnswers = Boolean(initialStoredFormsRoute && hasConfirmedQualifierAnswers);
+    let savedResumeActive = !guideContextOnly && hasSavedQualifierAnswers;
+    let guideContextActive = guideContextOnly;
     const guidedAnswers = {
       need: need?.value || presetNeed,
       county: normalizeFormsCounty(presetRoute.county || county?.value),
@@ -7192,8 +7197,8 @@
       if (guideBridgeTitle) guideBridgeTitle.textContent = `${guideTitle} is connected to this page.`;
       if (guideBridgeCopy) {
         guideBridgeCopy.textContent = window.MFLGGuideCalculatorChoice
-          ? "The matched guide and suggested calculator are prefilled here. Confirm the questions once, then move between forms and calculators without re-answering."
-          : "The matched guide is prefilled here. Confirm the questions once, then the right forms stay connected as you move through the page.";
+          ? "Guide context is added here. Use the calculator if it fits, or answer the form questions before opening paperwork."
+          : "Guide context is added here. Answer the form questions before opening any packet or PDF viewer.";
       }
       if (guideBridgeChips) {
         guideBridgeChips.innerHTML = routeChips().map((chip) => `<span>${esc(chip)}</span>`).join("");
@@ -7274,7 +7279,7 @@
       if (hash === "#forms-calculator-hub") return "calculator";
       if (hash === "#deadline-readiness-planner") return "deadline";
       if (hash === "#forms-matter-coverage") return "issue";
-      if (hash === "#forms-official-router" || hash === "#forms-packets" || hash === "#forms-approved-pdfs") return "forms";
+      if (hash === "#forms-task-workspace" || hash === "#forms-official-router" || hash === "#forms-packets" || hash === "#forms-approved-pdfs") return "forms";
       return "";
     };
     const setNeedFromHash = (hash) => {
@@ -7295,7 +7300,8 @@
 	      rememberSmartPathAnswers(publicAnswerOptions);
       const recommendation = recommendationForGuidedAnswers();
       const activeNeed = need?.value || "forms";
-      const pathReady = showAllSections || guidedComplete || activeNeed === "intake";
+      const exactFormsReady = activeNeed !== "forms" || guidedExactPdfPacket() !== "all";
+      const pathReady = showAllSections || activeNeed === "intake" || (guidedComplete && exactFormsReady);
       host.classList.toggle("user-showing-all", showAllSections);
       host.classList.toggle("forms-guided-complete", guidedComplete);
       host.classList.toggle("forms-guided-pending", !pathReady);
@@ -7479,6 +7485,8 @@
       if (guidedCopy) {
         guidedCopy.textContent = savedResumeActive && !guidedComplete
           ? "We kept your county, court stage, issue, and children answer for this session."
+          : guideContextActive && !guidedComplete
+          ? "Guide context is added. Answer the remaining form questions before opening forms."
           : guidedComplete && guidedAnswers.need === "calculator"
           ? "Your form context stays saved. Calculator tools will use only the fields that apply."
           : guidedComplete
@@ -7500,6 +7508,8 @@
       host.querySelector("[data-guided-progress-label]")?.replaceChildren(document.createTextNode(
         savedResumeActive && !guidedComplete
           ? "Saved answers applied"
+          : guideContextActive && !guidedComplete
+          ? "Guide context added"
           : guidedComplete
           ? "Answers confirmed"
           : `Step ${guidedStep + 1}`
@@ -7560,13 +7570,16 @@
         }
         setSelectValue(need, "forms");
         guidedAnswers.need = "forms";
-        guidedComplete = true;
+        guidedComplete = false;
+        savedResumeActive = false;
+        guideContextActive = true;
+        guidedStep = Math.max(1, guidedStep);
         showAllSections = false;
         syncFormsFinder();
-      update({ userAction: true, confirmed: true, confirmedFields: ["need"], source: "guide-bridge-forms" });
+      update({ userAction: true, confirmed: true, confirmedFields: ["need"], suggestedFields: ["issue", "county", "posture", "children", "selectedPacket"], source: "guide-bridge-forms" });
         window.dispatchEvent(new CustomEvent("mflg:forms-route-change", { detail: window.MFLGLatestFormsRoute || presetRoute }));
-        if (window.location.hash !== "#forms-approved-pdfs") history.replaceState(history.state, "", "#forms-approved-pdfs");
-        revealAndFocus("#forms-approved-pdfs", { hash: "#forms-approved-pdfs", history: true });
+        if (window.location.hash !== "#forms-task-workspace") history.replaceState(history.state, "", "#forms-task-workspace");
+        revealAndFocus("#forms-task-workspace", { hash: "#forms-task-workspace", history: true });
       });
     });
     document.querySelectorAll('a[href^="#forms-"]').forEach((link) => {
@@ -7620,6 +7633,7 @@
       if (!button) return;
       const step = guidedSteps[guidedStep] || guidedSteps[0];
       const value = button.getAttribute("data-guided-answer") || "";
+      guideContextActive = false;
       guidedAnswers[step.key] = value;
       if (step.key === "need") {
         setSelectValue(need, value);
@@ -9804,22 +9818,26 @@
 	    const calculatorChoice = anchor.getAttribute("data-guide-calculator-choice") || "";
 
 	    if (formsRoute || calculatorChoice) {
+	      const linkWantsCalculator = Boolean(calculatorChoice && url.hash === "#forms-calculator-hub");
 	      const linkRoute = {
 	        ...(formsRoute || window.MFLGLatestFormsRoute || {}),
-	        need: calculatorChoice ? "calculator" : (formsRoute || window.MFLGLatestFormsRoute || {}).need || "forms"
+	        need: linkWantsCalculator ? "calculator" : (formsRoute || window.MFLGLatestFormsRoute || {}).need || "forms"
 	      };
+      const confirmedBridgeFields = [
+        "need",
+        linkWantsCalculator ? "selectedCalculator" : "",
+        formsRoute?.fromGuide ? "selectedGuide" : "",
+        formsRoute?.fromPracticeArea ? "selectedPracticeArea" : ""
+      ].filter(Boolean);
+      const suggestedBridgeFields = linkWantsCalculator
+        ? ["county", "posture", "children", "selectedPacket"]
+        : ["issue", "county", "posture", "children", "selectedPacket"];
 	      storeFormsRoute(linkRoute, calculatorChoice, {
 	        userAction: true,
 	        confirmed: true,
-	        confirmedFields: [
-	          calculatorChoice ? "selectedCalculator" : "",
-	          calculatorChoice ? "need" : "",
-	          formsRoute?.fromGuide ? "selectedGuide" : "",
-	          formsRoute?.fromPracticeArea ? "selectedPracticeArea" : "",
-	          !calculatorChoice && formsRoute && normalizeFormsIssue(formsRoute.issue) !== "all" ? "issue" : ""
-	        ].filter(Boolean),
-	        suggestedFields: ["county", "posture", "children", "selectedPacket"],
-	        source: calculatorChoice ? "global-calculator-link" : "global-forms-link"
+	        confirmedFields: confirmedBridgeFields,
+	        suggestedFields: suggestedBridgeFields,
+	        source: linkWantsCalculator ? "global-calculator-link" : "global-forms-link"
 	      });
 	    }
 

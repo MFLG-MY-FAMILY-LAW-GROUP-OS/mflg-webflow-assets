@@ -1,7 +1,7 @@
 {
   "rollback_deployments": {
-    "mflg_public_website": "70af2631-1edb-4e6b-962b-4d59afd9cdc7",
-    "mflg_webflow_assets": "50803fd3-bbf3-4e82-91c3-7095d4a651d9"
+    "mflg_public_website": "854bbedc-c53f-457e-a861-fdc34d37ac7a",
+    "mflg_webflow_assets": "f12df624-f2cb-4e7e-8b8a-6ff646214c40"
   },
-  "previous_asset_key": "mflg-live-20260626-052746-public-copy-cleanup"
+  "previous_asset_key": "mflg-live-20260626-085600-choose-eyebrow-align"
 }
