@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-maintenance-api-contract",
-  "built_at": "2026-06-26T21:31:57.098Z",
+  "built_at": "2026-06-26T21:39:48.049Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-fixture-qa-plan",
-  "built_at": "2026-06-26T21:31:52.698Z",
+  "built_at": "2026-06-26T21:39:43.191Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "source_fixture_template_version": "1.0.0-calculator-fixture-entry-template",
   "source_regression_harness_version": "1.0.0-calculator-regression-harness",
