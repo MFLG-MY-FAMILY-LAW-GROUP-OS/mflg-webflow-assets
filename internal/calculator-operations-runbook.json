@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-operations-runbook",
-  "built_at": "2026-06-26T21:28:18.198Z",
+  "built_at": "2026-06-26T21:31:56.389Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

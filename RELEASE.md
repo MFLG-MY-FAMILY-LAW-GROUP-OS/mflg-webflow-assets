@@ -1,11 +1,11 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-141751-decision-flow-clarity
+## Public Website Release: mflg-live-20260626-143341-decision-flow-copyfix
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-141751-decision-flow-clarity`
-- Public JS SHA-256: `80a1b506481f3c5c05b5055ae2b5cdce10dc0bf8d246a5d15557176c50d21daf`
-- Public CSS SHA-256: `ce69918eb056e8a3b89d70c14c4d6267b6659e17b60d055f1bec103691b33a28`
+- Asset key: `mflg-live-20260626-143341-decision-flow-copyfix`
+- Public JS SHA-256: `42fa68150f5a4810ac74069c6d8a1e8fb4a0ee235e3d102b08816c6fa617249e`
+- Public CSS SHA-256: `6044529c89a132756301db1948e5db2ff96525fc91292e40e4b73514b93d4dda`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
 - Scope: Decision-flow clarity pass. The guided helper now has a visible step rail, no skip-through CTA before answering, no default answer chips, a primary result tier, and a plain-language explanation of why each result appears.

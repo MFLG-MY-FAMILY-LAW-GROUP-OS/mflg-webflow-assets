@@ -30,8 +30,8 @@ Base URL for local regression: `http://127.0.0.1:4175`
 - `npm run test:all-county-user-outcomes`: pass
 - `npm run test:all-county-production-stability`: pass, 27 runs / 0 failures / 0 timeout mentions / 0 console or network mentions
 
-Final live public JS SHA-256: `80a1b506481f3c5c05b5055ae2b5cdce10dc0bf8d246a5d15557176c50d21daf`
+Final live public JS SHA-256: `42fa68150f5a4810ac74069c6d8a1e8fb4a0ee235e3d102b08816c6fa617249e`
 
-Final live public CSS SHA-256: `ce69918eb056e8a3b89d70c14c4d6267b6659e17b60d055f1bec103691b33a28`
+Final live public CSS SHA-256: `6044529c89a132756301db1948e5db2ff96525fc91292e40e4b73514b93d4dda`
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`

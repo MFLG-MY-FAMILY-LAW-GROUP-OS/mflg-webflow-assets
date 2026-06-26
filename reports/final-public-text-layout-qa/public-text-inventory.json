@@ -497854,7 +497854,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "This appears because you chose Open matched forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500544,7 +500544,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "This appears because you chose Open matched forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

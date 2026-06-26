@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-141751-decision-flow-clarity">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-143341-decision-flow-copyfix">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-141751-decision-flow-clarity">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-143341-decision-flow-copyfix">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -4423,7 +4423,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-141751-decision-flow-clarity" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-143341-decision-flow-copyfix" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7145,10 +7145,18 @@
       Pinal: "Pinal County",
       Yavapai: "Yavapai County"
     };
+    const needLabelsForReason = {
+      forms: "Find forms",
+      calculator: "Use a calculator",
+      deadline: "Help me choose",
+      issue: "Search by issue",
+      guide: "Read a DIY guide",
+      intake: "Start Guided Intake"
+    };
     const hasAnswered = (field) => answeredFields.has(field);
     const selectedAnswerReasons = () => {
       const parts = [];
-      if (hasAnswered("need")) parts.push(`you chose ${recommendations[guidedAnswers.need]?.text || "a starting path"}`);
+      if (hasAnswered("need")) parts.push(`you chose ${needLabelsForReason[guidedAnswers.need] || "a starting path"}`);
       if (hasAnswered("county")) parts.push(`county is ${countyLabelsForReason[guidedAnswers.county] || guidedAnswers.county}`);
       if (hasAnswered("posture")) parts.push(`case stage is ${guidedAnswers.posture}`);
       if (hasAnswered("issue")) parts.push(`issue is ${publicIssueLabelForRoute(guidedAnswers).toLowerCase()}`);
