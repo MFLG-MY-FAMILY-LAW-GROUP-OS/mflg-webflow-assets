@@ -1,12 +1,12 @@
 # MFLG Current Production Source
 
-Start future Codex sessions from:
+Preferred future Codex session command:
 
 ```bash
 cd /Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production && codex
 ```
 
-Do not start from `~`.
+If a session opens somewhere else, switch project commands to the current-production pointer above before inspecting or modifying the site.
 Do not use the historical dirty worktree.
 Do not run `/review`.
 Do not treat old previews, owner packages, evidence branches, or stale reports as source of truth.
@@ -37,7 +37,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260625-113245-hero-loop-smooth`
+- GitHub Release object: not present as of June 26, 2026; branch and tag are pushed, and `gh` is not installed in the local shell.
 
 ## Never Use
 
