@@ -1,7 +1,7 @@
 {
   "rollback_deployments": {
-    "mflg_public_website": "854bbedc-c53f-457e-a861-fdc34d37ac7a",
-    "mflg_webflow_assets": "f12df624-f2cb-4e7e-8b8a-6ff646214c40"
+    "mflg_public_website": "2c4c5935-4b75-4e4e-a3ac-cae441e83781",
+    "mflg_webflow_assets": "af183df3-560a-4cf4-81f6-4518df416a76"
   },
-  "previous_asset_key": "mflg-live-20260626-085600-choose-eyebrow-align"
+  "previous_asset_key": "mflg-live-20260626-100421-diy-guide-form-check"
 }

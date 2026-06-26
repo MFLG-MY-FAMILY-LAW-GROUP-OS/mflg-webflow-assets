@@ -28,27 +28,20 @@ function assert(condition, message) {
       title: document.querySelector("[data-guide-pdf-panel] strong")?.textContent?.trim() || "",
       cta: document.querySelector("[data-guide-pdf-panel] a.button.primary")?.textContent?.trim() || "",
       route: document.querySelector("[data-guide-pdf-panel] a.button.primary")?.getAttribute("data-guide-forms-route") || "",
+      calculatorChoice: document.querySelector("[data-guide-pdf-panel] a.button.primary")?.getAttribute("data-guide-calculator-choice") || "",
+      packetChooserVisible: Boolean(document.querySelector("[data-guide-packet-chooser]")),
       countyGateVisible: Boolean(document.querySelector("[data-guide-county-choice]")),
       viewerFrameVisible: Boolean(document.querySelector("[data-guide-pdf-frame]"))
     }));
     assert(initialState.title.length > 0, "Guide bridge title did not render");
     assert(/Start form check|Continue to form viewer/i.test(initialState.cta), `Guide bridge CTA missing: ${initialState.cta}`);
     assert(initialState.route.length > 0, "Guide bridge did not carry a forms route");
+    const initialRoute = JSON.parse(initialState.route);
+    assert(initialState.calculatorChoice === "", "Guide form-check CTA should not carry calculator state");
+    assert(!initialRoute.suggestedPacket && !initialRoute.suggestedPacketLabel, "Guide form-check route should not preselect a packet");
+    assert(!initialState.packetChooserVisible, "Guide reveal should not show a packet chooser before form questions");
     assert(initialState.countyGateVisible === false, "Old county gate should not render in the guide bridge");
     assert(initialState.viewerFrameVisible === false, "Guide bridge should not render an embedded PDF frame");
-
-    const packetChoice = page.locator("[data-guide-packet-choice]");
-    if ((await packetChoice.count()) > 1) {
-      await page.locator("[data-guide-packet-chooser]").first().evaluate((node) => {
-        if (node.tagName === "DETAILS") node.open = true;
-      });
-      const firstChoice = packetChoice.first();
-      const beforeLabel = await page.locator("[data-guide-pdf-panel]").first().getAttribute("data-guide-packet-label");
-      await packetChoice.nth(1).click();
-      const afterLabel = await page.locator("[data-guide-pdf-panel]").first().getAttribute("data-guide-packet-label");
-      assert(afterLabel && afterLabel !== beforeLabel, "Selected packet label did not update in the guide bridge");
-      await firstChoice.click();
-    }
 
     await page.goto(`${baseUrl}/practice-areas/`, { waitUntil: "networkidle" });
     const annulmentOpened = await page.evaluate(() => {

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-100421-diy-guide-form-check}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-122120-diy-guide-flow-reset}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -134,7 +134,8 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"Choose calculator or planner"* ]] &&
 	     [[ "$public_site_js" == *"Open deadline-readiness planner"* ]] &&
 	     [[ "$public_site_js" == *"guidePacketChoicesFor"* ]] &&
-	     [[ "$public_site_js" == *"Form path"* ]] &&
+	     [[ "$public_site_js" == *"Use the form check before opening a packet"* ]] &&
+	     [[ "$public_site_js" != *"Optional form path"* ]] &&
 	     [[ "$public_site_js" == *"Divorce or separation, no minor children"* ]] &&
 	     [[ "$public_site_js" == *"Register an out-of-state custody order"* ]] &&
 	     [[ "$public_site_js" == *"Register an out-of-state support order"* ]] &&

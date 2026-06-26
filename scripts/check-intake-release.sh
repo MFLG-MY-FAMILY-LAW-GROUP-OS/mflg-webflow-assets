@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-100421-diy-guide-form-check}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260626-122120-diy-guide-flow-reset}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -168,7 +168,10 @@ grep -q "data-guide-calculator-choice" "$PUBLIC_JS_FILE" || fail "DIY guide calc
 grep -q "Choose calculator or planner" "$PUBLIC_JS_FILE" || fail "DIY guide universal calculator chooser label missing"
 grep -q "Open deadline-readiness planner" "$PUBLIC_JS_FILE" || fail "DIY guide deadline planner action missing from public JS"
 grep -q "guidePacketChoicesFor" "$PUBLIC_JS_FILE" || fail "DIY guide packet choice router missing from public JS"
-grep -q "Form path" "$PUBLIC_JS_FILE" || fail "DIY guide generic form-path chooser copy missing"
+grep -q "Use the form check before opening a packet" "$PUBLIC_JS_FILE" || fail "DIY guide form-check bridge copy missing"
+if grep -q "Optional form path" "$PUBLIC_JS_FILE"; then
+  fail "DIY guide must not show optional packet choices before form-check questions"
+fi
 grep -q "Divorce or separation, no minor children" "$PUBLIC_JS_FILE" || fail "DIY guide divorce packet choices missing"
 grep -q "Register an out-of-state custody order" "$PUBLIC_JS_FILE" || fail "DIY guide interstate custody packet choice missing"
 grep -q "Register an out-of-state support order" "$PUBLIC_JS_FILE" || fail "DIY guide support packet choice missing"

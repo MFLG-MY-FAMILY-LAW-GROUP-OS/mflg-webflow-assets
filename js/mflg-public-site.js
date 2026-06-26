@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-100421-diy-guide-form-check">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-122120-diy-guide-flow-reset">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-100421-diy-guide-form-check">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-122120-diy-guide-flow-reset">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1133,20 +1133,12 @@
 	      const route = intakeRouteForService(item);
 	      const issueProfile = issueProfileFor(item.title, item.category);
 	      const guide = guideFromServiceItem(item);
-	      const packetChoices = guidePacketChoicesFor(guide);
-	      const primaryPacket = packetChoices[0];
-	      const baseFormsRoute = guideFormsRouteFor(guide);
-	      const formsRoute = {
-	        ...baseFormsRoute,
-	        suggestedIssue: primaryPacket?.issue || "",
-	        suggestedPosture: primaryPacket?.posture || "",
-	        suggestedChildren: primaryPacket?.children || "",
-	        suggestedPacket: primaryPacket?.packet || "",
-	        suggestedPacketLabel: primaryPacket?.label || "",
-	        suggestedConfidence: primaryPacket?.confidence || "",
-	        officialSourceUrl: primaryPacket?.sourceUrl || "",
-	        fromPracticeArea: item.title
-	      };
+      const baseFormsRoute = guideFormsRouteFor(guide);
+      const formsRoute = {
+        ...baseFormsRoute,
+        suggestedIssue: baseFormsRoute.issue || "",
+        fromPracticeArea: item.title
+      };
 	      const calculatorChoice = guideCalculatorChoiceFor(guide);
 	      const neutralCalculator = shouldUseNeutralCalculatorChoice(guide);
 	      const calculatorLabel = neutralCalculator
@@ -1370,8 +1362,6 @@
     const profile = item.issueProfile || issueProfileFor(item.title, item.category);
     const checklist = guideChecklistFor(item).slice(0, 3);
     const readiness = guideReadinessFor(item)[0] || "If the next step is unclear, use Guided Intake before choosing forms.";
-    const packetChoices = guidePacketChoicesFor(item.guide);
-    const prerequisiteChecks = issuePrerequisitesForTitle(item.title);
     const calculatorChoices = calculatorQuickChoices(item.calculatorChoice);
     const calculatorOpen = !item.neutralCalculator;
     const primaryAction = item.primaryAction || "forms";
@@ -1422,21 +1412,9 @@
         <p class="eyebrow">Answer</p>
         <h4>${esc(profile.formsActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="forms-prereq-panel">
-          <strong>Answer these before viewing a form.</strong>
-          <p>${esc(profile.firstStep)}</p>
-          <ul class="list">${prerequisiteChecks.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
-          <p><strong>Do not use as the primary result:</strong> ${esc(profile.disallowedBroadPackets.join(", "))}.</p>
+          <strong>Use the form check before opening a packet.</strong>
+          <p>The next page asks for county, case stage, children, agreement status, existing orders, timing, and safety before it shows a packet, statewide forms, or office review.</p>
         </div>
-        ${packetChoices.length ? `<details class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
-          <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
-          <div class="guide-packet-options" role="list">
-            ${packetChoices.map((choice) => `<button type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-label="${esc(choice.label)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
-              <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
-              <span>${esc(choice.label)}</span>
-              <small>${esc(choice.helper)}</small>
-            </button>`).join("")}
-          </div>
-        </details>` : ""}
         <div class="guide-forms-viewer service-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(item.calculatorChoice || "")}" data-guide-pdf-packet="${esc(item.formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(item.title)}" data-guide-title="${esc(item.title)}" data-guide-route='${esc(JSON.stringify(item.formsRoute))}'></div>
       </section>
       <section class="task-workspace-state" data-service-panel-section="calculator" hidden inert aria-hidden="true">
@@ -1512,20 +1490,6 @@
         </div>
       </details>
       <div data-service-panel-section="forms" hidden>
-      ${packetChoices.length ? `<div class="guide-packet-chooser service-packet-chooser" data-guide-packet-chooser>
-        <div>
-          <span>Form path</span>
-          <strong>Choose the closest situation before opening forms.</strong>
-          <p>The forms below are assigned from this practice-area card. If the title or county does not fit, use Guided Intake instead of guessing.</p>
-        </div>
-        <div class="guide-packet-options" role="list">
-          ${packetChoices.map((choice) => `<button type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-label="${esc(choice.label)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
-            <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
-            <span>${esc(choice.label)}</span>
-            <small>${esc(choice.helper)}</small>
-          </button>`).join("")}
-        </div>
-      </div>` : ""}
       <div class="guide-forms-viewer service-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(item.calculatorChoice || "")}" data-guide-pdf-packet="${esc(item.formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(item.title)}" data-guide-title="${esc(item.title)}" data-guide-route='${esc(JSON.stringify(item.formsRoute))}'>
         <div class="guide-forms-viewer-head guide-forms-bridge-head">
           <div>
@@ -1533,7 +1497,7 @@
             <strong>Start the form check in Forms & Calculators.</strong>
             <p>This issue can start the form check, but the form questions still need your answers before any packet opens.</p>
           </div>
-          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-calculator-choice="${esc(item.calculatorChoice || "")}" data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>Start form check</a>
+          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>Start form check</a>
         </div>
       </div>
       </div>
@@ -4254,19 +4218,10 @@
     const route = guideRoute(guide);
     const profile = guide.issueProfile || issueProfileFor(guide.title, guide.category);
     const calculatorChoice = guideCalculatorChoiceFor(guide);
-    const packetChoices = guidePacketChoicesFor(guide);
-    const suggestedPacket = packetChoices[0] || {};
     const formsRoute = {
       ...guideFormsRouteFor(guide),
-      suggestedIssue: suggestedPacket.issue || "",
-      suggestedPosture: suggestedPacket.posture || "",
-      suggestedChildren: suggestedPacket.children || "",
-      suggestedPacket: suggestedPacket.packet || "",
-      suggestedPacketLabel: suggestedPacket.label || "",
-      suggestedConfidence: suggestedPacket.confidence || "",
-      officialSourceUrl: suggestedPacket.sourceUrl || ""
+      suggestedIssue: guideFormsRouteFor(guide).issue || ""
     };
-    const prerequisiteChecks = issuePrerequisitesForTitle(guide.title);
     const calculatorLabel = calculatorChoice === "support"
       ? "Open child support calculator"
       : calculatorChoice === "parenting"
@@ -4317,21 +4272,9 @@
         <p class="eyebrow">Confirm</p>
         <h4>${esc(profile.formsActionLabel)} for ${esc(profile.publicLabel)}.</h4>
         <div class="forms-prereq-panel">
-          <strong>Answer these before viewing a form.</strong>
-          <p>${esc(profile.firstStep)}</p>
-          <ul class="list">${prerequisiteChecks.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>
-          <p><strong>Do not use as the primary result:</strong> ${esc(profile.disallowedBroadPackets.join(", "))}.</p>
+          <strong>Use the form check before opening a packet.</strong>
+          <p>The next page asks for county, case stage, children, agreement status, existing orders, timing, and safety before it shows a packet, statewide forms, or office review.</p>
         </div>
-        ${packetChoices.length ? `<details class="guide-packet-chooser" data-guide-packet-chooser>
-          <summary><span>Optional form path</span><strong>Choose a closer situation only if one fits.</strong></summary>
-          <div class="guide-packet-options" role="list">
-            ${packetChoices.map((choice) => `<button type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-label="${esc(choice.label)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
-              <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
-              <span>${esc(choice.label)}</span>
-              <small>${esc(choice.helper)}</small>
-            </button>`).join("")}
-          </div>
-        </details>` : ""}
         <div class="guide-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(calculatorChoice || "")}" data-guide-pdf-packet="${esc(formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(guide.title)}" data-guide-title="${esc(guide.title)}" data-guide-route='${esc(JSON.stringify(formsRoute))}'></div>
       </section>
       ${calculatorChoice ? `<section class="task-workspace-state" data-guide-panel-section="calculator" hidden inert aria-hidden="true">
@@ -4364,21 +4307,21 @@
       <div class="guide-next-step" data-guide-next-step>
         <div class="guide-next-step-head">
           <span>Guide tools</span>
-          <strong>View the forms and calculator for this guide.</strong>
-          <p>${esc(guideResourceSummaryFor(guide))} Forms open on this page. You are not filing anything by viewing or downloading a PDF.</p>
+          <strong>Start with one clear next step.</strong>
+          <p>${esc(guideResourceSummaryFor(guide))} Forms open after the form check confirms the county, stage, children, agreement, orders, timing, and safety screen.</p>
         </div>
         <div class="guide-next-options" role="list">
-          <button class="active" type="button" data-guide-next-choice="forms">View forms</button>
+          <button class="active" type="button" data-guide-next-choice="forms">Find forms</button>
           ${calculatorChoice ? `<button type="button" data-guide-next-choice="calculator">Use calculator</button>` : ""}
           <button type="button" data-guide-next-choice="intake">I am not sure</button>
         </div>
         <div class="guide-next-result" data-guide-next-result="forms">
           <div>
             <span>Forms</span>
-            <strong>Open the forms assigned to this guide.</strong>
-            <p>The PDF viewer below opens the approved court forms for this practice area. If the form title does not fit, use Guided Intake.</p>
+            <strong>Answer the form-check questions first.</strong>
+            <p>The guide only suggests the issue. The next page asks the missing form questions before showing a county packet, statewide forms, or office review.</p>
           </div>
-          <button class="button primary" type="button" data-guide-scroll-forms>View forms below</button>
+          <button class="button primary" type="button" data-guide-scroll-forms>Review form check</button>
         </div>
         ${calculatorChoice ? `<div class="guide-next-result" data-guide-next-result="calculator" hidden>
           <div>
@@ -4397,20 +4340,6 @@
           <a class="button primary" href="/start" data-link data-intake-route='${esc(JSON.stringify(route))}'>Start Guided Intake</a>
         </div>
       </div>
-      ${packetChoices.length ? `<div class="guide-packet-chooser" data-guide-packet-chooser>
-        <div>
-          <span>Form path</span>
-          <strong>Choose the situation that fits before opening forms.</strong>
-          <p>Pick the closest public form path. If none of these sound right, use Guided Intake instead of guessing.</p>
-        </div>
-        <div class="guide-packet-options" role="list">
-          ${packetChoices.map((choice) => `<button type="button" data-guide-packet-choice="${esc(choice.key)}" data-packet-label="${esc(choice.label)}" data-packet-id="${esc(choice.packet)}" data-route-issue="${esc(choice.issue)}" data-route-posture="${esc(choice.posture)}" data-route-children="${esc(choice.children)}" data-route-confidence="${esc(choice.confidence || "related")}" data-route-source-url="${esc(choice.sourceUrl || "")}">
-            <em class="form-confidence ${esc(choice.confidence || "related")}">${esc(formConfidenceLabel(choice.confidence))}</em>
-            <span>${esc(choice.label)}</span>
-            <small>${esc(choice.helper)}</small>
-          </button>`).join("")}
-        </div>
-      </div>` : ""}
       <div class="guide-forms-viewer" data-guide-pdf-panel data-guide-calculator-choice="${esc(calculatorChoice || "")}" data-guide-pdf-packet="${esc(formsRoute.pdfPacket || "")}" data-guide-packet-label="${esc(guide.title)}" data-guide-title="${esc(guide.title)}" data-guide-route='${esc(JSON.stringify(formsRoute))}'>
         <div class="guide-forms-viewer-head guide-forms-bridge-head">
           <div>
@@ -4418,7 +4347,7 @@
             <strong>Start the form check in Forms & Calculators.</strong>
             <p>This guide only suggests the issue. Answer the form questions before opening a packet or PDF viewer.</p>
           </div>
-          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-calculator-choice="${esc(calculatorChoice || "")}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Start form check</a>
+          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Start form check</a>
         </div>
       </div>
       <div class="guide-panel-actions">
@@ -4475,7 +4404,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-100421-diy-guide-form-check" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-122120-diy-guide-flow-reset" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5487,14 +5416,14 @@
       ? "No verified issue-specific packet is opened from this card before review."
       : packetId && packetId !== "all"
         ? `Recommended packet: ${packetLabel}.`
-        : "Choose the packet that best fits your county, issue, and case stage.";
+        : "No packet is selected yet.";
     const packetCopy = formsRoute.formConfidence === "statewide-generic"
       ? "This is a statewide starting point. Continue to the form questions to review the packet and narrow by county if needed."
       : formsRoute.formConfidence === "related-only"
         ? "This guide points to related forms only. Continue to compare packet titles before opening anything."
         : formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
           ? "Answer the checks first. If no verified packet fits, use office review instead of guessing with another family-law packet."
-        : "Continue to the form questions. The PDF viewer appears after the form path is ready.";
+        : "Continue to the form-check questions. The result appears only after the required answers are known.";
     const bridgeCta = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
       ? "Check form availability"
       : "Start form check";
@@ -5506,7 +5435,7 @@
           <strong>${esc(packetLabel)}</strong>
           <p>${esc(packetHint)} ${esc(packetCopy)}</p>
         </div>
-        <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-calculator-choice="${esc(calculatorChoice)}" data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(bridgeCta)}</a>
+        <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>${esc(bridgeCta)}</a>
       </div>
       <div class="guide-forms-bridge-grid">
         <article>
@@ -9821,7 +9750,8 @@
 	      const linkWantsCalculator = Boolean(calculatorChoice && url.hash === "#forms-calculator-hub");
 	      const linkRoute = {
 	        ...(formsRoute || window.MFLGLatestFormsRoute || {}),
-	        need: linkWantsCalculator ? "calculator" : (formsRoute || window.MFLGLatestFormsRoute || {}).need || "forms"
+	        need: linkWantsCalculator ? "calculator" : (formsRoute || window.MFLGLatestFormsRoute || {}).need || "forms",
+	        calculatorChoice: linkWantsCalculator ? calculatorChoice : ""
 	      };
       const confirmedBridgeFields = [
         "need",
@@ -9832,7 +9762,7 @@
       const suggestedBridgeFields = linkWantsCalculator
         ? ["county", "posture", "children", "selectedPacket"]
         : ["issue", "county", "posture", "children", "selectedPacket"];
-	      storeFormsRoute(linkRoute, calculatorChoice, {
+	      storeFormsRoute(linkRoute, linkWantsCalculator ? calculatorChoice : "", {
 	        userAction: true,
 	        confirmed: true,
 	        confirmedFields: confirmedBridgeFields,

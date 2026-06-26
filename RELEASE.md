@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-100421-diy-guide-form-check
+## Public Website Release: mflg-live-20260626-122120-diy-guide-flow-reset
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-100421-diy-guide-form-check`
-- Public JS SHA-256: `06ccc48a71a90bc16c9803f1475c0f70ee0bfb990ddde4b5b191aa655a411366`
-- Public CSS SHA-256: `bcb0ca91343409144aef0691d2a19b4069aefa93d2e29865868c8307eb8354a4`
+- Asset key: `mflg-live-20260626-122120-diy-guide-flow-reset`
+- Public JS SHA-256: `f4e4288aee63029320005715aa44a8cbe4d38638a76f6c1574618e22ced1bf31`
+- Public CSS SHA-256: `620b26a7ae379fb55194cb82a1242f377a0c1e95bebef9fb8f6767e2fb96b144`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: DIY Guide `Find forms` now lands at the form-check workspace, guide suggestions no longer appear as confirmed answers, Step 2/PDF groups stay hidden until form questions are answered, reveal chooser spacing is tightened, and public text/layout QA protections remain green.
+- Scope: DIY Guide form flow reset. Guide reveals no longer show optional packet choices before questions, `Start form check` carries issue context only, calculator and packet state are not preselected, the form helper starts with missing questions, and the guide count row no longer tucks under the category panel.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

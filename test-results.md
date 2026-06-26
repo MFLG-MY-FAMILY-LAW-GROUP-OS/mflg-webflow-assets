@@ -20,7 +20,7 @@ Base URL for local regression: `http://127.0.0.1:4175`
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4175 node scripts/playwright-guide-county-gate.js`: pass
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4175 node scripts/playwright-forms-tools-guided-flow.js`: pass
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4175 node scripts/playwright-public-text-layout-qa.js`: pass, 50,259 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920
-- Live custom-domain DIY Guide form check: pass, `Start form check` lands on `/tools#forms-task-workspace`, shows `Guide context added`, does not show `ANSWERS CONFIRMED`, keeps Step 2 hidden, no horizontal overflow.
+- Live custom-domain DIY Guide form check: pass, `Start form check` lands on `/tools#forms-task-workspace`, shows `Guide context added`, does not show `ANSWERS CONFIRMED`, carries no calculator or packet state, shows no optional packet chooser, shows no Maricopa default, keeps Step 2 hidden, no horizontal overflow.
 - `npm run test:matter-form-matrix`: pass
 - `npm run test:county-form-coverage`: pass
 - `npm run test:unique-route-coverage`: pass
@@ -29,8 +29,8 @@ Base URL for local regression: `http://127.0.0.1:4175`
 - `npm run test:all-county-user-outcomes`: pass
 - `npm run test:all-county-production-stability`: pass, 27 runs / 0 failures / 0 timeout mentions / 0 console or network mentions
 
-Final live public JS SHA-256: `06ccc48a71a90bc16c9803f1475c0f70ee0bfb990ddde4b5b191aa655a411366`
+Final live public JS SHA-256: `f4e4288aee63029320005715aa44a8cbe4d38638a76f6c1574618e22ced1bf31`
 
-Final live public CSS SHA-256: `bcb0ca91343409144aef0691d2a19b4069aefa93d2e29865868c8307eb8354a4`
+Final live public CSS SHA-256: `620b26a7ae379fb55194cb82a1242f377a0c1e95bebef9fb8f6767e2fb96b144`
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
