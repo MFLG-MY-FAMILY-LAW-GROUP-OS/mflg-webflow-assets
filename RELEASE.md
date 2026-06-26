@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-072051-homepage-journey-clarity
+## Public Website Release: mflg-live-20260626-084527-desktop-10-card-grid
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-072051-homepage-journey-clarity`
-- Public JS SHA-256: `384c1dcb69861004eda2cd213870e4756f2c129c9bdd34944db443f5247262c9`
-- Public CSS SHA-256: `3dac6fff52f71bf20aa75ce9ceb75ae050156e7f5f36aa12318245b9de6a1756`
+- Asset key: `mflg-live-20260626-084527-desktop-10-card-grid`
+- Public JS SHA-256: `d24ecd8c8f0c7352c9ef5e79b1e8124fc683dcf4ee6895fa5129eb45f5dd6024`
+- Public CSS SHA-256: `722a60f0a67f5a732d8bea43e3c0523a6249b9b495480946fc955a15bbfc9e8d`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: homepage journey clarity, early trust/reassurance section, reduced initial issue-card density, public copy softening, retained legal-term marker cleanup and visible question-mark cleanup, final public text/layout QA.
+- Scope: desktop issue-card grid adjusted to 10 visible cards, mobile remains 6 visible cards, retained homepage journey clarity, legal-term marker cleanup, visible question-mark cleanup, and public text/layout QA protections.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 
