@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-145858-form-path-unification">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-162318-unified-result-summary">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-145858-form-path-unification">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-162318-unified-result-summary">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3553,6 +3553,18 @@
                 <span>Why this result</span>
                 <p>No answer has been selected yet.</p>
               </div>
+              <div class="forms-unified-result-summary" data-unified-result-summary>
+                <span>Unified result summary</span>
+                <strong>Answer the helper to see one clear result.</strong>
+                <dl>
+                  <div><dt>Recommended result</dt><dd data-unified-result-title>Pending answers</dd></div>
+                  <div><dt>Based on</dt><dd data-unified-result-based-on>No answers selected yet</dd></div>
+                  <div><dt>Why this appears</dt><dd data-unified-result-why>No form result is selected until you answer the current step.</dd></div>
+                  <div><dt>Primary action</dt><dd data-unified-result-primary>Choose one answer above</dd></div>
+                  <div><dt>Other official resources</dt><dd data-unified-result-secondary>Hidden until the main result is clear</dd></div>
+                  <div><dt>Office review</dt><dd data-unified-result-review>Available if the result does not fit</dd></div>
+                </dl>
+              </div>
               <div class="forms-guided-path-line" data-guided-path-line>Answer the next question. The page will keep the form choices hidden until they are useful.</div>
               <div class="forms-guided-result-actions">
                 <button class="button primary" type="button" data-guided-result-action data-guided-target="#forms-official-router">Continue to recommended forms</button>
@@ -4429,7 +4441,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-145858-form-path-unification" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-162318-unified-result-summary" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7002,6 +7014,13 @@
     const guidedEditAnswers = host.querySelector("[data-guided-edit-answers]");
     const guidedResultTier = host.querySelector("[data-guided-result-tier]");
     const guidedReason = host.querySelector("[data-guided-reason]");
+    const unifiedResultSummary = host.querySelector("[data-unified-result-summary]");
+    const unifiedResultTitle = host.querySelector("[data-unified-result-title]");
+    const unifiedResultBasedOn = host.querySelector("[data-unified-result-based-on]");
+    const unifiedResultWhy = host.querySelector("[data-unified-result-why]");
+    const unifiedResultPrimary = host.querySelector("[data-unified-result-primary]");
+    const unifiedResultSecondary = host.querySelector("[data-unified-result-secondary]");
+    const unifiedResultReview = host.querySelector("[data-unified-result-review]");
     const guidedPathLine = host.querySelector("[data-guided-path-line]");
     const guideBridge = host.querySelector("[data-guide-bridge]");
     const guideBridgeTitle = host.querySelector("[data-guide-bridge-title]");
@@ -7501,6 +7520,37 @@
           ? `This appears because ${reasons.join(", ")}.`
           : "This appears because you chose a starting path.";
         guidedReason.innerHTML = `<span>Why this result</span><p>${esc(reasonText)}</p>`;
+        if (unifiedResultWhy) unifiedResultWhy.textContent = reasonText;
+      }
+      if (unifiedResultSummary) {
+        unifiedResultSummary.classList.toggle("is-ready", !shouldContinueQuestions);
+      }
+      if (unifiedResultTitle) {
+        unifiedResultTitle.textContent = shouldContinueQuestions
+          ? "Pending answers"
+          : recommendation.title || "Recommended next step";
+      }
+      if (unifiedResultBasedOn) {
+        const basedOn = [
+          hasAnswered("county") ? countyLabels[guidedAnswers.county] || guidedAnswers.county : "",
+          hasAnswered("posture") ? postureLabels[guidedAnswers.posture] || guidedAnswers.posture : "",
+          hasAnswered("issue") ? (publicIssueLabelForRoute(guidedAnswers) === "Choose issue" ? "Issue not sure yet" : publicIssueLabelForRoute(guidedAnswers)) : "",
+          hasAnswered("children") ? childrenLabels[guidedAnswers.children] || "Children not sure yet" : ""
+        ].filter(Boolean);
+        unifiedResultBasedOn.textContent = basedOn.length ? basedOn.join(" / ") : "No answers selected yet";
+      }
+      if (unifiedResultPrimary) {
+        unifiedResultPrimary.textContent = shouldContinueQuestions ? "Choose one answer above" : recommendation.text || "Go to next step";
+      }
+      if (unifiedResultSecondary) {
+        unifiedResultSecondary.textContent = shouldContinueQuestions
+          ? "Hidden until the main result is clear"
+          : "Available below the primary result if the recommended path does not fit.";
+      }
+      if (unifiedResultReview) {
+        unifiedResultReview.textContent = recommendation.route || recommendation.tier === "Office review recommended"
+          ? "Recommended for this result"
+          : "Use office review if the answer, county, deadline, or form title does not fit.";
       }
 	    if (guidedSummary) {
 	        const chips = [

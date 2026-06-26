@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-145858-form-path-unification
+## Public Website Release: mflg-live-20260626-162318-unified-result-summary
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-145858-form-path-unification`
-- Public JS SHA-256: `70855ada93fa97cfb451eae4e762e2f332eac44cbdf4acbd32b65fb0b16b98e1`
-- Public CSS SHA-256: `982d768a98834f27cbb6b7c4240dd9ad34a91ded8d068274c98745443cbc1c26`
+- Asset key: `mflg-live-20260626-162318-unified-result-summary`
+- Public JS SHA-256: `5862269e0361c79a3aa32b32bf9499374dd88c3d7cc4a9b63b6210656da846e2`
+- Public CSS SHA-256: `b56752240c42ba016c29c393a5e234f55f92b3622d4bd0d51abd7f6fb924f291`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Form-path unification pass. Lower Forms/Tools result cards now use form-path and result-tier language, the old suggested-starting-point labels are removed, secondary resources are labeled as other official resources, and the Guided Form Helper includes direct answer-edit controls.
+- Scope: Unified result summary pass. The Forms helper now presents one dominant result summary with recommended result, based-on answers, why the result appears, primary action, secondary resources, office review, and edit-answer controls.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

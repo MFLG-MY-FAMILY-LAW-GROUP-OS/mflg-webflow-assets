@@ -33,6 +33,7 @@ async function pageState(page) {
     resultCopy: document.querySelector("[data-guided-result-copy]")?.textContent?.trim() || "",
     resultTier: document.querySelector("[data-guided-result-tier]")?.textContent?.replace(/\s+/g, " ").trim() || "",
     resultReason: document.querySelector("[data-guided-reason]")?.textContent?.replace(/\s+/g, " ").trim() || "",
+    unifiedSummary: document.querySelector("[data-unified-result-summary]")?.textContent?.replace(/\s+/g, " ").trim() || "",
     stepRail: Array.from(document.querySelectorAll("[data-guided-jump]")).map((button) => button.textContent.replace(/\s+/g, " ").trim()),
     summaryChips: Array.from(document.querySelectorAll("[data-guided-summary] span")).map((chip) => chip.textContent.trim()),
     editButtons: Array.from(document.querySelectorAll("[data-guided-edit]")).filter((button) => button.offsetParent !== null).map((button) => button.textContent.trim()),
@@ -81,6 +82,7 @@ async function pageState(page) {
       assert(/Need|County|Stage|Issue|Children/i.test(initial.stepRail.join(" ")), `${viewport.name}: step rail labels should be visible: ${initial.stepRail.join(", ")}`);
       assert(/One primary path/i.test(initial.resultTier), `${viewport.name}: initial result tier should explain primary path, got ${initial.resultTier}`);
       assert(/No form result is selected/i.test(initial.resultReason), `${viewport.name}: initial reason should not imply a default result, got ${initial.resultReason}`);
+      assert(/Unified result summary/i.test(initial.unifiedSummary) && /Pending answers/i.test(initial.unifiedSummary), `${viewport.name}: unified result summary should start pending, got ${initial.unifiedSummary}`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
       await page.click('[data-guided-answer="forms"]');
@@ -98,6 +100,7 @@ async function pageState(page) {
       assert(/because/i.test(forms.resultReason) && /Maricopa County/i.test(forms.resultReason), `${viewport.name}: forms result should explain why it appeared, got ${forms.resultReason}`);
       assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
       assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
+      assert(/Unified result summary/i.test(forms.unifiedSummary) && /Recommended result/i.test(forms.unifiedSummary) && /Based on/i.test(forms.unifiedSummary) && /Primary action/i.test(forms.unifiedSummary) && /Maricopa County/i.test(forms.unifiedSummary), `${viewport.name}: unified result summary should carry the final result, got ${forms.unifiedSummary}`);
       assert(!/Suggested form starting point|Form starting point|starting points shown|Choose one starting point/i.test(forms.lowerResultText), `${viewport.name}: lower form results should use form-path language`);
       assert(/Recommended form path/i.test(forms.lowerResultText), `${viewport.name}: lower form results should expose recommended form path language`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);

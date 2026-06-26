@@ -32,2316 +32,6 @@
   {
     "route": "/",
     "viewport": "390",
-    "component": "div.eyebrow",
-    "state": "initial",
-    "visibleText": "Arizona family law guidance",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h1",
-    "state": "initial",
-    "visibleText": "Find the Right Arizona Family Law Starting Point.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.lead",
-    "state": "initial",
-    "visibleText": "Start with forms, a guide, a calculator, or office review. The site helps narrow the next step without making you choose the perfect label first.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "▤",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Document preparation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "⇧",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Filing support",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "⚖",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Negotiation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "▥",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Court appearances within licensed scope",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "a.hero-task-pill",
-    "state": "initial",
-    "visibleText": "Find forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "a.hero-task-pill",
-    "state": "initial",
-    "visibleText": "Use calculator",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "a.hero-task-pill",
-    "state": "initial",
-    "visibleText": "Read DIY guide",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "a.hero-task-pill",
-    "state": "initial",
-    "visibleText": "Office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Start here",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h2",
-    "state": "initial",
-    "visibleText": "Choose what you need today.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.lead",
-    "state": "initial",
-    "visibleText": "Start with a useful task first, then ask for office review when closer help is the better fit.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Choose what you need today",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h2",
-    "state": "initial",
-    "visibleText": "Start with one useful task, not a legal maze.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Pick forms, steps, calculator, or office review. If forms need more details, the site asks before showing a View form button.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Find forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Answer a few details, then open forms that fit.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Start here when you want court paperwork. The site asks for the details it needs before any View form button appears.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Find the right forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Understand steps",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Read the plain-language guide for your situation.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Use this when you want the steps, checklist, and likely next move before choosing paperwork.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Read a DIY guide",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Use calculator",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Check numbers or timing before choosing forms.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Use support, parenting-time, maintenance, or deadline tools when the inputs match your situation.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Use calculator",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Ask the office to review the next step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Use office review after you get oriented, when forms do not seem to fit or timing needs closer attention.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Ask for office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Before you choose",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h2",
-    "state": "initial",
-    "visibleText": "Get oriented before you choose.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.lead",
-    "state": "initial",
-    "visibleText": "Use the site to understand the likely path, then decide whether forms, a guide, a calculator, or office review makes sense.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "A safer first step",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Get a useful direction before you commit to paperwork.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Many visitors arrive with a deadline, a confusing court packet, or no clear label for the problem. This site is built to help you choose a starting point without turning that uncertainty into a wrong form choice.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Start simple",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "You do not need the perfect category.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Choose the closest task. The site can still point you toward forms, a guide, a calculator, or office review.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Forms second",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Forms appear after the needed details.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "The goal is to avoid sending you to paperwork before the basic situation is clear.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Review when needed",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "The office path stays available.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "If timing, documents, safety, or fit is uncertain, save answers for review instead of guessing.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Issue finder",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h2",
-    "state": "initial",
-    "visibleText": "Find your issue.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.lead",
-    "state": "initial",
-    "visibleText": "Choose the closest issue card when you already know the topic. If nothing feels right, Guided Intake can sort the starting point.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "label.service-search-label",
-    "state": "initial",
-    "visibleText": "Start by choosing your issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-count",
-    "state": "initial",
-    "visibleText": "Showing 6 of 50 issue paths",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Not sure what to choose",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "a",
-    "state": "initial",
-    "visibleText": "Use Guided Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-search-label",
-    "state": "initial",
-    "visibleText": "Browse by situation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.service-category-reset",
-    "state": "initial",
-    "visibleText": "Reset",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.service-category-chip",
-    "state": "initial",
-    "visibleText": "Browse all",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.service-category-chip",
-    "state": "initial",
-    "visibleText": "Divorce & agreements",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.service-category-chip",
-    "state": "initial",
-    "visibleText": "Children & parenting",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.service-category-chip",
-    "state": "initial",
-    "visibleText": "Support & money",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.service-category-chip",
-    "state": "initial",
-    "visibleText": "Orders & court",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.service-category-chip",
-    "state": "initial",
-    "visibleText": "Documents & safety",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "div.card-icon",
-    "state": "initial",
-    "visibleText": "⚖",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-kicker",
-    "state": "initial",
-    "visibleText": "Marriage",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Divorce / Dissolution",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Tools",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Steps",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Arizona divorce help for petitions, responses, disclosure, agreements, temporary orders, parenting, support, and decree-related next steps.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.card-link",
-    "state": "initial",
-    "visibleText": "Choose this issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "div.card-icon",
-    "state": "initial",
-    "visibleText": "§",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-kicker",
-    "state": "initial",
-    "visibleText": "Marriage",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Legal Separation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Tools",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Steps",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Guidance for separation filings, responses, agreements, parenting terms, support, property, debt, and court documents.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.card-link",
-    "state": "initial",
-    "visibleText": "Choose this issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "div.card-icon",
-    "state": "initial",
-    "visibleText": "◌",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-kicker",
-    "state": "initial",
-    "visibleText": "Marriage",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Annulment",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Tools",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Steps",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Scope review and document help for annulment questions, required facts, filing posture, and related family-court paperwork.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.card-link",
-    "state": "initial",
-    "visibleText": "Choose this issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "div.card-icon",
-    "state": "initial",
-    "visibleText": "◇",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-kicker",
-    "state": "initial",
-    "visibleText": "Agreements",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Consent Decrees",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Tools",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Steps",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Help organizing agreed divorce or separation terms into court-ready consent decree materials and supporting documents.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.card-link",
-    "state": "initial",
-    "visibleText": "Choose this issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "div.card-icon",
-    "state": "initial",
-    "visibleText": "✦",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-kicker",
-    "state": "initial",
-    "visibleText": "Agreements",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Settlement Agreements",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Tools",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Steps",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Review and preparation support for stipulated terms, settlement documents, proposed orders, and practical resolution planning.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.card-link",
-    "state": "initial",
-    "visibleText": "Choose this issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "div.card-icon",
-    "state": "initial",
-    "visibleText": "◷",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-kicker",
-    "state": "initial",
-    "visibleText": "Court requests",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Temporary Orders",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Deadline",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Steps",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Support for temporary parenting, support, possession, disclosure, and other interim family-court requests.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.card-link",
-    "state": "initial",
-    "visibleText": "Choose this issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "initial",
-    "visibleText": "View All Family Law Pathways",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.service-note",
-    "state": "initial",
-    "visibleText": "Showing the first 6 issue paths for this screen. Search any topic, browse a situation, or reveal the remaining 44. Some situations may need attorney review or another professional.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Deadline or pressure",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "If something is time-sensitive, start there.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "You do not need to know the legal label. Choose the closest pressure point and Intake will preserve that context for review.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "I was served or have a deadline",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Start Intake with deadline context",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "A court date is coming up",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Start Intake with hearing context",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Parenting time or support is not being followed",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Start Intake with enforcement context",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Safety or protective-order issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Start Intake with safety context",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Not sure where to start",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Use Intake to get matched without choosing the perfect legal label.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "If none of the issue cards feels right, choose the kind of help you need and Guided Intake will carry that context forward.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "a.service-methods-primary",
-    "state": "initial",
-    "visibleText": "Let Intake match my track",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-number",
-    "state": "initial",
-    "visibleText": "01",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-icon",
-    "state": "initial",
-    "visibleText": "▤",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Forms, packets, agreements",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Document preparation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Turn the next filing into a clean packet.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Use document track in Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-number",
-    "state": "initial",
-    "visibleText": "02",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-icon",
-    "state": "initial",
-    "visibleText": "⇧",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Filing, service, deadlines",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Filing support",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Know what needs to be filed, served, and tracked.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Use filing track in Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-number",
-    "state": "initial",
-    "visibleText": "03",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-icon",
-    "state": "initial",
-    "visibleText": "⚖",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Mediation, settlement, terms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Negotiation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Build a settlement path before the conflict hardens.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Use settlement track in Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-number",
-    "state": "initial",
-    "visibleText": "04",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span.service-method-icon",
-    "state": "initial",
-    "visibleText": "▥",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "small",
-    "state": "initial",
-    "visibleText": "Hearings, scope review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Court appearances within licensed scope",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "em",
-    "state": "initial",
-    "visibleText": "Check fit before a hearing or appearance.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Use court track in Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "→",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Intake review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h2",
-    "state": "initial",
-    "visibleText": "Before services begin.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.lead",
-    "state": "initial",
-    "visibleText": "Submitting information does not create a client relationship. The first job is to see whether the office can help, how urgent it is, and what next step fits.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Process proof",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "What the office reviews before anything is accepted.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "The first pass is not a sales pitch. It is a practical review of fit, timing, documents, and whether another resource is better.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "01 · Availability",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Names and parties are screened first",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "The office checks whether it can review the matter before advice or engagement terms are discussed.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "02 · Fit",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "The requested help is matched to what the office can do",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "The issue, documents, and requested help are compared with the services the office can provide.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "03 · Urgency",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Deadlines and hearings move to the front",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Response dates, court notices, and safety concerns should guide the next step before routine review.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "04 · Next step",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "The result is a path, not a vague promise",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "The office may recommend forms, a consult, a limited task, or a referral when that is the honest fit.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Before services begin",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "Intake is a review process, not an instant engagement.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "01 · Conflict",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Can the office review this matter",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Names, parties, county, and case posture are screened before any service relationship is confirmed.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "02 · Scope",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Does it fit Arizona LP family-law authority",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Legal Paraprofessional scope is checked against the requested task, documents, and court issue.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "03 · Urgency",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Is there a deadline, hearing, or safety issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Time-sensitive facts point the matter toward the right next step, including referral when ordinary intake is not enough.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "04 · Fee & fit",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "What service path makes practical sense",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "After review, the next step may be a consult, document package, limited-scope work, or a referral.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Next step clarity",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h2",
-    "state": "initial",
-    "visibleText": "From many issues to one clear next step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.lead",
-    "state": "initial",
-    "visibleText": "If you know the issue, start there. If you do not, use triage. If you want to understand the process first, open the DIY guide path.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p.eyebrow",
-    "state": "initial",
-    "visibleText": "Ready for the next step",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "h3",
-    "state": "initial",
-    "visibleText": "You do not need to pick the perfect legal label.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Start with the closest situation. Intake keeps the issue, timing, county, and documents organized so the next review can focus on fit, scope, and urgency.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "I found my issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Start intake with the closest pathway.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Start Guided Intake →",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "I was served or have a deadline",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Start with the deadline, hearing, service, or urgent next step first.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Start Deadline Review →",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "I am not sure",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Use guided triage if the family-law label is unclear.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Start Triage →",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "I want forms or context first",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Use DIY Guides to understand steps, forms, and court-readiness.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "b",
-    "state": "initial",
-    "visibleText": "Open DIY Guides →",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "What happens after Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "li",
-    "state": "initial",
-    "visibleText": "Choose the closest issue",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "li",
-    "state": "initial",
-    "visibleText": "Add county, deadline, and documents",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "li",
-    "state": "initial",
-    "visibleText": "Conflict and licensed-scope review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "li",
-    "state": "initial",
-    "visibleText": "Fee, fit, and next-step recommendation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
     "visibleText": "Arizona family law intake office",
@@ -2635,16 +325,6 @@
     "component": "p",
     "state": "initial",
     "visibleText": "Copyright © MY FAMILY LAW GROUP PLLC. All rights reserved.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "2026",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6722,6 +4402,146 @@
   {
     "route": "/forms/",
     "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Unified result summary",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "initial",
+    "visibleText": "Answer the helper to see one clear result.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Pending answers",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Based on",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "No answers selected yet",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Why this appears",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "No form result is selected until you answer the current step.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Primary action",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Choose one answer above",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Other official resources",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Hidden until the main result is clear",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Office review",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Recommended for this result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/forms/",
+    "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
     "visibleText": "Choose one answer in the current step. The next step appears automatically.",
@@ -7612,6 +5432,146 @@
   {
     "route": "/tools/",
     "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Unified result summary",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "initial",
+    "visibleText": "Answer the helper to see one clear result.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Pending answers",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Based on",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "No answers selected yet",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Why this appears",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "No form result is selected until you answer the current step.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Primary action",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Choose one answer above",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Other official resources",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Hidden until the main result is clear",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Office review",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Recommended for this result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
     "visibleText": "Choose one answer in the current step. The next step appears automatically.",
@@ -8495,6 +6455,146 @@
     "component": "p",
     "state": "initial",
     "visibleText": "No form result is selected until you answer the current step.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "span",
+    "state": "initial",
+    "visibleText": "Unified result summary",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "initial",
+    "visibleText": "Answer the helper to see one clear result.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Pending answers",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Based on",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "No answers selected yet",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Why this appears",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "No form result is selected until you answer the current step.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Primary action",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Choose one answer above",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Other official resources",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Hidden until the main result is clear",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "initial",
+    "visibleText": "Office review",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/calculators/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "initial",
+    "visibleText": "Use office review if the answer, county, deadline, or form title does not fit.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497902,6 +496002,146 @@
   {
     "route": "/tools/",
     "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Unified result summary",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "forms-ready",
+    "visibleText": "Answer the helper to see one clear result.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "forms-ready",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "forms-ready",
+    "visibleText": "Continue to the recommended forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "forms-ready",
+    "visibleText": "Based on",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "forms-ready",
+    "visibleText": "Maricopa County / Starting a case / Divorce / Legal Separation / Minor children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "forms-ready",
+    "visibleText": "Why this appears",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "forms-ready",
+    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "forms-ready",
+    "visibleText": "Primary action",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "forms-ready",
+    "visibleText": "Open matched forms",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "forms-ready",
+    "visibleText": "Other official resources",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "forms-ready",
+    "visibleText": "Available below the primary result if the recommended path does not fit.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "forms-ready",
+    "visibleText": "Office review",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "forms-ready",
+    "visibleText": "Use office review if the answer, county, deadline, or form title does not fit.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "forms-ready",
     "visibleText": "Ready next step: Open matched forms.",
@@ -500625,6 +498865,146 @@
     "component": "p",
     "state": "viewer",
     "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Unified result summary",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "viewer",
+    "visibleText": "Answer the helper to see one clear result.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "viewer",
+    "visibleText": "Recommended result",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "viewer",
+    "visibleText": "Continue to the recommended forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "viewer",
+    "visibleText": "Based on",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "viewer",
+    "visibleText": "Maricopa County / Starting a case / Divorce / Legal Separation / Minor children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "viewer",
+    "visibleText": "Why this appears",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "viewer",
+    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "viewer",
+    "visibleText": "Primary action",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "viewer",
+    "visibleText": "Open matched forms",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "viewer",
+    "visibleText": "Other official resources",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "viewer",
+    "visibleText": "Available below the primary result if the recommended path does not fit.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dt",
+    "state": "viewer",
+    "visibleText": "Office review",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "dd",
+    "state": "viewer",
+    "visibleText": "Use office review if the answer, county, deadline, or form title does not fit.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
