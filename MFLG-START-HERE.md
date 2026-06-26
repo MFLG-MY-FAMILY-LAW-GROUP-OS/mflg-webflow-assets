@@ -25,13 +25,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Cloudflare
 
-- Current `mflg-public-website` deployment: `1fec866b-b076-4d29-b657-5d42d86d57bf`
-- Current `mflg-webflow-assets` deployment: `013ab080-e487-4379-a437-49f50a0736cb`
-- Rollback `mflg-public-website` deployment: `6e64384e-e306-49be-a933-a1977ceabf81`
-- Rollback `mflg-webflow-assets` deployment: `f891ad66-ddb0-4fe4-b9cc-51075294d323`
+- Current `mflg-public-website` deployment: `455e6160-ecab-4c24-a4d7-d610877ce5c8`
+- Current `mflg-webflow-assets` deployment: `d021916d-1e86-4c6c-adc5-255dbb08147d`
+- Rollback `mflg-public-website` deployment: `1fec866b-b076-4d29-b657-5d42d86d57bf`
+- Rollback `mflg-webflow-assets` deployment: `013ab080-e487-4379-a437-49f50a0736cb`
 - Prior rollback `mflg-public-website` deployment: `76f0902c-4433-49db-8f69-056778b46bda`
 - Prior rollback `mflg-webflow-assets` deployment: `6266d8b0-6860-43fb-b355-aba1ebd3c01a`
-- Source-label status: the prior live deployment was reported as `main / 778f63e` while the verified prior release tag peeled to `95ac303ffa561636c76ce1e549934cd18ec86552`. The current Cloudflare production deployments initially showed `main / 9643443` because the deploy ran before this release commit was created; a clean redeploy from the final tag should update the source label. The custom-domain bytes and hashes above are verified.
+- Source-label status: the prior live deployment was reported as `main / 778f63e` while the verified prior release tag peeled to `95ac303ffa561636c76ce1e549934cd18ec86552`. The current Cloudflare production deployments show `main / 6004ba6` after clean redeploy. The custom-domain bytes and hashes above are verified.
 
 ## GitHub
 
