@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-061608-plain-public-text
+## Public Website Release: mflg-live-20260626-072051-homepage-journey-clarity
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-061608-plain-public-text`
-- Public JS SHA-256: `828f086cea4c65acf443016088fc9f96db26910fda7ac153d99bcfcbf3887a1a`
-- Public CSS SHA-256: `2101dda7b726d62890b47d224982f477998fc4186cc0a195ebd9c23e1bf89f18`
+- Asset key: `mflg-live-20260626-072051-homepage-journey-clarity`
+- Public JS SHA-256: `384c1dcb69861004eda2cd213870e4756f2c129c9bdd34944db443f5247262c9`
+- Public CSS SHA-256: `3dac6fff52f71bf20aa75ce9ceb75ae050156e7f5f36aa12318245b9de6a1756`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: public copy cleanup, removal of public legal-term formatting/help markers, visible question-mark cleanup, internal-language cleanup, duplicate `after-hero` ID fix, footer email wrapping fix, final public text/layout QA, reproducible checkout cleanup.
+- Scope: homepage journey clarity, early trust/reassurance section, reduced initial issue-card density, public copy softening, retained legal-term marker cleanup and visible question-mark cleanup, final public text/layout QA.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

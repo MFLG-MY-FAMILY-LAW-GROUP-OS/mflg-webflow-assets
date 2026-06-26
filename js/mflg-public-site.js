@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-061608-plain-public-text">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-072051-homepage-journey-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-061608-plain-public-text">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-072051-homepage-journey-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -686,7 +686,7 @@
     { icon: "!", category: "Scope review", title: "Special Scope / Referral Review", copy: "Early review for QDROs, business or commercial property, appeals, tribal, Hague, dependency, immigration, tax, or other referral issues." }
   ];
 
-		  const initialServiceCount = 15;
+		  const initialServiceCount = 9;
 		  const publicCategoryGroups = [
 		    { label: "Browse all", categories: null },
 		    { label: "Divorce & agreements", categories: ["Marriage", "Agreements", "Property", "Maintenance"] },
@@ -1553,7 +1553,7 @@
 	      <label class="service-search-label" for="service-search">Start by choosing your issue</label>
 	      <div class="service-search-row">
 	        <input id="service-search" class="service-search" type="search" placeholder="Search divorce, parenting, support, paternity, enforcement..." data-service-search>
-	        <span class="service-count" data-service-count>Showing ${initialServiceCount} of ${items.length} pathways</span>
+	        <span class="service-count" data-service-count>Showing ${initialServiceCount} of ${items.length} issue paths</span>
 	      </div>
 	      <div class="service-quick-fallback" aria-label="Fallback if the issue is unclear">
 	        <span>Not sure what to choose?</span>
@@ -1597,7 +1597,7 @@
 	    </div>
 	    <div class="service-reveal">
 	      <button class="button primary service-reveal-button" type="button" data-service-reveal aria-expanded="false">View All Family Law Pathways</button>
-		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} pathways. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some matters may need attorney review or another professional.</p>
+		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} issue paths. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some situations may need attorney review or another professional.</p>
 	    </div>
 	    ${urgencyRouter()}
 	    <div class="service-methods" aria-label="Choose a focused intake path">
@@ -1637,30 +1637,30 @@
     const tasks = [
       {
         label: "Find forms",
-        title: "Answer a few checks, then open the right form path.",
-        copy: "Start here when you want court paperwork. The site asks prerequisites first so View form appears only when a viewer can open.",
+        title: "Answer a few details, then open forms that fit.",
+        copy: "Start here when you want court paperwork. The site asks for the details it needs before any View form button appears.",
         href: "/forms",
         cta: "Find the right forms",
         primary: true
       },
       {
         label: "Understand steps",
-        title: "Read the plain-language guide for your issue.",
-        copy: "Use this when you need the process, checklist, and likely next step before choosing paperwork.",
+        title: "Read the plain-language guide for your situation.",
+        copy: "Use this when you want the steps, checklist, and likely next move before choosing paperwork.",
         href: "/guides",
         cta: "Read a DIY guide"
       },
       {
         label: "Use calculator",
-        title: "Check whether a calculator applies before forms.",
-        copy: "Use support, parenting-time, maintenance, or deadline tools only when the required inputs make sense.",
+        title: "Check numbers or timing before choosing forms.",
+        copy: "Use support, parenting-time, maintenance, or deadline tools when the inputs match your situation.",
         href: "/calculators",
         cta: "Use calculator"
       },
       {
         label: "Office review",
-        title: "Save answers for review when the safe path is unclear.",
-        copy: "Use office review after you get oriented, when no verified form packet fits, or when timing/scope needs review.",
+        title: "Ask the office to review the next step.",
+        copy: "Use office review after you get oriented, when forms do not seem to fit or timing needs closer attention.",
         href: "/start",
         cta: "Ask for office review",
         route: fallbackRoute
@@ -1670,7 +1670,7 @@
       <div class="lead-magnet-head">
         <p class="eyebrow">Choose what you need today</p>
         <h2>Start with one useful task, not a legal maze.</h2>
-        <p>Pick forms, steps, calculator, or office review. If forms need prerequisites, the question block appears before any View form button.</p>
+        <p>Pick forms, steps, calculator, or office review. If forms need more details, the site asks before showing a View form button.</p>
       </div>
       <div class="lead-magnet-grid">
         ${tasks.map((task) => `<a class="lead-magnet-card${task.primary ? " primary" : ""}" href="${esc(task.href)}" data-link${task.route ? ` data-intake-route='${task.route}'` : ""}>
@@ -1683,10 +1683,44 @@
     </div>`;
   }
 
+  function reassuranceBand() {
+    const items = [
+      {
+        label: "Start simple",
+        title: "You do not need the perfect category.",
+        copy: "Choose the closest task. The site can still point you toward forms, a guide, a calculator, or office review."
+      },
+      {
+        label: "Forms second",
+        title: "Forms appear after the needed details.",
+        copy: "The goal is to avoid sending you to paperwork before the basic situation is clear."
+      },
+      {
+        label: "Review when needed",
+        title: "The office path stays available.",
+        copy: "If timing, documents, safety, or fit is uncertain, save answers for review instead of guessing."
+      }
+    ];
+    return `<div class="homepage-trust-band" aria-label="How to use this site">
+      <div class="homepage-trust-copy">
+        <p class="eyebrow">A safer first step</p>
+        <h3>Get a useful direction before you commit to paperwork.</h3>
+        <p>Many visitors arrive with a deadline, a confusing court packet, or no clear label for the problem. This site is built to help you choose a starting point without turning that uncertainty into a wrong form choice.</p>
+      </div>
+      <div class="homepage-trust-grid">
+        ${items.map((item) => `<article>
+          <span>${esc(item.label)}</span>
+          <strong>${esc(item.title)}</strong>
+          <p>${esc(item.copy)}</p>
+        </article>`).join("")}
+      </div>
+    </div>`;
+  }
+
 	  function home() {
 	    return hero(
 	      "Find the Right Arizona Family Law Starting Point.",
-	      "Choose the issue, answer only what is missing, then see a verified form path, DIY guide, calculator, or office-review next step.",
+	      "Start with forms, a guide, a calculator, or office review. The site helps narrow the next step without making you choose the perfect label first.",
 	      `<div class="hero-task-grid" id="choose-task" aria-label="Choose a task">
 	        <a class="hero-task-pill hero-pill primary" href="/forms" data-link>Find forms</a>
 	        <a class="hero-task-pill hero-pill" href="/calculators" data-link>Use calculator</a>
@@ -1695,28 +1729,35 @@
 	      </div>`
     ) + section(
       "Choose what you need today.",
-      "Start with a useful self-help task first, then use office review when it is the safest next step.",
+      "Start with a useful task first, then ask for office review when closer help is the better fit.",
       leadMagnetTaskEntry(),
       true,
       "Start here",
       "lead-magnet-section"
     ) + section(
+      "Get oriented before you choose.",
+      "Use the site to understand the likely path, then decide whether forms, a guide, a calculator, or office review makes sense.",
+      reassuranceBand(),
+      false,
+      "Before you choose",
+      "trust-section"
+    ) + section(
       "Find your issue.",
-      "Choose the closest public issue card. Each card has one action, and the workspace asks only for missing details.",
+      "Choose the closest issue card when you already know the topic. If nothing feels right, Guided Intake can sort the starting point.",
 	      `${serviceCards()}`,
 	      true,
 	      "Issue finder",
 	      "service-section"
 	    ) + section(
       "Before services begin.",
-      "Submitting information does not create a client relationship. The first job is to understand whether the matter fits conflicts, licensed scope, urgency, and practical service needs.",
+      "Submitting information does not create a client relationship. The first job is to see whether the office can help, how urgent it is, and what next step fits.",
 	      proofBand(
 	        "Process proof",
-	        "What the review covers before anything is accepted.",
-	        "The site is built to sort the matter before it becomes a project. The first pass is not a sales pitch; it is a fit check.",
+	        "What the office reviews before anything is accepted.",
+	        "The first pass is not a sales pitch. It is a practical review of fit, timing, documents, and whether another resource is better.",
 	        [
-	          { label: "Conflict", title: "Names and parties are screened first", copy: "The office checks whether it can review the matter before advice or engagement terms are discussed." },
-	          { label: "Scope", title: "The requested task is matched to LP authority", copy: "The issue, documents, and requested help are compared against licensed family-law scope before service is offered." },
+	          { label: "Availability", title: "Names and parties are screened first", copy: "The office checks whether it can review the matter before advice or engagement terms are discussed." },
+	          { label: "Fit", title: "The requested help is matched to what the office can do", copy: "The issue, documents, and requested help are compared with the services the office can provide." },
 	          { label: "Urgency", title: "Deadlines and hearings move to the front", copy: "Response dates, court notices, and safety concerns should guide the next step before routine review." },
 	          { label: "Next step", title: "The result is a path, not a vague promise", copy: "The office may recommend forms, a consult, a limited task, or a referral when that is the honest fit." }
 	        ],
@@ -4434,7 +4475,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-061608-plain-public-text" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-072051-homepage-journey-clarity" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5676,18 +5717,18 @@
 	      }
 		
 	      if (count) {
-		        const label = categoryActive ? `${activeCategory} pathway${visible === 1 ? "" : "s"}` : `pathway${visible === 1 ? "" : "s"}`;
+		        const label = categoryActive ? `${activeCategory} issue path${visible === 1 ? "" : "s"}` : `issue path${visible === 1 ? "" : "s"}`;
 	        count.textContent = term || categoryActive
 	          ? `Showing ${visible} matching ${label}`
-	          : `Showing ${visible} of ${cards.length} pathways`;
+	          : `Showing ${visible} of ${cards.length} issue paths`;
 	      }
 
 	      const filtered = !!term || categoryActive;
 	      if (note) {
 	        const remaining = Math.max(cards.length - limit, 0);
 	        note.textContent = revealed && !filtered
-		          ? `Showing all ${cards.length} pathways. Search any topic or choose a situation to narrow the list. Some matters may need attorney review or another professional.`
-		          : `Showing the first ${Math.min(limit, matchesTotal)} pathways for this screen. Search any topic, browse a situation, or reveal the remaining ${remaining}. Some matters may need attorney review or another professional.`;
+		          ? `Showing all ${cards.length} issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.`
+		          : `Showing the first ${Math.min(limit, matchesTotal)} issue paths for this screen. Search any topic, browse a situation, or reveal the remaining ${remaining}. Some situations may need attorney review or another professional.`;
 	      }
 	
 	      if (reveal) {

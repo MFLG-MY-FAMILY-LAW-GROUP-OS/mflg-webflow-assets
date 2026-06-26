@@ -222,7 +222,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-061608-plain-public-text") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-072051-homepage-journey-clarity") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -484,12 +484,66 @@ p { margin: 0 0 16px; color: inherit; }
   box-shadow: 0 24px 62px rgba(18, 24, 31, 0.13);
   transform: translateY(-2px);
 }
+.homepage-trust-band {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.3fr);
+  gap: clamp(22px, 4vw, 64px);
+  align-items: center;
+}
+.homepage-trust-copy {
+  max-width: 620px;
+}
+.homepage-trust-copy h3 {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: clamp(2rem, 3vw, 3.4rem);
+  line-height: 0.98;
+}
+.homepage-trust-copy p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+.homepage-trust-grid {
+  display: grid;
+  gap: 12px;
+}
+.homepage-trust-grid article {
+  display: grid;
+  gap: 7px;
+  padding: clamp(18px, 2vw, 24px);
+  border: 1px solid rgba(33, 85, 141, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 16px 42px rgba(18, 24, 31, 0.07);
+}
+.homepage-trust-grid span {
+  color: var(--gold);
+  font-size: 0.67rem;
+  font-weight: 950;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.homepage-trust-grid strong {
+  color: var(--ink);
+  font-size: clamp(1.02rem, 1.15vw, 1.22rem);
+  line-height: 1.22;
+}
+.homepage-trust-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
 @media (max-width: 900px) {
   .hero-task-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .lead-magnet-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .homepage-trust-band {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 560px) {
