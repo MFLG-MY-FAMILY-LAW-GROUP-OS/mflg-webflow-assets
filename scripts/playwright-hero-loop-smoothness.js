@@ -26,8 +26,6 @@ function assert(condition, message) {
           readyState: video.readyState,
           paused: video.paused,
           opacity: Number(getComputedStyle(video).opacity),
-          transition: getComputedStyle(video).transitionProperty,
-          videoLoop: video.dataset.videoLoop,
           loopGuard: video.dataset.loopGuard,
           nativeLoop: video.loop
         }))
@@ -41,34 +39,28 @@ function assert(condition, message) {
       if (activeLayers[i] !== activeLayers[i - 1]) swaps.push({ sample: i, t: samples[i].t, from: activeLayers[i - 1], to: activeLayers[i], videos: samples[i].videos });
     }
     const blendSamples = samples.filter((sample) => sample.videos.some((video) => video.opacity > 0 && video.opacity < 1));
-    const decodedMatchedSwap = swaps.some((swap) => {
+    const decodedBlendSamples = blendSamples.filter((sample) => sample.videos.every((video) => video.readyState >= 2));
+    const preRolledSwap = swaps.some((swap) => {
       const next = swap.videos.find((video) => video.layer === swap.to);
-      const previous = swap.videos.find((video) => video.layer === swap.from);
-      return next &&
-        previous &&
-        next.currentTime >= 0 &&
-        next.currentTime <= 0.3 &&
-        next.readyState >= 2 &&
-        previous.currentTime >= 16.85 &&
-        previous.readyState >= 2;
+      return next && next.currentTime > 0.18 && next.readyState >= 2 && !next.paused;
     });
 
     const result = {
       swaps: swaps.length,
       blendSamples: blendSamples.length,
-      decodedMatchedSwap,
+      decodedBlendSamples: decodedBlendSamples.length,
+      preRolledSwap,
       first: samples[0],
       swap: swaps[0] || null,
       final: samples[samples.length - 1]
     };
 
     assert(samples[0].videos.length === 2, "hero must use two video layers");
-    assert(samples[0].videos.every((video) => video.videoLoop === "matched-cut video loop"), "hero must use the matched-cut loop mode");
     assert(samples[0].videos.every((video) => video.loopGuard === "true" && video.nativeLoop === false), "native video loop must stay disabled");
-    assert(samples[0].videos.every((video) => video.transition === "none" || video.transition === "all"), "hero video opacity fade must stay disabled");
     assert(swaps.length >= 1, "hero video did not swap layers during the loop window");
-    assert(decodedMatchedSwap, "next hero video layer was not decoded at the matched loop start");
-    assert(blendSamples.length <= 1, "hero loop should not visibly fade between layers");
+    assert(preRolledSwap, "next hero video layer was not pre-rolled before crossfade");
+    assert(blendSamples.length >= 5, "hero loop did not produce enough crossfade blend samples");
+    assert(decodedBlendSamples.length >= 3, "hero loop blend did not stay decoded during crossfade");
 
     console.log("HERO_LOOP_SMOOTHNESS_PASS");
     console.log(JSON.stringify(result, null, 2));
