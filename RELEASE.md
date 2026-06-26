@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-084527-desktop-10-card-grid
+## Public Website Release: mflg-live-20260626-085600-choose-eyebrow-align
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-084527-desktop-10-card-grid`
-- Public JS SHA-256: `d24ecd8c8f0c7352c9ef5e79b1e8124fc683dcf4ee6895fa5129eb45f5dd6024`
-- Public CSS SHA-256: `722a60f0a67f5a732d8bea43e3c0523a6249b9b495480946fc955a15bbfc9e8d`
+- Asset key: `mflg-live-20260626-085600-choose-eyebrow-align`
+- Public JS SHA-256: `abf3f2eace306ee05921e2822a8f2561f61f4ef408d8b88163bae949dbaf7305`
+- Public CSS SHA-256: `968c0034ad8a582729b2abff2f7ad616fc6bd0a952afced93759d546a72a2fc8`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: desktop issue-card grid adjusted to 10 visible cards, mobile remains 6 visible cards, retained homepage journey clarity, legal-term marker cleanup, visible question-mark cleanup, and public text/layout QA protections.
+- Scope: reveal workspace `Choose` eyebrow alignment, retained desktop 10-card grid, mobile 6-card grid, legal-term marker cleanup, visible question-mark cleanup, and public text/layout QA protections.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 
