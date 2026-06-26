@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-143341-decision-flow-copyfix
+## Public Website Release: mflg-live-20260626-145858-form-path-unification
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-143341-decision-flow-copyfix`
-- Public JS SHA-256: `42fa68150f5a4810ac74069c6d8a1e8fb4a0ee235e3d102b08816c6fa617249e`
-- Public CSS SHA-256: `6044529c89a132756301db1948e5db2ff96525fc91292e40e4b73514b93d4dda`
+- Asset key: `mflg-live-20260626-145858-form-path-unification`
+- Public JS SHA-256: `70855ada93fa97cfb451eae4e762e2f332eac44cbdf4acbd32b65fb0b16b98e1`
+- Public CSS SHA-256: `982d768a98834f27cbb6b7c4240dd9ad34a91ded8d068274c98745443cbc1c26`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Decision-flow clarity pass. The guided helper now has a visible step rail, no skip-through CTA before answering, no default answer chips, a primary result tier, and a plain-language explanation of why each result appears.
+- Scope: Form-path unification pass. Lower Forms/Tools result cards now use form-path and result-tier language, the old suggested-starting-point labels are removed, secondary resources are labeled as other official resources, and the Guided Form Helper includes direct answer-edit controls.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

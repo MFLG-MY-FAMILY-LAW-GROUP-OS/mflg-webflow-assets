@@ -161,7 +161,7 @@ function configFor(item) {
     official_source_url: "https://www.azcourts.gov/selfservicecenter/Resources/Types-of-Legal-Representation/Limited-Scope-Representation",
     public_guidance: "Limited scope representation uses the statewide court notice packet. Open the packet and confirm whether the attorney will appear for a limited purpose."
   };
-  if (title.includes("not sure")) return { confidence: "statewide-generic", exact_packets: [P.divorceNoChildren, P.divorceWithChildren, P.parenting, P.response], public_guidance: "Use this as a starting point only. Guided Intake is the safest path if the issue is unclear." };
+  if (title.includes("not sure")) return { confidence: "statewide-generic", exact_packets: [P.divorceNoChildren, P.divorceWithChildren, P.parenting, P.response], public_guidance: "Use this as a broad form path only. Guided Intake is the safest path if the issue is unclear." };
   return intakeRequired("Use Guided Intake before choosing forms for this issue.", "https://www.azcourts.gov/selfservicecenter/forms");
 }
 

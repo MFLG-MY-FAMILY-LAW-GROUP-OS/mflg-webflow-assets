@@ -1,8 +1,8 @@
 {
-  "asset_key": "mflg-live-20260626-143341-decision-flow-copyfix",
-  "tag": "mflg-live-20260626-143341-decision-flow-copyfix",
-  "public_js_sha256": "42fa68150f5a4810ac74069c6d8a1e8fb4a0ee235e3d102b08816c6fa617249e",
-  "public_css_sha256": "6044529c89a132756301db1948e5db2ff96525fc91292e40e4b73514b93d4dda",
+  "asset_key": "mflg-live-20260626-145858-form-path-unification",
+  "tag": "mflg-live-20260626-145858-form-path-unification",
+  "public_js_sha256": "70855ada93fa97cfb451eae4e762e2f332eac44cbdf4acbd32b65fb0b16b98e1",
+  "public_css_sha256": "982d768a98834f27cbb6b7c4240dd9ad34a91ded8d068274c98745443cbc1c26",
   "cloudflare_deployments": {
     "mflg_public_website": "b28ef171-d919-4186-9ed1-3f3e193f2aff",
     "mflg_webflow_assets": "6dc8f87d-6541-4493-9e86-69bb270d3d3b"

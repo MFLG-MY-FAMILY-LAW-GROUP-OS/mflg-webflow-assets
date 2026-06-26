@@ -35,6 +35,8 @@ async function pageState(page) {
     resultReason: document.querySelector("[data-guided-reason]")?.textContent?.replace(/\s+/g, " ").trim() || "",
     stepRail: Array.from(document.querySelectorAll("[data-guided-jump]")).map((button) => button.textContent.replace(/\s+/g, " ").trim()),
     summaryChips: Array.from(document.querySelectorAll("[data-guided-summary] span")).map((chip) => chip.textContent.trim()),
+    editButtons: Array.from(document.querySelectorAll("[data-guided-edit]")).filter((button) => button.offsetParent !== null).map((button) => button.textContent.trim()),
+    lowerResultText: document.body.innerText.replace(/\s+/g, " ").trim(),
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
     exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
     sameSiteOfficialPdfActions: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview]"))
@@ -95,6 +97,9 @@ async function pageState(page) {
       assert(/Recommended form path/i.test(forms.resultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.resultTier}`);
       assert(/because/i.test(forms.resultReason) && /Maricopa County/i.test(forms.resultReason), `${viewport.name}: forms result should explain why it appeared, got ${forms.resultReason}`);
       assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
+      assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
+      assert(!/Suggested form starting point|Form starting point|starting points shown|Choose one starting point/i.test(forms.lowerResultText), `${viewport.name}: lower form results should use form-path language`);
+      assert(/Recommended form path/i.test(forms.lowerResultText), `${viewport.name}: lower form results should expose recommended form path language`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);
       assert(forms.exposedSourceAttributes.length === 0, `${viewport.name}: forms path should not expose raw source URL attributes`);
       assert(forms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: forms path should render same-site official PDF actions`);

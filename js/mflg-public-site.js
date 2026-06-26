@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-143341-decision-flow-copyfix">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-145858-form-path-unification">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-143341-decision-flow-copyfix">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-145858-form-path-unification">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2161,7 +2161,7 @@
     if (text.includes("adoption") || text.includes("family formation")) {
       return {
         county: "",
-        issue: "adoption starting point",
+        issue: "adoption office review",
         posture: "",
         children: "",
         pdfPacket: "all",
@@ -2269,7 +2269,7 @@
     const related = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "related", sourceUrl);
     const intakeRequired = (key, label, helper, packet, issue, posture, children = "any", sourceUrl = "") => choice(key, label, helper, packet, issue, posture, children, "intake-required", sourceUrl);
     const adoptionChoices = [
-      intakeRequired("adoption-office-review", "Adoption or family-formation review", "Adoption is not mapped to parenting, guardianship, paternity, or generic family-law packets. Use office review to confirm scope and any verified county-specific source before relying on forms.", "all", "adoption starting point", "", "")
+      intakeRequired("adoption-office-review", "Adoption or family-formation review", "Adoption is not mapped to parenting, guardianship, paternity, or generic family-law packets. Use office review to confirm scope and any verified county-specific source before relying on forms.", "all", "adoption office review", "", "")
     ];
     const divorceChoices = [
       countyExact("divorce-no-children", "Divorce or separation, no minor children", "Use this when the case starts a divorce or legal separation and no minor children are involved.", "maricopa-divorce-new-no-children", "divorce", "New filing", "no-minor-children"),
@@ -2411,8 +2411,8 @@
     if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Matched forms for ${publicCounty} County` : "Matched county forms";
     if (confidence === "intake-required") return "Check first";
     if (confidence === "statewide-generic") return "Arizona statewide forms";
-    if (confidence === "related-only") return "Suggested form starting point";
-    return "Suggested form starting point";
+    if (confidence === "related-only") return "Related official resource";
+    return "Office review recommended";
   }
 
   function formConfidenceCopy(confidence, county) {
@@ -2426,9 +2426,9 @@
     if (confidence === "no-verified-form") return "No verified form packet is currently available for these answers.";
     if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These forms are matched for ${publicCounty} County. Use them only if that is your case county.` : "These forms are matched to a confirmed county.";
     if (confidence === "intake-required") return "Use Guided Intake before choosing forms. This issue depends on timing, court orders, county, or case stage.";
-    if (confidence === "statewide-generic") return "Use this as a statewide starting point, then confirm whether your county requires local forms.";
+    if (confidence === "statewide-generic") return "Use this statewide form path, then confirm whether your county requires local forms.";
     if (confidence === "related-only") return "This guide can start the form check, but the form questions still need to be answered.";
-    return "Use this as a suggested starting point, not a confirmed packet match.";
+    return "Use office review before relying on this resource as a form match.";
   }
 
   function guideResourceSummaryFor(guide) {
@@ -3251,7 +3251,7 @@
       entrySource: "Forms & Tools",
       entryLabel: selectedPdfLabel
         ? `Approved official PDF: ${selectedPdfLabel}`
-        : packetLabel ? `Approved PDF packet: ${packetLabel}` : "Forms & Tools starting point",
+        : packetLabel ? `Approved PDF packet: ${packetLabel}` : "Forms & Tools result",
       issuePathway: "Forms & Tools",
       issueDetail: labelParts.join(" / ") || "Official forms and PDF planning",
       serviceInterest: "",
@@ -3342,7 +3342,7 @@
         tone: "review",
         kicker: "Court source found",
         title: "Open the reviewed on-site forms.",
-        copy: "This is the safest starting point for this selection. Open the verified packet viewer first, then use the checklist if you need the packet sequence.",
+        copy: "This is the clearest form path for this selection. Open the verified packet viewer first, then use the checklist if you need the packet sequence.",
         primaryLabel: "Open matched forms",
         primaryHref: "#forms-approved-pdfs",
         meta: ["Reviewed forms first", ...baseMeta.slice(1)],
@@ -3538,6 +3538,12 @@
               <strong data-guided-result-title>Start with the form finder.</strong>
               <p data-guided-result-copy>Answer the questions above and use the blue button when you are ready.</p>
               <div class="forms-guided-summary" data-guided-summary></div>
+              <div class="forms-guided-edit-answers" data-guided-edit-answers hidden>
+                <button type="button" data-guided-edit="county">Change county</button>
+                <button type="button" data-guided-edit="posture">Change stage</button>
+                <button type="button" data-guided-edit="issue">Change issue</button>
+                <button type="button" data-guided-edit="children">Change children</button>
+              </div>
               <div class="forms-guided-tier" data-guided-result-tier>
                 <span>Recommended result</span>
                 <strong>Answer the helper to unlock one primary path.</strong>
@@ -4423,7 +4429,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-143341-decision-flow-copyfix" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-145858-form-path-unification" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5437,7 +5443,7 @@
         ? `Recommended packet: ${packetLabel}.`
         : "No packet is selected yet.";
     const packetCopy = formsRoute.formConfidence === "statewide-generic"
-      ? "This is a statewide starting point. Continue to the form questions to review the packet and narrow by county if needed."
+      ? "This is a statewide form path. Continue to the form questions to review the packet and narrow by county if needed."
       : formsRoute.formConfidence === "related-only"
         ? "This guide points to related forms only. Continue to compare packet titles before opening anything."
         : formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
@@ -5916,8 +5922,8 @@
       });
 
       if (status) {
-        status.textContent = visible
-          ? `${visible} reviewed form starting point${visible === 1 ? "" : "s"} match your answers.`
+          status.textContent = visible
+          ? `${visible} reviewed form path${visible === 1 ? "" : "s"} match your answers.`
           : "No clear form match yet. Use the statewide source or start Guided Intake.";
       }
       const routeDetail = {
@@ -6563,7 +6569,7 @@
           if (!visibleCards.length) {
             packetStateLabel.textContent = "No visible forms";
             packetStateTitle.textContent = "No forms match this form group and language.";
-            packetStateCopy.textContent = "Change the form group or language, or pick a different packet if the right starting point is unclear.";
+            packetStateCopy.textContent = "Change the form group or language, or pick a different packet if the right form path is unclear.";
           } else if (complete) {
             packetStateLabel.textContent = "Forms reviewed";
             packetStateTitle.textContent = "Every visible form in this form group is checked.";
@@ -6905,8 +6911,8 @@
         <div class="forms-intake-head">
           <div>
             <span>Guided start</span>
-            <strong>Choose one simple starting point, then continue only if it fits.</strong>
-            <p>${esc(manifest.public_message || "Start from a public Forms & Tools selection, then continue into Guided Intake with only the starting point needed to stay organized.")}</p>
+            <strong>Choose one simple form path, then continue only if it fits.</strong>
+            <p>${esc(manifest.public_message || "Start from a public Forms & Tools selection, then continue into Guided Intake with only the form path needed to stay organized.")}</p>
           </div>
           <a class="button primary" href="/start" data-link data-forms-intake-option>Start Guided Intake</a>
         </div>
@@ -6993,6 +6999,7 @@
     const guidedChangeAnswers = host.querySelector("[data-guided-change-answers]");
     const guidedIntakeFallback = host.querySelector("[data-guided-intake-fallback]");
     const guidedSummary = host.querySelector("[data-guided-summary]");
+    const guidedEditAnswers = host.querySelector("[data-guided-edit-answers]");
     const guidedResultTier = host.querySelector("[data-guided-result-tier]");
     const guidedReason = host.querySelector("[data-guided-reason]");
     const guidedPathLine = host.querySelector("[data-guided-path-line]");
@@ -7468,6 +7475,9 @@
       if (guidedChangeAnswers) {
         guidedChangeAnswers.hidden = !(savedResumeActive && !guidedComplete);
       }
+      if (guidedEditAnswers) {
+        guidedEditAnswers.hidden = !(guidedComplete || savedResumeActive || answeredFields.size > 1);
+      }
       const answering = !savedResumeActive && !guidedComplete;
       guidedOptions?.toggleAttribute("inert", !answering);
       guidedOptions?.setAttribute("aria-hidden", answering ? "false" : "true");
@@ -7706,6 +7716,19 @@
         update();
       });
     });
+    guidedEditAnswers?.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-guided-edit]");
+      if (!button) return;
+      const key = button.getAttribute("data-guided-edit") || "";
+      const index = guidedSteps.findIndex((step) => step.key === key);
+      if (index < 0) return;
+      savedResumeActive = false;
+      guidedComplete = false;
+      showAllSections = false;
+      guidedStep = index;
+      update();
+      revealAndFocus(guidedQuestion || host, { hash: "#forms-task-workspace", history: false });
+    });
     guidedResultAction?.addEventListener("click", (event) => {
       if (guidedResultAction.hasAttribute("data-guided-continue")) {
         event.preventDefault();
@@ -7770,8 +7793,8 @@
       host.innerHTML = `
         <div class="forms-route-intake-head">
           <div>
-            <span>Saved starting points</span>
-            <strong>Choose a starting point only if it sounds like your situation.</strong>
+            <span>Saved form paths</span>
+            <strong>Choose a form path only if it matches your situation.</strong>
             <p>These choices keep county, issue, and forms together. If none sound right, use Guided Intake instead.</p>
           </div>
           <a class="button outline" href="/start" data-link data-route-map-intake>Start Guided Intake</a>
@@ -7787,8 +7810,8 @@
 	            return `<article>
 	            <div class="forms-route-intake-card-head">
 	              <span>${esc(displayFormsCounty(item.route?.county) || "Official source")}</span>
-	              <strong>${esc(item.packet_label || "Form starting point")}</strong>
-	              <p>${esc(summaryParts.join(" / ") || "Forms matched to this starting point")}</p>
+	              <strong>${esc(item.packet_label || "Form path")}</strong>
+	              <p>${esc(summaryParts.join(" / ") || "Forms matched to this path")}</p>
 	            </div>
 	            <div class="forms-route-intake-counts">
 	              <small>${item.approved_pdfs ? `${esc(String(item.approved_pdfs))} form${item.approved_pdfs === 1 ? "" : "s"} ready to view` : "Use Guided Intake to confirm the next form"}</small>
@@ -7816,7 +7839,7 @@
           <div>
             <span>Starting points</span>
             <strong>Starting points could not load.</strong>
-            <p>Use the form finder or Guided Intake while starting points are unavailable.</p>
+            <p>Use the form finder or Guided Intake while form paths are unavailable.</p>
           </div>
           <a class="button outline" href="/start" data-link>Start Guided Intake</a>
         </div>
@@ -9110,7 +9133,7 @@
           <article><span>Form pages</span><strong>${esc(String(summary.official_packet_page_actions || 0))}</strong></article>
           <article><span>Viewable PDFs</span><strong>${esc(String(summary.approved_pdf_actions || 0))}</strong></article>
         </div>
-        <div class="forms-coverage-routes" aria-label="Forms and Tools covered starting points">
+        <div class="forms-coverage-routes" aria-label="Forms and Tools covered form paths">
           ${routes.map((route) => {
             const routeDetail = route.route || {};
             const summaryParts = routeSummaryParts(routeDetail);
@@ -9147,9 +9170,9 @@
       if (!routes.length) {
         host.innerHTML = `
           <div class="route-action-empty">
-            <span>Starting points</span>
-            <strong>Form starting points are not available yet.</strong>
-            <p>Use the form finder while the reviewed starting points load.</p>
+            <span>Form paths</span>
+            <strong>Reviewed form paths are not available yet.</strong>
+            <p>Use the form finder while the reviewed form paths load.</p>
           </div>
         `;
         return;
@@ -9158,25 +9181,25 @@
       host.innerHTML = `
         <div class="route-action-head">
           <div>
-            <span>Starting points</span>
-          <strong>Choose one starting point, then open the matching forms.</strong>
-            <p>${esc(manifest.public_message || "Choose a starting point to see reviewed forms.")}</p>
+            <span>Form paths</span>
+          <strong>Choose one form path, then open the matching forms.</strong>
+            <p>${esc(manifest.public_message || "Choose a form path to see reviewed forms.")}</p>
           </div>
-          <a class="button outline" href="/start" data-link data-route-action-intake>Use selected starting point in Intake</a>
+          <a class="button outline" href="/start" data-link data-route-action-intake>Use selected form path in Intake</a>
         </div>
-        <div class="route-action-controls" aria-label="Filter form starting points">
+        <div class="route-action-controls" aria-label="Filter form paths">
           <label>Search
             <input type="search" placeholder="Search divorce, parenting, support, agreement..." data-route-action-search>
           </label>
-          <label>Starting point
+          <label>Form path
             <select data-route-action-select>
-              <option value="all">Show every starting point</option>
+              <option value="all">Show every form path</option>
               ${routes.map((route) => `<option value="${esc(route.packet_id)}">${esc(route.packet_label)}</option>`).join("")}
             </select>
           </label>
           <button class="button ghost" type="button" data-route-action-reset>Reset</button>
         </div>
-        <p class="forms-router-status" data-route-action-status>${esc(String(routes.length))} starting points shown.</p>
+        <p class="forms-router-status" data-route-action-status>${esc(String(routes.length))} form paths shown.</p>
         <div class="route-action-grid">
           ${routes.map((route) => {
             const packetPages = Array.isArray(route.official_packet_pages) ? route.official_packet_pages : [];
@@ -9272,8 +9295,8 @@
         });
         if (status) {
           status.textContent = visible
-            ? `${visible} starting point${visible === 1 ? "" : "s"} shown.`
-            : "No starting point matches the current filters.";
+            ? `${visible} form path${visible === 1 ? "" : "s"} shown.`
+            : "No form path matches the current filters.";
         }
         setIntakeLinks();
       };
@@ -9329,7 +9352,7 @@
       host.innerHTML = `
         <div class="route-action-empty">
           <span>Starting points</span>
-          <strong>Matched form starting points could not load.</strong>
+          <strong>Matched form paths could not load.</strong>
           <p>Use the form finder while the starting-point list is unavailable.</p>
         </div>
       `;
@@ -9450,7 +9473,7 @@
           <div>
             <span data-official-pdf-spotlight-kicker>Your next form step</span>
             <strong data-official-pdf-spotlight-title>Finding the closest form group...</strong>
-            <p data-official-pdf-spotlight-copy>Start here. The packet below should match the choices you made above.</p>
+            <p data-official-pdf-spotlight-copy>The packet below should match the choices you made above. Other form groups are secondary.</p>
             <ol class="forms-next-mini-list">
               <li>View the first form or instruction sheet.</li>
               <li>Check that the title matches your situation.</li>
@@ -9723,18 +9746,18 @@
         });
         const selectedRoute = routePacketById.get(packetValue);
         if (spotlightKicker) {
-          spotlightKicker.textContent = selectedRoute ? "Recommended form group" : "Browsing other form groups";
+          spotlightKicker.textContent = selectedRoute ? "Recommended form path" : "Other official resources";
         }
         if (spotlightTitle) {
           spotlightTitle.textContent = selectedRoute
             ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended form group selected"
             : !allowUnmatchedPdfBrowse
             ? "No exact form packet is selected for these answers."
-            : "Choose a form group only if the recommendation does not fit.";
+            : "Choose another form group only if the recommendation does not fit.";
         }
         if (spotlightCopy) {
           spotlightCopy.textContent = selectedRoute
-            ? "Start here if this form group sounds like your situation. Open the forms in order."
+            ? "Use this primary form path if it matches your situation. Open the forms in order."
             : !allowUnmatchedPdfBrowse
             ? "Use Guided Intake or change answers before opening a packet. Browse other form groups only if you already know the court packet title."
             : "Use search, form group, and language filters only if you know what you are looking for. Otherwise, start Guided Intake.";

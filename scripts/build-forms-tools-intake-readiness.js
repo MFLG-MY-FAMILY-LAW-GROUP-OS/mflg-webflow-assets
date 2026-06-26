@@ -58,7 +58,7 @@ const options = [
     label: "Reviewed form route",
     option_type: "route",
     count: routeActions.summary?.route_actions || reviewedRoutes.length,
-    public_status: "Use a reviewed Forms & Tools route as the starting point.",
+    public_status: "Use a reviewed Forms & Tools route as the form path.",
     intake_value: "Reviewed route selected"
   },
   {
@@ -149,7 +149,7 @@ const output = {
   reviewed_routes: primaryRoutes,
   official_jurisdictions: officialJurisdictions,
   calculators,
-  public_message: "Start from a public selection, then move to Guided Intake with only the issue, county, packet, or calculator starting point needed to stay organized."
+  public_message: "Start from a public selection, then move to Guided Intake with only the issue, county, packet, or calculator path needed to stay organized."
 };
 
 writeJSON("data/forms-tools-intake-readiness.json", output);

@@ -497812,6 +497812,46 @@
   {
     "route": "/tools/",
     "viewport": "390",
+    "component": "button",
+    "state": "forms-ready",
+    "visibleText": "Change county",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button",
+    "state": "forms-ready",
+    "visibleText": "Change stage",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button",
+    "state": "forms-ready",
+    "visibleText": "Change issue",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button",
+    "state": "forms-ready",
+    "visibleText": "Change children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
     "component": "span",
     "state": "forms-ready",
     "visibleText": "Recommended form path",
@@ -498204,7 +498244,7 @@
     "viewport": "390",
     "component": "p.forms-router-status",
     "state": "forms-ready",
-    "visibleText": "4 reviewed form starting points match your answers.",
+    "visibleText": "4 reviewed form paths match your answers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498424,7 +498464,7 @@
     "viewport": "390",
     "component": "span",
     "state": "forms-ready",
-    "visibleText": "Recommended form group",
+    "visibleText": "Recommended form path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498444,7 +498484,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Start here if this form group sounds like your situation. Open the forms in order.",
+    "visibleText": "Use this primary form path if it matches your situation. Open the forms in order.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500502,6 +500542,46 @@
   {
     "route": "/tools/",
     "viewport": "390",
+    "component": "button",
+    "state": "viewer",
+    "visibleText": "Change county",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button",
+    "state": "viewer",
+    "visibleText": "Change stage",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button",
+    "state": "viewer",
+    "visibleText": "Change issue",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button",
+    "state": "viewer",
+    "visibleText": "Change children",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
     "component": "span",
     "state": "viewer",
     "visibleText": "Recommended form path",
@@ -500894,7 +500974,7 @@
     "viewport": "390",
     "component": "p.forms-router-status",
     "state": "viewer",
-    "visibleText": "4 reviewed form starting points match your answers.",
+    "visibleText": "4 reviewed form paths match your answers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501114,7 +501194,7 @@
     "viewport": "390",
     "component": "span",
     "state": "viewer",
-    "visibleText": "Recommended form group",
+    "visibleText": "Recommended form path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501134,7 +501214,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Start here if this form group sounds like your situation. Open the forms in order.",
+    "visibleText": "Use this primary form path if it matches your situation. Open the forms in order.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

@@ -368,7 +368,7 @@ grep -q "wireOfficialPdfActions" "$PUBLIC_JS_FILE" || fail "Official PDF action 
 grep -q "data-official-pdf-actions" "$PUBLIC_JS_FILE" || fail "Official PDF action host missing from public JS"
 grep -q "data-official-pdf-spotlight" "$PUBLIC_JS_FILE" || fail "Official PDF recommended packet spotlight missing from public JS"
 grep -q "data-official-pdf-spotlight-kicker" "$PUBLIC_JS_FILE" || fail "Official PDF dynamic spotlight label missing from public JS"
-grep -q "Browsing other form groups" "$PUBLIC_JS_FILE" || fail "Form-group alternate packet spotlight state missing from public JS"
+grep -q "Other official resources" "$PUBLIC_JS_FILE" || fail "Form-group alternate resource spotlight state missing from public JS"
 grep -q "Browse other form groups" "$PUBLIC_JS_FILE" || fail "Form-group secondary browse control missing from public JS"
 if grep -q "packetReadinessCatalog\|sourceMonitorSnapshot\|maricopaCandidateSnapshot\|maricopaCandidateGroups\|reviewQueueSnapshot\|officialPacketPageActions\|pdfCandidateSnapshot\|pdfReviewQueueSnapshot\|pdfPromotionSnapshot\|pdfReviewWorkbenchSnapshot\|pdfDecisionTemplateSnapshot\|pdfPromotionAuditSnapshot\|pdfReviewGroups" "$PUBLIC_JS_FILE"; then
   fail "Internal form/PDF review snapshot constants must not ship in public JS"

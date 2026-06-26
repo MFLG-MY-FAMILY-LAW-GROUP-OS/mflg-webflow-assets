@@ -25,7 +25,7 @@ const sameOriginPdfDeliveryEnabled = Boolean(downloadReadiness?.summary?.same_or
 const steps = [
   {
     step_id: "choose-on-page-start",
-    label: "Choose the on-page starting point",
+    label: "Choose the on-page form path",
     status: "ready",
     metric: `${jurisdiction.summary?.monitored_sources_ok || 0}/${jurisdiction.summary?.monitored_sources_total || 0} sources OK`,
     guidance: "Start with county and posture. If the county is uncertain, use the on-page statewide guidance first."

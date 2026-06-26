@@ -107,7 +107,7 @@ const output = {
     direct_cached_downloads_enabled: false
   },
   routes,
-  public_message: "Choose the starting point that sounds closest, then view or download the reviewed forms on this site. No sensitive facts are collected here."
+  public_message: "Choose the form path that sounds closest, then view or download the reviewed forms on this site. No sensitive facts are collected here."
 };
 
 writeJSON("data/form-route-actions.json", output);

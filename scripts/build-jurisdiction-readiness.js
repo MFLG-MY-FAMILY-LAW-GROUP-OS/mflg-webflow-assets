@@ -86,7 +86,7 @@ const output = {
     direct_cached_downloads_enabled: false
   },
   jurisdictions,
-  public_message: "County choice controls the safest starting point. Maricopa has reviewed packet-level actions now; other monitored county sources should route through Guided Intake until packet review is completed."
+  public_message: "County choice controls the safest form path. Maricopa has reviewed packet-level actions now; other monitored county sources should route through Guided Intake until packet review is completed."
 };
 
 writeJSON("data/jurisdiction-readiness.json", output);
