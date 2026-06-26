@@ -13,11 +13,11 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260625-113245-hero-loop-smooth`
-- Tag: `mflg-live-20260626-050859-original-hero-video`
+- Live key: `mflg-live-20260626-052746-public-copy-cleanup`
+- Tag: `mflg-live-20260626-052746-public-copy-cleanup`
 - Release commit: the commit pointed to by the tag in the durable checkout. Verify with `git rev-parse HEAD` and `git describe --exact-match --tags HEAD`.
-- Public JS SHA-256: `ad93e915d77f2c9700aec95b480d10367cb6294571c196aef1ab34e934a79e34`
-- Public CSS SHA-256: `17d80bf4e6faa24e2cd0dc34f54a9037f1d1da0eb5933a673ee286832ffbb376`
+- Public JS SHA-256: `1a343531c63a117c5651222873bf2a38768d3ab50b06e1e9f186effc3b1d156b`
+- Public CSS SHA-256: `0779839141095684d47ba81ad587e63d3e074910f7ffc4f8ba1bbee5a53437ef`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
 - Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260625-final-yolo-stabilization-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`

@@ -475,10 +475,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260625-113245-hero-loop-smooth">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-052746-public-copy-cleanup">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260625-113245-hero-loop-smooth">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-052746-public-copy-cleanup">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1705,7 +1705,7 @@
         route: fallbackRoute
       }
     ];
-    return `<div class="lead-magnet-entry" data-lead-magnet-flow aria-label="Lead magnet task entry">
+    return `<div class="lead-magnet-entry" data-lead-magnet-flow aria-label="Choose a helpful starting task">
       <div class="lead-magnet-head">
         <p class="eyebrow">Choose what you need today</p>
         <h2>Start with one useful task, not a legal maze.</h2>
@@ -1732,12 +1732,12 @@
 	        <a class="hero-task-pill hero-pill" href="/guides" data-link>Read DIY guide</a>
 	        <a class="hero-task-pill hero-pill" href="/start" data-link data-intake-route='${esc(JSON.stringify(routeForServiceTitle("Not Sure Where to Start")))}'>Office review</a>
 	      </div>`
-	    ) + section(
+    ) + section(
       "Choose what you need today.",
-      "This is the lead magnet entry point: get useful self-help first, then use office review when it is the safest next step.",
+      "Start with a useful self-help task first, then use office review when it is the safest next step.",
       leadMagnetTaskEntry(),
       true,
-      "Lead magnet",
+      "Start here",
       "lead-magnet-section"
     ) + section(
       "Find your issue.",
@@ -2022,7 +2022,7 @@
         { label: "Flat fee", title: "Standard uncontested or packet-based help", copy: "Use this when the matter is routine enough for a defined bundle." },
         { label: "Court", title: "Hearing or trial module", copy: "Use this only after the hearing type and LP scope are reviewed." }
       ], "fees-command")}
-      ${proofBand("Fee proof", "Pricing is confirmed by review, not by guesswork.", "The fee page explains how pricing is narrowed before any engagement is offered. It is intentionally specific about what is included and what is not.", [
+      ${proofBand("Fee review", "Pricing is confirmed by review, not by guesswork.", "The fee page explains how pricing is narrowed before any engagement is offered. It is intentionally specific about what is included and what is not.", [
         { label: "Conflict", title: "Fee-fit starts with case fit", copy: "No price should be read as a quote until the matter itself is eligible for review." },
         { label: "Scope", title: "Service boundaries stay visible", copy: "If the work moves outside LP authority, the page should point that out rather than bury it." },
         { label: "Costs", title: "Court filing and third-party costs are separate", copy: "The published prices are planning numbers, not promises that include every outside fee." },
@@ -4473,7 +4473,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260625-113245-hero-loop-smooth" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-052746-public-copy-cleanup" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -4646,7 +4646,7 @@
     return section("FAQ", "Answers to the questions Arizona family-law users usually need before choosing a pathway, starting intake, comparing fees, or deciding whether LP help may fit.", `
       <div class="faq-command">
         <div>
-          <p class="eyebrow">Question router</p>
+          <p class="eyebrow">FAQ help</p>
           <h3>Find the answer, then move into the right next step.</h3>
           <p>Search by issue, filter by topic, open only what matters, then use Guided Intake when you need conflict, licensed-scope, urgency, and service-fit review.</p>
         </div>
@@ -4687,7 +4687,7 @@
   }
 
   function contact() {
-    return section("Contact", "Use the guided intake for structured review, or contact the office directly for urgent timing issues.", `${pageCommand("Contact router", "Choose the contact path that matches the situation.", "New matters, existing-client support, deadlines, and access issues should not all use the same first step.", [
+    return section("Contact", "Use the guided intake for structured review, or contact the office directly for urgent timing issues.", `${pageCommand("Contact options", "Choose the contact path that matches the situation.", "New matters, existing-client support, deadlines, and access issues should not all use the same first step.", [
       { label: "Start Guided Intake", href: "/start", className: "primary", route: serviceMethodFallbackRoute },
       { label: "Email Office", href: "mailto:info@myfamilylawgroup.com", className: "outline", dataLink: false },
       { label: "Call Office", href: "tel:+18888706354", className: "outline", dataLink: false }
@@ -4695,7 +4695,7 @@
       { label: "New matter", title: "Use Guided Intake", copy: "Best for unreviewed divorce, parenting, support, forms, or court-preparation questions." },
       { label: "Existing client", title: "Use direct office contact", copy: "Best for case status, scheduling, document access, billing, or pending follow-up." },
       { label: "Deadline", title: "Put the date first", copy: "If there is a hearing, service date, response deadline, or safety issue, lead with timing." }
-    ], "contact-command")}${proofBand("Contact proof", "Choose the contact path that matches the work.", "The site should not make every visitor do the same thing. New matters, existing clients, and urgent timing all need different next steps.", [
+    ], "contact-command")}${proofBand("Contact paths", "Choose the contact path that matches the work.", "The site should not make every visitor do the same thing. New matters, existing clients, and urgent timing all need different next steps.", [
       { label: "New matter", title: "Start with Guided Intake", copy: "The office can review conflict, scope, urgency, and service fit from your submitted details." },
       { label: "Existing client", title: "Use direct office contact", copy: "Case status, documents, scheduling, and follow-up work belong on the existing-client path." },
       { label: "Deadline", title: "Put timing first", copy: "If there is a hearing, service date, or response deadline, say that immediately." },

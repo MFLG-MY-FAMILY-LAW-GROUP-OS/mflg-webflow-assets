@@ -42,7 +42,8 @@ const forbiddenTerms = [
   "debug",
   "stale context",
   "carried forward",
-  "carried into"
+  "carried into",
+  "lead magnet"
 ];
 
 const rawTokenPattern = /\b(undefined|null|not-applicable)\b|(?:^|\s)(selectedPacket|userCounty)(?:\s|$)/i;

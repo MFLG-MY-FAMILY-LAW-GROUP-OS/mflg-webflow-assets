@@ -184,7 +184,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Lead magnet",
+    "visibleText": "Start here",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -204,7 +204,7 @@
     "viewport": "390",
     "component": "p.lead",
     "state": "initial",
-    "visibleText": "This is the lead magnet entry point: get useful self-help first, then use office review when it is the safest next step.",
+    "visibleText": "Start with a useful self-help task first, then use office review when it is the safest next step.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -9664,7 +9664,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Fee proof",
+    "visibleText": "Fee review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -14134,7 +14134,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Question router",
+    "visibleText": "FAQ help",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -15984,7 +15984,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Contact router",
+    "visibleText": "Contact options",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -16144,7 +16144,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Contact proof",
+    "visibleText": "Contact paths",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -17764,7 +17764,17 @@
     "viewport": "390",
     "component": "p.mflg-help",
     "state": "initial",
-    "visibleText": "Keep this high level. Include any papers received, upcoming deadlines, county, and the outcome you are hoping for. Conflict, scope, timing, and service-fit review must happen before services are confirmed.",
+    "visibleText": "Keep this high level. Include any papers received, upcoming deadlines, county, and the outcome you are hoping for. Conflict, , timing, and service-fit review must happen before services are confirmed.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/start/",
+    "viewport": "390",
+    "component": "span.legal-term",
+    "state": "initial",
+    "visibleText": "scope",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -19204,17 +19214,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-0",
-    "visibleText": "Arizona divorce help for petitions, responses, , agreements, , parenting, support, and decree-related next steps.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/practice-areas/",
-    "viewport": "390",
-    "component": "span.legal-term",
-    "state": "practice-card-0",
-    "visibleText": "disclosure",
+    "visibleText": "Arizona divorce help for petitions, responses, disclosure, agreements, , parenting, support, and decree-related next steps.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -32644,7 +32644,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-2",
-    "visibleText": "Scope review and document help for annulment questions, required facts, posture, and related family-court paperwork.",
+    "visibleText": "Scope review and document help for annulment questions, required facts, , and related family-court paperwork.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -32655,6 +32655,16 @@
     "component": "span.legal-term",
     "state": "practice-card-2",
     "visibleText": "filing",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/practice-areas/",
+    "viewport": "390",
+    "component": "span.legal-term",
+    "state": "practice-card-2",
+    "visibleText": "posture",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -126784,17 +126794,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-16",
-    "visibleText": "Confirm , children, schedule or decision-making issue, , safety, and whether the next step is new orders, change, , or planning.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/practice-areas/",
-    "viewport": "390",
-    "component": "span.legal-term",
-    "state": "practice-card-16",
-    "visibleText": "existing orders",
+    "visibleText": "Confirm existing orders, children, schedule or decision-making issue, , safety, and whether the next step is new orders, change, enforcement, or planning.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -126805,16 +126805,6 @@
     "component": "span.legal-term",
     "state": "practice-card-16",
     "visibleText": "jurisdiction",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/practice-areas/",
-    "viewport": "390",
-    "component": "span.legal-term",
-    "state": "practice-card-16",
-    "visibleText": "enforcement",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -294734,17 +294724,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-41",
-    "visibleText": "Support for responses, deadlines, notices, service issues, and next-step review after being .",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/practice-areas/",
-    "viewport": "390",
-    "component": "span.legal-term",
-    "state": "practice-card-41",
-    "visibleText": "hearing",
+    "visibleText": "Support for responses, deadlines, hearing notices, service issues, and next-step review after being .",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -294814,7 +294794,7 @@
     "viewport": "390",
     "component": "p.muted",
     "state": "practice-card-41",
-    "visibleText": "Start with one task. Using your selected issue: to Papers.",
+    "visibleText": "Start with one task. Using your selected issue: to Served Papers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -294825,16 +294805,6 @@
     "component": "span.legal-term",
     "state": "practice-card-41",
     "visibleText": "Response",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/practice-areas/",
-    "viewport": "390",
-    "component": "span.legal-term",
-    "state": "practice-card-41",
-    "visibleText": "Served",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -314974,17 +314944,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-44",
-    "visibleText": "Confirm the document type, deadline, , service status, , county, and whether a broader issue must be selected first.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/practice-areas/",
-    "viewport": "390",
-    "component": "span.legal-term",
-    "state": "practice-card-44",
-    "visibleText": "hearing",
+    "visibleText": "Confirm the document type, deadline, hearing, service status, , county, and whether a broader issue must be selected first.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

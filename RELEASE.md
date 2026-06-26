@@ -1,9 +1,9 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260625-113245-hero-loop-smooth
+## Public Website Release: mflg-live-20260626-052746-public-copy-cleanup
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260625-113245-hero-loop-smooth`
+- Asset key: `mflg-live-20260626-052746-public-copy-cleanup`
 - Public JS SHA-256: `ad93e915d77f2c9700aec95b480d10367cb6294571c196aef1ab34e934a79e34`
 - Public CSS SHA-256: `17d80bf4e6faa24e2cd0dc34f54a9037f1d1da0eb5933a673ee286832ffbb376`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`

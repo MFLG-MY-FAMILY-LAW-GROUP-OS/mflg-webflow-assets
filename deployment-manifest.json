@@ -1,8 +1,8 @@
 {
-  "asset_key": "mflg-live-20260625-113245-hero-loop-smooth",
-  "tag": "mflg-live-20260626-050859-original-hero-video",
-  "public_js_sha256": "ad93e915d77f2c9700aec95b480d10367cb6294571c196aef1ab34e934a79e34",
-  "public_css_sha256": "17d80bf4e6faa24e2cd0dc34f54a9037f1d1da0eb5933a673ee286832ffbb376",
+  "asset_key": "mflg-live-20260626-052746-public-copy-cleanup",
+  "tag": "mflg-live-20260626-052746-public-copy-cleanup",
+  "public_js_sha256": "1a343531c63a117c5651222873bf2a38768d3ab50b06e1e9f186effc3b1d156b",
+  "public_css_sha256": "0779839141095684d47ba81ad587e63d3e074910f7ffc4f8ba1bbee5a53437ef",
   "cloudflare_deployments": {
     "mflg_public_website": "69d74ec7-9bdf-4541-ac0e-1623b600180c",
     "mflg_webflow_assets": "9f68e859-f076-4cee-8362-1a078f3dfbd8"
