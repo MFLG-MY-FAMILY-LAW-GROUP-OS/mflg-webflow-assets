@@ -214,7 +214,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Start here",
+    "visibleText": "Pick a path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -1294,7 +1294,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "initial",
-    "visibleText": "Showing the first 6 issue paths for this screen. Search any topic, browse a situation, or reveal the remaining 44. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing the first 6 issue paths for this screen. Search any topic, browse a situation, or reveal the remaining 44. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -2764,7 +2764,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -2804,7 +2804,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -4124,7 +4124,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "initial",
-    "visibleText": "Showing the first 6 issue paths for this screen. Search any topic, browse a situation, or reveal the remaining 44. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing the first 6 issue paths for this screen. Search any topic, browse a situation, or reveal the remaining 44. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -5234,7 +5234,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -5274,7 +5274,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6704,7 +6704,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Find forms",
+    "visibleText": "Forms",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6724,7 +6724,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Calculator",
+    "visibleText": "Numbers",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6734,7 +6734,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Use a calculator",
+    "visibleText": "Use calculator",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6744,7 +6744,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "DIY guide",
+    "visibleText": "Guide",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6764,7 +6764,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Help me choose",
+    "visibleText": "Deadline",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6784,7 +6784,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Guided Intake",
+    "visibleText": "Office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7544,7 +7544,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Find forms",
+    "visibleText": "Forms",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7564,7 +7564,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Calculator",
+    "visibleText": "Numbers",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7574,7 +7574,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Use a calculator",
+    "visibleText": "Use calculator",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7584,7 +7584,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "DIY guide",
+    "visibleText": "Guide",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7604,7 +7604,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Help me choose",
+    "visibleText": "Deadline",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7624,7 +7624,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Guided Intake",
+    "visibleText": "Office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8384,7 +8384,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Find forms",
+    "visibleText": "Forms",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8404,7 +8404,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Calculator",
+    "visibleText": "Numbers",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8414,7 +8414,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Use a calculator",
+    "visibleText": "Use calculator",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8424,7 +8424,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "DIY guide",
+    "visibleText": "Guide",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8444,7 +8444,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Help me choose",
+    "visibleText": "Deadline",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8464,7 +8464,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Guided Intake",
+    "visibleText": "Office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8934,7 +8934,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8974,7 +8974,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -11924,7 +11924,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -11964,7 +11964,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -13284,7 +13284,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -13324,7 +13324,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -14684,7 +14684,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -14724,7 +14724,7 @@
     "viewport": "390",
     "component": "span",
     "state": "initial",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -16904,7 +16904,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-0",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -16944,7 +16944,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-0",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -22344,7 +22344,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-0",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -23454,7 +23454,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-1",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -23494,7 +23494,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-1",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -28894,7 +28894,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-1",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -30004,7 +30004,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-2",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -30044,7 +30044,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-2",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -35444,7 +35444,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-2",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -36554,7 +36554,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-3",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -36594,7 +36594,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-3",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -41994,7 +41994,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-3",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -43104,7 +43104,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-4",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -43144,7 +43144,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-4",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -48544,7 +48544,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-4",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -49654,7 +49654,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-5",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -49694,7 +49694,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-5",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -55094,7 +55094,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-5",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -56204,7 +56204,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-6",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -56244,7 +56244,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-6",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -61644,7 +61644,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-6",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -62754,7 +62754,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-7",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -62794,7 +62794,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-7",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -68194,7 +68194,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-7",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -69304,7 +69304,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-8",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -69344,7 +69344,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-8",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -74744,7 +74744,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-8",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -75854,7 +75854,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-9",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -75894,7 +75894,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-9",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -81294,7 +81294,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-9",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -82404,7 +82404,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-10",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -82444,7 +82444,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-10",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -87844,7 +87844,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-10",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -88954,7 +88954,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-11",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -88994,7 +88994,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-11",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -94394,7 +94394,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-11",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -95504,7 +95504,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-12",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -95544,7 +95544,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-12",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -100944,7 +100944,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-12",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -102054,7 +102054,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-13",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -102094,7 +102094,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-13",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -107494,7 +107494,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-13",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -108604,7 +108604,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-14",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -108644,7 +108644,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-14",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -114044,7 +114044,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-14",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -115154,7 +115154,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-15",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -115194,7 +115194,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-15",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -120594,7 +120594,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-15",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -121704,7 +121704,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-16",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -121744,7 +121744,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-16",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -127144,7 +127144,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-16",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -128254,7 +128254,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-17",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -128294,7 +128294,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-17",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -133694,7 +133694,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-17",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -134804,7 +134804,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-18",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -134844,7 +134844,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-18",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -140244,7 +140244,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-18",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -141354,7 +141354,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-19",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -141394,7 +141394,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-19",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -146794,7 +146794,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-19",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -147904,7 +147904,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-20",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -147944,7 +147944,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-20",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -153344,7 +153344,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-20",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -154454,7 +154454,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-21",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -154494,7 +154494,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-21",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -159894,7 +159894,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-21",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -161004,7 +161004,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-22",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -161044,7 +161044,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-22",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -166444,7 +166444,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-22",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -167554,7 +167554,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-23",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -167594,7 +167594,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-23",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -172994,7 +172994,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-23",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -174104,7 +174104,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-24",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -174144,7 +174144,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-24",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -179544,7 +179544,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-24",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -180654,7 +180654,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-25",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -180694,7 +180694,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-25",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -186094,7 +186094,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-25",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -187204,7 +187204,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-26",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -187244,7 +187244,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-26",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -192644,7 +192644,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-26",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -193754,7 +193754,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-27",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -193794,7 +193794,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-27",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -199194,7 +199194,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-27",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -200304,7 +200304,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-28",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -200344,7 +200344,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-28",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -205744,7 +205744,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-28",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -206854,7 +206854,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-29",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -206894,7 +206894,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-29",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -212294,7 +212294,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-29",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -213404,7 +213404,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-30",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -213444,7 +213444,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-30",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -218844,7 +218844,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-30",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -219954,7 +219954,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-31",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -219994,7 +219994,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-31",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -225394,7 +225394,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-31",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -226504,7 +226504,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-32",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -226544,7 +226544,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-32",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -231944,7 +231944,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-32",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -233054,7 +233054,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-33",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -233094,7 +233094,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-33",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -238494,7 +238494,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-33",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -239604,7 +239604,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-34",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -239644,7 +239644,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-34",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -245044,7 +245044,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-34",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -246154,7 +246154,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-35",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -246194,7 +246194,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-35",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -251594,7 +251594,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-35",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -252704,7 +252704,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-36",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -252744,7 +252744,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-36",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -258144,7 +258144,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-36",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -259254,7 +259254,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-37",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -259294,7 +259294,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-37",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -264694,7 +264694,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-37",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -265804,7 +265804,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-38",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -265844,7 +265844,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-38",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -271244,7 +271244,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-38",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -272354,7 +272354,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-39",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -272394,7 +272394,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-39",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -277794,7 +277794,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-39",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -278904,7 +278904,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-40",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -278944,7 +278944,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-40",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -284344,7 +284344,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-40",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -285454,7 +285454,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-41",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -285494,7 +285494,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-41",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -290894,7 +290894,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-41",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -292004,7 +292004,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-42",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -292044,7 +292044,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-42",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -297444,7 +297444,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-42",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -298554,7 +298554,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-43",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -298594,7 +298594,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-43",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -303994,7 +303994,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-43",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -305104,7 +305104,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-44",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -305144,7 +305144,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-44",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -310544,7 +310544,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-44",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -311654,7 +311654,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-45",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -311694,7 +311694,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-45",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -317094,7 +317094,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-45",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -318204,7 +318204,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-46",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -318244,7 +318244,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-46",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -323644,7 +323644,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-46",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -324754,7 +324754,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-47",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -324794,7 +324794,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-47",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -330194,7 +330194,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-47",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -331304,7 +331304,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-48",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -331344,7 +331344,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-48",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -336744,7 +336744,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-48",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -337854,7 +337854,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-49",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -337894,7 +337894,7 @@
     "viewport": "390",
     "component": "span",
     "state": "practice-card-49",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -343294,7 +343294,7 @@
     "viewport": "390",
     "component": "p.service-note",
     "state": "practice-card-49",
-    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.",
+    "visibleText": "Showing all 50 issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -344404,7 +344404,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-0",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -344444,7 +344444,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-0",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -347464,7 +347464,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-1",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -347504,7 +347504,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-1",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -350524,7 +350524,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-2",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -350564,7 +350564,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-2",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -353584,7 +353584,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-3",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -353624,7 +353624,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-3",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -356644,7 +356644,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-4",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -356684,7 +356684,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-4",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -359704,7 +359704,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-5",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -359744,7 +359744,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-5",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -362764,7 +362764,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-6",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -362804,7 +362804,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-6",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -365824,7 +365824,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-7",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -365864,7 +365864,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-7",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -368884,7 +368884,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-8",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -368924,7 +368924,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-8",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -371944,7 +371944,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-9",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -371984,7 +371984,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-9",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -375004,7 +375004,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-10",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -375044,7 +375044,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-10",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -378064,7 +378064,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-11",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -378104,7 +378104,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-11",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -381124,7 +381124,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-12",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -381164,7 +381164,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-12",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -384184,7 +384184,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-13",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -384224,7 +384224,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-13",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -387244,7 +387244,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-14",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -387284,7 +387284,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-14",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -390304,7 +390304,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-15",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -390344,7 +390344,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-15",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -393364,7 +393364,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-16",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -393404,7 +393404,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-16",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -396424,7 +396424,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-17",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -396464,7 +396464,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-17",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -399484,7 +399484,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-18",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -399524,7 +399524,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-18",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -402544,7 +402544,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-19",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -402584,7 +402584,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-19",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -405604,7 +405604,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-20",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -405644,7 +405644,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-20",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -408664,7 +408664,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-21",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -408704,7 +408704,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-21",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -411724,7 +411724,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-22",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -411764,7 +411764,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-22",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -414784,7 +414784,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-23",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -414824,7 +414824,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-23",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -417844,7 +417844,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-24",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -417884,7 +417884,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-24",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -420904,7 +420904,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-25",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -420944,7 +420944,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-25",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -423964,7 +423964,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-26",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -424004,7 +424004,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-26",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -427024,7 +427024,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-27",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -427064,7 +427064,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-27",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -430084,7 +430084,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-28",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -430124,7 +430124,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-28",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -433144,7 +433144,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-29",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -433184,7 +433184,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-29",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -436204,7 +436204,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-30",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -436244,7 +436244,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-30",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -439264,7 +439264,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-31",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -439304,7 +439304,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-31",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -442324,7 +442324,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-32",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -442364,7 +442364,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-32",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -445384,7 +445384,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-33",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -445424,7 +445424,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-33",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -448444,7 +448444,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-34",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -448484,7 +448484,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-34",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -451504,7 +451504,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-35",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -451544,7 +451544,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-35",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -454564,7 +454564,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-36",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -454604,7 +454604,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-36",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -457624,7 +457624,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-37",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -457664,7 +457664,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-37",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -460684,7 +460684,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-38",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -460724,7 +460724,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-38",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -463744,7 +463744,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-39",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -463784,7 +463784,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-39",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -466804,7 +466804,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-40",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -466844,7 +466844,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-40",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -469864,7 +469864,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-41",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -469904,7 +469904,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-41",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -472924,7 +472924,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-42",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -472964,7 +472964,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-42",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -475984,7 +475984,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-43",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -476024,7 +476024,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-43",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -479044,7 +479044,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-44",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -479084,7 +479084,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-44",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -482104,7 +482104,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-45",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -482144,7 +482144,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-45",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -485164,7 +485164,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-46",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -485204,7 +485204,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-46",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -488224,7 +488224,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-47",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -488264,7 +488264,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-47",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -491284,7 +491284,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-48",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -491324,7 +491324,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-48",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -494344,7 +494344,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-49",
-    "visibleText": "Previous",
+    "visibleText": "Previous:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -494384,7 +494384,7 @@
     "viewport": "390",
     "component": "span",
     "state": "guide-card-49",
-    "visibleText": "Next",
+    "visibleText": "Next:",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

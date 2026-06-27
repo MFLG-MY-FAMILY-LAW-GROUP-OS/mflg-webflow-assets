@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-085108-forms-flow-clarity">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-090622-label-polish">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-085108-forms-flow-clarity">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-090622-label-polish">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -554,9 +554,9 @@
     const next = sectionFlow[(index + 1) % sectionFlow.length];
 
     return `<nav class="section-switcher" aria-label="Move between site sections">
-      <a class="section-switcher-link" href="${previous.path}" data-link><span>Previous</span><strong>${previous.label}</strong></a>
+      <a class="section-switcher-link" href="${previous.path}" data-link aria-label="Previous: ${esc(previous.label)}"><span>Previous:</span><strong>${previous.label}</strong></a>
       <div class="section-switcher-current"><span>Viewing</span><strong>${current.label}</strong></div>
-      <a class="section-switcher-link" href="${next.path}" data-link><span>Next</span><strong>${next.label}</strong></a>
+      <a class="section-switcher-link" href="${next.path}" data-link aria-label="Next: ${esc(next.label)}"><span>Next:</span><strong>${next.label}</strong></a>
     </nav>`;
   }
 
@@ -1566,7 +1566,7 @@
 	    </div>
 	    <div class="service-reveal">
 	      <button class="button primary service-reveal-button" type="button" data-service-reveal aria-expanded="false">View All Family Law Pathways</button>
-		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} issue paths. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some situations may need attorney review or another professional.</p>
+		      <p class="service-note" data-service-note>Showing the first ${initialServiceCount} issue paths. Search any topic, browse a situation, or reveal the remaining ${items.length - initialServiceCount}. Some issues may need a different professional or closer review before forms are used.</p>
 	    </div>
 	    ${urgencyRouter()}
 	    <div class="service-methods" aria-label="Choose a focused intake path">
@@ -1637,7 +1637,7 @@
     ];
     return `<div class="lead-magnet-entry" data-lead-magnet-flow aria-label="Choose a helpful starting task">
       <div class="lead-magnet-head">
-        <p class="eyebrow">Start here</p>
+        <p class="eyebrow">Pick a path</p>
         <h2>Start with one useful task, not a legal maze.</h2>
         <p>Pick forms, steps, calculator, or office review. If forms need more details, the site asks before showing a View form button.</p>
       </div>
@@ -3581,23 +3581,23 @@
           </div>
           <div class="forms-entry-lanes" aria-label="Forms and Tools starting points">
             <a href="#forms-official-router" data-smart-lane="forms" aria-label="Find court forms">
-              <span>Find forms</span>
+              <span>Forms</span>
               <strong>Open form finder</strong>
             </a>
             <a href="#forms-calculator-hub" data-smart-lane="calculator" aria-label="Use a calculator">
-              <span>Calculator</span>
-              <strong>Use a calculator</strong>
+              <span>Numbers</span>
+              <strong>Use calculator</strong>
             </a>
             <a href="/guides" data-link data-smart-lane="guide" aria-label="Read a DIY guide">
-              <span>DIY guide</span>
+              <span>Guide</span>
               <strong>Read a DIY guide</strong>
             </a>
             <a href="#deadline-readiness-planner" data-smart-lane="deadline" aria-label="Get deadline help">
-              <span>Help me choose</span>
+              <span>Deadline</span>
               <strong>Check deadline path</strong>
             </a>
             <a href="/start" data-link data-smart-lane="intake" aria-label="Start Guided Intake" data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>
-              <span>Guided Intake</span>
+              <span>Office review</span>
               <strong>Start Guided Intake</strong>
             </a>
           </div>
@@ -4442,7 +4442,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-085108-forms-flow-clarity" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-090622-label-polish" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5718,8 +5718,8 @@
 	      if (note) {
 	        const remaining = Math.max(cards.length - limit, 0);
 	        note.textContent = revealed && !filtered
-		          ? `Showing all ${cards.length} issue paths. Search any topic or choose a situation to narrow the list. Some situations may need attorney review or another professional.`
-		          : `Showing the first ${Math.min(limit, matchesTotal)} issue paths for this screen. Search any topic, browse a situation, or reveal the remaining ${remaining}. Some situations may need attorney review or another professional.`;
+		          ? `Showing all ${cards.length} issue paths. Search any topic or choose a situation to narrow the list. Some issues may need a different professional or closer review before forms are used.`
+		          : `Showing the first ${Math.min(limit, matchesTotal)} issue paths for this screen. Search any topic, browse a situation, or reveal the remaining ${remaining}. Some issues may need a different professional or closer review before forms are used.`;
 	      }
 	
 	      if (reveal) {

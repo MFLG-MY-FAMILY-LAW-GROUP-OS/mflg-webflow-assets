@@ -13,13 +13,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260627-085108-forms-flow-clarity`
-- Tag: `mflg-live-20260627-085108-forms-flow-clarity`
+- Live key: `mflg-live-20260627-090622-label-polish`
+- Tag: `mflg-live-20260627-090622-label-polish`
 - Release commit: `4105015c7fa54b4eece20f1907be7ecba2b6f41a`
-- Public JS SHA-256: `bf0ace8e7d6797820de4aeb5c2bd96b73f82680f48dfa4a17115630ea567f95a`
-- Public CSS SHA-256: `1700822f9a69e891bc0c261ef9d27463440ef86fa076a6b4d9fab366894240d1`
+- Public JS SHA-256: `22ad39b49343853c50cf10bbc8dc6b9a19745afe03554b630477880606b4c574`
+- Public CSS SHA-256: `c1f0f37aeaaf162b80ab110c2539faaf9a9b94e2eecadbde4a592e08461c8947`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
-- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260627-085108-forms-flow-clarity-git`
+- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260627-090622-label-polish-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 
@@ -37,7 +37,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260627-085108-forms-flow-clarity`.
+- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260627-090622-label-polish`.
 
 ## Never Use
 
