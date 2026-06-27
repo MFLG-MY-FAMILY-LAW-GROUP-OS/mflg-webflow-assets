@@ -15,7 +15,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Live key: `mflg-live-20260627-090622-label-polish`
 - Tag: `mflg-live-20260627-090622-label-polish`
-- Release commit: `4105015c7fa54b4eece20f1907be7ecba2b6f41a`
+- Release commit: `1830093d8c720f7cb0c785c5d6fa4f5e0acb6969`
 - Public JS SHA-256: `22ad39b49343853c50cf10bbc8dc6b9a19745afe03554b630477880606b4c574`
 - Public CSS SHA-256: `c1f0f37aeaaf162b80ab110c2539faaf9a9b94e2eecadbde4a592e08461c8947`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
@@ -25,13 +25,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Cloudflare
 
-- Current `mflg-public-website` deployment: `e37cecb2-d634-4b6a-83fc-8893eea8630f`
-- Current `mflg-webflow-assets` deployment: `90456a5f-67c9-488d-b24c-d0b1a448fac7`
-- Rollback `mflg-public-website` deployment: `c23cec6f-afb0-4bb7-a53c-8b466cda0d51`
-- Rollback `mflg-webflow-assets` deployment: `fd2ec716-21ca-4d1b-931d-9b7503977da5`
+- Current `mflg-public-website` deployment: `85ad000e-764c-4e7b-883f-70e8346e8b16`
+- Current `mflg-webflow-assets` deployment: `ee27ef33-1699-450b-b806-1943abdfa04f`
+- Rollback `mflg-public-website` deployment: `e37cecb2-d634-4b6a-83fc-8893eea8630f`
+- Rollback `mflg-webflow-assets` deployment: `90456a5f-67c9-488d-b24c-d0b1a448fac7`
 - Prior rollback `mflg-public-website` deployment: `76f0902c-4433-49db-8f69-056778b46bda`
 - Prior rollback `mflg-webflow-assets` deployment: `6266d8b0-6860-43fb-b355-aba1ebd3c01a`
-- Source-label status: corrected. Both Cloudflare production deployments show `main / 4105015`.
+- Source-label status: corrected. Both Cloudflare production deployments show `main / 1830093`.
 
 ## GitHub
 
