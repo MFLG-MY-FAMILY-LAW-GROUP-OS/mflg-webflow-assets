@@ -194,7 +194,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "initial",
-    "visibleText": "Choose what you need today.",
+    "visibleText": "Choose one useful task.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -214,7 +214,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Choose what you need today",
+    "visibleText": "Start here",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -1794,7 +1794,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "initial",
-    "visibleText": "Before services begin.",
+    "visibleText": "Before you start.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -1964,7 +1964,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -1974,7 +1974,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "initial",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -1984,7 +1984,7 @@
     "viewport": "390",
     "component": "p",
     "state": "initial",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -3154,7 +3154,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "initial",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -3164,7 +3164,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "initial",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -3174,7 +3174,7 @@
     "viewport": "390",
     "component": "p",
     "state": "initial",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6672,196 +6672,6 @@
   {
     "route": "/forms/",
     "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Recommended result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "One primary path will appear here.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Optional resources stay hidden until the helper has enough answers.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Why this result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "No form result is selected until you answer the current step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Unified result summary",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Answer the helper to see one clear result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Recommended result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Pending answers",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Based on",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "No answers selected yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Why this appears",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "No form result is selected until you answer the current step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Primary action",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Choose one answer above",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Other official resources",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Hidden until the main result is clear",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Recommended for this result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/forms/",
-    "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
     "visibleText": "Choose one answer in the current step. The next step appears automatically.",
@@ -6904,7 +6714,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Find forms",
+    "visibleText": "Open form finder",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -6964,7 +6774,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Help me choose",
+    "visibleText": "Check deadline path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7702,196 +7512,6 @@
   {
     "route": "/tools/",
     "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Recommended result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "One primary path will appear here.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Optional resources stay hidden until the helper has enough answers.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Why this result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "No form result is selected until you answer the current step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Unified result summary",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Answer the helper to see one clear result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Recommended result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Pending answers",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Based on",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "No answers selected yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Why this appears",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "No form result is selected until you answer the current step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Primary action",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Choose one answer above",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Other official resources",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Hidden until the main result is clear",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Recommended for this result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
     "visibleText": "Choose one answer in the current step. The next step appears automatically.",
@@ -7934,7 +7554,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Find forms",
+    "visibleText": "Open form finder",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7994,7 +7614,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Help me choose",
+    "visibleText": "Check deadline path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8732,196 +8352,6 @@
   {
     "route": "/calculators/",
     "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Recommended result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "One primary path will appear here.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "Optional resources stay hidden until the helper has enough answers.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Why this result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "p",
-    "state": "initial",
-    "visibleText": "No form result is selected until you answer the current step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "span",
-    "state": "initial",
-    "visibleText": "Unified result summary",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "initial",
-    "visibleText": "Answer the helper to see one clear result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Recommended result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Pending answers",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Based on",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "No answers selected yet",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Why this appears",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "No form result is selected until you answer the current step.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Primary action",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Choose one answer above",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Other official resources",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Hidden until the main result is clear",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "initial",
-    "visibleText": "Office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "initial",
-    "visibleText": "Use office review if the answer, county, deadline, or form title does not fit.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/calculators/",
-    "viewport": "390",
     "component": "div.forms-guided-path-line",
     "state": "initial",
     "visibleText": "Choose one answer in the current step. The next step appears automatically.",
@@ -8964,7 +8394,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Find forms",
+    "visibleText": "Open form finder",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -9024,7 +8454,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "initial",
-    "visibleText": "Help me choose",
+    "visibleText": "Check deadline path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -17864,7 +17294,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-0",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -17874,7 +17304,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-0",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -17884,7 +17314,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-0",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -24414,7 +23844,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-1",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -24424,7 +23854,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-1",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -24434,7 +23864,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-1",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -30964,7 +30394,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-2",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -30974,7 +30404,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-2",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -30984,7 +30414,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-2",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -37514,7 +36944,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-3",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -37524,7 +36954,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-3",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -37534,7 +36964,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-3",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -44064,7 +43494,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-4",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -44074,7 +43504,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-4",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -44084,7 +43514,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-4",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -50614,7 +50044,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-5",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -50624,7 +50054,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-5",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -50634,7 +50064,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-5",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -57164,7 +56594,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-6",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -57174,7 +56604,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-6",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -57184,7 +56614,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-6",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -63714,7 +63144,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-7",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -63724,7 +63154,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-7",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -63734,7 +63164,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-7",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -70264,7 +69694,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-8",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -70274,7 +69704,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-8",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -70284,7 +69714,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-8",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -76814,7 +76244,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-9",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -76824,7 +76254,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-9",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -76834,7 +76264,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-9",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -83364,7 +82794,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-10",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -83374,7 +82804,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-10",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -83384,7 +82814,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-10",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -89914,7 +89344,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-11",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -89924,7 +89354,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-11",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -89934,7 +89364,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-11",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -96464,7 +95894,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-12",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -96474,7 +95904,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-12",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -96484,7 +95914,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-12",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -103014,7 +102444,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-13",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -103024,7 +102454,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-13",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -103034,7 +102464,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-13",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -109564,7 +108994,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-14",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -109574,7 +109004,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-14",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -109584,7 +109014,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-14",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -116114,7 +115544,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-15",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -116124,7 +115554,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-15",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -116134,7 +115564,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-15",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -122664,7 +122094,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-16",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -122674,7 +122104,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-16",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -122684,7 +122114,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-16",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -129214,7 +128644,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-17",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -129224,7 +128654,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-17",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -129234,7 +128664,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-17",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -135764,7 +135194,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-18",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -135774,7 +135204,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-18",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -135784,7 +135214,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-18",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -142314,7 +141744,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-19",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -142324,7 +141754,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-19",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -142334,7 +141764,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-19",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -148864,7 +148294,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-20",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -148874,7 +148304,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-20",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -148884,7 +148314,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-20",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -155414,7 +154844,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-21",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -155424,7 +154854,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-21",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -155434,7 +154864,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-21",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -161964,7 +161394,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-22",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -161974,7 +161404,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-22",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -161984,7 +161414,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-22",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -168514,7 +167944,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-23",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -168524,7 +167954,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-23",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -168534,7 +167964,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-23",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -175064,7 +174494,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-24",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -175074,7 +174504,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-24",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -175084,7 +174514,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-24",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -181614,7 +181044,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-25",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -181624,7 +181054,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-25",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -181634,7 +181064,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-25",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -188164,7 +187594,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-26",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -188174,7 +187604,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-26",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -188184,7 +187614,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-26",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -194714,7 +194144,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-27",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -194724,7 +194154,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-27",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -194734,7 +194164,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-27",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -201264,7 +200694,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-28",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -201274,7 +200704,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-28",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -201284,7 +200714,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-28",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -207814,7 +207244,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-29",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -207824,7 +207254,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-29",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -207834,7 +207264,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-29",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -214364,7 +213794,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-30",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -214374,7 +213804,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-30",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -214384,7 +213814,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-30",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -220914,7 +220344,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-31",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -220924,7 +220354,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-31",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -220934,7 +220364,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-31",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -227464,7 +226894,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-32",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -227474,7 +226904,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-32",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -227484,7 +226914,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-32",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -234014,7 +233444,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-33",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -234024,7 +233454,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-33",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -234034,7 +233464,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-33",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -240564,7 +239994,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-34",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -240574,7 +240004,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-34",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -240584,7 +240014,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-34",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -247114,7 +246544,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-35",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -247124,7 +246554,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-35",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -247134,7 +246564,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-35",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -253664,7 +253094,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-36",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -253674,7 +253104,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-36",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -253684,7 +253114,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-36",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -260214,7 +259644,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-37",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -260224,7 +259654,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-37",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -260234,7 +259664,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-37",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -266764,7 +266194,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-38",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -266774,7 +266204,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-38",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -266784,7 +266214,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-38",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -273314,7 +272744,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-39",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -273324,7 +272754,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-39",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -273334,7 +272764,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-39",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -279864,7 +279294,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-40",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -279874,7 +279304,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-40",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -279884,7 +279314,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-40",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -286414,7 +285844,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-41",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -286424,7 +285854,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-41",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -286434,7 +285864,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-41",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -292964,7 +292394,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-42",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -292974,7 +292404,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-42",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -292984,7 +292414,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-42",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -299514,7 +298944,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-43",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -299524,7 +298954,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-43",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -299534,7 +298964,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-43",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -306064,7 +305494,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-44",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -306074,7 +305504,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-44",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -306084,7 +305514,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-44",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -312614,7 +312044,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-45",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -312624,7 +312054,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-45",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -312634,7 +312064,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-45",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -319164,7 +318594,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-46",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -319174,7 +318604,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-46",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -319184,7 +318614,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-46",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -325714,7 +325144,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-47",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -325724,7 +325154,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-47",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -325734,7 +325164,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-47",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -332264,7 +331694,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-48",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -332274,7 +331704,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-48",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -332284,7 +331714,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-48",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -338814,7 +338244,7 @@
     "viewport": "390",
     "component": "p.eyebrow",
     "state": "practice-card-49",
-    "visibleText": "Before services begin",
+    "visibleText": "Before you start",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -338824,7 +338254,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "practice-card-49",
-    "visibleText": "Intake is a review process, not an instant engagement.",
+    "visibleText": "The office checks fit before work begins.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -338834,7 +338264,7 @@
     "viewport": "390",
     "component": "p",
     "state": "practice-card-49",
-    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.",
+    "visibleText": "Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

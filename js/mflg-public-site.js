@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-055830-guide-filter-reset">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-085108-forms-flow-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-055830-guide-filter-reset">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-085108-forms-flow-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -982,11 +982,11 @@
 		        copy: "After review, the next step may be a consult, document package, limited-scope work, or a referral."
 		      }
 		    ];
-    return `<aside class="review-fit-band" aria-label="Before services begin">
+    return `<aside class="review-fit-band" aria-label="Before you start">
 		      <div class="review-fit-head">
-		        <p class="eyebrow">Before services begin</p>
-		        <h3>Intake is a review process, not an instant engagement.</h3>
-		        <p>Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what scope may fit, and what should happen next.</p>
+		        <p class="eyebrow">Before you start</p>
+		        <h3>The office checks fit before work begins.</h3>
+		        <p>Guided Intake collects enough context to decide whether MY FAMILY LAW GROUP can help, what service path may fit, and what should happen next.</p>
 		      </div>
 		      <div class="review-fit-grid">
 		        ${checks.map((item, index) => `<article>
@@ -1637,7 +1637,7 @@
     ];
     return `<div class="lead-magnet-entry" data-lead-magnet-flow aria-label="Choose a helpful starting task">
       <div class="lead-magnet-head">
-        <p class="eyebrow">Choose what you need today</p>
+        <p class="eyebrow">Start here</p>
         <h2>Start with one useful task, not a legal maze.</h2>
         <p>Pick forms, steps, calculator, or office review. If forms need more details, the site asks before showing a View form button.</p>
       </div>
@@ -1697,7 +1697,7 @@
 	        <a class="hero-task-pill hero-pill" href="/start" data-link data-intake-route='${esc(JSON.stringify(routeForServiceTitle("Not Sure Where to Start")))}'>Office review</a>
 	      </div>`
     ) + section(
-      "Choose what you need today.",
+      "Choose one useful task.",
       "Start with a useful task first, then ask for office review when closer help is the better fit.",
       leadMagnetTaskEntry(),
       true,
@@ -1718,7 +1718,7 @@
 	      "Issue finder",
 	      "service-section"
 	    ) + section(
-      "Before services begin.",
+      "Before you start.",
       "Submitting information does not create a client relationship. The first job is to see whether the office can help, how urgent it is, and what next step fits.",
 	      proofBand(
 	        "Process proof",
@@ -3526,11 +3526,11 @@
             </div>
             <div class="forms-guided-progress" aria-label="Guided Forms and Tools steps">
               <span data-guided-progress-label>A few questions to match your result</span>
-              <button type="button" data-guided-jump="0" aria-current="true"><b>1</b><span>Need</span></button>
-              <button type="button" data-guided-jump="1"><b>2</b><span>County</span></button>
-              <button type="button" data-guided-jump="2"><b>3</b><span>Stage</span></button>
-              <button type="button" data-guided-jump="3"><b>4</b><span>Issue</span></button>
-              <button type="button" data-guided-jump="4"><b>5</b><span>Children</span></button>
+              <button type="button" data-guided-jump="0" aria-current="true" aria-label="Step 1: Need"><b aria-hidden="true">1</b> <span>Need</span></button>
+              <button type="button" data-guided-jump="1" aria-label="Step 2: County"><b aria-hidden="true">2</b> <span>County</span></button>
+              <button type="button" data-guided-jump="2" aria-label="Step 3: Stage"><b aria-hidden="true">3</b> <span>Stage</span></button>
+              <button type="button" data-guided-jump="3" aria-label="Step 4: Issue"><b aria-hidden="true">4</b> <span>Issue</span></button>
+              <button type="button" data-guided-jump="4" aria-label="Step 5: Children"><b aria-hidden="true">5</b> <span>Children</span></button>
             </div>
             <div class="forms-guided-question" data-guided-question>What sounds closest?</div>
             <div class="forms-guided-options" data-guided-options></div>
@@ -3545,16 +3545,16 @@
                 <button type="button" data-guided-edit="issue">Change issue</button>
                 <button type="button" data-guided-edit="children">Change children</button>
               </div>
-              <div class="forms-guided-tier" data-guided-result-tier>
+              <div class="forms-guided-tier" data-guided-result-tier hidden>
                 <span>Recommended result</span>
                 <strong>Answer the helper to unlock one primary path.</strong>
                 <p>The page will keep optional resources out of the way until the main result is clear.</p>
               </div>
-              <div class="forms-guided-reason" data-guided-reason>
+              <div class="forms-guided-reason" data-guided-reason hidden>
                 <span>Why this result</span>
                 <p>No answer has been selected yet.</p>
               </div>
-              <div class="forms-unified-result-summary" data-unified-result-summary>
+              <div class="forms-unified-result-summary" data-unified-result-summary hidden>
                 <span>Unified result summary</span>
                 <strong>Answer the helper to see one clear result.</strong>
                 <dl>
@@ -3579,24 +3579,24 @@
             <span><b>2</b> Pick the closest match</span>
             <span><b>3</b> Open the next safe step</span>
           </div>
-          <div class="forms-entry-lanes" aria-label="Beginner Forms and Tools starting points">
-            <a href="#forms-official-router" data-smart-lane="forms">
+          <div class="forms-entry-lanes" aria-label="Forms and Tools starting points">
+            <a href="#forms-official-router" data-smart-lane="forms" aria-label="Find court forms">
               <span>Find forms</span>
-              <strong>Find forms</strong>
+              <strong>Open form finder</strong>
             </a>
-            <a href="#forms-calculator-hub" data-smart-lane="calculator">
+            <a href="#forms-calculator-hub" data-smart-lane="calculator" aria-label="Use a calculator">
               <span>Calculator</span>
               <strong>Use a calculator</strong>
             </a>
-            <a href="/guides" data-link data-smart-lane="guide">
+            <a href="/guides" data-link data-smart-lane="guide" aria-label="Read a DIY guide">
               <span>DIY guide</span>
               <strong>Read a DIY guide</strong>
             </a>
-            <a href="#deadline-readiness-planner" data-smart-lane="deadline">
+            <a href="#deadline-readiness-planner" data-smart-lane="deadline" aria-label="Get deadline help">
               <span>Help me choose</span>
-              <strong>Help me choose</strong>
+              <strong>Check deadline path</strong>
             </a>
-            <a href="/start" data-link data-smart-lane="intake" data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>
+            <a href="/start" data-link data-smart-lane="intake" aria-label="Start Guided Intake" data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>
               <span>Guided Intake</span>
               <strong>Start Guided Intake</strong>
             </a>
@@ -4442,7 +4442,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-055830-guide-filter-reset" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-085108-forms-flow-clarity" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7534,6 +7534,7 @@
       guidedResultAction?.classList.toggle("primary", true);
       if (guidedIntakeFallback) guidedIntakeFallback.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
       if (guidedResultTier) {
+        guidedResultTier.hidden = shouldContinueQuestions && !savedResumeActive;
         const tierLabel = shouldContinueQuestions ? "Recommended result" : recommendation.tier || recommendation.label || "Recommended result";
         const tierTitle = shouldContinueQuestions
           ? "One primary path will appear here."
@@ -7544,6 +7545,7 @@
         guidedResultTier.innerHTML = `<span>${esc(tierLabel)}</span><strong>${esc(tierTitle)}</strong><p>${esc(tierCopy)}</p>`;
       }
       if (guidedReason) {
+        guidedReason.hidden = shouldContinueQuestions && !savedResumeActive;
         const reasons = selectedAnswerReasons();
         const reasonText = shouldContinueQuestions
           ? (guideContextActive ? "Your selected guide is connected. Choose the next answer above before forms appear." : "No form result is selected until you answer the current step.")
@@ -7554,6 +7556,7 @@
         if (unifiedResultWhy) unifiedResultWhy.textContent = reasonText;
       }
       if (unifiedResultSummary) {
+        unifiedResultSummary.hidden = shouldContinueQuestions && !savedResumeActive;
         unifiedResultSummary.classList.toggle("is-ready", !shouldContinueQuestions);
       }
       if (unifiedResultTitle) {

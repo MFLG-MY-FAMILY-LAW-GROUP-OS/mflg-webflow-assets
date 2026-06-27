@@ -1,8 +1,8 @@
 {
-  "asset_key": "mflg-live-20260627-055830-guide-filter-reset",
-  "tag": "mflg-live-20260627-055830-guide-filter-reset",
-  "public_js_sha256": "2177fd0784ecf0faef2a3cbc06ef90be4746a5d8c8042d1c93a2f451157d0bcc",
-  "public_css_sha256": "dbf48dc9ad8a4819a248705deb6d271baefbb6d45f33b0618abf82b6e6722f5a",
+  "asset_key": "mflg-live-20260627-085108-forms-flow-clarity",
+  "tag": "mflg-live-20260627-085108-forms-flow-clarity",
+  "public_js_sha256": "bf0ace8e7d6797820de4aeb5c2bd96b73f82680f48dfa4a17115630ea567f95a",
+  "public_css_sha256": "1700822f9a69e891bc0c261ef9d27463440ef86fa076a6b4d9fab366894240d1",
   "cloudflare_deployments": {
     "mflg_public_website": "c23cec6f-afb0-4bb7-a53c-8b466cda0d51",
     "mflg_webflow_assets": "fd2ec716-21ca-4d1b-931d-9b7503977da5"

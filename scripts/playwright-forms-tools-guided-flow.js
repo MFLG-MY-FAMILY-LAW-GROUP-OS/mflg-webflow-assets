@@ -19,6 +19,18 @@ async function capture(page, viewport, state) {
 
 async function pageState(page) {
   return page.evaluate(() => ({
+    visibleResultTier: (() => {
+      const el = document.querySelector("[data-guided-result-tier]");
+      return el && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length) ? el.textContent.replace(/\s+/g, " ").trim() : "";
+    })(),
+    visibleResultReason: (() => {
+      const el = document.querySelector("[data-guided-reason]");
+      return el && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length) ? el.textContent.replace(/\s+/g, " ").trim() : "";
+    })(),
+    visibleUnifiedSummary: (() => {
+      const el = document.querySelector("[data-unified-result-summary]");
+      return el && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length) ? el.textContent.replace(/\s+/g, " ").trim() : "";
+    })(),
     routerHidden: document.querySelector("#forms-official-router")?.classList.contains("forms-flow-hidden"),
     packetsHidden: document.querySelector("#forms-packets")?.classList.contains("forms-flow-hidden"),
     calculatorHidden: document.querySelector("#forms-calculator-hub")?.classList.contains("forms-flow-hidden"),
@@ -38,9 +50,11 @@ async function pageState(page) {
     resultReason: document.querySelector("[data-guided-reason]")?.textContent?.replace(/\s+/g, " ").trim() || "",
     unifiedSummary: document.querySelector("[data-unified-result-summary]")?.textContent?.replace(/\s+/g, " ").trim() || "",
     stepRail: Array.from(document.querySelectorAll("[data-guided-jump]")).map((button) => button.textContent.replace(/\s+/g, " ").trim()),
+    stepNames: Array.from(document.querySelectorAll("[data-guided-jump]")).map((button) => button.getAttribute("aria-label") || ""),
     summaryChips: Array.from(document.querySelectorAll("[data-guided-summary] span")).map((chip) => chip.textContent.trim()),
     editButtons: Array.from(document.querySelectorAll("[data-guided-edit]")).filter((button) => button.offsetParent !== null).map((button) => button.textContent.trim()),
     lowerResultText: document.body.innerText.replace(/\s+/g, " ").trim(),
+    duplicateVisibleLabels: (document.body.innerText.replace(/\s+/g, " ").trim().match(/\b[1-5](Need|County|Stage|Issue|Children)\b|Find forms Find forms|Calculator Use a calculator|DIY guide Read a DIY guide|Help me choose Help me choose/g) || []),
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
     exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
     sameSiteOfficialPdfActions: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview]"))
@@ -85,9 +99,11 @@ async function pageState(page) {
       assert(initial.actionDisabled, `${viewport.name}: initial CTA should not skip unanswered questions`);
       assert(initial.summaryChips.length === 0, `${viewport.name}: initial summary should not show default answers: ${initial.summaryChips.join(", ")}`);
       assert(/Need|County|Stage|Issue|Children/i.test(initial.stepRail.join(" ")), `${viewport.name}: step rail labels should be visible: ${initial.stepRail.join(", ")}`);
-      assert(/One primary path/i.test(initial.resultTier), `${viewport.name}: initial result tier should explain primary path, got ${initial.resultTier}`);
-      assert(/No form result is selected/i.test(initial.resultReason), `${viewport.name}: initial reason should not imply a default result, got ${initial.resultReason}`);
-      assert(/Unified result summary/i.test(initial.unifiedSummary) && /Pending answers/i.test(initial.unifiedSummary), `${viewport.name}: unified result summary should start pending, got ${initial.unifiedSummary}`);
+      assert(initial.stepNames.every((name) => /^Step [1-5]: /.test(name)), `${viewport.name}: step buttons need clear accessible names: ${initial.stepNames.join(", ")}`);
+      assert(initial.duplicateVisibleLabels.length === 0, `${viewport.name}: duplicate or mashed labels visible: ${initial.duplicateVisibleLabels.join(", ")}`);
+      assert(initial.visibleResultTier === "", `${viewport.name}: pending recommended result should stay hidden, got ${initial.visibleResultTier}`);
+      assert(initial.visibleResultReason === "", `${viewport.name}: pending reason should stay hidden, got ${initial.visibleResultReason}`);
+      assert(initial.visibleUnifiedSummary === "", `${viewport.name}: pending unified summary should stay hidden, got ${initial.visibleUnifiedSummary}`);
       assert(!initial.overflow, `${viewport.name}: initial page has horizontal overflow`);
 
       await page.click('[data-guided-answer="forms"]');
@@ -105,11 +121,12 @@ async function pageState(page) {
       assert(forms.showAllText === "Browse other options", `${viewport.name}: browse control should use plain label, got ${forms.showAllText}`);
       assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
       assert(!forms.actionDisabled, `${viewport.name}: matched forms CTA should be enabled`);
-      assert(/Recommended form path/i.test(forms.resultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.resultTier}`);
-      assert(/because/i.test(forms.resultReason) && /Maricopa County/i.test(forms.resultReason), `${viewport.name}: forms result should explain why it appeared, got ${forms.resultReason}`);
+      assert(/Recommended form path/i.test(forms.visibleResultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.visibleResultTier}`);
+      assert(/because/i.test(forms.visibleResultReason) && /Maricopa County/i.test(forms.visibleResultReason), `${viewport.name}: forms result should explain why it appeared, got ${forms.visibleResultReason}`);
       assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
       assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
-      assert(/Unified result summary/i.test(forms.unifiedSummary) && /Recommended result/i.test(forms.unifiedSummary) && /Based on/i.test(forms.unifiedSummary) && /Primary action/i.test(forms.unifiedSummary) && /Maricopa County/i.test(forms.unifiedSummary), `${viewport.name}: unified result summary should carry the final result, got ${forms.unifiedSummary}`);
+      assert(/Unified result summary/i.test(forms.visibleUnifiedSummary) && /Recommended result/i.test(forms.visibleUnifiedSummary) && /Based on/i.test(forms.visibleUnifiedSummary) && /Primary action/i.test(forms.visibleUnifiedSummary) && /Maricopa County/i.test(forms.visibleUnifiedSummary), `${viewport.name}: unified result summary should carry the final result, got ${forms.visibleUnifiedSummary}`);
+      assert(forms.duplicateVisibleLabels.length === 0, `${viewport.name}: forms path duplicate or mashed labels visible: ${forms.duplicateVisibleLabels.join(", ")}`);
       assert(!/Suggested form starting point|Form starting point|starting points shown|Choose one starting point/i.test(forms.lowerResultText), `${viewport.name}: lower form results should use form-path language`);
       assert(/Recommended form path/i.test(forms.lowerResultText), `${viewport.name}: lower form results should expose recommended form path language`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);

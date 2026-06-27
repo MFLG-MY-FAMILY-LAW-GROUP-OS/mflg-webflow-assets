@@ -26,6 +26,9 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - Local DIY Guide filter reset check on `http://127.0.0.1:4193/guides/`: pass. `Documents & safety` shows 12 guides and a visible `Show every guide` reset; `Show every guide` clears the situation filter and shows all 50 guides.
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4193 node scripts/playwright-diy-guide-matrix.js`: pass, includes the filtered `Show every guide` reset regression, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4193 node scripts/playwright-public-text-layout-qa.js`: pass, 50,338 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4194 node scripts/playwright-forms-tools-guided-flow.js`: pass, pending result panels stay hidden until a result exists, no duplicate or mashed labels, clear step accessible names, same-site PDF viewer still works.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4194 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4194 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
 - Live custom-domain DIY Guide form check: pass, `Start form check` lands on `/tools#forms-task-workspace`, shows `Guide context added`, does not show `ANSWERS CONFIRMED`, carries no calculator or packet state, shows no optional packet chooser, shows no Maricopa default, keeps Step 2 hidden, no horizontal overflow.
 - Live custom-domain guided flow clarity: pending final clean redeploy verification for decision-flow clarity key.
 - `npm run test:matter-form-matrix`: pass
@@ -36,8 +39,8 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - `npm run test:all-county-user-outcomes`: pass
 - `npm run test:all-county-production-stability`: pass, 27 runs / 0 failures / 0 timeout mentions / 0 console or network mentions
 
-Final live public JS SHA-256: `2177fd0784ecf0faef2a3cbc06ef90be4746a5d8c8042d1c93a2f451157d0bcc`
+Final live public JS SHA-256: `bf0ace8e7d6797820de4aeb5c2bd96b73f82680f48dfa4a17115630ea567f95a`
 
-Final live public CSS SHA-256: `dbf48dc9ad8a4819a248705deb6d271baefbb6d45f33b0618abf82b6e6722f5a`
+Final live public CSS SHA-256: `1700822f9a69e891bc0c261ef9d27463440ef86fa076a6b4d9fab366894240d1`
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`

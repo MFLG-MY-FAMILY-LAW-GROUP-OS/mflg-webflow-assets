@@ -13,13 +13,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260627-055830-guide-filter-reset`
-- Tag: `mflg-live-20260627-055830-guide-filter-reset`
+- Live key: `mflg-live-20260627-085108-forms-flow-clarity`
+- Tag: `mflg-live-20260627-085108-forms-flow-clarity`
 - Release commit: `82568d69dfbbdbfda4f05fcb06259fec11539bed`
-- Public JS SHA-256: `2177fd0784ecf0faef2a3cbc06ef90be4746a5d8c8042d1c93a2f451157d0bcc`
-- Public CSS SHA-256: `dbf48dc9ad8a4819a248705deb6d271baefbb6d45f33b0618abf82b6e6722f5a`
+- Public JS SHA-256: `bf0ace8e7d6797820de4aeb5c2bd96b73f82680f48dfa4a17115630ea567f95a`
+- Public CSS SHA-256: `1700822f9a69e891bc0c261ef9d27463440ef86fa076a6b4d9fab366894240d1`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
-- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260627-055830-guide-filter-reset-git`
+- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260627-085108-forms-flow-clarity-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 
@@ -37,7 +37,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260627-055830-guide-filter-reset`.
+- GitHub Release object: created at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260627-085108-forms-flow-clarity`.
 
 ## Never Use
 
