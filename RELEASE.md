@@ -6,10 +6,10 @@
 - Asset key: `mflg-live-20260626-215840-guide-status-align`
 - Public JS SHA-256: `5c68c6b8fd97ea4def9c7de6efe2058f567e627a10fbc8bd1a35749fcf351364`
 - Public CSS SHA-256: `cf2283d595e21332a919151982c9405acdade3e3622f0c409367d8909cd90d0b`
-- Cloudflare `mflg-public-website`: `dc0e00c3-14a4-40e0-9340-8faf3127c1c9`
-- Cloudflare `mflg-webflow-assets`: `172af330-39ea-4d60-b094-abf3b9f054a2`
-- Rollback deployments: `58a0b270-a9b9-4ab4-a733-8b2620ded21c` and `2b85fa7e-d97c-4e19-acf6-033037516c43`
-- Cloudflare source label: pending clean redeploy for this release.
+- Cloudflare `mflg-public-website`: `f4bd93c1-fe23-4e09-af7a-403289c7e9c0`
+- Cloudflare `mflg-webflow-assets`: `4855eb1e-2b64-4ffe-9e2f-4079bebca7d1`
+- Rollback deployments: `dc0e00c3-14a4-40e0-9340-8faf3127c1c9` and `172af330-39ea-4d60-b094-abf3b9f054a2`
+- Cloudflare source label: `main / 13b0cb7`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
 - Scope: DIY Guides status-row alignment fix. The guide count row now uses the same centered container model as Browse by situation and the DIY guide grid, preventing desktop right-edge overflow without changing the card-count logic.
