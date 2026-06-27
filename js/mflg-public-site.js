@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-222921-guide-filter-clarity">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-055830-guide-filter-reset">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-222921-guide-filter-clarity">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-055830-guide-filter-reset">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2077,6 +2077,7 @@
       <div class="guide-issue-grid" data-guide-list>${renderGuides(guides)}</div>
       <div class="guide-reveal">
         <button class="button primary guide-reveal-button" type="button" data-guide-reveal>Show all ${guides.length} guides</button>
+        <button class="button outline guide-clear-button" type="button" data-guide-clear-all hidden>Show every guide</button>
         <p class="guide-note" data-guide-note>Showing the first ${Math.min(initialServiceCount, guides.length)} of ${guides.length}. Use Show all ${guides.length} guides to expand the full list.</p>
       </div>
     `);
@@ -4441,7 +4442,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-222921-guide-filter-clarity" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-055830-guide-filter-reset" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5221,6 +5222,7 @@
     const reset = document.querySelector("[data-guide-category-reset]");
     const list = document.querySelector("[data-guide-list]");
     const button = document.querySelector("[data-guide-reveal]");
+    const clearAll = document.querySelector("[data-guide-clear-all]");
     const reveal = document.querySelector(".guide-reveal");
     const count = document.querySelector("[data-guide-count]");
     const note = document.querySelector("[data-guide-note]");
@@ -5406,18 +5408,22 @@
           ? `Showing all ${cards.length} DIY guides. Search or choose a situation to narrow the list.`
           : categoryActive
           ? term
-            ? `Showing ${visible} matching ${visibleLabel} for ${activeCategory}. Clear search to see every guide in this situation.`
-            : `Showing ${visible} ${visibleLabel} for ${activeCategory}.`
+            ? `Showing ${visible} matching ${visibleLabel} for ${activeCategory}. Clear search to see every guide in this situation, or use Show every guide to reset the list.`
+            : `Showing ${visible} ${visibleLabel} for ${activeCategory}. Use Show every guide to reset the list.`
           : term
-          ? `Showing ${visible} matching ${visibleLabel}. Clear search or choose a situation to change the list.`
+          ? `Showing ${visible} matching ${visibleLabel}. Use Show every guide to reset the list, or choose a situation to narrow it.`
           : `Showing the first ${Math.min(limit, matchesTotal)} of ${cards.length}. Use Show all ${cards.length} guides to expand the full list.`;
       }
       if (reveal) {
         reveal.classList.toggle("revealed", revealed || !!term || categoryActive);
       }
       if (button) {
-        button.textContent = `Show all ${cards.length} guides`;
+        button.textContent = categoryActive ? "Show all in this situation" : `Show all ${cards.length} guides`;
         button.setAttribute("aria-expanded", String(revealed));
+        button.hidden = revealed && !term && !categoryActive;
+      }
+      if (clearAll) {
+        clearAll.hidden = !term && !categoryActive;
       }
       categoryButtons.forEach((categoryButton) => {
         const active = categoryButton.dataset.guideCategoryFilter === activeCategory;
@@ -5442,6 +5448,13 @@
     });
     button?.addEventListener("click", () => {
       revealed = true;
+      filter();
+    });
+    clearAll?.addEventListener("click", () => {
+      activeCategory = "All situations";
+      revealed = true;
+      search.value = "";
+      clearPanel();
       filter();
     });
     cards.forEach((card) => {

@@ -86,6 +86,32 @@ async function readGuide(page) {
   });
 }
 
+async function assertGuideFilterReset(page) {
+  await page.goto(`${baseUrl}/guides/`, { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: "Documents & safety" }).click();
+  await page.waitForTimeout(150);
+  const filtered = await page.evaluate(() => ({
+    count: document.querySelector("[data-guide-count]")?.textContent?.trim() || "",
+    visibleCards: Array.from(document.querySelectorAll("[data-guide-card]")).filter((card) => !card.hidden).length,
+    resetVisible: !!document.querySelector("[data-guide-clear-all]:not([hidden])")
+  }));
+  assert(filtered.count === "Showing 12 guides for Documents & safety", `Filtered guide count should be situation-specific, got ${filtered.count}`);
+  assert(filtered.visibleCards === 12, `Documents & safety should show 12 guides, got ${filtered.visibleCards}`);
+  assert(filtered.resetVisible, "Show every guide reset should be visible while a situation filter is active");
+  await page.getByRole("button", { name: "Show every guide" }).click();
+  await page.waitForTimeout(150);
+  const reset = await page.evaluate(() => ({
+    count: document.querySelector("[data-guide-count]")?.textContent?.trim() || "",
+    note: document.querySelector("[data-guide-note]")?.textContent?.trim() || "",
+    visibleCards: Array.from(document.querySelectorAll("[data-guide-card]")).filter((card) => !card.hidden).length,
+    resetVisible: !!document.querySelector("[data-guide-clear-all]:not([hidden])")
+  }));
+  assert(reset.count === "Showing 50 of 50 DIY guides", `Show every guide should reset to all guides, got ${reset.count}`);
+  assert(reset.visibleCards === expectedCardCount, `Show every guide should reveal ${expectedCardCount} cards, got ${reset.visibleCards}`);
+  assert(/Showing all 50 DIY guides/i.test(reset.note), `Reset note should confirm all guides, got ${reset.note}`);
+  assert(!reset.resetVisible, "Show every guide reset should hide after returning to the full list");
+}
+
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const failures = [];
@@ -94,6 +120,7 @@ async function readGuide(page) {
     await page.goto(`${baseUrl}/guides/`, { waitUntil: "networkidle" });
     const count = await page.locator("[data-guide-card]").count();
     assert(count === expectedCardCount, `Expected ${expectedCardCount} DIY guide cards, found ${count}`);
+    await assertGuideFilterReset(page);
     let opened = 0;
     let asserted = 0;
     let skipped = 0;

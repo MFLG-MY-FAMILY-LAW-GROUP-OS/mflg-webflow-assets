@@ -13,13 +13,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260626-222921-guide-filter-clarity`
-- Tag: `mflg-live-20260626-222921-guide-filter-clarity`
+- Live key: `mflg-live-20260627-055830-guide-filter-reset`
+- Tag: `mflg-live-20260627-055830-guide-filter-reset`
 - Release commit: `59867065952a7200076e31793f317a954ff92724`
-- Public JS SHA-256: `3e63f2eb605351c3802ecdd1c618db77553b6a54a6846d84697eca1f6cf510f4`
-- Public CSS SHA-256: `d966869cae798a94b5cefa2ec448de99bdb545e3ca882b41f45128a1f5d546a6`
+- Public JS SHA-256: `2177fd0784ecf0faef2a3cbc06ef90be4746a5d8c8042d1c93a2f451157d0bcc`
+- Public CSS SHA-256: `dbf48dc9ad8a4819a248705deb6d271baefbb6d45f33b0618abf82b6e6722f5a`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
-- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260626-222921-guide-filter-clarity-git`
+- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260627-055830-guide-filter-reset-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 
@@ -37,7 +37,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-222921-guide-filter-clarity` after tag push.
+- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260627-055830-guide-filter-reset` after tag push.
 
 ## Never Use
 

@@ -1,11 +1,11 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-222921-guide-filter-clarity
+## Public Website Release: mflg-live-20260627-055830-guide-filter-reset
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-222921-guide-filter-clarity`
-- Public JS SHA-256: `3e63f2eb605351c3802ecdd1c618db77553b6a54a6846d84697eca1f6cf510f4`
-- Public CSS SHA-256: `d966869cae798a94b5cefa2ec448de99bdb545e3ca882b41f45128a1f5d546a6`
+- Asset key: `mflg-live-20260627-055830-guide-filter-reset`
+- Public JS SHA-256: `2177fd0784ecf0faef2a3cbc06ef90be4746a5d8c8042d1c93a2f451157d0bcc`
+- Public CSS SHA-256: `dbf48dc9ad8a4819a248705deb6d271baefbb6d45f33b0618abf82b6e6722f5a`
 - Cloudflare `mflg-public-website`: `1810cece-cc21-4412-914a-2b2d9d1665eb`
 - Cloudflare `mflg-webflow-assets`: `9566485f-2c49-40fc-bd8d-aa13da38f70b`
 - Rollback deployments: `f4bd93c1-fe23-4e09-af7a-403289c7e9c0` and `4855eb1e-2b64-4ffe-9e2f-4079bebca7d1`
