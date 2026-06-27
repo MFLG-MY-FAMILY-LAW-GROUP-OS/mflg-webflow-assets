@@ -13,13 +13,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260626-173238-single-active-workflow`
-- Tag: `mflg-live-20260626-173238-single-active-workflow`
-- Release commit: `2b33ee750134862e3bf95ddefa875e51f349adc1`
-- Public JS SHA-256: `7bdc7d51c80404e339d5df2630b35c49e2ec4addac062821dca1568c7f66a8bc`
-- Public CSS SHA-256: `2f58db9caa31dce53ebff297f53179c1de0e1314e1ab65c572eb5ddcf868b843`
+- Live key: `mflg-live-20260626-215840-guide-status-align`
+- Tag: `mflg-live-20260626-215840-guide-status-align`
+- Release commit: tag commit for `mflg-live-20260626-215840-guide-status-align`; verify with `git rev-parse mflg-live-20260626-215840-guide-status-align`.
+- Public JS SHA-256: `5c68c6b8fd97ea4def9c7de6efe2058f567e627a10fbc8bd1a35749fcf351364`
+- Public CSS SHA-256: `cf2283d595e21332a919151982c9405acdade3e3622f0c409367d8909cd90d0b`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
-- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260626-173238-single-active-workflow-git`
+- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260626-215840-guide-status-align-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 
@@ -31,13 +31,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 - Rollback `mflg-webflow-assets` deployment: `2b85fa7e-d97c-4e19-acf6-033037516c43`
 - Prior rollback `mflg-public-website` deployment: `76f0902c-4433-49db-8f69-056778b46bda`
 - Prior rollback `mflg-webflow-assets` deployment: `6266d8b0-6860-43fb-b355-aba1ebd3c01a`
-- Source-label status: corrected. Both Cloudflare production deployments show `main / 2b33ee7`.
+- Source-label status: pending clean redeploy for the guide-status alignment release.
 
 ## GitHub
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-173238-single-active-workflow` after tag push.
+- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-215840-guide-status-align` after tag push.
 
 ## Never Use
 

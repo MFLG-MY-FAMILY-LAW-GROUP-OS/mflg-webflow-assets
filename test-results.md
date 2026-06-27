@@ -21,6 +21,7 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4186 node scripts/playwright-forms-tools-guided-flow.js`: pass, quick-start cards hide after active workflow, advanced controls stay hidden unless browsing other options, deadline path keeps the form finder hidden, no stale Step 1 form-finder copy on deadline path
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4186 node scripts/playwright-public-answer-persistence.js`: pass
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4186 node scripts/playwright-public-text-layout-qa.js`: pass, 50,338 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920
+- Local DIY Guide status-row check on `http://127.0.0.1:4192/guides/`: pass at widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920. The `Showing ... of 50 DIY guides` row remains below `Browse by situation`, stays inside the guide/grid boundary, does not overlap guide cards, and creates no horizontal overflow.
 - Live custom-domain DIY Guide form check: pass, `Start form check` lands on `/tools#forms-task-workspace`, shows `Guide context added`, does not show `ANSWERS CONFIRMED`, carries no calculator or packet state, shows no optional packet chooser, shows no Maricopa default, keeps Step 2 hidden, no horizontal overflow.
 - Live custom-domain guided flow clarity: pending final clean redeploy verification for decision-flow clarity key.
 - `npm run test:matter-form-matrix`: pass
@@ -31,8 +32,8 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - `npm run test:all-county-user-outcomes`: pass
 - `npm run test:all-county-production-stability`: pass, 27 runs / 0 failures / 0 timeout mentions / 0 console or network mentions
 
-Final live public JS SHA-256: `7bdc7d51c80404e339d5df2630b35c49e2ec4addac062821dca1568c7f66a8bc`
+Final live public JS SHA-256: `5c68c6b8fd97ea4def9c7de6efe2058f567e627a10fbc8bd1a35749fcf351364`
 
-Final live public CSS SHA-256: `2f58db9caa31dce53ebff297f53179c1de0e1314e1ab65c572eb5ddcf868b843`
+Final live public CSS SHA-256: `cf2283d595e21332a919151982c9405acdade3e3622f0c409367d8909cd90d0b`
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
