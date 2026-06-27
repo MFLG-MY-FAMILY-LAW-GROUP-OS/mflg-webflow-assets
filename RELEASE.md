@@ -6,10 +6,10 @@
 - Asset key: `mflg-live-20260627-085108-forms-flow-clarity`
 - Public JS SHA-256: `bf0ace8e7d6797820de4aeb5c2bd96b73f82680f48dfa4a17115630ea567f95a`
 - Public CSS SHA-256: `1700822f9a69e891bc0c261ef9d27463440ef86fa076a6b4d9fab366894240d1`
-- Cloudflare `mflg-public-website`: `c23cec6f-afb0-4bb7-a53c-8b466cda0d51`
-- Cloudflare `mflg-webflow-assets`: `fd2ec716-21ca-4d1b-931d-9b7503977da5`
-- Rollback deployments: `1810cece-cc21-4412-914a-2b2d9d1665eb` and `9566485f-2c49-40fc-bd8d-aa13da38f70b`
-- Cloudflare source label: `main / 82568d6`
+- Cloudflare `mflg-public-website`: `e37cecb2-d634-4b6a-83fc-8893eea8630f`
+- Cloudflare `mflg-webflow-assets`: `90456a5f-67c9-488d-b24c-d0b1a448fac7`
+- Rollback deployments: `c23cec6f-afb0-4bb7-a53c-8b466cda0d51` and `fd2ec716-21ca-4d1b-931d-9b7503977da5`
+- Cloudflare source label: `main / 4105015`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
 - Scope: Forms & Calculators flow clarity cleanup. Pending result explanation panels stay hidden until answers produce a result, starting-point labels no longer duplicate, step controls have clear names, homepage duplicate heading text is reduced, and Practice Area review copy is more user-facing.
