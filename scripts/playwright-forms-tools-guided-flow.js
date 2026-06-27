@@ -64,6 +64,16 @@ async function pageState(page) {
       .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
       .map((link) => link.getAttribute("href") || "")
       .filter((href) => href.startsWith("/api/official-pdf/")),
+    packetBrowserPresent: Boolean(document.querySelector("[data-forms-packet-browser]")),
+    packetBrowserOpen: document.querySelector("[data-forms-packet-browser]")?.open || false,
+    packetSelectVisible: (() => {
+      const select = document.querySelector("[data-forms-packet-select]");
+      return Boolean(select && select.offsetParent !== null && getComputedStyle(select).visibility !== "hidden");
+    })(),
+    packetCurrentVisible: (() => {
+      const current = document.querySelector("[data-forms-packet-current]");
+      return Boolean(current && !current.hidden && (current.offsetWidth || current.offsetHeight || current.getClientRects().length));
+    })(),
     publicExternalHrefs: Array.from(document.querySelectorAll("a[href]"))
       .map((link) => link.getAttribute("href") || "")
       .filter((href) => /^https?:\/\//i.test(href)),
@@ -119,13 +129,17 @@ async function pageState(page) {
       assert(!forms.smartControlsVisible, `${viewport.name}: advanced controls should stay hidden unless browsing other options`);
       assert(forms.smartModeVisible, `${viewport.name}: browse/reset controls should show after forms path is active`);
       assert(forms.showAllText === "Browse other options", `${viewport.name}: browse control should use plain label, got ${forms.showAllText}`);
-      assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
+      assert(/View matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should view matched forms`);
       assert(!forms.actionDisabled, `${viewport.name}: matched forms CTA should be enabled`);
       assert(/Recommended form path/i.test(forms.visibleResultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.visibleResultTier}`);
       assert(/because/i.test(forms.visibleResultReason) && /Maricopa County/i.test(forms.visibleResultReason), `${viewport.name}: forms result should explain why it appeared, got ${forms.visibleResultReason}`);
       assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
       assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
-      assert(/Unified result summary/i.test(forms.visibleUnifiedSummary) && /Recommended result/i.test(forms.visibleUnifiedSummary) && /Based on/i.test(forms.visibleUnifiedSummary) && /Primary action/i.test(forms.visibleUnifiedSummary) && /Maricopa County/i.test(forms.visibleUnifiedSummary), `${viewport.name}: unified result summary should carry the final result, got ${forms.visibleUnifiedSummary}`);
+      assert(/Your form result/i.test(forms.visibleUnifiedSummary) && /Recommended forms/i.test(forms.visibleUnifiedSummary) && /Based on/i.test(forms.visibleUnifiedSummary) && /Main action/i.test(forms.visibleUnifiedSummary) && /Maricopa County/i.test(forms.visibleUnifiedSummary), `${viewport.name}: unified result summary should carry the final result, got ${forms.visibleUnifiedSummary}`);
+      assert(forms.packetBrowserPresent, `${viewport.name}: alternate form-group browser should render`);
+      assert(!forms.packetBrowserOpen, `${viewport.name}: alternate form-group browser should be closed by default`);
+      assert(!forms.packetSelectVisible, `${viewport.name}: form-group dropdown should not appear above the matched forms by default`);
+      assert(!forms.packetCurrentVisible, `${viewport.name}: matched packet should not auto-open a form before the user clicks View form`);
       assert(forms.duplicateVisibleLabels.length === 0, `${viewport.name}: forms path duplicate or mashed labels visible: ${forms.duplicateVisibleLabels.join(", ")}`);
       assert(!/Suggested form starting point|Form starting point|starting points shown|Choose one starting point/i.test(forms.lowerResultText), `${viewport.name}: lower form results should use form-path language`);
       assert(/Recommended form path/i.test(forms.lowerResultText), `${viewport.name}: lower form results should expose recommended form path language`);
@@ -183,7 +197,7 @@ async function pageState(page) {
       const resumedForms = await pageState(page);
       assert(!resumedForms.routerHidden, `${viewport.name}: using saved answers should reveal form router`);
       assert(!resumedForms.packetsHidden, `${viewport.name}: using saved answers should reveal packets`);
-      assert(/Open matched forms/i.test(resumedForms.action || ""), `${viewport.name}: saved-answer CTA should become matched forms CTA`);
+      assert(/View matched forms/i.test(resumedForms.action || ""), `${viewport.name}: saved-answer CTA should become matched forms CTA`);
       assert(/Answers confirmed/i.test(resumedForms.progressLabel || ""), `${viewport.name}: confirmed saved answers should not return to Question 1, got ${resumedForms.progressLabel}`);
       await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
 

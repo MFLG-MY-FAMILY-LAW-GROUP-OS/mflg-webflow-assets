@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-094728-form-flow-simplify">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-163258-result-pruning">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-094728-form-flow-simplify">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-163258-result-pruning">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2057,7 +2057,7 @@
         </div>
       </div>
       <div class="guide-path-strip" aria-label="DIY guide process">
-        ${["Choose a guide", "Answer what you need", "Open matched forms", "Use calculator if needed", "Start Intake if unsure"].map((step, index) => `<span><b>0${index + 1}</b>${esc(step)}</span>`).join("")}
+        ${["Choose a guide", "Answer what you need", "View matched forms", "Use calculator if needed", "Start Intake if unsure"].map((step, index) => `<span><b>0${index + 1}</b>${esc(step)}</span>`).join("")}
       </div>
       <div class="guide-tools" id="guide-resource-start">
         <input type="search" placeholder="Search guides" aria-label="Search guides" data-guide-search>
@@ -3317,7 +3317,7 @@
         kicker: "Recommended next click",
         title: `This looks like the ${packetLabel} path.`,
         copy: "Open the viewer first. If the forms do not look like your situation, choose a different packet instead of guessing.",
-        primaryLabel: "Open matched forms",
+        primaryLabel: "View matched forms",
         primaryHref: "#forms-approved-pdfs",
         pdfPacket: route.pdfPacket,
         meta: ["Form match found", ...baseMeta.slice(1)],
@@ -3344,7 +3344,7 @@
         kicker: "Court source found",
         title: "Open the reviewed on-site forms.",
         copy: "This is the clearest form path for this selection. Open the verified packet viewer first, then use the checklist if you need the packet sequence.",
-        primaryLabel: "Open matched forms",
+        primaryLabel: "View matched forms",
         primaryHref: "#forms-approved-pdfs",
         meta: ["Reviewed forms first", ...baseMeta.slice(1)],
         route: baseRoute
@@ -3423,7 +3423,7 @@
     const rawCourtHref = decision.primaryHref || "#forms-official-router";
     const courtHref = /^https?:\/\//.test(rawCourtHref) ? "#forms-approved-pdfs" : rawCourtHref;
     const intakeRoute = decision.route || guideFallbackRoute();
-    const packetActionLabel = packetLabel ? `Open packet checklist: ${packetLabel}` : "Open packet checklist";
+    const packetActionLabel = "Browse other form groups";
     host.dataset.routeTone = decision.tone || "neutral";
 	      host.innerHTML = `
       <div class="forms-unified-main">
@@ -3432,7 +3432,7 @@
         <p>${esc(decision.copy || "Use the on-page form viewer first, then choose another packet if the title is unclear.")}</p>
       </div>
       <div class="forms-unified-actions">
-        <a class="button primary" href="${esc(courtHref)}">${esc(decision.primaryLabel || "View on-site forms")}</a>
+        <a class="button primary" href="${esc(courtHref)}">${esc(decision.primaryLabel || "View matched forms")}</a>
         <a class="button outline" href="${esc(packetHref)}">${esc(packetActionLabel)}</a>
         <a class="button ghost" href="/start" data-link data-forms-unified-intake>Start Guided Intake instead</a>
       </div>
@@ -3546,7 +3546,7 @@
                 <button type="button" data-guided-edit="children">Change children</button>
               </div>
               <div class="forms-guided-tier" data-guided-result-tier hidden>
-                <span>Recommended result</span>
+                <span>Recommended forms</span>
                 <strong>Answer the helper to unlock one primary path.</strong>
                 <p>The page will keep optional resources out of the way until the main result is clear.</p>
               </div>
@@ -3555,14 +3555,14 @@
                 <p>No answer has been selected yet.</p>
               </div>
               <div class="forms-unified-result-summary" data-unified-result-summary hidden>
-                <span>Unified result summary</span>
+                <span>Your form result</span>
                 <strong>Answer the helper to see one clear result.</strong>
                 <dl>
-                  <div><dt>Recommended result</dt><dd data-unified-result-title>Pending answers</dd></div>
+                  <div><dt>Recommended forms</dt><dd data-unified-result-title>Pending answers</dd></div>
                   <div><dt>Based on</dt><dd data-unified-result-based-on>No answers selected yet</dd></div>
                   <div><dt>Why this appears</dt><dd data-unified-result-why>No form result is selected until you answer the current step.</dd></div>
-                  <div><dt>Primary action</dt><dd data-unified-result-primary>Choose one answer above</dd></div>
-                  <div><dt>Other official resources</dt><dd data-unified-result-secondary>Hidden until the main result is clear</dd></div>
+                  <div><dt>Main action</dt><dd data-unified-result-primary>Choose one answer above</dd></div>
+                  <div><dt>Related forms</dt><dd data-unified-result-secondary>Hidden until your form result is clear</dd></div>
                   <div><dt>Office review</dt><dd data-unified-result-review>Available if the result does not fit</dd></div>
                 </dl>
               </div>
@@ -3738,7 +3738,7 @@
               </div>
             </div>
             <div class="forms-route-decision-actions">
-              <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>Open matched forms</a>
+              <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>View matched forms</a>
               <a class="button outline" href="/start" data-link data-form-route-decision-intake>Start Guided Intake</a>
             </div>
           </div>
@@ -4437,7 +4437,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-094728-form-flow-simplify" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-163258-result-pruning" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -6285,21 +6285,6 @@
               <p>Open each form here first so you can keep your place. Use the viewer to stay on the packet and keep your place.</p>
             </div>
           </div>
-          <div class="forms-packet-builder-controls">
-            <label>Form group
-              <select data-forms-packet-select>
-                <option value="all" selected>Choose after the helper matches forms</option>
-                ${groups.map((group) => `<option value="${esc(group.packet_id || "all")}">${esc(group.label || "Court form group")}</option>`).join("")}
-              </select>
-            </label>
-            <label>Language
-              <select data-forms-packet-language>
-                <option value="English"${defaultLanguage === "English" ? " selected" : ""}>English</option>
-                <option value="Spanish">Spanish</option>
-                <option value="all">All languages</option>
-              </select>
-            </label>
-          </div>
           <div class="forms-packet-change-note" data-forms-packet-change-note hidden>
             <strong>Form list updated.</strong>
             <span>Visible forms changed. Checks from other form groups stay saved in this browser tab.</span>
@@ -6321,11 +6306,6 @@
               <p data-forms-packet-fit-next-copy>Start with instructions, then use the checklist so you can track what you reviewed in this browser tab.</p>
             </article>
           </div>
-          <div class="forms-packet-builder-path" aria-label="Packet builder sequence">
-            <article><span>01</span><strong>Read the starting instructions</strong><p>Begin with the court process sheet before opening forms.</p></article>
-            <article><span>02</span><strong>Open only matching forms</strong><p>The page hides child-only forms when the form group says no minor children.</p></article>
-            <article><span>03</span><strong>Switch packets if needed</strong><p>If the form group title or forms do not fit, pick a different packet before continuing.</p></article>
-          </div>
           <div class="forms-packet-checklist-bar" data-forms-packet-checklist-bar>
             <p class="forms-packet-builder-status" data-forms-packet-status>Forms are ready.</p>
             <div class="forms-packet-primary-actions">
@@ -6346,6 +6326,33 @@
             </div>
             <small>Checks are saved only in this browser tab and are not sent to the office.</small>
           </div>
+          <details class="forms-packet-browser" data-forms-packet-browser>
+            <summary>
+              <span>Other form groups</span>
+              <strong>Browse other form groups</strong>
+              <p>Use this only if the recommended forms do not fit your county, stage, children, or agreement status.</p>
+            </summary>
+            <div class="forms-packet-builder-controls">
+              <label>Form group
+                <select data-forms-packet-select>
+                  <option value="all" selected>Choose after the helper matches forms</option>
+                  ${groups.map((group) => `<option value="${esc(group.packet_id || "all")}">${esc(group.label || "Court form group")}</option>`).join("")}
+                </select>
+              </label>
+              <label>Language
+                <select data-forms-packet-language>
+                  <option value="English"${defaultLanguage === "English" ? " selected" : ""}>English</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="all">All languages</option>
+                </select>
+              </label>
+            </div>
+            <div class="forms-packet-builder-path" aria-label="Form group browsing sequence">
+              <article><span>01</span><strong>Check the recommended forms first</strong><p>Use the visible form list before switching to another form group.</p></article>
+              <article><span>02</span><strong>Switch only when the title does not fit</strong><p>County, filing stage, children, and agreement status can change the needed forms.</p></article>
+              <article><span>03</span><strong>Ask for office review if unsure</strong><p>Do not guess between form groups when more than one sounds close.</p></article>
+            </div>
+          </details>
           <div class="forms-packet-clear-note" data-forms-packet-clear-note hidden>
             <strong>Visible checks cleared.</strong>
             <span>This only resets the visible form checklist in this browser tab.</span>
@@ -6811,9 +6818,6 @@
             languageSelect.value = "English";
           }
           updatePacketBuilder();
-          if (detail?.focusPacketBuilder === true || detail?.expandPdfGroup === true) {
-            openFirstVisiblePacketCard(packetId);
-          }
           if (shouldScroll) {
             revealAndFocus(host.querySelector("[data-forms-packet-builder]"), { hash: "#forms-packet-builder", history: true });
           }
@@ -7125,7 +7129,7 @@
         title: "Continue to the recommended forms.",
         copy: "The helper has enough answers to show one primary form path. Open the forms only if the title and source match what you selected.",
         href: "#forms-approved-pdfs",
-        text: "Open matched forms"
+        text: "View matched forms"
       },
       calculator: {
         label: "What happens next",
@@ -7539,13 +7543,13 @@
       if (guidedIntakeFallback) guidedIntakeFallback.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
       if (guidedResultTier) {
         guidedResultTier.hidden = shouldContinueQuestions && !savedResumeActive;
-        const tierLabel = shouldContinueQuestions ? "Recommended result" : recommendation.tier || recommendation.label || "Recommended result";
+        const tierLabel = shouldContinueQuestions ? "Recommended forms" : recommendation.tier || recommendation.label || "Recommended forms";
         const tierTitle = shouldContinueQuestions
           ? "One primary path will appear here."
           : recommendation.title || "Recommended next step";
         const tierCopy = shouldContinueQuestions
           ? "Optional resources stay hidden until the helper has enough answers."
-          : "Other official resources appear only after this primary path is available.";
+          : "Related forms stay below the main form result.";
         guidedResultTier.innerHTML = `<span>${esc(tierLabel)}</span><strong>${esc(tierTitle)}</strong><p>${esc(tierCopy)}</p>`;
       }
       if (guidedReason) {
@@ -9834,7 +9838,7 @@
         });
         const selectedRoute = routePacketById.get(packetValue);
         if (spotlightKicker) {
-          spotlightKicker.textContent = selectedRoute ? "Recommended form path" : "Other official resources";
+          spotlightKicker.textContent = selectedRoute ? "Recommended form path" : "Related forms";
         }
         if (spotlightTitle) {
           spotlightTitle.textContent = selectedRoute

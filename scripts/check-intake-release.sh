@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260627-094728-form-flow-simplify}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260627-163258-result-pruning}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -368,8 +368,9 @@ grep -q "wireOfficialPdfActions" "$PUBLIC_JS_FILE" || fail "Official PDF action 
 grep -q "data-official-pdf-actions" "$PUBLIC_JS_FILE" || fail "Official PDF action host missing from public JS"
 grep -q "data-official-pdf-spotlight" "$PUBLIC_JS_FILE" || fail "Official PDF recommended packet spotlight missing from public JS"
 grep -q "data-official-pdf-spotlight-kicker" "$PUBLIC_JS_FILE" || fail "Official PDF dynamic spotlight label missing from public JS"
-grep -q "Other official resources" "$PUBLIC_JS_FILE" || fail "Form-group alternate resource spotlight state missing from public JS"
+grep -q "Related forms" "$PUBLIC_JS_FILE" || fail "Form-group related resource spotlight state missing from public JS"
 grep -q "Browse other form groups" "$PUBLIC_JS_FILE" || fail "Form-group secondary browse control missing from public JS"
+grep -q "data-forms-packet-browser" "$PUBLIC_JS_FILE" || fail "Collapsed packet browser missing from public JS"
 if grep -q "packetReadinessCatalog\|sourceMonitorSnapshot\|maricopaCandidateSnapshot\|maricopaCandidateGroups\|reviewQueueSnapshot\|officialPacketPageActions\|pdfCandidateSnapshot\|pdfReviewQueueSnapshot\|pdfPromotionSnapshot\|pdfReviewWorkbenchSnapshot\|pdfDecisionTemplateSnapshot\|pdfPromotionAuditSnapshot\|pdfReviewGroups" "$PUBLIC_JS_FILE"; then
   fail "Internal form/PDF review snapshot constants must not ship in public JS"
 fi

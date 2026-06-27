@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260627-094728-form-flow-simplify}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260627-163258-result-pruning}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -318,7 +318,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"data-official-pdf-actions"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-spotlight"* ]] &&
 	     [[ "$public_site_js" == *"data-official-pdf-spotlight-kicker"* ]] &&
-	     [[ "$public_site_js" == *"Browsing other form groups"* ]] &&
+	     [[ "$public_site_js" == *"data-forms-packet-browser"* ]] &&
 	     [[ "$public_site_js" == *"Browse other form groups"* ]] &&
 	     [[ "$public_site_js" == *"forms-safe-next"* ]] &&
 	     [[ "$public_site_js" == *"forms-advanced-details"* ]] &&

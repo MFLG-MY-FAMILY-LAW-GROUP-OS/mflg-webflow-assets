@@ -222,7 +222,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-094728-form-flow-simplify") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-163258-result-pruning") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -4810,6 +4810,70 @@ body:not(.forms-showing-all-sections) .forms-download-readiness {
   font-weight: 850;
   letter-spacing: 0;
   text-transform: none;
+}
+.forms-packet-browser {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(33, 85, 141, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+}
+.forms-packet-browser > summary {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  min-height: 52px;
+  padding: 12px 46px 12px 14px;
+  cursor: pointer;
+  list-style: none;
+}
+.forms-packet-browser > summary::-webkit-details-marker {
+  display: none;
+}
+.forms-packet-browser > summary::after {
+  content: "+";
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid rgba(33, 85, 141, 0.18);
+  border-radius: 999px;
+  color: var(--blue);
+  font-weight: 950;
+}
+.forms-packet-browser[open] > summary::after {
+  content: "-";
+}
+.forms-packet-browser > summary span {
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(33, 85, 141, 0.1);
+  color: var(--blue);
+  font-size: 0.64rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.forms-packet-browser > summary strong {
+  color: var(--ink);
+  font-size: 0.96rem;
+  line-height: 1.2;
+}
+.forms-packet-browser > summary p {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.42;
+}
+.forms-packet-browser .forms-packet-builder-controls,
+.forms-packet-browser .forms-packet-builder-path {
+  margin: 0 12px 12px;
 }
 .forms-packet-change-note {
   display: flex;

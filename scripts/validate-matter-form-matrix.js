@@ -68,7 +68,7 @@ if (requireRecord("annulment").confidence !== "county-exact") fail("annulment mu
   "Open reviewed court forms here.",
   "Check first",
   "Forms & Calculators",
-  "Open matched forms",
+  "View matched forms",
   "data-guide-forms-route",
   "data-guide-packet-label"
 ].forEach((marker) => {
@@ -105,7 +105,7 @@ if (jurisdiction.summary?.unique_arizona_counties !== 15) {
 }
 
 [
-  "Open matched forms",
+  "View matched forms",
   "Forms & Calculators",
   "form questions still need your answers",
   "Answer questions to find forms",
