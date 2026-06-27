@@ -34,7 +34,7 @@ function assert(condition, message) {
       viewerFrameVisible: Boolean(document.querySelector("[data-guide-pdf-frame]"))
     }));
     assert(initialState.title.length > 0, "Guide bridge title did not render");
-    assert(/Start form check|Continue to form viewer/i.test(initialState.cta), `Guide bridge CTA missing: ${initialState.cta}`);
+    assert(/Answer questions to find forms|Continue to form viewer/i.test(initialState.cta), `Guide bridge CTA missing: ${initialState.cta}`);
     assert(initialState.route.length > 0, "Guide bridge did not carry a forms route");
     const initialRoute = JSON.parse(initialState.route);
     assert(initialState.calculatorChoice === "", "Guide form-check CTA should not carry calculator state");
@@ -42,6 +42,47 @@ function assert(condition, message) {
     assert(!initialState.packetChooserVisible, "Guide reveal should not show a packet chooser before form questions");
     assert(initialState.countyGateVisible === false, "Old county gate should not render in the guide bridge");
     assert(initialState.viewerFrameVisible === false, "Guide bridge should not render an embedded PDF frame");
+
+    await page.locator("[data-guide-pdf-panel] a.button.primary").first().click();
+    await page.waitForFunction(() => window.location.pathname.replace(/\/$/, "") === "/tools");
+    await page.locator("[data-forms-smart-path]").waitFor({ state: "visible", timeout: 10000 });
+    const toolsHandoffState = await page.evaluate(() => ({
+      progressLabel: document.querySelector("[data-guided-progress-label]")?.textContent?.trim() || "",
+      question: document.querySelector("[data-guided-question]")?.textContent?.trim() || "",
+      copy: document.querySelector("[data-guided-copy]")?.textContent?.replace(/\s+/g, " ").trim() || "",
+      action: document.querySelector("[data-guided-result-action]")?.textContent?.trim() || "",
+      actionDisabled: document.querySelector("[data-guided-result-action]")?.disabled || false,
+      smartCounty: document.querySelector("[data-smart-county]")?.value || "",
+      smartPosture: document.querySelector("[data-smart-posture]")?.value || "",
+      smartChildren: document.querySelector("[data-smart-children]")?.value || "",
+      formCounty: document.querySelector("[data-form-county]")?.value || "",
+      formPosture: document.querySelector("[data-form-posture]")?.value || "",
+      formChildren: document.querySelector("[data-form-children]")?.value || "",
+      packetSelect: document.querySelector("[data-forms-packet-select]")?.value || "",
+      summaryChips: Array.from(document.querySelectorAll("[data-guided-summary] span")).map((chip) => chip.textContent.trim()),
+      routerHidden: document.querySelector("#forms-official-router")?.classList.contains("forms-flow-hidden"),
+      packetsHidden: document.querySelector("#forms-packets")?.classList.contains("forms-flow-hidden"),
+      resumeActive: document.querySelector("[data-forms-smart-path]")?.classList.contains("forms-guided-resume") || false,
+      guidedComplete: document.querySelector("[data-forms-smart-path]")?.classList.contains("forms-guided-complete") || false,
+      text: document.body.innerText.replace(/\s+/g, " ").trim()
+    }));
+    assert(/Guide context added/i.test(toolsHandoffState.progressLabel), `Tools handoff should show guide context, got ${toolsHandoffState.progressLabel}`);
+    assert(/not selected for you/i.test(toolsHandoffState.copy), `Guide handoff should say answers are not selected, got ${toolsHandoffState.copy}`);
+    assert(toolsHandoffState.action === "Choose one answer above", `Guide handoff CTA should require an answer, got ${toolsHandoffState.action}`);
+    assert(toolsHandoffState.actionDisabled, "Guide handoff CTA should stay disabled until the user answers the current question");
+    assert(toolsHandoffState.smartCounty === "Not sure", `Guide handoff should not preselect county, got ${toolsHandoffState.smartCounty}`);
+    assert(toolsHandoffState.smartPosture === "Any posture", `Guide handoff should not preselect stage, got ${toolsHandoffState.smartPosture}`);
+    assert(toolsHandoffState.smartChildren === "any", `Guide handoff should not preselect children, got ${toolsHandoffState.smartChildren}`);
+    assert(toolsHandoffState.formCounty === "Not sure", `Form finder should not preselect county, got ${toolsHandoffState.formCounty}`);
+    assert(toolsHandoffState.formPosture === "Any posture", `Form finder should not preselect stage, got ${toolsHandoffState.formPosture}`);
+    assert(toolsHandoffState.formChildren === "any", `Form finder should not preselect children, got ${toolsHandoffState.formChildren}`);
+    assert(toolsHandoffState.packetSelect === "all", `Packet builder should not default to a county packet, got ${toolsHandoffState.packetSelect}`);
+    assert(toolsHandoffState.summaryChips.length === 0, `Guide handoff should not show answer chips before the user answers, got ${toolsHandoffState.summaryChips.join(", ")}`);
+    assert(toolsHandoffState.routerHidden, "Guide handoff should keep the lower form router hidden until answers are complete");
+    assert(toolsHandoffState.packetsHidden, "Guide handoff should keep packet forms hidden until answers are complete");
+    assert(!toolsHandoffState.resumeActive, "Guide handoff should not look like saved answers were already selected");
+    assert(!toolsHandoffState.guidedComplete, "Guide handoff should not mark unanswered form questions complete");
+    assert(!/Maricopa County Forms|Starting a Maricopa divorce/i.test(toolsHandoffState.text), "Guide handoff should not expose Maricopa default packet copy before answers");
 
     await page.goto(`${baseUrl}/practice-areas/`, { waitUntil: "networkidle" });
     const annulmentOpened = await page.evaluate(() => {
@@ -81,7 +122,7 @@ function assert(condition, message) {
     assert(/Choose stage|Not selected/i.test(annulmentState.stage), `Annulment stage should show missing qualifier, got ${annulmentState.stage}`);
     assert(!/^any$/i.test(annulmentState.children), `Annulment children should not show fake any value`);
     assert(/Choose one|Not selected/i.test(annulmentState.children), `Annulment children should show missing qualifier, got ${annulmentState.children}`);
-    assert(annulmentState.actions.some((text) => /Find the right forms|Start form check|Continue to form viewer/i.test(text)), "Annulment should expose forms path");
+    assert(annulmentState.actions.some((text) => /Find the right forms|Answer questions to find forms|Continue to form viewer/i.test(text)), "Annulment should expose forms path");
     assert(annulmentState.actions.some((text) => /office review|Intake/i.test(text)), "Annulment should expose office-review path");
     assert(annulmentState.intakePrimaryCount === 0, "Annulment forms path should not make Intake the only primary action");
     assert(!annulmentState.overflow, "Practice Areas Annulment view has horizontal overflow");

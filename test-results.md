@@ -33,8 +33,13 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4195 node scripts/playwright-forms-tools-guided-flow.js`: pass.
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4195 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4195 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
-- Live custom-domain DIY Guide form check: pass, `Start form check` lands on `/tools#forms-task-workspace`, shows `Guide context added`, does not show `ANSWERS CONFIRMED`, carries no calculator or packet state, shows no optional packet chooser, shows no Maricopa default, keeps Step 2 hidden, no horizontal overflow.
-- Live custom-domain guided flow clarity: pending final clean redeploy verification for decision-flow clarity key.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-guide-county-gate.js`: pass. DIY Guide form handoff lands on `/tools#forms-task-workspace`, shows guide context, keeps county/stage/children unselected, keeps the packet chooser at `all`, hides lower forms and packets until answers are complete, and exposes no Maricopa default packet copy.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-forms-tools-guided-flow.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-public-answer-persistence.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-public-label-polish.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Live custom-domain guided flow clarity: pending final clean redeploy verification for form-flow simplify key.
 - `npm run test:matter-form-matrix`: pass
 - `npm run test:county-form-coverage`: pass
 - `npm run test:unique-route-coverage`: pass
@@ -43,8 +48,8 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - `npm run test:all-county-user-outcomes`: pass
 - `npm run test:all-county-production-stability`: pass, 27 runs / 0 failures / 0 timeout mentions / 0 console or network mentions
 
-Final live public JS SHA-256: `22ad39b49343853c50cf10bbc8dc6b9a19745afe03554b630477880606b4c574`
+Final live public JS SHA-256: `b95995aa0c737d2f4ad8793b98001c6a530decaf06d3cacbb1125453184b945f`
 
-Final live public CSS SHA-256: `c1f0f37aeaaf162b80ab110c2539faaf9a9b94e2eecadbde4a592e08461c8947`
+Final live public CSS SHA-256: `cf3522fbfd01b99e527d07f45390ff01e98641bb047fdecbbe1d4adea93519f9`
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`

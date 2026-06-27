@@ -1,18 +1,18 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260627-090622-label-polish
+## Public Website Release: mflg-live-20260627-094728-form-flow-simplify
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260627-090622-label-polish`
-- Public JS SHA-256: `22ad39b49343853c50cf10bbc8dc6b9a19745afe03554b630477880606b4c574`
-- Public CSS SHA-256: `c1f0f37aeaaf162b80ab110c2539faaf9a9b94e2eecadbde4a592e08461c8947`
+- Asset key: `mflg-live-20260627-094728-form-flow-simplify`
+- Public JS SHA-256: `b95995aa0c737d2f4ad8793b98001c6a530decaf06d3cacbb1125453184b945f`
+- Public CSS SHA-256: `cf3522fbfd01b99e527d07f45390ff01e98641bb047fdecbbe1d4adea93519f9`
 - Cloudflare `mflg-public-website`: `85ad000e-764c-4e7b-883f-70e8346e8b16`
 - Cloudflare `mflg-webflow-assets`: `ee27ef33-1699-450b-b806-1943abdfa04f`
 - Rollback deployments: `e37cecb2-d634-4b6a-83fc-8893eea8630f` and `90456a5f-67c9-488d-b24c-d0b1a448fac7`
 - Cloudflare source label: `main / 1830093`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Navigation and homepage label polish. Section navigator labels now include separators, homepage duplicate Start here language is reduced, Forms entry lanes use category-style labels, and Practice Area notes use public-facing review language.
+- Scope: Forms flow simplification. DIY Guide form handoff no longer preselects unanswered county, stage, children, or packet fields; the packet checklist starts from a neutral helper-matched placeholder; duplicate helper step copy is reduced; and guide-to-forms CTAs now tell users to answer questions before opening forms.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

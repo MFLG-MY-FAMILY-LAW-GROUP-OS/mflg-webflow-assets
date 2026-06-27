@@ -1,8 +1,8 @@
 {
-  "asset_key": "mflg-live-20260627-090622-label-polish",
-  "tag": "mflg-live-20260627-090622-label-polish",
-  "public_js_sha256": "22ad39b49343853c50cf10bbc8dc6b9a19745afe03554b630477880606b4c574",
-  "public_css_sha256": "c1f0f37aeaaf162b80ab110c2539faaf9a9b94e2eecadbde4a592e08461c8947",
+  "asset_key": "mflg-live-20260627-094728-form-flow-simplify",
+  "tag": "mflg-live-20260627-094728-form-flow-simplify",
+  "public_js_sha256": "b95995aa0c737d2f4ad8793b98001c6a530decaf06d3cacbb1125453184b945f",
+  "public_css_sha256": "cf3522fbfd01b99e527d07f45390ff01e98641bb047fdecbbe1d4adea93519f9",
   "cloudflare_deployments": {
     "mflg_public_website": "85ad000e-764c-4e7b-883f-70e8346e8b16",
     "mflg_webflow_assets": "ee27ef33-1699-450b-b806-1943abdfa04f"

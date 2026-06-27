@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-090622-label-polish">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-094728-form-flow-simplify">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-090622-label-polish">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-094728-form-flow-simplify">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1502,7 +1502,7 @@
             <strong>Start the form check in Forms & Calculators.</strong>
             <p>This issue can start the form check, but the form questions still need your answers before any packet opens.</p>
           </div>
-          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>Start form check</a>
+          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-forms-route='${esc(JSON.stringify(item.formsRoute))}'>Answer questions to find forms</a>
         </div>
       </div>
       </div>
@@ -3497,12 +3497,12 @@
       <div class="forms-command-center forms-smart-path" id="forms-task-workspace" data-forms-smart-path>
         <div class="forms-smart-path-copy">
           <p class="eyebrow">Start here</p>
-          <h3>Start with one simple choice.</h3>
+          <h3>Choose one path, then answer only what is needed.</h3>
           <p>You do not need legal terms. Pick what sounds closest and this page will point you to forms, a calculator, or Guided Intake.</p>
           <div class="forms-start-steps" aria-label="Forms and Tools start steps">
-            <article><span>Choose path</span><strong>Forms, calculator, deadline, or Intake</strong></article>
-            <article><span>Open verified result</span><strong>Use the matched result only when verified</strong></article>
-            <article><span>Optional help</span><strong>View, calculate, or start Intake</strong></article>
+            <article><span>Step 1</span><strong>Choose forms, calculator, deadline, guide, or office review</strong></article>
+            <article><span>Step 2</span><strong>Answer only the follow-up questions that apply</strong></article>
+            <article><span>Step 3</span><strong>Open the matched result or ask for office review</strong></article>
           </div>
           <div class="forms-guide-bridge" data-guide-bridge hidden>
             <div class="forms-guide-bridge-main">
@@ -3512,7 +3512,7 @@
               <div class="forms-guide-bridge-chips" data-guide-bridge-chips></div>
             </div>
             <div class="forms-guide-bridge-actions" aria-label="DIY Guide next actions">
-              <button class="button primary" type="button" data-guide-bridge-action="forms">Start form check</button>
+              <button class="button primary" type="button" data-guide-bridge-action="forms">Answer questions to find forms</button>
               <button class="button outline" type="button" data-guide-bridge-action="calculator">Use calculator</button>
               <a class="button outline" href="/start" data-link data-guide-bridge-intake>Start Guided Intake</a>
               <a class="button ghost" href="/guides" data-link>Back to guides</a>
@@ -3536,7 +3536,7 @@
             <div class="forms-guided-options" data-guided-options></div>
             <div class="forms-guided-result" data-guided-result>
               <span>Your next step</span>
-              <strong data-guided-result-title>Start with the form finder.</strong>
+              <strong data-guided-result-title>Choose one answer to begin.</strong>
               <p data-guided-result-copy>Answer the questions above and use the blue button when you are ready.</p>
               <div class="forms-guided-summary" data-guided-summary></div>
               <div class="forms-guided-edit-answers" data-guided-edit-answers hidden>
@@ -3573,11 +3573,6 @@
                 <a class="button outline" href="/start" data-link data-guided-intake-fallback data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
               </div>
             </div>
-          </div>
-          <div class="forms-path-strip" aria-label="Recommended Forms and Tools path">
-            <span><b>1</b> Tell us what you need</span>
-            <span><b>2</b> Pick the closest match</span>
-            <span><b>3</b> Open the next safe step</span>
           </div>
           <div class="forms-entry-lanes" aria-label="Forms and Tools starting points">
             <a href="#forms-official-router" data-smart-lane="forms" aria-label="Find court forms">
@@ -4385,7 +4380,7 @@
             <strong>Start the form check in Forms & Calculators.</strong>
             <p>This guide only suggests the issue. Answer the form questions before opening a packet or PDF viewer.</p>
           </div>
-          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Start form check</a>
+          <a class="button primary" href="/tools#forms-task-workspace" data-link data-guide-forms-route='${esc(JSON.stringify(formsRoute))}'>Answer questions to find forms</a>
         </div>
       </div>
       <div class="guide-panel-actions">
@@ -4442,7 +4437,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-090622-label-polish" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-094728-form-flow-simplify" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5488,7 +5483,7 @@
         : "Continue to the form-check questions. The result appears only after the required answers are known.";
     const bridgeCta = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
       ? "Check form availability"
-      : "Start form check";
+      : "Answer questions to find forms";
 
     host.innerHTML = `
       <div class="guide-forms-viewer-head guide-forms-bridge-head">
@@ -6222,9 +6217,7 @@
       const summary = manifest.summary || {};
       const groups = Array.isArray(manifest.packet_groups) ? manifest.packet_groups : [];
       const files = Array.isArray(manifest.files) ? manifest.files : [];
-      const defaultPacketId = groups.find((group) => group.packet_id === "maricopa-divorce-new-with-children")?.packet_id
-        || groups[0]?.packet_id
-        || "all";
+      const defaultPacketId = "all";
       const defaultLanguage = files.some((file) => file.language === "English") ? "English" : "all";
       const childOnlyPattern = /parenting|legal decision-making|child support|paternity/i;
       const isChildOnlyPacketFile = (file) => childOnlyPattern.test(`${file.public_name || ""} ${file.public_stage || ""} ${file.file_name || ""}`);
@@ -6295,7 +6288,8 @@
           <div class="forms-packet-builder-controls">
             <label>Form group
               <select data-forms-packet-select>
-                ${groups.map((group) => `<option value="${esc(group.packet_id || "all")}"${group.packet_id === defaultPacketId ? " selected" : ""}>${esc(group.label || "Court form group")}</option>`).join("")}
+                <option value="all" selected>Choose after the helper matches forms</option>
+                ${groups.map((group) => `<option value="${esc(group.packet_id || "all")}">${esc(group.label || "Court form group")}</option>`).join("")}
               </select>
             </label>
             <label>Language
@@ -6681,6 +6675,16 @@
         }
       };
       const packetFitFor = (packetId) => {
+        if (!packetId || packetId === "all") {
+          return {
+            title: "Choose a form group after the helper matches forms.",
+            copy: "No county packet is selected until your answers point to one. If you are browsing manually, choose the form group that matches the county, stage, issue, and children involved.",
+            check: "Answer the helper before relying on a packet.",
+            checkCopy: "The form list should follow your answers. If the title does not match, change answers or use office review.",
+            next: "Start with the guided helper above.",
+            nextCopy: "The page will open the matched packet when a verified form path is available."
+          };
+        }
         if (packetId === "maricopa-divorce-new-with-children") {
           return {
             title: "Starting a Maricopa divorce or legal separation with minor children.",
@@ -6774,7 +6778,7 @@
         let visible = 0;
         let hiddenForFit = 0;
         fileCards.forEach((card) => {
-          const matchesPacket = card.dataset.packetId === packetId;
+          const matchesPacket = packetId !== "all" && card.dataset.packetId === packetId;
           const matchesLanguage = languageValue === "all" || card.dataset.language === languageValue;
           const childOnlyMismatch = packetId === "maricopa-divorce-new-no-children" && card.dataset.childOnly === "true";
           const show = matchesPacket && matchesLanguage && !childOnlyMismatch;
@@ -7077,10 +7081,10 @@
     let guideContextActive = guideContextOnly;
     const guidedAnswers = {
       need: need?.value || presetNeed,
-      county: normalizeFormsCounty(presetRoute.county || county?.value),
-      posture: normalizeFormsPosture(presetRoute.posture || posture?.value),
-      issue: normalizeFormsIssue(presetRoute.issue || "all"),
-      children: normalizeFormsChildren(presetRoute.children || children?.value)
+      county: guideContextOnly ? "Not sure" : normalizeFormsCounty(presetRoute.county || county?.value),
+      posture: guideContextOnly ? "Any posture" : normalizeFormsPosture(presetRoute.posture || posture?.value),
+      issue: guideContextOnly ? "all" : normalizeFormsIssue(presetRoute.issue || "all"),
+      children: guideContextOnly ? "any" : normalizeFormsChildren(presetRoute.children || children?.value)
     };
     const answeredFields = new Set();
     if (savedResumeActive) {
@@ -7240,8 +7244,8 @@
       if (guideBridgeTitle) guideBridgeTitle.textContent = `${guideTitle} is connected to this page.`;
       if (guideBridgeCopy) {
         guideBridgeCopy.textContent = window.MFLGGuideCalculatorChoice
-          ? "Guide context is added here. Use the calculator if it fits, or answer the form questions before opening paperwork."
-          : "Guide context is added here. Answer the form questions before opening any packet or PDF viewer.";
+          ? "Guide context is connected here, but county and form answers are not selected for you. Use the calculator if it fits, or answer the form questions before opening paperwork."
+          : "Guide context is connected here, but county and form answers are not selected for you. Answer the form questions before opening any packet or PDF viewer.";
       }
       if (guideBridgeChips) {
         guideBridgeChips.innerHTML = routeChips().map((chip) => `<span>${esc(chip)}</span>`).join("");
@@ -7617,7 +7621,7 @@
         guidedCopy.textContent = savedResumeActive && !guidedComplete
           ? "We kept your county, court stage, issue, and children answer for this session."
           : guideContextActive && !guidedComplete
-          ? "Guide context is added. Answer the remaining form questions before opening forms."
+          ? "Guide context is connected, but county and form answers are not selected for you. Answer the remaining form questions before opening forms."
           : guidedComplete && guidedAnswers.need === "calculator"
           ? "Your form context stays saved. Calculator tools will use only the fields that apply."
           : guidedComplete

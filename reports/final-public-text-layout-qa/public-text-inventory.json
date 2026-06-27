@@ -6424,7 +6424,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "initial",
-    "visibleText": "Start with one simple choice.",
+    "visibleText": "Choose one path, then answer only what is needed.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7264,7 +7264,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "initial",
-    "visibleText": "Start with one simple choice.",
+    "visibleText": "Choose one path, then answer only what is needed.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8104,7 +8104,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "initial",
-    "visibleText": "Start with one simple choice.",
+    "visibleText": "Choose one path, then answer only what is needed.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497414,7 +497414,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "forms-ready",
-    "visibleText": "Start with one simple choice.",
+    "visibleText": "Choose one path, then answer only what is needed.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500124,7 +500124,7 @@
     "viewport": "390",
     "component": "h3",
     "state": "viewer",
-    "visibleText": "Start with one simple choice.",
+    "visibleText": "Choose one path, then answer only what is needed.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

@@ -108,7 +108,7 @@ if (jurisdiction.summary?.unique_arizona_counties !== 15) {
   "Open matched forms",
   "Forms & Calculators",
   "form questions still need your answers",
-  "Start form check",
+  "Answer questions to find forms",
   "data-guide-packet-label"
 ].forEach((marker) => {
   if (!publicJs.includes(marker)) fail(`public JS missing marker: ${marker}`);

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-fixture-template-readiness",
-  "built_at": "2026-06-27T16:11:24.407Z",
+  "built_at": "2026-06-27T16:57:41.243Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,
