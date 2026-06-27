@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-162318-unified-result-summary">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-173238-single-active-workflow">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-162318-unified-result-summary">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-173238-single-active-workflow">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3603,8 +3603,8 @@
         </div>
         <details class="forms-smart-path-controls" aria-label="Forms and tools recommendation controls">
           <summary class="forms-smart-path-controls-head">
-            <span>Optional</span>
-            <strong>Fine tune the result.</strong>
+            <span>Advanced</span>
+            <strong>Browse other options.</strong>
           </summary>
           <label>What are you trying to do?
             <select data-smart-need>
@@ -3633,9 +3633,9 @@
           </label>
         </details>
         <div class="forms-smart-path-mode" data-smart-mode>
-          <span data-smart-mode-copy>Recommended path shown first. Browse all sections only if you want more options.</span>
+          <span data-smart-mode-copy>One active workflow is shown first. Browse other options only if this result does not fit.</span>
           <div class="forms-smart-path-mode-actions">
-            <button class="button ghost" type="button" data-smart-show-all>Advanced: show all sections</button>
+            <button class="button ghost" type="button" data-smart-show-all>Browse other options</button>
             <button class="button ghost" type="button" data-smart-reset>Reset choices</button>
           </div>
         </div>
@@ -3674,12 +3674,12 @@
         </div>
       </details>
 
-      <div class="forms-router" id="forms-official-router" data-flow-section="forms deadline manual" aria-label="Court forms finder">
+      <div class="forms-router" id="forms-official-router" data-flow-section="forms manual" aria-label="Court forms finder">
         <div class="forms-router-head">
           <div>
-            <p class="eyebrow">Step 1</p>
-            <h2>Answer these questions first.</h2>
-            <p>The guided helper fills this in for you. Change the boxes only if the recommendation does not match. If you are unsure, use Guided Intake instead of guessing.</p>
+            <p class="eyebrow">Matched form details</p>
+            <h2>Review the form path only if forms are the recommended next step.</h2>
+            <p>The guided helper fills this in after your answers. Change these boxes only if the result does not match what you selected.</p>
           </div>
           <a class="button outline" href="/start" data-link data-form-route-save data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
         </div>
@@ -4441,7 +4441,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-162318-unified-result-summary" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-173238-single-active-workflow" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -6996,6 +6996,7 @@
     const children = host.querySelector("[data-smart-children]");
     const posture = host.querySelector("[data-smart-posture]");
     const modeCopy = host.querySelector("[data-smart-mode-copy]");
+    const entryLanes = host.querySelector(".forms-entry-lanes");
     const smartControls = host.querySelector(".forms-smart-path-controls");
     const smartMode = host.querySelector("[data-smart-mode]");
     const showAll = host.querySelector("[data-smart-show-all]");
@@ -7355,27 +7356,32 @@
         section.toggleAttribute("inert", !visible);
         section.setAttribute("aria-hidden", visible ? "false" : "true");
       });
+      const hasStartedPath = answeredFields.size > 0 || savedResumeActive || guidedComplete || guideContextActive;
+      const showEntryLanes = showAllSections || !hasStartedPath;
+      const showModeControls = showAllSections || hasStartedPath;
       if (modeCopy) {
         const isStillAnswering = !guidedComplete && !savedResumeActive && guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
         modeCopy.textContent = showAllSections
-          ? "Showing every advanced section. Start Guided Intake if the choices feel unclear."
+          ? "Showing other sections. Return to the recommended path before opening forms if the choices feel unclear."
           : savedResumeActive && !guidedComplete
-          ? "Saved answers are applied. Use them now, or change them before opening forms and tools."
+          ? "Saved answers are applied. Continue with them or change answers before opening forms and tools."
           : isStillAnswering
           ? "Showing one guided question at a time."
           : !guidedComplete
           ? "Your recommended section will appear after you finish the guided helper."
-          : `Showing the recommended path first: ${recommendation.text}.`;
+          : `Showing one active workflow: ${recommendation.text}.`;
       }
-      const firstPassActive = !showAllSections && !savedResumeActive && !guidedComplete;
+      if (entryLanes) {
+        setHiddenInert(entryLanes, !showEntryLanes);
+      }
       if (smartControls) {
-        setHiddenInert(smartControls, firstPassActive);
+        setHiddenInert(smartControls, !showAllSections);
       }
       if (smartMode) {
-        setHiddenInert(smartMode, firstPassActive);
+        setHiddenInert(smartMode, !showModeControls);
       }
       if (showAll) {
-        showAll.textContent = showAllSections ? "Show recommended path" : "Advanced: show all sections";
+        showAll.textContent = showAllSections ? "Show recommended path" : "Browse other options";
         showAll.setAttribute("aria-pressed", showAllSections ? "true" : "false");
       }
       laneLinks.forEach((lane) => {

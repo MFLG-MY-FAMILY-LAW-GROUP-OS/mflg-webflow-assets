@@ -13,11 +13,11 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260626-162318-unified-result-summary`
-- Tag: `mflg-live-20260626-162318-unified-result-summary`
+- Live key: `mflg-live-20260626-173238-single-active-workflow`
+- Tag: `mflg-live-20260626-173238-single-active-workflow`
 - Release commit: the commit pointed to by the tag in the durable checkout. Verify with `git rev-parse HEAD` and `git describe --exact-match --tags HEAD`.
-- Public JS SHA-256: `5862269e0361c79a3aa32b32bf9499374dd88c3d7cc4a9b63b6210656da846e2`
-- Public CSS SHA-256: `b56752240c42ba016c29c393a5e234f55f92b3622d4bd0d51abd7f6fb924f291`
+- Public JS SHA-256: `7bdc7d51c80404e339d5df2630b35c49e2ec4addac062821dca1568c7f66a8bc`
+- Public CSS SHA-256: `2f58db9caa31dce53ebff297f53179c1de0e1314e1ab65c572eb5ddcf868b843`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
 - Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260625-final-yolo-stabilization-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
@@ -37,7 +37,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-162318-unified-result-summary` after tag push.
+- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-173238-single-active-workflow` after tag push.
 
 ## Never Use
 

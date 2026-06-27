@@ -24,6 +24,9 @@ async function pageState(page) {
     calculatorHidden: document.querySelector("#forms-calculator-hub")?.classList.contains("forms-flow-hidden"),
     matterHidden: document.querySelector("#forms-matter-coverage")?.classList.contains("forms-flow-hidden"),
     laneVisible: getComputedStyle(document.querySelector(".forms-entry-lanes")).display !== "none",
+    smartControlsVisible: getComputedStyle(document.querySelector(".forms-smart-path-controls")).display !== "none",
+    smartModeVisible: getComputedStyle(document.querySelector("[data-smart-mode]")).display !== "none",
+    showAllText: document.querySelector("[data-smart-show-all]")?.textContent?.trim() || "",
     activeCalc: document.body.classList.contains("forms-active-need-calculator"),
     activeDeadline: document.body.classList.contains("forms-active-need-deadline"),
     action: document.querySelector("[data-guided-result-action]")?.textContent?.trim(),
@@ -71,6 +74,8 @@ async function pageState(page) {
       assert(initial.calculatorHidden, `${viewport.name}: calculator should start hidden`);
       assert(initial.matterHidden, `${viewport.name}: matter coverage should start hidden`);
       assert(initial.laneVisible, `${viewport.name}: four quick-start cards should be visible`);
+      assert(!initial.smartControlsVisible, `${viewport.name}: advanced controls should start hidden`);
+      assert(!initial.smartModeVisible, `${viewport.name}: browse/reset controls should start hidden`);
       assert(initial.fakeLinks.length === 0, `${viewport.name}: page should not render fake href=# links: ${initial.fakeLinks.join(", ")}`);
       assert(initial.exposedSourceAttributes.length === 0, `${viewport.name}: page should not expose raw source URL attributes`);
       assert(initial.sameSiteOfficialPdfActions.length === 0, `${viewport.name}: same-site PDF actions should not render before forms are shown`);
@@ -94,6 +99,10 @@ async function pageState(page) {
       assert(!forms.routerHidden, `${viewport.name}: form router should reveal after forms path`);
       assert(!forms.packetsHidden, `${viewport.name}: packets should reveal after forms path`);
       assert(forms.calculatorHidden, `${viewport.name}: calculator should remain hidden on forms path`);
+      assert(!forms.laneVisible, `${viewport.name}: quick-start cards should hide after forms path is active`);
+      assert(!forms.smartControlsVisible, `${viewport.name}: advanced controls should stay hidden unless browsing other options`);
+      assert(forms.smartModeVisible, `${viewport.name}: browse/reset controls should show after forms path is active`);
+      assert(forms.showAllText === "Browse other options", `${viewport.name}: browse control should use plain label, got ${forms.showAllText}`);
       assert(/Open matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should open matched forms`);
       assert(!forms.actionDisabled, `${viewport.name}: matched forms CTA should be enabled`);
       assert(/Recommended form path/i.test(forms.resultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.resultTier}`);
@@ -167,6 +176,9 @@ async function pageState(page) {
       assert(calc.routerHidden, `${viewport.name}: router should stay hidden on calculator path`);
       assert(calc.packetsHidden, `${viewport.name}: packets should stay hidden on calculator path`);
       assert(!calc.calculatorHidden, `${viewport.name}: calculator hub should reveal`);
+      assert(!calc.laneVisible, `${viewport.name}: quick-start cards should hide after calculator path is active`);
+      assert(!calc.smartControlsVisible, `${viewport.name}: advanced controls should stay hidden on calculator path`);
+      assert(calc.smartModeVisible, `${viewport.name}: browse/reset controls should show after calculator path is active`);
       assert(calc.activeCalc, `${viewport.name}: calculator body state should be active`);
       assert(/Answers confirmed/i.test(calc.progressLabel || ""), `${viewport.name}: calculator path should show confirmed answers, got ${calc.progressLabel}`);
       assert(/Calculator tools will use only the fields that apply/i.test(calc.guidedCopy || ""), `${viewport.name}: calculator path should explain carried context, got ${calc.guidedCopy}`);
@@ -185,15 +197,25 @@ async function pageState(page) {
           activeDeadline: document.body.classList.contains("forms-active-need-deadline"),
           calcHeadDisplay: getComputedStyle(calcHub.querySelector(".section-head")).display,
           deadlineDisplay: getComputedStyle(deadlineTool).display,
+          laneVisible: getComputedStyle(document.querySelector(".forms-entry-lanes")).display !== "none",
+          smartControlsVisible: getComputedStyle(document.querySelector(".forms-smart-path-controls")).display !== "none",
+          smartModeVisible: getComputedStyle(document.querySelector("[data-smart-mode]")).display !== "none",
+          showAllText: document.querySelector("[data-smart-show-all]")?.textContent?.trim() || "",
+          bodyText: document.body.innerText.replace(/\s+/g, " ").trim(),
           overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
         };
       });
-      assert(!deadline.routerHidden, `${viewport.name}: router should reveal for deadline path`);
+      assert(deadline.routerHidden, `${viewport.name}: form router should stay hidden on deadline path`);
       assert(deadline.packetsHidden, `${viewport.name}: packets should remain hidden for deadline path`);
       assert(!deadline.calculatorHidden, `${viewport.name}: deadline container should reveal`);
       assert(deadline.activeDeadline, `${viewport.name}: deadline body state should be active`);
       assert(deadline.calcHeadDisplay === "none", `${viewport.name}: calculator hub chrome should be hidden in deadline path`);
       assert(deadline.deadlineDisplay !== "none", `${viewport.name}: deadline tool should be visible`);
+      assert(!deadline.laneVisible, `${viewport.name}: quick-start cards should hide after deadline path is active`);
+      assert(!deadline.smartControlsVisible, `${viewport.name}: advanced controls should stay hidden on deadline path`);
+      assert(deadline.smartModeVisible, `${viewport.name}: browse/reset controls should show after deadline path is active`);
+      assert(deadline.showAllText === "Browse other options", `${viewport.name}: browse control should use plain label on deadline path, got ${deadline.showAllText}`);
+      assert(!/Step 1 Answer these questions first/i.test(deadline.bodyText), `${viewport.name}: stale form-finder Step 1 copy should not show on deadline path`);
       assert(!deadline.overflow, `${viewport.name}: deadline path has horizontal overflow`);
       await capture(page, viewport, "deadline-path");
       await page.close();

@@ -208,8 +208,12 @@ async function routeSummaryState(page) {
 
 async function clickDirectCalculatorChoice(page, selector = '[data-calculator-jump="maintenance"]') {
   await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
-  await page.click('[data-smart-lane="calculator"]');
   const showAll = page.locator("[data-smart-show-all]").first();
+  const calculatorLane = page.locator('[data-smart-lane="calculator"]').first();
+  if (!(await calculatorLane.isVisible().catch(() => false)) && (await showAll.count()) > 0 && await showAll.isVisible().catch(() => false)) {
+    await showAll.click();
+  }
+  await calculatorLane.click();
   if ((await showAll.count()) > 0 && await showAll.isVisible().catch(() => false)) await showAll.click();
   await page.locator(selector).first().click();
   await page.waitForTimeout(300);
@@ -515,12 +519,14 @@ async function clickCalculatorReadinessAction(page) {
 	    assert(!state.publicAnswers.confirmedFields?.county, "system suggestion confirmed reset county");
 
 	    await chooseFormsAnswers(page, "Yavapai", "Existing order", "parenting", "minor-children");
+	    await page.click("[data-smart-show-all]");
 	    await page.click('[data-smart-lane="calculator"]');
 	    state = await toolsState(page);
     assert(state.publicAnswers.need === "calculator", "calculator toggle did not update shared state");
     assert(state.publicAnswers.county === "Yavapai", "calculator toggle did not preserve county");
     assert(state.publicAnswers.issue === "parenting", "calculator toggle replaced confirmed issue");
 
+    await page.click("[data-smart-show-all]");
     await page.click('[data-smart-lane="forms"]');
     state = await toolsState(page);
 	    assert(state.publicAnswers.need === "forms", "forms toggle did not update shared state");

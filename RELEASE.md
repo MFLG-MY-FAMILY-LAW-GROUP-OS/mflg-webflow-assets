@@ -1,14 +1,14 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-162318-unified-result-summary
+## Public Website Release: mflg-live-20260626-173238-single-active-workflow
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-162318-unified-result-summary`
-- Public JS SHA-256: `5862269e0361c79a3aa32b32bf9499374dd88c3d7cc4a9b63b6210656da846e2`
-- Public CSS SHA-256: `b56752240c42ba016c29c393a5e234f55f92b3622d4bd0d51abd7f6fb924f291`
+- Asset key: `mflg-live-20260626-173238-single-active-workflow`
+- Public JS SHA-256: `7bdc7d51c80404e339d5df2630b35c49e2ec4addac062821dca1568c7f66a8bc`
+- Public CSS SHA-256: `2f58db9caa31dce53ebff297f53179c1de0e1314e1ab65c572eb5ddcf868b843`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Unified result summary pass. The Forms helper now presents one dominant result summary with recommended result, based-on answers, why the result appears, primary action, secondary resources, office review, and edit-answer controls.
+- Scope: Single active workflow cleanup. Forms and Calculators now keeps quick-start cards on the first choice only, hides advanced controls unless requested, keeps deadline paths out of the form finder, and preserves one visible active workflow after answers are selected.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 
