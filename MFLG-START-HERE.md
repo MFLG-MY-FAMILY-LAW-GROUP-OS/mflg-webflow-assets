@@ -19,7 +19,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 - Public JS SHA-256: `7bdc7d51c80404e339d5df2630b35c49e2ec4addac062821dca1568c7f66a8bc`
 - Public CSS SHA-256: `2f58db9caa31dce53ebff297f53179c1de0e1314e1ab65c572eb5ddcf868b843`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
-- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260625-final-yolo-stabilization-git`
+- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260626-173238-single-active-workflow-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 
