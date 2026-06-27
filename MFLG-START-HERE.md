@@ -15,7 +15,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Live key: `mflg-live-20260626-173238-single-active-workflow`
 - Tag: `mflg-live-20260626-173238-single-active-workflow`
-- Release commit: the commit pointed to by the tag in the durable checkout. Verify with `git rev-parse HEAD` and `git describe --exact-match --tags HEAD`.
+- Release commit: `2b33ee750134862e3bf95ddefa875e51f349adc1`
 - Public JS SHA-256: `7bdc7d51c80404e339d5df2630b35c49e2ec4addac062821dca1568c7f66a8bc`
 - Public CSS SHA-256: `2f58db9caa31dce53ebff297f53179c1de0e1314e1ab65c572eb5ddcf868b843`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
@@ -25,13 +25,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Cloudflare
 
-- Current `mflg-public-website` deployment: `b28ef171-d919-4186-9ed1-3f3e193f2aff`
-- Current `mflg-webflow-assets` deployment: `6dc8f87d-6541-4493-9e86-69bb270d3d3b`
-- Rollback `mflg-public-website` deployment: `3ad0e7da-8e90-4afd-8aab-0b8bcaf73327`
-- Rollback `mflg-webflow-assets` deployment: `f74ea1d1-5493-4ef0-85ee-c839785e4d40`
+- Current `mflg-public-website` deployment: `dc0e00c3-14a4-40e0-9340-8faf3127c1c9`
+- Current `mflg-webflow-assets` deployment: `172af330-39ea-4d60-b094-abf3b9f054a2`
+- Rollback `mflg-public-website` deployment: `58a0b270-a9b9-4ab4-a733-8b2620ded21c`
+- Rollback `mflg-webflow-assets` deployment: `2b85fa7e-d97c-4e19-acf6-033037516c43`
 - Prior rollback `mflg-public-website` deployment: `76f0902c-4433-49db-8f69-056778b46bda`
 - Prior rollback `mflg-webflow-assets` deployment: `6266d8b0-6860-43fb-b355-aba1ebd3c01a`
-- Source-label status: current public bytes are verified. Final clean redeploy after the release commit should show the release commit short SHA for both Cloudflare production deployments.
+- Source-label status: corrected. Both Cloudflare production deployments show `main / 2b33ee7`.
 
 ## GitHub
 

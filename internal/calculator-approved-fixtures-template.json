@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-approved-fixtures-template",
-  "built_at": "2026-06-26T23:27:47.591Z",
+  "built_at": "2026-06-27T00:36:35.063Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "intended_output_path": "internal/calculator-approved-fixtures.json",
   "source_fixture_entry_template_version": "1.0.0-calculator-fixture-entry-template",

@@ -6,6 +6,10 @@
 - Asset key: `mflg-live-20260626-173238-single-active-workflow`
 - Public JS SHA-256: `7bdc7d51c80404e339d5df2630b35c49e2ec4addac062821dca1568c7f66a8bc`
 - Public CSS SHA-256: `2f58db9caa31dce53ebff297f53179c1de0e1314e1ab65c572eb5ddcf868b843`
+- Cloudflare `mflg-public-website`: `dc0e00c3-14a4-40e0-9340-8faf3127c1c9`
+- Cloudflare `mflg-webflow-assets`: `172af330-39ea-4d60-b094-abf3b9f054a2`
+- Rollback deployments: `58a0b270-a9b9-4ab4-a733-8b2620ded21c` and `2b85fa7e-d97c-4e19-acf6-033037516c43`
+- Cloudflare source label: `main / 2b33ee7`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
 - Scope: Single active workflow cleanup. Forms and Calculators now keeps quick-start cards on the first choice only, hides advanced controls unless requested, keeps deadline paths out of the form finder, and preserves one visible active workflow after answers are selected.
