@@ -15,7 +15,7 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 - Live key: `mflg-live-20260627-055830-guide-filter-reset`
 - Tag: `mflg-live-20260627-055830-guide-filter-reset`
-- Release commit: `82568d644f76a07a8f408e168e5b5e0b2921fdaa`
+- Release commit: `82568d69dfbbdbfda4f05fcb06259fec11539bed`
 - Public JS SHA-256: `2177fd0784ecf0faef2a3cbc06ef90be4746a5d8c8042d1c93a2f451157d0bcc`
 - Public CSS SHA-256: `dbf48dc9ad8a4819a248705deb6d271baefbb6d45f33b0618abf82b6e6722f5a`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
