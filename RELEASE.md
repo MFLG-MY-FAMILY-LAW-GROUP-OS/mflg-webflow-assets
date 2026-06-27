@@ -6,13 +6,13 @@
 - Asset key: `mflg-live-20260627-055830-guide-filter-reset`
 - Public JS SHA-256: `2177fd0784ecf0faef2a3cbc06ef90be4746a5d8c8042d1c93a2f451157d0bcc`
 - Public CSS SHA-256: `dbf48dc9ad8a4819a248705deb6d271baefbb6d45f33b0618abf82b6e6722f5a`
-- Cloudflare `mflg-public-website`: `1810cece-cc21-4412-914a-2b2d9d1665eb`
-- Cloudflare `mflg-webflow-assets`: `9566485f-2c49-40fc-bd8d-aa13da38f70b`
-- Rollback deployments: `f4bd93c1-fe23-4e09-af7a-403289c7e9c0` and `4855eb1e-2b64-4ffe-9e2f-4079bebca7d1`
-- Cloudflare source label: `main / 5986706`
+- Cloudflare `mflg-public-website`: `c23cec6f-afb0-4bb7-a53c-8b466cda0d51`
+- Cloudflare `mflg-webflow-assets`: `fd2ec716-21ca-4d1b-931d-9b7503977da5`
+- Rollback deployments: `1810cece-cc21-4412-914a-2b2d9d1665eb` and `9566485f-2c49-40fc-bd8d-aa13da38f70b`
+- Cloudflare source label: `main / 82568d6`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: DIY Guides filter clarity cleanup. Browse all is now All situations, Show all 50 guides expands the full list, category notes match the active filter, and the Identity guide is folded into Documents & safety.
+- Scope: DIY Guides filter reset cleanup. `Show every guide` now appears for active situation/search filters, clears the filter, and shows all 50 guides; category notes match the active filter, and the Identity guide remains folded into Documents & safety.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 
