@@ -684,7 +684,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "initial",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -3514,7 +3514,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "initial",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -5464,7 +5464,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "initial",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -5774,7 +5774,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "initial",
-    "visibleText": "View All DIY Guides",
+    "visibleText": "Show all 50 guides",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -5784,7 +5784,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "initial",
-    "visibleText": "Showing the first 6 guides for this screen. Search any topic, choose a category, or reveal the remaining 44.",
+    "visibleText": "Showing the first 6 of 50. Use Show all 50 guides to expand the full list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -18224,7 +18224,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-0",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -24774,7 +24774,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-1",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -31324,7 +31324,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-2",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -37874,7 +37874,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-3",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -44424,7 +44424,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-4",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -50974,7 +50974,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-5",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -57524,7 +57524,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-6",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -64074,7 +64074,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-7",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -70624,7 +70624,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-8",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -77174,7 +77174,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-9",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -83724,7 +83724,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-10",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -90274,7 +90274,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-11",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -96824,7 +96824,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-12",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -103374,7 +103374,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-13",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -109924,7 +109924,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-14",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -116474,7 +116474,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-15",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -123024,7 +123024,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-16",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -129574,7 +129574,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-17",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -136124,7 +136124,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-18",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -142674,7 +142674,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-19",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -149224,7 +149224,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-20",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -155774,7 +155774,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-21",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -162324,7 +162324,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-22",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -168874,7 +168874,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-23",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -175424,7 +175424,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-24",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -181974,7 +181974,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-25",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -188524,7 +188524,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-26",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -195074,7 +195074,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-27",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -201624,7 +201624,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-28",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -208174,7 +208174,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-29",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -214724,7 +214724,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-30",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -221274,7 +221274,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-31",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -227824,7 +227824,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-32",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -234374,7 +234374,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-33",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -240924,7 +240924,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-34",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -247474,7 +247474,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-35",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -254024,7 +254024,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-36",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -260574,7 +260574,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-37",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -267124,7 +267124,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-38",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -273674,7 +273674,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-39",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -280224,7 +280224,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-40",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -286774,7 +286774,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-41",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -293324,7 +293324,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-42",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -299874,7 +299874,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-43",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -306424,7 +306424,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-44",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -312974,7 +312974,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-45",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -319524,7 +319524,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-46",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -326074,7 +326074,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-47",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -332624,7 +332624,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-48",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -339174,7 +339174,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "practice-card-49",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -345204,7 +345204,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-0",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -347404,7 +347404,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-0",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -348264,7 +348264,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-1",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -350464,7 +350464,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-1",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -351324,7 +351324,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-2",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -353524,7 +353524,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-2",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -354384,7 +354384,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-3",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -356584,7 +356584,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-3",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -357444,7 +357444,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-4",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -359644,7 +359644,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-4",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -360504,7 +360504,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-5",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -362704,7 +362704,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-5",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -363564,7 +363564,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-6",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -365764,7 +365764,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-6",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -366624,7 +366624,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-7",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -368824,7 +368824,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-7",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -369684,7 +369684,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-8",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -371884,7 +371884,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-8",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -372744,7 +372744,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-9",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -374944,7 +374944,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-9",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -375804,7 +375804,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-10",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -378004,7 +378004,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-10",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -378864,7 +378864,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-11",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -381064,7 +381064,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-11",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -381924,7 +381924,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-12",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -384124,7 +384124,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-12",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -384984,7 +384984,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-13",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -387184,7 +387184,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-13",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -388044,7 +388044,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-14",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -390244,7 +390244,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-14",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -391104,7 +391104,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-15",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -393304,7 +393304,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-15",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -394164,7 +394164,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-16",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -396364,7 +396364,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-16",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -397224,7 +397224,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-17",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -399424,7 +399424,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-17",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -400284,7 +400284,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-18",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -402484,7 +402484,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-18",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -403344,7 +403344,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-19",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -405544,7 +405544,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-19",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -406404,7 +406404,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-20",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -408604,7 +408604,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-20",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -409464,7 +409464,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-21",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -411664,7 +411664,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-21",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -412524,7 +412524,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-22",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -414724,7 +414724,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-22",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -415584,7 +415584,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-23",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -417784,7 +417784,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-23",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -418644,7 +418644,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-24",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -420844,7 +420844,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-24",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -421704,7 +421704,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-25",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -423904,7 +423904,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-25",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -424764,7 +424764,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-26",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -426964,7 +426964,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-26",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -427824,7 +427824,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-27",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -430024,7 +430024,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-27",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -430884,7 +430884,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-28",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -433084,7 +433084,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-28",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -433944,7 +433944,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-29",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -436144,7 +436144,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-29",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -437004,7 +437004,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-30",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -439204,7 +439204,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-30",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -440064,7 +440064,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-31",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -442264,7 +442264,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-31",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -443124,7 +443124,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-32",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -445324,7 +445324,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-32",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -446184,7 +446184,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-33",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -448384,7 +448384,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-33",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -449244,7 +449244,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-34",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -451444,7 +451444,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-34",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -452304,7 +452304,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-35",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -454504,7 +454504,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-35",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -455364,7 +455364,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-36",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -457564,7 +457564,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-36",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -458424,7 +458424,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-37",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -460624,7 +460624,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-37",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -461484,7 +461484,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-38",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -463684,7 +463684,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-38",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -464544,7 +464544,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-39",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -466744,7 +466744,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-39",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -467604,7 +467604,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-40",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -469804,7 +469804,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-40",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -470664,7 +470664,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-41",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -472864,7 +472864,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-41",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -473724,7 +473724,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-42",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -475924,7 +475924,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-42",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -476784,7 +476784,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-43",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -478984,7 +478984,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-43",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -479844,7 +479844,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-44",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -482044,7 +482044,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-44",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -482904,7 +482904,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-45",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -485104,7 +485104,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-45",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -485964,7 +485964,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-46",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -488164,7 +488164,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-46",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -489024,7 +489024,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-47",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -491224,7 +491224,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-47",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -492084,7 +492084,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-48",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -494284,7 +494284,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-48",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -495144,7 +495144,7 @@
     "viewport": "390",
     "component": "button.service-category-chip",
     "state": "guide-card-49",
-    "visibleText": "Browse all",
+    "visibleText": "All situations",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497344,7 +497344,7 @@
     "viewport": "390",
     "component": "p.guide-note",
     "state": "guide-card-49",
-    "visibleText": "Showing all 50 DIY guides. Search or choose a category to narrow the list.",
+    "visibleText": "Showing all 50 DIY guides. Search or choose a situation to narrow the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

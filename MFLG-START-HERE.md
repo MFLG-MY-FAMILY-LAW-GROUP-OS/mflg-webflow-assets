@@ -13,13 +13,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 
 ## Current Release
 
-- Live key: `mflg-live-20260626-215840-guide-status-align`
-- Tag: `mflg-live-20260626-215840-guide-status-align`
-- Release commit: `13b0cb7235acd9214a88de94f29944b7469b8873`
-- Public JS SHA-256: `5c68c6b8fd97ea4def9c7de6efe2058f567e627a10fbc8bd1a35749fcf351364`
-- Public CSS SHA-256: `cf2283d595e21332a919151982c9405acdade3e3622f0c409367d8909cd90d0b`
+- Live key: `mflg-live-20260626-222921-guide-filter-clarity`
+- Tag: `mflg-live-20260626-222921-guide-filter-clarity`
+- Release commit: tag commit for `mflg-live-20260626-222921-guide-filter-clarity`; verify with `git rev-parse mflg-live-20260626-222921-guide-filter-clarity`
+- Public JS SHA-256: `3e63f2eb605351c3802ecdd1c618db77553b6a54a6846d84697eca1f6cf510f4`
+- Public CSS SHA-256: `d966869cae798a94b5cefa2ec448de99bdb545e3ca882b41f45128a1f5d546a6`
 - Current-production pointer: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Current-Production`
-- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260626-215840-guide-status-align-git`
+- Durable release checkout: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260626-222921-guide-filter-clarity-git`
 - Preserved prior release evidence: `/Users/jeremyjamesjack/Documents/Codex/MFLG-Releases/mflg-live-20260624-233508-hero-reveal-intelligence`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 
@@ -31,13 +31,13 @@ Do not treat old previews, owner packages, evidence branches, or stale reports a
 - Rollback `mflg-webflow-assets` deployment: `172af330-39ea-4d60-b094-abf3b9f054a2`
 - Prior rollback `mflg-public-website` deployment: `76f0902c-4433-49db-8f69-056778b46bda`
 - Prior rollback `mflg-webflow-assets` deployment: `6266d8b0-6860-43fb-b355-aba1ebd3c01a`
-- Source-label status: corrected. Both Cloudflare production deployments show `main / 13b0cb7`.
+- Source-label status: pending clean redeploy for the guide-filter clarity release.
 
 ## GitHub
 
 - Repository: `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets.git`
 - Branch: `mflg-live-20260625-final-yolo-stabilization`
-- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-215840-guide-status-align` after tag push.
+- GitHub Release object: expected at `https://github.com/MFLG-MY-FAMILY-LAW-GROUP-OS/mflg-webflow-assets/releases/tag/mflg-live-20260626-222921-guide-filter-clarity` after tag push.
 
 ## Never Use
 

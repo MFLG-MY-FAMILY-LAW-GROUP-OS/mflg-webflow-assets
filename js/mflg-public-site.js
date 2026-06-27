@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-215840-guide-status-align">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-222921-guide-filter-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-215840-guide-status-align">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260626-222921-guide-filter-clarity">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -688,12 +688,12 @@
 
 		  const initialServiceCount = 10;
 		  const publicCategoryGroups = [
-		    { label: "Browse all", categories: null },
+		    { label: "All situations", categories: null },
 		    { label: "Divorce & agreements", categories: ["Marriage", "Agreements", "Property", "Maintenance"] },
 		    { label: "Children & parenting", categories: ["Parenting", "Jurisdiction", "Parentage"] },
 		    { label: "Support & money", categories: ["Child support", "Maintenance", "Property", "Disclosure"] },
 		    { label: "Orders & court", categories: ["Post-decree", "Court requests", "Court", "Resolution"] },
-		    { label: "Documents & safety", categories: ["Documents", "Procedure", "Disclosure", "Safety", "Triage", "Scope review"] }
+		    { label: "Documents & safety", categories: ["Documents", "Procedure", "Disclosure", "Safety", "Triage", "Scope review", "Identity"] }
 		  ];
 		  const publicCategoryLabels = new Map(
 		    publicCategoryGroups.flatMap((group) => (group.categories || []).map((category) => [category, group.label]))
@@ -1517,7 +1517,7 @@
 
   function serviceCards() {
 	    const items = serviceItems.map(serviceViewModelForItem);
-				    const categories = publicCategoryGroups.filter((group) => group.label === "Browse all" || items.some((item) => group.categories?.includes(item.category)));
+				    const categories = publicCategoryGroups.filter((group) => group.label === "All situations" || items.some((item) => group.categories?.includes(item.category)));
 		    return `<div class="service-tools" data-service-tools>
 	      <label class="service-search-label" for="service-search">Start by choosing your issue</label>
 	      <div class="service-search-row">
@@ -2076,8 +2076,8 @@
       </div>
       <div class="guide-issue-grid" data-guide-list>${renderGuides(guides)}</div>
       <div class="guide-reveal">
-        <button class="button primary guide-reveal-button" type="button" data-guide-reveal>View All DIY Guides</button>
-        <p class="guide-note" data-guide-note>Showing the first ${Math.min(initialServiceCount, guides.length)} guides. Search any topic, choose a category, or reveal the remaining ${Math.max(guides.length - initialServiceCount, 0)}.</p>
+        <button class="button primary guide-reveal-button" type="button" data-guide-reveal>Show all ${guides.length} guides</button>
+        <p class="guide-note" data-guide-note>Showing the first ${Math.min(initialServiceCount, guides.length)} of ${guides.length}. Use Show all ${guides.length} guides to expand the full list.</p>
       </div>
     `);
   }
@@ -4441,7 +4441,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-215840-guide-status-align" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260626-222921-guide-filter-clarity" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5228,7 +5228,7 @@
     const cards = Array.from(list.querySelectorAll("[data-guide-card]"));
     const guideData = serviceItems.map(guideFromServiceItem);
     let revealed = false;
-    let activeCategory = "Browse all";
+    let activeCategory = "All situations";
     let activeGuideIndex = null;
     const panel = document.createElement("div");
     panel.className = "guide-row-panel";
@@ -5357,7 +5357,7 @@
         const guideGroup = card.dataset.guideGroupText || "";
         return title.includes(term) || guideCategory.includes(term) || guideGroup.includes(term);
       });
-      const categoryActive = activeCategory !== "Browse all";
+      const categoryActive = activeCategory !== "All situations";
       const limit = defaultVisibleCount();
       let visible = 0;
       let matchesTotal = 0;
@@ -5395,17 +5395,29 @@
       }
       if (count) {
         count.textContent = term || categoryActive
-          ? `Showing ${visible} matching DIY guide${visible === 1 ? "" : "s"}`
+          ? categoryActive
+            ? `Showing ${visible} guide${visible === 1 ? "" : "s"} for ${activeCategory}`
+            : `Showing ${visible} matching DIY guide${visible === 1 ? "" : "s"}`
           : `Showing ${visible} of ${cards.length} DIY guides`;
       }
       if (note) {
-        const remaining = Math.max(cards.length - limit, 0);
-        note.textContent = revealed
-          ? `Showing all ${cards.length} DIY guides. Search or choose a category to narrow the list.`
-          : `Showing the first ${Math.min(limit, matchesTotal)} guides for this screen. Search any topic, choose a category, or reveal the remaining ${remaining}.`;
+        const visibleLabel = visible === 1 ? "guide" : "guides";
+        note.textContent = revealed && !term && !categoryActive
+          ? `Showing all ${cards.length} DIY guides. Search or choose a situation to narrow the list.`
+          : categoryActive
+          ? term
+            ? `Showing ${visible} matching ${visibleLabel} for ${activeCategory}. Clear search to see every guide in this situation.`
+            : `Showing ${visible} ${visibleLabel} for ${activeCategory}.`
+          : term
+          ? `Showing ${visible} matching ${visibleLabel}. Clear search or choose a situation to change the list.`
+          : `Showing the first ${Math.min(limit, matchesTotal)} of ${cards.length}. Use Show all ${cards.length} guides to expand the full list.`;
       }
       if (reveal) {
         reveal.classList.toggle("revealed", revealed || !!term || categoryActive);
+      }
+      if (button) {
+        button.textContent = `Show all ${cards.length} guides`;
+        button.setAttribute("aria-expanded", String(revealed));
       }
       categoryButtons.forEach((categoryButton) => {
         const active = categoryButton.dataset.guideCategoryFilter === activeCategory;
@@ -5416,12 +5428,12 @@
     search.addEventListener("input", filter);
     categoryButtons.forEach((categoryButton) => {
       categoryButton.addEventListener("click", () => {
-        activeCategory = categoryButton.dataset.guideCategoryFilter || "Browse all";
+        activeCategory = categoryButton.dataset.guideCategoryFilter || "All situations";
         filter();
       });
     });
     reset?.addEventListener("click", () => {
-      activeCategory = "Browse all";
+      activeCategory = "All situations";
       revealed = false;
       search.value = "";
       clearPanel();
@@ -5511,7 +5523,7 @@
 	    if (!cards.length) return;
 	
 	    let revealed = false;
-	    let activeCategory = "Browse all";
+	    let activeCategory = "All situations";
 	    let activeServiceIndex = null;
 	    const serviceData = serviceItems.map(serviceViewModelForItem);
 	    const panel = document.createElement("div");
@@ -5638,7 +5650,7 @@
 	    const update = (commitOptions = {}) => {
 	      const term = (search?.value || "").trim().toLowerCase();
 		      const activeGroup = publicCategoryIndex.get(activeCategory);
-		      const categoryActive = activeCategory !== "Browse all";
+		      const categoryActive = activeCategory !== "All situations";
 	      const limit = defaultVisibleCount();
 	      let visible = 0;
 	      let matchesTotal = 0;
@@ -5721,12 +5733,12 @@
 	    search?.addEventListener("input", update);
 	    categoryButtons.forEach((categoryButton) => {
 	      categoryButton.addEventListener("click", () => {
-	        activeCategory = categoryButton.dataset.serviceCategoryFilter || "Browse all";
+	        activeCategory = categoryButton.dataset.serviceCategoryFilter || "All situations";
 	        update();
 	      });
 	    });
 	    const resetServiceFilters = (shouldFocusSearch = false) => {
-	      activeCategory = "Browse all";
+	      activeCategory = "All situations";
 	      revealed = false;
 	      clearServicePanel();
 	      if (search) {

@@ -1,18 +1,18 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260626-215840-guide-status-align
+## Public Website Release: mflg-live-20260626-222921-guide-filter-clarity
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260626-215840-guide-status-align`
-- Public JS SHA-256: `5c68c6b8fd97ea4def9c7de6efe2058f567e627a10fbc8bd1a35749fcf351364`
-- Public CSS SHA-256: `cf2283d595e21332a919151982c9405acdade3e3622f0c409367d8909cd90d0b`
+- Asset key: `mflg-live-20260626-222921-guide-filter-clarity`
+- Public JS SHA-256: `3e63f2eb605351c3802ecdd1c618db77553b6a54a6846d84697eca1f6cf510f4`
+- Public CSS SHA-256: `d966869cae798a94b5cefa2ec448de99bdb545e3ca882b41f45128a1f5d546a6`
 - Cloudflare `mflg-public-website`: `f4bd93c1-fe23-4e09-af7a-403289c7e9c0`
 - Cloudflare `mflg-webflow-assets`: `4855eb1e-2b64-4ffe-9e2f-4079bebca7d1`
 - Rollback deployments: `dc0e00c3-14a4-40e0-9340-8faf3127c1c9` and `172af330-39ea-4d60-b094-abf3b9f054a2`
-- Cloudflare source label: `main / 13b0cb7`
+- Cloudflare source label: pending clean redeploy for this release.
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: DIY Guides status-row alignment fix. The guide count row now uses the same centered container model as Browse by situation and the DIY guide grid, preventing desktop right-edge overflow without changing the card-count logic.
+- Scope: DIY Guides filter clarity cleanup. Browse all is now All situations, Show all 50 guides expands the full list, category notes match the active filter, and the Identity guide is folded into Documents & safety.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

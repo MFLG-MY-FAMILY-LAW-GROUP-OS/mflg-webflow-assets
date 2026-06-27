@@ -1,8 +1,8 @@
 {
-  "asset_key": "mflg-live-20260626-215840-guide-status-align",
-  "tag": "mflg-live-20260626-215840-guide-status-align",
-  "public_js_sha256": "5c68c6b8fd97ea4def9c7de6efe2058f567e627a10fbc8bd1a35749fcf351364",
-  "public_css_sha256": "cf2283d595e21332a919151982c9405acdade3e3622f0c409367d8909cd90d0b",
+  "asset_key": "mflg-live-20260626-222921-guide-filter-clarity",
+  "tag": "mflg-live-20260626-222921-guide-filter-clarity",
+  "public_js_sha256": "3e63f2eb605351c3802ecdd1c618db77553b6a54a6846d84697eca1f6cf510f4",
+  "public_css_sha256": "d966869cae798a94b5cefa2ec448de99bdb545e3ca882b41f45128a1f5d546a6",
   "cloudflare_deployments": {
     "mflg_public_website": "f4bd93c1-fe23-4e09-af7a-403289c7e9c0",
     "mflg_webflow_assets": "4855eb1e-2b64-4ffe-9e2f-4079bebca7d1"
@@ -15,7 +15,7 @@
   "evidence_contact_sheet": "reports/final-public-text-layout-qa/screenshot-contact-sheet.html",
   "hero_loop_results": "reports/live-hero-loop-proof/live-hero-loop-results.json",
   "cloudflare_source_label": {
-    "mflg_public_website": "main / 13b0cb7",
-    "mflg_webflow_assets": "main / 13b0cb7"
+    "mflg_public_website": "pending clean redeploy for guide-filter clarity release",
+    "mflg_webflow_assets": "pending clean redeploy for guide-filter clarity release"
   }
 }

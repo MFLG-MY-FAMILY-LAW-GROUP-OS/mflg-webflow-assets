@@ -41,7 +41,7 @@ async function openGuide(page, index) {
     card?.querySelector("[data-guide-open]")?.click();
     return title;
   }, index);
-  await page.locator(".guide-row-panel [data-guide-next-choice='forms']").click();
+  await page.locator(".guide-row-panel [data-guide-next-choice='forms']").first().click();
   await page.locator(".guide-row-panel [data-guide-pdf-panel]").waitFor({ state: "visible", timeout: 10000 });
   return cardTitle;
 }
