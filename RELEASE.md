@@ -6,10 +6,10 @@
 - Asset key: `mflg-live-20260627-094728-form-flow-simplify`
 - Public JS SHA-256: `b95995aa0c737d2f4ad8793b98001c6a530decaf06d3cacbb1125453184b945f`
 - Public CSS SHA-256: `cf3522fbfd01b99e527d07f45390ff01e98641bb047fdecbbe1d4adea93519f9`
-- Cloudflare `mflg-public-website`: `85ad000e-764c-4e7b-883f-70e8346e8b16`
-- Cloudflare `mflg-webflow-assets`: `ee27ef33-1699-450b-b806-1943abdfa04f`
-- Rollback deployments: `e37cecb2-d634-4b6a-83fc-8893eea8630f` and `90456a5f-67c9-488d-b24c-d0b1a448fac7`
-- Cloudflare source label: `main / 1830093`
+- Cloudflare `mflg-public-website`: `8333f5dd-ff23-45ea-9171-bd8a0c22336e`
+- Cloudflare `mflg-webflow-assets`: `63e463ae-e31a-4316-933c-1305501bfe2c`
+- Rollback deployments: `85ad000e-764c-4e7b-883f-70e8346e8b16` and `ee27ef33-1699-450b-b806-1943abdfa04f`
+- Cloudflare source label: `main / 306c8a9`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
 - Scope: Forms flow simplification. DIY Guide form handoff no longer preselects unanswered county, stage, children, or packet fields; the packet checklist starts from a neutral helper-matched placeholder; duplicate helper step copy is reduced; and guide-to-forms CTAs now tell users to answer questions before opening forms.

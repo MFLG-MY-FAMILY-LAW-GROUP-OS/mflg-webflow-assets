@@ -39,7 +39,7 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-public-label-polish.js`: pass.
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
 - `MFLG_TEST_BASE_URL=http://127.0.0.1:4196 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
-- Live custom-domain guided flow clarity: pending final clean redeploy verification for form-flow simplify key.
+- Live custom-domain form-flow simplify verification: pass. `myfamilylawgroup.com` serves `mflg-live-20260627-094728-form-flow-simplify`; the previous `mflg-live-20260627-090622-label-polish` key is absent; all target routes return 200; no public external PDF anchors are visible; live guide handoff and guided Forms flow regressions pass.
 - `npm run test:matter-form-matrix`: pass
 - `npm run test:county-form-coverage`: pass
 - `npm run test:unique-route-coverage`: pass
