@@ -48,8 +48,25 @@ Base URL for local regression: `http://127.0.0.1:4186`
 - `npm run test:all-county-user-outcomes`: pass
 - `npm run test:all-county-production-stability`: pass, 27 runs / 0 failures / 0 timeout mentions / 0 console or network mentions
 
-Final live public JS SHA-256: `b95995aa0c737d2f4ad8793b98001c6a530decaf06d3cacbb1125453184b945f`
+## Result Pruning Release: mflg-live-20260627-163258-result-pruning
 
-Final live public CSS SHA-256: `cf3522fbfd01b99e527d07f45390ff01e98641bb047fdecbbe1d4adea93519f9`
+Base URL for local regression: `http://127.0.0.1:4197`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260627-163258-result-pruning ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4197 node scripts/playwright-forms-tools-guided-flow.js`: pass. The matched form result uses `View matched forms`, the alternate form-group browser renders but stays closed by default, the form-group dropdown is not visible above matched forms, and no packet form auto-opens or checks itself before the user clicks `View form`.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4197 node scripts/playwright-guide-county-gate.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4197 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4197 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-guide-county-gate.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Deploy script uploaded successfully but its built-in marker retry timed out twice during propagation. Direct custom-domain checks passed and final direct deploys corrected source labels without regenerating artifacts.
+- Final Cloudflare `mflg-public-website`: `5a4e640f-d314-4154-ab2f-644e6a64b84c`, source `main / ebe0f96`.
+- Final Cloudflare `mflg-webflow-assets`: `5c248d22-95bf-476d-8310-948d96b12e5a`, source `main / ebe0f96`.
+
+Final live public JS SHA-256: `5b258f58dc8a3996a8f9db4f0587253f3fed8e01a9d39d90ae39bbb06be0ec18`
+
+Final live public CSS SHA-256: `5798b12b682d3bf5255b7e5844046773918d34fa601a9bb8c2933038acd3c602`
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`

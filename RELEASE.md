@@ -1,18 +1,19 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260627-094728-form-flow-simplify
+## Public Website Release: mflg-live-20260627-163258-result-pruning
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260627-094728-form-flow-simplify`
-- Public JS SHA-256: `b95995aa0c737d2f4ad8793b98001c6a530decaf06d3cacbb1125453184b945f`
-- Public CSS SHA-256: `cf3522fbfd01b99e527d07f45390ff01e98641bb047fdecbbe1d4adea93519f9`
-- Cloudflare `mflg-public-website`: `8333f5dd-ff23-45ea-9171-bd8a0c22336e`
-- Cloudflare `mflg-webflow-assets`: `63e463ae-e31a-4316-933c-1305501bfe2c`
-- Rollback deployments: `85ad000e-764c-4e7b-883f-70e8346e8b16` and `ee27ef33-1699-450b-b806-1943abdfa04f`
-- Cloudflare source label: `main / 306c8a9`
+- Asset key: `mflg-live-20260627-163258-result-pruning`
+- Source commit: `ebe0f96c2a40fa9227861297f531c5f1131fda7a`
+- Public JS SHA-256: `5b258f58dc8a3996a8f9db4f0587253f3fed8e01a9d39d90ae39bbb06be0ec18`
+- Public CSS SHA-256: `5798b12b682d3bf5255b7e5844046773918d34fa601a9bb8c2933038acd3c602`
+- Cloudflare `mflg-public-website`: `5a4e640f-d314-4154-ab2f-644e6a64b84c`
+- Cloudflare `mflg-webflow-assets`: `5c248d22-95bf-476d-8310-948d96b12e5a`
+- Rollback deployments: `95336229-04b8-49a5-96da-3ff8d5f7267d` and `ffed2fce-f852-4f7e-a5ae-151a6d90217c`
+- Cloudflare source label: `main / ebe0f96`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Forms flow simplification. DIY Guide form handoff no longer preselects unanswered county, stage, children, or packet fields; the packet checklist starts from a neutral helper-matched placeholder; duplicate helper step copy is reduced; and guide-to-forms CTAs now tell users to answer questions before opening forms.
+- Scope: Forms result pruning. The matched form result now reads before alternate packet controls; alternate form groups are collapsed behind `Browse other form groups`; old `Unified result summary`, `Recommended result`, `Other official resources`, and `Open matched forms` labels were replaced with user-facing copy; and matched packets no longer auto-open or check a form before the user clicks `View form`.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

@@ -1,7 +1,7 @@
 {
   "rollback_deployments": {
-    "mflg_public_website": "85ad000e-764c-4e7b-883f-70e8346e8b16",
-    "mflg_webflow_assets": "ee27ef33-1699-450b-b806-1943abdfa04f"
+    "mflg_public_website": "95336229-04b8-49a5-96da-3ff8d5f7267d",
+    "mflg_webflow_assets": "ffed2fce-f852-4f7e-a5ae-151a6d90217c"
   },
-  "previous_asset_key": "mflg-live-20260627-090622-label-polish"
+  "previous_asset_key": "mflg-live-20260627-094728-form-flow-simplify"
 }
