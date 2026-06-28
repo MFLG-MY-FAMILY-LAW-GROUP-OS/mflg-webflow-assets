@@ -1,19 +1,19 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260628-103055-guided-copy-polish
+## Public Website Release: mflg-live-20260628-112018-fallback-card-simplify
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260628-103055-guided-copy-polish`
-- Source commit: `f00c76550b5a2c24e0b075b422698df22fe4cbdc`
-- Public JS SHA-256: `0e53dfd25f5f254824bd195d9bc9212cdb8901730280efd623c3d686ff06a1f9`
-- Public CSS SHA-256: `2dabaa8e3fa79586c9b7c5c6ceb3c40aff986362038d16d2791b6970b0b8e03e`
-- Cloudflare `mflg-public-website`: `452520dd-b3db-445e-966a-d2ae5aa8a3c0`
-- Cloudflare `mflg-webflow-assets`: `9ac9c26d-f9fe-4ea2-b33c-fce1bf7d8d90`
-- Rollback deployments: `9025979e-f816-47c8-84d4-6b5070836517` and `7b9762e9-61ec-435a-9649-134bb23d056f`
-- Cloudflare source label: `main / f00c765`
+- Asset key: `mflg-live-20260628-112018-fallback-card-simplify`
+- Source commit: `c9333c30673a75767b8306378004941ecfb528ec`
+- Public JS SHA-256: `06161c4a4ed7d26c2a7b17281186d81dc81406ffc7bc27defc97e7d494e9504d`
+- Public CSS SHA-256: `9d17783640a85cdd28f86e95a82e35ba3531deb16d90f9f87002159840d54b0b`
+- Cloudflare `mflg-public-website`: `d374ec0a-44bd-441b-acb4-832dbd1295b0`
+- Cloudflare `mflg-webflow-assets`: `6572800c-973f-45f6-91ee-99c7f9082f11`
+- Rollback deployments: `452520dd-b3db-445e-966a-d2ae5aa8a3c0` and `9ac9c26d-f9fe-4ea2-b33c-fce1bf7d8d90`
+- Cloudflare source label: `main / c9333c3`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Guided form copy polish. Fallback result text now uses readable separators, plain selected-answer reasoning, `Ask for office review` and `Save for office review` CTAs, single visible example-source badges, and same-site PDF viewing remains intact.
+- Scope: Fallback card simplification. Non-exact county fallback results now use `Review nearby examples`, remove future-implying `yet` language, rename the reason section to `Why these examples appear`, show one visible example-source line, hide file-code metadata from fallback cards, and preserve same-site PDF viewing.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

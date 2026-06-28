@@ -2,6 +2,28 @@
 
 Base URL for local regression: `http://127.0.0.1:4186`
 
+## Fallback Card Simplify Release: mflg-live-20260628-112018-fallback-card-simplify
+
+Base URL for local regression: `http://127.0.0.1:4204`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260628-112018-fallback-card-simplify ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4204 node scripts/playwright-forms-tools-guided-flow.js`: pass. Regression now requires `Review nearby examples`, rejects future-implying `yet` language in fallback result copy, requires `Why these examples appear`, rejects duplicate visible `Court source` fallback card lines, and rejects visible PDF filename/file-code metadata in fallback cards.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4204 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Targeted local fallback read: Pima fallback shows `No verified Pima packet is available for this path.`, `Review nearby examples`, `Why these examples appear`, no visible court-source duplicate line, and no visible PDF filename/file-code metadata.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Targeted live fallback read: Pima fallback shows `No verified Pima packet is available for this path.`, `Why these examples appear`, `Review nearby examples`, no visible court-source duplicate line, and no visible PDF filename/file-code metadata.
+- Deploy script uploaded both projects successfully but its built-in marker retry timed out during propagation. Direct custom-domain checks passed; final direct deploys corrected Cloudflare source labels to `main / c9333c3`.
+- Final Cloudflare `mflg-public-website`: `d374ec0a-44bd-441b-acb4-832dbd1295b0`, source `main / c9333c3`.
+- Final Cloudflare `mflg-webflow-assets`: `6572800c-973f-45f6-91ee-99c7f9082f11`, source `main / c9333c3`.
+
+Final live public JS SHA-256: `06161c4a4ed7d26c2a7b17281186d81dc81406ffc7bc27defc97e7d494e9504d`
+
+Final live public CSS SHA-256: `9d17783640a85cdd28f86e95a82e35ba3531deb16d90f9f87002159840d54b0b`
+
+Final live screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+
 ## Guided Copy Polish Release: mflg-live-20260628-103055-guided-copy-polish
 
 Base URL for local regression: `http://127.0.0.1:4203`
