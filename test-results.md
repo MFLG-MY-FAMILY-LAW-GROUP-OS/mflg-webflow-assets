@@ -90,4 +90,25 @@ Final live public JS SHA-256: `7d7250ec28681345268a2c10377b219aa3193e3810a7c161d
 
 Final live public CSS SHA-256: `d52d269e0529ed04c6d9a6504a5f0bd08664223f523866bae188f08eacc41c45`
 
+## Form Scan Polish Release: mflg-live-20260628-011530-form-scan-polish
+
+Base URL for local regression: `http://127.0.0.1:4199`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260628-011530-form-scan-polish ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4199 node scripts/playwright-forms-tools-guided-flow.js`: pass. The matched forms view uses `See other form groups`, keeps one visible secondary browse control, keeps the alternate form-group browser closed, and preserves same-site PDF viewer behavior.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4199 node scripts/playwright-guide-county-gate.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4199 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4199 node scripts/playwright-public-text-layout-qa.js`: pass after mobile button fit adjustment, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-guide-county-gate.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Deploy script uploaded successfully but its built-in marker retry timed out during propagation. Direct custom-domain checks passed and final direct deploys corrected source labels without regenerating artifacts.
+- Final Cloudflare `mflg-public-website`: `022c036e-f1f4-4892-8754-63d61c812e91`, source `main / 3a4741d`.
+- Final Cloudflare `mflg-webflow-assets`: `536f7a50-4d99-465d-b933-e1f64e3d4582`, source `main / 3a4741d`.
+
+Final live public JS SHA-256: `4240720a3a429dfc7e6663aac7c6c8b7fe11904f3ac2da707c1806f028803624`
+
+Final live public CSS SHA-256: `9dafcfea9b69c7bbb4ae3bd94f7102f0dfc35c17030cd23f6e4704885ba19cd1`
+
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`

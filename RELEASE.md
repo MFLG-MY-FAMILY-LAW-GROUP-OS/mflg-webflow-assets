@@ -1,19 +1,19 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260628-002232-form-escape-hatch
+## Public Website Release: mflg-live-20260628-011530-form-scan-polish
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260628-002232-form-escape-hatch`
-- Source commit: `25912d7d418d05d540554ba65216e540b7a445ce`
-- Public JS SHA-256: `7d7250ec28681345268a2c10377b219aa3193e3810a7c161d5cf8709f8180561`
-- Public CSS SHA-256: `d52d269e0529ed04c6d9a6504a5f0bd08664223f523866bae188f08eacc41c45`
-- Cloudflare `mflg-public-website`: `c735e695-d70c-47ec-8aa4-f2c0c1e9f162`
-- Cloudflare `mflg-webflow-assets`: `a6053e5b-fe4e-46a8-93b7-7e9e13cc715d`
-- Rollback deployments: `5a4e640f-d314-4154-ab2f-644e6a64b84c` and `5c248d22-95bf-476d-8310-948d96b12e5a`
-- Cloudflare source label: `main / 25912d7`
+- Asset key: `mflg-live-20260628-011530-form-scan-polish`
+- Source commit: `3a4741d0f6c6c2a006872d3fa6c342c60a8ee667`
+- Public JS SHA-256: `4240720a3a429dfc7e6663aac7c6c8b7fe11904f3ac2da707c1806f028803624`
+- Public CSS SHA-256: `9dafcfea9b69c7bbb4ae3bd94f7102f0dfc35c17030cd23f6e4704885ba19cd1`
+- Cloudflare `mflg-public-website`: `022c036e-f1f4-4892-8754-63d61c812e91`
+- Cloudflare `mflg-webflow-assets`: `536f7a50-4d99-465d-b933-e1f64e3d4582`
+- Rollback deployments: `c735e695-d70c-47ec-8aa4-f2c0c1e9f162` and `a6053e5b-fe4e-46a8-93b7-7e9e13cc715d`
+- Cloudflare source label: `main / 3a4741d`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Matched forms escape hatch. The matched forms landing now uses the plain `Recommended forms` heading, shows one visible secondary `Browse form groups` control when the recommendation may not fit, keeps the alternate form-group browser collapsed until requested, and preserves same-site PDF viewing without restoring the stale dropdown above the result.
+- Scope: Matched forms scan polish. The secondary form-group prompt now reads `If this does not fit`, the browse action uses the more natural `See other form groups`, the mini-list is hidden on mobile to reduce density, and `View form` is visually stronger while preserving same-site PDF viewing and the collapsed alternate form-group browser.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 
