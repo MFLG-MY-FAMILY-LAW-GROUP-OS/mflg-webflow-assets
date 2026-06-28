@@ -179,6 +179,20 @@
     if (host.includes("yavapaiaz.gov")) return "Court source: Yavapai Courts";
     return "Court source: official court website";
   }
+  function officialPdfSourceCounty(file) {
+    let host = "";
+    try {
+      host = new URL(file?.official_pdf_url || "").hostname.replace(/^www\./, "").toLowerCase();
+    } catch (_) {
+      host = "";
+    }
+    if (host.includes("superiorcourt.maricopa.gov")) return "Maricopa";
+    if (host.includes("sc.pima.gov")) return "Pima";
+    if (host.includes("cochise.az.gov")) return "Cochise";
+    if (host.includes("yavapaiaz.gov")) return "Yavapai";
+    if (host.includes("azcourts.gov")) return "Statewide";
+    return "";
+  }
 
   const legalTermDefinitions = {
     "case-stage": "The step your case is in, such as starting a case, responding to papers, finalizing an agreement, or changing an existing order.",
@@ -436,10 +450,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-085118-form-result-fallback">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-092134-related-form-quality">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-085118-form-result-fallback">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-092134-related-form-quality">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3354,14 +3368,14 @@
       };
     }
 
-    if (route.county && route.county !== "Maricopa") {
-      return {
-        tone: "source",
-        kicker: "Related official forms",
-        title: "No verified county packet is matched yet.",
-        copy: "Review related Arizona form groups on this page first. If none of the titles match your county, stage, children, and issue, use Guided Intake instead of guessing.",
-        primaryLabel: "See related Arizona forms",
-        primaryHref: "#forms-approved-pdfs",
+	    if (route.county && route.county !== "Maricopa") {
+	      return {
+	        tone: "source",
+	        kicker: "Related official forms",
+	        title: "No verified county packet is matched yet.",
+	        copy: "The forms below are nearby Arizona examples, not a verified packet for your selected county. Use them only if the court source and title fit, or use Guided Intake instead of guessing.",
+	        primaryLabel: "See related Arizona forms",
+	        primaryHref: "#forms-approved-pdfs",
         pdfPacket: "all",
         allowRelatedForms: true,
         meta: ["No exact county packet", "Related forms below", "Use Intake if unsure"],
@@ -4442,7 +4456,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-085118-form-result-fallback" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-092134-related-form-quality" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7202,12 +7216,12 @@
 	            route: true
 	          };
 	        }
-	        return {
-	          label: "What happens next",
-	          tier: "Related official forms",
-	          title: "No verified county packet is matched yet.",
-	          copy: "Review related Arizona form groups on this page. If none of the titles match your county, stage, children, and issue, use Guided Intake instead of guessing.",
-	          href: "#forms-approved-pdfs",
+		        return {
+		          label: "What happens next",
+		          tier: "Related official forms",
+		          title: "No verified county packet is matched yet.",
+		          copy: "The forms below are nearby Arizona examples, not a verified packet for your selected county. Use them only if the court source and title fit, or use Guided Intake instead of guessing.",
+		          href: "#forms-approved-pdfs",
 	          text: "See related Arizona forms",
 	          link: true,
 	          relatedForms: true
@@ -7566,10 +7580,13 @@
         const tierTitle = shouldContinueQuestions
           ? "One primary path will appear here."
           : recommendation.title || "Recommended next step";
-        const tierCopy = shouldContinueQuestions
-          ? "Optional resources stay hidden until the helper has enough answers."
-          : "Related forms stay below the main form result.";
-        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}</span><strong>${esc(tierTitle)}</strong><p>${esc(tierCopy)}</p>`;
+	        const tierCopy = shouldContinueQuestions
+	          ? "Optional resources stay hidden until the helper has enough answers."
+	          : recommendation.relatedForms
+	          ? "Nearby examples appear below. They are not a verified county packet."
+	          : "Related forms stay below the main form result.";
+	        guidedResultTier.setAttribute("aria-label", [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". "));
+	        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}</span><strong>${esc(tierTitle)}</strong><p>${esc(tierCopy)}</p>`;
       }
       if (guidedReason) {
         guidedReason.hidden = shouldContinueQuestions && !savedResumeActive;
@@ -9640,8 +9657,9 @@
                     data-packet="${esc(key)}"
                     data-language="${esc(action.language || "")}"
                     data-label="${esc(action.public_name || action.display_label || action.label || action.file_name || "Official PDF")}"
-                    data-source-label="${esc(action.source_label || action.label || "")}"
-	                    data-file-name="${esc(action.file_name || "")}"
+	                    data-source-label="${esc(action.source_label || action.label || "")}"
+	                    data-source-county="${esc(officialPdfSourceCounty(action))}"
+		                    data-file-name="${esc(action.file_name || "")}"
 	                    data-child-only="${isChildOnlyOfficialForm(action) ? "true" : "false"}"
 	                    data-pdf-url="${esc(sitePdfViewUrlFor(action))}"
                     data-official-pdf-url="${esc(action.official_pdf_url || "")}"
@@ -9735,9 +9753,46 @@
         children: "any",
         pdfPacket: "all"
       };
-      let expandFocusedPdfGroup = false;
-      let allowUnmatchedPdfBrowse = false;
-      const updateIntakePanel = () => {
+	      let expandFocusedPdfGroup = false;
+	      let allowUnmatchedPdfBrowse = false;
+	      const packetRelevanceScore = (packetRoute, routeDetail) => {
+	        const selected = routeDetail || {};
+	        const candidate = packetRoute || {};
+	        const selectedIssue = normalizeFormsIssue(selected.issue || "all");
+	        const candidateIssue = normalizeFormsIssue(candidate.issue || "all");
+	        const selectedCounty = normalizeFormsCounty(selected.county);
+	        const candidateCounty = normalizeFormsCounty(candidate.county);
+	        const selectedPosture = normalizeFormsPosture(selected.posture);
+	        const candidatePosture = normalizeFormsPosture(candidate.posture);
+	        const selectedChildren = normalizeFormsChildren(selected.children);
+	        const candidateChildren = normalizeFormsChildren(candidate.children);
+	        const issueMatches = selectedIssue === "all" || candidateIssue === selectedIssue || candidateIssue === "all" || candidateIssue.includes(selectedIssue) || selectedIssue.includes(candidateIssue);
+	        if (!issueMatches) return -1;
+	        if (selectedChildren === "no-minor-children" && candidateChildren === "minor-children") return -1;
+	        if (selectedChildren === "minor-children" && candidateChildren === "no-minor-children") return -1;
+	        let score = 0;
+	        if (selectedCounty !== "Not sure" && candidateCounty === selectedCounty) score += 100;
+	        if (candidateCounty === "Statewide") score += 60;
+	        if (selectedIssue !== "all" && candidateIssue === selectedIssue) score += 45;
+	        else if (selectedIssue !== "all" && candidateIssue !== "all" && (candidateIssue.includes(selectedIssue) || selectedIssue.includes(candidateIssue))) score += 35;
+	        else if (candidateIssue === "all") score += 5;
+	        if (selectedPosture !== "Any posture" && candidatePosture === selectedPosture) score += 20;
+	        else if (candidatePosture === "Any posture") score += 5;
+	        if (selectedChildren !== "any" && candidateChildren === selectedChildren) score += 20;
+	        else if (candidateChildren === "any") score += 5;
+	        return score;
+	      };
+	      const relatedPacketIdsForRoute = (routeDetail) => {
+	        const scored = routePackets
+	          .map((item) => ({ id: item.packet_id, score: packetRelevanceScore(item.route || {}, routeDetail) }))
+	          .filter((item) => item.id && item.score > 0);
+	        if (!scored.length) return new Set();
+	        const exactCounty = scored.filter((item) => item.score >= 120);
+	        if (exactCounty.length) return new Set(exactCounty.map((item) => item.id));
+	        const best = Math.max(...scored.map((item) => item.score));
+	        return new Set(scored.filter((item) => item.score === best).map((item) => item.id));
+	      };
+	      const updateIntakePanel = () => {
         const packetValue = packet?.value || "all";
         const packetLabel = packetValue !== "all"
           ? packet?.options[packet.selectedIndex]?.textContent || ""
@@ -9840,19 +9895,34 @@
 	        const q = (search?.value || "").trim().toLowerCase();
 	        const packetValue = packet?.value || "all";
 	        const languageValue = language?.value || "all";
+	        const relatedBrowse = packetValue === "all" && allowUnmatchedPdfBrowse;
+	        const relatedPacketIds = relatedBrowse ? relatedPacketIdsForRoute(currentRouteDetail) : new Set();
 	        const allowPdfLinks = packetValue !== "all" || allowUnmatchedPdfBrowse;
 	        const noMinorChildren = normalizeFormsChildren(currentRouteDetail.children) === "no-minor-children";
 	        let hiddenForChildren = 0;
+	        let hiddenForCountyFit = 0;
+	        let hiddenForDuplicate = 0;
 	        let visible = 0;
+	        const seenRelatedForms = new Set();
 	        links.forEach((link) => {
 	          const matchesSearch = !q || (link.dataset.search || "").includes(q);
 	          const matchesPacket = packetValue === "all" || link.dataset.packet === packetValue;
 	          const matchesLanguage = languageValue === "all" || link.dataset.language === languageValue;
 	          const childOnlyMismatch = noMinorChildren && link.dataset.childOnly === "true";
-	          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch;
+	          const relatedPacketMismatch = relatedBrowse && relatedPacketIds.size && !relatedPacketIds.has(link.dataset.packet || "");
+	          const relatedKey = [
+	            (link.dataset.label || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(),
+	            link.dataset.sourceCounty || "",
+	            link.dataset.language || ""
+	          ].join("|");
+	          const duplicateRelatedForm = relatedBrowse && relatedKey.trim() && seenRelatedForms.has(relatedKey);
+	          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && !relatedPacketMismatch && !duplicateRelatedForm;
 	          link.hidden = !show;
 	          if (show) visible += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && childOnlyMismatch) hiddenForChildren += 1;
+	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && relatedPacketMismatch) hiddenForCountyFit += 1;
+	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && !relatedPacketMismatch && duplicateRelatedForm) hiddenForDuplicate += 1;
+	          if (show && relatedBrowse) seenRelatedForms.add(relatedKey);
 	        });
         groupCards.forEach((group) => {
           const hasVisible = Array.from(group.querySelectorAll("[data-official-pdf-link]")).some((link) => !link.hidden);
@@ -9866,33 +9936,41 @@
           card.setAttribute("aria-pressed", selected ? "true" : "false");
         });
         const selectedRoute = routePacketById.get(packetValue);
-        if (spotlightKicker) {
-          spotlightKicker.textContent = selectedRoute ? "Recommended form path" : "Related forms";
-        }
-        if (spotlightTitle) {
-          spotlightTitle.textContent = selectedRoute
-            ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended form group selected"
-            : !allowUnmatchedPdfBrowse
-            ? "No exact form packet is selected for these answers."
-            : "Choose another form group only if the recommendation does not fit.";
-        }
-        if (spotlightCopy) {
-          spotlightCopy.textContent = selectedRoute
-            ? "Use this primary form path if it matches your situation. Open the forms in order."
-            : !allowUnmatchedPdfBrowse
-            ? "Use Guided Intake or change answers before opening a packet. Browse other form groups only if you already know the court packet title."
-            : "Use search, form group, and language filters only if you know what you are looking for. Otherwise, start Guided Intake.";
-        }
+	        if (spotlightKicker) {
+	          spotlightKicker.textContent = selectedRoute ? "Recommended form path" : "Nearby form examples";
+	        }
+	        if (spotlightTitle) {
+	          spotlightTitle.textContent = selectedRoute
+	            ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended form group selected"
+	            : !allowUnmatchedPdfBrowse
+	            ? "No exact form packet is selected for these answers."
+	            : "No verified packet is matched for your selected county.";
+	        }
+	        if (spotlightCopy) {
+	          spotlightCopy.textContent = selectedRoute
+	            ? "Use this primary form path if it matches your situation. Open the forms in order."
+	            : !allowUnmatchedPdfBrowse
+	            ? "Use Guided Intake or change answers before opening a packet. Browse other form groups only if you already know the court packet title."
+	            : "The forms below are the closest on-site examples by issue, stage, and children answer. They may come from another Arizona court and are not a verified county packet.";
+	        }
 	        if (status) {
 	          const childNote = hiddenForChildren
-	            ? ` ${hiddenForChildren} child-related form${hiddenForChildren === 1 ? "" : "s"} hidden because you selected no minor children.`
+	            ? " We hid parenting, child-support, and paternity forms because you selected no minor children."
+	            : "";
+	          const fitNote = hiddenForCountyFit && relatedBrowse
+	            ? " We are showing the closest nearby form group and hiding less relevant form groups."
+	            : "";
+	          const duplicateNote = hiddenForDuplicate && relatedBrowse
+	            ? " Repeated form titles are shown once."
 	            : "";
 	          status.textContent = visible
-	            ? "Forms are ready."
+	            ? relatedBrowse
+	              ? "Nearby form examples are ready. These are not a verified county packet."
+	              : "Forms are ready."
 	            : allowUnmatchedPdfBrowse
 	            ? "No forms match these filters."
 	            : "No exact issue-specific form packet is selected for these answers.";
-	          status.textContent += childNote;
+	          status.textContent += childNote + fitNote + duplicateNote;
 	        }
         updateIntakePanel();
         updateItemIntakeLinks();

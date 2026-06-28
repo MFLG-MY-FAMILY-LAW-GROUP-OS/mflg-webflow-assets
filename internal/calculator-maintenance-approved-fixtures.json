@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-maintenance-approved-fixtures",
-  "built_at": "2026-06-28T15:55:47.905Z",
+  "built_at": "2026-06-28T16:31:29.934Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,
@@ -14,7 +14,7 @@
       "purpose": "Current-guideline respondent request with income disparity.",
       "reviewer": {
         "reviewed_by": "MFLG official maintenance API fixture generator",
-        "reviewed_at": "2026-06-28T15:55:47.905Z",
+        "reviewed_at": "2026-06-28T16:31:29.934Z",
         "official_calculator_source": "Arizona official spousal maintenance API",
         "official_api_endpoint_host": "jbazmc.azure-api.net",
         "approval_status": "approved",
@@ -159,7 +159,7 @@
       "purpose": "Current-guideline petitioner request with respondent higher income.",
       "reviewer": {
         "reviewed_by": "MFLG official maintenance API fixture generator",
-        "reviewed_at": "2026-06-28T15:55:47.905Z",
+        "reviewed_at": "2026-06-28T16:31:29.934Z",
         "official_calculator_source": "Arizona official spousal maintenance API",
         "official_api_endpoint_host": "jbazmc.azure-api.net",
         "approval_status": "approved",
@@ -304,7 +304,7 @@
       "purpose": "Current-guideline fixture with attributed income and shorter marriage.",
       "reviewer": {
         "reviewed_by": "MFLG official maintenance API fixture generator",
-        "reviewed_at": "2026-06-28T15:55:47.905Z",
+        "reviewed_at": "2026-06-28T16:31:29.934Z",
         "official_calculator_source": "Arizona official spousal maintenance API",
         "official_api_endpoint_host": "jbazmc.azure-api.net",
         "approval_status": "approved",

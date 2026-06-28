@@ -58,9 +58,15 @@ async function pageState(page) {
     duplicateVisibleLabels: (document.body.innerText.replace(/\s+/g, " ").trim().match(/\b[1-5](Need|County|Stage|Issue|Children)\b|Find forms Find forms|Calculator Use a calculator|DIY guide Read a DIY guide|Help me choose Help me choose/g) || []),
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
     exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
-    sameSiteOfficialPdfActions: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview]"))
-      .filter((button) => button.offsetParent !== null && getComputedStyle(button).visibility !== "hidden")
-      .map((button) => button.textContent.trim()),
+	    sameSiteOfficialPdfActions: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview]"))
+	      .filter((button) => button.offsetParent !== null && getComputedStyle(button).visibility !== "hidden")
+	      .map((button) => button.textContent.trim()),
+	    sameSiteOfficialPdfNames: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview] strong"))
+	      .filter((item) => item.offsetParent !== null && getComputedStyle(item).visibility !== "hidden")
+	      .map((item) => item.textContent.replace(/\s+/g, " ").trim()),
+	    sameSiteOfficialPdfSourceCounties: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden])"))
+	      .filter((item) => item.offsetParent !== null && getComputedStyle(item).visibility !== "hidden")
+	      .map((item) => item.dataset.sourceCounty || ""),
 	    sameSiteOfficialPdfDownloads: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) .official-pdf-direct-download"))
 	      .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
 	      .map((link) => link.getAttribute("href") || "")
@@ -228,7 +234,7 @@ async function pageState(page) {
 	      assert(/View matched forms/i.test(noChildrenForms.action || ""), `${viewport.name}: no-children forms CTA should view matched forms`);
 	      assert(noChildrenForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: no-children route should still show same-site PDF actions`);
 	      assert(noChildrenForms.sameSiteOfficialPdfActions.every((label) => !/Parenting Plan|Parenting Time|Legal Decision|Child Support|Paternity/i.test(label)), `${viewport.name}: no-children route should hide child-related PDFs: ${noChildrenForms.sameSiteOfficialPdfActions.join(" | ")}`);
-	      assert(/child-related form/i.test(noChildrenForms.officialPdfStatus), `${viewport.name}: no-children route should explain hidden child-related PDFs, got ${noChildrenForms.officialPdfStatus}`);
+	      assert(/parenting, child-support, and paternity forms/i.test(noChildrenForms.officialPdfStatus), `${viewport.name}: no-children route should explain hidden child-related PDFs, got ${noChildrenForms.officialPdfStatus}`);
 
 	      await page.click("[data-smart-reset]");
 	      await page.click('[data-guided-answer="forms"]');
@@ -243,6 +249,9 @@ async function pageState(page) {
 	      assert(/No verified county packet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleUnifiedSummary}`), `${viewport.name}: related county result should explain no verified county packet`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: related county route should show related same-site official PDF actions`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => /View form/i.test(label)), `${viewport.name}: related county primary PDF actions should remain View form`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length <= 5, `${viewport.name}: related county fallback should stay focused, got ${relatedCountyForms.sameSiteOfficialPdfActions.length} visible forms`);
+	      assert(/not a verified county packet|Nearby form examples/i.test(`${relatedCountyForms.resultCopy} ${relatedCountyForms.officialPdfStatus}`), `${viewport.name}: related county fallback should warn that forms are not a verified county packet, got ${relatedCountyForms.resultCopy} / ${relatedCountyForms.officialPdfStatus}`);
+	      assert(new Set(relatedCountyForms.sameSiteOfficialPdfNames.map((name) => name.toLowerCase())).size === relatedCountyForms.sameSiteOfficialPdfNames.length, `${viewport.name}: related county fallback should not repeat visible form names: ${relatedCountyForms.sameSiteOfficialPdfNames.join(" | ")}`);
 
 	      await page.click("[data-smart-reset]");
       await page.click('[data-smart-lane="calculator"]');
