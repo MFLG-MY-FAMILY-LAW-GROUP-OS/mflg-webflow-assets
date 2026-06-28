@@ -64,9 +64,12 @@ async function pageState(page) {
 	    sameSiteOfficialPdfNames: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview] strong"))
 	      .filter((item) => item.offsetParent !== null && getComputedStyle(item).visibility !== "hidden")
 	      .map((item) => item.textContent.replace(/\s+/g, " ").trim()),
-	    sameSiteOfficialPdfSourceCounties: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden])"))
-	      .filter((item) => item.offsetParent !== null && getComputedStyle(item).visibility !== "hidden")
-	      .map((item) => item.dataset.sourceCounty || ""),
+		    sameSiteOfficialPdfSourceCounties: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden])"))
+		      .filter((item) => item.offsetParent !== null && getComputedStyle(item).visibility !== "hidden")
+		      .map((item) => item.dataset.sourceCounty || ""),
+	    sameSiteOfficialPdfExampleSources: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-example-source]"))
+	      .filter((item) => item.offsetParent !== null && !item.hidden && getComputedStyle(item).visibility !== "hidden")
+	      .map((item) => item.textContent.replace(/\s+/g, " ").trim()),
 	    sameSiteOfficialPdfDownloads: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) .official-pdf-direct-download"))
 	      .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
 	      .map((link) => link.getAttribute("href") || "")
@@ -240,18 +243,23 @@ async function pageState(page) {
 	      await page.click('[data-guided-answer="forms"]');
 	      await page.click('[data-guided-answer="Pima"]');
 	      await page.click('[data-guided-answer="New filing"]');
+	      const issueOptions = await page.evaluate(() => Array.from(document.querySelectorAll("[data-guided-answer]")).filter((button) => button.offsetParent !== null).map((button) => button.getAttribute("data-guided-answer") || ""));
+	      ["relocation", "modification", "enforcement", "agreement", "name change", "safety", "adoption"].forEach((option) => {
+	        assert(issueOptions.includes(option), `${viewport.name}: guided issue options should include ${option}; got ${issueOptions.join(", ")}`);
+	      });
 	      await page.click('[data-guided-answer="divorce"]');
 	      await page.click('[data-guided-answer="minor-children"]');
 	      const relatedCountyForms = await pageState(page);
 	      assert(!relatedCountyForms.routerHidden, `${viewport.name}: related county form router should reveal after completed answers`);
 	      assert(!relatedCountyForms.packetsHidden, `${viewport.name}: related county PDF area should reveal after completed answers`);
-	      assert(/See related Arizona forms/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should point to related forms, got ${relatedCountyForms.action}`);
-	      assert(/No verified county packet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleUnifiedSummary}`), `${viewport.name}: related county result should explain no verified county packet`);
+	      assert(/See nearby examples/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should point to nearby examples, got ${relatedCountyForms.action}`);
+	      assert(/No verified (Pima|county) packet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleUnifiedSummary}`), `${viewport.name}: related county result should explain no verified county packet`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: related county route should show related same-site official PDF actions`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => /View form/i.test(label)), `${viewport.name}: related county primary PDF actions should remain View form`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length <= 5, `${viewport.name}: related county fallback should stay focused, got ${relatedCountyForms.sameSiteOfficialPdfActions.length} visible forms`);
-	      assert(/not a verified county packet|Nearby form examples/i.test(`${relatedCountyForms.resultCopy} ${relatedCountyForms.officialPdfStatus}`), `${viewport.name}: related county fallback should warn that forms are not a verified county packet, got ${relatedCountyForms.resultCopy} / ${relatedCountyForms.officialPdfStatus}`);
+	      assert(/No verified Pima packet|not a verified county packet|Nearby form examples/i.test(`${relatedCountyForms.resultCopy} ${relatedCountyForms.officialPdfStatus}`), `${viewport.name}: related county fallback should warn that forms are not a verified county packet, got ${relatedCountyForms.resultCopy} / ${relatedCountyForms.officialPdfStatus}`);
 	      assert(new Set(relatedCountyForms.sameSiteOfficialPdfNames.map((name) => name.toLowerCase())).size === relatedCountyForms.sameSiteOfficialPdfNames.length, `${viewport.name}: related county fallback should not repeat visible form names: ${relatedCountyForms.sameSiteOfficialPdfNames.join(" | ")}`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.length === relatedCountyForms.sameSiteOfficialPdfActions.length, `${viewport.name}: related county fallback should show an example source badge on every visible form`);
 
 	      await page.click("[data-smart-reset]");
       await page.click('[data-smart-lane="calculator"]');

@@ -450,10 +450,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-092134-related-form-quality">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-095221-guided-issue-coverage">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-092134-related-form-quality">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-095221-guided-issue-coverage">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3369,15 +3369,16 @@
     }
 
 	    if (route.county && route.county !== "Maricopa") {
+	      const selectedCounty = route.county && route.county !== "Not sure" ? route.county : "your selected county";
 	      return {
 	        tone: "source",
-	        kicker: "Related official forms",
-	        title: "No verified county packet is matched yet.",
-	        copy: "The forms below are nearby Arizona examples, not a verified packet for your selected county. Use them only if the court source and title fit, or use Guided Intake instead of guessing.",
-	        primaryLabel: "See related Arizona forms",
+	        kicker: "Nearby form examples",
+	        title: `No verified ${selectedCounty} packet yet.`,
+	        copy: `No verified ${selectedCounty} packet is available for this answer yet. The forms below are nearby examples; use them only if the court source and title fit.`,
+	        primaryLabel: "See nearby examples",
 	        primaryHref: "#forms-approved-pdfs",
-        pdfPacket: "all",
-        allowRelatedForms: true,
+	        pdfPacket: "all",
+	        allowRelatedForms: true,
         meta: ["No exact county packet", "Related forms below", "Use Intake if unsure"],
         route: baseRoute
       };
@@ -4456,7 +4457,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-092134-related-form-quality" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-095221-guided-issue-coverage" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7218,11 +7219,11 @@
 	        }
 		        return {
 		          label: "What happens next",
-		          tier: "Related official forms",
-		          title: "No verified county packet is matched yet.",
-		          copy: "The forms below are nearby Arizona examples, not a verified packet for your selected county. Use them only if the court source and title fit, or use Guided Intake instead of guessing.",
+		          tier: "Nearby form examples",
+		          title: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet yet.`,
+		          copy: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet is available for this answer yet. The forms below are nearby examples; use them only if the court source and title fit.`,
 		          href: "#forms-approved-pdfs",
-	          text: "See related Arizona forms",
+	          text: "See nearby examples",
 	          link: true,
 	          relatedForms: true
 	        };
@@ -7337,16 +7338,23 @@
         ]
       },
       {
-        question: "What is the family-law issue?",
-        copy: "Choose the closest topic. If none fit, leave it broad.",
-        key: "issue",
-        options: [
-          ["divorce", "Divorce or legal separation"],
-          ["parenting", "Parenting or custody"],
-          ["support", "Child support or money"],
-          ["all", "I am not sure"]
-        ]
-      },
+	        question: "What is the family-law issue?",
+	        copy: "Choose the closest topic. If none fit, leave it broad.",
+	        key: "issue",
+	        options: [
+	          ["divorce", "Divorce or legal separation"],
+	          ["parenting", "Parenting or custody"],
+	          ["support", "Child support or money"],
+	          ["relocation", "Relocation"],
+	          ["modification", "Change an order"],
+	          ["enforcement", "Enforce an order"],
+	          ["agreement", "Agreement or final papers"],
+	          ["name change", "Name change"],
+	          ["safety", "Safety or protective order"],
+	          ["adoption", "Adoption"],
+	          ["all", "I am not sure"]
+	        ]
+	      },
       {
         question: "Are minor children involved?",
         copy: "This only changes which forms may be relevant.",
@@ -7583,7 +7591,7 @@
 	        const tierCopy = shouldContinueQuestions
 	          ? "Optional resources stay hidden until the helper has enough answers."
 	          : recommendation.relatedForms
-	          ? "Nearby examples appear below. They are not a verified county packet."
+	          ? "Check the source and title before using any example."
 	          : "Related forms stay below the main form result.";
 	        guidedResultTier.setAttribute("aria-label", [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". "));
 	        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}</span><strong>${esc(tierTitle)}</strong><p>${esc(tierCopy)}</p>`;
@@ -9668,10 +9676,11 @@
                     data-search="${esc([action.public_name, action.public_description, action.public_stage, action.display_label, action.label, action.source_label, action.file_name, action.packet_label, action.page_label, action.language].filter(Boolean).join(" ").toLowerCase())}">
                     <button class="official-pdf-source" type="button" data-official-pdf-preview>
                       <span>${esc(action.public_stage || action.language || "Court form")}</span>
-                      <strong>${esc(action.public_name || action.display_label || action.label || action.file_name || "Official PDF")}</strong>
-                      <p>${esc(action.public_description || "Official court PDF from the reviewed packet.")}</p>
-                      <small>${esc(officialPdfSourceLabel(action))}</small>
-                      <em>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</em>
+	                      <strong>${esc(action.public_name || action.display_label || action.label || action.file_name || "Official PDF")}</strong>
+	                      <p>${esc(action.public_description || "Official court PDF from the reviewed packet.")}</p>
+	                      <small data-official-pdf-example-source hidden>${esc(officialPdfSourceCounty(action) ? `Example source: ${officialPdfSourceCounty(action)}` : "Example source: official court website")}</small>
+	                      <small>${esc(officialPdfSourceLabel(action))}</small>
+	                      <em>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</em>
                       <b>View form</b>
                     </button>
                     <a class="official-pdf-direct-download" href="${esc(sitePdfDownloadUrlFor(action) || sitePdfViewUrlFor(action) || "#")}" download="${esc(action.file_name || "official-court-form.pdf")}">Download PDF</a>
@@ -9916,9 +9925,10 @@
 	            link.dataset.language || ""
 	          ].join("|");
 	          const duplicateRelatedForm = relatedBrowse && relatedKey.trim() && seenRelatedForms.has(relatedKey);
-	          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && !relatedPacketMismatch && !duplicateRelatedForm;
-	          link.hidden = !show;
-	          if (show) visible += 1;
+		          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && !relatedPacketMismatch && !duplicateRelatedForm;
+		          link.hidden = !show;
+		          link.querySelector("[data-official-pdf-example-source]")?.toggleAttribute("hidden", !relatedBrowse);
+		          if (show) visible += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && childOnlyMismatch) hiddenForChildren += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && relatedPacketMismatch) hiddenForCountyFit += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && !relatedPacketMismatch && duplicateRelatedForm) hiddenForDuplicate += 1;
