@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-release-evidence-index",
-  "built_at": "2026-06-28T17:45:24.266Z",
+  "built_at": "2026-06-28T18:38:12.707Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

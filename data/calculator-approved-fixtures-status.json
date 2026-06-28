@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-approved-fixtures-status",
-  "built_at": "2026-06-28T17:45:18.173Z",
+  "built_at": "2026-06-28T18:38:08.378Z",
   "public_safety": {
     "sensitive_fixture_values_exposed": false,
     "raw_formula_text_exposed": false,

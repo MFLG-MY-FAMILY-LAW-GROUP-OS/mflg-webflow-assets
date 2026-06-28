@@ -70,6 +70,12 @@ async function pageState(page) {
 	    sameSiteOfficialPdfExampleSources: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-example-source]"))
 	      .filter((item) => item.offsetParent !== null && !item.hidden && getComputedStyle(item).visibility !== "hidden")
 	      .map((item) => item.textContent.replace(/\s+/g, " ").trim()),
+	    sameSiteOfficialPdfCourtSources: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-court-source]"))
+	      .filter((item) => item.offsetParent !== null && !item.hidden && getComputedStyle(item).visibility !== "hidden")
+	      .map((item) => item.textContent.replace(/\s+/g, " ").trim()),
+	    sameSiteOfficialPdfFileCodes: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-file-code]"))
+	      .filter((item) => item.offsetParent !== null && !item.hidden && getComputedStyle(item).visibility !== "hidden")
+	      .map((item) => item.textContent.replace(/\s+/g, " ").trim()),
 	    sameSiteOfficialPdfDownloads: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) .official-pdf-direct-download"))
 	      .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
 	      .map((link) => link.getAttribute("href") || "")
@@ -252,11 +258,12 @@ async function pageState(page) {
 	      const relatedCountyForms = await pageState(page);
 	      assert(!relatedCountyForms.routerHidden, `${viewport.name}: related county form router should reveal after completed answers`);
 	      assert(!relatedCountyForms.packetsHidden, `${viewport.name}: related county PDF area should reveal after completed answers`);
-	      assert(/See nearby examples/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should point to nearby examples, got ${relatedCountyForms.action}`);
+	      assert(/Review nearby examples/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should point to nearby examples, got ${relatedCountyForms.action}`);
 	      assert(/No verified (Pima|county) packet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleUnifiedSummary}`), `${viewport.name}: related county result should explain no verified county packet`);
+	      assert(!/packet yet|answer yet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleResultTier}`), `${viewport.name}: related county result should not imply a future packet, got ${relatedCountyForms.resultTitle} / ${relatedCountyForms.resultCopy}`);
 	      assert(!/[a-z](Nearby|No verified|Check the source|This result|You selected)/.test(relatedCountyForms.visibleResultTier), `${viewport.name}: guided result tier should not mash visible text together, got ${relatedCountyForms.visibleResultTier}`);
 	      assert(!/examplesNo verified|yetCheck|resultThis|sourceThis/i.test(`${relatedCountyForms.visibleResultTier} ${relatedCountyForms.visibleResultReason}`), `${viewport.name}: guided result text should have readable separators, got ${relatedCountyForms.visibleResultTier} / ${relatedCountyForms.visibleResultReason}`);
-	      assert(/You selected Pima County/i.test(relatedCountyForms.visibleResultReason), `${viewport.name}: why-this-result should use plain selected-answer language, got ${relatedCountyForms.visibleResultReason}`);
+	      assert(/Why these examples appear/i.test(relatedCountyForms.visibleResultReason) && /You selected Pima County/i.test(relatedCountyForms.visibleResultReason), `${viewport.name}: why-this-result should use plain selected-answer language, got ${relatedCountyForms.visibleResultReason}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: related county route should show related same-site official PDF actions`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => /View form/i.test(label)), `${viewport.name}: related county primary PDF actions should remain View form`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => !/Add this form to Intake/i.test(label)), `${viewport.name}: fallback form cards should not use intake-heavy save labels: ${relatedCountyForms.sameSiteOfficialPdfActions.join(" | ")}`);
@@ -265,6 +272,8 @@ async function pageState(page) {
 	      assert(new Set(relatedCountyForms.sameSiteOfficialPdfNames.map((name) => name.toLowerCase())).size === relatedCountyForms.sameSiteOfficialPdfNames.length, `${viewport.name}: related county fallback should not repeat visible form names: ${relatedCountyForms.sameSiteOfficialPdfNames.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.length === relatedCountyForms.sameSiteOfficialPdfActions.length, `${viewport.name}: related county fallback should show an example source badge on every visible form`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.every((label) => /^Example from /i.test(label)), `${viewport.name}: related county fallback source badges should use public example-source wording: ${relatedCountyForms.sameSiteOfficialPdfExampleSources.join(" | ")}`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfCourtSources.length === 0, `${viewport.name}: related county fallback should not show duplicate court-source lines: ${relatedCountyForms.sameSiteOfficialPdfCourtSources.join(" | ")}`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfFileCodes.length === 0, `${viewport.name}: related county fallback should hide PDF filenames/file codes from the main card scan: ${relatedCountyForms.sameSiteOfficialPdfFileCodes.join(" | ")}`);
 
 	      await page.click("[data-smart-reset]");
       await page.click('[data-smart-lane="calculator"]');

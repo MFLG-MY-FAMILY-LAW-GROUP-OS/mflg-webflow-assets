@@ -458,10 +458,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-103055-guided-copy-polish">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-112018-fallback-card-simplify">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-103055-guided-copy-polish">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-112018-fallback-card-simplify">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3381,9 +3381,9 @@
 	      return {
 	        tone: "source",
 	        kicker: "Nearby form examples",
-	        title: `No verified ${selectedCounty} packet yet.`,
-	        copy: `No verified ${selectedCounty} packet is available for this answer yet. The forms below are nearby examples; use them only if the court source and title fit.`,
-	        primaryLabel: "See nearby examples",
+	        title: `No verified ${selectedCounty} packet is available for this path.`,
+	        copy: `No verified ${selectedCounty} packet is available for these answers. The forms below are nearby examples; use them only if the court source and title fit.`,
+	        primaryLabel: "Review nearby examples",
 	        primaryHref: "#forms-approved-pdfs",
 	        pdfPacket: "all",
 	        allowRelatedForms: true,
@@ -4465,7 +4465,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-103055-guided-copy-polish" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-112018-fallback-card-simplify" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7228,10 +7228,10 @@
 		        return {
 		          label: "What happens next",
 		          tier: "Nearby form examples",
-		          title: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet yet.`,
-		          copy: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet is available for this answer yet. The forms below are nearby examples; use them only if the court source and title fit.`,
+		          title: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet is available for this path.`,
+		          copy: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet is available for these answers. The forms below are nearby examples; use them only if the court source and title fit.`,
 		          href: "#forms-approved-pdfs",
-	          text: "See nearby examples",
+	          text: "Review nearby examples",
 	          link: true,
 	          relatedForms: true
 	        };
@@ -7616,11 +7616,12 @@
         const reasonText = shouldContinueQuestions
           ? (guideContextActive ? "Your selected guide is connected. Choose the next answer above before forms appear." : "No form result is selected until you answer the current step.")
           : recommendation.relatedForms && plainReasonParts.length
-          ? `You selected ${plainReasonParts.join(", ")}. We do not have a verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "county"} packet for that path yet.`
+          ? `You selected ${plainReasonParts.join(", ")}. No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "county"} packet is available for that path.`
           : reasons.length
           ? `This result is based on ${reasons.join(", ")}.`
           : "This appears because you chose a starting path.";
-        guidedReason.innerHTML = `<span>Why this result. </span><p>${esc(reasonText)}</p>`;
+        const reasonLabel = recommendation.relatedForms ? "Why these examples appear." : "Why this result.";
+        guidedReason.innerHTML = `<span>${esc(reasonLabel)} </span><p>${esc(reasonText)}</p>`;
         if (unifiedResultWhy) unifiedResultWhy.textContent = reasonText;
       }
       if (unifiedResultSummary) {
@@ -9696,7 +9697,7 @@
 	                      <p>${esc(action.public_description || "Official court PDF from the reviewed packet.")}</p>
 	                      <small data-official-pdf-example-source hidden>${esc(officialPdfExampleSourceLabel(action))}</small>
 	                      <small data-official-pdf-court-source>${esc(officialPdfSourceLabel(action))}</small>
-	                      <em>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</em>
+	                      <em data-official-pdf-file-code>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</em>
                       <b>View form</b>
                     </button>
                     <a class="official-pdf-direct-download" href="${esc(sitePdfDownloadUrlFor(action) || sitePdfViewUrlFor(action) || "#")}" download="${esc(action.file_name || "official-court-form.pdf")}">Download PDF</a>
@@ -9945,6 +9946,7 @@
 		          link.hidden = !show;
 		          link.querySelector("[data-official-pdf-example-source]")?.toggleAttribute("hidden", !relatedBrowse);
 		          link.querySelector("[data-official-pdf-court-source]")?.toggleAttribute("hidden", relatedBrowse);
+		          link.querySelector("[data-official-pdf-file-code]")?.toggleAttribute("hidden", relatedBrowse);
 		          if (show) visible += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && childOnlyMismatch) hiddenForChildren += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && relatedPacketMismatch) hiddenForCountyFit += 1;
