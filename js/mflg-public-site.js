@@ -181,11 +181,11 @@
   }
   function officialPdfExampleSourceLabel(file) {
     const county = officialPdfSourceCounty(file);
-    if (county === "Maricopa") return "Example from Maricopa Superior Court";
-    if (county === "Pima") return "Example from Pima Superior Court";
-    if (county === "Cochise") return "Example from Cochise County";
-    if (county === "Yavapai") return "Example from Yavapai Courts";
-    return "Example from official court website";
+    if (county === "Maricopa") return "Arizona court form";
+    if (county === "Pima") return "Arizona court form";
+    if (county === "Cochise") return "Arizona court form";
+    if (county === "Yavapai") return "Arizona court form";
+    return "Arizona court form";
   }
   function officialPdfSourceCounty(file) {
     let host = "";
@@ -458,10 +458,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-112018-fallback-card-simplify">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-123209-forms-flow-confidence">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-112018-fallback-card-simplify">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-123209-forms-flow-confidence">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -1546,7 +1546,7 @@
 	        <input id="service-search" class="service-search" type="search" placeholder="Search divorce, parenting, support, paternity, enforcement..." data-service-search>
 	        <span class="service-count" data-service-count>Showing ${initialServiceCount} of ${items.length} issue paths</span>
 	      </div>
-	      <div class="service-quick-fallback" aria-label="Fallback if the issue is unclear">
+		      <div class="service-quick-fallback" aria-label="Next step if the issue is unclear">
 	        <span>Not sure what to choose?</span>
 	        <a href="/start" data-link data-intake-route='${esc(JSON.stringify(serviceMethodFallbackRoute))}'>Use Guided Intake</a>
 	      </div>
@@ -2430,7 +2430,7 @@
     if (confidence === "verified-statewide-direct-packet" || confidence === "verified-statewide-packet-page") return "Arizona statewide forms";
     if (confidence === "issue-specific-county-source-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Official ${publicCounty} County forms source for this issue` : "Official county forms source for this issue";
     if (confidence === "general-county-forms-index") return "General county forms directory";
-    if (confidence === "no-verified-form") return "No verified form packet";
+    if (confidence === "no-verified-form") return "Office review recommended";
     if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `Matched forms for ${publicCounty} County` : "Matched county forms";
     if (confidence === "intake-required") return "Check first";
     if (confidence === "statewide-generic") return "Arizona statewide forms";
@@ -2446,7 +2446,7 @@
     if (confidence === "verified-statewide-direct-packet" || confidence === "verified-statewide-packet-page") return "These are Arizona statewide forms. Confirm whether your county also requires a local form.";
     if (confidence === "issue-specific-county-source-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `This official ${publicCounty} County source is specific to this issue, but individual PDFs have not all been matched on this page.` : "This official county source is specific to this issue, but individual PDFs have not all been matched on this page.";
     if (confidence === "general-county-forms-index") return "This is a general county forms directory, not an issue-specific packet. Do not treat it as matched forms.";
-    if (confidence === "no-verified-form") return "No verified form packet is currently available for these answers.";
+    if (confidence === "no-verified-form") return "Ask for office review so the form path can be checked before you rely on it.";
     if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These forms are matched for ${publicCounty} County. Use them only if that is your case county.` : "These forms are matched to a confirmed county.";
     if (confidence === "intake-required") return "Use Guided Intake before choosing forms. This issue depends on timing, court orders, county, or case stage.";
     if (confidence === "statewide-generic") return "Use this statewide form path, then confirm whether your county requires local forms.";
@@ -2625,7 +2625,7 @@
       county: "Pima",
       issues: ["all", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
       posture: "Any posture",
-      status: "County fallback",
+      status: "County source",
       source: "Pima County Superior Court",
       url: "https://www.sc.pima.gov/law-library/forms/",
       note: "County source should be verified before packet-level download links are cached."
@@ -2635,7 +2635,7 @@
       county: "Pinal",
       issues: ["all", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
       posture: "Any posture",
-      status: "County fallback",
+      status: "County source",
       source: "Pinal County Superior Court",
       url: "https://www.coscpinalcountyaz.gov/194/Family-Law",
       note: "County source should be verified before packet-level download links are cached."
@@ -2648,7 +2648,7 @@
       status: "Official court source",
       source: "Superior Court of Arizona in Pinal County",
       url: "https://www.pinalcourtsaz.gov/",
-      note: "Use as a court-information fallback; packet-level form selection should still prefer reviewed county form pages."
+      note: "Use as court information; packet-level form selection should still prefer reviewed county form pages."
     },
     {
       title: "Apache County Superior Court Family-Law Source",
@@ -2708,7 +2708,7 @@
       status: "Official county source",
       source: "Superior Court of Arizona in Greenlee County",
       url: "https://greenlee.az.gov/ova_dep/courts/",
-      note: "Use as a county court-information fallback when packet-level family-law forms are not clearly published."
+      note: "Use as county court information when packet-level family-law forms are not clearly published."
     },
     {
       title: "La Paz County Self-Service Center",
@@ -2765,7 +2765,7 @@
       county: "Yavapai",
       issues: ["all", "divorce", "parenting", "support", "parentage", "modification", "enforcement"],
       posture: "Any posture",
-      status: "County fallback",
+      status: "County source",
       source: "Yavapai County Superior Court",
       url: "https://courts.yavapaiaz.gov/Departments/Law-Library/Self-Service-Center/Domestic",
       note: "County source should be verified before packet-level download links are cached."
@@ -3368,7 +3368,7 @@
         tone: "review",
         kicker: "Court source found",
         title: "Open the reviewed on-site forms.",
-        copy: "This is the clearest form path for this selection. Open the verified packet viewer first, then use the checklist if you need the packet sequence.",
+        copy: "This is the clearest form path for this selection. Open the form viewer first, then use the checklist if you need the packet sequence.",
         primaryLabel: "View matched forms",
         primaryHref: "#forms-approved-pdfs",
         meta: ["Reviewed forms first", ...baseMeta.slice(1)],
@@ -3377,20 +3377,20 @@
     }
 
 	    if (route.county && route.county !== "Maricopa") {
-	      const selectedCounty = route.county && route.county !== "Not sure" ? route.county : "your selected county";
+	      const selectedCounty = route.county && route.county !== "Not sure" ? route.county : "your county";
 	      return {
 	        tone: "source",
-	        kicker: "Nearby form examples",
-	        title: `No verified ${selectedCounty} packet is available for this path.`,
-	        copy: `No verified ${selectedCounty} packet is available for these answers. The forms below are nearby examples; use them only if the court source and title fit.`,
-	        primaryLabel: "Review nearby examples",
+	        kicker: "Recommended forms",
+	        title: "Arizona forms for this path.",
+	        copy: `Start with the Arizona forms below. Before filing, check whether ${selectedCounty} requires a local cover sheet, packet, or filing instruction.`,
+	        primaryLabel: "Review forms",
 	        primaryHref: "#forms-approved-pdfs",
 	        pdfPacket: "all",
 	        allowRelatedForms: true,
-        meta: ["No exact county packet", "Related forms below", "Use Intake if unsure"],
-        route: baseRoute
-      };
-    }
+        meta: ["Arizona forms", "County filing note", "Office review available"],
+	        route: baseRoute
+	      };
+	    }
 
     return {
       tone: "neutral",
@@ -3578,22 +3578,6 @@
                 <strong>Answer the helper to unlock one primary path.</strong>
                 <p>The page will keep optional resources out of the way until the main result is clear.</p>
               </div>
-              <div class="forms-guided-reason" data-guided-reason hidden>
-                <span>Why this result</span>
-                <p>No answer has been selected yet.</p>
-              </div>
-              <div class="forms-unified-result-summary" data-unified-result-summary hidden>
-                <span>Your form result</span>
-                <strong>Answer the helper to see one clear result.</strong>
-                <dl>
-                  <div><dt>Recommended forms</dt><dd data-unified-result-title>Pending answers</dd></div>
-                  <div><dt>Based on</dt><dd data-unified-result-based-on>No answers selected yet</dd></div>
-                  <div><dt>Why this appears</dt><dd data-unified-result-why>No form result is selected until you answer the current step.</dd></div>
-                  <div><dt>Main action</dt><dd data-unified-result-primary>Choose one answer above</dd></div>
-                  <div><dt>Related forms</dt><dd data-unified-result-secondary>Hidden until your form result is clear</dd></div>
-                  <div><dt>Office review</dt><dd data-unified-result-review>Available if the result does not fit</dd></div>
-                </dl>
-              </div>
               <div class="forms-guided-path-line" data-guided-path-line>Answer the next question. The page will keep the form choices hidden until they are useful.</div>
               <div class="forms-guided-result-actions">
                 <button class="button primary" type="button" data-guided-result-action data-guided-target="#forms-official-router">Continue to recommended forms</button>
@@ -3753,24 +3737,21 @@
             <p>The page will keep reviewed forms, court-source backup, and Intake together.</p>
           </div>
         </div>
-        <details class="forms-route-explain">
-          <summary>Why this recommendation?</summary>
-          <div class="forms-route-decision" data-form-route-decision aria-live="polite">
-            <div>
-              <span data-form-route-decision-kicker>Your recommended next action</span>
-              <strong data-form-route-decision-title>Choose the questions above to get a next step.</strong>
-              <p data-form-route-decision-copy>The page will recommend the exact viewer, packet checklist, or Intake if the choice is not clear.</p>
-              <div class="forms-route-decision-meta" data-form-route-decision-meta>
-                <span>No private facts needed</span>
-                <span>Use Guided Intake if unsure</span>
-              </div>
-            </div>
-            <div class="forms-route-decision-actions">
-              <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>View matched forms</a>
-              <a class="button outline" href="/start" data-link data-form-route-decision-intake>Start Guided Intake</a>
+        <div class="forms-route-decision" data-form-route-decision aria-live="polite" hidden>
+          <div>
+            <span data-form-route-decision-kicker>Your next step</span>
+            <strong data-form-route-decision-title>Choose the questions above to get a next step.</strong>
+            <p data-form-route-decision-copy>Review forms when they match your answers, or ask for office review.</p>
+            <div class="forms-route-decision-meta" data-form-route-decision-meta>
+              <span>No private facts needed</span>
+              <span>Office review available</span>
             </div>
           </div>
-        </details>
+          <div class="forms-route-decision-actions">
+            <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>Review forms</a>
+            <a class="button outline" href="/start" data-link data-form-route-decision-intake>Ask for office review</a>
+          </div>
+        </div>
         <div class="official-resource-grid">
           ${formResourceCatalog.map((item) => `<details class="card official-resource-card"
             data-form-resource
@@ -3808,7 +3789,7 @@
           <div class="section-head">
             <p class="eyebrow">Step 2</p>
           <h2>Recommended forms.</h2>
-          <p>Start with the recommended form group and open the forms in order. If the group does not sound right, browse nearby form groups or use Guided Intake instead of guessing.</p>
+          <p>Start with the recommended form group and open the forms in order. If the group does not sound right, choose another form group or use Guided Intake instead of guessing.</p>
         </div>
         <div class="official-pdf-actions" id="forms-approved-pdfs" data-official-pdf-actions>
           <div class="section-head compact">
@@ -3960,7 +3941,7 @@
             <div>
               <span>Official calculator workspace</span>
               <strong data-official-calculator-title>Arizona Child Support Calculator</strong>
-              <p data-official-calculator-copy>Use this official workspace only as a fallback. The on-site calculators appear above when available.</p>
+              <p data-official-calculator-copy>Use this official workspace only when the on-site calculators do not fit.</p>
             </div>
             <div class="official-calculator-actions">
               <a class="button primary" href="/start" data-link data-official-calculator-source>Start guided review</a>
@@ -3977,7 +3958,7 @@
             <iframe title="Arizona child support calculator" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-official-calculator-frame></iframe>
           </div>
           <div class="official-calculator-steps" aria-label="Calculator safety steps">
-            <article><span>01</span><strong>Use the on-site calculator first</strong><p>The on-site calculators appear above. Use this official workspace only as fallback when needed.</p></article>
+            <article><span>01</span><strong>Use the on-site calculator first</strong><p>The on-site calculators appear above. Use this official workspace only when needed.</p></article>
             <article><span>02</span><strong>Know where facts go</strong><p>Facts entered inside the embedded frame are handled by the official calculator. This public site carries only the selected calculator type into Intake.</p></article>
             <article><span>03</span><strong>Confirm your inputs</strong><p>Gather orders, income records, parenting-time counts, insurance, childcare, and effective dates before relying on any result.</p></article>
             <article><span>04</span><strong>Use Guided Intake if unsure</strong><p>If you do not know which numbers apply, save the calculator choice to Intake before guessing.</p></article>
@@ -4394,7 +4375,7 @@
         </div>` : ""}
         <div class="guide-next-result" data-guide-next-result="intake" hidden>
           <div>
-            <span>Safe fallback</span>
+            <span>Safe next step</span>
             <strong>Use Guided Intake if you are unsure.</strong>
             <p>Intake helps confirm the issue, timing, court-form path, and service fit without making you guess.</p>
           </div>
@@ -4465,7 +4446,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-112018-fallback-card-simplify" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-123209-forms-flow-confidence" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5499,7 +5480,7 @@
     const packetLabel = host.getAttribute("data-guide-packet-label") || guideTitle;
     const packetSummary = formsRoute.formConfidence || "related";
     const packetHint = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
-      ? "No verified issue-specific packet is opened from this card before review."
+      ? "Ask for office review before relying on a form packet from this card."
       : packetId && packetId !== "all"
         ? `Recommended packet: ${packetLabel}.`
         : "No packet is selected yet.";
@@ -5508,7 +5489,7 @@
       : formsRoute.formConfidence === "related-only"
         ? "This guide points to related forms only. Continue to compare packet titles before opening anything."
         : formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
-          ? "Answer the checks first. If no verified packet fits, use office review instead of guessing with another family-law packet."
+          ? "Answer the checks first. If the form path does not fit, use office review instead of guessing with another family-law packet."
         : "Continue to the form-check questions. The result appears only after the required answers are known.";
     const bridgeCta = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
       ? "Check form availability"
@@ -6437,7 +6418,7 @@
                 </label>
                 <span>${esc([file.public_stage, file.language].filter(Boolean).join(" / ") || "Court form")}</span>
                 <strong>${esc(file.public_name || file.file_name || "Official court PDF")}</strong>
-                <p class="forms-packet-file-purpose"><b>Why this matters:</b> ${esc(packetFilePurpose(file))}</p>
+                <p class="forms-packet-file-purpose"><b>Form note:</b> ${esc(packetFilePurpose(file))}</p>
                 <p>${esc(file.review_required_before_hosting ? "Open the form here. If the PDF does not load, use the court-source link in the viewer." : "Reviewed court PDF available here.")}</p>
                 <small>${esc(file.file_name || "")}</small>
               </div>
@@ -7225,16 +7206,16 @@
 	            route: true
 	          };
 	        }
-		        return {
-		          label: "What happens next",
-		          tier: "Nearby form examples",
-		          title: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet is available for this path.`,
-		          copy: `No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "selected county"} packet is available for these answers. The forms below are nearby examples; use them only if the court source and title fit.`,
-		          href: "#forms-approved-pdfs",
-	          text: "Review nearby examples",
-	          link: true,
-	          relatedForms: true
-	        };
+	        return {
+	          label: "What happens next",
+	          tier: "Arizona forms",
+	          title: "Arizona forms for this path.",
+	          copy: `Start with the Arizona forms below. Before filing, check whether ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? `${guidedAnswers.county} County` : "your county"} requires a local cover sheet, packet, or filing instruction.`,
+	          href: "#forms-approved-pdfs",
+		          text: "Review forms",
+		          link: true,
+		          relatedForms: true
+		        };
 	      }
 	      return recommendations[active] || recommendations.forms;
 	    };
@@ -7596,11 +7577,11 @@
         const tierTitle = shouldContinueQuestions
           ? "One primary path will appear here."
           : recommendation.title || "Recommended next step";
-	        const tierCopy = shouldContinueQuestions
-	          ? "Optional resources stay hidden until the helper has enough answers."
-	          : recommendation.relatedForms
-	          ? "Check the source and title before using any example."
-	          : "Related forms stay below the main form result.";
+		        const tierCopy = shouldContinueQuestions
+		          ? "Form results stay hidden until the helper has enough answers."
+		          : recommendation.relatedForms
+		          ? "Before filing, check whether your county requires a local cover sheet, packet, or filing instruction."
+		          : "Use this result if the form title matches your situation.";
 	        const tierText = [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". ");
 	        guidedResultTier.setAttribute("aria-label", tierText);
 	        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}. </span><strong>${esc(tierTitle)} </strong><p>${esc(tierCopy)}</p>`;
@@ -7613,14 +7594,14 @@
         const selectedIssue = guidedAnswers.issue ? guidedAnswers.issue.replace(/\s*\/\s*/g, " or ") : "";
         const selectedChildren = guidedAnswers.children === "minor-children" ? "minor children" : guidedAnswers.children === "no-minor-children" ? "no minor children" : "";
         const plainReasonParts = [selectedCounty, selectedStage, selectedIssue, selectedChildren].filter(Boolean);
-        const reasonText = shouldContinueQuestions
-          ? (guideContextActive ? "Your selected guide is connected. Choose the next answer above before forms appear." : "No form result is selected until you answer the current step.")
-          : recommendation.relatedForms && plainReasonParts.length
-          ? `You selected ${plainReasonParts.join(", ")}. No verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "county"} packet is available for that path.`
-          : reasons.length
-          ? `This result is based on ${reasons.join(", ")}.`
-          : "This appears because you chose a starting path.";
-        const reasonLabel = recommendation.relatedForms ? "Why these examples appear." : "Why this result.";
+	        const reasonText = shouldContinueQuestions
+	          ? (guideContextActive ? "Your selected guide is connected. Choose the next answer above before forms appear." : "Answer the current step before forms appear.")
+	          : recommendation.relatedForms && plainReasonParts.length
+	          ? `Your answers: ${plainReasonParts.join(", ")}.`
+	          : reasons.length
+	          ? `Your answers: ${reasons.join(", ")}.`
+	          : "Your selected path is ready.";
+	        const reasonLabel = "Your answers.";
         guidedReason.innerHTML = `<span>${esc(reasonLabel)} </span><p>${esc(reasonText)}</p>`;
         if (unifiedResultWhy) unifiedResultWhy.textContent = reasonText;
       }
@@ -7648,12 +7629,12 @@
       if (unifiedResultSecondary) {
         unifiedResultSecondary.textContent = shouldContinueQuestions
           ? "Hidden until the main result is clear"
-          : "Available below the primary result if the recommended path does not fit.";
+	          : "Change answers if the forms do not match.";
       }
       if (unifiedResultReview) {
         unifiedResultReview.textContent = recommendation.route || recommendation.tier === "Office review recommended"
-          ? "Recommended for this result"
-          : "Use office review if the answer, county, deadline, or form title does not fit.";
+	          ? "Recommended for this path"
+	          : "Ask for office review if the answer, county, deadline, or form title does not fit.";
       }
 	    if (guidedSummary) {
 	        const chips = [
@@ -8867,10 +8848,10 @@
         title: "Use the spousal-maintenance calculator here.",
         copy: "The on-site calculator is powered by the official Arizona maintenance API. It keeps the experience on this page and should be confirmed before filing, signing, or relying on the result.",
         workspaceTitle: "Arizona Spousal Maintenance Calculator",
-        workspaceCopy: "Use the on-site calculator above for planning. The official calculator remains available as a fallback for final confirmation before filing or relying on a number.",
+        workspaceCopy: "Use the on-site calculator above for planning. The official calculator remains available for final confirmation before filing or relying on a number.",
         embedTitle: "Spousal maintenance calculator",
         embedCopy: "The on-site calculator uses the official Arizona maintenance API. Confirm version, income, marriage length, and maintenance factors before relying on the result.",
-        frameNote: "Official fallback remains available if confirmation is needed.",
+        frameNote: "Official calculator remains available if confirmation is needed.",
         primaryText: "Open calculator",
         href: "#mflg-spousal-maintenance-calculator",
         embedUrl: "https://www.superiorcourt.maricopa.gov/app/selfsuffcalc/",
@@ -9636,11 +9617,11 @@
           </div>
         </div>
         <div class="official-pdf-secondary-path" data-official-pdf-secondary-path>
-          <div>
-            <span>If this does not fit</span>
-            <strong>Need a different form group</strong>
-            <p>If this recommendation does not fit your county, stage, children, or agreement status, browse nearby form groups before opening more forms.</p>
-          </div>
+	          <div>
+	            <span>If this does not fit</span>
+	            <strong>Need a different form group</strong>
+	            <p>If this recommendation does not fit your county, stage, children, or agreement status, change answers or choose another form group before opening more forms.</p>
+	          </div>
           <button class="button outline" type="button" data-official-pdf-show-all>See other form groups</button>
         </div>
         <p class="forms-router-status" data-official-pdf-status>Forms are ready.</p>
@@ -9966,39 +9947,39 @@
         });
         const selectedRoute = routePacketById.get(packetValue);
 	        if (spotlightKicker) {
-	          spotlightKicker.textContent = selectedRoute ? "Recommended form path" : "Nearby form examples";
+	          spotlightKicker.textContent = selectedRoute ? "Recommended form path" : "Arizona forms";
 	        }
 	        if (spotlightTitle) {
 	          spotlightTitle.textContent = selectedRoute
 	            ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended form group selected"
 	            : !allowUnmatchedPdfBrowse
-	            ? "No exact form packet is selected for these answers."
-	            : "No verified packet is matched for your selected county.";
+	            ? "Choose answers before opening forms."
+	            : "Arizona forms for this path.";
 	        }
 	        if (spotlightCopy) {
 	          spotlightCopy.textContent = selectedRoute
 	            ? "Use this primary form path if it matches your situation. Open the forms in order."
 	            : !allowUnmatchedPdfBrowse
 	            ? "Use Guided Intake or change answers before opening a packet. Browse other form groups only if you already know the court packet title."
-	            : "The forms below are the closest on-site examples by issue, stage, and children answer. They may come from another Arizona court and are not a verified county packet.";
+	            : "Start with the Arizona forms below. Before filing, check whether your county requires a local cover sheet, packet, or filing instruction.";
 	        }
 	        if (status) {
 	          const childNote = hiddenForChildren
 	            ? " We hid parenting, child-support, and paternity forms because you selected no minor children."
 	            : "";
 	          const fitNote = hiddenForCountyFit && relatedBrowse
-	            ? " We are showing the closest nearby form group and hiding less relevant form groups."
+	            ? " We are showing the closest form group and hiding less relevant form groups."
 	            : "";
 	          const duplicateNote = hiddenForDuplicate && relatedBrowse
 	            ? " Repeated form titles are shown once."
 	            : "";
 	          status.textContent = visible
 	            ? relatedBrowse
-	              ? "Nearby form examples are ready. These are not a verified county packet."
+	              ? "Arizona forms are ready. Check your county filing requirements before filing."
 	              : "Forms are ready."
 	            : allowUnmatchedPdfBrowse
 	            ? "No forms match these filters."
-	            : "No exact issue-specific form packet is selected for these answers.";
+	            : "Choose answers before opening forms.";
 	          status.textContent += childNote + fitNote + duplicateNote;
 	        }
         updateIntakePanel();

@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-112018-fallback-card-simplify}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-123209-forms-flow-confidence}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -269,7 +269,7 @@ grep -q "data-forms-packet-view" "$PUBLIC_JS_FILE" || fail "Packet builder view 
 grep -q "#forms-packet-builder" "$PUBLIC_JS_FILE" || fail "Recommended packet action must target packet builder"
 grep -q "focusPacketBuilder" "$PUBLIC_JS_FILE" || fail "Packet builder route-focus sync missing"
 grep -q "packetFilePurpose" "$PUBLIC_JS_FILE" || fail "Packet builder file-purpose helper missing"
-grep -q "Why this matters" "$PUBLIC_JS_FILE" || fail "Packet builder file-purpose public label missing"
+grep -q "Form note:" "$PUBLIC_JS_FILE" || fail "Packet builder file-purpose public label missing"
 grep -q "data-forms-packet-current" "$PUBLIC_JS_FILE" || fail "Packet builder current-form helper missing"
 grep -q "Continue to next form" "$PUBLIC_JS_FILE" || fail "Packet builder current-form next action missing"
 grep -q "data-current-form" "$PUBLIC_JS_FILE" || fail "Packet builder active row marker missing"
@@ -368,7 +368,7 @@ grep -q "wireOfficialPdfActions" "$PUBLIC_JS_FILE" || fail "Official PDF action 
 grep -q "data-official-pdf-actions" "$PUBLIC_JS_FILE" || fail "Official PDF action host missing from public JS"
 grep -q "data-official-pdf-spotlight" "$PUBLIC_JS_FILE" || fail "Official PDF recommended packet spotlight missing from public JS"
 grep -q "data-official-pdf-spotlight-kicker" "$PUBLIC_JS_FILE" || fail "Official PDF dynamic spotlight label missing from public JS"
-grep -q "Related forms" "$PUBLIC_JS_FILE" || fail "Form-group related resource spotlight state missing from public JS"
+grep -q "Arizona forms" "$PUBLIC_JS_FILE" || fail "Arizona forms spotlight state missing from public JS"
 grep -q "Browse other form groups" "$PUBLIC_JS_FILE" || fail "Form-group secondary browse control missing from public JS"
 grep -q "data-forms-packet-browser" "$PUBLIC_JS_FILE" || fail "Collapsed packet browser missing from public JS"
 if grep -q "packetReadinessCatalog\|sourceMonitorSnapshot\|maricopaCandidateSnapshot\|maricopaCandidateGroups\|reviewQueueSnapshot\|officialPacketPageActions\|pdfCandidateSnapshot\|pdfReviewQueueSnapshot\|pdfPromotionSnapshot\|pdfReviewWorkbenchSnapshot\|pdfDecisionTemplateSnapshot\|pdfPromotionAuditSnapshot\|pdfReviewGroups" "$PUBLIC_JS_FILE"; then
@@ -1112,14 +1112,14 @@ grep -q "Open the matched result or ask for office review" "$PUBLIC_JS_FILE" || 
 grep -q "One active workflow is shown first" "$PUBLIC_JS_FILE" || fail "Forms & Tools one-active-workflow mode copy missing from public JS"
 grep -q "Open calculator tools" "$PUBLIC_JS_FILE" || fail "Forms & Tools non-duplicative CTA copy missing from public JS"
 grep -q "data-forms-unified-result" "$PUBLIC_JS_FILE" || fail "Forms & Tools unified result markup missing from public JS"
-grep -q "Why this recommendation" "$PUBLIC_JS_FILE" || fail "Forms & Tools collapsed recommendation explanation missing from public JS"
+grep -q "data-form-route-decision" "$PUBLIC_JS_FILE" || fail "Forms & Tools next-step decision state missing from public JS"
 grep -q "Advanced: search or switch form groups" "$PUBLIC_JS_FILE" || fail "Forms & Tools collapsible form-group browser copy missing from public JS"
 grep -q "data-official-pdf-viewer" "$PUBLIC_JS_FILE" || fail "On-site official PDF viewer missing from public JS"
 grep -q "View form" "$PUBLIC_JS_FILE" || fail "On-site official PDF view action missing from public JS"
 grep -q "Ask for office review" "$PUBLIC_JS_FILE" || fail "Official PDF office-review fallback action missing from public JS"
 grep -q "Download PDF" "$PUBLIC_JS_FILE" || fail "On-site PDF download action missing from public JS"
 grep -q "setUnifiedFormsResult" "$PUBLIC_JS_FILE" || fail "Forms & Tools unified result updater missing from public JS"
-grep -q "Your recommended next action" "$PUBLIC_JS_FILE" || fail "Forms & Tools recommendation label missing from public JS"
+grep -q "Your next step" "$PUBLIC_JS_FILE" || fail "Forms & Tools recommendation label missing from public JS"
 if grep -q '<p class="eyebrow">Step 3</p>' "$PUBLIC_JS_FILE"; then
   fail "Forms & Tools public step labels still skip to Step 3"
 fi

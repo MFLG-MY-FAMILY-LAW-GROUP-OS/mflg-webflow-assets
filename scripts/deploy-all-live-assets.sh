@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-112018-fallback-card-simplify}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-123209-forms-flow-confidence}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -221,7 +221,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"#forms-packet-builder"* ]] &&
 	     [[ "$public_site_js" == *"focusPacketBuilder"* ]] &&
 	     [[ "$public_site_js" == *"packetFilePurpose"* ]] &&
-	     [[ "$public_site_js" == *"Why this matters"* ]] &&
+	     [[ "$public_site_js" == *"Form note:"* ]] &&
 	     [[ "$public_site_js" == *"data-forms-packet-current"* ]] &&
 	     [[ "$public_site_js" == *"Continue to next form"* ]] &&
 	     [[ "$public_site_js" == *"data-current-form"* ]] &&
@@ -590,16 +590,16 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 			     [[ "$public_site_js" == *"Recommended path shown first"* ]] &&
 			     [[ "$public_site_js" == *"Open calculator tools"* ]] &&
 			     [[ "$public_site_js" == *"data-forms-unified-result"* ]] &&
-			     [[ "$public_site_js" == *"Why this recommendation"* ]] &&
+				     [[ "$public_site_js" == *"Arizona forms for this path"* ]] &&
 			     [[ "$public_site_js" == *"Advanced: search or switch form groups"* ]] &&
 			     [[ "$public_site_js" == *"setUnifiedFormsResult"* ]] &&
-			     [[ "$public_site_js" == *"Your recommended next action"* ]] &&
+				     [[ "$public_site_js" == *"Your next step"* ]] &&
 			     [[ "$public_site_js" != *"data-smart-title"* ]] &&
 			     [[ "$public_site_js" != *'<p class="eyebrow">Step 3</p>'* ]] &&
 			     [[ "$public_css" == *"forms-smart-path-controls-head"* ]] &&
 			     [[ "$public_css" == *"forms-path-strip"* ]] &&
 			     [[ "$public_css" == *"forms-unified-result"* ]] &&
-			     [[ "$public_css" == *"forms-route-explain"* ]] &&
+				     [[ "$public_css" == *"forms-route-decision"* ]] &&
 			     [[ "$public_css" == *"official-pdf-browse"* ]] &&
 		     [[ "$public_site_js" == *"Not sure which court or county to choose"* ]] &&
 		     [[ "$public_css" == *"about-profile"* ]] &&

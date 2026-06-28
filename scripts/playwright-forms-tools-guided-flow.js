@@ -10,6 +10,8 @@ function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
+const adminPublicText = /\b(why this|why these|based on|main action|related forms|nearby examples|no verified|not available for these answers|fallback|example from)\b/i;
+
 async function capture(page, viewport, state) {
   await page.screenshot({
     path: `test-results/forms-tools-${viewport.name}-${state}.png`,
@@ -155,13 +157,14 @@ async function pageState(page) {
       assert(!forms.smartControlsVisible, `${viewport.name}: advanced controls should stay hidden unless browsing other options`);
       assert(forms.smartModeVisible, `${viewport.name}: browse/reset controls should show after forms path is active`);
       assert(forms.showAllText === "Browse other options", `${viewport.name}: browse control should use plain label, got ${forms.showAllText}`);
-      assert(/View matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should view matched forms`);
-      assert(!forms.actionDisabled, `${viewport.name}: matched forms CTA should be enabled`);
-      assert(/Recommended form path/i.test(forms.visibleResultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.visibleResultTier}`);
-      assert(/(because|based on)/i.test(forms.visibleResultReason) && /Maricopa County/i.test(forms.visibleResultReason), `${viewport.name}: forms result should explain why it appeared, got ${forms.visibleResultReason}`);
-      assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
-      assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
-      assert(/Your form result/i.test(forms.visibleUnifiedSummary) && /Recommended forms/i.test(forms.visibleUnifiedSummary) && /Based on/i.test(forms.visibleUnifiedSummary) && /Main action/i.test(forms.visibleUnifiedSummary) && /Maricopa County/i.test(forms.visibleUnifiedSummary), `${viewport.name}: unified result summary should carry the final result, got ${forms.visibleUnifiedSummary}`);
+	      assert(/View matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should view matched forms`);
+	      assert(!forms.actionDisabled, `${viewport.name}: matched forms CTA should be enabled`);
+	      assert(/Recommended form path/i.test(forms.visibleResultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.visibleResultTier}`);
+	      assert(forms.visibleResultReason === "", `${viewport.name}: public why/explanation panel should not render, got ${forms.visibleResultReason}`);
+	      assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
+	      assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
+	      assert(forms.visibleUnifiedSummary === "", `${viewport.name}: duplicate unified result summary should not render, got ${forms.visibleUnifiedSummary}`);
+	      assert(!adminPublicText.test(forms.lowerResultText), `${viewport.name}: forms path should not expose admin/explanation wording`);
       assert(forms.packetBrowserPresent, `${viewport.name}: alternate form-group browser should render`);
       assert(!forms.packetBrowserOpen, `${viewport.name}: alternate form-group browser should be closed by default`);
       assert(!forms.packetSelectVisible, `${viewport.name}: form-group dropdown should not appear above the matched forms by default`);
@@ -258,22 +261,23 @@ async function pageState(page) {
 	      const relatedCountyForms = await pageState(page);
 	      assert(!relatedCountyForms.routerHidden, `${viewport.name}: related county form router should reveal after completed answers`);
 	      assert(!relatedCountyForms.packetsHidden, `${viewport.name}: related county PDF area should reveal after completed answers`);
-	      assert(/Review nearby examples/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should point to nearby examples, got ${relatedCountyForms.action}`);
-	      assert(/No verified (Pima|county) packet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleUnifiedSummary}`), `${viewport.name}: related county result should explain no verified county packet`);
-	      assert(!/packet yet|answer yet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleResultTier}`), `${viewport.name}: related county result should not imply a future packet, got ${relatedCountyForms.resultTitle} / ${relatedCountyForms.resultCopy}`);
-	      assert(!/[a-z](Nearby|No verified|Check the source|This result|You selected)/.test(relatedCountyForms.visibleResultTier), `${viewport.name}: guided result tier should not mash visible text together, got ${relatedCountyForms.visibleResultTier}`);
-	      assert(!/examplesNo verified|yetCheck|resultThis|sourceThis/i.test(`${relatedCountyForms.visibleResultTier} ${relatedCountyForms.visibleResultReason}`), `${viewport.name}: guided result text should have readable separators, got ${relatedCountyForms.visibleResultTier} / ${relatedCountyForms.visibleResultReason}`);
-	      assert(/Why these examples appear/i.test(relatedCountyForms.visibleResultReason) && /You selected Pima County/i.test(relatedCountyForms.visibleResultReason), `${viewport.name}: why-this-result should use plain selected-answer language, got ${relatedCountyForms.visibleResultReason}`);
+	      assert(/Review forms/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should use forms language, got ${relatedCountyForms.action}`);
+	      assert(/Arizona forms for this path/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.lowerResultText}`), `${viewport.name}: related county result should frame Arizona forms as the normal path`);
+	      assert(!/packet yet|answer yet|No verified|nearby examples|not available for these answers/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleResultTier}`), `${viewport.name}: related county result should not undermine confidence, got ${relatedCountyForms.resultTitle} / ${relatedCountyForms.resultCopy}`);
+	      assert(!/[a-z](Arizona forms|Check your county|Your answers)/.test(relatedCountyForms.visibleResultTier), `${viewport.name}: guided result tier should not mash visible text together, got ${relatedCountyForms.visibleResultTier}`);
+	      assert(relatedCountyForms.visibleResultReason === "", `${viewport.name}: related county why/explanation panel should not render, got ${relatedCountyForms.visibleResultReason}`);
+	      assert(relatedCountyForms.visibleUnifiedSummary === "", `${viewport.name}: related county duplicate unified summary should not render, got ${relatedCountyForms.visibleUnifiedSummary}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: related county route should show related same-site official PDF actions`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => /View form/i.test(label)), `${viewport.name}: related county primary PDF actions should remain View form`);
-	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => !/Add this form to Intake/i.test(label)), `${viewport.name}: fallback form cards should not use intake-heavy save labels: ${relatedCountyForms.sameSiteOfficialPdfActions.join(" | ")}`);
-	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length <= 5, `${viewport.name}: related county fallback should stay focused, got ${relatedCountyForms.sameSiteOfficialPdfActions.length} visible forms`);
-	      assert(/No verified Pima packet|not a verified county packet|Nearby form examples/i.test(`${relatedCountyForms.resultCopy} ${relatedCountyForms.officialPdfStatus}`), `${viewport.name}: related county fallback should warn that forms are not a verified county packet, got ${relatedCountyForms.resultCopy} / ${relatedCountyForms.officialPdfStatus}`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => !/Add this form to Intake/i.test(label)), `${viewport.name}: form cards should not use intake-heavy save labels: ${relatedCountyForms.sameSiteOfficialPdfActions.join(" | ")}`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length <= 5, `${viewport.name}: Arizona form result should stay focused, got ${relatedCountyForms.sameSiteOfficialPdfActions.length} visible forms`);
+	      assert(/Arizona forms are ready|Check your county filing requirements/i.test(`${relatedCountyForms.resultCopy} ${relatedCountyForms.officialPdfStatus}`), `${viewport.name}: related county result should use Arizona forms filing-note language, got ${relatedCountyForms.resultCopy} / ${relatedCountyForms.officialPdfStatus}`);
 	      assert(new Set(relatedCountyForms.sameSiteOfficialPdfNames.map((name) => name.toLowerCase())).size === relatedCountyForms.sameSiteOfficialPdfNames.length, `${viewport.name}: related county fallback should not repeat visible form names: ${relatedCountyForms.sameSiteOfficialPdfNames.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.length === relatedCountyForms.sameSiteOfficialPdfActions.length, `${viewport.name}: related county fallback should show an example source badge on every visible form`);
-	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.every((label) => /^Example from /i.test(label)), `${viewport.name}: related county fallback source badges should use public example-source wording: ${relatedCountyForms.sameSiteOfficialPdfExampleSources.join(" | ")}`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.every((label) => /^Arizona court form$/i.test(label)), `${viewport.name}: related county source badges should use form wording: ${relatedCountyForms.sameSiteOfficialPdfExampleSources.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfCourtSources.length === 0, `${viewport.name}: related county fallback should not show duplicate court-source lines: ${relatedCountyForms.sameSiteOfficialPdfCourtSources.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfFileCodes.length === 0, `${viewport.name}: related county fallback should hide PDF filenames/file codes from the main card scan: ${relatedCountyForms.sameSiteOfficialPdfFileCodes.join(" | ")}`);
+	      assert(!adminPublicText.test(relatedCountyForms.lowerResultText), `${viewport.name}: related county path should not expose admin/explanation wording`);
 
 	      await page.click("[data-smart-reset]");
       await page.click('[data-smart-lane="calculator"]');
