@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-operations-alerts",
-  "built_at": "2026-06-28T08:39:14.816Z",
+  "built_at": "2026-06-28T15:55:47.260Z",
   "public_safety": {
     "internal_alert_rules_exposed": false,
     "sensitive_fixture_values_exposed": false,

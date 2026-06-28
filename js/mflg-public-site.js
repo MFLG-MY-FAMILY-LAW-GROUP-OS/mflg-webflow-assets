@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-011530-form-scan-polish">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-085118-form-result-fallback">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-011530-form-scan-polish">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-085118-form-result-fallback">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3203,6 +3203,10 @@
     }
     return pdfPacketRouteMap[`${county}|${issue}|${posture}`] || "all";
   }
+  function isChildOnlyOfficialForm(item) {
+    const text = `${item?.public_name || ""} ${item?.public_description || ""} ${item?.public_stage || ""} ${item?.display_label || ""} ${item?.label || ""} ${item?.source_label || ""} ${item?.file_name || ""} ${item?.packet_label || ""} ${item?.page_label || ""}`;
+    return /parenting|legal decision-making|child support|paternity/i.test(text);
+  }
   const pdfPacketDecisionMeta = {
     "maricopa-consent-decree-agreement": {
       label: "Summary Consent Decree Process",
@@ -3279,7 +3283,6 @@
     const firstResource = resources[0] || {};
     const hasReviewedPdfPacket = route.pdfPacket && route.pdfPacket !== "all";
     const isMaricopa = route.county === "Maricopa";
-    const isSourceOnlyCounty = ["Pima", "Pinal", "Yavapai"].includes(route.county);
     const isSafetyRoute = route.issue === "safety" || route.posture === "Safety";
 	    const selectedIssue = publicIssueLabelForRoute(route) !== "Choose issue" ? publicIssueLabelForRoute(route) : "family-law";
     const selectedPosture = route.posture && route.posture !== "Any posture" ? route.posture : "selected";
@@ -3351,15 +3354,17 @@
       };
     }
 
-    if (isSourceOnlyCounty) {
+    if (route.county && route.county !== "Maricopa") {
       return {
         tone: "source",
-        kicker: "County review needed",
-        title: "Use Guided Intake to confirm county forms.",
-        copy: "This county does not yet have reviewed on-site packet links. Use Guided Intake so the correct county forms can be confirmed without leaving this website.",
-        primaryLabel: "Start Guided Intake",
-        primaryHref: "/start",
-        meta: ["County confirmation first", "Stay on this website"],
+        kicker: "Related official forms",
+        title: "No verified county packet is matched yet.",
+        copy: "Review related Arizona form groups on this page first. If none of the titles match your county, stage, children, and issue, use Guided Intake instead of guessing.",
+        primaryLabel: "See related Arizona forms",
+        primaryHref: "#forms-approved-pdfs",
+        pdfPacket: "all",
+        allowRelatedForms: true,
+        meta: ["No exact county packet", "Related forms below", "Use Intake if unsure"],
         route: baseRoute
       };
     }
@@ -4437,7 +4442,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-011530-form-scan-polish" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-085118-form-result-fallback" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5067,8 +5072,8 @@
 			    }, options);
 			  }
 
-	  function rememberFormsQualifierAnswers(answers, options = {}) {
-	    const existing = storedFormsRoute() || window.MFLGLatestFormsRoute || {};
+		  function rememberFormsQualifierAnswers(answers, options = {}) {
+		    const existing = storedFormsRoute() || window.MFLGLatestFormsRoute || {};
 	    const route = {
 	      ...existing,
 	      ...(answers || {}),
@@ -5077,11 +5082,12 @@
 	      posture: normalizeFormsPosture((answers || {}).posture || existing.posture),
 	      children: normalizeFormsChildren((answers || {}).children || existing.children)
 	    };
-	    route.pdfPacket = options.preservePacket === true
-	      ? route.pdfPacket || "all"
-	      : pdfPacketForFormsRoute(route.county, route.issue, route.posture, route.children);
-	    route.expandPdfGroup = route.pdfPacket !== "all" || existing.expandPdfGroup === true;
-	    route.focusPacketBuilder = route.pdfPacket !== "all" || existing.focusPacketBuilder === true;
+		    route.pdfPacket = options.preservePacket === true
+		      ? route.pdfPacket || "all"
+		      : pdfPacketForFormsRoute(route.county, route.issue, route.posture, route.children);
+		    route.allowRelatedForms = route.pdfPacket === "all" && route.issue !== "safety" && route.posture !== "Safety";
+		    route.expandPdfGroup = route.pdfPacket !== "all" || existing.expandPdfGroup === true;
+		    route.focusPacketBuilder = route.pdfPacket !== "all" || existing.focusPacketBuilder === true;
 		    storeFormsRoute(route, options.calculatorChoice || existing.calculatorChoice || window.MFLGGuideCalculatorChoice || "", options.publicAnswerOptions || {});
 	    return route;
 	  }
@@ -7181,22 +7187,34 @@
       normalizeFormsPosture(guidedAnswers.posture),
       normalizeFormsChildren(guidedAnswers.children)
     );
-    const recommendationForGuidedAnswers = () => {
-      const active = guidedAnswers.need || "forms";
-      if (active === "forms" && guidedExactPdfPacket() === "all") {
-        return {
-          label: "What happens next",
-          tier: "Office review recommended",
-          title: "Use Intake or adjust answers before opening forms.",
-          copy: "No exact issue-specific form packet is verified for these answers yet. Change answers if another county or stage applies, or use Guided Intake for help confirming the next step.",
-          href: "/start",
-          text: "Start Guided Intake",
-          link: true,
-          route: true
-        };
-      }
-      return recommendations[active] || recommendations.forms;
-    };
+	    const recommendationForGuidedAnswers = () => {
+	      const active = guidedAnswers.need || "forms";
+	      if (active === "forms" && guidedExactPdfPacket() === "all") {
+	        if (guidedAnswers.issue === "safety" || guidedAnswers.posture === "Safety") {
+	          return {
+	            label: "What happens next",
+	            tier: "Office review recommended",
+	            title: "Use Intake before choosing safety forms.",
+	            copy: "Safety-related form choices need review before opening general packets. Start Guided Intake so the next step can be routed carefully.",
+	            href: "/start",
+	            text: "Start Guided Intake",
+	            link: true,
+	            route: true
+	          };
+	        }
+	        return {
+	          label: "What happens next",
+	          tier: "Related official forms",
+	          title: "No verified county packet is matched yet.",
+	          copy: "Review related Arizona form groups on this page. If none of the titles match your county, stage, children, and issue, use Guided Intake instead of guessing.",
+	          href: "#forms-approved-pdfs",
+	          text: "See related Arizona forms",
+	          link: true,
+	          relatedForms: true
+	        };
+	      }
+	      return recommendations[active] || recommendations.forms;
+	    };
     const countyLabelsForReason = {
       "Not sure": "not sure yet",
       Statewide: "Arizona statewide",
@@ -7368,10 +7386,11 @@
 	      guidedAnswers.posture = normalizeFormsPosture(posture?.value || guidedAnswers.posture);
 	      guidedAnswers.children = normalizeFormsChildren(children?.value || guidedAnswers.children);
 	      rememberSmartPathAnswers(publicAnswerOptions);
-      const recommendation = recommendationForGuidedAnswers();
-      const activeNeed = need?.value || "forms";
-      const exactFormsReady = activeNeed !== "forms" || guidedExactPdfPacket() !== "all";
-      const pathReady = showAllSections || activeNeed === "intake" || (guidedComplete && exactFormsReady);
+	      const recommendation = recommendationForGuidedAnswers();
+	      const activeNeed = need?.value || "forms";
+	      const exactFormsReady = activeNeed !== "forms" || guidedExactPdfPacket() !== "all";
+	      const relatedFormsReady = activeNeed === "forms" && Boolean(window.MFLGLatestFormsRoute?.allowRelatedForms || recommendation.relatedForms);
+	      const pathReady = showAllSections || activeNeed === "intake" || (guidedComplete && (exactFormsReady || relatedFormsReady));
       host.classList.toggle("user-showing-all", showAllSections);
       host.classList.toggle("forms-guided-complete", guidedComplete);
       host.classList.toggle("forms-guided-pending", !pathReady);
@@ -9622,8 +9641,9 @@
                     data-language="${esc(action.language || "")}"
                     data-label="${esc(action.public_name || action.display_label || action.label || action.file_name || "Official PDF")}"
                     data-source-label="${esc(action.source_label || action.label || "")}"
-                    data-file-name="${esc(action.file_name || "")}"
-                    data-pdf-url="${esc(sitePdfViewUrlFor(action))}"
+	                    data-file-name="${esc(action.file_name || "")}"
+	                    data-child-only="${isChildOnlyOfficialForm(action) ? "true" : "false"}"
+	                    data-pdf-url="${esc(sitePdfViewUrlFor(action))}"
                     data-official-pdf-url="${esc(action.official_pdf_url || "")}"
                     data-site-pdf-view-url="${esc(sitePdfViewUrlFor(action))}"
                     data-site-pdf-download-url="${esc(sitePdfDownloadUrlFor(action))}"
@@ -9817,19 +9837,23 @@
         if (match) openPdfViewer(match);
       });
       const update = () => {
-        const q = (search?.value || "").trim().toLowerCase();
-        const packetValue = packet?.value || "all";
-        const languageValue = language?.value || "all";
-        const allowPdfLinks = packetValue !== "all" || allowUnmatchedPdfBrowse;
-        let visible = 0;
-        links.forEach((link) => {
-          const matchesSearch = !q || (link.dataset.search || "").includes(q);
-          const matchesPacket = packetValue === "all" || link.dataset.packet === packetValue;
-          const matchesLanguage = languageValue === "all" || link.dataset.language === languageValue;
-          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage;
-          link.hidden = !show;
-          if (show) visible += 1;
-        });
+	        const q = (search?.value || "").trim().toLowerCase();
+	        const packetValue = packet?.value || "all";
+	        const languageValue = language?.value || "all";
+	        const allowPdfLinks = packetValue !== "all" || allowUnmatchedPdfBrowse;
+	        const noMinorChildren = normalizeFormsChildren(currentRouteDetail.children) === "no-minor-children";
+	        let hiddenForChildren = 0;
+	        let visible = 0;
+	        links.forEach((link) => {
+	          const matchesSearch = !q || (link.dataset.search || "").includes(q);
+	          const matchesPacket = packetValue === "all" || link.dataset.packet === packetValue;
+	          const matchesLanguage = languageValue === "all" || link.dataset.language === languageValue;
+	          const childOnlyMismatch = noMinorChildren && link.dataset.childOnly === "true";
+	          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch;
+	          link.hidden = !show;
+	          if (show) visible += 1;
+	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && childOnlyMismatch) hiddenForChildren += 1;
+	        });
         groupCards.forEach((group) => {
           const hasVisible = Array.from(group.querySelectorAll("[data-official-pdf-link]")).some((link) => !link.hidden);
           group.hidden = !hasVisible;
@@ -9859,13 +9883,17 @@
             ? "Use Guided Intake or change answers before opening a packet. Browse other form groups only if you already know the court packet title."
             : "Use search, form group, and language filters only if you know what you are looking for. Otherwise, start Guided Intake.";
         }
-        if (status) {
-          status.textContent = visible
-            ? "Forms are ready."
-            : allowUnmatchedPdfBrowse
-            ? "No forms match these filters."
-            : "No exact issue-specific form packet is selected for these answers.";
-        }
+	        if (status) {
+	          const childNote = hiddenForChildren
+	            ? ` ${hiddenForChildren} child-related form${hiddenForChildren === 1 ? "" : "s"} hidden because you selected no minor children.`
+	            : "";
+	          status.textContent = visible
+	            ? "Forms are ready."
+	            : allowUnmatchedPdfBrowse
+	            ? "No forms match these filters."
+	            : "No exact issue-specific form packet is selected for these answers.";
+	          status.textContent += childNote;
+	        }
         updateIntakePanel();
         updateItemIntakeLinks();
       };
@@ -9929,10 +9957,10 @@
       const applyRoutePreset = (detail) => {
         currentRouteDetail = detail || currentRouteDetail;
         expandFocusedPdfGroup = detail?.expandPdfGroup === true;
-        const hasExplicitPacket = detail && Object.prototype.hasOwnProperty.call(detail, "pdfPacket");
-        const explicitPacket = hasExplicitPacket ? detail.pdfPacket || "all" : "";
-        const nextPacket = hasExplicitPacket ? explicitPacket : recommendedPacketId;
-        allowUnmatchedPdfBrowse = false;
+	        const hasExplicitPacket = detail && Object.prototype.hasOwnProperty.call(detail, "pdfPacket");
+	        const explicitPacket = hasExplicitPacket ? detail.pdfPacket || "all" : "";
+	        const nextPacket = hasExplicitPacket ? explicitPacket : recommendedPacketId;
+	        allowUnmatchedPdfBrowse = detail?.allowRelatedForms === true;
         if (packet && Array.from(packet.options).some((option) => option.value === nextPacket)) {
           packet.value = nextPacket;
           update();

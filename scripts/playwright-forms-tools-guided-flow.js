@@ -41,10 +41,11 @@ async function pageState(page) {
     showAllText: document.querySelector("[data-smart-show-all]")?.textContent?.trim() || "",
     activeCalc: document.body.classList.contains("forms-active-need-calculator"),
     activeDeadline: document.body.classList.contains("forms-active-need-deadline"),
-    action: document.querySelector("[data-guided-result-action]")?.textContent?.trim(),
-    actionDisabled: document.querySelector("[data-guided-result-action]")?.disabled || false,
-    progressLabel: document.querySelector("[data-guided-progress-label]")?.textContent?.trim() || "",
-    guidedCopy: document.querySelector("[data-guided-copy]")?.textContent?.trim() || "",
+	    action: document.querySelector("[data-guided-result-action]")?.textContent?.trim(),
+	    actionDisabled: document.querySelector("[data-guided-result-action]")?.disabled || false,
+	    progressLabel: document.querySelector("[data-guided-progress-label]")?.textContent?.trim() || "",
+	    resultTitle: document.querySelector("[data-guided-result-title]")?.textContent?.replace(/\s+/g, " ").trim() || "",
+	    guidedCopy: document.querySelector("[data-guided-copy]")?.textContent?.trim() || "",
     resultCopy: document.querySelector("[data-guided-result-copy]")?.textContent?.trim() || "",
     resultTier: document.querySelector("[data-guided-result-tier]")?.textContent?.replace(/\s+/g, " ").trim() || "",
     resultReason: document.querySelector("[data-guided-reason]")?.textContent?.replace(/\s+/g, " ").trim() || "",
@@ -60,11 +61,12 @@ async function pageState(page) {
     sameSiteOfficialPdfActions: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) [data-official-pdf-preview]"))
       .filter((button) => button.offsetParent !== null && getComputedStyle(button).visibility !== "hidden")
       .map((button) => button.textContent.trim()),
-    sameSiteOfficialPdfDownloads: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) .official-pdf-direct-download"))
-      .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
-      .map((link) => link.getAttribute("href") || "")
-      .filter((href) => href.startsWith("/api/official-pdf/")),
-    matchedFormsHeading: document.querySelector("#forms-approved-pdfs h2")?.textContent?.trim() || "",
+	    sameSiteOfficialPdfDownloads: Array.from(document.querySelectorAll(".official-pdf-link:not([hidden]) .official-pdf-direct-download"))
+	      .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
+	      .map((link) => link.getAttribute("href") || "")
+	      .filter((href) => href.startsWith("/api/official-pdf/")),
+	    officialPdfStatus: document.querySelector("[data-official-pdf-status]")?.textContent?.replace(/\s+/g, " ").trim() || "",
+	    matchedFormsHeading: document.querySelector("#forms-approved-pdfs h2")?.textContent?.trim() || "",
     matchedFormsEscapeVisible: (() => {
       const panel = document.querySelector("[data-official-pdf-secondary-path]");
       return Boolean(panel && (panel.offsetWidth || panel.offsetHeight || panel.getClientRects().length) && getComputedStyle(panel).visibility !== "hidden");
@@ -212,11 +214,37 @@ async function pageState(page) {
       const resumedForms = await pageState(page);
       assert(!resumedForms.routerHidden, `${viewport.name}: using saved answers should reveal form router`);
       assert(!resumedForms.packetsHidden, `${viewport.name}: using saved answers should reveal packets`);
-      assert(/View matched forms/i.test(resumedForms.action || ""), `${viewport.name}: saved-answer CTA should become matched forms CTA`);
-      assert(/Answers confirmed/i.test(resumedForms.progressLabel || ""), `${viewport.name}: confirmed saved answers should not return to Question 1, got ${resumedForms.progressLabel}`);
-      await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
+	      assert(/View matched forms/i.test(resumedForms.action || ""), `${viewport.name}: saved-answer CTA should become matched forms CTA`);
+	      assert(/Answers confirmed/i.test(resumedForms.progressLabel || ""), `${viewport.name}: confirmed saved answers should not return to Question 1, got ${resumedForms.progressLabel}`);
+	      await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
 
-      await page.click("[data-smart-reset]");
+	      await page.click("[data-smart-reset]");
+	      await page.click('[data-guided-answer="forms"]');
+	      await page.click('[data-guided-answer="Maricopa"]');
+	      await page.click('[data-guided-answer="New filing"]');
+	      await page.click('[data-guided-answer="divorce"]');
+	      await page.click('[data-guided-answer="no-minor-children"]');
+	      const noChildrenForms = await pageState(page);
+	      assert(/View matched forms/i.test(noChildrenForms.action || ""), `${viewport.name}: no-children forms CTA should view matched forms`);
+	      assert(noChildrenForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: no-children route should still show same-site PDF actions`);
+	      assert(noChildrenForms.sameSiteOfficialPdfActions.every((label) => !/Parenting Plan|Parenting Time|Legal Decision|Child Support|Paternity/i.test(label)), `${viewport.name}: no-children route should hide child-related PDFs: ${noChildrenForms.sameSiteOfficialPdfActions.join(" | ")}`);
+	      assert(/child-related form/i.test(noChildrenForms.officialPdfStatus), `${viewport.name}: no-children route should explain hidden child-related PDFs, got ${noChildrenForms.officialPdfStatus}`);
+
+	      await page.click("[data-smart-reset]");
+	      await page.click('[data-guided-answer="forms"]');
+	      await page.click('[data-guided-answer="Pima"]');
+	      await page.click('[data-guided-answer="New filing"]');
+	      await page.click('[data-guided-answer="divorce"]');
+	      await page.click('[data-guided-answer="minor-children"]');
+	      const relatedCountyForms = await pageState(page);
+	      assert(!relatedCountyForms.routerHidden, `${viewport.name}: related county form router should reveal after completed answers`);
+	      assert(!relatedCountyForms.packetsHidden, `${viewport.name}: related county PDF area should reveal after completed answers`);
+	      assert(/See related Arizona forms/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should point to related forms, got ${relatedCountyForms.action}`);
+	      assert(/No verified county packet/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleUnifiedSummary}`), `${viewport.name}: related county result should explain no verified county packet`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: related county route should show related same-site official PDF actions`);
+	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => /View form/i.test(label)), `${viewport.name}: related county primary PDF actions should remain View form`);
+
+	      await page.click("[data-smart-reset]");
       await page.click('[data-smart-lane="calculator"]');
       const calc = await pageState(page);
       assert(calc.routerHidden, `${viewport.name}: router should stay hidden on calculator path`);
