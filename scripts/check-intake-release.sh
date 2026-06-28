@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-095221-guided-issue-coverage}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-103055-guided-copy-polish}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -1116,7 +1116,7 @@ grep -q "Why this recommendation" "$PUBLIC_JS_FILE" || fail "Forms & Tools colla
 grep -q "Advanced: search or switch form groups" "$PUBLIC_JS_FILE" || fail "Forms & Tools collapsible form-group browser copy missing from public JS"
 grep -q "data-official-pdf-viewer" "$PUBLIC_JS_FILE" || fail "On-site official PDF viewer missing from public JS"
 grep -q "View form" "$PUBLIC_JS_FILE" || fail "On-site official PDF view action missing from public JS"
-grep -q "Confirm this form in Intake" "$PUBLIC_JS_FILE" || fail "Official PDF intake fallback action missing from public JS"
+grep -q "Ask for office review" "$PUBLIC_JS_FILE" || fail "Official PDF office-review fallback action missing from public JS"
 grep -q "Download PDF" "$PUBLIC_JS_FILE" || fail "On-site PDF download action missing from public JS"
 grep -q "setUnifiedFormsResult" "$PUBLIC_JS_FILE" || fail "Forms & Tools unified result updater missing from public JS"
 grep -q "Your recommended next action" "$PUBLIC_JS_FILE" || fail "Forms & Tools recommendation label missing from public JS"

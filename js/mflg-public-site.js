@@ -179,6 +179,14 @@
     if (host.includes("yavapaiaz.gov")) return "Court source: Yavapai Courts";
     return "Court source: official court website";
   }
+  function officialPdfExampleSourceLabel(file) {
+    const county = officialPdfSourceCounty(file);
+    if (county === "Maricopa") return "Example from Maricopa Superior Court";
+    if (county === "Pima") return "Example from Pima Superior Court";
+    if (county === "Cochise") return "Example from Cochise County";
+    if (county === "Yavapai") return "Example from Yavapai Courts";
+    return "Example from official court website";
+  }
   function officialPdfSourceCounty(file) {
     let host = "";
     try {
@@ -450,10 +458,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-095221-guided-issue-coverage">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-103055-guided-copy-polish">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-095221-guided-issue-coverage">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-103055-guided-copy-polish">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3590,7 +3598,7 @@
               <div class="forms-guided-result-actions">
                 <button class="button primary" type="button" data-guided-result-action data-guided-target="#forms-official-router">Continue to recommended forms</button>
                 <button class="button outline" type="button" data-guided-change-answers hidden>Change answers</button>
-                <a class="button outline" href="/start" data-link data-guided-intake-fallback data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
+                <a class="button outline" href="/start" data-link data-guided-intake-fallback data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Ask for office review</a>
               </div>
             </div>
           </div>
@@ -4457,7 +4465,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-095221-guided-issue-coverage" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-103055-guided-copy-polish" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7581,7 +7589,7 @@
       guidedOptions?.toggleAttribute("inert", !answering);
       guidedOptions?.setAttribute("aria-hidden", answering ? "false" : "true");
       guidedResultAction?.classList.toggle("primary", true);
-      if (guidedIntakeFallback) guidedIntakeFallback.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
+	      if (guidedIntakeFallback) guidedIntakeFallback.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
       if (guidedResultTier) {
         guidedResultTier.hidden = shouldContinueQuestions && !savedResumeActive;
         const tierLabel = shouldContinueQuestions ? "Recommended forms" : recommendation.tier || recommendation.label || "Recommended forms";
@@ -7593,18 +7601,26 @@
 	          : recommendation.relatedForms
 	          ? "Check the source and title before using any example."
 	          : "Related forms stay below the main form result.";
-	        guidedResultTier.setAttribute("aria-label", [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". "));
-	        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}</span><strong>${esc(tierTitle)}</strong><p>${esc(tierCopy)}</p>`;
+	        const tierText = [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". ");
+	        guidedResultTier.setAttribute("aria-label", tierText);
+	        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}. </span><strong>${esc(tierTitle)} </strong><p>${esc(tierCopy)}</p>`;
       }
       if (guidedReason) {
         guidedReason.hidden = shouldContinueQuestions && !savedResumeActive;
         const reasons = selectedAnswerReasons();
+        const selectedCounty = guidedAnswers.county && guidedAnswers.county !== "Not sure" ? `${guidedAnswers.county} County` : "";
+        const selectedStage = guidedAnswers.posture ? guidedAnswers.posture.toLowerCase() : "";
+        const selectedIssue = guidedAnswers.issue ? guidedAnswers.issue.replace(/\s*\/\s*/g, " or ") : "";
+        const selectedChildren = guidedAnswers.children === "minor-children" ? "minor children" : guidedAnswers.children === "no-minor-children" ? "no minor children" : "";
+        const plainReasonParts = [selectedCounty, selectedStage, selectedIssue, selectedChildren].filter(Boolean);
         const reasonText = shouldContinueQuestions
           ? (guideContextActive ? "Your selected guide is connected. Choose the next answer above before forms appear." : "No form result is selected until you answer the current step.")
+          : recommendation.relatedForms && plainReasonParts.length
+          ? `You selected ${plainReasonParts.join(", ")}. We do not have a verified ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? guidedAnswers.county : "county"} packet for that path yet.`
           : reasons.length
-          ? `This appears because ${reasons.join(", ")}.`
+          ? `This result is based on ${reasons.join(", ")}.`
           : "This appears because you chose a starting path.";
-        guidedReason.innerHTML = `<span>Why this result</span><p>${esc(reasonText)}</p>`;
+        guidedReason.innerHTML = `<span>Why this result. </span><p>${esc(reasonText)}</p>`;
         if (unifiedResultWhy) unifiedResultWhy.textContent = reasonText;
       }
       if (unifiedResultSummary) {
@@ -9632,7 +9648,7 @@
             <strong data-official-pdf-intake-title>Packet support</strong>
             <p data-official-pdf-intake-copy>Packet support placeholder.</p>
           </div>
-          <a class="button primary" href="/start" data-link data-official-pdf-intake>Start Guided Intake</a>
+          <a class="button primary" href="/start" data-link data-official-pdf-intake>Ask for office review</a>
         </div>
         <div class="official-pdf-viewer" data-official-pdf-viewer hidden>
           <div class="official-pdf-viewer-head">
@@ -9646,8 +9662,8 @@
           <iframe title="Official court PDF viewer" loading="lazy" data-official-pdf-frame></iframe>
           <div class="official-pdf-viewer-actions">
             <a class="button outline source-fallback-link" data-official-pdf-download aria-disabled="true">Download PDF</a>
-            <a class="button outline source-fallback-link" href="/start" data-link data-official-pdf-source-fallback hidden aria-hidden="true">Confirm this form in Intake</a>
-            <a class="button outline" href="/start" data-link data-official-pdf-viewer-intake hidden aria-hidden="true">Add this form to Intake</a>
+            <a class="button outline source-fallback-link" href="/start" data-link data-official-pdf-source-fallback hidden aria-hidden="true">Ask for office review</a>
+            <a class="button outline" href="/start" data-link data-official-pdf-viewer-intake hidden aria-hidden="true">Save for office review</a>
           </div>
         </div>
         <div class="official-pdf-group-grid">
@@ -9678,13 +9694,13 @@
                       <span>${esc(action.public_stage || action.language || "Court form")}</span>
 	                      <strong>${esc(action.public_name || action.display_label || action.label || action.file_name || "Official PDF")}</strong>
 	                      <p>${esc(action.public_description || "Official court PDF from the reviewed packet.")}</p>
-	                      <small data-official-pdf-example-source hidden>${esc(officialPdfSourceCounty(action) ? `Example source: ${officialPdfSourceCounty(action)}` : "Example source: official court website")}</small>
-	                      <small>${esc(officialPdfSourceLabel(action))}</small>
+	                      <small data-official-pdf-example-source hidden>${esc(officialPdfExampleSourceLabel(action))}</small>
+	                      <small data-official-pdf-court-source>${esc(officialPdfSourceLabel(action))}</small>
 	                      <em>${esc([action.language, action.public_file_code || action.file_name].filter(Boolean).join(" / "))}</em>
                       <b>View form</b>
                     </button>
                     <a class="official-pdf-direct-download" href="${esc(sitePdfDownloadUrlFor(action) || sitePdfViewUrlFor(action) || "#")}" download="${esc(action.file_name || "official-court-form.pdf")}">Download PDF</a>
-                    <a class="official-pdf-intake-link" href="/start" data-link data-official-pdf-item-intake>Add this form to Intake</a>
+                    <a class="official-pdf-intake-link" href="/start" data-link data-official-pdf-item-intake>Save for office review</a>
                   </article>
                 `).join("")}
               </div>
@@ -9928,6 +9944,7 @@
 		          const show = allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && !relatedPacketMismatch && !duplicateRelatedForm;
 		          link.hidden = !show;
 		          link.querySelector("[data-official-pdf-example-source]")?.toggleAttribute("hidden", !relatedBrowse);
+		          link.querySelector("[data-official-pdf-court-source]")?.toggleAttribute("hidden", relatedBrowse);
 		          if (show) visible += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && childOnlyMismatch) hiddenForChildren += 1;
 	          if (allowPdfLinks && matchesSearch && matchesPacket && matchesLanguage && !childOnlyMismatch && relatedPacketMismatch) hiddenForCountyFit += 1;
