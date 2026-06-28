@@ -1,19 +1,19 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260628-092134-related-form-quality
+## Public Website Release: mflg-live-20260628-095221-guided-issue-coverage
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260628-092134-related-form-quality`
-- Source commit: `b4b1297d33980453e381dc6e81588ff368a94857`
-- Public JS SHA-256: `fcddba0e77cccb551df6387a4de5b1ecfa4194803de7b640eb802d25b44f9677`
-- Public CSS SHA-256: `59c28b6b561754a3e0cf64574471f40a100f6c2bd0b64a14a9d3989990b8203d`
-- Cloudflare `mflg-public-website`: `98c99fe5-f300-48a3-9472-1455d0f3d1c9`
-- Cloudflare `mflg-webflow-assets`: `b35f6367-a6d5-4cce-b8d1-117b35b60880`
-- Rollback deployments: `852cfd9d-0d34-4763-a6c4-fba1c1cbc0aa` and `ab3063f3-8f3b-4807-aa00-d51ddda6053a`
-- Cloudflare source label: `main / b4b1297`
+- Asset key: `mflg-live-20260628-095221-guided-issue-coverage`
+- Source commit: `878dadae2235be9c007d6f7011a2e9c89d699fbe`
+- Public JS SHA-256: `48647ce968dea436ffd6ef8b89869dd5f453af395e5484663f35c6efcc69638d`
+- Public CSS SHA-256: `321ee8c6eabf19669efd5eb870b1639de8af047bb3f6ced1e67b5e45ae568f26`
+- Cloudflare `mflg-public-website`: `9025979e-f816-47c8-84d4-6b5070836517`
+- Cloudflare `mflg-webflow-assets`: `7b9762e9-61ec-435a-9649-134bb23d056f`
+- Rollback deployments: `98c99fe5-f300-48a3-9472-1455d0f3d1c9` and `b35f6367-a6d5-4cce-b8d1-117b35b60880`
+- Cloudflare source label: `main / 878dada`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Related form fallback quality. Non-exact county form results now show the closest nearby packet group instead of every English packet, dedupe repeated visible form names, reject wrong-issue county packets, and use plainer no-children/status copy while preserving same-site PDF viewing.
+- Scope: Guided issue coverage and fallback form clarity. The Guided Form Helper now covers expanded issue choices, non-exact county results use `See nearby examples`, fallback cards show example-source badges, selected-county warnings are shorter and county-specific, and same-site PDF viewing remains intact.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

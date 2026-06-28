@@ -2,6 +2,29 @@
 
 Base URL for local regression: `http://127.0.0.1:4186`
 
+## Guided Issue Coverage Release: mflg-live-20260628-095221-guided-issue-coverage
+
+Base URL for local regression: `http://127.0.0.1:4202`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260628-095221-guided-issue-coverage ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4202 node scripts/playwright-forms-tools-guided-flow.js`: pass. Regression requires expanded guided issue choices, `See nearby examples` fallback action, selected-county warning copy, example-source badges on every fallback visible form, and same-site PDF viewer behavior.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4202 node scripts/playwright-guide-county-gate.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4202 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4202 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Targeted live fallback read: Pima form flow shows expanded issue options, `See nearby examples`, `No verified Pima packet yet.`, five Maricopa example-source badges, and zero public external PDF anchors.
+- Deploy script uploaded both projects successfully but its built-in marker retry timed out during propagation. Direct custom-domain checks passed; final direct deploys corrected Cloudflare source labels to `main / 878dada`.
+- Final Cloudflare `mflg-public-website`: `9025979e-f816-47c8-84d4-6b5070836517`, source `main / 878dada`.
+- Final Cloudflare `mflg-webflow-assets`: `7b9762e9-61ec-435a-9649-134bb23d056f`, source `main / 878dada`.
+
+Final live public JS SHA-256: `48647ce968dea436ffd6ef8b89869dd5f453af395e5484663f35c6efcc69638d`
+
+Final live public CSS SHA-256: `321ee8c6eabf19669efd5eb870b1639de8af047bb3f6ced1e67b5e45ae568f26`
+
+Final live screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+
 - `npm run test:public-surface`: pass
 - `npm run test:practice-area-matrix`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped
 - `npm run test:diy-guide-matrix`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped
