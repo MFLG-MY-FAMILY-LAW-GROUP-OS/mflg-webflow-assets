@@ -2,6 +2,28 @@
 
 Base URL for local regression: `http://127.0.0.1:4186`
 
+## Guided Copy Polish Release: mflg-live-20260628-103055-guided-copy-polish
+
+Base URL for local regression: `http://127.0.0.1:4203`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260628-103055-guided-copy-polish ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4203 node scripts/playwright-forms-tools-guided-flow.js`: pass. Regression now fails on mashed guided result text, requires plain selected-answer reasoning, requires `Example from ...` fallback source badges, and rejects intake-heavy fallback save labels.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4203 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Targeted local fallback read: Pima fallback shows separated tier text, plain selected-answer reason, `Ask for office review`, `Save for office review`, and `Example from Maricopa Superior Court`.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Targeted live fallback read: Pima fallback shows `Nearby form examples. No verified Pima packet yet. Check the source and title before using any example.`, `Ask for office review`, five `Example from Maricopa Superior Court` badges, five `Save for office review` labels, and no visible duplicate court-source line.
+- Deploy script uploaded both projects successfully but its built-in marker retry timed out during propagation. Direct custom-domain checks passed; final direct deploys corrected Cloudflare source labels to `main / f00c765`.
+- Final Cloudflare `mflg-public-website`: `452520dd-b3db-445e-966a-d2ae5aa8a3c0`, source `main / f00c765`.
+- Final Cloudflare `mflg-webflow-assets`: `9ac9c26d-f9fe-4ea2-b33c-fce1bf7d8d90`, source `main / f00c765`.
+
+Final live public JS SHA-256: `0e53dfd25f5f254824bd195d9bc9212cdb8901730280efd623c3d686ff06a1f9`
+
+Final live public CSS SHA-256: `2dabaa8e3fa79586c9b7c5c6ceb3c40aff986362038d16d2791b6970b0b8e03e`
+
+Final live screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+
 ## Guided Issue Coverage Release: mflg-live-20260628-095221-guided-issue-coverage
 
 Base URL for local regression: `http://127.0.0.1:4202`

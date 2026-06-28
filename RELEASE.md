@@ -1,19 +1,19 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260628-095221-guided-issue-coverage
+## Public Website Release: mflg-live-20260628-103055-guided-copy-polish
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260628-095221-guided-issue-coverage`
-- Source commit: `878dadae2235be9c007d6f7011a2e9c89d699fbe`
-- Public JS SHA-256: `48647ce968dea436ffd6ef8b89869dd5f453af395e5484663f35c6efcc69638d`
-- Public CSS SHA-256: `321ee8c6eabf19669efd5eb870b1639de8af047bb3f6ced1e67b5e45ae568f26`
-- Cloudflare `mflg-public-website`: `9025979e-f816-47c8-84d4-6b5070836517`
-- Cloudflare `mflg-webflow-assets`: `7b9762e9-61ec-435a-9649-134bb23d056f`
-- Rollback deployments: `98c99fe5-f300-48a3-9472-1455d0f3d1c9` and `b35f6367-a6d5-4cce-b8d1-117b35b60880`
-- Cloudflare source label: `main / 878dada`
+- Asset key: `mflg-live-20260628-103055-guided-copy-polish`
+- Source commit: `f00c76550b5a2c24e0b075b422698df22fe4cbdc`
+- Public JS SHA-256: `0e53dfd25f5f254824bd195d9bc9212cdb8901730280efd623c3d686ff06a1f9`
+- Public CSS SHA-256: `2dabaa8e3fa79586c9b7c5c6ceb3c40aff986362038d16d2791b6970b0b8e03e`
+- Cloudflare `mflg-public-website`: `452520dd-b3db-445e-966a-d2ae5aa8a3c0`
+- Cloudflare `mflg-webflow-assets`: `9ac9c26d-f9fe-4ea2-b33c-fce1bf7d8d90`
+- Rollback deployments: `9025979e-f816-47c8-84d4-6b5070836517` and `7b9762e9-61ec-435a-9649-134bb23d056f`
+- Cloudflare source label: `main / f00c765`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Guided issue coverage and fallback form clarity. The Guided Form Helper now covers expanded issue choices, non-exact county results use `See nearby examples`, fallback cards show example-source badges, selected-county warnings are shorter and county-specific, and same-site PDF viewing remains intact.
+- Scope: Guided form copy polish. Fallback result text now uses readable separators, plain selected-answer reasoning, `Ask for office review` and `Save for office review` CTAs, single visible example-source badges, and same-site PDF viewing remains intact.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

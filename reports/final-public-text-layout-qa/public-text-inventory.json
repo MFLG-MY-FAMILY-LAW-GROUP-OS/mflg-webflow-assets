@@ -6694,7 +6694,7 @@
     "viewport": "390",
     "component": "a.button",
     "state": "initial",
-    "visibleText": "Not sure Start Guided Intake",
+    "visibleText": "Ask for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -7534,7 +7534,7 @@
     "viewport": "390",
     "component": "a.button",
     "state": "initial",
-    "visibleText": "Not sure Start Guided Intake",
+    "visibleText": "Ask for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -8374,7 +8374,7 @@
     "viewport": "390",
     "component": "a.button",
     "state": "initial",
-    "visibleText": "Not sure Start Guided Intake",
+    "visibleText": "Ask for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497704,7 +497704,7 @@
     "viewport": "390",
     "component": "span",
     "state": "forms-ready",
-    "visibleText": "Recommended form path",
+    "visibleText": "Recommended form path.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497734,7 +497734,7 @@
     "viewport": "390",
     "component": "span",
     "state": "forms-ready",
-    "visibleText": "Why this result",
+    "visibleText": "Why this result.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497744,7 +497744,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497824,7 +497824,7 @@
     "viewport": "390",
     "component": "dd",
     "state": "forms-ready",
-    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497914,7 +497914,7 @@
     "viewport": "390",
     "component": "a.button",
     "state": "forms-ready",
-    "visibleText": "Not sure Start Guided Intake",
+    "visibleText": "Ask for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498484,7 +498484,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "forms-ready",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498564,7 +498564,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "forms-ready",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498644,7 +498644,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "forms-ready",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498724,7 +498724,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "forms-ready",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498804,7 +498804,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "forms-ready",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500414,7 +500414,7 @@
     "viewport": "390",
     "component": "span",
     "state": "viewer",
-    "visibleText": "Recommended form path",
+    "visibleText": "Recommended form path.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500444,7 +500444,7 @@
     "viewport": "390",
     "component": "span",
     "state": "viewer",
-    "visibleText": "Why this result",
+    "visibleText": "Why this result.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500454,7 +500454,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500534,7 +500534,7 @@
     "viewport": "390",
     "component": "dd",
     "state": "viewer",
-    "visibleText": "This appears because you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
+    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500624,7 +500624,7 @@
     "viewport": "390",
     "component": "a.button",
     "state": "viewer",
-    "visibleText": "Not sure Start Guided Intake",
+    "visibleText": "Ask for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501244,7 +501244,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "viewer",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501324,7 +501324,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "viewer",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501404,7 +501404,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "viewer",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501484,7 +501484,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "viewer",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501564,7 +501564,7 @@
     "viewport": "390",
     "component": "a.official-pdf-intake-link",
     "state": "viewer",
-    "visibleText": "Add this form to Intake",
+    "visibleText": "Save for office review",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
