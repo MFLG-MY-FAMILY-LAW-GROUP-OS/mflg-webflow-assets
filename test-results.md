@@ -112,3 +112,26 @@ Final live public JS SHA-256: `4240720a3a429dfc7e6663aac7c6c8b7fe11904f3ac2da707
 Final live public CSS SHA-256: `9dafcfea9b69c7bbb4ae3bd94f7102f0dfc35c17030cd23f6e4704885ba19cd1`
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+
+## Form Result Fallback Release: mflg-live-20260628-085118-form-result-fallback
+
+Base URL for local regression: `http://127.0.0.1:4200`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260628-085118-form-result-fallback ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4200 node scripts/playwright-forms-tools-guided-flow.js`: pass. Regression now covers Maricopa no-minor-children hiding child-related official PDFs and Pima completed answers showing related same-site forms instead of an intake-only result.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4200 node scripts/playwright-guide-county-gate.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4200 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4200 node scripts/playwright-practice-area-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4200 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Deploy script uploaded successfully but its built-in marker retry timed out during propagation. Direct custom-domain checks passed; final direct deploys corrected Cloudflare source labels to `main / 493a2ca`.
+- Final Cloudflare `mflg-public-website`: `852cfd9d-0d34-4763-a6c4-fba1c1cbc0aa`, source `main / 493a2ca`.
+- Final Cloudflare `mflg-webflow-assets`: `ab3063f3-8f3b-4807-aa00-d51ddda6053a`, source `main / 493a2ca`.
+
+Final live public JS SHA-256: `4ef413f1ad8d7ac03777e1f4b0ce7614230fe785363d39064f5b5600f5d49225`
+
+Final live public CSS SHA-256: `ee86b1095b634d5852e7f6aa896ab1d46f5897d52d3660f1ef1c2b02c76bed5a`
+
+Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
