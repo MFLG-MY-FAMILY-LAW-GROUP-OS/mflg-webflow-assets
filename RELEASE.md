@@ -1,19 +1,19 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260628-085118-form-result-fallback
+## Public Website Release: mflg-live-20260628-092134-related-form-quality
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260628-085118-form-result-fallback`
-- Source commit: `493a2ca72c7b41b93df35d6377b62b54dbf0b470`
-- Public JS SHA-256: `4ef413f1ad8d7ac03777e1f4b0ce7614230fe785363d39064f5b5600f5d49225`
-- Public CSS SHA-256: `ee86b1095b634d5852e7f6aa896ab1d46f5897d52d3660f1ef1c2b02c76bed5a`
-- Cloudflare `mflg-public-website`: `852cfd9d-0d34-4763-a6c4-fba1c1cbc0aa`
-- Cloudflare `mflg-webflow-assets`: `ab3063f3-8f3b-4807-aa00-d51ddda6053a`
-- Rollback deployments: `022c036e-f1f4-4892-8754-63d61c812e91` and `536f7a50-4d99-465d-b933-e1f64e3d4582`
-- Cloudflare source label: `main / 493a2ca`
+- Asset key: `mflg-live-20260628-092134-related-form-quality`
+- Source commit: `b4b1297d33980453e381dc6e81588ff368a94857`
+- Public JS SHA-256: `fcddba0e77cccb551df6387a4de5b1ecfa4194803de7b640eb802d25b44f9677`
+- Public CSS SHA-256: `59c28b6b561754a3e0cf64574471f40a100f6c2bd0b64a14a9d3989990b8203d`
+- Cloudflare `mflg-public-website`: `98c99fe5-f300-48a3-9472-1455d0f3d1c9`
+- Cloudflare `mflg-webflow-assets`: `b35f6367-a6d5-4cce-b8d1-117b35b60880`
+- Rollback deployments: `852cfd9d-0d34-4763-a6c4-fba1c1cbc0aa` and `ab3063f3-8f3b-4807-aa00-d51ddda6053a`
+- Cloudflare source label: `main / b4b1297`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Forms result fallback logic. Completed non-exact county answers now lead to clearly labeled related Arizona forms instead of an intake-only dead end, and no-minor-children routes hide child-related official PDFs while preserving same-site PDF viewing.
+- Scope: Related form fallback quality. Non-exact county form results now show the closest nearby packet group instead of every English packet, dedupe repeated visible form names, reject wrong-issue county packets, and use plainer no-children/status copy while preserving same-site PDF viewing.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

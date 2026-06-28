@@ -113,6 +113,30 @@ Final live public CSS SHA-256: `9dafcfea9b69c7bbb4ae3bd94f7102f0dfc35c17030cd23f
 
 Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 
+## Related Form Quality Release: mflg-live-20260628-092134-related-form-quality
+
+Base URL for local regression: `http://127.0.0.1:4201`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260628-092134-related-form-quality ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4201 node scripts/playwright-forms-tools-guided-flow.js`: pass. Regression now requires non-exact county fallback to stay focused, warn that nearby examples are not a verified county packet, and avoid repeated visible form titles.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4201 node scripts/playwright-guide-county-gate.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4201 node scripts/playwright-diy-guide-matrix.js`: pass, 50 expected / 50 discovered / 50 opened / 50 asserted / 0 skipped.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4201 node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Targeted local fallback read: Pima divorce shows the nearby divorce packet examples, not relocation; Yavapai no-minor-children shows the no-children divorce subset.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass after final direct deploy.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,281 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Targeted live fallback read: Pima divorce shows five nearby Maricopa divorce examples with the not-verified county warning; Yavapai no-minor-children shows three no-children divorce examples and hides parenting, child-support, and paternity forms.
+- Deploy script uploaded successfully but its built-in marker retry timed out during propagation. Direct custom-domain checks passed; final direct deploys corrected Cloudflare source labels to `main / b4b1297`.
+- Final Cloudflare `mflg-public-website`: `98c99fe5-f300-48a3-9472-1455d0f3d1c9`, source `main / b4b1297`.
+- Final Cloudflare `mflg-webflow-assets`: `b35f6367-a6d5-4cce-b8d1-117b35b60880`, source `main / b4b1297`.
+
+Final live public JS SHA-256: `fcddba0e77cccb551df6387a4de5b1ecfa4194803de7b640eb802d25b44f9677`
+
+Final live public CSS SHA-256: `59c28b6b561754a3e0cf64574471f40a100f6c2bd0b64a14a9d3989990b8203d`
+
+Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+
 ## Form Result Fallback Release: mflg-live-20260628-085118-form-result-fallback
 
 Base URL for local regression: `http://127.0.0.1:4200`
