@@ -222,7 +222,7 @@ body:not(.has-hero) .site-header {
   padding: clamp(118px, 13vw, 178px) max(24px, calc((100vw - var(--max)) / 2)) clamp(78px, 9vw, 120px);
   background:
     linear-gradient(90deg, rgba(6, 14, 22, 0.82), rgba(6, 14, 22, 0.36) 58%, rgba(6, 14, 22, 0.58)),
-    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-163258-result-pruning") center / cover no-repeat,
+    url("/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-002232-form-escape-hatch") center / cover no-repeat,
     var(--navy);
   color: white;
   isolation: isolate;
@@ -6987,6 +6987,44 @@ body:not(.forms-showing-all-sections) .forms-download-readiness {
   font-weight: 850;
   line-height: 1.35;
 }
+.official-pdf-secondary-path {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 14px;
+  padding: 13px 14px;
+  border: 1px solid rgba(33, 85, 141, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+}
+.official-pdf-secondary-path span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--blue);
+  font-size: 0.64rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.official-pdf-secondary-path strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.2;
+}
+.official-pdf-secondary-path p {
+  max-width: 66ch;
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.42;
+}
+.official-pdf-secondary-path .button {
+  min-height: 40px;
+  white-space: nowrap;
+}
 .forms-next-mini-list {
   display: grid;
   gap: 6px;
@@ -7570,6 +7608,13 @@ body:not(.forms-showing-all-sections) .forms-download-readiness {
   }
   .official-pdf-actions {
     padding: 14px;
+  }
+  .official-pdf-secondary-path {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+  .official-pdf-secondary-path .button {
+    width: 100%;
   }
   .official-pdf-spotlight {
     display: block;

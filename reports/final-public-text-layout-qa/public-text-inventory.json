@@ -498244,7 +498244,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "forms-ready",
-    "visibleText": "Open the forms that match your answers.",
+    "visibleText": "Recommended forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498254,7 +498254,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, use Guided Intake instead of guessing.",
+    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, browse nearby form groups or use Guided Intake instead of guessing.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498274,7 +498274,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "forms-ready",
-    "visibleText": "Open the exact packet for that issue.",
+    "visibleText": "Recommended forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498284,7 +498284,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Start with the recommended packet. View each form on this site, then download only when needed.",
+    "visibleText": "Start with the recommended form group. View each form on this site, then download only when needed.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498355,6 +498355,46 @@
     "component": "small",
     "state": "forms-ready",
     "visibleText": "You are not filing anything by opening these forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "forms-ready",
+    "visibleText": "Different form group",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "forms-ready",
+    "visibleText": "Need a different form group",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "p",
+    "state": "forms-ready",
+    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, browse nearby form groups before opening more forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button.button",
+    "state": "forms-ready",
+    "visibleText": "Browse form groups",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498795,16 +498835,6 @@
     "component": "a.official-pdf-intake-link",
     "state": "forms-ready",
     "visibleText": "Add this form to Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "forms-ready",
-    "visibleText": "Browse other form groups",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500954,7 +500984,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "viewer",
-    "visibleText": "Open the forms that match your answers.",
+    "visibleText": "Recommended forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500964,7 +500994,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, use Guided Intake instead of guessing.",
+    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, browse nearby form groups or use Guided Intake instead of guessing.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500984,7 +501014,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "viewer",
-    "visibleText": "Open the exact packet for that issue.",
+    "visibleText": "Recommended forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500994,7 +501024,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Start with the recommended packet. View each form on this site, then download only when needed.",
+    "visibleText": "Start with the recommended form group. View each form on this site, then download only when needed.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501065,6 +501095,46 @@
     "component": "small",
     "state": "viewer",
     "visibleText": "You are not filing anything by opening these forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "span",
+    "state": "viewer",
+    "visibleText": "Different form group",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "strong",
+    "state": "viewer",
+    "visibleText": "Need a different form group",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "p",
+    "state": "viewer",
+    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, browse nearby form groups before opening more forms.",
+    "issueType": "",
+    "recommendedRewrite": "",
+    "status": "fixed"
+  },
+  {
+    "route": "/tools/",
+    "viewport": "390",
+    "component": "button.button",
+    "state": "viewer",
+    "visibleText": "Browse form groups",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501555,16 +501625,6 @@
     "component": "a.official-pdf-intake-link",
     "state": "viewer",
     "visibleText": "Add this form to Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "button.button",
-    "state": "viewer",
-    "visibleText": "Browse other form groups",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

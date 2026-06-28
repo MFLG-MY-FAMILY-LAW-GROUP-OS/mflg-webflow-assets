@@ -64,6 +64,15 @@ async function pageState(page) {
       .filter((link) => link.offsetParent !== null && getComputedStyle(link).visibility !== "hidden")
       .map((link) => link.getAttribute("href") || "")
       .filter((href) => href.startsWith("/api/official-pdf/")),
+    matchedFormsHeading: document.querySelector("#forms-approved-pdfs h2")?.textContent?.trim() || "",
+    matchedFormsEscapeVisible: (() => {
+      const panel = document.querySelector("[data-official-pdf-secondary-path]");
+      return Boolean(panel && (panel.offsetWidth || panel.offsetHeight || panel.getClientRects().length) && getComputedStyle(panel).visibility !== "hidden");
+    })(),
+    matchedFormsBrowseButtons: Array.from(document.querySelectorAll("[data-official-pdf-show-all]"))
+      .filter((button) => button.offsetParent !== null && getComputedStyle(button).visibility !== "hidden")
+      .map((button) => button.textContent.trim()),
+    otherFormGroupBrowserOpen: document.querySelector("[data-official-pdf-route-index]")?.open || false,
     packetBrowserPresent: Boolean(document.querySelector("[data-forms-packet-browser]")),
     packetBrowserOpen: document.querySelector("[data-forms-packet-browser]")?.open || false,
     packetSelectVisible: (() => {
@@ -150,6 +159,12 @@ async function pageState(page) {
       assert(forms.sameSiteOfficialPdfDownloads.length > 0, `${viewport.name}: forms path should render same-site PDF download links`);
       assert(forms.publicExternalHrefs.length === 0, `${viewport.name}: forms path should not render external public hrefs: ${forms.publicExternalHrefs.join(", ")}`);
       assert(!forms.overflow, `${viewport.name}: forms path has horizontal overflow`);
+      await page.click("[data-guided-result-action]");
+      const matchedForms = await pageState(page);
+      assert(/Recommended forms/i.test(matchedForms.matchedFormsHeading), `${viewport.name}: matched forms landing should use a plain heading, got ${matchedForms.matchedFormsHeading}`);
+      assert(matchedForms.matchedFormsEscapeVisible, `${viewport.name}: matched forms view should expose a different-form-group escape hatch`);
+      assert(matchedForms.matchedFormsBrowseButtons.length === 1 && /Browse form groups/i.test(matchedForms.matchedFormsBrowseButtons[0]), `${viewport.name}: matched forms view should have one visible Browse form groups control, got ${matchedForms.matchedFormsBrowseButtons.join(", ")}`);
+      assert(!matchedForms.otherFormGroupBrowserOpen, `${viewport.name}: other form-group browser should stay closed until the user asks for it`);
       await page.locator(".official-pdf-link:not([hidden]) [data-official-pdf-preview]").first().click();
       const viewerState = await page.evaluate(() => ({
         officialPdfFrameSrc: document.querySelector("[data-official-pdf-frame]")?.getAttribute("src") || "",

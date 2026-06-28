@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-launch-guardrails-runbook",
-  "built_at": "2026-06-27T23:48:42.849Z",
+  "built_at": "2026-06-28T07:33:24.301Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

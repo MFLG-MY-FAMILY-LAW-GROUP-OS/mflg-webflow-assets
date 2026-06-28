@@ -436,10 +436,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-163258-result-pruning">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-002232-form-escape-hatch">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260627-163258-result-pruning">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-002232-form-escape-hatch">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -3779,8 +3779,8 @@
 	        <div class="packet-readiness" id="forms-packets" data-flow-section="forms">
           <div class="section-head">
             <p class="eyebrow">Step 2</p>
-            <h2>Open the forms that match your answers.</h2>
-          <p>Start with the recommended form group and open the forms in order. If the group does not sound right, use Guided Intake instead of guessing.</p>
+          <h2>Recommended forms.</h2>
+          <p>Start with the recommended form group and open the forms in order. If the group does not sound right, browse nearby form groups or use Guided Intake instead of guessing.</p>
         </div>
         <div class="official-pdf-actions" id="forms-approved-pdfs" data-official-pdf-actions>
           <div class="section-head compact">
@@ -4437,7 +4437,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260627-163258-result-pruning" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-002232-form-escape-hatch" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -9558,8 +9558,8 @@
       host.innerHTML = `
         <div class="section-head compact">
           <p class="eyebrow">Step 2</p>
-          <h2>Open the exact packet for that issue.</h2>
-            <p>Start with the recommended packet. View each form on this site, then download only when needed.</p>
+          <h2 data-reveal-focus>Recommended forms.</h2>
+            <p>Start with the recommended form group. View each form on this site, then download only when needed.</p>
         </div>
         <div class="official-pdf-spotlight" data-official-pdf-spotlight>
           <div>
@@ -9573,6 +9573,14 @@
             </ol>
             <small>You are not filing anything by opening these forms.</small>
           </div>
+        </div>
+        <div class="official-pdf-secondary-path" data-official-pdf-secondary-path>
+          <div>
+            <span>Different form group</span>
+            <strong>Need a different form group</strong>
+            <p>If this recommendation does not fit your county, stage, children, or agreement status, browse nearby form groups before opening more forms.</p>
+          </div>
+          <button class="button outline" type="button" data-official-pdf-show-all>Browse form groups</button>
         </div>
         <p class="forms-router-status" data-official-pdf-status>Forms are ready.</p>
         <div class="official-pdf-intake-panel" hidden aria-hidden="true">
@@ -9636,12 +9644,9 @@
             </details>
           `).join("")}
         </div>
-        <div class="official-pdf-advanced-action">
-          <button class="button outline" type="button" data-official-pdf-show-all>Browse other form groups</button>
-        </div>
         <details class="official-pdf-route-index" aria-label="Choose a court packet" data-official-pdf-route-index>
           <summary>
-            <span>Need a different form group?</span>
+            <span>Need a different form group</span>
             <strong>Choose another situation only if the recommendation above does not fit.</strong>
             <p>These choices are secondary. Pick the packet that matches the exact issue.</p>
           </summary>
@@ -9687,7 +9692,7 @@
       const spotlightKicker = host.querySelector("[data-official-pdf-spotlight-kicker]");
       const spotlightTitle = host.querySelector("[data-official-pdf-spotlight-title]");
       const spotlightCopy = host.querySelector("[data-official-pdf-spotlight-copy]");
-      const showAll = host.querySelector("[data-official-pdf-show-all]");
+      const showAllButtons = Array.from(host.querySelectorAll("[data-official-pdf-show-all]"));
       const routeIndexDisclosure = host.querySelector("[data-official-pdf-route-index]");
       const intakeTitle = host.querySelector("[data-official-pdf-intake-title]");
       const intakeCopy = host.querySelector("[data-official-pdf-intake-copy]");
@@ -9901,14 +9906,14 @@
           }
         });
       });
-      showAll?.addEventListener("click", () => {
+      showAllButtons.forEach((showAll) => showAll.addEventListener("click", () => {
         if (routeIndexDisclosure) routeIndexDisclosure.open = true;
         allowUnmatchedPdfBrowse = true;
         clearOfficialPdfFilters();
         allowUnmatchedPdfBrowse = true;
         update();
         revealAndFocus(routeIndexDisclosure, { hash: "#forms-other-packets", history: true });
-      });
+      }));
       reset?.addEventListener("click", () => {
         clearOfficialPdfFilters();
         update();
