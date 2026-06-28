@@ -163,7 +163,7 @@ async function pageState(page) {
       const matchedForms = await pageState(page);
       assert(/Recommended forms/i.test(matchedForms.matchedFormsHeading), `${viewport.name}: matched forms landing should use a plain heading, got ${matchedForms.matchedFormsHeading}`);
       assert(matchedForms.matchedFormsEscapeVisible, `${viewport.name}: matched forms view should expose a different-form-group escape hatch`);
-      assert(matchedForms.matchedFormsBrowseButtons.length === 1 && /Browse form groups/i.test(matchedForms.matchedFormsBrowseButtons[0]), `${viewport.name}: matched forms view should have one visible Browse form groups control, got ${matchedForms.matchedFormsBrowseButtons.join(", ")}`);
+      assert(matchedForms.matchedFormsBrowseButtons.length === 1 && /See other form groups/i.test(matchedForms.matchedFormsBrowseButtons[0]), `${viewport.name}: matched forms view should have one visible See other form groups control, got ${matchedForms.matchedFormsBrowseButtons.join(", ")}`);
       assert(!matchedForms.otherFormGroupBrowserOpen, `${viewport.name}: other form-group browser should stay closed until the user asks for it`);
       await page.locator(".official-pdf-link:not([hidden]) [data-official-pdf-preview]").first().click();
       const viewerState = await page.evaluate(() => ({

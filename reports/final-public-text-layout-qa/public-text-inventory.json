@@ -498322,36 +498322,6 @@
   {
     "route": "/tools/",
     "viewport": "390",
-    "component": "li",
-    "state": "forms-ready",
-    "visibleText": "View the first form or instruction sheet.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "li",
-    "state": "forms-ready",
-    "visibleText": "Check that the title matches your situation.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "li",
-    "state": "forms-ready",
-    "visibleText": "Keep moving through the packet without leaving the site.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
     "component": "small",
     "state": "forms-ready",
     "visibleText": "You are not filing anything by opening these forms.",
@@ -498364,7 +498334,7 @@
     "viewport": "390",
     "component": "span",
     "state": "forms-ready",
-    "visibleText": "Different form group",
+    "visibleText": "If this does not fit",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498394,7 +498364,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "forms-ready",
-    "visibleText": "Browse form groups",
+    "visibleText": "See other form groups",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501062,36 +501032,6 @@
   {
     "route": "/tools/",
     "viewport": "390",
-    "component": "li",
-    "state": "viewer",
-    "visibleText": "View the first form or instruction sheet.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "li",
-    "state": "viewer",
-    "visibleText": "Check that the title matches your situation.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "li",
-    "state": "viewer",
-    "visibleText": "Keep moving through the packet without leaving the site.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
     "component": "small",
     "state": "viewer",
     "visibleText": "You are not filing anything by opening these forms.",
@@ -501104,7 +501044,7 @@
     "viewport": "390",
     "component": "span",
     "state": "viewer",
-    "visibleText": "Different form group",
+    "visibleText": "If this does not fit",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501134,7 +501074,7 @@
     "viewport": "390",
     "component": "button.button",
     "state": "viewer",
-    "visibleText": "Browse form groups",
+    "visibleText": "See other form groups",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

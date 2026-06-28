@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-regression-comparison-plan",
-  "built_at": "2026-06-28T07:33:18.426Z",
+  "built_at": "2026-06-28T08:39:09.781Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "source_engine_scaffold_version": "1.0.0-calculator-engine-scaffold",
   "source_fixture_qa_status_version": "1.0.0-calculator-fixture-qa-status",
