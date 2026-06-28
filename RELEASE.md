@@ -1,19 +1,19 @@
 # MFLG Intake Release Control
 
-## Public Website Release: mflg-live-20260628-112018-fallback-card-simplify
+## Public Website Release: mflg-live-20260628-123209-forms-flow-confidence
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
-- Asset key: `mflg-live-20260628-112018-fallback-card-simplify`
-- Source commit: `c9333c30673a75767b8306378004941ecfb528ec`
-- Public JS SHA-256: `06161c4a4ed7d26c2a7b17281186d81dc81406ffc7bc27defc97e7d494e9504d`
-- Public CSS SHA-256: `9d17783640a85cdd28f86e95a82e35ba3531deb16d90f9f87002159840d54b0b`
-- Cloudflare `mflg-public-website`: `d374ec0a-44bd-441b-acb4-832dbd1295b0`
-- Cloudflare `mflg-webflow-assets`: `6572800c-973f-45f6-91ee-99c7f9082f11`
-- Rollback deployments: `452520dd-b3db-445e-966a-d2ae5aa8a3c0` and `9ac9c26d-f9fe-4ea2-b33c-fce1bf7d8d90`
-- Cloudflare source label: `main / c9333c3`
+- Asset key: `mflg-live-20260628-123209-forms-flow-confidence`
+- Source commit: `431e8468dd5cb7883f13ecc889b903be26af3d5b`
+- Public JS SHA-256: `be111b39b8dbb42903842f14568e58973c7bed8d032fe33f475d7c0cae01422c`
+- Public CSS SHA-256: `2656b6705e70d188c09237842106375f60381e9a19ac96136336a7d1cc5f3592`
+- Cloudflare `mflg-public-website`: `ce6bbcdf-a489-40fe-9a54-c981de581e8b`
+- Cloudflare `mflg-webflow-assets`: `762c5178-369b-4c55-a00e-ed33aa0f30e0`
+- Rollback deployments: `d374ec0a-44bd-441b-acb4-832dbd1295b0` and `6572800c-973f-45f6-91ee-99c7f9082f11`
+- Cloudflare source label: `main / 431e846`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Fallback card simplification. Non-exact county fallback results now use `Review nearby examples`, remove future-implying `yet` language, rename the reason section to `Why these examples appear`, show one visible example-source line, hide file-code metadata from fallback cards, and preserve same-site PDF viewing.
+- Scope: Forms flow confidence cleanup. Public Forms & Calculators copy now removes explanation/admin labels, removes example/unavailable wording, shows Arizona forms as the normal non-exact county result, hides duplicate result-summary panels, preserves same-site PDF viewing, and keeps office review as a support option.
 
 In accordance with MP v2, this repository treats the intake as production software, not a one-off Webflow embed.
 

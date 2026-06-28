@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-regression-comparison-results",
-  "built_at": "2026-06-28T18:37:45.264Z",
+  "built_at": "2026-06-28T19:42:55.826Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "source_approved_fixtures_version": "1.0.0-calculator-approved-fixtures",
   "safety": {
@@ -14,7 +14,7 @@
       "fixture_id": "az-cs-review-001-basic-two-parent-one-child",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-28T18:37:45.264Z",
+        "reviewed_at": "2026-06-28T19:42:55.826Z",
         "approval_status": "approved",
         "approval_note": "Comparison values match the official-workbook-derived expected outputs for this synthetic fixture."
       },
@@ -169,7 +169,7 @@
       "fixture_id": "az-cs-review-002-parenting-time-adjustment",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-28T18:37:45.264Z",
+        "reviewed_at": "2026-06-28T19:42:55.826Z",
         "approval_status": "approved",
         "approval_note": "Comparison values match the official-workbook-derived expected outputs for this synthetic fixture."
       },
@@ -324,7 +324,7 @@
       "fixture_id": "az-cs-review-003-self-support-reserve",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-28T18:37:45.264Z",
+        "reviewed_at": "2026-06-28T19:42:55.826Z",
         "approval_status": "approved",
         "approval_note": "Comparison values match the official-workbook-derived expected outputs for this synthetic fixture."
       },
@@ -479,7 +479,7 @@
       "fixture_id": "az-cs-review-004-other-children-adjustment",
       "reviewer": {
         "reviewed_by": "MFLG official workbook fixture generator",
-        "reviewed_at": "2026-06-28T18:37:45.264Z",
+        "reviewed_at": "2026-06-28T19:42:55.826Z",
         "approval_status": "approved",
         "approval_note": "Comparison values match the official-workbook-derived expected outputs for this synthetic fixture."
       },

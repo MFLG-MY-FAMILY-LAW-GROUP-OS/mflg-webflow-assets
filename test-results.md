@@ -2,6 +2,28 @@
 
 Base URL for local regression: `http://127.0.0.1:4186`
 
+## Forms Flow Confidence Release: mflg-live-20260628-123209-forms-flow-confidence
+
+Base URL for local regression: `http://127.0.0.1:4205`
+
+- `EXPECTED_ASSET_KEY=mflg-live-20260628-123209-forms-flow-confidence ./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4205 node scripts/playwright-forms-tools-guided-flow.js`: pass. Regression now rejects public `why this`, `based on`, `main action`, `related forms`, `nearby examples`, `no verified`, `fallback`, and `example from` wording in the active forms flow.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4205 node scripts/playwright-public-text-layout-qa.js`: pass, 50,231 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,231 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Required custom-domain routes `/`, `/practice-areas/`, `/guides/`, `/forms/`, `/tools/`, `/calculators/`, `/fees/`, `/about/`, `/faq/`, `/contact/`, and `/start/`: all HTTP 200.
+- Deploy script uploaded both projects successfully but its built-in custom-domain marker retry timed out during propagation. Direct custom-domain checks passed immediately afterward and confirmed the new live key, hashes, and public copy.
+- Final Cloudflare `mflg-public-website`: `ce6bbcdf-a489-40fe-9a54-c981de581e8b`, source `main / 431e846`.
+- Final Cloudflare `mflg-webflow-assets`: `762c5178-369b-4c55-a00e-ed33aa0f30e0`, source `main / 431e846`.
+- Rollback deployments: `d374ec0a-44bd-441b-acb4-832dbd1295b0` and `6572800c-973f-45f6-91ee-99c7f9082f11`.
+
+Final live public JS SHA-256: `be111b39b8dbb42903842f14568e58973c7bed8d032fe33f475d7c0cae01422c`
+
+Final live public CSS SHA-256: `2656b6705e70d188c09237842106375f60381e9a19ac96136336a7d1cc5f3592`
+
+Final live screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+
 ## Fallback Card Simplify Release: mflg-live-20260628-112018-fallback-card-simplify
 
 Base URL for local regression: `http://127.0.0.1:4204`

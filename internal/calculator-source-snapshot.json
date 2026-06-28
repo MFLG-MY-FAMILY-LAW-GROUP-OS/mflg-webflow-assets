@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-source-snapshot",
-  "built_at": "2026-06-28T18:37:41.423Z",
+  "built_at": "2026-06-28T19:42:51.960Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

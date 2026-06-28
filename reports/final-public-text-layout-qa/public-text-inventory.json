@@ -497724,167 +497724,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Related forms stay below the main form result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "forms-ready",
-    "visibleText": "Why this result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "p",
-    "state": "forms-ready",
-    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "forms-ready",
-    "visibleText": "Your form result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "forms-ready",
-    "visibleText": "Answer the helper to see one clear result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "forms-ready",
-    "visibleText": "Recommended forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "forms-ready",
-    "visibleText": "Continue to the recommended forms.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "forms-ready",
-    "visibleText": "Based on",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "forms-ready",
-    "visibleText": "Maricopa County / Starting a case / Divorce / Legal Separation / Minor children",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "forms-ready",
-    "visibleText": "Why this appears",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "forms-ready",
-    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "forms-ready",
-    "visibleText": "Main action",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "forms-ready",
-    "visibleText": "View matched forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "forms-ready",
-    "visibleText": "Related forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "forms-ready",
-    "visibleText": "Available below the primary result if the recommended path does not fit.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "forms-ready",
-    "visibleText": "Office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "forms-ready",
-    "visibleText": "Use office review if the answer, county, deadline, or form title does not fit.",
+    "visibleText": "Use this result if the form title matches your situation.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498142,96 +497982,6 @@
   {
     "route": "/tools/",
     "viewport": "390",
-    "component": "summary",
-    "state": "forms-ready",
-    "visibleText": "Why this recommendation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "forms-ready",
-    "visibleText": "Recommended next click",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "forms-ready",
-    "visibleText": "This looks like the Divorce with Minor Children path.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "p",
-    "state": "forms-ready",
-    "visibleText": "Open the viewer first. If the forms do not look like your situation, choose a different packet instead of guessing.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "forms-ready",
-    "visibleText": "Form match found",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "forms-ready",
-    "visibleText": "No private facts needed",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "forms-ready",
-    "visibleText": "Use Guided Intake if unsure",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "a.button",
-    "state": "forms-ready",
-    "visibleText": "View matched forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "a.button",
-    "state": "forms-ready",
-    "visibleText": "Start Guided Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
     "component": "p.eyebrow",
     "state": "forms-ready",
     "visibleText": "Step 2",
@@ -498254,7 +498004,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, browse nearby form groups or use Guided Intake instead of guessing.",
+    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, choose another form group or use Guided Intake instead of guessing.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498354,7 +498104,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, browse nearby form groups before opening more forms.",
+    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, change answers or choose another form group before opening more forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500434,167 +500184,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Related forms stay below the main form result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "viewer",
-    "visibleText": "Why this result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "p",
-    "state": "viewer",
-    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "viewer",
-    "visibleText": "Your form result",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "viewer",
-    "visibleText": "Answer the helper to see one clear result.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "viewer",
-    "visibleText": "Recommended forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "viewer",
-    "visibleText": "Continue to the recommended forms.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "viewer",
-    "visibleText": "Based on",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "viewer",
-    "visibleText": "Maricopa County / Starting a case / Divorce / Legal Separation / Minor children",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "viewer",
-    "visibleText": "Why this appears",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "viewer",
-    "visibleText": "This result is based on you chose Find forms, county is Maricopa County, case stage is New filing, issue is divorce / legal separation, minor children are involved.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "viewer",
-    "visibleText": "Main action",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "viewer",
-    "visibleText": "View matched forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "viewer",
-    "visibleText": "Related forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "viewer",
-    "visibleText": "Available below the primary result if the recommended path does not fit.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dt",
-    "state": "viewer",
-    "visibleText": "Office review",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "dd",
-    "state": "viewer",
-    "visibleText": "Use office review if the answer, county, deadline, or form title does not fit.",
+    "visibleText": "Use this result if the form title matches your situation.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500852,96 +500442,6 @@
   {
     "route": "/tools/",
     "viewport": "390",
-    "component": "summary",
-    "state": "viewer",
-    "visibleText": "Why this recommendation",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "viewer",
-    "visibleText": "Recommended next click",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "strong",
-    "state": "viewer",
-    "visibleText": "This looks like the Divorce with Minor Children path.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "p",
-    "state": "viewer",
-    "visibleText": "Open the viewer first. If the forms do not look like your situation, choose a different packet instead of guessing.",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "viewer",
-    "visibleText": "Form match found",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "viewer",
-    "visibleText": "No private facts needed",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "span",
-    "state": "viewer",
-    "visibleText": "Use Guided Intake if unsure",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "a.button",
-    "state": "viewer",
-    "visibleText": "View matched forms",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
-    "component": "a.button",
-    "state": "viewer",
-    "visibleText": "Start Guided Intake",
-    "issueType": "",
-    "recommendedRewrite": "",
-    "status": "fixed"
-  },
-  {
-    "route": "/tools/",
-    "viewport": "390",
     "component": "p.eyebrow",
     "state": "viewer",
     "visibleText": "Step 2",
@@ -500964,7 +500464,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, browse nearby form groups or use Guided Intake instead of guessing.",
+    "visibleText": "Start with the recommended form group and open the forms in order. If the group does not sound right, choose another form group or use Guided Intake instead of guessing.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501064,7 +500564,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, browse nearby form groups before opening more forms.",
+    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, change answers or choose another form group before opening more forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

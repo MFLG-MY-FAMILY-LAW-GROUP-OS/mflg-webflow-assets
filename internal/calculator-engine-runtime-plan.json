@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-engine-runtime-plan",
-  "built_at": "2026-06-28T18:38:16.944Z",
+  "built_at": "2026-06-28T19:43:28.381Z",
   "public_exposure": "blocked by Worker /internal/ route",
   "safety": {
     "contains_sensitive_user_data": false,

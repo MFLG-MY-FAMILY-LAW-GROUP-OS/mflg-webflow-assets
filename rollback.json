@@ -1,7 +1,7 @@
 {
   "rollback_deployments": {
-    "mflg_public_website": "452520dd-b3db-445e-966a-d2ae5aa8a3c0",
-    "mflg_webflow_assets": "9ac9c26d-f9fe-4ea2-b33c-fce1bf7d8d90"
+    "mflg_public_website": "d374ec0a-44bd-441b-acb4-832dbd1295b0",
+    "mflg_webflow_assets": "6572800c-973f-45f6-91ee-99c7f9082f11"
   },
-  "previous_asset_key": "mflg-live-20260628-103055-guided-copy-polish"
+  "previous_asset_key": "mflg-live-20260628-112018-fallback-card-simplify"
 }
