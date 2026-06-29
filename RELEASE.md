@@ -1,5 +1,21 @@
 # MFLG Intake Release Control
 
+## Public Website Release: mflg-live-20260628-155841-forms-action-first-results
+
+- Source branch: `mflg-live-20260625-final-yolo-stabilization`
+- Asset key: `mflg-live-20260628-155841-forms-action-first-results`
+- Source commit: release commit containing this record
+- Public JS SHA-256: `7c2af4a1a1c60ae834273be96953164c4577bb4f78f33ffbff34d385ceae9eea`
+- Public CSS SHA-256: `70a27b060e45df1925189ad366c78dcdea08fe95c8e809fe27e30440344704bd`
+- Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+- Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
+- Scope: Forms action-first result cleanup. Public Forms & Calculators copy now favors short action labels such as `View forms`, removes caution-heavy result wording from active form results, keeps Arizona forms framed as the normal path, preserves same-site PDF viewing, and keeps a short instruction to use official court filing details.
+- Cloudflare `mflg-public-website`: `0e4b6a9f-d76a-46a0-b148-521c4ce06525`
+- Cloudflare `mflg-webflow-assets`: `5f7a60ab-b406-4e0d-b141-cd063f43f8d8`
+- Rollback deployments: `ce6bbcdf-a489-40fe-9a54-c981de581e8b` and `762c5178-369b-4c55-a00e-ed33aa0f30e0`
+- Cloudflare source label: release commit containing this record
+- Deployment status: uploaded both Cloudflare projects successfully. Follow-up critique fixes tightened the live marker verifier and restored filing-context copy for Arizona forms without reintroducing caution-heavy active-result phrasing.
+
 ## Public Website Release: mflg-live-20260628-123209-forms-flow-confidence
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`

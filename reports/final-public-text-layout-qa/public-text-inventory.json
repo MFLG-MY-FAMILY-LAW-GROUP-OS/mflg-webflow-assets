@@ -497724,7 +497724,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Use this result if the form title matches your situation.",
+    "visibleText": "View matched forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497834,7 +497834,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "forms-ready",
-    "visibleText": "Review the form path only if forms are the recommended next step.",
+    "visibleText": "Form path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497844,7 +497844,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "The guided helper fills this in after your answers. Change these boxes only if the result does not match what you selected.",
+    "visibleText": "The guided helper fills this in after your answers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -497944,7 +497944,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Open the viewer first. If the forms do not look like your situation, choose a different packet instead of guessing.",
+    "visibleText": "Open the viewer first or choose a different packet.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498064,7 +498064,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "Use this primary form path if it matches your situation. Open the forms in order.",
+    "visibleText": "View forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498084,7 +498084,7 @@
     "viewport": "390",
     "component": "span",
     "state": "forms-ready",
-    "visibleText": "If this does not fit",
+    "visibleText": "Need a change",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498104,7 +498104,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, change answers or choose another form group before opening more forms.",
+    "visibleText": "Change answers or choose another form group.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498574,7 +498574,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "forms-ready",
-    "visibleText": "Choose another situation only if the recommendation above does not fit.",
+    "visibleText": "Choose another form group",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -498584,7 +498584,7 @@
     "viewport": "390",
     "component": "p",
     "state": "forms-ready",
-    "visibleText": "These choices are secondary. Pick the packet that matches the exact issue.",
+    "visibleText": "Pick another packet from the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500184,7 +500184,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Use this result if the form title matches your situation.",
+    "visibleText": "View matched forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500294,7 +500294,7 @@
     "viewport": "390",
     "component": "h2",
     "state": "viewer",
-    "visibleText": "Review the form path only if forms are the recommended next step.",
+    "visibleText": "Form path",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500304,7 +500304,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "The guided helper fills this in after your answers. Change these boxes only if the result does not match what you selected.",
+    "visibleText": "The guided helper fills this in after your answers.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500404,7 +500404,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Open the viewer first. If the forms do not look like your situation, choose a different packet instead of guessing.",
+    "visibleText": "Open the viewer first or choose a different packet.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500524,7 +500524,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Use this primary form path if it matches your situation. Open the forms in order.",
+    "visibleText": "View forms.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500544,7 +500544,7 @@
     "viewport": "390",
     "component": "span",
     "state": "viewer",
-    "visibleText": "If this does not fit",
+    "visibleText": "Need a change",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500564,7 +500564,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "If this recommendation does not fit your county, stage, children, or agreement status, change answers or choose another form group before opening more forms.",
+    "visibleText": "Change answers or choose another form group.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -500614,7 +500614,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "Viewing dv-lsprocess.pdf through the approved site viewer. Use another packet if this title does not match.",
+    "visibleText": "Viewing dv-lsprocess.pdf through the site viewer.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501084,7 +501084,7 @@
     "viewport": "390",
     "component": "strong",
     "state": "viewer",
-    "visibleText": "Choose another situation only if the recommendation above does not fit.",
+    "visibleText": "Choose another form group",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"
@@ -501094,7 +501094,7 @@
     "viewport": "390",
     "component": "p",
     "state": "viewer",
-    "visibleText": "These choices are secondary. Pick the packet that matches the exact issue.",
+    "visibleText": "Pick another packet from the list.",
     "issueType": "",
     "recommendedRewrite": "",
     "status": "fixed"

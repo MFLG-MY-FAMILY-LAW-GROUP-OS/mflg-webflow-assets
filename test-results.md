@@ -2,6 +2,31 @@
 
 Base URL for local regression: `http://127.0.0.1:4186`
 
+## Forms Action-First Results Release: mflg-live-20260628-155841-forms-action-first-results
+
+Base URL for local regression: `http://127.0.0.1:4210`
+
+- `./scripts/check-intake-release.sh`: pass.
+- `node scripts/validate-matter-form-matrix.js`: pass.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4210 node scripts/playwright-forms-tools-guided-flow.js`: pass. Regression rejects caution-heavy active-result wording such as `before filing`, `check whether`, `county filing requirements`, `does not fit`, and `Arizona forms for this path`.
+- `MFLG_TEST_BASE_URL=http://127.0.0.1:4210 node scripts/playwright-public-text-layout-qa.js`: pass, 50,231 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Final local screenshot contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+- Final local public JS SHA-256: `7c2af4a1a1c60ae834273be96953164c4577bb4f78f33ffbff34d385ceae9eea`
+- Final local public CSS SHA-256: `70a27b060e45df1925189ad366c78dcdea08fe95c8e809fe27e30440344704bd`
+- `CLOUDFLARE_API_TOKEN="$(security find-generic-password -s CLOUDFLARE_API_TOKEN -w)" ./scripts/deploy-all-live-assets.sh`: uploaded both Cloudflare projects successfully; built-in custom-domain marker poll timed out on stale verifier copy.
+- Direct custom-domain checks after verifier update: `myfamilylawgroup.com`, `assets.myfamilylawgroup.com`, public JS, and public CSS serve `mflg-live-20260628-155841-forms-action-first-results`.
+- Required custom-domain routes `/`, `/practice-areas/`, `/guides/`, `/forms/`, `/tools/`, `/calculators/`, `/fees/`, `/about/`, `/faq/`, `/contact/`, and `/start/`: all HTTP 200.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass.
+- `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,231 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Final Cloudflare `mflg-public-website`: `0e4b6a9f-d76a-46a0-b148-521c4ce06525`, source release commit containing this record.
+- Final Cloudflare `mflg-webflow-assets`: `5f7a60ab-b406-4e0d-b141-cd063f43f8d8`, source release commit containing this record.
+- Rollback deployments: `ce6bbcdf-a489-40fe-9a54-c981de581e8b` and `762c5178-369b-4c55-a00e-ed33aa0f30e0`.
+- Critique fix local rerun: `MFLG_TEST_BASE_URL=http://127.0.0.1:4211 node scripts/playwright-forms-tools-guided-flow.js`: pass.
+- Critique fix local rerun: `MFLG_TEST_BASE_URL=http://127.0.0.1:4211 node scripts/playwright-public-text-layout-qa.js`: pass, 50,231 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
+- Critique fix targeted deploy: `CLOUDFLARE_API_TOKEN="$(security find-generic-password -s CLOUDFLARE_API_TOKEN -w)" CLOUDFLARE_PAGES_PROJECT=mflg-webflow-assets LIVE_ASSET_URL=https://assets.myfamilylawgroup.com/js/mflg-intake.js ./scripts/deploy-live-assets.sh`: pass.
+- Critique fix targeted deploy: `CLOUDFLARE_API_TOKEN="$(security find-generic-password -s CLOUDFLARE_API_TOKEN -w)" CLOUDFLARE_PAGES_PROJECT=mflg-public-website LIVE_ASSET_URL=https://myfamilylawgroup.com/js/mflg-intake.js ./scripts/deploy-live-assets.sh`: pass.
+- Critique fix live rerun: `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass.
+
 ## Forms Flow Confidence Release: mflg-live-20260628-123209-forms-flow-confidence
 
 Base URL for local regression: `http://127.0.0.1:4205`

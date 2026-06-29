@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-123209-forms-flow-confidence}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-155841-forms-action-first-results}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -585,12 +585,13 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 			     [[ "$public_site_js" == *"Find forms"* ]] &&
 			     [[ "$public_site_js" == *"Fine tune the result"* ]] &&
 			     [[ "$public_site_js" == *"Tell us what you need"* ]] &&
-			     [[ "$public_site_js" == *"Choose answers to see the safest next step"* ]] &&
-			     [[ "$public_site_js" == *"Open the next safe step"* ]] &&
+			     [[ "$public_site_js" == *'title: "Arizona forms"'* ]] &&
+			     [[ "$public_site_js" == *"Use official court instructions for filing details"* ]] &&
+			     [[ "$public_site_js" == *"Choose answers to see the next step"* ]] &&
 			     [[ "$public_site_js" == *"Recommended path shown first"* ]] &&
 			     [[ "$public_site_js" == *"Open calculator tools"* ]] &&
 			     [[ "$public_site_js" == *"data-forms-unified-result"* ]] &&
-				     [[ "$public_site_js" == *"Arizona forms for this path"* ]] &&
+				     [[ "$public_site_js" == *"Arizona forms"* ]] &&
 			     [[ "$public_site_js" == *"Advanced: search or switch form groups"* ]] &&
 			     [[ "$public_site_js" == *"setUnifiedFormsResult"* ]] &&
 				     [[ "$public_site_js" == *"Your next step"* ]] &&

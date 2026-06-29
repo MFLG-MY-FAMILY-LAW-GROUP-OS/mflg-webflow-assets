@@ -458,10 +458,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-123209-forms-flow-confidence">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-155841-forms-action-first-results">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-123209-forms-flow-confidence">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-155841-forms-action-first-results">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -880,7 +880,7 @@
 		      issueDetail: title,
 		      issuePathway,
 		      serviceInterest,
-		      contextNote: `Using your selected service: ${title}. The closest issue and service focus are prefilled below, and you can change anything that does not fit.`,
+		      contextNote: `Using your selected service: ${title}. The closest issue and service focus are prefilled below, and you can change anything.`,
 		      presetAnswers: {
 		        primaryHelpNeeded: "Understand my options",
 		        ...(presetAnswers || {})
@@ -1392,7 +1392,7 @@
       : "View the forms for this issue";
     const recommendationCopy = primaryAction === "calculator"
       ? "This issue often depends on numbers or timing. Start with the planning tool, then open forms or Intake if the result raises questions."
-      : "Start with the assigned form path. If the county, children, filing stage, agreement, orders, timing, safety, or title does not fit, use Guided Intake before guessing.";
+      : "Open the assigned form path or ask for office review.";
     const serviceActions = [
       {
         key: "forms",
@@ -2443,13 +2443,13 @@
     if (confidence === "exact") return "These forms are matched to the selected issue.";
     if (confidence === "exact-county-direct-packet") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These direct forms are matched for ${publicCounty} County. Use them only if that is your case county.` : "These direct forms are matched to a confirmed county.";
     if (confidence === "exact-county-packet-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `This is an official ${publicCounty} County packet page for the selected issue. Review the page before choosing forms.` : "This is an official county packet page for the selected issue.";
-    if (confidence === "verified-statewide-direct-packet" || confidence === "verified-statewide-packet-page") return "These are Arizona statewide forms. Confirm whether your county also requires a local form.";
+    if (confidence === "verified-statewide-direct-packet" || confidence === "verified-statewide-packet-page") return "Arizona statewide forms.";
     if (confidence === "issue-specific-county-source-page") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `This official ${publicCounty} County source is specific to this issue, but individual PDFs have not all been matched on this page.` : "This official county source is specific to this issue, but individual PDFs have not all been matched on this page.";
     if (confidence === "general-county-forms-index") return "This is a general county forms directory, not an issue-specific packet. Do not treat it as matched forms.";
     if (confidence === "no-verified-form") return "Ask for office review so the form path can be checked before you rely on it.";
     if (confidence === "county-exact") return publicCounty && publicCounty !== "Not sure" && publicCounty !== "Statewide" ? `These forms are matched for ${publicCounty} County. Use them only if that is your case county.` : "These forms are matched to a confirmed county.";
     if (confidence === "intake-required") return "Use Guided Intake before choosing forms. This issue depends on timing, court orders, county, or case stage.";
-    if (confidence === "statewide-generic") return "Use this statewide form path, then confirm whether your county requires local forms.";
+    if (confidence === "statewide-generic") return "Arizona statewide forms.";
     if (confidence === "related-only") return "This guide can start the form check, but the form questions still need to be answered.";
     return "Use office review before relying on this resource as a form match.";
   }
@@ -3341,7 +3341,7 @@
         tone: "ready",
         kicker: "Recommended next click",
         title: `This looks like the ${packetLabel} path.`,
-        copy: "Open the viewer first. If the forms do not look like your situation, choose a different packet instead of guessing.",
+        copy: "Open the viewer first or choose a different packet.",
         primaryLabel: "View matched forms",
         primaryHref: "#forms-approved-pdfs",
         pdfPacket: route.pdfPacket,
@@ -3367,27 +3367,26 @@
       return {
         tone: "review",
         kicker: "Court source found",
-        title: "Open the reviewed on-site forms.",
-        copy: "This is the clearest form path for this selection. Open the form viewer first, then use the checklist if you need the packet sequence.",
+        title: "Recommended forms",
+        copy: "View forms.",
         primaryLabel: "View matched forms",
         primaryHref: "#forms-approved-pdfs",
-        meta: ["Reviewed forms first", ...baseMeta.slice(1)],
+        meta: ["Matched forms", ...baseMeta.slice(1)],
         route: baseRoute
       };
     }
 
 	    if (route.county && route.county !== "Maricopa") {
-	      const selectedCounty = route.county && route.county !== "Not sure" ? route.county : "your county";
 	      return {
 	        tone: "source",
-	        kicker: "Recommended forms",
-	        title: "Arizona forms for this path.",
-	        copy: `Start with the Arizona forms below. Before filing, check whether ${selectedCounty} requires a local cover sheet, packet, or filing instruction.`,
-	        primaryLabel: "Review forms",
+	        kicker: "Arizona forms",
+	        title: "Arizona forms",
+	        copy: "View forms. Use official court instructions for filing details.",
+	        primaryLabel: "View forms",
 	        primaryHref: "#forms-approved-pdfs",
 	        pdfPacket: "all",
 	        allowRelatedForms: true,
-        meta: ["Arizona forms", "County filing note", "Office review available"],
+        meta: ["Arizona forms", "Change answers", "Office review"],
 	        route: baseRoute
 	      };
 	    }
@@ -3415,12 +3414,12 @@
     const intake = panel.querySelector("[data-form-route-decision-intake]");
     panel.dataset.routeTone = decision.tone || "neutral";
     if (kicker) kicker.textContent = decision.kicker || "Recommended next action";
-    if (title) title.textContent = decision.title || "Choose answers to see the safest next step.";
-    if (copy) copy.textContent = decision.copy || "Use reviewed forms first and Guided Intake when facts require review.";
+    if (title) title.textContent = decision.title || "Choose answers to see the next step.";
+    if (copy) copy.textContent = decision.copy || "View forms.";
     if (meta) {
       const items = Array.isArray(decision.meta) && decision.meta.length
         ? decision.meta
-        : ["Reviewed forms first", "No private facts needed", "Use Guided Intake if unsure"];
+        : ["Forms", "Change answers", "Office review"];
       meta.innerHTML = items.slice(0, 3).map((item) => `<span>${esc(item)}</span>`).join("");
     }
     if (primary) {
@@ -3457,7 +3456,7 @@
       <div class="forms-unified-main">
         <span>Start here</span>
         <strong>${esc(decision.title || "Review the recommended forms first.")}</strong>
-        <p>${esc(decision.copy || "Use the on-page form viewer first, then choose another packet if the title is unclear.")}</p>
+        <p>${esc(decision.copy || "View forms.")}</p>
       </div>
       <div class="forms-unified-actions">
         <a class="button primary" href="${esc(courtHref)}">${esc(decision.primaryLabel || "View matched forms")}</a>
@@ -3519,7 +3518,7 @@
       { label: "No private facts", title: "Keep the search generic", copy: "Use labels like divorce, parenting, support, or deadline instead of typing sensitive case narrative." },
       { label: "Forms", title: "Open the reviewed form path first", copy: "If you need court papers, the page should point to the closest reviewed form group before anything else." },
       { label: "Calculators", title: "Use the planning tool when numbers matter", copy: "Support, parenting time, and deadline-related helpers stay available without forcing a full intake." },
-      { label: "Unsure", title: "Use Intake when the label is unclear", copy: "If the issue does not fit cleanly, the office review path is the safest next step." }
+      { label: "Unsure", title: "Use Intake when the label is unclear", copy: "Ask for office review." }
     ], "proof-tools");
     return section(routeIntent.title, routeIntent.copy, `
       <div class="forms-command-center forms-smart-path" id="forms-task-workspace" data-forms-smart-path>
@@ -3641,7 +3640,7 @@
           </label>
         </details>
         <div class="forms-smart-path-mode" data-smart-mode>
-          <span data-smart-mode-copy>One active workflow is shown first. Browse other options only if this result does not fit.</span>
+          <span data-smart-mode-copy>One active workflow is shown first.</span>
           <div class="forms-smart-path-mode-actions">
             <button class="button ghost" type="button" data-smart-show-all>Browse other options</button>
             <button class="button ghost" type="button" data-smart-reset>Reset choices</button>
@@ -3686,8 +3685,8 @@
         <div class="forms-router-head">
           <div>
             <p class="eyebrow">Matched form details</p>
-            <h2>Review the form path only if forms are the recommended next step.</h2>
-            <p>The guided helper fills this in after your answers. Change these boxes only if the result does not match what you selected.</p>
+            <h2>Form path</h2>
+            <p>The guided helper fills this in after your answers.</p>
           </div>
           <a class="button outline" href="/start" data-link data-form-route-save data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Not sure? Start Guided Intake</a>
         </div>
@@ -3741,14 +3740,14 @@
           <div>
             <span data-form-route-decision-kicker>Your next step</span>
             <strong data-form-route-decision-title>Choose the questions above to get a next step.</strong>
-            <p data-form-route-decision-copy>Review forms when they match your answers, or ask for office review.</p>
+            <p data-form-route-decision-copy>View forms.</p>
             <div class="forms-route-decision-meta" data-form-route-decision-meta>
               <span>No private facts needed</span>
               <span>Office review available</span>
             </div>
           </div>
           <div class="forms-route-decision-actions">
-            <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>Review forms</a>
+            <a class="button primary" href="#forms-approved-pdfs" data-form-route-decision-primary>View forms</a>
             <a class="button outline" href="/start" data-link data-form-route-decision-intake>Ask for office review</a>
           </div>
         </div>
@@ -3795,7 +3794,7 @@
           <div class="section-head compact">
             <p class="eyebrow">Matching forms</p>
             <h2>Reviewed forms are loading.</h2>
-            <p>Start with the recommended form group. Open forms in order. If the title does not sound right, use Guided Intake instead of guessing.</p>
+            <p>Start with the recommended form group. Open forms in order.</p>
           </div>
           <p class="forms-router-status">Loading reviewed forms...</p>
         </div>
@@ -3953,7 +3952,7 @@
             <div class="official-calculator-embed-head">
               <span data-official-calculator-embed-label>Official court calculator</span>
               <strong data-official-calculator-embed-title>Child support worksheet interview</strong>
-              <p data-official-calculator-embed-copy>Use this court calculator only if the on-site calculator does not fit. If the frame does not load, use Intake so the office can help choose the next step.</p>
+              <p data-official-calculator-embed-copy>Use this court calculator when the on-site calculator is not enough. If the frame does not load, use Intake.</p>
             </div>
             <iframe title="Arizona child support calculator" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-official-calculator-frame></iframe>
           </div>
@@ -4425,7 +4424,7 @@
       issueDetail: guide.leadMagnet || guide.title,
       issuePathway: guide.issuePathway || "Not Sure",
       serviceInterest: guide.serviceInterest || "",
-      contextNote: `Using your selected guide: ${guide.title}. The guide path and readiness focus are saved below, and you can update anything that does not fit.`,
+      contextNote: `Using your selected guide: ${guide.title}. The guide path and readiness focus are saved below, and you can update anything.`,
       presetAnswers: {
         primaryHelpNeeded: "Understand my options",
         serviceNeed: guide.leadMagnet || "DIY guide review",
@@ -4446,7 +4445,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-123209-forms-flow-confidence" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-155841-forms-action-first-results" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -5487,9 +5486,9 @@
     const packetCopy = formsRoute.formConfidence === "statewide-generic"
       ? "This is a statewide form path. Continue to the form questions to review the packet and narrow by county if needed."
       : formsRoute.formConfidence === "related-only"
-        ? "This guide points to related forms only. Continue to compare packet titles before opening anything."
+        ? "This guide points to Arizona forms."
         : formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
-          ? "Answer the checks first. If the form path does not fit, use office review instead of guessing with another family-law packet."
+          ? "Answer the checks first, or ask for office review."
         : "Continue to the form-check questions. The result appears only after the required answers are known.";
     const bridgeCta = formsRoute.formConfidence === "no-verified-form" || formsRoute.formConfidence === "intake-required"
       ? "Check form availability"
@@ -6181,7 +6180,7 @@
           <div>
             <span>Advanced details</span>
             <strong>Official court links are checked before they are shown.</strong>
-            <p>Use the reviewed PDF viewer and download buttons shown above. If anything looks wrong or does not match your situation, start Guided Intake.</p>
+            <p>Use the PDF viewer and download buttons shown above.</p>
             <small>Last checked: ${esc(checked)}</small>
           </div>
           <a class="button outline" href="/start" data-link data-forms-maintenance-intake>Start Guided Intake to confirm</a>
@@ -6257,7 +6256,7 @@
         if (/service|serve|summons/.test(text)) {
           return "Use this to understand notice and service steps. The other side usually must receive proper notice before the case can move forward.";
         }
-        return "Review this form in sequence with the packet. If the title does not match your situation, use Intake before relying on it.";
+        return "Open this form in sequence with the packet.";
       };
       const route = {
         routeKey: "forms-download-readiness",
@@ -6307,8 +6306,8 @@
             </article>
             <article>
               <span>Confirm first</span>
-              <strong data-forms-packet-fit-check>Do not guess if the title does not match.</strong>
-              <p data-forms-packet-fit-check-copy>Choose a different packet if the title does not match the county, children, filing stage, or posture you need.</p>
+              <strong data-forms-packet-fit-check>Change packet</strong>
+              <p data-forms-packet-fit-check-copy>Choose a different packet or ask for office review.</p>
             </article>
             <article>
               <span>Safe next step</span>
@@ -6359,7 +6358,7 @@
             </div>
             <div class="forms-packet-builder-path" aria-label="Form group browsing sequence">
               <article><span>01</span><strong>Check the recommended forms first</strong><p>Use the visible form list before switching to another form group.</p></article>
-              <article><span>02</span><strong>Switch only when the title does not fit</strong><p>County, filing stage, children, and agreement status can change the needed forms.</p></article>
+              <article><span>02</span><strong>Change packet</strong><p>Choose another form group from the list.</p></article>
               <article><span>03</span><strong>Ask for office review if unsure</strong><p>Do not guess between form groups when more than one sounds close.</p></article>
             </div>
           </details>
@@ -6697,7 +6696,7 @@
             title: "Choose a form group after the helper matches forms.",
             copy: "No county packet is selected until your answers point to one. If you are browsing manually, choose the form group that matches the county, stage, issue, and children involved.",
             check: "Answer the helper before relying on a packet.",
-            checkCopy: "The form list should follow your answers. If the title does not match, change answers or use office review.",
+            checkCopy: "Change answers or ask for office review.",
             next: "Start with the guided helper above.",
             nextCopy: "The page will open the matched packet when a verified form path is available."
           };
@@ -6743,8 +6742,8 @@
           };
         }
         return {
-          title: "Use the selected form group only if the title matches your situation.",
-          copy: "If the form group does not match the county, case stage, children, or agreement status, choose another packet before opening forms.",
+          title: "Selected form group",
+          copy: "Open forms or choose another packet.",
           check: "Confirm county, children, and case stage.",
           checkCopy: "A new filing, response, agreement, post-decree request, and enforcement request can require different paperwork.",
           next: "Open the forms in order.",
@@ -7057,14 +7056,6 @@
     const guidedSummary = host.querySelector("[data-guided-summary]");
     const guidedEditAnswers = host.querySelector("[data-guided-edit-answers]");
     const guidedResultTier = host.querySelector("[data-guided-result-tier]");
-    const guidedReason = host.querySelector("[data-guided-reason]");
-    const unifiedResultSummary = host.querySelector("[data-unified-result-summary]");
-    const unifiedResultTitle = host.querySelector("[data-unified-result-title]");
-    const unifiedResultBasedOn = host.querySelector("[data-unified-result-based-on]");
-    const unifiedResultWhy = host.querySelector("[data-unified-result-why]");
-    const unifiedResultPrimary = host.querySelector("[data-unified-result-primary]");
-    const unifiedResultSecondary = host.querySelector("[data-unified-result-secondary]");
-    const unifiedResultReview = host.querySelector("[data-unified-result-review]");
     const guidedPathLine = host.querySelector("[data-guided-path-line]");
     const guideBridge = host.querySelector("[data-guide-bridge]");
     const guideBridgeTitle = host.querySelector("[data-guide-bridge-title]");
@@ -7209,10 +7200,10 @@
 	        return {
 	          label: "What happens next",
 	          tier: "Arizona forms",
-	          title: "Arizona forms for this path.",
-	          copy: `Start with the Arizona forms below. Before filing, check whether ${guidedAnswers.county && guidedAnswers.county !== "Not sure" ? `${guidedAnswers.county} County` : "your county"} requires a local cover sheet, packet, or filing instruction.`,
+	          title: "Arizona forms",
+	          copy: "View forms.",
 	          href: "#forms-approved-pdfs",
-		          text: "Review forms",
+		          text: "View forms",
 		          link: true,
 		          relatedForms: true
 		        };
@@ -7577,64 +7568,14 @@
         const tierTitle = shouldContinueQuestions
           ? "One primary path will appear here."
           : recommendation.title || "Recommended next step";
-		        const tierCopy = shouldContinueQuestions
-		          ? "Form results stay hidden until the helper has enough answers."
-		          : recommendation.relatedForms
-		          ? "Before filing, check whether your county requires a local cover sheet, packet, or filing instruction."
-		          : "Use this result if the form title matches your situation.";
-	        const tierText = [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". ");
-	        guidedResultTier.setAttribute("aria-label", tierText);
-	        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}. </span><strong>${esc(tierTitle)} </strong><p>${esc(tierCopy)}</p>`;
-      }
-      if (guidedReason) {
-        guidedReason.hidden = shouldContinueQuestions && !savedResumeActive;
-        const reasons = selectedAnswerReasons();
-        const selectedCounty = guidedAnswers.county && guidedAnswers.county !== "Not sure" ? `${guidedAnswers.county} County` : "";
-        const selectedStage = guidedAnswers.posture ? guidedAnswers.posture.toLowerCase() : "";
-        const selectedIssue = guidedAnswers.issue ? guidedAnswers.issue.replace(/\s*\/\s*/g, " or ") : "";
-        const selectedChildren = guidedAnswers.children === "minor-children" ? "minor children" : guidedAnswers.children === "no-minor-children" ? "no minor children" : "";
-        const plainReasonParts = [selectedCounty, selectedStage, selectedIssue, selectedChildren].filter(Boolean);
-	        const reasonText = shouldContinueQuestions
-	          ? (guideContextActive ? "Your selected guide is connected. Choose the next answer above before forms appear." : "Answer the current step before forms appear.")
-	          : recommendation.relatedForms && plainReasonParts.length
-	          ? `Your answers: ${plainReasonParts.join(", ")}.`
-	          : reasons.length
-	          ? `Your answers: ${reasons.join(", ")}.`
-	          : "Your selected path is ready.";
-	        const reasonLabel = "Your answers.";
-        guidedReason.innerHTML = `<span>${esc(reasonLabel)} </span><p>${esc(reasonText)}</p>`;
-        if (unifiedResultWhy) unifiedResultWhy.textContent = reasonText;
-      }
-      if (unifiedResultSummary) {
-        unifiedResultSummary.hidden = shouldContinueQuestions && !savedResumeActive;
-        unifiedResultSummary.classList.toggle("is-ready", !shouldContinueQuestions);
-      }
-      if (unifiedResultTitle) {
-        unifiedResultTitle.textContent = shouldContinueQuestions
-          ? "Pending answers"
-          : recommendation.title || "Recommended next step";
-      }
-      if (unifiedResultBasedOn) {
-        const basedOn = [
-          hasAnswered("county") ? countyLabels[guidedAnswers.county] || guidedAnswers.county : "",
-          hasAnswered("posture") ? postureLabels[guidedAnswers.posture] || guidedAnswers.posture : "",
-          hasAnswered("issue") ? (publicIssueLabelForRoute(guidedAnswers) === "Choose issue" ? "Issue not sure yet" : publicIssueLabelForRoute(guidedAnswers)) : "",
-          hasAnswered("children") ? childrenLabels[guidedAnswers.children] || "Children not sure yet" : ""
-        ].filter(Boolean);
-        unifiedResultBasedOn.textContent = basedOn.length ? basedOn.join(" / ") : "No answers selected yet";
-      }
-      if (unifiedResultPrimary) {
-        unifiedResultPrimary.textContent = shouldContinueQuestions ? "Choose one answer above" : recommendation.text || "Go to next step";
-      }
-      if (unifiedResultSecondary) {
-        unifiedResultSecondary.textContent = shouldContinueQuestions
-          ? "Hidden until the main result is clear"
-	          : "Change answers if the forms do not match.";
-      }
-      if (unifiedResultReview) {
-        unifiedResultReview.textContent = recommendation.route || recommendation.tier === "Office review recommended"
-	          ? "Recommended for this path"
-	          : "Ask for office review if the answer, county, deadline, or form title does not fit.";
+        const tierCopy = shouldContinueQuestions
+          ? ""
+          : recommendation.relatedForms
+          ? "View forms."
+          : "View matched forms.";
+        const tierText = [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". ");
+        guidedResultTier.setAttribute("aria-label", tierText);
+        guidedResultTier.innerHTML = `<span>${esc(tierLabel)}. </span><strong>${esc(tierTitle)} </strong>${tierCopy ? `<p>${esc(tierCopy)}</p>` : ""}`;
       }
 	    if (guidedSummary) {
 	        const chips = [
@@ -9516,7 +9457,7 @@
         <div class="packet-action-head">
           <span>Official packet pages</span>
           <strong>${esc(String(actions.length))} reviewed packet page${actions.length === 1 ? "" : "s"} indexed.</strong>
-          <p>Use the reviewed PDF viewer above or Intake when the form group title does not clearly match your situation.</p>
+          <p>Use the PDF viewer above or ask for office review.</p>
         </div>
         <div class="packet-action-grid" aria-label="Reviewed official packet page actions">
           ${actions.map((item) => {
@@ -9607,10 +9548,10 @@
           <div>
             <span data-official-pdf-spotlight-kicker>Your next form step</span>
             <strong data-official-pdf-spotlight-title>Finding the closest form group...</strong>
-            <p data-official-pdf-spotlight-copy>The packet below should match the choices you made above. Other form groups are secondary.</p>
+            <p data-official-pdf-spotlight-copy>View forms.</p>
             <ol class="forms-next-mini-list">
               <li>View the first form or instruction sheet.</li>
-              <li>Check that the title matches your situation.</li>
+              <li>Open the next form in the group.</li>
               <li>Keep moving through the packet without leaving the site.</li>
             </ol>
             <small>You are not filing anything by opening these forms.</small>
@@ -9618,9 +9559,9 @@
         </div>
         <div class="official-pdf-secondary-path" data-official-pdf-secondary-path>
 	          <div>
-	            <span>If this does not fit</span>
-	            <strong>Need a different form group</strong>
-	            <p>If this recommendation does not fit your county, stage, children, or agreement status, change answers or choose another form group before opening more forms.</p>
+            <span>Need a change?</span>
+            <strong>Need a different form group</strong>
+            <p>Change answers or choose another form group.</p>
 	          </div>
           <button class="button outline" type="button" data-official-pdf-show-all>See other form groups</button>
         </div>
@@ -9692,8 +9633,8 @@
         <details class="official-pdf-route-index" aria-label="Choose a court packet" data-official-pdf-route-index>
           <summary>
             <span>Need a different form group</span>
-            <strong>Choose another situation only if the recommendation above does not fit.</strong>
-            <p>These choices are secondary. Pick the packet that matches the exact issue.</p>
+            <strong>Choose another form group</strong>
+            <p>Pick another packet from the list.</p>
           </summary>
           <div class="official-pdf-route-grid">
             ${routePackets.map((item) => `
@@ -9870,7 +9811,7 @@
         if (viewerTitle) viewerTitle.textContent = label;
         if (viewerCopy) {
           viewerCopy.textContent = fileName
-            ? `Viewing ${fileName} through the approved site viewer. Use another packet if this title does not match.`
+            ? `Viewing ${fileName} through the site viewer.`
             : "Viewing the official court PDF through the approved site viewer.";
         }
         viewerFrame.setAttribute("src", siteViewUrl);
@@ -9951,17 +9892,17 @@
 	        }
 	        if (spotlightTitle) {
 	          spotlightTitle.textContent = selectedRoute
-	            ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended form group selected"
+	            ? selectedRoute.page_label || selectedRoute.packet_label || "Recommended forms"
 	            : !allowUnmatchedPdfBrowse
 	            ? "Choose answers before opening forms."
-	            : "Arizona forms for this path.";
+	            : "Arizona forms";
 	        }
 	        if (spotlightCopy) {
 	          spotlightCopy.textContent = selectedRoute
-	            ? "Use this primary form path if it matches your situation. Open the forms in order."
+	            ? "View forms."
 	            : !allowUnmatchedPdfBrowse
-	            ? "Use Guided Intake or change answers before opening a packet. Browse other form groups only if you already know the court packet title."
-	            : "Start with the Arizona forms below. Before filing, check whether your county requires a local cover sheet, packet, or filing instruction.";
+	            ? "Choose answers first."
+	            : "View forms. Use official court instructions for filing details.";
 	        }
 	        if (status) {
 	          const childNote = hiddenForChildren
@@ -9975,7 +9916,7 @@
 	            : "";
 	          status.textContent = visible
 	            ? relatedBrowse
-	              ? "Arizona forms are ready. Check your county filing requirements before filing."
+	              ? "Arizona forms are shown. Use official court instructions for filing details."
 	              : "Forms are ready."
 	            : allowUnmatchedPdfBrowse
 	            ? "No forms match these filters."

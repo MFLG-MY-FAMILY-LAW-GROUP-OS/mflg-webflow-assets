@@ -11,6 +11,7 @@ function assert(condition, message) {
 }
 
 const adminPublicText = /\b(why this|why these|based on|main action|related forms|nearby examples|no verified|not available for these answers|fallback|example from)\b/i;
+const resultCautionText = /\b(before filing|check whether|county filing requirements|requires a local|does not fit|does not match|title does not|if this recommendation|if the form group|use this result if|use this primary form path|start with the arizona forms|arizona forms for this path)\b/i;
 
 async function capture(page, viewport, state) {
   await page.screenshot({
@@ -57,6 +58,18 @@ async function pageState(page) {
     summaryChips: Array.from(document.querySelectorAll("[data-guided-summary] span")).map((chip) => chip.textContent.trim()),
     editButtons: Array.from(document.querySelectorAll("[data-guided-edit]")).filter((button) => button.offsetParent !== null).map((button) => button.textContent.trim()),
     lowerResultText: document.body.innerText.replace(/\s+/g, " ").trim(),
+    activeResultText: [
+      "[data-guided-result]",
+      "[data-form-route-decision]",
+      "[data-official-pdf-spotlight]",
+      "[data-official-pdf-secondary-path]",
+      "[data-official-pdf-status]"
+    ].map((selector) => {
+      const el = document.querySelector(selector);
+      return el && !el.hidden && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length)
+        ? el.textContent.replace(/\s+/g, " ").trim()
+        : "";
+    }).filter(Boolean).join(" "),
     duplicateVisibleLabels: (document.body.innerText.replace(/\s+/g, " ").trim().match(/\b[1-5](Need|County|Stage|Issue|Children)\b|Find forms Find forms|Calculator Use a calculator|DIY guide Read a DIY guide|Help me choose Help me choose/g) || []),
     fakeLinks: Array.from(document.querySelectorAll('a[href="#"]')).map((link) => link.textContent.trim()),
     exposedSourceAttributes: Array.from(document.querySelectorAll("[data-url], [data-official-url]")).map((item) => item.outerHTML.slice(0, 120)),
@@ -165,6 +178,7 @@ async function pageState(page) {
 	      assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
 	      assert(forms.visibleUnifiedSummary === "", `${viewport.name}: duplicate unified result summary should not render, got ${forms.visibleUnifiedSummary}`);
 	      assert(!adminPublicText.test(forms.lowerResultText), `${viewport.name}: forms path should not expose admin/explanation wording`);
+	      assert(!resultCautionText.test(forms.activeResultText), `${viewport.name}: forms result should stay action-first, got ${forms.activeResultText}`);
       assert(forms.packetBrowserPresent, `${viewport.name}: alternate form-group browser should render`);
       assert(!forms.packetBrowserOpen, `${viewport.name}: alternate form-group browser should be closed by default`);
       assert(!forms.packetSelectVisible, `${viewport.name}: form-group dropdown should not appear above the matched forms by default`);
@@ -261,8 +275,8 @@ async function pageState(page) {
 	      const relatedCountyForms = await pageState(page);
 	      assert(!relatedCountyForms.routerHidden, `${viewport.name}: related county form router should reveal after completed answers`);
 	      assert(!relatedCountyForms.packetsHidden, `${viewport.name}: related county PDF area should reveal after completed answers`);
-	      assert(/Review forms/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should use forms language, got ${relatedCountyForms.action}`);
-	      assert(/Arizona forms for this path/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.lowerResultText}`), `${viewport.name}: related county result should frame Arizona forms as the normal path`);
+	      assert(/View forms/i.test(relatedCountyForms.action || ""), `${viewport.name}: related county CTA should use action-first forms language, got ${relatedCountyForms.action}`);
+	      assert(/Arizona forms/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.activeResultText}`), `${viewport.name}: related county result should frame Arizona forms as the normal path`);
 	      assert(!/packet yet|answer yet|No verified|nearby examples|not available for these answers/i.test(`${relatedCountyForms.resultTitle} ${relatedCountyForms.resultCopy} ${relatedCountyForms.visibleResultTier}`), `${viewport.name}: related county result should not undermine confidence, got ${relatedCountyForms.resultTitle} / ${relatedCountyForms.resultCopy}`);
 	      assert(!/[a-z](Arizona forms|Check your county|Your answers)/.test(relatedCountyForms.visibleResultTier), `${viewport.name}: guided result tier should not mash visible text together, got ${relatedCountyForms.visibleResultTier}`);
 	      assert(relatedCountyForms.visibleResultReason === "", `${viewport.name}: related county why/explanation panel should not render, got ${relatedCountyForms.visibleResultReason}`);
@@ -271,13 +285,14 @@ async function pageState(page) {
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => /View form/i.test(label)), `${viewport.name}: related county primary PDF actions should remain View form`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.every((label) => !/Add this form to Intake/i.test(label)), `${viewport.name}: form cards should not use intake-heavy save labels: ${relatedCountyForms.sameSiteOfficialPdfActions.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfActions.length <= 5, `${viewport.name}: Arizona form result should stay focused, got ${relatedCountyForms.sameSiteOfficialPdfActions.length} visible forms`);
-	      assert(/Arizona forms are ready|Check your county filing requirements/i.test(`${relatedCountyForms.resultCopy} ${relatedCountyForms.officialPdfStatus}`), `${viewport.name}: related county result should use Arizona forms filing-note language, got ${relatedCountyForms.resultCopy} / ${relatedCountyForms.officialPdfStatus}`);
+	      assert(/Use official court instructions for filing details/i.test(`${relatedCountyForms.resultCopy} ${relatedCountyForms.officialPdfStatus}`), `${viewport.name}: related county result should keep action-first filing context, got ${relatedCountyForms.resultCopy} / ${relatedCountyForms.officialPdfStatus}`);
 	      assert(new Set(relatedCountyForms.sameSiteOfficialPdfNames.map((name) => name.toLowerCase())).size === relatedCountyForms.sameSiteOfficialPdfNames.length, `${viewport.name}: related county fallback should not repeat visible form names: ${relatedCountyForms.sameSiteOfficialPdfNames.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.length === relatedCountyForms.sameSiteOfficialPdfActions.length, `${viewport.name}: related county fallback should show an example source badge on every visible form`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfExampleSources.every((label) => /^Arizona court form$/i.test(label)), `${viewport.name}: related county source badges should use form wording: ${relatedCountyForms.sameSiteOfficialPdfExampleSources.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfCourtSources.length === 0, `${viewport.name}: related county fallback should not show duplicate court-source lines: ${relatedCountyForms.sameSiteOfficialPdfCourtSources.join(" | ")}`);
 	      assert(relatedCountyForms.sameSiteOfficialPdfFileCodes.length === 0, `${viewport.name}: related county fallback should hide PDF filenames/file codes from the main card scan: ${relatedCountyForms.sameSiteOfficialPdfFileCodes.join(" | ")}`);
 	      assert(!adminPublicText.test(relatedCountyForms.lowerResultText), `${viewport.name}: related county path should not expose admin/explanation wording`);
+	      assert(!resultCautionText.test(relatedCountyForms.activeResultText), `${viewport.name}: related county result should stay action-first, got ${relatedCountyForms.activeResultText}`);
 
 	      await page.click("[data-smart-reset]");
       await page.click('[data-smart-lane="calculator"]');
