@@ -18,8 +18,8 @@ Base URL for local regression: `http://127.0.0.1:4210`
 - Required custom-domain routes `/`, `/practice-areas/`, `/guides/`, `/forms/`, `/tools/`, `/calculators/`, `/fees/`, `/about/`, `/faq/`, `/contact/`, and `/start/`: all HTTP 200.
 - `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-forms-tools-guided-flow.js`: pass.
 - `MFLG_TEST_BASE_URL=https://myfamilylawgroup.com node scripts/playwright-public-text-layout-qa.js`: pass, 50,231 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.
-- Final Cloudflare `mflg-public-website`: `0e4b6a9f-d76a-46a0-b148-521c4ce06525`, source release commit containing this record.
-- Final Cloudflare `mflg-webflow-assets`: `5f7a60ab-b406-4e0d-b141-cd063f43f8d8`, source release commit containing this record.
+- Final Cloudflare `mflg-public-website`: `88188bd1-87d4-463a-b9ba-a044d0ba9ef9`, source `main / 532f007`.
+- Final Cloudflare `mflg-webflow-assets`: `2d3c5a64-345d-494c-9e7d-7b8bf340dd0d`, source `main / 532f007`.
 - Rollback deployments: `ce6bbcdf-a489-40fe-9a54-c981de581e8b` and `762c5178-369b-4c55-a00e-ed33aa0f30e0`.
 - Critique fix local rerun: `MFLG_TEST_BASE_URL=http://127.0.0.1:4211 node scripts/playwright-forms-tools-guided-flow.js`: pass.
 - Critique fix local rerun: `MFLG_TEST_BASE_URL=http://127.0.0.1:4211 node scripts/playwright-public-text-layout-qa.js`: pass, 50,231 text inventory rows / 50 practice cards / 50 DIY guide cards / widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, 1920.

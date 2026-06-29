@@ -4,8 +4,8 @@
   "public_js_sha256": "7c2af4a1a1c60ae834273be96953164c4577bb4f78f33ffbff34d385ceae9eea",
   "public_css_sha256": "70a27b060e45df1925189ad366c78dcdea08fe95c8e809fe27e30440344704bd",
   "cloudflare_deployments": {
-    "mflg_public_website": "0e4b6a9f-d76a-46a0-b148-521c4ce06525",
-    "mflg_webflow_assets": "5f7a60ab-b406-4e0d-b141-cd063f43f8d8"
+    "mflg_public_website": "88188bd1-87d4-463a-b9ba-a044d0ba9ef9",
+    "mflg_webflow_assets": "2d3c5a64-345d-494c-9e7d-7b8bf340dd0d"
   },
   "rollback_deployments": {
     "mflg_public_website": "ce6bbcdf-a489-40fe-9a54-c981de581e8b",
@@ -15,7 +15,7 @@
   "evidence_contact_sheet": "reports/final-public-text-layout-qa/screenshot-contact-sheet.html",
   "hero_loop_results": "reports/live-hero-loop-proof/live-hero-loop-results.json",
   "cloudflare_source_label": {
-    "mflg_public_website": "release commit containing this record",
-    "mflg_webflow_assets": "release commit containing this record"
+    "mflg_public_website": "main / 532f007",
+    "mflg_webflow_assets": "main / 532f007"
   }
 }
