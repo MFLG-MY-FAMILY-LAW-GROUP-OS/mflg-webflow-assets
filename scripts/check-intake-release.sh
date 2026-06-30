@@ -6,7 +6,7 @@ JS_FILE="$ROOT_DIR/js/mflg-intake.js"
 PUBLIC_JS_FILE="$ROOT_DIR/js/mflg-public-site.js"
 CSS_FILE="$ROOT_DIR/css/mflg-intake.css"
 EXPECTED_VERSION="3.6.0-worldclass-routing"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-155841-forms-action-first-results}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260630-forms-completed-state-cleanup}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 EXPECTED_ENDPOINT_HOST='["https://jeremyjamesjack.app.", "n8", "n.cloud/", "web", "hook/mflg-intake"].join("")'
 
@@ -187,7 +187,7 @@ grep -q "jurisdictionQuestions" "$PUBLIC_JS_FILE" || fail "Jurisdiction routing 
 grep -q "formsPlanningCatalog" "$PUBLIC_JS_FILE" || fail "Forms planning catalog framework missing from public JS"
 grep -q "calculatorCatalog" "$PUBLIC_JS_FILE" || fail "Calculator catalog framework missing from public JS"
 grep -q "forms-command-center" "$PUBLIC_JS_FILE" || fail "Forms & Tools single command center missing from public JS"
-grep -q "Continue to recommended forms" "$PUBLIC_JS_FILE" || fail "Forms & Tools decision-card action labels missing from public JS"
+grep -q "View forms" "$PUBLIC_JS_FILE" || fail "Forms & Tools decision-card action labels missing from public JS"
 grep -q "What are you trying to do?" "$PUBLIC_JS_FILE" || fail "Forms & Tools command-center question labels missing from public JS"
 grep -q "forms-smart-path" "$PUBLIC_JS_FILE" || fail "Forms & Tools smart path router missing from public JS"
 grep -q "Start here" "$PUBLIC_JS_FILE" || fail "Forms & Tools smart path public copy missing from public JS"

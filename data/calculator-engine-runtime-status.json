@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-calculator-engine-runtime-status",
-  "built_at": "2026-06-28T19:43:28.381Z",
+  "built_at": "2026-06-30T21:47:47.388Z",
   "public_safety": {
     "internal_runtime_plan_exposed": false,
     "raw_formula_text_exposed": false,

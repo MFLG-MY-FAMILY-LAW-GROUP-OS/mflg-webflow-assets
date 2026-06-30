@@ -1,5 +1,21 @@
 # MFLG Intake Release Control
 
+## Public Website Release: mflg-live-20260630-forms-completed-state-cleanup
+
+- Source branch: `mflg-live-20260625-final-yolo-stabilization`
+- Asset key: `mflg-live-20260630-forms-completed-state-cleanup`
+- Source commit: `dd015e9`
+- Public JS SHA-256: `a181c0fa7a3c153c0a386b41c3f1ada6b479aa0899088ab11beb89236522e75e`
+- Public CSS SHA-256: `8a4b434d19c2fb493e5a63e2731ea23add7f7e0f69d5090ec082fb5ee31d0e82`
+- Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
+- Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
+- Scope: Forms completed-state cleanup. Completed guided Forms now shows one result card, one `Forms.` section, a short `View forms` action, and `Showing: Divorce with Minor Children.` packet status while hiding the duplicate guided tier, lower manual router, extra official PDF spotlight, and visible `Step 2` labels.
+- Cloudflare `mflg-public-website`: `b92a4e00-0772-4337-972e-5c66a4e7503a`
+- Cloudflare `mflg-webflow-assets`: `b4023214-82ed-495d-a948-e0f41ebcd043`
+- Rollback deployments: `88188bd1-87d4-463a-b9ba-a044d0ba9ef9` and `2d3c5a64-345d-494c-9e7d-7b8bf340dd0d`
+- Cloudflare source label: `main / dd015e9`
+- Deployment status: uploaded both Cloudflare projects successfully. The deploy script marker poll timed out during custom-domain propagation; direct custom-domain checks and live Playwright QA passed afterward.
+
 ## Public Website Release: mflg-live-20260628-155841-forms-action-first-results
 
 - Source branch: `mflg-live-20260625-final-yolo-stabilization`
@@ -9,7 +25,7 @@
 - Public CSS SHA-256: `70a27b060e45df1925189ad366c78dcdea08fe95c8e809fe27e30440344704bd`
 - Evidence contact sheet: `reports/final-public-text-layout-qa/screenshot-contact-sheet.html`
 - Public text/layout QA: pass across widths 320, 360, 390, 430, 768, 1024, 1280, 1365, 1440, 1536, 1728, and 1920.
-- Scope: Forms action-first result cleanup. Public Forms & Calculators copy now favors short action labels such as `View forms`, removes caution-heavy result wording from active form results, keeps Arizona forms framed as the normal path, preserves same-site PDF viewing, and keeps a short instruction to use official court filing details.
+- Scope: Forms action-first result cleanup. Public Forms & Calculators copy favors short action labels such as `View forms`, removes caution-heavy result wording from active form results, keeps Arizona forms framed as the normal path, preserves same-site PDF viewing, and keeps a short instruction to use official court filing details.
 - Cloudflare `mflg-public-website`: `88188bd1-87d4-463a-b9ba-a044d0ba9ef9`
 - Cloudflare `mflg-webflow-assets`: `2d3c5a64-345d-494c-9e7d-7b8bf340dd0d`
 - Rollback deployments: `ce6bbcdf-a489-40fe-9a54-c981de581e8b` and `762c5178-369b-4c55-a00e-ed33aa0f30e0`

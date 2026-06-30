@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260628-155841-forms-action-first-results}"
+EXPECTED_ASSET_KEY="${EXPECTED_ASSET_KEY:-mflg-live-20260630-forms-completed-state-cleanup}"
 EXPECTED_FAVICON_KEY="${EXPECTED_FAVICON_KEY:-mflg-brand-favicon-5}"
 VERIFY_ATTEMPTS="${VERIFY_ATTEMPTS:-40}"
 RUN_LIVE_COMPLETION_AUDIT="${RUN_LIVE_COMPLETION_AUDIT:-1}"
@@ -146,7 +146,7 @@ for attempt in $(seq 1 "$VERIFY_ATTEMPTS"); do
 	     [[ "$public_site_js" == *"Use safe planning tools and official Arizona calculator sources"* ]] &&
 	     [[ "$public_site_js" == *"Find the right reviewed forms, court-source backup, or Intake path"* ]] &&
 	     [[ "$public_site_js" == *"forms-command-center"* ]] &&
-	     [[ "$public_site_js" == *"Continue to recommended forms"* ]] &&
+	     [[ "$public_site_js" == *"View forms"* ]] &&
 	     [[ "$public_site_js" == *"What are you trying to do?"* ]] &&
 	     [[ "$public_site_js" == *"Privacy note"* ]] &&
 	     [[ "$public_site_js" == *"Do not type private details on this page"* ]] &&

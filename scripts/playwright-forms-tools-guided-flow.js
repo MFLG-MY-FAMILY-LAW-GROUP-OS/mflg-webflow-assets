@@ -12,6 +12,7 @@ function assert(condition, message) {
 
 const adminPublicText = /\b(why this|why these|based on|main action|related forms|nearby examples|no verified|not available for these answers|fallback|example from)\b/i;
 const resultCautionText = /\b(before filing|check whether|county filing requirements|requires a local|does not fit|does not match|title does not|if this recommendation|if the form group|use this result if|use this primary form path|start with the arizona forms|arizona forms for this path)\b/i;
+const resultStateNarration = /\b(showing one active workflow|helper has enough answers|ready next step|your matched path is open below|view matched forms)\b/i;
 
 async function capture(page, viewport, state) {
   await page.screenshot({
@@ -58,6 +59,13 @@ async function pageState(page) {
     summaryChips: Array.from(document.querySelectorAll("[data-guided-summary] span")).map((chip) => chip.textContent.trim()),
     editButtons: Array.from(document.querySelectorAll("[data-guided-edit]")).filter((button) => button.offsetParent !== null).map((button) => button.textContent.trim()),
     lowerResultText: document.body.innerText.replace(/\s+/g, " ").trim(),
+    visibleRecommendedFormsCount: (document.body.innerText.match(/Recommended forms/gi) || []).length,
+    visibleViewMatchedFormsCount: (document.body.innerText.match(/View matched forms/gi) || []).length,
+    visibleViewFormsCount: (document.body.innerText.match(/View forms/gi) || []).length,
+    visibleStep2Count: (document.body.innerText.match(/\bStep 2\b/gi) || []).length,
+    packetStep2Count: Array.from(document.querySelectorAll("#forms-packets .eyebrow"))
+      .filter((item) => item.offsetParent !== null && getComputedStyle(item).visibility !== "hidden")
+      .filter((item) => /\bStep 2\b/i.test(item.textContent || "")).length,
     activeResultText: [
       "[data-guided-result]",
       "[data-form-route-decision]",
@@ -170,22 +178,26 @@ async function pageState(page) {
       assert(!forms.smartControlsVisible, `${viewport.name}: advanced controls should stay hidden unless browsing other options`);
       assert(forms.smartModeVisible, `${viewport.name}: browse/reset controls should show after forms path is active`);
       assert(forms.showAllText === "Browse other options", `${viewport.name}: browse control should use plain label, got ${forms.showAllText}`);
-	      assert(/View matched forms/i.test(forms.action || ""), `${viewport.name}: forms CTA should view matched forms`);
+	      assert(/^View forms$/i.test(forms.action || ""), `${viewport.name}: forms CTA should use View forms, got ${forms.action}`);
 	      assert(!forms.actionDisabled, `${viewport.name}: matched forms CTA should be enabled`);
-	      assert(/Recommended form path/i.test(forms.visibleResultTier), `${viewport.name}: forms result tier should identify the primary path, got ${forms.visibleResultTier}`);
+	      assert(forms.visibleResultTier === "", `${viewport.name}: completed result should not render a duplicate recommendation tier, got ${forms.visibleResultTier}`);
 	      assert(forms.visibleResultReason === "", `${viewport.name}: public why/explanation panel should not render, got ${forms.visibleResultReason}`);
 	      assert(forms.summaryChips.includes("Maricopa County"), `${viewport.name}: forms summary should show selected county`);
 	      assert(forms.editButtons.includes("Change county") && forms.editButtons.includes("Change issue"), `${viewport.name}: completed helper should expose direct answer edit controls`);
 	      assert(forms.visibleUnifiedSummary === "", `${viewport.name}: duplicate unified result summary should not render, got ${forms.visibleUnifiedSummary}`);
 	      assert(!adminPublicText.test(forms.lowerResultText), `${viewport.name}: forms path should not expose admin/explanation wording`);
 	      assert(!resultCautionText.test(forms.activeResultText), `${viewport.name}: forms result should stay action-first, got ${forms.activeResultText}`);
+	      assert(!resultStateNarration.test(forms.activeResultText), `${viewport.name}: completed result should not expose UI-state narration, got ${forms.activeResultText}`);
+	      assert(forms.visibleViewMatchedFormsCount === 0, `${viewport.name}: completed result should not show View matched forms`);
+	      assert(forms.visibleRecommendedFormsCount <= 1, `${viewport.name}: completed result should not repeat Recommended forms, got ${forms.visibleRecommendedFormsCount}`);
+	      assert(forms.packetStep2Count === 0, `${viewport.name}: completed result should not show Step 2 labels in Forms sections, got ${forms.packetStep2Count}`);
       assert(forms.packetBrowserPresent, `${viewport.name}: alternate form-group browser should render`);
       assert(!forms.packetBrowserOpen, `${viewport.name}: alternate form-group browser should be closed by default`);
       assert(!forms.packetSelectVisible, `${viewport.name}: form-group dropdown should not appear above the matched forms by default`);
       assert(!forms.packetCurrentVisible, `${viewport.name}: matched packet should not auto-open a form before the user clicks View form`);
       assert(forms.duplicateVisibleLabels.length === 0, `${viewport.name}: forms path duplicate or mashed labels visible: ${forms.duplicateVisibleLabels.join(", ")}`);
       assert(!/Suggested form starting point|Form starting point|starting points shown|Choose one starting point/i.test(forms.lowerResultText), `${viewport.name}: lower form results should use form-path language`);
-      assert(/Recommended form path/i.test(forms.lowerResultText), `${viewport.name}: lower form results should expose recommended form path language`);
+      assert(!/Matched form details|Form path The guided helper fills this in/i.test(forms.lowerResultText), `${viewport.name}: completed guided path should hide lower manual router copy`);
       assert(forms.fakeLinks.length === 0, `${viewport.name}: forms path should not render fake href=# links: ${forms.fakeLinks.join(", ")}`);
       assert(forms.exposedSourceAttributes.length === 0, `${viewport.name}: forms path should not expose raw source URL attributes`);
       assert(forms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: forms path should render same-site official PDF actions`);
@@ -195,7 +207,9 @@ async function pageState(page) {
       assert(!forms.overflow, `${viewport.name}: forms path has horizontal overflow`);
       await page.click("[data-guided-result-action]");
       const matchedForms = await pageState(page);
-      assert(/Recommended forms/i.test(matchedForms.matchedFormsHeading), `${viewport.name}: matched forms landing should use a plain heading, got ${matchedForms.matchedFormsHeading}`);
+      assert(/^Forms\.?$/i.test(matchedForms.matchedFormsHeading), `${viewport.name}: matched forms landing should use a plain heading, got ${matchedForms.matchedFormsHeading}`);
+      assert(/^Showing: .+\.$/i.test(matchedForms.officialPdfStatus), `${viewport.name}: matched forms status should be short, got ${matchedForms.officialPdfStatus}`);
+      assert(!/form group that matches your answers|Use View form to keep the PDF/i.test(matchedForms.officialPdfStatus), `${viewport.name}: matched forms status should not use old instructional sentence, got ${matchedForms.officialPdfStatus}`);
       assert(matchedForms.matchedFormsEscapeVisible, `${viewport.name}: matched forms view should expose a different-form-group escape hatch`);
       assert(matchedForms.matchedFormsBrowseButtons.length === 1 && /See other form groups/i.test(matchedForms.matchedFormsBrowseButtons[0]), `${viewport.name}: matched forms view should have one visible See other form groups control, got ${matchedForms.matchedFormsBrowseButtons.join(", ")}`);
       assert(!matchedForms.otherFormGroupBrowserOpen, `${viewport.name}: other form-group browser should stay closed until the user asks for it`);
@@ -246,7 +260,7 @@ async function pageState(page) {
       const resumedForms = await pageState(page);
       assert(!resumedForms.routerHidden, `${viewport.name}: using saved answers should reveal form router`);
       assert(!resumedForms.packetsHidden, `${viewport.name}: using saved answers should reveal packets`);
-	      assert(/View matched forms/i.test(resumedForms.action || ""), `${viewport.name}: saved-answer CTA should become matched forms CTA`);
+	      assert(/^View forms$/i.test(resumedForms.action || ""), `${viewport.name}: saved-answer CTA should become View forms, got ${resumedForms.action}`);
 	      assert(/Answers confirmed/i.test(resumedForms.progressLabel || ""), `${viewport.name}: confirmed saved answers should not return to Question 1, got ${resumedForms.progressLabel}`);
 	      await page.goto(`${baseUrl}/tools/`, { waitUntil: "networkidle" });
 
@@ -257,10 +271,13 @@ async function pageState(page) {
 	      await page.click('[data-guided-answer="divorce"]');
 	      await page.click('[data-guided-answer="no-minor-children"]');
 	      const noChildrenForms = await pageState(page);
-	      assert(/View matched forms/i.test(noChildrenForms.action || ""), `${viewport.name}: no-children forms CTA should view matched forms`);
+	      assert(/^View forms$/i.test(noChildrenForms.action || ""), `${viewport.name}: no-children forms CTA should use View forms, got ${noChildrenForms.action}`);
+	      assert(!resultStateNarration.test(noChildrenForms.activeResultText), `${viewport.name}: no-children result should not expose UI-state narration, got ${noChildrenForms.activeResultText}`);
+	      assert(noChildrenForms.visibleViewMatchedFormsCount === 0, `${viewport.name}: no-children result should not show View matched forms`);
+	      assert(noChildrenForms.visibleRecommendedFormsCount <= 1, `${viewport.name}: no-children result should not repeat Recommended forms, got ${noChildrenForms.visibleRecommendedFormsCount}`);
 	      assert(noChildrenForms.sameSiteOfficialPdfActions.length > 0, `${viewport.name}: no-children route should still show same-site PDF actions`);
 	      assert(noChildrenForms.sameSiteOfficialPdfActions.every((label) => !/Parenting Plan|Parenting Time|Legal Decision|Child Support|Paternity/i.test(label)), `${viewport.name}: no-children route should hide child-related PDFs: ${noChildrenForms.sameSiteOfficialPdfActions.join(" | ")}`);
-	      assert(/parenting, child-support, and paternity forms/i.test(noChildrenForms.officialPdfStatus), `${viewport.name}: no-children route should explain hidden child-related PDFs, got ${noChildrenForms.officialPdfStatus}`);
+	      assert(/^Showing: Divorce with No Minor Children\.$/i.test(noChildrenForms.officialPdfStatus), `${viewport.name}: no-children route should use short packet status, got ${noChildrenForms.officialPdfStatus}`);
 
 	      await page.click("[data-smart-reset]");
 	      await page.click('[data-guided-answer="forms"]');

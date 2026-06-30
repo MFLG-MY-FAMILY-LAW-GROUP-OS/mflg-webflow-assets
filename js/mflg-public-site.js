@@ -458,10 +458,10 @@
 
   function hero(title, copy, actions) {
     return `<section class="hero">
-      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-155841-forms-action-first-results">
+      <video class="hero-video hero-video-a is-active" data-hero-video-layer="a" data-video-loop="crossfade video loop" autoplay muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260630-forms-completed-state-cleanup">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
-      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260628-155841-forms-action-first-results">
+      <video class="hero-video hero-video-b" data-hero-video-layer="b" data-video-loop="crossfade video loop" aria-hidden="true" muted playsinline preload="auto" poster="/assets/images/mflg-hero-family-poster.jpg?v=mflg-live-20260630-forms-completed-state-cleanup">
         <source src="/assets/images/mflg-hero-adobestock.mp4?v=hero-clean-1" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -2079,7 +2079,7 @@
         </div>
       </div>
       <div class="guide-path-strip" aria-label="DIY guide process">
-        ${["Choose a guide", "Answer what you need", "View matched forms", "Use calculator if needed", "Start Intake if unsure"].map((step, index) => `<span><b>0${index + 1}</b>${esc(step)}</span>`).join("")}
+        ${["Choose a guide", "Answer what you need", "View forms", "Use calculator if needed", "Start Intake if unsure"].map((step, index) => `<span><b>0${index + 1}</b>${esc(step)}</span>`).join("")}
       </div>
       <div class="guide-tools" id="guide-resource-start">
         <input type="search" placeholder="Search guides" aria-label="Search guides" data-guide-search>
@@ -3340,9 +3340,9 @@
       return {
         tone: "ready",
         kicker: "Recommended next click",
-        title: `This looks like the ${packetLabel} path.`,
-        copy: "Open the viewer first or choose a different packet.",
-        primaryLabel: "View matched forms",
+        title: `${packetLabel}.`,
+        copy: "Forms are ready.",
+        primaryLabel: "View forms",
         primaryHref: "#forms-approved-pdfs",
         pdfPacket: route.pdfPacket,
         meta: ["Form match found", ...baseMeta.slice(1)],
@@ -3367,9 +3367,9 @@
       return {
         tone: "review",
         kicker: "Court source found",
-        title: "Recommended forms",
+        title: "Forms are ready",
         copy: "View forms.",
-        primaryLabel: "View matched forms",
+        primaryLabel: "View forms",
         primaryHref: "#forms-approved-pdfs",
         meta: ["Matched forms", ...baseMeta.slice(1)],
         route: baseRoute
@@ -3459,7 +3459,7 @@
         <p>${esc(decision.copy || "View forms.")}</p>
       </div>
       <div class="forms-unified-actions">
-        <a class="button primary" href="${esc(courtHref)}">${esc(decision.primaryLabel || "View matched forms")}</a>
+        <a class="button primary" href="${esc(courtHref)}">${esc(decision.primaryLabel || "View forms")}</a>
         <a class="button outline" href="${esc(packetHref)}">${esc(packetActionLabel)}</a>
         <a class="button ghost" href="/start" data-link data-forms-unified-intake>Start Guided Intake instead</a>
       </div>
@@ -3579,7 +3579,7 @@
               </div>
               <div class="forms-guided-path-line" data-guided-path-line>Answer the next question. The page will keep the form choices hidden until they are useful.</div>
               <div class="forms-guided-result-actions">
-                <button class="button primary" type="button" data-guided-result-action data-guided-target="#forms-official-router">Continue to recommended forms</button>
+                <button class="button primary" type="button" data-guided-result-action data-guided-target="#forms-official-router">View forms</button>
                 <button class="button outline" type="button" data-guided-change-answers hidden>Change answers</button>
                 <a class="button outline" href="/start" data-link data-guided-intake-fallback data-intake-route='${esc(JSON.stringify(guideFallbackRoute()))}'>Ask for office review</a>
               </div>
@@ -3785,10 +3785,9 @@
       </div>
 
 	        <div class="packet-readiness" id="forms-packets" data-flow-section="forms">
-          <div class="section-head">
-            <p class="eyebrow">Step 2</p>
-          <h2>Recommended forms.</h2>
-          <p>Start with the recommended form group and open the forms in order. If the group does not sound right, choose another form group or use Guided Intake instead of guessing.</p>
+          <div class="section-head" hidden aria-hidden="true">
+            <h2>Forms.</h2>
+            <p>Open the form group below or ask for office review.</p>
         </div>
         <div class="official-pdf-actions" id="forms-approved-pdfs" data-official-pdf-actions>
           <div class="section-head compact">
@@ -4445,7 +4444,7 @@
           <div><dt>How review works</dt><dd>Guided Intake gives the office the details needed to check conflict, licensed scope, urgency, documents, and next-step fit.</dd></div>
         </dl>
       </div>
-        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260628-155841-forms-action-first-results" alt="Jeremy James Jack JD, LP"></div>
+        <div class="about-profile-media"><img src="/assets/images/jeremy-profile.jpeg?v=mflg-live-20260630-forms-completed-state-cleanup" alt="Jeremy James Jack JD, LP"></div>
       <div class="about-profile-actions actions">
         ${link("/start", "Start Guided Intake", "primary")}
         ${link("/contact", "Contact the office", "outline")}
@@ -7127,10 +7126,10 @@
       forms: {
         label: "What happens next",
         tier: "Recommended form path",
-        title: "Continue to the recommended forms.",
-        copy: "The helper has enough answers to show one primary form path. Open the forms only if the title and source match what you selected.",
+        title: "Forms are ready.",
+        copy: "Open the form group below.",
         href: "#forms-approved-pdfs",
-        text: "View matched forms"
+        text: "View forms"
       },
       calculator: {
         label: "What happens next",
@@ -7405,16 +7404,19 @@
       flowSections.forEach((section) => {
         const sectionTargets = (section.getAttribute("data-flow-section") || "").split(/\s+/).filter(Boolean);
         const visible = pathReady && (showAllSections || sectionTargets.includes(activeNeed));
+        const collapseCompletedManualRouter = section.id === "forms-official-router" && guidedComplete && activeNeed === "forms" && !showAllSections;
         section.classList.toggle("forms-flow-hidden", !visible);
         section.classList.toggle("forms-flow-active", visible && !showAllSections && sectionTargets.includes(activeNeed));
-        section.toggleAttribute("inert", !visible);
-        section.setAttribute("aria-hidden", visible ? "false" : "true");
+        section.toggleAttribute("inert", !visible || collapseCompletedManualRouter);
+        section.hidden = collapseCompletedManualRouter;
+        section.setAttribute("aria-hidden", visible && !collapseCompletedManualRouter ? "false" : "true");
       });
       const hasStartedPath = answeredFields.size > 0 || savedResumeActive || guidedComplete || guideContextActive;
       const showEntryLanes = showAllSections || !hasStartedPath;
       const showModeControls = showAllSections || hasStartedPath;
       if (modeCopy) {
         const isStillAnswering = !guidedComplete && !savedResumeActive && guidedStep < guidedSteps.length - 1 && guidedAnswers.need !== "intake";
+        modeCopy.hidden = guidedComplete;
         modeCopy.textContent = showAllSections
           ? "Showing other sections. Return to the recommended path before opening forms if the choices feel unclear."
           : savedResumeActive && !guidedComplete
@@ -7423,7 +7425,7 @@
           ? "Showing one guided question at a time."
           : !guidedComplete
           ? "Your recommended section will appear after you finish the guided helper."
-          : `Showing one active workflow: ${recommendation.text}.`;
+          : "Forms are ready.";
       }
       if (entryLanes) {
         setHiddenInert(entryLanes, !showEntryLanes);
@@ -7563,7 +7565,7 @@
       guidedResultAction?.classList.toggle("primary", true);
 	      if (guidedIntakeFallback) guidedIntakeFallback.setAttribute("data-intake-route", JSON.stringify(routeForSmartPath()));
       if (guidedResultTier) {
-        guidedResultTier.hidden = shouldContinueQuestions && !savedResumeActive;
+        guidedResultTier.hidden = true;
         const tierLabel = shouldContinueQuestions ? "Recommended forms" : recommendation.tier || recommendation.label || "Recommended forms";
         const tierTitle = shouldContinueQuestions
           ? "One primary path will appear here."
@@ -7572,7 +7574,7 @@
           ? ""
           : recommendation.relatedForms
           ? "View forms."
-          : "View matched forms.";
+          : "";
         const tierText = [tierLabel, tierTitle, tierCopy].filter(Boolean).join(". ");
         guidedResultTier.setAttribute("aria-label", tierText);
         guidedResultTier.innerHTML = `<span>${esc(tierLabel)}. </span><strong>${esc(tierTitle)} </strong>${tierCopy ? `<p>${esc(tierCopy)}</p>` : ""}`;
@@ -7587,11 +7589,12 @@
 	        ].filter(Boolean);
         guidedSummary.innerHTML = chips.map((chip) => `<span>${esc(chip)}</span>`).join("");
         if (guidedPathLine) {
+          guidedPathLine.hidden = !shouldContinueQuestions && !savedResumeActive;
           guidedPathLine.textContent = savedResumeActive && !guidedComplete
             ? "Your previous choices are ready. Nothing is filed or sent by using them here."
             : shouldContinueQuestions
             ? "Choose one answer in the current step. The next step appears automatically."
-            : `Ready next step: ${recommendation.text}.`;
+            : "";
         }
       }
     };
@@ -7612,7 +7615,7 @@
           : guidedComplete && guidedAnswers.need === "calculator"
           ? "Your form context stays saved. Calculator tools will use only the fields that apply."
           : guidedComplete
-          ? "Your matched path is open below. You can still change answers or reset choices."
+          ? "Forms are ready. You can still change answers or reset choices."
           : step.copy;
       }
       guidedOptions.innerHTML = step.options.map(([value, text]) => {
@@ -9540,11 +9543,10 @@
 
       host.innerHTML = `
         <div class="section-head compact">
-          <p class="eyebrow">Step 2</p>
-          <h2 data-reveal-focus>Recommended forms.</h2>
-            <p>Start with the recommended form group. View each form on this site, then download only when needed.</p>
+          <h2 data-reveal-focus>Forms.</h2>
+            <p>View each form on this site, then download only when needed.</p>
         </div>
-        <div class="official-pdf-spotlight" data-official-pdf-spotlight>
+        <div class="official-pdf-spotlight" data-official-pdf-spotlight hidden>
           <div>
             <span data-official-pdf-spotlight-kicker>Your next form step</span>
             <strong data-official-pdf-spotlight-title>Finding the closest form group...</strong>
@@ -9995,7 +9997,7 @@
           update();
           const label = packet.options[packet.selectedIndex]?.textContent || "approved packets";
           if (status && nextPacket !== "all") {
-            status.textContent = `${status.textContent} Showing the form group that matches your answers: ${label}. Use View form to keep the PDF on this page.`;
+            status.textContent = `Showing: ${label}.`;
           }
           if (detail?.expandPdfGroup === true || hasExplicitPacket) closePdfViewer();
         }
